@@ -3526,7 +3526,7 @@ define internal fastcc noundef i32 @nl80211_send_wiphy(ptr noundef %0, i32 nound
   %301 = phi i32 [ %414, %412 ], [ %288, %294 ]
   %302 = icmp ult i64 %indvars.iv, 2
   %303 = or i1 %300, %302
-  %304 = trunc i64 %indvars.iv to i32
+  %304 = trunc nuw i64 %indvars.iv to i32
   br i1 %303, label %305, label %.loopexit
 
 305:                                              ; preds = %298
@@ -5214,7 +5214,7 @@ define internal fastcc noundef i32 @nl80211_send_iface(ptr noundef %0, i32 nound
 
 193:                                              ; preds = %188, %185
   %194 = add nuw nsw i64 %indvars.iv, 1
-  %195 = trunc i64 %194 to i32
+  %195 = trunc nuw nsw i64 %194 to i32
   %196 = or i32 %195, 32768
   %197 = load ptr, ptr %171, align 8
   %198 = load i32, ptr %173, align 8
@@ -5229,7 +5229,7 @@ define internal fastcc noundef i32 @nl80211_send_iface(ptr noundef %0, i32 nound
   br i1 %204, label %.thread, label %205
 
 205:                                              ; preds = %193
-  %206 = trunc i64 %indvars.iv to i32
+  %206 = trunc nuw nsw i64 %indvars.iv to i32
   %207 = trunc i64 %indvars.iv to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #25
   store i8 %207, ptr %8, align 1
@@ -48844,7 +48844,7 @@ define internal fastcc zeroext i1 @cfg80211_off_channel_oper_allowed(ptr noundef
   br i1 %15, label %29, label %16
 
 16:                                               ; preds = %11, %7
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw nsw i64 %indvars.iv to i32
   %18 = tail call ptr @wdev_chandef(ptr noundef %0, i32 noundef %17) #25
   %19 = icmp eq ptr %18, null
   br i1 %19, label %29, label %20
@@ -50503,7 +50503,7 @@ define internal fastcc zeroext i1 @nl80211_parse_mcast_rate(ptr nocapture nounde
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %19
-  %25 = trunc i64 %indvars.iv.next to i32
+  %25 = trunc nuw nsw i64 %indvars.iv.next to i32
   %26 = getelementptr i32, ptr %1, i64 %6
   store i32 %25, ptr %26, align 4
   br label %.loopexit

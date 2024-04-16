@@ -842,7 +842,7 @@ Vec_IntFill.exit:                                 ; preds = %33, %Vec_IntGrow.ex
   %.012.i70 = phi i32 [ 0, %.lr.ph.i67 ], [ %66, %57 ]
   %58 = getelementptr inbounds i32, ptr %54, i64 %indvars.iv.i69
   %59 = load i32, ptr %58, align 4
-  %60 = trunc i64 %indvars.iv.i69 to i32
+  %60 = trunc nuw nsw i64 %indvars.iv.i69 to i32
   %61 = urem i32 %60, 7
   %62 = zext nneg i32 %61 to i64
   %63 = getelementptr inbounds [7 x i32], ptr @Hsh_VecManHash.s_Primes, i64 0, i64 %62
@@ -869,7 +869,7 @@ Hsh_VecManHash.exit:                              ; preds = %57, %43
   %75 = getelementptr inbounds i32, ptr %.val3.i, i64 %74
   %76 = getelementptr inbounds i8, ptr %75, i64 4
   store i32 %71, ptr %76, align 4
-  %77 = trunc i64 %indvars.iv to i32
+  %77 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %77, ptr %70, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %78 = load ptr, ptr %3, align 8
@@ -901,7 +901,7 @@ Hsh_VecManHash.exit:                              ; preds = %57, %43
   %.012.i80 = phi i32 [ 0, %.lr.ph.i76 ], [ %97, %88 ]
   %89 = getelementptr inbounds i32, ptr %.val10.i77, i64 %indvars.iv.i79
   %90 = load i32, ptr %89, align 4
-  %91 = trunc i64 %indvars.iv.i79 to i32
+  %91 = trunc nuw nsw i64 %indvars.iv.i79 to i32
   %92 = urem i32 %91, 7
   %93 = zext nneg i32 %92 to i64
   %94 = getelementptr inbounds [7 x i32], ptr @Hsh_VecManHash.s_Primes, i64 0, i64 %93
@@ -4787,7 +4787,7 @@ Vec_IntGrow.exit23.i:                             ; preds = %Vec_IntGrow.exit23t
   br i1 %103, label %.lr.ph.i33, label %Vec_IntPushOrder.exit, !llvm.loop !47
 
 ._crit_edge.loopexit.split.loop.exit.i:           ; preds = %.lr.ph.i33
-  %104 = trunc i64 %indvars.iv.i34 to i32
+  %104 = trunc nuw nsw i64 %indvars.iv.i34 to i32
   br label %Vec_IntPushOrder.exit
 
 Vec_IntPushOrder.exit:                            ; preds = %101, %Vec_IntGrow.exit23.i, %._crit_edge.loopexit.split.loop.exit.i
@@ -5261,7 +5261,7 @@ define i32 @Supp_ComputePair1(ptr nocapture noundef readonly %0, i32 noundef %1)
   br i1 %.not.i, label %63, label %37
 
 37:                                               ; preds = %.lr.ph.i
-  %38 = trunc i64 %indvars.iv.i to i32
+  %38 = trunc nuw nsw i64 %indvars.iv.i to i32
   %39 = shl nsw i32 %38, 6
   %40 = and i64 %36, 4294967295
   %41 = icmp eq i64 %40, 0
@@ -5310,7 +5310,7 @@ define i32 @Supp_ComputePair1(ptr nocapture noundef readonly %0, i32 noundef %1)
 
 66:                                               ; preds = %69, %64
   %indvars.iv.i40 = phi i64 [ %70, %69 ], [ %65, %64 ]
-  %67 = trunc i64 %indvars.iv.i40 to i32
+  %67 = trunc nuw i64 %indvars.iv.i40 to i32
   %68 = icmp sgt i32 %67, 0
   br i1 %68, label %69, label %Abc_TtFindFirstBit2.exit
 
@@ -5377,7 +5377,7 @@ Abc_TtFindFirstBit2.exit:                         ; preds = %63, %66, %73, %37, 
   br i1 %.not.i58, label %125, label %99
 
 99:                                               ; preds = %.lr.ph.i56
-  %100 = trunc i64 %indvars.iv.i57 to i32
+  %100 = trunc nuw nsw i64 %indvars.iv.i57 to i32
   %101 = shl nsw i32 %100, 6
   %102 = and i64 %98, 4294967295
   %103 = icmp eq i64 %102, 0
@@ -5426,7 +5426,7 @@ Abc_TtFindFirstBit2.exit:                         ; preds = %63, %66, %73, %37, 
 
 128:                                              ; preds = %131, %126
   %indvars.iv.i73 = phi i64 [ %132, %131 ], [ %127, %126 ]
-  %129 = trunc i64 %indvars.iv.i73 to i32
+  %129 = trunc nuw i64 %indvars.iv.i73 to i32
   %130 = icmp sgt i32 %129, 0
   br i1 %130, label %131, label %Abc_TtFindFirstBit2.exit72
 
@@ -5558,7 +5558,7 @@ define i32 @Supp_ComputePair(ptr nocapture noundef readonly %0, i32 noundef %1) 
   br i1 %.not.i, label %63, label %37
 
 37:                                               ; preds = %.lr.ph.i
-  %38 = trunc i64 %indvars.iv.i to i32
+  %38 = trunc nuw nsw i64 %indvars.iv.i to i32
   %39 = shl nsw i32 %38, 6
   %40 = and i64 %36, 4294967295
   %41 = icmp eq i64 %40, 0
@@ -5607,7 +5607,7 @@ define i32 @Supp_ComputePair(ptr nocapture noundef readonly %0, i32 noundef %1) 
 
 66:                                               ; preds = %69, %64
   %indvars.iv.i50 = phi i64 [ %70, %69 ], [ %65, %64 ]
-  %67 = trunc i64 %indvars.iv.i50 to i32
+  %67 = trunc nuw i64 %indvars.iv.i50 to i32
   %68 = icmp sgt i32 %67, 0
   br i1 %68, label %69, label %Abc_TtFindFirstBit2.exit
 
@@ -5674,7 +5674,7 @@ Abc_TtFindFirstBit2.exit:                         ; preds = %63, %66, %73, %37, 
   br i1 %.not.i68, label %125, label %99
 
 99:                                               ; preds = %.lr.ph.i66
-  %100 = trunc i64 %indvars.iv.i67 to i32
+  %100 = trunc nuw nsw i64 %indvars.iv.i67 to i32
   %101 = shl nsw i32 %100, 6
   %102 = and i64 %98, 4294967295
   %103 = icmp eq i64 %102, 0
@@ -5723,7 +5723,7 @@ Abc_TtFindFirstBit2.exit:                         ; preds = %63, %66, %73, %37, 
 
 128:                                              ; preds = %131, %126
   %indvars.iv.i83 = phi i64 [ %132, %131 ], [ %127, %126 ]
-  %129 = trunc i64 %indvars.iv.i83 to i32
+  %129 = trunc nuw i64 %indvars.iv.i83 to i32
   %130 = icmp sgt i32 %129, 0
   br i1 %130, label %131, label %Abc_TtFindFirstBit2.exit82
 
@@ -5934,7 +5934,7 @@ define void @Supp_ManFillBlock(ptr nocapture noundef readonly %0, ptr nocapture 
   %27 = getelementptr inbounds i64, ptr %.val33, i64 %20
   %28 = getelementptr inbounds i64, ptr %.val33, i64 %23
   %29 = load ptr, ptr %10, align 8
-  %30 = trunc i64 %indvars.iv to i32
+  %30 = trunc nuw nsw i64 %indvars.iv to i32
   %31 = mul nsw i32 %17, %30
   %32 = getelementptr i8, ptr %29, i64 8
   %.val = load ptr, ptr %32, align 8
@@ -6061,7 +6061,7 @@ Vec_WrdStart.exit:                                ; preds = %2, %8
   %37 = getelementptr inbounds i64, ptr %.val33.i, i64 %30
   %38 = getelementptr inbounds i64, ptr %.val33.i, i64 %33
   %39 = load ptr, ptr %20, align 8
-  %40 = trunc i64 %indvars.iv.i to i32
+  %40 = trunc nuw nsw i64 %indvars.iv.i to i32
   %41 = mul nsw i32 %27, %40
   %42 = getelementptr i8, ptr %39, i64 8
   %.val.i = load ptr, ptr %42, align 8
@@ -6493,7 +6493,7 @@ Vec_WrdStart.exit:                                ; preds = %21, %26
   %52 = getelementptr inbounds i64, ptr %.val33.i, i64 %45
   %53 = getelementptr inbounds i64, ptr %.val33.i, i64 %48
   %54 = load ptr, ptr %19, align 8
-  %55 = trunc i64 %indvars.iv.i to i32
+  %55 = trunc nuw nsw i64 %indvars.iv.i to i32
   %56 = mul nsw i32 %42, %55
   %57 = getelementptr i8, ptr %54, i64 8
   %.val.i = load ptr, ptr %57, align 8
@@ -6695,7 +6695,7 @@ define noundef i32 @Supp_FindNextDiv(ptr nocapture noundef readonly %0, i32 noun
   br i1 %.not.i, label %54, label %27
 
 27:                                               ; preds = %.lr.ph.i
-  %28 = trunc i64 %indvars.iv.i to i32
+  %28 = trunc nuw nsw i64 %indvars.iv.i to i32
   %29 = shl nsw i32 %28, 6
   %30 = and i64 %26, 4294967295
   %31 = icmp eq i64 %30, 0
@@ -6764,7 +6764,7 @@ Abc_TtFindFirstAndBit2.exit48.thread:             ; preds = %60
   br label %.thread
 
 Abc_TtFindFirstAndBit2.exit48:                    ; preds = %.lr.ph.i32
-  %62 = trunc i64 %indvars.iv.i33 to i32
+  %62 = trunc nuw nsw i64 %indvars.iv.i33 to i32
   %63 = shl nsw i32 %62, 6
   %64 = and i64 %59, 4294967295
   %65 = icmp eq i64 %64, 0
@@ -7111,7 +7111,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %45, %tailrecurse
 52:                                               ; preds = %52, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %52 ]
   %53 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv.i
-  %54 = trunc i64 %indvars.iv.i to i32
+  %54 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %54, ptr %53, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -7521,7 +7521,7 @@ Vec_IntFill.exit:                                 ; preds = %23, %Vec_IntGrow.ex
   %90 = load i32, ptr %89, align 4
   %91 = icmp slt i32 %.01219.i, %90
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %.01219.i, i32 %90)
-  %92 = trunc i64 %indvars.iv.i49 to i32
+  %92 = trunc nuw nsw i64 %indvars.iv.i49 to i32
   %spec.select17.i = select i1 %91, i32 %92, i32 %.020.i
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i49, 1
   %exitcond.not.i51 = icmp eq i64 %indvars.iv.next.i50, %wide.trip.count.i47
@@ -8493,7 +8493,7 @@ define ptr @Supp_ManFindBestSolution(ptr nocapture noundef readonly %0, ptr noca
   br i1 %21, label %.lr.ph116.split.us, label %.critedge, !llvm.loop !77
 
 .critedge2.us.loopexit:                           ; preds = %56
-  %22 = trunc i64 %indvars.iv.next152 to i32
+  %22 = trunc nuw nsw i64 %indvars.iv.next152 to i32
   br label %.critedge2.us
 
 .critedge2.us:                                    ; preds = %.critedge2.us.loopexit, %.lr.ph116.split.us
@@ -8503,7 +8503,7 @@ define ptr @Supp_ManFindBestSolution(ptr nocapture noundef readonly %0, ptr noca
   %.4.us = phi i32 [ %.061114.us, %.lr.ph116.split.us ], [ %.3.us.us, %.critedge2.us.loopexit ]
   %23 = icmp eq i32 %18, 2
   %24 = icmp slt i32 %.062.lcssa.us, %.val80.us
-  %or.cond167 = or i1 %23, %24
+  %or.cond167 = select i1 %23, i1 true, i1 %24
   br i1 %or.cond167, label %.critedge, label %19
 
 .lr.ph.us:                                        ; preds = %.lr.ph116.split.us
@@ -9393,7 +9393,7 @@ Supp_ManReconstruct.exit:                         ; preds = %Abc_TtIsConst0.exit
   br i1 %.not.i.i122, label %230, label %203
 
 203:                                              ; preds = %.lr.ph.i.i120
-  %204 = trunc i64 %indvars.iv.i.i121 to i32
+  %204 = trunc nuw nsw i64 %indvars.iv.i.i121 to i32
   %205 = shl nsw i32 %204, 6
   %206 = and i64 %202, 4294967295
   %207 = icmp eq i64 %206, 0
@@ -9462,7 +9462,7 @@ Abc_TtFindFirstAndBit2.exit48.thread.i:           ; preds = %236
   br label %Supp_FindNextDiv.exit
 
 Abc_TtFindFirstAndBit2.exit48.i:                  ; preds = %.lr.ph.i32.i
-  %238 = trunc i64 %indvars.iv.i33.i to i32
+  %238 = trunc nuw nsw i64 %indvars.iv.i33.i to i32
   %239 = shl nsw i32 %238, 6
   %240 = and i64 %235, 4294967295
   %241 = icmp eq i64 %240, 0
@@ -9821,7 +9821,7 @@ Vec_WrdStart.exit.i:                              ; preds = %12, %1
 
 29:                                               ; preds = %.preheader27.us.us.i, %29
   %indvars.iv61.i = phi i64 [ 0, %.preheader27.us.us.i ], [ %indvars.iv.next62.i, %29 ]
-  %30 = trunc i64 %indvars.iv61.i to i32
+  %30 = trunc nuw nsw i64 %indvars.iv61.i to i32
   %31 = and i32 %38, %30
   %.not.us.us.i = icmp ne i32 %31, 0
   %spec.select.i = sext i1 %.not.us.us.i to i32

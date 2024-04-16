@@ -29,9 +29,9 @@ define void @sunCreateLogMessage(i32 noundef %0, i32 noundef %1, ptr noundef %2,
   %8 = alloca [1 x %struct.__va_list_tag], align 16
   store ptr null, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  call void @llvm.va_copy(ptr nonnull %8, ptr %5)
+  call void @llvm.va_copy.p0(ptr nonnull %8, ptr %5)
   %9 = call noundef i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef %4, ptr noundef nonnull %8) #14
-  call void @llvm.va_end(ptr nonnull %8)
+  call void @llvm.va_end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %sunvasnprintf.exit.thread, label %11
@@ -85,13 +85,13 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 define internal noundef i32 @sunsnprintf(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture readnone %2, ...) unnamed_addr #2 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %5)
+  call void @llvm.va_start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call void @llvm.va_copy(ptr nonnull %4, ptr nonnull %5)
+  call void @llvm.va_copy.p0(ptr nonnull %4, ptr nonnull %5)
   %6 = call noundef i32 @vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.6, ptr noundef nonnull %4) #14
-  call void @llvm.va_end(ptr nonnull %4)
+  call void @llvm.va_end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  call void @llvm.va_end(ptr nonnull %5)
+  call void @llvm.va_end.p0(ptr nonnull %5)
   ret i32 %6
 }
 
@@ -340,12 +340,12 @@ sunHashMapLinearProbeGet.exit.thread.i:           ; preds = %38, %34
   br i1 %37, label %sunHashMapLinearProbeGet.exit.thread.i, label %38
 
 38:                                               ; preds = %34
-  %39 = trunc i64 %indvars.iv.i.i to i32
+  %39 = trunc nsw i64 %indvars.iv.i.i to i32
   %40 = load ptr, ptr %36, align 8
   %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %1) #17
   %.not.i29.i = icmp ne i32 %41, 0
   %.not.i28.i = icmp eq i32 %39, -1
-  %or.cond.i = or i1 %.not.i28.i, %.not.i29.i
+  %or.cond.i = select i1 %.not.i29.i, i1 true, i1 %.not.i28.i
   br i1 %or.cond.i, label %sunHashMapLinearProbeGet.exit.thread.i, label %SUNHashMap_Iterate.exit.i
 
 SUNHashMap_Iterate.exit.i:                        ; preds = %38
@@ -441,10 +441,10 @@ fnv1a_hash.exit.i27:                              ; preds = %.lr.ph.i.i23, %61
   %indvars.iv.i.i34 = phi i64 [ %indvars.iv.next.i.i35, %81 ], [ %75, %78 ]
   %83 = getelementptr inbounds ptr, ptr %74, i64 %indvars.iv.i.i34
   %84 = load ptr, ptr %83, align 8
-  %85 = trunc i64 %indvars.iv.i.i34 to i32
+  %85 = trunc nsw i64 %indvars.iv.i.i34 to i32
   %86 = icmp ne ptr %84, null
   %.not.i3234.i = icmp eq i32 %85, -1
-  %.not.i32.i = or i1 %86, %.not.i3234.i
+  %.not.i32.i = select i1 %86, i1 true, i1 %.not.i3234.i
   br i1 %.not.i32.i, label %81, label %SUNHashMap_Iterate.exit.i31
 
 SUNHashMap_Iterate.exit.i31:                      ; preds = %.lr.ph.i31.i
@@ -552,12 +552,12 @@ sunHashMapLinearProbeGet.exit.thread.i:           ; preds = %38, %34
   br i1 %37, label %sunHashMapLinearProbeGet.exit.thread.i, label %38
 
 38:                                               ; preds = %34
-  %39 = trunc i64 %indvars.iv.i.i to i32
+  %39 = trunc nsw i64 %indvars.iv.i.i to i32
   %40 = load ptr, ptr %36, align 8
   %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %1) #17
   %.not.i29.i = icmp ne i32 %41, 0
   %.not.i28.i = icmp eq i32 %39, -1
-  %or.cond.i = or i1 %.not.i28.i, %.not.i29.i
+  %or.cond.i = select i1 %.not.i29.i, i1 true, i1 %.not.i28.i
   br i1 %or.cond.i, label %sunHashMapLinearProbeGet.exit.thread.i, label %SUNHashMap_Iterate.exit.i
 
 SUNHashMap_Iterate.exit.i:                        ; preds = %38
@@ -653,10 +653,10 @@ fnv1a_hash.exit.i27:                              ; preds = %.lr.ph.i.i23, %61
   %indvars.iv.i.i34 = phi i64 [ %indvars.iv.next.i.i35, %81 ], [ %75, %78 ]
   %83 = getelementptr inbounds ptr, ptr %74, i64 %indvars.iv.i.i34
   %84 = load ptr, ptr %83, align 8
-  %85 = trunc i64 %indvars.iv.i.i34 to i32
+  %85 = trunc nsw i64 %indvars.iv.i.i34 to i32
   %86 = icmp ne ptr %84, null
   %.not.i3234.i = icmp eq i32 %85, -1
-  %.not.i32.i = or i1 %86, %.not.i3234.i
+  %.not.i32.i = select i1 %86, i1 true, i1 %.not.i3234.i
   br i1 %.not.i32.i, label %81, label %SUNHashMap_Iterate.exit.i31
 
 SUNHashMap_Iterate.exit.i31:                      ; preds = %.lr.ph.i31.i
@@ -818,7 +818,7 @@ define i32 @SUNLogger_QueueMsg(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   br i1 %.not, label %33, label %8
 
 8:                                                ; preds = %5
-  call void @llvm.va_start(ptr nonnull %6)
+  call void @llvm.va_start.p0(ptr nonnull %6)
   %9 = getelementptr inbounds i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %.not31 = icmp eq ptr %10, null
@@ -894,19 +894,13 @@ define i32 @SUNLogger_QueueMsg(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
 
 32:                                               ; preds = %30, %11
   %.1 = phi i32 [ %12, %11 ], [ %.0, %30 ]
-  call void @llvm.va_end(ptr nonnull %6)
+  call void @llvm.va_end.p0(ptr nonnull %6)
   br label %33
 
 33:                                               ; preds = %5, %32
   %.024 = phi i32 [ %.1, %32 ], [ -9999, %5 ]
   ret i32 %.024
 }
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #9
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #9
 
 ; Function Attrs: nounwind uwtable
 define i32 @SUNLogger_Flush(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -1021,7 +1015,7 @@ define i32 @SUNLogger_Flush(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @SUNLogger_GetOutputRank(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #10 {
+define noundef i32 @SUNLogger_GetOutputRank(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -1039,9 +1033,6 @@ define noundef i32 @SUNLogger_GetOutputRank(ptr noundef readonly %0, ptr nocaptu
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_copy(ptr, ptr) #9
-
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
 
@@ -1050,6 +1041,15 @@ declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_start.p0(ptr) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_end.p0(ptr) #10
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
+declare void @llvm.va_copy.p0(ptr, ptr) #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #11
@@ -1072,8 +1072,8 @@ attributes #5 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trappin
 attributes #6 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #11 = { nofree nounwind }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }

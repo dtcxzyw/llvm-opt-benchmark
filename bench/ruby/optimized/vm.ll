@@ -40410,7 +40410,7 @@ define internal fastcc void @args_setup_kw_parameters(ptr noundef %0, ptr nounde
 
 77:                                               ; preds = %75, %85
   %indvars.iv145 = phi i64 [ 0, %75 ], [ %indvars.iv.next146, %85 ]
-  %78 = trunc i64 %indvars.iv145 to i32
+  %78 = trunc nuw nsw i64 %indvars.iv145 to i32
   %79 = shl nuw nsw i32 1, %78
   %80 = and i32 %79, %.081126
   %.not92 = icmp eq i32 %80, 0
@@ -40875,7 +40875,7 @@ vm_ci_flag.exit:                                  ; preds = %28, %31
   br i1 %51, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !158
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %52 = trunc i64 %indvars.iv.next to i32
+  %52 = trunc nuw i64 %indvars.iv.next to i32
   %.pre = load ptr, ptr %36, align 8
   br label %._crit_edge
 
@@ -41952,8 +41952,8 @@ arg_rest_dup.exit.i437:                           ; preds = %501, %500
   br label %.lr.ph.i439
 
 .preheader.loopexit.i:                            ; preds = %RARRAY_ASET.exit.i
-  %508 = trunc i64 %indvars.iv.next656 to i32
-  %509 = trunc i64 %indvars.iv.next.i441 to i32
+  %508 = trunc nuw nsw i64 %indvars.iv.next656 to i32
+  %509 = trunc nuw nsw i64 %indvars.iv.next.i441 to i32
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.loopexit.i, %arg_rest_dup.exit.i437
@@ -42157,7 +42157,7 @@ rb_array_len.exit.i.thread.i:                     ; preds = %578
   br i1 %exitcond.not.i455, label %args_setup_opt_parameters.exit, label %.lr.ph.i450, !llvm.loop !165
 
 .critedge.loopexit.i:                             ; preds = %.lr.ph.i450
-  %602 = trunc i64 %indvars.iv.i451 to i32
+  %602 = trunc nsw i64 %indvars.iv.i451 to i32
   br label %.critedge.i452
 
 .critedge.i452:                                   ; preds = %.critedge.loopexit.i, %577
@@ -42458,7 +42458,7 @@ check_kwrestarg.exit468:                          ; preds = %688, %690
 
 740:                                              ; preds = %748, %738
   %indvars.iv93.i = phi i64 [ 0, %738 ], [ %indvars.iv.next94.i, %748 ]
-  %741 = trunc i64 %indvars.iv93.i to i32
+  %741 = trunc nuw nsw i64 %indvars.iv93.i to i32
   %742 = shl nuw nsw i32 1, %741
   %743 = and i32 %742, %.07185.i
   %.not78.i = icmp eq i32 %743, 0
@@ -50603,7 +50603,7 @@ define internal noundef i32 @vm_ccs_dump_i(i64 noundef %0, i64 noundef %1, ptr n
 16:                                               ; preds = %.lr.ph, %vm_ci_dump.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %vm_ci_dump.exit ]
   %17 = load ptr, ptr @stderr, align 8
-  %18 = trunc i64 %indvars.iv to i32
+  %18 = trunc nuw nsw i64 %indvars.iv to i32
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.199, i32 noundef %18) #50
   %20 = load ptr, ptr %15, align 8
   %21 = getelementptr %struct.rb_class_cc_entries_entry, ptr %20, i64 %indvars.iv
@@ -55030,7 +55030,7 @@ rb_source_location.exit.i:                        ; preds = %rb_vm_get_ruby_leve
   %58 = getelementptr inbounds i8, ptr %57, i64 232
   %59 = load i32, ptr %58, align 8
   %60 = load ptr, ptr %54, align 8
-  %61 = trunc i64 %indvars.iv132.i to i32
+  %61 = trunc nuw nsw i64 %indvars.iv132.i to i32
   %62 = sub i32 %.077.i, %61
   %63 = sext i32 %62 to i64
   %64 = getelementptr %struct.pm_options_scope, ptr %60, i64 %63
@@ -55122,7 +55122,7 @@ rb_source_location.exit.i:                        ; preds = %rb_vm_get_ruby_leve
   br i1 %106, label %.lr.ph115.i, label %._crit_edge116.i
 
 .lr.ph115.i:                                      ; preds = %94
-  %107 = trunc i64 %indvars.iv144.i to i32
+  %107 = trunc nuw nsw i64 %indvars.iv144.i to i32
   %108 = sub i32 %.077.i, %107
   %109 = sext i32 %108 to i64
   %110 = getelementptr %struct.pm_options_scope, ptr %96, i64 %109, i32 1

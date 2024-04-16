@@ -4086,7 +4086,7 @@ ehcleanup:                                        ; preds = %lpad104.split, %lpa
   br label %ehcleanup120
 
 while.end.loopexit87.split.loop.exit91:           ; preds = %_ZN6icu_756number4impl6DecNumD2Ev.exit
-  %34 = trunc i64 %indvars.iv.next to i32
+  %34 = trunc nsw i64 %indvars.iv.next to i32
   br label %while.end
 
 while.end:                                        ; preds = %if.end98, %_ZN6icu_756number4impl6DecNumD2Ev.exit.us, %if.end98.us, %while.end.loopexit87.split.loop.exit91, %while.cond.preheader
@@ -4652,7 +4652,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %indvars.iv = phi i64 [ %6, %while.body.lr.ph ], [ %indvars.iv.next, %if.end10 ]
   %cond.i323 = phi i32 [ %cond.i321, %while.body.lr.ph ], [ %cond.i, %if.end10 ]
   %8 = phi i16 [ %3, %while.body.lr.ph ], [ %16, %if.end10 ]
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nsw i64 %indvars.iv to i32
   %cmp.i.i21 = icmp ugt i32 %cond.i323, %9
   br i1 %cmp.i.i21, label %_ZNK6icu_7513UnicodeString6charAtEi.exit, label %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread
 
@@ -4727,7 +4727,7 @@ _ZN6icu_7516PluralRuleParser8charTypeEDs.exit.thread: ; preds = %_ZNK6icu_7513Un
 if.end10:                                         ; preds = %if.end9.i
   store i32 4, ptr %type, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = trunc i64 %indvars.iv.next to i32
+  %15 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %15, ptr %ruleIndex, align 8
   %16 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i = icmp slt i16 %16, 0
@@ -4786,9 +4786,9 @@ while.cond47.preheader:                           ; preds = %if.end18
   %cond.i83426 = select i1 %cmp.i.i80424, i32 %29, i32 %shr.i.i81425
   %30 = sext i32 %cond.i83426 to i64
   %cmp54427 = icmp slt i64 %indvars.iv.next342423, %30
-  %31 = trunc i64 %indvars.iv.next342423 to i32
+  %31 = trunc nsw i64 %indvars.iv.next342423 to i32
   %cmp.i.i89428 = icmp ugt i32 %cond.i83426, %31
-  %or.cond392429 = and i1 %cmp54427, %cmp.i.i89428
+  %or.cond392429 = select i1 %cmp54427, i1 %cmp.i.i89428, i1 false
   br i1 %or.cond392429, label %_ZNK6icu_7513UnicodeString6charAtEi.exit98, label %while.end61
 
 while.cond32.preheader:                           ; preds = %if.end18
@@ -4804,9 +4804,9 @@ while.cond32.preheader:                           ; preds = %if.end18
   %cond.i46435 = select i1 %cmp.i.i43433, i32 %35, i32 %shr.i.i44434
   %36 = sext i32 %cond.i46435 to i64
   %cmp38436 = icmp slt i64 %indvars.iv.next345432, %36
-  %37 = trunc i64 %indvars.iv.next345432 to i32
+  %37 = trunc nsw i64 %indvars.iv.next345432 to i32
   %cmp.i.i52437 = icmp ugt i32 %cond.i46435, %37
-  %or.cond391438 = and i1 %cmp38436, %cmp.i.i52437
+  %or.cond391438 = select i1 %cmp38436, i1 %cmp.i.i52437, i1 false
   br i1 %or.cond391438, label %_ZNK6icu_7513UnicodeString6charAtEi.exit61, label %while.end44
 
 sw.bb:                                            ; preds = %if.end18, %if.end18, %if.end18, %if.end18, %if.end18, %if.end18, %if.end18, %if.end18
@@ -4864,9 +4864,9 @@ _ZN6icu_7516PluralRuleParser8charTypeEDs.exit78:  ; preds = %_ZNK6icu_7513Unicod
   %cond.i46 = select i1 %cmp.i.i43, i32 %49, i32 %shr.i.i44
   %50 = sext i32 %cond.i46 to i64
   %cmp38 = icmp slt i64 %indvars.iv.next345, %50
-  %51 = trunc i64 %indvars.iv.next345 to i32
+  %51 = trunc nsw i64 %indvars.iv.next345 to i32
   %cmp.i.i52 = icmp ugt i32 %cond.i46, %51
-  %or.cond391 = and i1 %cmp38, %cmp.i.i52
+  %or.cond391 = select i1 %cmp38, i1 %cmp.i.i52, i1 false
   br i1 %or.cond391, label %_ZNK6icu_7513UnicodeString6charAtEi.exit61, label %while.end44, !llvm.loop !45
 
 while.end44:                                      ; preds = %_ZNK6icu_7513UnicodeString6charAtEi.exit61, %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit78, %while.cond32.preheader
@@ -4899,9 +4899,9 @@ _ZN6icu_7516PluralRuleParser8charTypeEDs.exit115: ; preds = %_ZNK6icu_7513Unicod
   %cond.i83 = select i1 %cmp.i.i80, i32 %60, i32 %shr.i.i81
   %61 = sext i32 %cond.i83 to i64
   %cmp54 = icmp slt i64 %indvars.iv.next342, %61
-  %62 = trunc i64 %indvars.iv.next342 to i32
+  %62 = trunc nsw i64 %indvars.iv.next342 to i32
   %cmp.i.i89 = icmp ugt i32 %cond.i83, %62
-  %or.cond392 = and i1 %cmp54, %cmp.i.i89
+  %or.cond392 = select i1 %cmp54, i1 %cmp.i.i89, i1 false
   br i1 %or.cond392, label %_ZNK6icu_7513UnicodeString6charAtEi.exit98, label %while.end61, !llvm.loop !46
 
 while.end61:                                      ; preds = %_ZN6icu_7516PluralRuleParser8charTypeEDs.exit115, %_ZNK6icu_7513UnicodeString6charAtEi.exit98, %while.cond47.preheader
@@ -6071,7 +6071,7 @@ invoke.cont198:                                   ; preds = %invoke.cont189
   %126 = load ptr, ptr %rangeList74, align 8
   %count.i242 = getelementptr inbounds i8, ptr %126, i64 8
   %127 = load i32, ptr %count.i242, align 8
-  %128 = trunc i64 %indvars.iv.next to i32
+  %128 = trunc nuw i64 %indvars.iv.next to i32
   %cmp204 = icmp sgt i32 %127, %128
   br i1 %cmp204, label %if.then205, label %for.inc
 
@@ -6598,7 +6598,7 @@ _ZNK6icu_759UVector3210elementAtiEi.exit21:       ; preds = %land.lhs.true26, %c
 
 for.inc:                                          ; preds = %cond.true.i, %_ZNK6icu_759UVector3210elementAtiEi.exit21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %13 = trunc i64 %indvars.iv.next to i32
+  %13 = trunc nuw i64 %indvars.iv.next to i32
   %cmp21 = icmp sgt i32 %6, %13
   br i1 %cmp21, label %cond.true.i, label %do.end, !llvm.loop !48
 
@@ -6899,7 +6899,7 @@ _ZNK6icu_759UVector3210elementAtiEi.exit21.i:     ; preds = %cond.true.i17.i, %l
 
 for.inc.i:                                        ; preds = %_ZNK6icu_759UVector3210elementAtiEi.exit21.i, %cond.true.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
-  %13 = trunc i64 %indvars.iv.next.i to i32
+  %13 = trunc nuw i64 %indvars.iv.next.i to i32
   %cmp21.i = icmp sgt i32 %6, %13
   br i1 %cmp21.i, label %cond.true.i.i, label %do.end.i, !llvm.loop !48
 
@@ -8772,7 +8772,7 @@ for.end13.i:                                      ; preds = %if.end10.i, %for.en
   br label %_ZN6icu_7512FixedDecimal8decimalsEd.exit
 
 return.loopexit.i:                                ; preds = %for.body.i
-  %5 = trunc i64 %indvars.iv.i to i32
+  %5 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %_ZN6icu_7512FixedDecimal8decimalsEd.exit
 
 _ZN6icu_7512FixedDecimal8decimalsEd.exit:         ; preds = %for.end13.i, %return.loopexit.i
@@ -9611,7 +9611,7 @@ for.end13:                                        ; preds = %if.end10, %for.end
   br label %return
 
 return.loopexit:                                  ; preds = %for.body
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   br label %return
 
 return:                                           ; preds = %return.loopexit, %for.end13
@@ -9648,7 +9648,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %exitcond, label %if.end4, label %for.body, !llvm.loop !54
 
 if.then3:                                         ; preds = %for.body
-  %3 = trunc i64 %indvars.iv to i32
+  %3 = trunc nuw nsw i64 %indvars.iv to i32
   %cmp.i = icmp eq i32 %3, 0
   %4 = tail call double @llvm.floor.f64(double %0)
   %cmp1.i = fcmp oeq double %4, %0

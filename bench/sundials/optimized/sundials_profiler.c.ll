@@ -405,10 +405,10 @@ fnv1a_hash.exit.i:                                ; preds = %.lr.ph.i.i, %18
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %38 ], [ %33, %36 ]
   %40 = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv.i.i
   %41 = load ptr, ptr %40, align 8
-  %42 = trunc i64 %indvars.iv.i.i to i32
+  %42 = trunc nsw i64 %indvars.iv.i.i to i32
   %43 = icmp ne ptr %41, null
   %.not.i3234.i = icmp eq i32 %42, -1
-  %.not.i32.i = or i1 %43, %.not.i3234.i
+  %.not.i32.i = select i1 %43, i1 true, i1 %.not.i3234.i
   br i1 %.not.i32.i, label %38, label %SUNHashMap_Iterate.exit.i
 
 SUNHashMap_Iterate.exit.i:                        ; preds = %.lr.ph.i31.i, %38, %36
@@ -608,12 +608,12 @@ sunHashMapLinearProbeGet.exit.thread:             ; preds = %38, %34
   br i1 %37, label %sunHashMapLinearProbeGet.exit.thread, label %38
 
 38:                                               ; preds = %34
-  %39 = trunc i64 %indvars.iv.i to i32
+  %39 = trunc nsw i64 %indvars.iv.i to i32
   %40 = load ptr, ptr %36, align 8
   %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %1) #20
   %.not.i29 = icmp ne i32 %41, 0
   %.not.i28 = icmp eq i32 %39, -1
-  %or.cond33 = or i1 %.not.i28, %.not.i29
+  %or.cond33 = select i1 %.not.i29, i1 true, i1 %.not.i28
   br i1 %or.cond33, label %sunHashMapLinearProbeGet.exit.thread, label %SUNHashMap_Iterate.exit
 
 SUNHashMap_Iterate.exit:                          ; preds = %38, %sunHashMapLinearProbeGet.exit.thread, %29
@@ -989,12 +989,12 @@ sunHashMapLinearProbeGet.exit.thread.i:           ; preds = %39, %35
   br i1 %38, label %sunHashMapLinearProbeGet.exit.thread.i, label %39
 
 39:                                               ; preds = %35
-  %40 = trunc i64 %indvars.iv.i.i to i32
+  %40 = trunc nsw i64 %indvars.iv.i.i to i32
   %41 = load ptr, ptr %37, align 8
   %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(20) @.str.1) #20
   %.not.i29.i = icmp ne i32 %42, 0
   %.not.i28.i = icmp eq i32 %40, -1
-  %or.cond33.i = or i1 %.not.i28.i, %.not.i29.i
+  %or.cond33.i = select i1 %.not.i29.i, i1 true, i1 %.not.i28.i
   br i1 %or.cond33.i, label %sunHashMapLinearProbeGet.exit.thread.i, label %SUNHashMap_Iterate.exit.i
 
 SUNHashMap_Iterate.exit.i:                        ; preds = %39, %sunHashMapLinearProbeGet.exit.thread.i, %30

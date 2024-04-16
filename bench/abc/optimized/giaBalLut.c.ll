@@ -324,7 +324,7 @@ define i32 @Bal_ManDeriveCuts(ptr nocapture noundef readonly %0, i32 noundef %1,
   br i1 %exitcond.not.i, label %Bal_ManPrepareSet.exit, label %.lr.ph.i, !llvm.loop !8
 
 .loopexit.loopexit.split.loop.exit26.i:           ; preds = %.lr.ph.i
-  %42 = trunc i64 %indvars.iv.i to i32
+  %42 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %Bal_ManPrepareSet.exit
 
 Bal_ManPrepareSet.exit:                           ; preds = %41, %24, %34, %.loopexit.loopexit.split.loop.exit26.i
@@ -382,7 +382,7 @@ Bal_ManPrepareSet.exit:                           ; preds = %41, %24, %34, %.loo
   br i1 %exitcond.not.i98, label %Bal_ManPrepareSet.exit102, label %.lr.ph.i95, !llvm.loop !8
 
 .loopexit.loopexit.split.loop.exit26.i99:         ; preds = %.lr.ph.i95
-  %66 = trunc i64 %indvars.iv.i96 to i32
+  %66 = trunc nuw nsw i64 %indvars.iv.i96 to i32
   br label %Bal_ManPrepareSet.exit102
 
 Bal_ManPrepareSet.exit102:                        ; preds = %65, %48, %58, %.loopexit.loopexit.split.loop.exit26.i99
@@ -441,7 +441,7 @@ Bal_ManPrepareSet.exit102:                        ; preds = %65, %48, %58, %.loo
   %87 = load i64, ptr %.179298.us, align 8
   %88 = or i64 %87, %86
   %89 = call i64 @llvm.ctpop.i64(i64 %88), !range !10
-  %90 = trunc i64 %89 to i32
+  %90 = trunc nuw nsw i64 %89 to i32
   %91 = load i32, ptr %81, align 8
   %92 = icmp slt i32 %91, %90
   br i1 %92, label %Bal_SetAddCut.exit213.us, label %93
@@ -508,7 +508,7 @@ Bal_ManPrepareSet.exit102:                        ; preds = %65, %48, %58, %.loo
 
 124:                                              ; preds = %122, %121
   %.3102.i.us = phi i32 [ %.1100128.i.us, %122 ], [ %119, %121 ]
-  %125 = trunc i64 %indvars.iv.next387 to i32
+  %125 = trunc nuw nsw i64 %indvars.iv.next387 to i32
   %126 = add nuw nsw i32 %98, %125
   %127 = add nsw i32 %.3102.i.us, %91
   %128 = icmp sgt i32 %126, %127
@@ -537,7 +537,7 @@ Bal_ManPrepareSet.exit102:                        ; preds = %65, %48, %58, %.loo
   br i1 %exitcond.not.i136.us, label %._crit_edge.loopexit.i.us, label %.lr.ph132.i.us, !llvm.loop !11
 
 ._crit_edge.loopexit.i.us:                        ; preds = %.lr.ph132.i.us
-  %135 = trunc i64 %indvars.iv.next.i135.us to i32
+  %135 = trunc nsw i64 %indvars.iv.next.i135.us to i32
   br label %.loopexit260.us
 
 136:                                              ; preds = %.lr.ph.i130.us
@@ -548,7 +548,7 @@ Bal_ManPrepareSet.exit102:                        ; preds = %65, %48, %58, %.loo
 
 138:                                              ; preds = %136, %118
   %.2106.i.us = phi i32 [ %.0104127.i.us, %136 ], [ %120, %118 ]
-  %139 = trunc i64 %indvars.iv.next387 to i32
+  %139 = trunc nuw nsw i64 %indvars.iv.next387 to i32
   %140 = add nuw nsw i32 %101, %139
   %141 = add nsw i32 %.2106.i.us, %91
   %142 = icmp sgt i32 %140, %141
@@ -577,7 +577,7 @@ Bal_ManPrepareSet.exit102:                        ; preds = %65, %48, %58, %.loo
   br i1 %exitcond159.not.i.us, label %._crit_edge136.loopexit.i.us, label %.lr.ph135.i.us, !llvm.loop !12
 
 ._crit_edge136.loopexit.i.us:                     ; preds = %.lr.ph135.i.us
-  %149 = trunc i64 %indvars.iv.next152.i.us to i32
+  %149 = trunc nsw i64 %indvars.iv.next152.i.us to i32
   br label %.loopexit260.us
 
 150:                                              ; preds = %136, %122, %121
@@ -1012,7 +1012,7 @@ Bal_SetAddCut.exit213.us:                         ; preds = %150, %.lr.ph139.i.u
   br i1 %exitcond.not.i111, label %Bal_ManPrepareSet.exit115, label %.lr.ph.i108, !llvm.loop !8
 
 .loopexit.loopexit.split.loop.exit26.i112:        ; preds = %.lr.ph.i108
-  %344 = trunc i64 %indvars.iv.i109 to i32
+  %344 = trunc nuw nsw i64 %indvars.iv.i109 to i32
   br label %Bal_ManPrepareSet.exit115
 
 Bal_ManPrepareSet.exit115:                        ; preds = %343, %329, %339, %.loopexit.loopexit.split.loop.exit26.i112
@@ -1027,7 +1027,7 @@ Bal_ManPrepareSet.exit115:                        ; preds = %343, %329, %339, %.
   %348 = icmp sgt i32 %.019.i92, 0
   %349 = getelementptr inbounds i8, ptr %0, i64 8
   %350 = icmp sgt i32 %.019.i105, 0
-  %or.cond463 = and i1 %348, %350
+  %or.cond463 = select i1 %348, i1 %350, i1 false
   br i1 %or.cond463, label %.preheader251.us.us, label %.loopexit.thread
 
 .preheader251.us.us:                              ; preds = %.preheader251.lr.ph, %._crit_edge311.split.us.us.us
@@ -1055,7 +1055,7 @@ Bal_ManPrepareSet.exit115:                        ; preds = %343, %329, %339, %.
   %361 = load i64, ptr %.074306.us.us.us, align 8
   %362 = or i64 %360, %361
   %363 = call i64 @llvm.ctpop.i64(i64 %362), !range !10
-  %364 = trunc i64 %363 to i32
+  %364 = trunc nuw nsw i64 %363 to i32
   %365 = load i32, ptr %349, align 8
   %366 = icmp slt i32 %365, %364
   br i1 %366, label %Bal_SetAddCut.exit.us.us.us, label %367
@@ -1139,7 +1139,7 @@ Bal_ManPrepareSet.exit115:                        ; preds = %343, %329, %339, %.
   br label %381
 
 415:                                              ; preds = %401
-  %416 = trunc i64 %indvars.iv.i116.us.us.us to i32
+  %416 = trunc nuw nsw i64 %indvars.iv.i116.us.us.us to i32
   %417 = getelementptr inbounds i8, ptr %370, i64 12
   %418 = shl i32 %416, 27
   %419 = or disjoint i32 %418, 134217727
@@ -1744,7 +1744,7 @@ Gia_ObjIsMux.exit:                                ; preds = %3, %11
   %20 = and i32 %19, 536870911
   %21 = sub nsw i32 %4, %20
   %22 = lshr i64 %.val72, 32
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw i64 %22 to i32
   %24 = and i32 %23, 536870911
   %25 = sub nsw i32 %4, %24
   %brmerge = or i1 %.not.i.i, %.not
@@ -2470,7 +2470,7 @@ Gia_ObjFanin2Copy.exit:                           ; preds = %Gia_ObjFanin2.exit,
   %57 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %2, i64 %56, i32 1
   %58 = load i32, ptr %57, align 4
   %59 = lshr i64 %53, 61
-  %60 = trunc i64 %59 to i32
+  %60 = trunc nuw nsw i64 %59 to i32
   %61 = and i32 %60, 1
   %62 = xor i32 %61, %58
   %63 = and i64 %53, 536870911
@@ -2523,7 +2523,7 @@ Gia_ObjIsXor.exit.i:                              ; preds = %84
   %88 = trunc i64 %.val.i to i32
   %89 = and i32 %88, 536870911
   %90 = lshr i64 %.val.i, 32
-  %91 = trunc i64 %90 to i32
+  %91 = trunc nuw i64 %90 to i32
   %92 = and i32 %91, 536870911
   %.not.i66 = icmp ult i32 %89, %92
   br i1 %.not.i66, label %93, label %145
@@ -3168,7 +3168,7 @@ Gia_ObjIsXor.exit.i.i:                            ; preds = %Vec_IntPush.exit71.
   %368 = trunc i64 %.val38.i.i to i32
   %369 = and i32 %368, 536870911
   %370 = lshr i64 %.val38.i.i, 32
-  %371 = trunc i64 %370 to i32
+  %371 = trunc nuw i64 %370 to i32
   %372 = and i32 %371, 536870911
   %.not.i.i71 = icmp ult i32 %369, %372
   br i1 %.not.i.i71, label %374, label %Gia_ObjIsXor.exit.thread.i.i
@@ -3394,7 +3394,7 @@ Vec_IntPush.exit78.i:                             ; preds = %457, %Vec_IntGrow.e
 .lr.ph.i79.i:                                     ; preds = %._crit_edge.i.i, %.lr.ph5.i.i
   %indvars.iv10.i.i = phi i64 [ 0, %.lr.ph5.i.i ], [ %indvars.iv.next11.i.i, %._crit_edge.i.i ]
   %indvars.iv.i80.i = phi i64 [ 1, %.lr.ph5.i.i ], [ %indvars.iv.next.i81.i, %._crit_edge.i.i ]
-  %470 = trunc i64 %indvars.iv10.i.i to i32
+  %470 = trunc nuw nsw i64 %indvars.iv10.i.i to i32
   %.val27.i.i84 = load ptr, ptr %469, align 8
   br label %471
 
@@ -3415,7 +3415,7 @@ Vec_IntPush.exit78.i:                             ; preds = %457, %Vec_IntGrow.e
   %483 = getelementptr inbounds i32, ptr %.val27.i.i84, i64 %482
   %484 = load i32, ptr %483, align 4
   %485 = icmp sgt i32 %477, %484
-  %486 = trunc i64 %indvars.iv7.i.i to i32
+  %486 = trunc nuw nsw i64 %indvars.iv7.i.i to i32
   %spec.select.i.i = select i1 %485, i32 %486, i32 %.0252.i.i
   %indvars.iv.next8.i.i = add nuw nsw i64 %indvars.iv7.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next8.i.i, %wide.trip.count.i.i
@@ -3496,7 +3496,7 @@ Vec_IntSelectSortCostLit.exit.i:                  ; preds = %._crit_edge.i.i
   %.07029.i.i = phi i32 [ -1, %.preheader.preheader.i.i ], [ %.272.i.i, %..loopexit3_crit_edge.i.i ]
   %.07628.i.i = phi i32 [ -1, %.preheader.preheader.i.i ], [ %.278.i.i, %..loopexit3_crit_edge.i.i ]
   %517 = getelementptr inbounds i32, ptr %.val57.i, i64 %indvars.iv63.i.i
-  %518 = trunc i64 %indvars.iv63.i.i to i32
+  %518 = trunc nuw nsw i64 %indvars.iv63.i.i to i32
   br label %Gia_ObjIsXor.exit.i87.i
 
 Gia_ObjIsXor.exit.i87.i:                          ; preds = %Bal_ManEvalTwo.exit.thread.i.i, %.preheader.i.i
@@ -3552,7 +3552,7 @@ Bal_ManEvalTwo.exit.i.i:                          ; preds = %Gia_ObjIsXor.exit.i
   br i1 %553, label %554, label %558
 
 554:                                              ; preds = %546
-  %555 = trunc i64 %indvars.iv.i84.i to i32
+  %555 = trunc nsw i64 %indvars.iv.i84.i to i32
   %556 = shl i32 %518, 16
   %557 = or i32 %556, %555
   br label %Bal_ManFindBestPair.exit.i
@@ -3562,7 +3562,7 @@ Bal_ManEvalTwo.exit.i.i:                          ; preds = %Gia_ObjIsXor.exit.i
   br i1 %559, label %560, label %Bal_ManEvalTwo.exit.thread.i.i
 
 560:                                              ; preds = %558
-  %561 = trunc i64 %indvars.iv.i84.i to i32
+  %561 = trunc nsw i64 %indvars.iv.i84.i to i32
   br label %Bal_ManEvalTwo.exit.thread.i.i
 
 Bal_ManEvalTwo.exit.thread.i.i:                   ; preds = %560, %558, %Bal_ManEvalTwo.exit.i.i, %Gia_ObjIsXor.exit.i87.i
@@ -3624,7 +3624,7 @@ Bal_ManEvalTwo.exit.thread.i.i:                   ; preds = %560, %558, %Bal_Man
 
 .lr.ph.i83.i:                                     ; preds = %.lr.ph52.i.i
   %576 = getelementptr inbounds i32, ptr %.val57.i, i64 %indvars.iv71.i.i
-  %577 = trunc i64 %indvars.iv71.i.i to i32
+  %577 = trunc nsw i64 %indvars.iv71.i.i to i32
   br label %Gia_ObjIsXor.exit107.i.i
 
 Gia_ObjIsXor.exit107.i.i:                         ; preds = %Bal_ManEvalTwo.exit111.thread.i.i, %.lr.ph.i83.i
@@ -3685,7 +3685,7 @@ Bal_ManEvalTwo.exit111.i.i:                       ; preds = %Gia_ObjIsXor.exit10
   br i1 %618, label %619, label %623
 
 619:                                              ; preds = %605
-  %620 = trunc i64 %indvars.iv68.i.i to i32
+  %620 = trunc nsw i64 %indvars.iv68.i.i to i32
   %621 = shl i32 %620, 16
   %622 = or i32 %621, %577
   br label %Bal_ManFindBestPair.exit.i
@@ -3695,7 +3695,7 @@ Bal_ManEvalTwo.exit111.i.i:                       ; preds = %Gia_ObjIsXor.exit10
   br i1 %624, label %625, label %Bal_ManEvalTwo.exit111.thread.i.i
 
 625:                                              ; preds = %623
-  %626 = trunc i64 %indvars.iv68.i.i to i32
+  %626 = trunc nsw i64 %indvars.iv68.i.i to i32
   br label %Bal_ManEvalTwo.exit111.thread.i.i
 
 Bal_ManEvalTwo.exit111.thread.i.i:                ; preds = %625, %623, %Bal_ManEvalTwo.exit111.i.i, %Gia_ObjIsXor.exit107.i.i
@@ -3754,7 +3754,7 @@ Bal_ManFindBestPair.exit.i:                       ; preds = %._crit_edge53.threa
   br i1 %exitcond.not.i97.i, label %Vec_IntRemove.exit.i, label %645, !llvm.loop !44
 
 ._crit_edge.loopexit.i.i:                         ; preds = %645
-  %650 = trunc i64 %indvars.iv.i95.i to i32
+  %650 = trunc nuw nsw i64 %indvars.iv.i95.i to i32
   br label %._crit_edge.i90.i
 
 ._crit_edge.i90.i:                                ; preds = %._crit_edge.loopexit.i.i, %Bal_ManFindBestPair.exit.i
@@ -3782,9 +3782,9 @@ Bal_ManFindBestPair.exit.i:                       ; preds = %._crit_edge53.threa
   store i32 %657, ptr %659, align 4
   %indvars.iv.next35.i.i = add nuw nsw i64 %indvars.iv34.i.i, 1
   %660 = load i32, ptr %290, align 4
-  %661 = trunc i64 %indvars.iv.next35.i.i to i32
+  %661 = trunc nuw i64 %indvars.iv.next35.i.i to i32
   %662 = icmp sgt i32 %660, %661
-  %663 = trunc i64 %indvars.iv34.i.i to i32
+  %663 = trunc nuw i64 %indvars.iv34.i.i to i32
   br i1 %662, label %654, label %._crit_edge30.i.i, !llvm.loop !45
 
 ._crit_edge30.i.i:                                ; preds = %654, %.preheader.i91.i
@@ -3816,7 +3816,7 @@ Vec_IntRemove.exit.i:                             ; preds = %649, %._crit_edge30
   br i1 %exitcond.not.i114.i, label %Vec_IntRemove.exit116.i, label %668, !llvm.loop !44
 
 ._crit_edge.loopexit.i115.i:                      ; preds = %668
-  %673 = trunc i64 %indvars.iv.i112.i to i32
+  %673 = trunc nuw nsw i64 %indvars.iv.i112.i to i32
   br label %._crit_edge.i98.i
 
 ._crit_edge.i98.i:                                ; preds = %._crit_edge.loopexit.i115.i, %Vec_IntRemove.exit.i
@@ -3844,9 +3844,9 @@ Vec_IntRemove.exit.i:                             ; preds = %649, %._crit_edge30
   store i32 %680, ptr %682, align 4
   %indvars.iv.next35.i109.i = add nuw nsw i64 %indvars.iv34.i107.i, 1
   %683 = load i32, ptr %290, align 4
-  %684 = trunc i64 %indvars.iv.next35.i109.i to i32
+  %684 = trunc nuw i64 %indvars.iv.next35.i109.i to i32
   %685 = icmp sgt i32 %683, %684
-  %686 = trunc i64 %indvars.iv34.i107.i to i32
+  %686 = trunc nuw i64 %indvars.iv34.i107.i to i32
   br i1 %685, label %677, label %._crit_edge30.i102.i, !llvm.loop !45
 
 ._crit_edge30.i102.i:                             ; preds = %677, %.preheader.i100.i
@@ -3868,7 +3868,7 @@ Gia_ObjIsXor.exit.i89:                            ; preds = %Vec_IntRemove.exit1
   %691 = trunc i64 %.val51.i to i32
   %692 = and i32 %691, 536870911
   %693 = lshr i64 %.val51.i, 32
-  %694 = trunc i64 %693 to i32
+  %694 = trunc nuw i64 %693 to i32
   %695 = and i32 %694, 536870911
   %.not.i90 = icmp ult i32 %692, %695
   br i1 %.not.i90, label %696, label %Gia_ObjIsXor.exit.thread.i
@@ -4212,7 +4212,7 @@ Gia_ObjIsXor.exit:                                ; preds = %Gia_ObjIsXor.exit.l
   %10 = trunc i64 %.val21 to i32
   %11 = and i32 %10, 536870911
   %12 = lshr i64 %.val21, 32
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw i64 %12 to i32
   %14 = and i32 %13, 536870911
   %.not = icmp ult i32 %11, %14
   br i1 %.not, label %15, label %Gia_ObjIsXor.exit.thread
@@ -4367,7 +4367,7 @@ define internal fastcc void @Gia_ManSuperCollectAnd_rec(ptr nocapture noundef re
   %15 = trunc i64 %.val7.i to i32
   %16 = and i32 %15, 536870911
   %17 = lshr i64 %.val7.i, 32
-  %18 = trunc i64 %17 to i32
+  %18 = trunc nuw i64 %17 to i32
   %19 = and i32 %18, 536870911
   %20 = icmp ugt i32 %16, %19
   br i1 %20, label %21, label %Gia_ObjIsAndReal.exit.thread

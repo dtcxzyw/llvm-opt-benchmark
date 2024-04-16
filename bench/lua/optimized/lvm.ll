@@ -1407,7 +1407,7 @@ if.end148:                                        ; preds = %cond.end136
   br i1 %exitcond.not, label %for.end, label %land.rhs85, !llvm.loop !8
 
 for.end.loopexit.split.loop.exit:                 ; preds = %land.rhs85
-  %22 = trunc i64 %indvars.iv to i32
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
   br label %for.end
 
 for.end:                                          ; preds = %if.end148, %for.end.loopexit.split.loop.exit, %cond.end

@@ -426,7 +426,7 @@ define i32 @verify_dist_type(ptr noundef %0, ptr nocapture noundef writeonly %1)
   br i1 %or.cond21.i, label %29, label %27
 
 27:                                               ; preds = %24
-  %28 = trunc i64 %21 to i32
+  %28 = trunc nuw nsw i64 %21 to i32
   store i32 %28, ptr %1, align 4
   br label %_parse_plane_dist.exit
 
@@ -1123,7 +1123,7 @@ define i32 @str_to_nodes(ptr noundef %0, ptr nocapture noundef writeonly %1) loc
   %.1 = phi i64 [ %17, %16 ], [ %.0, %13 ]
   store ptr %20, ptr %1, align 8
   %or.cond = icmp ugt i64 %.1, 2147483647
-  %21 = trunc i64 %.1 to i32
+  %21 = trunc nuw nsw i64 %.1 to i32
   %spec.select = select i1 %or.cond, i32 -1, i32 %21
   br label %22
 
@@ -1307,7 +1307,7 @@ define noundef zeroext i1 @verify_node_count(ptr noundef %0, ptr nocapture nound
   %76 = phi ptr [ %74, %72 ], [ %71, %69 ]
   %.1.i = phi i64 [ %73, %72 ], [ %.0.i, %69 ]
   %or.cond.i = icmp ugt i64 %.1.i, 2147483647
-  %77 = trunc i64 %.1.i to i32
+  %77 = trunc nuw nsw i64 %.1.i to i32
   %spec.select.i = select i1 %or.cond.i, i32 -1, i32 %77
   br label %str_to_nodes.exit
 
@@ -1379,7 +1379,7 @@ str_to_nodes.exit:                                ; preds = %56, %75
   %106 = phi ptr [ %104, %102 ], [ %101, %99 ]
   %.1.i66 = phi i64 [ %103, %102 ], [ %.0.i65, %99 ]
   %or.cond.i67 = icmp ugt i64 %.1.i66, 2147483647
-  %107 = trunc i64 %.1.i66 to i32
+  %107 = trunc nuw nsw i64 %.1.i66 to i32
   %spec.select.i68 = select i1 %or.cond.i67, i32 -1, i32 %107
   br label %str_to_nodes.exit70
 
@@ -1435,7 +1435,7 @@ str_to_nodes.exit70:                              ; preds = %85, %105
   %128 = phi ptr [ %126, %124 ], [ %123, %121 ]
   %.1.i73 = phi i64 [ %125, %124 ], [ %.0.i72, %121 ]
   %or.cond.i74 = icmp ugt i64 %.1.i73, 2147483647
-  %129 = trunc i64 %.1.i73 to i32
+  %129 = trunc nuw nsw i64 %.1.i73 to i32
   %spec.select.i75 = select i1 %or.cond.i74, i32 -1, i32 %129
   br label %str_to_nodes.exit77
 
@@ -1618,7 +1618,7 @@ thread-pre-split:                                 ; preds = %9, %9, %13
   unreachable
 
 30:                                               ; preds = %25
-  %31 = trunc i64 %.0 to i32
+  %31 = trunc nuw i64 %.0 to i32
   store i32 %31, ptr %2, align 4
   %32 = load i8, ptr %17, align 1
   switch i8 %32, label %35 [
@@ -1694,7 +1694,7 @@ thread-pre-split49:                               ; preds = %35, %35, %40
   br i1 %.not47, label %60, label %58
 
 58:                                               ; preds = %57
-  %59 = trunc i64 %.1 to i32
+  %59 = trunc nuw i64 %.1 to i32
   br label %.sink.split
 
 .sink.split:                                      ; preds = %8, %58
@@ -1769,7 +1769,7 @@ thread-pre-split:                                 ; preds = %15
   br i1 %exitcond63.not, label %.split.loop.exit67, label %.preheader, !llvm.loop !11
 
 .split.loop.exit:                                 ; preds = %.loopexit
-  %22 = trunc i64 %indvars.iv60 to i32
+  %22 = trunc nuw nsw i64 %indvars.iv60 to i32
   br label %.split.loop.exit67
 
 .split.loop.exit67:                               ; preds = %20, %.split.loop.exit
@@ -1782,7 +1782,7 @@ thread-pre-split:                                 ; preds = %15
   %25 = and i32 %24, 14
   %.not49 = icmp eq i32 %25, 0
   %26 = icmp ult i32 %.042.lcssa, 3
-  %or.cond74 = and i1 %.not49, %26
+  %or.cond74 = select i1 %.not49, i1 %26, i1 false
   br i1 %or.cond74, label %switch.lookup, label %29
 
 switch.lookup:                                    ; preds = %23
@@ -2968,7 +2968,7 @@ define i32 @get_signal_opts(ptr noundef %0, ptr nocapture noundef writeonly %1, 
   br i1 %or.cond3, label %47, label %42
 
 42:                                               ; preds = %38
-  %43 = trunc i64 %41 to i16
+  %43 = trunc nuw i64 %41 to i16
   store i16 %43, ptr %2, align 2
   %44 = load ptr, ptr %5, align 8
   %45 = load i8, ptr %44, align 1
@@ -3183,7 +3183,7 @@ define noundef i32 @parse_uint16(ptr noundef %0, ptr nocapture noundef writeonly
   br i1 %or.cond, label %11, label %9
 
 9:                                                ; preds = %2
-  %10 = trunc i64 %4 to i16
+  %10 = trunc nuw i64 %4 to i16
   store i16 %10, ptr %1, align 2
   br label %11
 
@@ -3204,7 +3204,7 @@ define noundef i32 @parse_uint32(ptr noundef %0, ptr nocapture noundef writeonly
   br i1 %or.cond, label %11, label %9
 
 9:                                                ; preds = %2
-  %10 = trunc i64 %4 to i32
+  %10 = trunc nuw i64 %4 to i32
   store i32 %10, ptr %1, align 4
   br label %11
 
@@ -3269,7 +3269,7 @@ define i32 @parse_int(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) loc
   unreachable
 
 17:                                               ; preds = %13
-  %18 = trunc i64 %6 to i32
+  %18 = trunc nuw nsw i64 %6 to i32
   ret i32 %18
 }
 
@@ -3354,7 +3354,7 @@ define i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
 
 .critedge:                                        ; preds = %14, %14, %14
   %18 = getelementptr inbounds i8, ptr %.1206, i64 %indvars.iv
-  %19 = trunc i64 %indvars.iv to i32
+  %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = tail call i32 @llvm.umax.i32(i32 %19, i32 3)
   %21 = zext nneg i32 %20 to i64
   %22 = tail call i32 @xstrncasecmp(ptr noundef nonnull %.1206, ptr noundef nonnull @.str.99, i64 noundef %21) #20
@@ -3526,13 +3526,13 @@ define i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
 
 102:                                              ; preds = %98
   %103 = getelementptr inbounds i8, ptr %.1206, i64 %indvars.iv241
-  %104 = trunc i64 %indvars.iv241 to i32
+  %104 = trunc nuw i64 %indvars.iv241 to i32
   store i8 0, ptr %103, align 1
   %105 = add nuw nsw i32 %104, 1
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %98
-  %106 = trunc i64 %indvars.iv241 to i32
+  %106 = trunc nuw i64 %indvars.iv241 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %102

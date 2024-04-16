@@ -10163,7 +10163,7 @@ define internal fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder6decode17h
 
 39:                                               ; preds = %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %40 = trunc i64 %indvars.iv to i8
+  %40 = trunc nuw nsw i64 %indvars.iv to i8
   %41 = xor i8 %40, 15
   %42 = zext nneg i8 %41 to i16
   %43 = lshr i16 %23, %42
@@ -10394,13 +10394,13 @@ define internal fastcc void @_ZN12jpeg_decoder7huffman14HuffmanDecoder9read_bits
   %56 = or i64 %25, %55
   store i64 %56, ptr %1, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
-  %57 = trunc i64 %indvars.iv.next to i8
+  %57 = trunc nuw i64 %indvars.iv.next to i8
   store i8 %57, ptr %10, align 8
   %58 = icmp ult i64 %indvars.iv, 49
   br i1 %58, label %.lr.ph.split.us, label %.outer._crit_edge
 
 .preheader.split.us:                              ; preds = %48
-  %59 = trunc i64 %indvars.iv to i8
+  %59 = trunc nuw i64 %indvars.iv to i8
   br label %66
 
 .lr.ph.split:                                     ; preds = %.lr.ph

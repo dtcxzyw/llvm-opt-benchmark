@@ -8040,7 +8040,7 @@ for.body4104:                                     ; preds = %for.body4104.lr.ph,
   %indvars.iv11837 = phi i64 [ %784, %for.body4104.lr.ph ], [ %indvars.iv.next11838, %_Py_NewRef.exit7807 ]
   %786 = load ptr, ptr %func_defaults.le, align 8
   %ob_item4106 = getelementptr inbounds i8, ptr %786, i64 24
-  %787 = trunc i64 %indvars.iv11837 to i32
+  %787 = trunc nsw i64 %indvars.iv11837 to i32
   %sub4107 = sub i32 %787, %sub4069
   %idxprom4108 = sext i32 %sub4107 to i64
   %arrayidx4109 = getelementptr [1 x ptr], ptr %ob_item4106, i64 0, i64 %idxprom4108
@@ -9232,7 +9232,7 @@ if.end.i.i7871:                                   ; preds = %for.body5011
   br label %_Py_NewRef.exit7872
 
 _Py_NewRef.exit7872:                              ; preds = %for.body5011, %if.end.i.i7871
-  %960 = trunc i64 %indvars.iv11803 to i32
+  %960 = trunc nuw nsw i64 %indvars.iv11803 to i32
   %add5017 = add i32 %sub5006, %960
   %idxprom5018 = sext i32 %add5017 to i64
   %arrayidx5019 = getelementptr [1 x ptr], ptr %localsplus5016, i64 0, i64 %idxprom5018
@@ -23383,7 +23383,7 @@ if.end.i.i8888:                                   ; preds = %for.body14790
   br label %_Py_NewRef.exit8889
 
 _Py_NewRef.exit8889:                              ; preds = %for.body14790, %if.end.i.i8888
-  %3025 = trunc i64 %indvars.iv11792 to i32
+  %3025 = trunc nuw nsw i64 %indvars.iv11792 to i32
   %add14797 = add i32 %sub14785, %3025
   %idxprom14798 = sext i32 %add14797 to i64
   %arrayidx14799 = getelementptr [1 x ptr], ptr %localsplus14796, i64 0, i64 %idxprom14798
@@ -31223,7 +31223,7 @@ _Py_NewRef.exit:                                  ; preds = %for.body43, %if.end
   %idxprom51 = sext i32 %10 to i64
   %arrayidx52 = getelementptr ptr, ptr %kws, i64 %idxprom51
   %11 = load ptr, ptr %arrayidx52, align 8
-  %12 = trunc i64 %indvars.iv78 to i32
+  %12 = trunc nuw nsw i64 %indvars.iv78 to i32
   %add53 = add i32 %12, %argcount
   %idxprom54 = sext i32 %add53 to i64
   %arrayidx55 = getelementptr ptr, ptr %call30, i64 %idxprom54

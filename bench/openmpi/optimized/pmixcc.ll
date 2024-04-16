@@ -286,7 +286,7 @@ data_init.exit:                                   ; preds = %43
   br i1 %.not.not.i, label %.lr.ph19.i, label %find_options_index.exit, !llvm.loop !7
 
 .loopexit12.loopexit.i:                           ; preds = %.lr.ph.i
-  %82 = trunc i64 %indvars.iv23.i to i32
+  %82 = trunc nuw nsw i64 %indvars.iv23.i to i32
   br label %find_options_index.exit
 
 find_options_index.exit:                          ; preds = %.loopexit.i, %.lr.ph.split, %.loopexit12.loopexit.i
@@ -295,7 +295,7 @@ find_options_index.exit:                          ; preds = %.loopexit.i, %.lr.p
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %83 = icmp ult i64 %indvars.iv.next, %55
   %84 = icmp slt i32 %.011.i, 0
-  %85 = and i1 %83, %84
+  %85 = select i1 %83, i1 %84, i1 false
   br i1 %85, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %find_options_index.exit, %data_init.exit
@@ -1443,7 +1443,7 @@ define internal fastcc i32 @find_options_index(ptr nocapture noundef readonly %0
   br i1 %.not.not, label %.lr.ph19, label %.loopexit12, !llvm.loop !7
 
 .loopexit12.loopexit:                             ; preds = %.lr.ph
-  %22 = trunc i64 %indvars.iv23 to i32
+  %22 = trunc nuw nsw i64 %indvars.iv23 to i32
   br label %.loopexit12
 
 .loopexit12:                                      ; preds = %.loopexit, %.loopexit12.loopexit, %1
@@ -1491,7 +1491,7 @@ define internal fastcc void @print_flags(ptr nocapture noundef readonly %0, ptr 
   br i1 %8, label %9, label %17
 
 9:                                                ; preds = %.lr.ph
-  %10 = trunc i8 %.016 to i1
+  %10 = trunc nuw i8 %.016 to i1
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %9
@@ -1515,7 +1515,7 @@ define internal fastcc void @print_flags(ptr nocapture noundef readonly %0, ptr 
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %17
-  %20 = trunc i8 %.1 to i1
+  %20 = trunc nuw i8 %.1 to i1
   br i1 %20, label %21, label %._crit_edge.thread
 
 21:                                               ; preds = %._crit_edge

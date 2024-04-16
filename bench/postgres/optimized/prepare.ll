@@ -671,7 +671,7 @@ define noundef zeroext i1 @ecpg_auto_prepare(i32 noundef %0, ptr noundef %1, i32
   br i1 %exitcond.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !9
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
-  %.lhs.trunc.i.i = trunc i64 %22 to i32
+  %.lhs.trunc.i.i = trunc nuw i64 %22 to i32
   %23 = urem i32 %.lhs.trunc.i.i, 2039
   %24 = shl nuw nsw i32 %23, 3
   %25 = or disjoint i32 %24, 1
@@ -705,10 +705,10 @@ HashStmt.exit.i:                                  ; preds = %HashStmt.exit.i.pre
   br i1 %exitcond.not.i, label %SearchStmtCache.exit.thread, label %HashStmt.exit.i, !llvm.loop !10
 
 37:                                               ; preds = %30
-  %38 = trunc i64 %indvars.iv.i to i32
+  %38 = trunc nsw i64 %indvars.iv.i to i32
   %39 = icmp ugt i32 %.012.i, 7
   %.not = icmp eq i32 %38, 0
-  %or.cond = or i1 %39, %.not
+  %or.cond = select i1 %39, i1 true, i1 %.not
   br i1 %or.cond, label %SearchStmtCache.exit.thread, label %40
 
 40:                                               ; preds = %37
@@ -795,7 +795,7 @@ SearchStmtCache.exit.thread:                      ; preds = %35, %37, %5
   br i1 %exitcond.not.i.i44, label %._crit_edge.loopexit.i.i45, label %.lr.ph.i.i40, !llvm.loop !9
 
 ._crit_edge.loopexit.i.i45:                       ; preds = %.lr.ph.i.i40
-  %.lhs.trunc.i.i46 = trunc i64 %77 to i32
+  %.lhs.trunc.i.i46 = trunc nuw i64 %77 to i32
   %78 = urem i32 %.lhs.trunc.i.i46, 2039
   %79 = shl nuw nsw i32 %78, 3
   %80 = or disjoint i32 %79, 1
@@ -823,7 +823,7 @@ HashStmt.exit.i33:                                ; preds = %._crit_edge.loopexi
   %90 = getelementptr %struct.stmtCacheEntry, ptr %64, i64 %89, i32 3
   %91 = load i64, ptr %90, align 8
   %92 = icmp slt i64 %88, %91
-  %93 = trunc i64 %indvars.iv to i32
+  %93 = trunc nsw i64 %indvars.iv to i32
   %spec.select.i = select i1 %92, i32 %93, i32 %.02941.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %94 = add nuw nsw i32 %.03240.i, 1
@@ -831,7 +831,7 @@ HashStmt.exit.i33:                                ; preds = %._crit_edge.loopexi
   br i1 %exitcond.not.i36, label %.thread.i37, label %82, !llvm.loop !11
 
 95:                                               ; preds = %82
-  %96 = trunc i64 %indvars.iv to i32
+  %96 = trunc nsw i64 %indvars.iv to i32
   %97 = icmp ugt i32 %.03240.i, 7
   %spec.select55.i = select i1 %97, i32 %.02941.i, i32 %96
   br label %.thread.i37

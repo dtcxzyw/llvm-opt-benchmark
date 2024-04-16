@@ -31,29 +31,35 @@ define dso_local void @pgstat_reset_slru(ptr nocapture noundef readonly %0) loca
   %2 = tail call i64 @GetCurrentTimestamp() #8
   br label %3
 
-3:                                                ; preds = %3, %1
-  %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %3 ]
+3:                                                ; preds = %8, %1
+  %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %8 ]
   %4 = getelementptr [8 x ptr], ptr @slru_names, i64 0, i64 %indvars.iv.i
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %0) #9
   %7 = icmp eq i32 %6, 0
+  br i1 %7, label %.split.loop.exit9.i, label %8
+
+8:                                                ; preds = %3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
-  %or.cond.i = select i1 %7, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond.i, label %pgstat_get_slru_index.exit, label %3, !llvm.loop !5
+  br i1 %exitcond.not.i, label %pgstat_get_slru_index.exit, label %3, !llvm.loop !5
 
-pgstat_get_slru_index.exit:                       ; preds = %3
-  %8 = load ptr, ptr @pgStatLocal, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 17232
-  %10 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %9, i32 noundef 0) #8
-  %11 = getelementptr inbounds i8, ptr %8, i64 17248
+.split.loop.exit9.i:                              ; preds = %3
   %sext = shl i64 %indvars.iv.i, 32
-  %12 = ashr exact i64 %sext, 32
-  %13 = getelementptr [8 x %struct.PgStat_SLRUStats], ptr %11, i64 0, i64 %12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, i8 0, i64 56, i1 false)
-  %14 = getelementptr inbounds i8, ptr %13, i64 56
-  store i64 %2, ptr %14, align 8
-  tail call void @LWLockRelease(ptr noundef nonnull %9) #8
+  %9 = ashr exact i64 %sext, 32
+  br label %pgstat_get_slru_index.exit
+
+pgstat_get_slru_index.exit:                       ; preds = %8, %.split.loop.exit9.i
+  %.05.i = phi i64 [ %9, %.split.loop.exit9.i ], [ 7, %8 ]
+  %10 = load ptr, ptr @pgStatLocal, align 8
+  %11 = getelementptr inbounds i8, ptr %10, i64 17232
+  %12 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %11, i32 noundef 0) #8
+  %13 = getelementptr inbounds i8, ptr %10, i64 17248
+  %14 = getelementptr [8 x %struct.PgStat_SLRUStats], ptr %13, i64 0, i64 %.05.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, i8 0, i64 56, i1 false)
+  %15 = getelementptr inbounds i8, ptr %14, i64 56
+  store i64 %2, ptr %15, align 8
+  tail call void @LWLockRelease(ptr noundef nonnull %11) #8
   ret void
 }
 
@@ -63,20 +69,26 @@ declare i64 @GetCurrentTimestamp() local_unnamed_addr #1
 define dso_local i32 @pgstat_get_slru_index(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
   br label %2
 
-2:                                                ; preds = %2, %1
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
+2:                                                ; preds = %1, %7
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
   %3 = getelementptr [8 x ptr], ptr @slru_names, i64 0, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %0) #9
   %6 = icmp eq i32 %5, 0
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  %or.cond = select i1 %6, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %7, label %2, !llvm.loop !5
+  br i1 %6, label %.split.loop.exit9, label %7
 
 7:                                                ; preds = %2
-  %8 = trunc i64 %indvars.iv to i32
-  ret i32 %8
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 8
+  br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !5
+
+.split.loop.exit9:                                ; preds = %2
+  %8 = trunc nuw nsw i64 %indvars.iv to i32
+  br label %.split.loop.exit
+
+.split.loop.exit:                                 ; preds = %7, %.split.loop.exit9
+  %.05 = phi i32 [ %8, %.split.loop.exit9 ], [ 7, %7 ]
+  ret i32 %.05
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable

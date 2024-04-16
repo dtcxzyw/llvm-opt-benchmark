@@ -98,7 +98,7 @@ define dso_local void @ExecReadyInterpretedExpr(ptr nocapture noundef %0) local_
   %8 = getelementptr [95 x %struct.ExprEvalOpLookup], ptr @reverse_dispatch_table, i64 0, i64 %indvars.iv.i
   store ptr %7, ptr %8, align 16
   %9 = getelementptr inbounds i8, ptr %8, i64 8
-  %10 = trunc i64 %indvars.iv.i to i32
+  %10 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %10, ptr %9, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 95
@@ -7681,7 +7681,7 @@ define dso_local void @ExecEvalWholeRowVar(ptr nocapture readnone %0, ptr nocapt
 51:                                               ; preds = %47
   %52 = getelementptr inbounds i8, ptr %40, i64 68
   %53 = getelementptr inbounds i8, ptr %41, i64 68
-  %54 = trunc i64 %indvars.iv to i32
+  %54 = trunc nuw nsw i64 %indvars.iv to i32
   %55 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   tail call void @llvm.assume(i1 %55)
   %56 = tail call i32 @errcode(i32 noundef 67141764) #15
@@ -7864,7 +7864,7 @@ slot_getallattrs.exit..loopexit_crit_edge:        ; preds = %slot_getallattrs.ex
   br i1 %.not100, label %165, label %158
 
 158:                                              ; preds = %153, %148
-  %159 = trunc i64 %indvars.iv117 to i32
+  %159 = trunc nuw nsw i64 %indvars.iv117 to i32
   %160 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   tail call void @llvm.assume(i1 %160)
   %161 = tail call i32 @errcode(i32 noundef 67141764) #15

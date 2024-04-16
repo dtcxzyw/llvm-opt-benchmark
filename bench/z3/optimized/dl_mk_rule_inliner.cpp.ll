@@ -1232,7 +1232,7 @@ for.body:                                         ; preds = %_ZNK6vectorIP4sortL
   %6 = load ptr, ptr %this, align 8
   %arrayidx.i5 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv
   %7 = load ptr, ptr %arrayidx.i5, align 8
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw i64 %indvars.iv to i32
   %call16 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %6, i32 noundef %8, ptr noundef %7)
           to label %invoke.cont15 unwind label %lpad9.loopexit
 
@@ -5018,7 +5018,7 @@ lpad8.loopexit.split-lp:                          ; preds = %if.then.invoke, %in
   br label %ehcleanup
 
 for.end.loopexit.split.loop.exit127:              ; preds = %invoke.cont18
-  %28 = trunc i64 %indvars.iv to i32
+  %28 = trunc nuw i64 %indvars.iv to i32
   br label %for.end
 
 for.end:                                          ; preds = %for.inc, %for.end.loopexit.split.loop.exit127, %invoke.cont9
@@ -5079,7 +5079,7 @@ for.body.i:                                       ; preds = %for.cond.i
 invoke.cont23:                                    ; preds = %for.cond.i, %for.body.i
   %cmp.i.le = icmp ult i64 %indvars.iv.next.i, %32
   %cmp28 = icmp eq i32 %i.0.lcssa, %23
-  %or.cond = or i1 %cmp.i.le, %cmp28
+  %or.cond = select i1 %cmp.i.le, i1 true, i1 %cmp28
   br i1 %or.cond, label %if.then.invoke, label %invoke.cont36
 
 if.then.invoke:                                   ; preds = %if.end, %invoke.cont23, %for.body.preheader.i
@@ -5752,7 +5752,7 @@ _ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit:   ; preds = %if.end9
 
 for.body20.preheader:                             ; preds = %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit
   %wide.trip.count = zext i32 %16 to i64
-  %17 = trunc i64 %indvars.iv59 to i32
+  %17 = trunc nuw i64 %indvars.iv59 to i32
   br label %for.body20
 
 if.then15:                                        ; preds = %_ZNK6vectorIPN7datalog4ruleELb0EjE4sizeEv.exit
@@ -5860,7 +5860,7 @@ _ZN7datalog15mk_rule_inliner20is_oriented_rewriterEPNS_4ruleERKNS_15rule_stratif
   br i1 %cmp.lcssa.i, label %if.end36, label %for.inc42
 
 if.end36:                                         ; preds = %if.end33, %_ZN7datalog15mk_rule_inliner20is_oriented_rewriterEPNS_4ruleERKNS_15rule_stratifierE.exit
-  %36 = trunc i64 %indvars.iv59 to i32
+  %36 = trunc nuw i64 %indvars.iv59 to i32
   %call37 = tail call noundef zeroext i1 @_ZN7datalog15mk_rule_inliner18try_to_inline_ruleERNS_4ruleES2_jR7obj_refIS1_NS_12rule_managerEE(ptr noundef nonnull align 8 dereferenceable(1672) %this, ptr noundef nonnull align 8 dereferenceable(80) %r, ptr noundef nonnull align 8 dereferenceable(80) %inlining_candidate.2, i32 noundef %36, ptr noundef nonnull align 8 dereferenceable(16) %res)
   br i1 %call37, label %return, label %if.then38
 
@@ -7463,7 +7463,7 @@ invoke.cont20:                                    ; preds = %invoke.cont20.prehe
   %17 = load ptr, ptr %m_nodes.i.i55, align 8
   %arrayidx.i.i58 = getelementptr inbounds ptr, ptr %17, i64 %indvars.iv377
   %18 = load ptr, ptr %arrayidx.i.i58, align 8
-  %19 = trunc i64 %indvars.iv377 to i32
+  %19 = trunc nuw i64 %indvars.iv377 to i32
   invoke void @_ZN7datalog15mk_rule_inliner8add_ruleERKNS_8rule_setEPNS_4ruleEj(ptr noundef nonnull align 8 dereferenceable(1672) %this, ptr noundef nonnull align 8 dereferenceable(248) %16, ptr noundef %18, i32 noundef %19)
           to label %for.inc25 unwind label %lpad.loopexit.split-lp330.loopexit.split-lp.loopexit
 
@@ -7858,7 +7858,7 @@ invoke.cont95.preheader:                          ; preds = %invoke.cont95.prehe
   %indvars.iv392 = phi i64 [ 0, %invoke.cont95.preheader.lr.ph ], [ %indvars.iv.next393, %for.inc207 ]
   %done_something.0369 = phi i1 [ false, %invoke.cont95.preheader.lr.ph ], [ %done_something.3, %for.inc207 ]
   %max_var.2367 = phi i32 [ %max_var.0.lcssa, %invoke.cont95.preheader.lr.ph ], [ %max_var.5, %for.inc207 ]
-  %61 = trunc i64 %indvars.iv392 to i32
+  %61 = trunc nuw i64 %indvars.iv392 to i32
   br label %invoke.cont95
 
 invoke.cont95:                                    ; preds = %invoke.cont95.preheader, %_ZN7obj_refIN7datalog4ruleENS0_12rule_managerEED2Ev.exit266

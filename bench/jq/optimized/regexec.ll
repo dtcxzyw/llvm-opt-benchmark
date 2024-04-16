@@ -1595,7 +1595,7 @@ define i32 @onig_regset_search_with_param(ptr nocapture noundef readonly %0, ptr
   br i1 %188, label %189, label %.loopexit
 
 189:                                              ; preds = %187
-  %190 = trunc i64 %indvars.iv344 to i32
+  %190 = trunc nuw nsw i64 %indvars.iv344 to i32
   store i32 0, ptr %8, align 4
   br label %280
 
@@ -2298,7 +2298,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
 201:                                              ; preds = %198
   %202 = icmp ult i64 %indvars.iv2408, 32
   %203 = load i32, ptr %110, align 4
-  %204 = trunc nuw i64 %indvars.iv2408 to i32
+  %204 = trunc nuw nsw i64 %indvars.iv2408 to i32
   %205 = shl nuw i32 1, %204
   %.sink = select i1 %202, i32 %205, i32 1
   %206 = and i32 %203, %.sink
@@ -2321,7 +2321,7 @@ define internal fastcc i32 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   %217 = getelementptr inbounds i32, ptr %216, i64 %indvars.iv2408
   store i32 %215, ptr %217, align 4
   %218 = load i32, ptr %111, align 8
-  %219 = trunc nuw i64 %indvars.iv2408 to i32
+  %219 = trunc nuw nsw i64 %indvars.iv2408 to i32
   %220 = shl nuw i32 1, %219
   %.sink2578 = select i1 %202, i32 %220, i32 1
   %221 = and i32 %218, %.sink2578
@@ -4805,7 +4805,7 @@ string_cmp_ic.exit:                               ; preds = %1589, %1585, %1604
   br i1 %.not1809, label %.preheader2033, label %.loopexit2034, !llvm.loop !32
 
 1666:                                             ; preds = %.preheader2033
-  %1667 = trunc i64 %indvars.iv2403 to i32
+  %1667 = trunc nuw nsw i64 %indvars.iv2403 to i32
   store ptr %.01554, ptr %15, align 8
   br label %.loopexit2070
 
@@ -4815,7 +4815,7 @@ string_cmp_ic.exit:                               ; preds = %1589, %1585, %1604
   br i1 %exitcond2407.not, label %backref_check_at_nested_level.exit.thread, label %1619, !llvm.loop !33
 
 .loopexit2070.loopexit:                           ; preds = %1648
-  %1668 = trunc i64 %indvars.iv2403 to i32
+  %1668 = trunc nuw nsw i64 %indvars.iv2403 to i32
   br label %.loopexit2070
 
 .loopexit2070:                                    ; preds = %.loopexit2070.loopexit, %1608, %1666
@@ -4979,7 +4979,7 @@ string_cmp_ic.exit1977.thread:                    ; preds = %.lr.ph2219, %.lr.ph
 
 .loopexit27.i1964:                                ; preds = %1742, %1723, %1727
   %.01999 = phi ptr [ %1739, %1727 ], [ %1720, %1723 ], [ %1739, %1742 ]
-  %1743 = trunc i64 %indvars.iv2398 to i32
+  %1743 = trunc nuw nsw i64 %indvars.iv2398 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %9)
@@ -4993,7 +4993,7 @@ string_cmp_ic.exit1977.thread:                    ; preds = %.lr.ph2219, %.lr.ph
   br i1 %exitcond2402.not, label %backref_check_at_nested_level.exit.thread, label %1680, !llvm.loop !34
 
 .loopexit2071.loopexit:                           ; preds = %1709
-  %1745 = trunc i64 %indvars.iv2398 to i32
+  %1745 = trunc nuw nsw i64 %indvars.iv2398 to i32
   br label %.loopexit2071
 
 .loopexit2071:                                    ; preds = %.loopexit2071.loopexit, %1672, %.loopexit27.i1964
@@ -5079,7 +5079,7 @@ string_cmp_ic.exit1977.thread:                    ; preds = %.lr.ph2219, %.lr.ph
   br i1 %exitcond2397.not, label %backref_check_at_nested_level.exit.thread, label %.lr.ph2213, !llvm.loop !36
 
 ._crit_edge2214.loopexit:                         ; preds = %1782
-  %1787 = trunc i64 %indvars.iv2393 to i32
+  %1787 = trunc nuw nsw i64 %indvars.iv2393 to i32
   br label %._crit_edge2214
 
 ._crit_edge2214:                                  ; preds = %._crit_edge2214.loopexit, %1772
@@ -8095,7 +8095,7 @@ define internal fastcc i32 @regset_search_body_regex_lead(ptr nocapture noundef 
 
 43:                                               ; preds = %39
   store i32 %37, ptr %8, align 4
-  %44 = trunc i64 %indvars.iv to i32
+  %44 = trunc nuw nsw i64 %indvars.iv to i32
   br label %47
 
 45:                                               ; preds = %.lr.ph.split
@@ -9778,7 +9778,7 @@ onig_region_free.exit:                            ; preds = %10, %history_root_f
   store ptr %41, ptr %42, align 8
   %43 = load i32, ptr %6, align 8
   %44 = add nsw i32 %43, -1
-  %45 = trunc i64 %indvars.iv.next to i32
+  %45 = trunc nuw i64 %indvars.iv.next to i32
   %46 = icmp sgt i32 %44, %45
   br i1 %46, label %.lr.ph, label %._crit_edge, !llvm.loop !66
 

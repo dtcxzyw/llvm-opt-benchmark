@@ -639,7 +639,7 @@ define internal fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %167, label %169, label %173
 
 169:                                              ; preds = %166
-  %170 = trunc nuw i64 %indvars.iv to i32
+  %170 = trunc nuw nsw i64 %indvars.iv to i32
   %171 = shl nuw i32 1, %170
   %172 = and i32 %168, %171
   %.not2828 = icmp eq i32 %172, 0
@@ -674,7 +674,7 @@ define internal fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %167, label %190, label %194
 
 190:                                              ; preds = %185
-  %191 = trunc nuw i64 %indvars.iv to i32
+  %191 = trunc nuw nsw i64 %indvars.iv to i32
   %192 = shl nuw i32 1, %191
   %193 = and i32 %189, %192
   %.not2830 = icmp eq i32 %193, 0

@@ -210,7 +210,7 @@ define dso_local void @scontrol_print_res(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %64, label %.lr.ph.split, label %.loopexit101, !llvm.loop !7
 
 .loopexit101.loopexit:                            ; preds = %.thread.us
-  %65 = trunc i64 %indvars.iv.next115 to i32
+  %65 = trunc nuw nsw i64 %indvars.iv.next115 to i32
   br label %.loopexit101
 
 .loopexit101:                                     ; preds = %61, %.loopexit101.loopexit, %42, %59
@@ -328,7 +328,7 @@ define dso_local void @scontrol_print_res(ptr noundef %0, i32 noundef %1, ptr no
   %109 = load ptr, ptr @mime_type, align 8
   %110 = icmp ne ptr %109, null
   %111 = icmp ne i32 %.2, 0
-  %or.cond3 = or i1 %110, %111
+  %or.cond3 = select i1 %110, i1 true, i1 %111
   br i1 %or.cond3, label %120, label %112
 
 112:                                              ; preds = %.loopexit

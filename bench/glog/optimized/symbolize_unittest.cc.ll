@@ -1967,7 +1967,7 @@ define internal fastcc noundef ptr @_ZL25SymbolizeStackConsumptionPvPi(ptr nound
   br i1 %.not12.i, label %72, label %69
 
 69:                                               ; preds = %.preheader.i
-  %70 = trunc i64 %indvars.iv.i to i32
+  %70 = trunc nuw nsw i64 %indvars.iv.i to i32
   %71 = sub nuw nsw i32 8096, %70
   br label %_ZL19GetStackConsumptionPKc.exit
 
@@ -2028,7 +2028,7 @@ _ZL19GetStackConsumptionPKc.exit:                 ; preds = %.preheader13.i, %76
   br i1 %.not12.i75, label %92, label %89
 
 89:                                               ; preds = %.preheader.i73
-  %90 = trunc i64 %indvars.iv.i74 to i32
+  %90 = trunc nuw nsw i64 %indvars.iv.i74 to i32
   %91 = sub nuw nsw i32 8096, %90
   br label %_ZL19GetStackConsumptionPKc.exit78
 
