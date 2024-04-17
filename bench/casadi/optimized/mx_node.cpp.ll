@@ -5184,7 +5184,7 @@ define void @_ZN6casadi6MXNode7set_depERKNS_2MXES3_S3_(ptr noundef nonnull align
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %4
-  %15 = xor i64 %12, 3
+  %15 = sub nuw nsw i64 3, %12
   tail call void @_ZNSt6vectorIN6casadi2MXESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %15)
   br label %_ZNSt6vectorIN6casadi2MXESaIS1_EE6resizeEm.exit
 
@@ -80107,7 +80107,7 @@ _ZN6casadi6MXNode12set_sparsityERKNS_8SparsityE.exit: ; preds = %11
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %_ZN6casadi6MXNode12set_sparsityERKNS_8SparsityE.exit
-  %22 = xor i64 %19, 3
+  %22 = sub nuw nsw i64 3, %19
   invoke void @_ZNSt6vectorIN6casadi2MXESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %22)
           to label %_ZNSt6vectorIN6casadi2MXESaIS1_EE6resizeEm.exit.i unwind label %35
 
@@ -86560,7 +86560,7 @@ _ZN6casadi6MXNode12set_sparsityERKNS_8SparsityE.exit: ; preds = %11
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %_ZN6casadi6MXNode12set_sparsityERKNS_8SparsityE.exit
-  %22 = xor i64 %19, 3
+  %22 = sub nuw nsw i64 3, %19
   invoke void @_ZNSt6vectorIN6casadi2MXESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %22)
           to label %_ZNSt6vectorIN6casadi2MXESaIS1_EE6resizeEm.exit.i unwind label %35
 

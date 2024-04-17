@@ -4864,7 +4864,7 @@ if.end36:                                         ; preds = %if.then.i.i.i39, %i
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.end36
-  %sub.i = xor i64 %sub.ptr.div.i.i, 3
+  %sub.i = sub nuw nsw i64 3, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %m_defaultLumaCoefs, i64 noundef %sub.i)
           to label %if.then.i.invoke.cont38_crit_edge unwind label %lpad21
 

@@ -2601,7 +2601,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit245:            ; preds = %._ZNSt6vectorIdSaId
   br i1 %290, label %291, label %293
 
 291:                                              ; preds = %_ZNSt6vectorIdSaIdEE6resizeEm.exit245
-  %292 = xor i64 %289, 3
+  %292 = sub nuw nsw i64 3, %289
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %282, i64 noundef %292)
           to label %._ZNSt6vectorIdSaIdEE6resizeEm.exit248_crit_edge unwind label %353
 

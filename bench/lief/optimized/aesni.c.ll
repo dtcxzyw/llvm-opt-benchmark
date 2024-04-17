@@ -47,7 +47,7 @@ define hidden void @mbedtls_aesni_gcm_mult(ptr nocapture noundef writeonly %0, p
 
 7:                                                ; preds = %3, %7
   %.012 = phi i64 [ 0, %3 ], [ %15, %7 ]
-  %8 = xor i64 %.012, 15
+  %8 = sub nuw nsw i64 15, %.012
   %9 = getelementptr inbounds i8, ptr %1, i64 %8
   %10 = load i8, ptr %9, align 1
   %11 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 %.012
@@ -66,7 +66,7 @@ define hidden void @mbedtls_aesni_gcm_mult(ptr nocapture noundef writeonly %0, p
 
 17:                                               ; preds = %16, %17
   %.113 = phi i64 [ 0, %16 ], [ %22, %17 ]
-  %18 = xor i64 %.113, 15
+  %18 = sub nuw nsw i64 15, %.113
   %19 = getelementptr inbounds [16 x i8], ptr %6, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = getelementptr inbounds i8, ptr %0, i64 %.113

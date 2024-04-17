@@ -2056,7 +2056,7 @@ invoke.cont58.i:                                  ; preds = %invoke.cont55.i
   %port_index64.i = getelementptr inbounds i8, ptr %call40.i, i64 160
   store i32 %55, ptr %port_index64.i, align 8, !noalias !29
   %56 = load i32, ptr %fd_index65.i, align 4, !noalias !29
-  %57 = trunc i64 %indvars.iv.i to i32
+  %57 = trunc nuw i64 %indvars.iv.i to i32
   %add66.i = sub i32 %conv, %57
   %sub.i = add i32 %add66.i, %56
   %fd_index67.i = getelementptr inbounds i8, ptr %call40.i, i64 164
@@ -6914,10 +6914,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %if.end22, %12
   ]
 
 if.end11.i.i:                                     ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit
-  %cmp.i.i.i = icmp sgt i64 %call.i, 0
-  %sub.i.i.i = xor i64 %call.i, 9223372036854775800
-  %cmp1.i.i.i = icmp ult i64 %sub.i.i.i, 1000
-  %or.cond = and i1 %cmp.i.i.i, %cmp1.i.i.i
+  %or.cond = icmp sgt i64 %call.i, 9223372036854774807
   %add.i.i.i = add nsw i64 %call.i, 1000
   %spec.select = select i1 %or.cond, i64 9223372036854775807, i64 %add.i.i.i
   br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit

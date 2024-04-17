@@ -7064,10 +7064,10 @@ if.then:                                          ; preds = %_ZN4cvc58internal12
           to label %call2.i.i.i56.noexc unwind label %lpad2.loopexit.split-lp
 
 call2.i.i.i56.noexc:                              ; preds = %if.then
-  %sub = xor i32 %r.0201, 1
   %cmp.i.i57 = icmp eq i32 %call2.i.i.i5676, 2
   %inc.i.i58 = zext i1 %cmp.i.i57 to i32
-  %spec.select.i.i59 = add nuw nsw i32 %sub, %inc.i.i58
+  %reass.sub202 = sub nsw i32 %inc.i.i58, %r.0201
+  %spec.select.i.i59 = add nsw i32 %reass.sub202, 1
   %d_children.i.i60 = getelementptr inbounds i8, ptr %14, i64 16
   %idxprom.i.i61 = zext nneg i32 %spec.select.i.i59 to i64
   %arrayidx.i.i62 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i60, i64 0, i64 %idxprom.i.i61
@@ -7085,11 +7085,11 @@ if.else.i.i.i67:                                  ; preds = %call2.i.i.i56.noexc
   br i1 %cmp12.i.i.i68, label %if.then13.i.i.i69.invoke, label %cleanup41
 
 if.then13.i.i.i69.invoke:                         ; preds = %if.else.i.i.i67, %if.else.i.i.i177
-  %bf.load.i.i.i173.sink211 = phi i64 [ %bf.load.i.i.i173, %if.else.i.i.i177 ], [ %bf.load.i.i.i63, %if.else.i.i.i67 ]
-  %.sink210 = phi ptr [ %61, %if.else.i.i.i177 ], [ %15, %if.else.i.i.i67 ]
-  %bf.set23.i.i.i180 = or i64 %bf.load.i.i.i173.sink211, 1152920405095219200
-  store i64 %bf.set23.i.i.i180, ptr %.sink210, align 8, !noalias !109
-  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink210)
+  %bf.load.i.i.i173.sink212 = phi i64 [ %bf.load.i.i.i173, %if.else.i.i.i177 ], [ %bf.load.i.i.i63, %if.else.i.i.i67 ]
+  %.sink211 = phi ptr [ %61, %if.else.i.i.i177 ], [ %15, %if.else.i.i.i67 ]
+  %bf.set23.i.i.i180 = or i64 %bf.load.i.i.i173.sink212, 1152920405095219200
+  store i64 %bf.set23.i.i.i180, ptr %.sink211, align 8, !noalias !109
+  invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(16) %.sink211)
           to label %cleanup41 unwind label %lpad2.loopexit.split-lp
 
 lpad:                                             ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit
@@ -7494,11 +7494,11 @@ if.else.i.i.i177:                                 ; preds = %if.end39
   br i1 %cmp12.i.i.i178, label %if.then13.i.i.i69.invoke, label %cleanup41
 
 cleanup41.sink.split:                             ; preds = %if.end39, %call2.i.i.i56.noexc
-  %bf.load.i.i.i173.sink209 = phi i64 [ %bf.load.i.i.i63, %call2.i.i.i56.noexc ], [ %bf.load.i.i.i173, %if.end39 ]
+  %bf.load.i.i.i173.sink210 = phi i64 [ %bf.load.i.i.i63, %call2.i.i.i56.noexc ], [ %bf.load.i.i.i173, %if.end39 ]
   %.sink = phi ptr [ %15, %call2.i.i.i56.noexc ], [ %61, %if.end39 ]
-  %bf.value.i.i.i182 = add i64 %bf.load.i.i.i173.sink209, 1099511627776
+  %bf.value.i.i.i182 = add i64 %bf.load.i.i.i173.sink210, 1099511627776
   %bf.shl.i.i.i183 = and i64 %bf.value.i.i.i182, 1152920405095219200
-  %bf.clear7.i.i.i184 = and i64 %bf.load.i.i.i173.sink209, -1152920405095219201
+  %bf.clear7.i.i.i184 = and i64 %bf.load.i.i.i173.sink210, -1152920405095219201
   %bf.set.i.i.i185 = or disjoint i64 %bf.shl.i.i.i183, %bf.clear7.i.i.i184
   store i64 %bf.set.i.i.i185, ptr %.sink, align 8, !noalias !109
   br label %cleanup41

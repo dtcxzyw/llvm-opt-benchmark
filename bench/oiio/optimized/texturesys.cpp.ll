@@ -13056,7 +13056,7 @@ for.body:                                         ; preds = %_ZN18OpenImageIO_v2
   %sub = add nsw i32 %j.0125, -128
   %conv45 = sitofp i32 %sub to float
   %div46 = fdiv float %conv45, 1.000000e+02
-  %sub64 = xor i32 %j.0125, 255
+  %sub64 = sub nuw nsw i32 255, %j.0125
   br label %for.body49
 
 for.body49:                                       ; preds = %for.body, %for.inc

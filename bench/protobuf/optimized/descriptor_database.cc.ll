@@ -8383,7 +8383,7 @@ if.then7:                                         ; preds = %if.then
   br i1 %cmp14, label %if.then15, label %if.end53
 
 if.then15:                                        ; preds = %if.then7
-  %sub18 = xor i8 %5, 7
+  %sub18 = sub nuw nsw i8 7, %5
   %6 = load i32, ptr %position_, align 4
   %conv20 = and i32 %6, 255
   %cmp21 = icmp ult i32 %conv20, 7
@@ -8432,7 +8432,7 @@ if.then59:                                        ; preds = %if.end53
   br i1 %cmp67, label %if.then68, label %if.end108
 
 if.then68:                                        ; preds = %if.then59
-  %sub72 = xor i8 %12, 7
+  %sub72 = sub nuw nsw i8 7, %12
   %13 = load i32, ptr %position_, align 4
   %cmp75 = icmp sgt i32 %13, 0
   %14 = zext i1 %cmp75 to i8

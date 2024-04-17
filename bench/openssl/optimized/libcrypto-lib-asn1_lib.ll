@@ -280,13 +280,13 @@ entry:
 if.then:                                          ; preds = %entry
   %and1 = and i32 %tag, 31
   %or2 = or disjoint i32 %or, %and1
-  %conv = trunc i32 %or2 to i8
+  %conv = trunc nuw i32 %or2 to i8
   %incdec.ptr = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %conv, ptr %0, align 1
   br label %if.end21
 
 if.else:                                          ; preds = %entry
-  %1 = trunc i32 %or to i8
+  %1 = trunc nuw i32 %or to i8
   %conv4 = or disjoint i8 %1, 31
   store i8 %conv4, ptr %0, align 1
   br label %for.body
@@ -319,7 +319,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %shr20 = lshr i32 %tag.addr.026, 7
   %indvars.iv.next30 = add nsw i64 %indvars.iv29, -1
   %3 = icmp sgt i64 %indvars.iv29, 0
-  %4 = trunc i64 %indvars.iv29 to i32
+  %4 = trunc nuw i64 %indvars.iv29 to i32
   br i1 %3, label %while.body, label %while.end, !llvm.loop !9
 
 while.end:                                        ; preds = %while.body
@@ -441,7 +441,7 @@ while.body12:                                     ; preds = %if.else, %while.bod
 
 if.end17:                                         ; preds = %while.body12, %if.else, %if.then6
   %ret.3 = phi i32 [ %add, %if.then6 ], [ %inc7, %if.else ], [ %inc14, %while.body12 ]
-  %sub = xor i32 %length, 2147483647
+  %sub = sub nuw nsw i32 2147483647, %length
   %cmp18.not = icmp slt i32 %ret.3, %sub
   %add21 = add nsw i32 %ret.3, %length
   %spec.select = select i1 %cmp18.not, i32 %add21, i32 -1
@@ -557,7 +557,7 @@ if.then21:                                        ; preds = %if.then14
 
 if.end24:                                         ; preds = %if.then14, %lor.lhs.false
   %3 = phi ptr [ %call16, %if.then14 ], [ %1, %lor.lhs.false ]
-  %conv25 = trunc i64 %len.0 to i32
+  %conv25 = trunc nuw nsw i64 %len.0 to i32
   store i32 %conv25, ptr %str, align 8
   %cmp27.not = icmp eq ptr %_data, null
   br i1 %cmp27.not, label %return, label %if.then29

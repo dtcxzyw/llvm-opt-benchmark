@@ -39107,9 +39107,8 @@ if.end89:                                         ; preds = %_ZN3fmt2v96detail6b
 
 if.then92:                                        ; preds = %if.end89
   %170 = load i32, ptr %exp10, align 4
-  %add93 = add nsw i32 %170, 1
   %cmp.i597 = icmp sgt i32 %170, -1
-  %sub.i598 = xor i32 %add93, 2147483647
+  %sub.i598 = sub nsw i32 2147483646, %170
   %cmp1.i = icmp slt i32 %sub.i598, %num_digits
   %or.cond.i599 = select i1 %cmp.i597, i1 %cmp1.i, i1 false
   br i1 %or.cond.i599, label %if.then.i, label %_ZN3fmt2v96detail16adjust_precisionERii.exit
@@ -39134,7 +39133,8 @@ lpad.i:                                           ; preds = %if.then.i
   br label %lpad6.body
 
 _ZN3fmt2v96detail16adjust_precisionERii.exit:     ; preds = %if.then92
-  %add.i601 = add nsw i32 %add93, %num_digits
+  %add93 = add i32 %num_digits, 1
+  %add.i601 = add i32 %add93, %170
   br label %if.end96
 
 if.end96:                                         ; preds = %_ZN3fmt2v96detail16adjust_precisionERii.exit, %if.end89, %if.end62
@@ -53452,9 +53452,9 @@ _ZN3fmt2v96detail9normalizeILi0EyEENS1_8basic_fpIT0_EES5_.exit: ; preds = %if.el
 if.then.i:                                        ; preds = %_ZN3fmt2v96detail9normalizeILi0EyEENS1_8basic_fpIT0_EES5_.exit
   %add.i = add nsw i32 %sub46, %conv1.i.i93
   %cmp.i94 = icmp sgt i32 %add.i, 0
-  %sub.i96 = xor i32 %add.i, 2147483647
-  %cmp1.i = icmp slt i32 %sub.i96, %precision
-  %or.cond.i = and i1 %cmp.i94, %cmp1.i
+  %sub.i96 = sub nuw nsw i32 2147483647, %add.i
+  %cmp1.i = icmp ult i32 %sub.i96, %precision
+  %or.cond.i = select i1 %cmp.i94, i1 %cmp1.i, i1 false
   br i1 %or.cond.i, label %if.then.i99, label %_ZN3fmt2v96detail16adjust_precisionERii.exit
 
 if.then.i99:                                      ; preds = %if.then.i

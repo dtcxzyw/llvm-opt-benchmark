@@ -1017,12 +1017,12 @@ if.then.i.i2.i260:                                ; preds = %cond.false.i251
   unreachable
 
 _ZN4absl14flags_internal8BasenameESt17basic_string_viewIcSt11char_traitsIcEE.exit263: ; preds = %cond.false.i251
-  %sub.i.i254 = xor i64 %__size.1.i.i.in.i248, 15
+  %sub.i.i254 = sub nuw nsw i64 15, %__size.1.i.i.in.i248
   %add.ptr.i.i255 = getelementptr inbounds i8, ptr @.str.19, i64 %__size.1.i.i.in.i248
   store i64 %sub.i.i254, ptr %ref.tmp102, align 8
   %64 = getelementptr inbounds i8, ptr %ref.tmp102, i64 8
   store ptr %add.ptr.i.i255, ptr %64, align 8
-  %cmp.i.i.i268 = icmp eq i64 %sub.i.i254, 4
+  %cmp.i.i.i268 = icmp eq i64 %__size.1.i.i.in.i248, 11
   br i1 %cmp.i.i.i268, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i272, label %if.end.i.i269
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i272: ; preds = %_ZN4absl14flags_internal8BasenameESt17basic_string_viewIcSt11char_traitsIcEE.exit263

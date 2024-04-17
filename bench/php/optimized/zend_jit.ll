@@ -63163,7 +63163,7 @@ define internal fastcc i32 @zend_may_overflow(ptr noundef readonly %0, ptr nocap
   %.0864.in = phi ptr [ %281, %280 ], [ %266, %265 ]
   %.0864 = load i64, ptr %.0864.in, align 8
   %283 = icmp sgt i64 %.0864, 0
-  %284 = xor i64 %.0864, 9223372036854775807
+  %284 = sub nuw nsw i64 9223372036854775807, %.0864
   %285 = icmp sgt i64 %.0879, %284
   %or.cond = select i1 %283, i1 %285, i1 false
   br i1 %or.cond, label %.critedge1131, label %.thread1170
@@ -63415,7 +63415,7 @@ define internal fastcc i32 @zend_may_overflow(ptr noundef readonly %0, ptr nocap
 431:                                              ; preds = %.sink.split1232, %413, %422, %418
   %.0 = phi i64 [ 9223372036854775807, %418 ], [ 9223372036854775807, %422 ], [ 9223372036854775807, %413 ], [ %430, %.sink.split1232 ]
   %432 = icmp sgt i64 %.0, 0
-  %433 = xor i64 %.0, 9223372036854775807
+  %433 = sub nuw nsw i64 9223372036854775807, %.0
   %434 = icmp sgt i64 %.0885, %433
   %or.cond1138 = select i1 %432, i1 %434, i1 false
   br i1 %or.cond1138, label %.critedge1131, label %435
@@ -64200,7 +64200,7 @@ define internal fastcc i32 @zend_may_overflow(ptr noundef readonly %0, ptr nocap
   %.0866.in = phi ptr [ %914, %913 ], [ %899, %898 ]
   %.0866 = load i64, ptr %.0866.in, align 8
   %916 = icmp sgt i64 %.0866, 0
-  %917 = xor i64 %.0866, 9223372036854775807
+  %917 = sub nuw nsw i64 9223372036854775807, %.0866
   %918 = icmp sgt i64 %.0881, %917
   %or.cond1150 = select i1 %916, i1 %918, i1 false
   br i1 %or.cond1150, label %.critedge1131, label %.thread1182
@@ -64452,7 +64452,7 @@ define internal fastcc i32 @zend_may_overflow(ptr noundef readonly %0, ptr nocap
 1064:                                             ; preds = %.sink.split1244, %1046, %1055, %1051
   %.0861 = phi i64 [ 9223372036854775807, %1051 ], [ 9223372036854775807, %1055 ], [ 9223372036854775807, %1046 ], [ %1063, %.sink.split1244 ]
   %1065 = icmp sgt i64 %.0861, 0
-  %1066 = xor i64 %.0861, 9223372036854775807
+  %1066 = sub nuw nsw i64 9223372036854775807, %.0861
   %1067 = icmp sgt i64 %.0887, %1066
   %or.cond1154 = select i1 %1065, i1 %1067, i1 false
   br i1 %or.cond1154, label %.critedge1131, label %1068

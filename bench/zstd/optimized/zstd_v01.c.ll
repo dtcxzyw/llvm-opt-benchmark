@@ -353,7 +353,7 @@ if.end6.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i.i
   br i1 %or.cond181.i.i, label %FSE_buildDTable.exit.thread.i.i.i.i.i, label %if.end8.i.i.i.i.i.i
 
 if.end8.i.i.i.i.i.i:                              ; preds = %if.end6.i.i.i.i.i
-  %conv9.i.i.i.i.i.i = trunc i32 %17 to i16
+  %conv9.i.i.i.i.i.i = trunc nuw nsw i32 %17 to i16
   store i16 %conv9.i.i.i.i.i.i, ptr %dt.i.i.i.i.i, align 16
   %sext.i.i.i.i.i.i = shl nuw nsw i32 32768, %17
   %conv26.i.i.i.i.i.i = lshr exact i32 %sext.i.i.i.i.i.i, 16
@@ -455,7 +455,7 @@ for.body69.i.i.i.i.i.i:                           ; preds = %for.body69.i.i.i.i.
   %24 = tail call i32 @llvm.ctlz.i32(i32 %conv77.i.i.i.i.i.i, i1 true), !range !10
   %xor.i.i.i.i.i.i.i = xor i32 %24, 31
   %sub79.i.i.i.i.i.i = sub nsw i32 %17, %xor.i.i.i.i.i.i.i
-  %conv80.i.i.i.i.i.i = trunc i32 %sub79.i.i.i.i.i.i to i8
+  %conv80.i.i.i.i.i.i = trunc nsw i32 %sub79.i.i.i.i.i.i to i8
   %nbBits.i.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx72.i.i.i.i.i.i, i64 3
   store i8 %conv80.i.i.i.i.i.i, ptr %nbBits.i.i.i.i.i.i, align 1
   %conv87.i.i.i.i.i.i = and i32 %sub79.i.i.i.i.i.i, 255
@@ -567,7 +567,7 @@ sw.epilog.i.i.i.i.i.i.i:                          ; preds = %sw.bb50.i.i.i.i.i.i
 FSE_initDStream.exit.thread877.i.i.i.i.i.i:       ; preds = %sw.epilog.i.i.i.i.i.i.i
   %conv59.i.i.i.i.i.i.i = zext i8 %39 to i32
   %40 = tail call i32 @llvm.ctlz.i32(i32 %conv59.i.i.i.i.i.i.i, i1 true), !range !12
-  %41 = trunc i64 %sub.i.i.i.i.i to i32
+  %41 = trunc nuw i64 %sub.i.i.i.i.i to i32
   %42 = shl nuw nsw i32 %41, 3
   %reass.sub = sub nsw i32 %40, %42
   %add70.i.i.i.i.i.i.i = add nsw i32 %reass.sub, 41
@@ -593,8 +593,8 @@ if.end.i22.i.i.i.i.i.i:                           ; preds = %FSE_initDStream.exi
   %sh_prom.i.i.i.i.i.i.i.i.i = zext nneg i32 %and.i.i.i.i.i.i.i.i.i to i64
   %shl.i.i.i.i.i.i.i.i.i = shl i64 %bitD.i13.sroa.0.1885.i.i.i.i.i.i, %sh_prom.i.i.i.i.i.i.i.i.i
   %shr.i.i.i.i.i.i.i.i.i = lshr i64 %shl.i.i.i.i.i.i.i.i.i, 1
-  %and1.i.i.i.i.i.i.i.i.i = xor i32 %17, 63
-  %sh_prom2.i.i.i.i.i.i.i.i.i = zext nneg i32 %and1.i.i.i.i.i.i.i.i.i to i64
+  %sub.i.i.i.i.i.i.i.i.i = sub nuw nsw i32 63, %17
+  %sh_prom2.i.i.i.i.i.i.i.i.i = zext nneg i32 %sub.i.i.i.i.i.i.i.i.i to i64
   %shr3.i.i.i.i.i.i.i.i.i = lshr i64 %shr.i.i.i.i.i.i.i.i.i, %sh_prom2.i.i.i.i.i.i.i.i.i
   %add.i.i.i.i.i.i.i.i.i = add nuw nsw i32 %bitD.i13.sroa.24.0886.i.i.i.i.i.i, %17
   %cmp.i.i.i.i.i.i.i.i = icmp ugt i32 %add.i.i.i.i.i.i.i.i.i, 64
@@ -1077,7 +1077,7 @@ sw.epilog.i355.i.i.i.i.i.i:                       ; preds = %sw.bb50.i350.i.i.i.
 FSE_initDStream.exit400.thread916.i.i.i.i.i.i:    ; preds = %sw.epilog.i355.i.i.i.i.i.i
   %conv59.i359.i.i.i.i.i.i = zext i8 %64 to i32
   %65 = tail call i32 @llvm.ctlz.i32(i32 %conv59.i359.i.i.i.i.i.i, i1 true), !range !12
-  %66 = trunc i64 %sub.i.i.i.i.i to i32
+  %66 = trunc nuw i64 %sub.i.i.i.i.i to i32
   %67 = shl nuw nsw i32 %66, 3
   %reass.sub128 = sub nsw i32 %65, %67
   %add70.i361.i.i.i.i.i.i = add nsw i32 %reass.sub128, 41
@@ -1103,8 +1103,8 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %FSE_initDStream.exi
   %sh_prom.i.i.i407.i.i.i.i.i.i = zext nneg i32 %and.i.i.i406.i.i.i.i.i.i to i64
   %shl.i.i.i408.i.i.i.i.i.i = shl i64 %bitD.i.sroa.0.1926.i.i.i.i.i.i, %sh_prom.i.i.i407.i.i.i.i.i.i
   %shr.i.i.i409.i.i.i.i.i.i = lshr i64 %shl.i.i.i408.i.i.i.i.i.i, 1
-  %and1.i.i.i411.i.i.i.i.i.i = xor i32 %17, 63
-  %sh_prom2.i.i.i412.i.i.i.i.i.i = zext nneg i32 %and1.i.i.i411.i.i.i.i.i.i to i64
+  %sub.i.i.i410.i.i.i.i.i.i = sub nuw nsw i32 63, %17
+  %sh_prom2.i.i.i412.i.i.i.i.i.i = zext nneg i32 %sub.i.i.i410.i.i.i.i.i.i to i64
   %shr3.i.i.i413.i.i.i.i.i.i = lshr i64 %shr.i.i.i409.i.i.i.i.i.i, %sh_prom2.i.i.i412.i.i.i.i.i.i
   %add.i.i.i414.i.i.i.i.i.i = add nuw nsw i32 %bitD.i.sroa.24.0925.i.i.i.i.i.i, %17
   %cmp.i.i415.i.i.i.i.i.i = icmp ugt i32 %add.i.i.i414.i.i.i.i.i.i, 64
@@ -1571,7 +1571,7 @@ if.end75.i.i.i.i:                                 ; preds = %for.end71.i.i.i.i
 if.end83.i.i.i.i:                                 ; preds = %if.end75.i.i.i.i
   %add77.i.neg.i.i.i = or disjoint i32 %77, 32
   %add77.i.i.i.i = sub nuw nsw i32 32, %77
-  %conv84.i.i.i.i = trunc i32 %add77.i.i.i.i to i16
+  %conv84.i.i.i.i = trunc nuw nsw i32 %add77.i.i.i.i to i16
   store i16 %conv84.i.i.i.i, ptr %DTable.i.i.i, align 16
   %shl86.i.i.i.i = shl nuw nsw i32 1, %add77.i.i.i.i
   %sub87.i.i.i.i = sub nsw i32 %shl86.i.i.i.i, %add68.i.i.i.i
@@ -1583,7 +1583,7 @@ if.end83.i.i.i.i:                                 ; preds = %if.end75.i.i.i.i
 
 if.end95.i.i.i.i:                                 ; preds = %if.end83.i.i.i.i
   %add91.i.i.i.i = sub nuw nsw i32 32, %78
-  %conv96.i.i.i.i = trunc i32 %add91.i.i.i.i to i8
+  %conv96.i.i.i.i = trunc nuw nsw i32 %add91.i.i.i.i to i8
   %arrayidx97.i.i.i.i = getelementptr inbounds [256 x i8], ptr %huffWeight.i.i.i.i, i64 0, i64 %oSize.0.i.i.i.i
   store i8 %conv96.i.i.i.i, ptr %arrayidx97.i.i.i.i, align 1
   %idxprom98.i.i.i.i = zext nneg i32 %add91.i.i.i.i to i64
@@ -1605,7 +1605,7 @@ for.body112.preheader.i.i.i.i:                    ; preds = %if.end95.i.i.i.i
   br label %for.body112.i.i.i.i
 
 for.cond123.preheader.i.i.i.i:                    ; preds = %for.body112.i.i.i.i
-  %82 = trunc i32 %77 to i8
+  %82 = trunc nuw nsw i32 %77 to i8
   br label %for.body127.i.i.i.i
 
 for.body112.i.i.i.i:                              ; preds = %for.body112.i.i.i.i, %for.body112.preheader.i.i.i.i
@@ -1831,7 +1831,7 @@ if.then2.i135.i.i.i.i:                            ; preds = %if.end.i91.i.i.i.i
 
 if.end8.i142.i.i.i.i:                             ; preds = %if.then2.i135.i.i.i.i
   %110 = lshr i64 %add.ptr3.val.i139.i.i.i.i, 56
-  %111 = trunc i64 %110 to i32
+  %111 = trunc nuw nsw i64 %110 to i32
   %112 = tail call i32 @llvm.ctlz.i32(i32 %111, i1 true), !range !12
   %xor.i73.i144.i.i.i.i = xor i32 %112, 31
   %sub10.i145.i.i.i.i = sub nuw nsw i32 8, %xor.i73.i144.i.i.i.i
@@ -2754,7 +2754,7 @@ if.end43.i.i:                                     ; preds = %if.end39.i.i
   br i1 %cmp.i215.i, label %FSE_buildDTable.exit.i, label %if.end8.i218.i
 
 if.end8.i218.i:                                   ; preds = %if.end43.i.i
-  %conv9.i.i = trunc i32 %197 to i16
+  %conv9.i.i = trunc nuw nsw i32 %197 to i16
   store i16 %conv9.i.i, ptr %ctx, align 2
   %sext.i.i = shl nuw nsw i32 32768, %197
   %conv26.i.i = lshr exact i32 %sext.i.i, 16
@@ -2856,7 +2856,7 @@ for.body69.i.i:                                   ; preds = %for.body69.i.i, %fo
   %205 = tail call i32 @llvm.ctlz.i32(i32 %conv77.i.i, i1 true), !range !10
   %xor.i.i.i = xor i32 %205, 31
   %sub79.i.i = sub nsw i32 %197, %xor.i.i.i
-  %conv80.i.i = trunc i32 %sub79.i.i to i8
+  %conv80.i.i = trunc nsw i32 %sub79.i.i to i8
   %nbBits.i.i = getelementptr inbounds i8, ptr %arrayidx72.i.i, i64 3
   store i8 %conv80.i.i, ptr %nbBits.i.i, align 1
   %conv87.i.i = and i32 %sub79.i.i, 255
@@ -3130,7 +3130,7 @@ sw.epilog.i37.i:                                  ; preds = %sw.bb50.i.i, %if.el
 FSE_initDStream.exit.thread264.i:                 ; preds = %sw.epilog.i37.i
   %conv59.i.i = zext i8 %226 to i32
   %227 = tail call i32 @llvm.ctlz.i32(i32 %conv59.i.i, i1 true), !range !12
-  %228 = trunc i64 %sub.ptr.sub12.i to i32
+  %228 = trunc nuw i64 %sub.ptr.sub12.i to i32
   %229 = shl nuw nsw i32 %228, 3
   %reass.sub132 = sub nsw i32 %227, %229
   %add70.i.i = add nsw i32 %reass.sub132, 41
@@ -4399,7 +4399,7 @@ entry:
   br i1 %or.cond, label %return, label %if.end8
 
 if.end8:                                          ; preds = %entry
-  %conv9 = trunc i32 %tableLog to i16
+  %conv9 = trunc nuw nsw i32 %tableLog to i16
   store i16 %conv9, ptr %dt, align 2
   %sext = shl nuw nsw i32 32768, %tableLog
   %conv26 = lshr exact i32 %sext, 16
@@ -4502,7 +4502,7 @@ for.body69:                                       ; preds = %for.body69.preheade
   %7 = tail call i32 @llvm.ctlz.i32(i32 %conv77, i1 true), !range !10
   %xor.i = xor i32 %7, 31
   %sub79 = sub nsw i32 %tableLog, %xor.i
-  %conv80 = trunc i32 %sub79 to i8
+  %conv80 = trunc nsw i32 %sub79 to i8
   %nbBits = getelementptr inbounds i8, ptr %arrayidx72, i64 3
   store i8 %conv80, ptr %nbBits, align 1
   %conv87 = and i32 %sub79, 255
@@ -4641,7 +4641,7 @@ if.end63:                                         ; preds = %sw.epilog
   %conv59 = zext i8 %15 to i32
   %16 = tail call i32 @llvm.ctlz.i32(i32 %conv59, i1 true), !range !12
   %bitsConsumed66 = getelementptr inbounds i8, ptr %bitD, i64 8
-  %17 = trunc i64 %srcSize to i32
+  %17 = trunc nuw i64 %srcSize to i32
   %18 = shl nuw nsw i32 %17, 3
   %19 = sub nsw i32 %16, %18
   %add70 = add nsw i32 %19, 41

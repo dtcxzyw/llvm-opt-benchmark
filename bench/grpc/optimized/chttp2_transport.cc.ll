@@ -34700,7 +34700,7 @@ if.end11.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   br i1 %cmp.i.i.i17.i.i, label %if.then.i.i.i18.i.i, label %if.else.i.i.i.i.i
 
 if.then.i.i.i18.i.i:                              ; preds = %if.end11.i.i.i.i
-  %sub.i.i.i.i.i = xor i64 %call30.i1.i, 9223372036854775807
+  %sub.i.i.i.i.i = sub nuw nsw i64 9223372036854775807, %call30.i1.i
   %cmp1.i.i.i.i.i = icmp slt i64 %sub.i.i.i.i.i, %sub.i.i.i
   br i1 %cmp1.i.i.i.i.i, label %_ZN9grpc_coremiENS_9TimestampES0_.exit.i.i, label %if.end7.i.i.i.i.i
 

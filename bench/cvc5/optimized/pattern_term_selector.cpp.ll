@@ -2179,10 +2179,10 @@ invoke.cont:                                      ; preds = %if.else.i.i.i15, %i
           to label %call2.i.i.i.noexc50 unwind label %lpad6
 
 call2.i.i.i.noexc50:                              ; preds = %invoke.cont
-  %conv5 = xor i64 %i.0238, 1
   %cmp.i.i31 = icmp eq i32 %call2.i.i.i51, 2
   %inc.i.i32 = zext i1 %cmp.i.i31 to i64
-  %spec.select.i.i33 = add nuw nsw i64 %conv5, %inc.i.i32
+  %reass.sub239 = sub nsw i64 %inc.i.i32, %i.0238
+  %spec.select.i.i33 = add nsw i64 %reass.sub239, 1
   %d_children.i.i34 = getelementptr inbounds i8, ptr %9, i64 16
   %arrayidx.i.i36 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i34, i64 0, i64 %spec.select.i.i33
   %10 = load ptr, ptr %arrayidx.i.i36, align 8, !noalias !34
@@ -2298,11 +2298,11 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit83: ; preds = %_ZN4cvc58internal12
   br i1 %call10, label %if.then12, label %for.inc
 
 if.then12:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit83
-  %.pre246 = load ptr, ptr %n, align 8
+  %.pre247 = load ptr, ptr %n, align 8
   br i1 %cmp13, label %land.lhs.true14, label %if.else
 
 land.lhs.true14:                                  ; preds = %if.then12
-  %d_kind.i84 = getelementptr inbounds i8, ptr %.pre246, i64 8
+  %d_kind.i84 = getelementptr inbounds i8, ptr %.pre247, i64 8
   %bf.load.i85 = load i16, ptr %d_kind.i84, align 8
   %bf.clear.i86 = and i16 %bf.load.i85, 1023
   %cmp16 = icmp eq i16 %bf.clear.i86, 5
@@ -2312,7 +2312,7 @@ land.rhs:                                         ; preds = %land.lhs.true14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   %call2.i.i.i = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 5), !noalias !37
   %cmp.i.i94 = icmp eq i32 %call2.i.i.i, 2
-  %d_children.i.i96 = getelementptr inbounds i8, ptr %.pre246, i64 16
+  %d_children.i.i96 = getelementptr inbounds i8, ptr %.pre247, i64 16
   %idxprom.i.i97 = zext i1 %cmp.i.i94 to i64
   %arrayidx.i.i98 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i96, i64 0, i64 %idxprom.i.i97
   %21 = load ptr, ptr %arrayidx.i.i98, align 8, !noalias !37
@@ -2605,7 +2605,7 @@ lpad36.body:                                      ; preds = %ehcleanup10.i, %lpa
   br label %eh.resume
 
 if.else:                                          ; preds = %cleanup.done.if.else_crit_edge, %land.lhs.true14, %if.then12
-  %48 = phi ptr [ %.pre, %cleanup.done.if.else_crit_edge ], [ %.pre246, %land.lhs.true14 ], [ %.pre246, %if.then12 ]
+  %48 = phi ptr [ %.pre, %cleanup.done.if.else_crit_edge ], [ %.pre247, %land.lhs.true14 ], [ %.pre247, %if.then12 ]
   store ptr %48, ptr %agg.result, align 8
   %bf.load.i.i202 = load i64, ptr %48, align 8
   %bf.lshr.i.i203 = lshr i64 %bf.load.i.i202, 40

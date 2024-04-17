@@ -129265,7 +129265,7 @@ _ZN5Eigen8internalL19tridiagonal_qr_stepILi0EfflEEvPT0_S3_T2_S4_PT1_S4_.exit: ; 
   %.sroa.0.1.i.i.us = select i1 %182, i64 %.02123.i.i.i.i.us, i64 %.sroa.0.0.i.i.us
   %183 = select i1 %182, float %181, float %179
   %184 = add nuw nsw i64 %.02123.i.i.i.i.us, 1
-  %185 = xor i64 %184, %.0100.us
+  %185 = xor i64 %.0100.us, %184
   %exitcond.not.i.i.us = icmp eq i64 %185, 3
   br i1 %exitcond.not.i.i.us, label %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEEE8minCoeffIlEEfPT_.exit.us, label %.lr.ph.i.i.i.i77.us, !llvm.loop !1007
 
@@ -129315,7 +129315,7 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEE
   %.sroa.0.1.i.i = select i1 %207, i64 %.02123.i.i.i.i, i64 %.sroa.0.0.i.i
   %208 = select i1 %207, float %206, float %204
   %209 = add nuw nsw i64 %.02123.i.i.i.i, 1
-  %210 = xor i64 %209, %.0100
+  %210 = xor i64 %.0100, %209
   %exitcond.not.i.i = icmp eq i64 %210, 3
   br i1 %exitcond.not.i.i, label %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEEE8minCoeffIlEEfPT_.exit, label %.lr.ph.i.i.i.i77, !llvm.loop !1007
 
@@ -130098,7 +130098,7 @@ define linkonce_odr noundef i32 @_ZN5Eigen8internal27computeFromTridiagonal_impl
   %.sroa.0.1.i.i.us = select i1 %41, i64 %.02123.i.i.i.i.us, i64 %.sroa.0.0.i.i.us
   %42 = select i1 %41, double %40, double %38
   %43 = add nuw nsw i64 %.02123.i.i.i.i.us, 1
-  %44 = xor i64 %43, %.098.us
+  %44 = xor i64 %.098.us, %43
   %exitcond.not.i.i.us = icmp eq i64 %44, 3
   br i1 %exitcond.not.i.i.us, label %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEEE8minCoeffIlEEdPT_.exit.us, label %.lr.ph.i.i.i.i.us, !llvm.loop !1014
 
@@ -130148,7 +130148,7 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEE
   %.sroa.0.1.i.i = select i1 %66, i64 %.02123.i.i.i.i, i64 %.sroa.0.0.i.i
   %67 = select i1 %66, double %65, double %63
   %68 = add nuw nsw i64 %.02123.i.i.i.i, 1
-  %69 = xor i64 %68, %.098
+  %69 = xor i64 %.098, %68
   %exitcond.not.i.i = icmp eq i64 %69, 3
   br i1 %exitcond.not.i.i, label %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEEE8minCoeffIlEEdPT_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !1014
 

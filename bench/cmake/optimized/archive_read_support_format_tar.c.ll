@@ -4378,7 +4378,7 @@ gnu_clear_sparse_list.exit:                       ; preds = %.lr.ph.i, %3
   %.sink.i = select i1 %.not.i35, ptr %5, ptr %27
   store ptr %23, ptr %.sink.i, align 8
   store ptr %23, ptr %10, align 8
-  %28 = xor i64 %20, 9223372036854775807
+  %28 = sub nuw nsw i64 9223372036854775807, %20
   %29 = icmp ult i64 %28, %17
   br i1 %29, label %30, label %gnu_add_sparse_entry.exit
 

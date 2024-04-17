@@ -64,7 +64,7 @@ define dso_local void @rhash_byte_to_base32(ptr nocapture noundef writeonly %0, 
 10:                                               ; preds = %8
   %11 = load i8, ptr %.03039, align 1
   %12 = lshr i32 255, %.02840
-  %13 = trunc i32 %12 to i8
+  %13 = trunc nuw i32 %12 to i8
   %14 = and i8 %11, %13
   %15 = add nuw nsw i32 %.02840, 5
   %16 = and i32 %15, 7
@@ -92,9 +92,9 @@ define dso_local void @rhash_byte_to_base32(ptr nocapture noundef writeonly %0, 
   %30 = and i32 %29, 7
   %31 = load i8, ptr %.03039, align 1
   %32 = zext i8 %31 to i32
-  %33 = xor i32 %.02840, 3
+  %33 = sub nuw nsw i32 3, %.02840
   %34 = lshr i32 %32, %33
-  %35 = trunc i32 %34 to i8
+  %35 = trunc nuw i32 %34 to i8
   %36 = and i8 %35, 31
   %37 = icmp eq i32 %30, 0
   %spec.select.idx = zext i1 %37 to i64
@@ -135,7 +135,7 @@ define dso_local void @rhash_byte_to_base64(ptr nocapture noundef writeonly %0, 
 7:                                                ; preds = %.lr.ph
   %8 = load i8, ptr %.03543, align 1
   %9 = lshr i32 255, %.03344
-  %10 = trunc i32 %9 to i8
+  %10 = trunc nuw i32 %9 to i8
   %11 = and i8 %8, %10
   %12 = add nuw nsw i32 %.03344, 6
   %13 = and i32 %12, 7
@@ -165,7 +165,7 @@ define dso_local void @rhash_byte_to_base64(ptr nocapture noundef writeonly %0, 
   %29 = zext i8 %28 to i32
   %30 = sub nuw nsw i32 2, %.03344
   %31 = lshr i32 %29, %30
-  %32 = trunc i32 %31 to i8
+  %32 = trunc nuw i32 %31 to i8
   %33 = and i8 %32, 63
   %34 = icmp eq i32 %27, 0
   %spec.select.idx = zext i1 %34 to i64
@@ -259,7 +259,7 @@ define dso_local i64 @rhash_base64_url_encoded_helper(ptr noundef %0, ptr nounde
 12:                                               ; preds = %.lr.ph.i
   %13 = load i8, ptr %.03543.i, align 1
   %14 = lshr i32 255, %.03344.i
-  %15 = trunc i32 %14 to i8
+  %15 = trunc nuw i32 %14 to i8
   %16 = and i8 %13, %15
   %17 = add nuw nsw i32 %.03344.i, 6
   %18 = and i32 %17, 7
@@ -289,7 +289,7 @@ define dso_local i64 @rhash_base64_url_encoded_helper(ptr noundef %0, ptr nounde
   %34 = zext i8 %33 to i32
   %35 = sub nuw nsw i32 2, %.03344.i
   %36 = lshr i32 %34, %35
-  %37 = trunc i32 %36 to i8
+  %37 = trunc nuw i32 %36 to i8
   %38 = and i8 %37, 63
   %39 = icmp eq i32 %32, 0
   %spec.select.idx.i = zext i1 %39 to i64
@@ -463,7 +463,7 @@ rhash_urlencode.exit:                             ; preds = %77, %._crit_edge.i2
 116:                                              ; preds = %.lr.ph.i31
   %117 = load i8, ptr %.03543.i34, align 1
   %118 = lshr i32 255, %.03344.i33
-  %119 = trunc i32 %118 to i8
+  %119 = trunc nuw i32 %118 to i8
   %120 = and i8 %117, %119
   %121 = add nuw nsw i32 %.03344.i33, 6
   %122 = and i32 %121, 7
@@ -493,7 +493,7 @@ rhash_urlencode.exit:                             ; preds = %77, %._crit_edge.i2
   %138 = zext i8 %137 to i32
   %139 = sub nuw nsw i32 2, %.03344.i33
   %140 = lshr i32 %138, %139
-  %141 = trunc i32 %140 to i8
+  %141 = trunc nuw i32 %140 to i8
   %142 = and i8 %141, 63
   %143 = icmp eq i32 %136, 0
   %spec.select.idx.i35 = zext i1 %143 to i64
@@ -701,7 +701,7 @@ define dso_local i32 @rhash_sprintI64(ptr noundef writeonly %0, i64 noundef %1) 
   %.01929 = phi ptr [ %17, %.preheader26 ], [ %10, %9 ]
   %.12128 = phi i64 [ %18, %.preheader26 ], [ %1, %9 ]
   %14 = urem i64 %.12128, 10
-  %15 = trunc i64 %14 to i8
+  %15 = trunc nuw nsw i64 %14 to i8
   %16 = or disjoint i8 %15, 48
   %17 = getelementptr inbounds i8, ptr %.01929, i64 -1
   store i8 %16, ptr %17, align 1

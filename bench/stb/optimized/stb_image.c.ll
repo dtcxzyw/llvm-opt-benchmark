@@ -452,12 +452,12 @@ entry:
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @stbi__addsizes_valid(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
+define i32 @stbi__addsizes_valid(i32 noundef %a, i32 noundef %b) local_unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %b, -1
-  %sub = xor i32 %b, 2147483647
+  %sub = sub nuw nsw i32 2147483647, %b
   %cmp1 = icmp sge i32 %sub, %a
-  %narrow = and i1 %cmp, %cmp1
+  %narrow = select i1 %cmp, i1 %cmp1, i1 false
   %retval.0 = zext i1 %narrow to i32
   ret i32 %retval.0
 }
@@ -503,9 +503,9 @@ stbi__mul2sizes_valid.exit:                       ; preds = %if.end.i
 land.rhs:                                         ; preds = %if.end.i, %stbi__mul2sizes_valid.exit
   %mul = mul nsw i32 %b, %a
   %cmp.i = icmp sgt i32 %add, -1
-  %sub.i = xor i32 %add, 2147483647
+  %sub.i = sub nuw nsw i32 2147483647, %add
   %cmp1.i = icmp sge i32 %sub.i, %mul
-  %narrow.i = and i1 %cmp.i, %cmp1.i
+  %narrow.i = select i1 %cmp.i, i1 %cmp1.i, i1 false
   %retval.0.i3 = zext i1 %narrow.i to i32
   br label %land.end
 
@@ -548,9 +548,9 @@ stbi__mul2sizes_valid.exit14:                     ; preds = %if.end.i8
 land.rhs:                                         ; preds = %if.end.i8, %stbi__mul2sizes_valid.exit14
   %mul4 = mul nsw i32 %mul, %c
   %cmp.i = icmp sgt i32 %add, -1
-  %sub.i = xor i32 %add, 2147483647
+  %sub.i = sub nuw nsw i32 2147483647, %add
   %cmp1.i = icmp sge i32 %sub.i, %mul4
-  %narrow.i = and i1 %cmp.i, %cmp1.i
+  %narrow.i = select i1 %cmp.i, i1 %cmp1.i, i1 false
   %retval.0.i15 = zext i1 %narrow.i to i32
   br label %land.end
 
@@ -608,9 +608,9 @@ stbi__mul2sizes_valid.exit27:                     ; preds = %if.end.i21
 land.rhs:                                         ; preds = %if.end.i21, %stbi__mul2sizes_valid.exit27
   %mul10 = mul nsw i32 %mul5, %d
   %cmp.i = icmp sgt i32 %add, -1
-  %sub.i = xor i32 %add, 2147483647
+  %sub.i = sub nuw nsw i32 2147483647, %add
   %cmp1.i = icmp sge i32 %sub.i, %mul10
-  %narrow.i = and i1 %cmp.i, %cmp1.i
+  %narrow.i = select i1 %cmp.i, i1 %cmp1.i, i1 false
   %retval.0.i28 = zext i1 %narrow.i to i32
   br label %land.end
 
@@ -638,9 +638,9 @@ stbi__mul2sizes_valid.exit.i:                     ; preds = %if.end.i.i
 stbi__mad2sizes_valid.exit:                       ; preds = %if.end.i.i, %stbi__mul2sizes_valid.exit.i
   %mul.i = mul nsw i32 %b, %a
   %cmp.i.i = icmp slt i32 %add, 0
-  %sub.i.i = xor i32 %add, 2147483647
+  %sub.i.i = sub nuw nsw i32 2147483647, %add
   %cmp1.i.i = icmp slt i32 %sub.i.i, %mul.i
-  %narrow.i.i.not = or i1 %cmp.i.i, %cmp1.i.i
+  %narrow.i.i.not = select i1 %cmp.i.i, i1 true, i1 %cmp1.i.i
   br i1 %narrow.i.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %stbi__mad2sizes_valid.exit
@@ -688,9 +688,9 @@ stbi__mul2sizes_valid.exit14.i:                   ; preds = %if.end.i8.i
 stbi__mad3sizes_valid.exit:                       ; preds = %if.end.i8.i, %stbi__mul2sizes_valid.exit14.i
   %mul4.i = mul nsw i32 %mul.i, %c
   %cmp.i.i = icmp slt i32 %add, 0
-  %sub.i.i = xor i32 %add, 2147483647
+  %sub.i.i = sub nuw nsw i32 2147483647, %add
   %cmp1.i.i = icmp slt i32 %sub.i.i, %mul4.i
-  %narrow.i.i.not = or i1 %cmp.i.i, %cmp1.i.i
+  %narrow.i.i.not = select i1 %cmp.i.i, i1 true, i1 %cmp1.i.i
   br i1 %narrow.i.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %stbi__mad3sizes_valid.exit
@@ -753,9 +753,9 @@ stbi__mul2sizes_valid.exit27.i:                   ; preds = %if.end.i21.i
 stbi__mad4sizes_valid.exit:                       ; preds = %if.end.i21.i, %stbi__mul2sizes_valid.exit27.i
   %mul10.i = mul nsw i32 %mul5.i, %d
   %cmp.i.i = icmp slt i32 %add, 0
-  %sub.i.i = xor i32 %add, 2147483647
+  %sub.i.i = sub nuw nsw i32 2147483647, %add
   %cmp1.i.i = icmp slt i32 %sub.i.i, %mul10.i
-  %narrow.i.i.not = or i1 %cmp.i.i, %cmp1.i.i
+  %narrow.i.i.not = select i1 %cmp.i.i, i1 true, i1 %cmp1.i.i
   br i1 %narrow.i.i.not, label %return, label %if.end
 
 if.end:                                           ; preds = %stbi__mad4sizes_valid.exit

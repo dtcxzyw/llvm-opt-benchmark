@@ -8537,10 +8537,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %if.end, %3
   ]
 
 if.end11.i.i:                                     ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit
-  %cmp.i.i.i = icmp sgt i64 %call.i, 0
-  %sub.i.i.i = xor i64 %call.i, 9223372036854775792
-  %cmp1.i.i.i = icmp ult i64 %sub.i.i.i, 10000
-  %or.cond = and i1 %cmp.i.i.i, %cmp1.i.i.i
+  %or.cond = icmp sgt i64 %call.i, 9223372036854765807
   %add.i.i.i = add nsw i64 %call.i, 10000
   %spec.select = select i1 %or.cond, i64 9223372036854775807, i64 %add.i.i.i
   br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit

@@ -314,7 +314,7 @@ define internal i32 @dissect_lacp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 68:                                               ; preds = %76, %42
   %indvars.iv.i = phi i64 [ 0, %42 ], [ %indvars.iv.next.i, %76 ]
   %69 = trunc i64 %indvars.iv.i to i32
-  %70 = xor i32 %69, 7
+  %70 = sub i32 7, %69
   %71 = shl nuw nsw i32 1, %70
   %72 = and i32 %71, %66
   %.not.i = icmp eq i32 %72, 0
@@ -414,7 +414,7 @@ proto_item_set_generated.exit:                    ; preds = %lacp_state_flags_to
 132:                                              ; preds = %140, %107
   %indvars.iv.i241 = phi i64 [ 0, %107 ], [ %indvars.iv.next.i244, %140 ]
   %133 = trunc i64 %indvars.iv.i241 to i32
-  %134 = xor i32 %133, 7
+  %134 = sub i32 7, %133
   %135 = shl nuw nsw i32 1, %134
   %136 = and i32 %135, %130
   %.not.i242 = icmp eq i32 %136, 0

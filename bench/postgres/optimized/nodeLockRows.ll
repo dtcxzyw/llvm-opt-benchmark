@@ -341,7 +341,7 @@ ExecGetJunkAttribute.exit84:                      ; preds = %81, %slot_getsomeat
   unreachable
 
 switch.lookup:                                    ; preds = %127
-  %switch.offset = xor i32 %130, 3
+  %switch.offset = sub nuw nsw i32 3, %130
   %135 = load i32, ptr @XactIsoLevel, align 4
   %136 = icmp sgt i32 %135, 1
   %spec.select81 = select i1 %136, i8 1, i8 3

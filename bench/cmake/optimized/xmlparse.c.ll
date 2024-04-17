@@ -4382,7 +4382,7 @@ define dso_local ptr @XML_GetBuffer(ptr noundef %0, i32 noundef %1) local_unname
 57:                                               ; preds = %46, %49, %52
   %58 = phi i32 [ %56, %52 ], [ 0, %49 ], [ 0, %46 ]
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %58, i32 1024)
-  %59 = xor i32 %42, 2147483647
+  %59 = sub nuw nsw i32 2147483647, %42
   %60 = icmp sgt i32 %spec.store.select, %59
   br i1 %60, label %61, label %63
 

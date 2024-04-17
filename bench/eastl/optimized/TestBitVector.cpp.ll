@@ -16179,7 +16179,8 @@ for.end527:                                       ; preds = %invoke.cont508
 for.body532.preheader:                            ; preds = %for.end527
   %cmp.i.i1451 = icmp ugt i64 %it.sroa.24.3, 1
   %add.i.i = add nsw i64 %it.sroa.24.3, -2
-  %sub12.i.i = or disjoint i64 %it.sroa.24.3, 62
+  %sub6.i.i = sub nuw nsw i64 1, %it.sroa.24.3
+  %sub12.i.i = xor i64 %sub6.i.i, 63
   %storemerge.i.i = select i1 %cmp.i.i1451, i64 %add.i.i, i64 %sub12.i.i
   %div7.i.i = lshr i64 %add.i.i, 6
   %add.ptr.i.i1453 = getelementptr inbounds i64, ptr %it.sroa.0.5, i64 %div7.i.i
@@ -16379,7 +16380,7 @@ invoke.cont615:                                   ; preds = %if.else.i.i.i.i.i15
   %.not.i.i15843877 = or i1 %cmp7.i.i.i15833876, %cmp.i.i.i15823875
   br i1 %.not.i.i15843877, label %for.body622, label %for.cond649.preheader
 
-for.cond649.preheader.loopexit:                   ; preds = %for.inc641
+for.cond649.preheader.loopexit:                   ; preds = %invoke.cont642
   %.pre3933 = load ptr, ptr %mpEnd.i.i1355, align 8
   %.pre3934 = load i64, ptr %mFreeBitCount.i1356, align 8
   br label %for.cond649.preheader
@@ -16398,10 +16399,10 @@ for.cond649.preheader:                            ; preds = %for.cond649.prehead
   %cmp6513889 = icmp ult i64 %i448.73883, %sub.i16373888
   br i1 %cmp6513889, label %for.body652, label %for.end675
 
-for.body622:                                      ; preds = %invoke.cont615, %for.inc641
-  %i448.63880 = phi i64 [ %sub644, %for.inc641 ], [ %dec617, %invoke.cont615 ]
-  %rit.sroa.0.53879 = phi ptr [ %add.ptr10.sink.i.i.i1609, %for.inc641 ], [ %add.ptr10.sink.i.i.i.i.i1567, %invoke.cont615 ]
-  %rit.sroa.24.43878 = phi i64 [ %storemerge.i.i.i1610, %for.inc641 ], [ %storemerge.i.i.i.i.i1566, %invoke.cont615 ]
+for.body622:                                      ; preds = %invoke.cont615, %invoke.cont642
+  %i448.63880 = phi i64 [ %sub644, %invoke.cont642 ], [ %dec617, %invoke.cont615 ]
+  %rit.sroa.0.53879 = phi ptr [ %add.ptr10.sink.i.i.i1609, %invoke.cont642 ], [ %add.ptr10.sink.i.i.i.i.i1567, %invoke.cont615 ]
+  %rit.sroa.24.43878 = phi i64 [ %storemerge.i.i.i1610, %invoke.cont642 ], [ %storemerge.i.i.i.i.i1566, %invoke.cont615 ]
   %cmp.i1591 = icmp eq i64 %rit.sroa.24.43878, 0
   %spec.select3690.idx = select i1 %cmp.i1591, i64 -8, i64 0
   %spec.select3690 = getelementptr inbounds i8, ptr %rit.sroa.0.53879, i64 %spec.select3690.idx
@@ -16420,12 +16421,22 @@ for.body622:                                      ; preds = %invoke.cont615, %fo
 
 for.inc641:                                       ; preds = %for.body622
   %cmp.i.i.i1602 = icmp ugt i64 %rit.sroa.24.43878, 1
+  br i1 %cmp.i.i.i1602, label %if.then.i.i.i1611, label %if.else.i.i.i1603
+
+if.then.i.i.i1611:                                ; preds = %for.inc641
   %add.i.i.i = add nsw i64 %rit.sroa.24.43878, -2
   %div7.i.i.i1612 = lshr i64 %add.i.i.i, 6
   %rem.i.i.i1614 = and i64 %add.i.i.i, 63
-  %sub12.i.i.i1608 = or disjoint i64 %rit.sroa.24.43878, 62
-  %div7.i.i.i1612.pn = select i1 %cmp.i.i.i1602, i64 %div7.i.i.i1612, i64 -1
-  %storemerge.i.i.i1610 = select i1 %cmp.i.i.i1602, i64 %rem.i.i.i1614, i64 %sub12.i.i.i1608
+  br label %invoke.cont642
+
+if.else.i.i.i1603:                                ; preds = %for.inc641
+  %sub6.i.i.i1604 = sub nuw nsw i64 1, %rit.sroa.24.43878
+  %sub12.i.i.i1608 = xor i64 %sub6.i.i.i1604, 63
+  br label %invoke.cont642
+
+invoke.cont642:                                   ; preds = %if.else.i.i.i1603, %if.then.i.i.i1611
+  %div7.i.i.i1612.pn = phi i64 [ %div7.i.i.i1612, %if.then.i.i.i1611 ], [ -1, %if.else.i.i.i1603 ]
+  %storemerge.i.i.i1610 = phi i64 [ %rem.i.i.i1614, %if.then.i.i.i1611 ], [ %sub12.i.i.i1608, %if.else.i.i.i1603 ]
   %add.ptr10.sink.i.i.i1609 = getelementptr inbounds i64, ptr %rit.sroa.0.53879, i64 %div7.i.i.i1612.pn
   %sub644 = add i64 %i448.63880, -2
   %269 = load ptr, ptr %bv0442, align 8

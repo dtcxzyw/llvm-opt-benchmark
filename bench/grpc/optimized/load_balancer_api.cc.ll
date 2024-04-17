@@ -700,7 +700,7 @@ for.body.i:                                       ; preds = %if.end38.i, %_ZNSt6
 if.then16.i:                                      ; preds = %for.body.i
   %add.ptr.i.i25.i = getelementptr inbounds i8, ptr %18, i64 8
   %retval.sroa.0.0.copyload32.i.i = load ptr, ptr %add.ptr.i.i25.i, align 1
-  %conv.i = trunc i64 %retval.sroa.9.0.copyload33.i.i to i32
+  %conv.i = trunc nuw nsw i64 %retval.sroa.9.0.copyload33.i.i to i32
   store i32 %conv.i, ptr %call.i.i, align 4
   %ip_addr.i = getelementptr inbounds i8, ptr %call.i.i, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %ip_addr.i, ptr align 1 %retval.sroa.0.0.copyload32.i.i, i64 %retval.sroa.9.0.copyload33.i.i, i1 false)
@@ -784,7 +784,7 @@ if.end11.i.i.i.i:                                 ; preds = %if.then18
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end11.i.i.i.i
-  %sub.i.i.i.i.i = xor i64 %cond10.i.i.i.i, 9223372036854775807
+  %sub.i.i.i.i.i = sub nuw nsw i64 9223372036854775807, %cond10.i.i.i.i
   %cmp1.i.i.i.i.i = icmp slt i64 %sub.i.i.i.i.i, %div.i.sext.i.i
   br i1 %cmp1.i.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_113ParseDurationEPK24google_protobuf_Duration.exit, label %if.end7.i.i.i.i.i
 

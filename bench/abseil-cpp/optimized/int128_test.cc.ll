@@ -37942,15 +37942,11 @@ entry:
   %message_.i.i626 = getelementptr inbounds i8, ptr %gtest_ar201, i64 8
   %10 = getelementptr inbounds i8, ptr %ref.tmp239, i64 8
   %message_.i.i702 = getelementptr inbounds i8, ptr %gtest_ar233, i64 8
-  br label %for.cond2.preheader
+  br label %for.body4.lr.ph
 
-for.cond2.preheader:                              ; preds = %entry, %for.inc265
+for.body4.lr.ph:                                  ; preds = %for.inc265, %entry
+  %indvars.iv = phi i32 [ 127, %entry ], [ %indvars.iv.next, %for.inc265 ]
   %storemerge2802 = phi i32 [ 0, %entry ], [ %inc266, %for.inc265 ]
-  %sub = xor i32 %storemerge2802, 127
-  %cmp32800.not = icmp eq i32 %sub, 0
-  br i1 %cmp32800.not, label %for.inc265, label %for.body4.lr.ph
-
-for.body4.lr.ph:                                  ; preds = %for.cond2.preheader
   %sh_prom.i = zext nneg i32 %storemerge2802 to i128
   %shl.i.neg = shl nsw i128 -1, %sh_prom.i
   br label %for.body4
@@ -39042,7 +39038,7 @@ _ZN7testing15AssertionResultD2Ev.exit721:         ; preds = %if.end262, %_ZNKSt1
   store ptr null, ptr %message_.i.i702, align 8
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_899) #22
   %inc = add nuw nsw i32 %storemerge1502801, 1
-  %exitcond.not = icmp eq i32 %inc, %sub
+  %exitcond.not = icmp eq i32 %inc, %indvars.iv
   br i1 %exitcond.not, label %for.inc265, label %for.body4, !llvm.loop !828
 
 ehcleanup263:                                     ; preds = %_ZN7testing7MessageD2Ev.exit717, %lpad251
@@ -39055,10 +39051,11 @@ ehcleanup264:                                     ; preds = %ehcleanup263, %ehcl
   call void @_ZN7testing11ScopedTraceD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %gtest_trace_899) #22
   br label %eh.resume
 
-for.inc265:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit721, %for.cond2.preheader
+for.inc265:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit721
   %inc266 = add nuw nsw i32 %storemerge2802, 1
+  %indvars.iv.next = add nsw i32 %indvars.iv, -1
   %exitcond2808.not = icmp eq i32 %inc266, 64
-  br i1 %exitcond2808.not, label %for.end267, label %for.cond2.preheader, !llvm.loop !829
+  br i1 %exitcond2808.not, label %for.end267, label %for.body4.lr.ph, !llvm.loop !829
 
 for.end267:                                       ; preds = %for.inc265
   store i64 24161, ptr %small_values, align 16

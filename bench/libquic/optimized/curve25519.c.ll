@@ -742,7 +742,7 @@ entry:
   %arrayidx184 = getelementptr inbounds i8, ptr %s, i64 30
   store i8 %conv183, ptr %arrayidx184, align 1
   %shr185 = lshr i32 %16, 18
-  %conv186 = trunc i32 %shr185 to i8
+  %conv186 = trunc nuw nsw i32 %shr185 to i8
   %arrayidx187 = getelementptr inbounds i8, ptr %s, i64 31
   store i8 %conv186, ptr %arrayidx187, align 1
   ret void
@@ -1120,16 +1120,16 @@ entry:
   %sub71 = sub nsw i64 %add44, %and70
   %conv = trunc i64 %sub51 to i32
   store i32 %conv, ptr %h, align 4
-  %conv72 = trunc i64 %add49 to i32
+  %conv72 = trunc nsw i64 %add49 to i32
   %arrayidx73 = getelementptr inbounds i8, ptr %h, i64 4
   store i32 %conv72, ptr %arrayidx73, align 4
-  %conv74 = trunc i64 %sub56 to i32
+  %conv74 = trunc nsw i64 %sub56 to i32
   %arrayidx75 = getelementptr inbounds i8, ptr %h, i64 8
   store i32 %conv74, ptr %arrayidx75, align 4
-  %conv76 = trunc i64 %add54 to i32
+  %conv76 = trunc nsw i64 %add54 to i32
   %arrayidx77 = getelementptr inbounds i8, ptr %h, i64 12
   store i32 %conv76, ptr %arrayidx77, align 4
-  %conv78 = trunc i64 %sub61 to i32
+  %conv78 = trunc nsw i64 %sub61 to i32
   %arrayidx79 = getelementptr inbounds i8, ptr %h, i64 16
   store i32 %conv78, ptr %arrayidx79, align 4
   %conv80 = trunc i64 %add59 to i32
@@ -1138,13 +1138,13 @@ entry:
   %conv82 = trunc i64 %sub66 to i32
   %arrayidx83 = getelementptr inbounds i8, ptr %h, i64 24
   store i32 %conv82, ptr %arrayidx83, align 4
-  %conv84 = trunc i64 %add64 to i32
+  %conv84 = trunc nsw i64 %add64 to i32
   %arrayidx85 = getelementptr inbounds i8, ptr %h, i64 28
   store i32 %conv84, ptr %arrayidx85, align 4
-  %conv86 = trunc i64 %sub71 to i32
+  %conv86 = trunc nsw i64 %sub71 to i32
   %arrayidx87 = getelementptr inbounds i8, ptr %h, i64 32
   store i32 %conv86, ptr %arrayidx87, align 4
-  %conv88 = trunc i64 %add69 to i32
+  %conv88 = trunc nsw i64 %add69 to i32
   %arrayidx89 = getelementptr inbounds i8, ptr %h, i64 36
   store i32 %conv88, ptr %arrayidx89, align 4
   ret void
@@ -1809,9 +1809,9 @@ for.body22:                                       ; preds = %for.cond20.preheade
   %conv = zext i8 %11 to i32
   %shr = lshr i32 %conv, %and
   %conv27 = and i32 %shr, 1
-  %12 = trunc i64 %indvars.iv63 to i32
+  %12 = trunc nuw nsw i64 %indvars.iv63 to i32
   %shl = shl nuw nsw i32 %conv27, %12
-  %13 = trunc i32 %shl to i8
+  %13 = trunc nuw i32 %shl to i8
   %conv30 = or i8 %index.058, %13
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next64, 4
@@ -2119,7 +2119,7 @@ for.body48:                                       ; preds = %for.end39, %for.bod
   %10 = lshr i64 %indvars.iv71, 1
   %arrayidx50 = getelementptr inbounds [64 x i8], ptr %e, i64 0, i64 %indvars.iv71
   %11 = load i8, ptr %arrayidx50, align 1
-  %12 = trunc i64 %10 to i32
+  %12 = trunc nuw nsw i64 %10 to i32
   call fastcc void @table_select(ptr noundef nonnull %t, i32 noundef %12, i8 noundef signext %11)
   call fastcc void @ge_madd(ptr noundef nonnull %r, ptr noundef %h, ptr noundef nonnull %t)
   call fastcc void @fe_mul(ptr noundef %h, ptr noundef nonnull %r, ptr noundef nonnull %T.i30)
@@ -2164,7 +2164,7 @@ for.body57:                                       ; preds = %for.end53, %for.bod
   %13 = lshr exact i64 %indvars.iv75, 1
   %arrayidx60 = getelementptr inbounds [64 x i8], ptr %e, i64 0, i64 %indvars.iv75
   %14 = load i8, ptr %arrayidx60, align 2
-  %15 = trunc i64 %13 to i32
+  %15 = trunc nuw nsw i64 %13 to i32
   call fastcc void @table_select(ptr noundef nonnull %t, i32 noundef %15, i8 noundef signext %14)
   call fastcc void @ge_madd(ptr noundef nonnull %r, ptr noundef %h, ptr noundef nonnull %t)
   call fastcc void @fe_mul(ptr noundef %h, ptr noundef nonnull %r, ptr noundef nonnull %T.i30)
@@ -3222,7 +3222,7 @@ for.body22:                                       ; preds = %for.end, %for.end39
   call fastcc void @fe_mul(ptr noundef nonnull %Z8.i65, ptr noundef nonnull %Z.i38, ptr noundef nonnull %T.i36)
   call fastcc void @fe_mul(ptr noundef nonnull %T14.i, ptr noundef nonnull %t, ptr noundef nonnull %Y5.i)
   %div2329 = lshr i32 %i.187, 3
-  %sub = xor i32 %div2329, 31
+  %sub = sub nuw nsw i32 31, %div2329
   %idxprom24 = zext nneg i32 %sub to i64
   %arrayidx25 = getelementptr inbounds i8, ptr %scalar, i64 %idxprom24
   %14 = load i8, ptr %arrayidx25, align 1
@@ -3243,7 +3243,7 @@ for.body22:                                       ; preds = %for.end, %for.end39
 for.body34:                                       ; preds = %for.body22, %cmov_cached.exit
   %indvars.iv91 = phi i64 [ 0, %for.body22 ], [ %indvars.iv.next92, %cmov_cached.exit ]
   %arrayidx36 = getelementptr inbounds [16 x %struct.ge_cached], ptr %Ai, i64 0, i64 %indvars.iv91
-  %15 = trunc i64 %indvars.iv91 to i32
+  %15 = trunc nuw nsw i64 %indvars.iv91 to i32
   %xor3.i = xor i32 %conv30, %15
   %sub.i = add nsw i32 %xor3.i, -1
   %shr.i.neg = ashr i32 %sub.i, 31
@@ -4030,7 +4030,7 @@ entry:
   %arrayidx568 = getelementptr inbounds i8, ptr %s, i64 30
   store i8 %conv567, ptr %arrayidx568, align 1
   %shr569 = ashr i64 %add456, 17
-  %conv570 = trunc i64 %shr569 to i8
+  %conv570 = trunc nsw i64 %shr569 to i8
   store i8 %conv570, ptr %add.ptr42, align 1
   ret void
 }
@@ -5272,7 +5272,7 @@ entry:
   %arrayidx1001.i = getelementptr inbounds i8, ptr %out_sig, i64 62
   store i8 %conv1000.i, ptr %arrayidx1001.i, align 1
   %shr1002.i = ashr i64 %add889.i, 17
-  %conv1003.i = trunc i64 %shr1002.i to i8
+  %conv1003.i = trunc nsw i64 %shr1002.i to i8
   %arrayidx1004.i = getelementptr inbounds i8, ptr %out_sig, i64 63
   store i8 %conv1003.i, ptr %arrayidx1004.i, align 1
   ret i32 1
@@ -5396,7 +5396,7 @@ if.then22.i.i:                                    ; preds = %for.body17.i.i
   %7 = load i8, ptr %arrayidx11.i.i, align 1
   %conv25.i.i = sext i8 %7 to i32
   %conv29.i.i = sext i8 %6 to i32
-  %8 = trunc i64 %indvars.iv69.i.i to i32
+  %8 = trunc nuw nsw i64 %indvars.iv69.i.i to i32
   %shl.i.i = shl nsw i32 %conv29.i.i, %8
   %add30.i.i = add nsw i32 %shl.i.i, %conv25.i.i
   %cmp31.i.i = icmp slt i32 %add30.i.i, 16
@@ -5488,7 +5488,7 @@ if.then22.i44.i:                                  ; preds = %for.body17.i39.i
   %16 = load i8, ptr %arrayidx11.i31.i, align 1
   %conv25.i45.i = sext i8 %16 to i32
   %conv29.i46.i = sext i8 %15 to i32
-  %17 = trunc i64 %indvars.iv69.i40.i to i32
+  %17 = trunc nuw nsw i64 %indvars.iv69.i40.i to i32
   %shl.i47.i = shl nsw i32 %conv29.i46.i, %17
   %add30.i48.i = add nsw i32 %shl.i47.i, %conv25.i45.i
   %cmp31.i49.i = icmp slt i32 %add30.i48.i, 16

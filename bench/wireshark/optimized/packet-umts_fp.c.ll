@@ -2889,7 +2889,7 @@ proto_item_set_generated.exit274:                 ; preds = %proto_item_set_gene
   %.1172.i = phi i32 [ %.0171194.i, %701 ], [ %.1172.ph.i, %.sink.split.i ]
   %.1170.i = phi i32 [ %.0169195.i, %701 ], [ %.1170.ph.i, %.sink.split.i ]
   %.1168.i = phi i32 [ %.0167196.i, %701 ], [ %.1168.ph.i, %.sink.split.i ]
-  %709 = xor i32 %696, 7
+  %709 = sub i32 7, %696
   %710 = lshr i32 %694, %709
   %711 = and i32 %710, 1
   %spec.select.i279 = add i32 %711, %.0163197.i
@@ -4257,8 +4257,8 @@ dissect_macd_pdu_data.exit:                       ; preds = %177, %._crit_edge.i
   %223 = getelementptr [8 x i32], ptr @hf_fp_hsdsch_new_ie_flag, i64 0, i64 %indvars.iv195
   %224 = load i32, ptr %223, align 4
   %225 = call ptr @proto_tree_add_item(ptr noundef %219, i32 noundef %224, ptr noundef %0, i32 noundef %.0.i, i32 noundef 1, i32 noundef 0) #8
-  %226 = trunc nuw nsw i64 %indvars.iv195 to i32
-  %227 = xor i32 %226, 7
+  %226 = trunc i64 %indvars.iv195 to i32
+  %227 = sub i32 7, %226
   %228 = lshr i32 %221, %227
   %229 = and i32 %228, 1
   %spec.select178 = add i32 %229, %.0190
@@ -7329,7 +7329,7 @@ dissect_dch_radio_interface_parameter_update.exit: ; preds = %.preheader
   %118 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %117, ptr noundef %2, i32 noundef 5, i32 noundef 1, i32 noundef 0) #8
   %119 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef 5) #8
   %120 = and i8 %119, 31
-  %121 = uitofp i8 %120 to float
+  %121 = uitofp nneg i8 %120 to float
   %122 = fmul float %121, 2.500000e-01
   %123 = load i32, ptr @hf_fp_tpc_po, align 4
   %124 = fpext float %122 to double
@@ -8229,7 +8229,7 @@ define internal fastcc noundef i32 @heur_dissect_fp_edch_type_1(ptr noundef %0, 
   br i1 %56, label %.thread, label %57
 
 57:                                               ; preds = %51
-  %58 = uitofp i8 %54 to double
+  %58 = uitofp nneg i8 %54 to double
   %59 = tail call double @llvm.fmuladd.f64(double %58, double 1.500000e+00, double 1.500000e+00)
   %60 = tail call double @llvm.fmuladd.f64(double %59, double 8.000000e+00, double 7.000000e+00)
   %61 = fmul double %60, 1.250000e-01

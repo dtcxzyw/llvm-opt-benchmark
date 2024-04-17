@@ -45302,11 +45302,11 @@ _ZN4CGAL8internal11CC_iteratorINS_17Compact_containerINS_13Alpha_wraps_38interna
 .split:                                           ; preds = %.lr.ph234, %350
   %indvars.iv = phi i64 [ 0, %.lr.ph234 ], [ %indvars.iv.next, %350 ]
   %338 = icmp eq i64 %indvars.iv, 0
-  %339 = trunc nuw nsw i64 %indvars.iv to i32
-  %340 = xor i32 %339, 3
-  %341 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %.sroa.0.0.copyload.i132, i64 0, i64 %indvars.iv
-  %phi.call.in = select i1 %338, ptr %.sroa.0.0.copyload.i132, ptr %341
-  %.077 = select i1 %338, i32 0, i32 %340
+  %339 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %.sroa.0.0.copyload.i132, i64 0, i64 %indvars.iv
+  %phi.call.in = select i1 %338, ptr %.sroa.0.0.copyload.i132, ptr %339
+  %340 = trunc i64 %indvars.iv to i32
+  %341 = sub i32 3, %340
+  %.077 = select i1 %338, i32 0, i32 %341
   %phi.call = load ptr, ptr %phi.call.in, align 8
   %342 = getelementptr inbounds i8, ptr %phi.call, i64 24
   %.sroa.0.0.copyload.i135 = load ptr, ptr %342, align 8
@@ -45321,7 +45321,7 @@ _ZN4CGAL8internal11CC_iteratorINS_17Compact_containerINS_13Alpha_wraps_38interna
   br label %350
 
 346:                                              ; preds = %.split
-  %.sroa.0.0.copyload.i136 = load ptr, ptr %341, align 8
+  %.sroa.0.0.copyload.i136 = load ptr, ptr %339, align 8
   %347 = zext nneg i32 %.077 to i64
   %348 = getelementptr inbounds [4 x %"class.CGAL::internal::CC_iterator.1268"], ptr %.sroa.01.0.copyload, i64 0, i64 %347
   store ptr %.sroa.0.0.copyload.i136, ptr %348, align 8
@@ -178096,7 +178096,7 @@ define linkonce_odr void @_ZN4CGAL12Surface_meshINS_7Point_3INS_5EpickEEEE24remo
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %._crit_edge.i.i.i
-  %29 = xor i64 %25, 3
+  %29 = sub nuw nsw i64 3, %25
   tail call void @_ZNSt6vectorIPN4CGAL10Properties19Base_property_arrayESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %29)
   br label %_ZN4CGAL12Surface_meshINS_7Point_3INS_5EpickEEEE20remove_property_mapsINS_15SM_Vertex_indexEEEvv.exit
 

@@ -1546,7 +1546,7 @@ if.else:                                          ; preds = %if.end60
   br i1 %cmp.i117, label %if.then.i131, label %if.else.i118
 
 if.then.i131:                                     ; preds = %if.else
-  %sub.i132 = xor i64 %sub.ptr.div.i.i, 7
+  %sub.i132 = sub nuw nsw i64 7, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIS_IhSaIhEESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %filterTypes, i64 noundef %sub.i132)
           to label %_ZNSt6vectorIS_IhSaIhEESaIS1_EE6resizeEm.exit134 unwind label %lpad55.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

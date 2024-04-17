@@ -1923,7 +1923,7 @@ define internal fastcc void @dissect_modbus_data(ptr noundef %0, ptr noundef %1,
 
 proto_item_set_generated.exit:                    ; preds = %36, %44, %47
   %51 = load i32, ptr @hf_modbus_bitval, align 4
-  %52 = xor i32 %indvars.iv, 7
+  %52 = sub nuw nsw i32 7, %indvars.iv
   %53 = tail call ptr @tfs_get_string(i32 noundef %38, ptr noundef null) #5
   %54 = tail call ptr (ptr, i32, ptr, i32, i32, i64, i32, ptr, ...) @proto_tree_add_boolean_bits_format_value(ptr noundef %41, i32 noundef %51, ptr noundef %27, i32 noundef %52, i32 noundef 1, i64 noundef %35, i32 noundef 0, ptr noundef nonnull @.str.252, ptr noundef %53) #5
   %55 = add i16 %.1184242, 1

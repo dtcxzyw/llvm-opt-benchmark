@@ -1212,7 +1212,7 @@ if.then65:                                        ; preds = %if.then62
   br label %return
 
 if.end66:                                         ; preds = %if.then62
-  %conv67 = trunc i64 %7 to i32
+  %conv67 = trunc nuw nsw i64 %7 to i32
   store i32 %conv67, ptr %outl, align 4
   br label %return
 
@@ -1308,7 +1308,7 @@ if.then63:                                        ; preds = %if.then60
   br label %return
 
 if.end64:                                         ; preds = %if.then60
-  %conv65 = trunc i64 %7 to i32
+  %conv65 = trunc nuw nsw i64 %7 to i32
   store i32 %conv65, ptr %outl, align 4
   br label %return
 
@@ -1473,7 +1473,7 @@ if.then116:                                       ; preds = %lor.lhs.false, %if.
 if.end117:                                        ; preds = %lor.lhs.false
   %not = sub nsw i32 0, %8
   %and118 = and i32 %not, %inl
-  %sub119 = xor i32 %8, 2147483647
+  %sub119 = sub nuw nsw i32 2147483647, %8
   %cmp120 = icmp ugt i32 %and118, %sub119
   br i1 %cmp120, label %if.then122, label %if.end123
 
@@ -1639,7 +1639,7 @@ if.then23:                                        ; preds = %if.then20
   br label %return
 
 if.end24:                                         ; preds = %if.then20
-  %conv25 = trunc i64 %6 to i32
+  %conv25 = trunc nuw nsw i64 %6 to i32
   store i32 %conv25, ptr %outl, align 4
   br label %return
 
@@ -1812,7 +1812,7 @@ if.then23:                                        ; preds = %if.then20
   br label %return
 
 if.end24:                                         ; preds = %if.then20
-  %conv25 = trunc i64 %6 to i32
+  %conv25 = trunc nuw nsw i64 %6 to i32
   store i32 %conv25, ptr %outl, align 4
   br label %return
 
@@ -2633,7 +2633,7 @@ sw.bb35:                                          ; preds = %if.end8
   br i1 %or.cond, label %return, label %if.end42
 
 if.end42:                                         ; preds = %sw.bb35
-  %sub = xor i32 %arg, 15
+  %sub = sub nuw nsw i32 15, %arg
   %conv43 = zext nneg i32 %sub to i64
   store i64 %conv43, ptr %sz, align 8
   call void @OSSL_PARAM_construct_size_t(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp45, ptr noundef nonnull @.str.6, ptr noundef nonnull %sz) #8

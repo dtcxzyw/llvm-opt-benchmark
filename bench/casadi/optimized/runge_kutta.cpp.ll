@@ -1599,7 +1599,7 @@ _ZN6casadi2MXaSERKS0_.exit328:                    ; preds = %_ZN6casadi2MXaSERKS
   br i1 %262, label %263, label %265
 
 263:                                              ; preds = %_ZN6casadi2MXaSERKS0_.exit328
-  %264 = xor i64 %261, 3
+  %264 = sub nuw nsw i64 3, %261
   invoke void @_ZNSt6vectorIN6casadi2MXESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %27, i64 noundef %264)
           to label %_ZNSt6vectorIN6casadi2MXESaIS1_EE6resizeEm.exit335 unwind label %511
 

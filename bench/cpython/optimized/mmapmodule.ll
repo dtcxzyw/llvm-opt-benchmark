@@ -1583,7 +1583,7 @@ if.then9:                                         ; preds = %if.end7
   br label %return
 
 if.end10:                                         ; preds = %if.end7
-  %sub = xor i64 %3, 9223372036854775807
+  %sub = sub nuw nsw i64 9223372036854775807, %3
   %cmp11 = icmp ult i64 %sub, %6
   br i1 %cmp11, label %if.then12, label %if.end13
 
@@ -1908,7 +1908,7 @@ if.end4:                                          ; preds = %if.end.i, %if.end.i
   br i1 %cmp5, label %if.then8, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %if.end4
-  %sub = xor i64 %6, 9223372036854775807
+  %sub = sub nuw nsw i64 9223372036854775807, %6
   %offset = getelementptr inbounds i8, ptr %self, i64 40
   %7 = load i64, ptr %offset, align 8
   %cmp7 = icmp slt i64 %sub, %7

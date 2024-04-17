@@ -88036,15 +88036,15 @@ _Z16UpdateTopologiesI8BaseMeshEvPT_.exit:         ; preds = %.loopexit.i17.i, %_
 290:                                              ; preds = %281
   store ptr null, ptr %274, align 8
   %291 = getelementptr i8, ptr %274, i64 8
-  %292 = xor i64 %279, 1
-  %293 = icmp eq i64 %292, 0
-  br i1 %293, label %_ZSt27__uninitialized_default_n_aIPP8BaseFacemS1_ET_S3_T0_RSaIT1_E.exit.i, label %_ZSt6fill_nIPP8BaseFacemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i
+  %292 = icmp eq i64 %278, 8
+  br i1 %292, label %_ZSt27__uninitialized_default_n_aIPP8BaseFacemS1_ET_S3_T0_RSaIT1_E.exit.i, label %_ZSt6fill_nIPP8BaseFacemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i
 
 _ZSt6fill_nIPP8BaseFacemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %290
+  %293 = sub nuw nsw i64 1, %279
   %294 = shl nuw nsw i64 %282, 3
   %295 = add nsw i64 %294, -8
   call void @llvm.memset.p0.i64(ptr align 8 %291, i8 0, i64 %295, i1 false)
-  %296 = getelementptr inbounds ptr, ptr %291, i64 %292
+  %296 = getelementptr inbounds ptr, ptr %291, i64 %293
   br label %_ZSt27__uninitialized_default_n_aIPP8BaseFacemS1_ET_S3_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPP8BaseFacemS1_ET_S3_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPP8BaseFacemS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i, %290
@@ -107636,15 +107636,15 @@ _Z16UpdateTopologiesI12AbstractMeshEvPT_.exit:    ; preds = %.loopexit.i17.i, %_
 371:                                              ; preds = %362
   store i32 0, ptr %355, align 4
   %372 = getelementptr i8, ptr %355, i64 4
-  %373 = xor i64 %360, 1
-  %374 = icmp eq i64 %373, 0
-  br i1 %374, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i
+  %373 = icmp eq i64 %359, 4
+  br i1 %373, label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i, label %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i: ; preds = %371
+  %374 = sub nuw nsw i64 1, %360
   %375 = shl nuw nsw i64 %363, 2
   %376 = add nsw i64 %375, -4
   call void @llvm.memset.p0.i64(ptr align 4 %372, i8 0, i64 %376, i1 false)
-  %377 = getelementptr inbounds i32, ptr %372, i64 %373
+  %377 = getelementptr inbounds i32, ptr %372, i64 %374
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit.i: ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %371

@@ -22,7 +22,7 @@ entry:
   %conv = trunc i32 %shl to i8
   store i8 %conv, ptr %agg.result, align 4
   %div26 = lshr i32 %shl, 3
-  %conv8 = trunc i32 %div26 to i8
+  %conv8 = trunc nuw i32 %div26 to i8
   %bytes_per_pixel = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 %conv8, ptr %bytes_per_pixel, align 1
   %shr9 = lshr i32 %format, 12
@@ -42,16 +42,16 @@ entry:
   %conv31 = trunc i32 %add30 to i8
   %depth = getelementptr inbounds i8, ptr %agg.result, i64 2
   store i8 %conv31, ptr %depth, align 2
-  %conv37 = trunc i32 %shl13 to i8
+  %conv37 = trunc nuw nsw i32 %shl13 to i8
   %abits = getelementptr inbounds i8, ptr %agg.result, i64 31
   store i8 %conv37, ptr %abits, align 1
-  %conv43 = trunc i32 %shl18 to i8
+  %conv43 = trunc nuw nsw i32 %shl18 to i8
   %rbits = getelementptr inbounds i8, ptr %agg.result, i64 28
   store i8 %conv43, ptr %rbits, align 4
-  %conv49 = trunc i32 %shl23 to i8
+  %conv49 = trunc nuw nsw i32 %shl23 to i8
   %gbits = getelementptr inbounds i8, ptr %agg.result, i64 29
   store i8 %conv49, ptr %gbits, align 1
-  %conv55 = trunc i32 %shl29 to i8
+  %conv55 = trunc nuw nsw i32 %shl29 to i8
   %bbits = getelementptr inbounds i8, ptr %agg.result, i64 30
   store i8 %conv55, ptr %bbits, align 2
   %shr56 = lshr i32 %format, 16
@@ -475,7 +475,7 @@ for.body4:                                        ; preds = %for.cond2.preheader
   %data.110 = phi ptr [ %data.013, %for.cond2.preheader ], [ %incdec.ptr, %for.body4 ]
   %0 = load i8, ptr %font.addr.014, align 1
   %conv = zext i8 %0 to i32
-  %sub = xor i32 %x.011, 7
+  %sub = sub nuw nsw i32 7, %x.011
   %shl = shl nuw nsw i32 1, %sub
   %and = and i32 %shl, %conv
   %tobool.not = icmp ne i32 %and, 0

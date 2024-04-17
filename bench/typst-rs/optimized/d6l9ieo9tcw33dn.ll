@@ -40687,7 +40687,7 @@ _ZN4time10formatting9fmt_month17h53a072904e522b88E.exit: ; preds = %61
   %112 = and i16 %111, 511
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9189)
   %.127.i.i14.i3.sroa.gep.i = getelementptr inbounds i8, ptr %12, i64 2
-  %.127.i.i14.i3.sroa.gep9.i = getelementptr inbounds i8, ptr %12, i64 4
+  %.127.i.i14.i3.sroa.gep8.i = getelementptr inbounds i8, ptr %12, i64 4
   switch i8 %.sroa.4.0.extract.trunc, label %113 [
     i8 0, label %114
     i8 1, label %175
@@ -40704,15 +40704,15 @@ _ZN4time10formatting9fmt_month17h53a072904e522b88E.exit: ; preds = %61
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %114
-  %116 = xor i8 %115, 3
+  %116 = sub nuw nsw i8 3, %115
   %117 = getelementptr inbounds i8, ptr %1, i64 16
   %118 = getelementptr inbounds i8, ptr %1, i64 8
   %.pre.i.i.i = load i64, ptr %117, align 8, !alias.scope !9199, !noalias !9208
-  %umax7.i = zext nneg i8 %116 to i64
+  %zext21.i.i = zext nneg i8 %116 to i64
   br label %152
 
 ._crit_edge.i.i.i:                                ; preds = %161, %114
-  %.0.lcssa.i.i.i = phi i64 [ 0, %114 ], [ %umax7.i, %161 ]
+  %.0.lcssa.i.i.i = phi i64 [ 0, %114 ], [ %zext21.i.i, %161 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14), !noalias !9195
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9213)
   %119 = icmp ugt i16 %112, 99
@@ -40795,8 +40795,8 @@ _ZN4time10formatting9fmt_month17h53a072904e522b88E.exit: ; preds = %61
   %165 = load i64, ptr %117, align 8, !alias.scope !9199, !noalias !9208, !noundef !4
   %166 = add i64 %165, 1
   store i64 %166, ptr %117, align 8, !alias.scope !9199, !noalias !9208
-  %exitcond8.not.i = icmp eq i64 %154, %umax7.i
-  br i1 %exitcond8.not.i, label %._crit_edge.i.i.i, label %152
+  %exitcond7.not.i = icmp eq i64 %154, %zext21.i.i
+  br i1 %exitcond7.not.i, label %._crit_edge.i.i.i, label %152
 
 _ZN4time10formatting23format_number_pad_space17h5fb5a340f37dfe4fE.exit.i.i: ; preds = %148, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u16$GT$5write17h9c92780aaf1e7d54E.exit.i.i.i"
   %167 = phi i64 [ %144, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u16$GT$5write17h9c92780aaf1e7d54E.exit.i.i.i" ], [ %.pre.i.i.i.i.i.i.i, %148 ]
@@ -40819,15 +40819,15 @@ _ZN4time10formatting23format_number_pad_space17h5fb5a340f37dfe4fE.exit.i.i: ; pr
   br i1 %.not.i1.i.i, label %._crit_edge.i6.i.i, label %.lr.ph.i2.i.i
 
 .lr.ph.i2.i.i:                                    ; preds = %175
-  %177 = xor i8 %176, 3
+  %177 = sub nuw nsw i8 3, %176
   %178 = getelementptr inbounds i8, ptr %1, i64 16
   %179 = getelementptr inbounds i8, ptr %1, i64 8
   %.pre.i3.i.i = load i64, ptr %178, align 8, !alias.scope !9244, !noalias !9253
-  %umax.i = zext nneg i8 %177 to i64
+  %zext.i.i = zext nneg i8 %177 to i64
   br label %213
 
 ._crit_edge.i6.i.i:                               ; preds = %222, %175
-  %.0.lcssa.i7.i.i = phi i64 [ 0, %175 ], [ %umax.i, %222 ]
+  %.0.lcssa.i7.i.i = phi i64 [ 0, %175 ], [ %zext.i.i, %222 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %13), !noalias !9242
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9258)
   %180 = icmp ugt i16 %112, 99
@@ -40910,7 +40910,7 @@ _ZN4time10formatting23format_number_pad_space17h5fb5a340f37dfe4fE.exit.i.i: ; pr
   %226 = load i64, ptr %178, align 8, !alias.scope !9244, !noalias !9253, !noundef !4
   %227 = add i64 %226, 1
   store i64 %227, ptr %178, align 8, !alias.scope !9244, !noalias !9253
-  %exitcond.not.i = icmp eq i64 %215, %umax.i
+  %exitcond.not.i = icmp eq i64 %215, %zext.i.i
   br i1 %exitcond.not.i, label %._crit_edge.i6.i.i, label %213
 
 _ZN4time10formatting22format_number_pad_zero17he6dd209388039d36E.exit.i.i: ; preds = %209, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u16$GT$5write17h9c92780aaf1e7d54E.exit.i10.i.i"
@@ -40960,7 +40960,7 @@ _ZN4time10formatting22format_number_pad_zero17he6dd209388039d36E.exit.i.i: ; pre
 
 253:                                              ; preds = %245, %.thread.i
   %.025.in.i.i15.i4.i = phi i16 [ %241, %.thread.i ], [ %112, %245 ]
-  %.127.i.i14.i3.sroa.phi.i = phi ptr [ %.127.i.i14.i3.sroa.gep.i, %.thread.i ], [ %.127.i.i14.i3.sroa.gep9.i, %245 ]
+  %.127.i.i14.i3.sroa.phi.i = phi ptr [ %.127.i.i14.i3.sroa.gep.i, %.thread.i ], [ %.127.i.i14.i3.sroa.gep8.i, %245 ]
   %.127.i.i14.i3.i = phi i64 [ 2, %.thread.i ], [ 4, %245 ]
   %254 = trunc nuw i16 %.025.in.i.i15.i4.i to i8
   %255 = or disjoint i8 %254, 48
@@ -41795,15 +41795,15 @@ _ZN4time10formatting22format_number_pad_zero17hc76bcf101b8062a1E.exit.i: ; preds
   br i1 %.not.i47.i, label %._crit_edge.i52.i, label %.lr.ph.i48.i
 
 .lr.ph.i48.i:                                     ; preds = %624
-  %626 = xor i8 %625, 7
+  %626 = sub nuw nsw i8 7, %625
   %627 = getelementptr inbounds i8, ptr %1, i64 16
   %628 = getelementptr inbounds i8, ptr %1, i64 8
   %.pre.i49.i = load i64, ptr %627, align 8, !alias.scope !9563, !noalias !9572
-  %umax = zext nneg i8 %626 to i64
+  %zext.i = zext nneg i8 %626 to i64
   br label %677
 
 ._crit_edge.i52.i:                                ; preds = %686, %624
-  %.0.lcssa.i53.i = phi i64 [ 0, %624 ], [ %umax, %686 ]
+  %.0.lcssa.i53.i = phi i64 [ 0, %624 ], [ %zext.i, %686 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8), !noalias !9562
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9577)
   %629 = icmp ugt i32 %.sroa.02.0.extract.trunc.i, 999999
@@ -41915,7 +41915,7 @@ _ZN4time10formatting22format_number_pad_zero17hc76bcf101b8062a1E.exit.i: ; preds
   %690 = load i64, ptr %627, align 8, !alias.scope !9563, !noalias !9572, !noundef !4
   %691 = add i64 %690, 1
   store i64 %691, ptr %627, align 8, !alias.scope !9563, !noalias !9572
-  %exitcond.not = icmp eq i64 %679, %umax
+  %exitcond.not = icmp eq i64 %679, %zext.i
   br i1 %exitcond.not, label %._crit_edge.i52.i, label %677
 
 _ZN4time10formatting22format_number_pad_zero17h4b54b92de60d8288E.exit.i: ; preds = %673, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit.i60.i"

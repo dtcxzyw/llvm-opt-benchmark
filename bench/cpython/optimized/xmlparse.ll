@@ -4423,7 +4423,7 @@ cond.true36:                                      ; preds = %land.lhs.true34
 cond.end43:                                       ; preds = %if.end31, %land.lhs.true34, %cond.true36
   %cond44 = phi i32 [ %7, %cond.true36 ], [ 0, %land.lhs.true34 ], [ 0, %if.end31 ]
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %cond44, i32 1024)
-  %sub = xor i32 %add, 2147483647
+  %sub = sub nuw nsw i32 2147483647, %add
   %cmp50 = icmp sgt i32 %spec.store.select, %sub
   br i1 %cmp50, label %if.then52, label %if.end54
 

@@ -13194,7 +13194,7 @@ if.end11.i.i.i:                                   ; preds = %if.end.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i32, label %if.else.i.i.i.i
 
 if.then.i.i.i.i32:                                ; preds = %if.end11.i.i.i
-  %sub.i.i.i.i = xor i64 %call.i.i34, 9223372036854775807
+  %sub.i.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i.i34
   %cmp1.i.i.i.i = icmp slt i64 %sub.i.i.i.i, %sub.i.i
   br i1 %cmp1.i.i.i.i, label %invoke.cont21, label %if.end7.i.i.i.i
 
@@ -17146,7 +17146,7 @@ if.end11.i.i.i:                                   ; preds = %if.end.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end11.i.i.i
-  %sub.i.i.i.i = xor i64 %call.i.i5, 9223372036854775807
+  %sub.i.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i.i5
   %cmp1.i.i.i.i = icmp slt i64 %sub.i.i.i.i, %sub.i.i
   br i1 %cmp1.i.i.i.i, label %invoke.cont, label %if.end7.i.i.i.i
 

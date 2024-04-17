@@ -733,7 +733,7 @@ timerange_option.exit:                            ; preds = %170
   unreachable
 
 222:                                              ; preds = %215
-  %223 = xor i64 %211, 9223372036854775807
+  %223 = sub nuw nsw i64 9223372036854775807, %211
   %224 = icmp slt i64 %223, %.01121.i
   br i1 %224, label %225, label %227
 
@@ -2059,7 +2059,7 @@ thread-pre-split.i77:                             ; preds = %792, %786, %785, %.
   br i1 %839, label %843, label %oadd.exit.i85
 
 840:                                              ; preds = %828
-  %841 = xor i64 %835, 9223372036854775807
+  %841 = sub nuw nsw i64 9223372036854775807, %835
   %842 = icmp slt i64 %841, %830
   br i1 %842, label %843, label %oadd.exit.i85
 
@@ -2208,7 +2208,7 @@ oadd.exit.i85:                                    ; preds = %840, %837
   unreachable
 
 909:                                              ; preds = %902
-  %910 = xor i64 %899, 9223372036854775807
+  %910 = sub nuw nsw i64 9223372036854775807, %899
   %911 = icmp slt i64 %910, %858
   br i1 %911, label %912, label %914
 
@@ -2267,7 +2267,7 @@ tadd.exit.thread.i:                               ; preds = %912
   unreachable
 
 934:                                              ; preds = %926
-  %935 = xor i64 %.3292.i, 9223372036854775807
+  %935 = sub nuw nsw i64 9223372036854775807, %.3292.i
   %936 = icmp slt i64 %935, %927
   br i1 %936, label %937, label %939
 
@@ -2333,7 +2333,7 @@ tadd.exit346.i:                                   ; preds = %939, %937, %932, %t
   br i1 %967, label %971, label %oadd.exit347.i
 
 968:                                              ; preds = %963
-  %969 = xor i64 %959, 9223372036854775807
+  %969 = sub nuw nsw i64 9223372036854775807, %959
   %970 = icmp slt i64 %969, %.1297.i
   br i1 %970, label %971, label %oadd.exit347.i
 
@@ -2370,7 +2370,7 @@ oadd.exit347.i:                                   ; preds = %968, %965
   unreachable
 
 984:                                              ; preds = %977
-  %985 = xor i64 %975, 9223372036854775807
+  %985 = sub nuw nsw i64 9223372036854775807, %975
   %986 = icmp slt i64 %985, %978
   br i1 %986, label %987, label %tadd.exit351.i
 
@@ -2455,7 +2455,7 @@ tadd.exit351.i:                                   ; preds = %984, %980
   br i1 %1023, label %1027, label %oadd.exit352.i
 
 1024:                                             ; preds = %1018
-  %1025 = xor i64 %1019, 9223372036854775807
+  %1025 = sub nuw nsw i64 9223372036854775807, %1019
   %1026 = icmp slt i64 %1025, %1012
   br i1 %1026, label %1027, label %oadd.exit352.i
 
@@ -2625,7 +2625,7 @@ doabbr.exit.i:                                    ; preds = %1075, %1072, %abbro
   br i1 %1111, label %1115, label %oadd.exit357.i
 
 1112:                                             ; preds = %1106
-  %1113 = xor i64 %1107, 9223372036854775807
+  %1113 = sub nuw nsw i64 9223372036854775807, %1107
   %1114 = icmp slt i64 %1113, %1012
   br i1 %1114, label %1115, label %oadd.exit357.i
 
@@ -2842,7 +2842,7 @@ doabbr.exit383.i:                                 ; preds = %1202, %1199, %abbro
   br i1 %1212, label %1216, label %oadd.exit384.i
 
 1213:                                             ; preds = %doabbr.exit383.i
-  %1214 = xor i64 %1207, 9223372036854775807
+  %1214 = sub nuw nsw i64 9223372036854775807, %1207
   %1215 = icmp slt i64 %1214, %1208
   br i1 %1215, label %1216, label %oadd.exit384.i
 
@@ -3079,7 +3079,7 @@ thread-pre-split431.i:                            ; preds = %1297, %1294, %1291,
   unreachable
 
 1328:                                             ; preds = %1320
-  %1329 = xor i64 %1319, 9223372036854775807
+  %1329 = sub nuw nsw i64 9223372036854775807, %1319
   %1330 = icmp slt i64 %1329, %1321
   br i1 %1330, label %1331, label %1333
 
@@ -3132,7 +3132,7 @@ tadd.exit389.thread.i:                            ; preds = %1331
   unreachable
 
 1347:                                             ; preds = %1339
-  %1348 = xor i64 %.1287.i, 9223372036854775807
+  %1348 = sub nuw nsw i64 9223372036854775807, %.1287.i
   %1349 = icmp slt i64 %1348, %1340
   br i1 %1349, label %1350, label %1352
 
@@ -3481,7 +3481,7 @@ thread-pre-split828.i.i:                          ; preds = %1476, %1475
   unreachable
 
 1510:                                             ; preds = %1504
-  %1511 = xor i64 %1497, 9223372036854775807
+  %1511 = sub nuw nsw i64 9223372036854775807, %1497
   %1512 = icmp slt i64 %1511, %1501
   br i1 %1512, label %1513, label %1515
 
@@ -4795,7 +4795,7 @@ puttzcode.exit546.i.i:                            ; preds = %2019
   unreachable
 
 2082:                                             ; preds = %.loopexit.i.i
-  %2083 = xor i64 %2072, 9223372036854775807
+  %2083 = sub nuw nsw i64 9223372036854775807, %2072
   %2084 = icmp slt i64 %2083, %2075
   br i1 %2084, label %2085, label %2087
 
@@ -7710,7 +7710,7 @@ define internal fastcc i64 @rpytime(ptr nocapture noundef readonly %0, i64 nound
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %28
-  %35 = xor i64 %.283130.us.us, 9223372036854775807
+  %35 = sub nuw nsw i64 9223372036854775807, %.283130.us.us
   %36 = icmp slt i64 %35, %32
   br i1 %36, label %.split.us, label %oadd.exit108.us.us
 
@@ -7736,7 +7736,7 @@ oadd.exit108.us.us:                               ; preds = %37, %34
   br i1 %46, label %50, label %47
 
 47:                                               ; preds = %.lr.ph131.split.us.split
-  %48 = xor i64 %.283130.us, 9223372036854775807
+  %48 = sub nuw nsw i64 9223372036854775807, %.283130.us
   %49 = icmp slt i64 %48, %45
   br i1 %49, label %.split.us, label %oadd.exit108.us
 
@@ -7817,7 +7817,7 @@ oadd.exit108.us:                                  ; preds = %50, %47
   br i1 %90, label %94, label %oadd.exit
 
 91:                                               ; preds = %85
-  %92 = xor i64 %.182125, 9223372036854775807
+  %92 = sub nuw nsw i64 9223372036854775807, %.182125
   %93 = icmp slt i64 %92, %86
   br i1 %93, label %94, label %oadd.exit
 
@@ -7847,7 +7847,7 @@ oadd.exit:                                        ; preds = %88, %91
   br i1 %103, label %.split.us, label %oadd.exit108
 
 104:                                              ; preds = %.lr.ph131.split
-  %105 = xor i64 %.283130, 9223372036854775807
+  %105 = sub nuw nsw i64 9223372036854775807, %.283130
   %106 = icmp slt i64 %105, %99
   br i1 %106, label %.split.us, label %oadd.exit108
 
@@ -7910,7 +7910,7 @@ oadd.exit108:                                     ; preds = %101, %104
   br i1 %131, label %135, label %oadd.exit109
 
 132:                                              ; preds = %125
-  %133 = xor i64 %.283.lcssa175, 9223372036854775807
+  %133 = sub nuw nsw i64 9223372036854775807, %.283.lcssa175
   %134 = icmp slt i64 %133, %127
   br i1 %134, label %135, label %oadd.exit109
 
@@ -8063,7 +8063,7 @@ oadd.exit111:                                     ; preds = %.lr.ph142.split
   unreachable
 
 194:                                              ; preds = %185
-  %195 = xor i64 %186, 9223372036854775807
+  %195 = sub nuw nsw i64 9223372036854775807, %186
   %196 = icmp slt i64 %195, %188
   br i1 %196, label %197, label %tadd.exit
 
@@ -8182,7 +8182,7 @@ define internal fastcc noundef i64 @tadd(i64 noundef %0, i64 noundef %1) unnamed
   unreachable
 
 9:                                                ; preds = %2
-  %10 = xor i64 %0, 9223372036854775807
+  %10 = sub nuw nsw i64 9223372036854775807, %0
   %11 = icmp slt i64 %10, %1
   br i1 %11, label %12, label %14
 
@@ -8364,7 +8364,7 @@ define internal fastcc noundef i64 @getleapdatetime(ptr nocapture noundef readon
   br i1 %62, label %66, label %oadd.exit
 
 63:                                               ; preds = %58
-  %64 = xor i64 %.03664, 9223372036854775807
+  %64 = sub nuw nsw i64 9223372036854775807, %.03664
   %65 = icmp slt i64 %64, %.039
   br i1 %65, label %66, label %oadd.exit
 
@@ -8420,7 +8420,7 @@ oadd.exit:                                        ; preds = %60, %63
   br i1 %87, label %91, label %88
 
 88:                                               ; preds = %83
-  %89 = xor i64 %.167.us.us, 9223372036854775807
+  %89 = sub nuw nsw i64 9223372036854775807, %.167.us.us
   %90 = icmp slt i64 %89, %86
   br i1 %90, label %.split.us, label %oadd.exit54.us.us
 
@@ -8445,7 +8445,7 @@ oadd.exit54.us.us:                                ; preds = %91, %88
   br i1 %99, label %103, label %100
 
 100:                                              ; preds = %.lr.ph69.split.us.split
-  %101 = xor i64 %.167.us, 9223372036854775807
+  %101 = sub nuw nsw i64 9223372036854775807, %.167.us
   %102 = icmp slt i64 %101, %98
   br i1 %102, label %.split.us, label %oadd.exit54.us
 
@@ -8475,7 +8475,7 @@ oadd.exit54.us:                                   ; preds = %103, %100
   br i1 %114, label %.split.us, label %oadd.exit54
 
 115:                                              ; preds = %.lr.ph69.split
-  %116 = xor i64 %.167, 9223372036854775807
+  %116 = sub nuw nsw i64 9223372036854775807, %.167
   %117 = icmp slt i64 %116, %110
   br i1 %117, label %.split.us, label %oadd.exit54
 
@@ -8529,7 +8529,7 @@ oadd.exit54:                                      ; preds = %112, %115
   %142 = add nsw i32 %124, -1
   %143 = zext nneg i32 %142 to i64
   %144 = icmp sgt i64 %.1.lcssa, -1
-  %145 = xor i64 %.1.lcssa, 9223372036854775807
+  %145 = sub nuw nsw i64 9223372036854775807, %.1.lcssa
   %146 = icmp ult i64 %145, %143
   %or.cond58 = select i1 %144, i1 %146, i1 false
   br i1 %or.cond58, label %147, label %oadd.exit55

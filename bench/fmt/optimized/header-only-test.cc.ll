@@ -19812,9 +19812,8 @@ if.end91:                                         ; preds = %_ZN3fmt3v106detail6
 
 if.then94:                                        ; preds = %if.end91
   %172 = load i32, ptr %exp10, align 4
-  %add95 = add nsw i32 %172, 1
   %cmp.i605 = icmp sgt i32 %172, -1
-  %sub.i606 = xor i32 %add95, 2147483647
+  %sub.i606 = sub nsw i32 2147483646, %172
   %cmp1.i = icmp slt i32 %sub.i606, %num_digits
   %or.cond.i607 = select i1 %cmp.i605, i1 %cmp1.i, i1 false
   br i1 %or.cond.i607, label %if.then.i, label %_ZN3fmt3v106detail16adjust_precisionERii.exit
@@ -19839,7 +19838,8 @@ lpad.i:                                           ; preds = %if.then.i
   br label %lpad6.body
 
 _ZN3fmt3v106detail16adjust_precisionERii.exit:    ; preds = %if.then94
-  %add.i609 = add nsw i32 %add95, %num_digits
+  %add95 = add i32 %num_digits, 1
+  %add.i609 = add i32 %add95, %172
   br label %if.end98
 
 if.end98:                                         ; preds = %_ZN3fmt3v106detail16adjust_precisionERii.exit, %if.end91, %if.end62
@@ -34050,9 +34050,9 @@ _ZN3fmt3v106detail9dragonbox16get_cached_powerEi.exit: ; preds = %if.end72, %if.
 if.then92:                                        ; preds = %_ZN3fmt3v106detail9dragonbox16get_cached_powerEi.exit
   %add93 = add nsw i32 %digits_in_the_first_segment.0, %sub74.neg
   %cmp.i = icmp sgt i32 %add93, 0
-  %sub.i = xor i32 %add93, 2147483647
-  %cmp1.i = icmp slt i32 %sub.i, %precision
-  %or.cond.i = and i1 %cmp.i, %cmp1.i
+  %sub.i = sub nuw nsw i32 2147483647, %add93
+  %cmp1.i = icmp ult i32 %sub.i, %precision
+  %or.cond.i = select i1 %cmp.i, i1 %cmp1.i, i1 false
   br i1 %or.cond.i, label %if.then.i, label %_ZN3fmt3v106detail16adjust_precisionERii.exit
 
 if.then.i:                                        ; preds = %if.then92

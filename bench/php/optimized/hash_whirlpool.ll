@@ -91,7 +91,7 @@ define void @PHP_WHIRLPOOLUpdate(ptr nocapture noundef %0, ptr nocapture noundef
   %37 = add nsw i32 %.07694, 1
   %38 = sext i32 %.07694 to i64
   %39 = getelementptr inbounds i8, ptr %9, i64 %38
-  %40 = trunc i32 %36 to i8
+  %40 = trunc nuw i32 %36 to i8
   %41 = or i8 %32, %40
   store i8 %41, ptr %39, align 1
   %42 = add nsw i32 %.07793, %28
@@ -136,14 +136,14 @@ define void @PHP_WHIRLPOOLUpdate(ptr nocapture noundef %0, ptr nocapture noundef
   %59 = sext i32 %.076.lcssa to i64
   %60 = getelementptr inbounds i8, ptr %9, i64 %59
   %61 = load i8, ptr %60, align 1
-  %62 = trunc i32 %58 to i8
+  %62 = trunc nuw i32 %58 to i8
   %63 = or i8 %61, %62
   store i8 %63, ptr %60, align 1
   %.not85 = icmp eq i64 %.081.lcssa, 8
   br i1 %.not85, label %66, label %.thread
 
 .thread:                                          ; preds = %._crit_edge, %54
-  %64 = trunc i64 %.081.lcssa to i32
+  %64 = trunc nuw nsw i64 %.081.lcssa to i32
   %65 = add nsw i32 %.077.lcssa, %64
   br label %78
 
@@ -953,7 +953,7 @@ define void @PHP_WHIRLPOOLFinal(ptr nocapture noundef writeonly %0, ptr noundef 
   %11 = sext i32 %8 to i64
   %12 = getelementptr inbounds i8, ptr %4, i64 %11
   %13 = load i8, ptr %12, align 1
-  %14 = trunc i32 %10 to i8
+  %14 = trunc nuw i32 %10 to i8
   %15 = or i8 %13, %14
   store i8 %15, ptr %12, align 1
   %16 = add nsw i32 %8, 1
@@ -967,7 +967,7 @@ define void @PHP_WHIRLPOOLFinal(ptr nocapture noundef writeonly %0, ptr noundef 
 20:                                               ; preds = %18
   %21 = zext nneg i32 %16 to i64
   %22 = getelementptr inbounds i8, ptr %4, i64 %21
-  %23 = xor i32 %8, 63
+  %23 = sub nuw nsw i32 63, %8
   %24 = zext nneg i32 %23 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %22, i8 0, i64 %24, i1 false)
   br label %.thread
@@ -1001,7 +1001,7 @@ define void @PHP_WHIRLPOOLFinal(ptr nocapture noundef writeonly %0, ptr noundef 
   %34 = getelementptr inbounds [8 x i64], ptr %1, i64 0, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8
   %36 = lshr i64 %35, 56
-  %37 = trunc i64 %36 to i8
+  %37 = trunc nuw i64 %36 to i8
   store i8 %37, ptr %.04854, align 1
   %38 = load i64, ptr %34, align 8
   %39 = lshr i64 %38, 48

@@ -5079,7 +5079,7 @@ _ZlsRSoPK7AstNode.exit:                           ; preds = %24, %26
   br label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit.preheader
 
 48:                                               ; preds = %36
-  %49 = xor i64 %45, 3
+  %49 = sub nuw nsw i64 3, %45
   invoke void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr %37, i32 %38, i64 noundef %49, i1 noundef zeroext false)
           to label %_ZNSt6vectorIbSaIbEE6resizeEmb.exit.preheader unwind label %32
 
@@ -7317,7 +7317,7 @@ _ZNK16UndrivenVarEntry10drivenFlagEi.exit78:      ; preds = %_ZNK16UndrivenVarEn
   br i1 %.not, label %_ZNK16UndrivenVarEntry10drivenFlagEi.exit.thread, label %_ZNK16UndrivenVarEntry8usedFlagEi.exit.thread
 
 _ZNK16UndrivenVarEntry10drivenFlagEi.exit.thread: ; preds = %52, %_ZNK16UndrivenVarEntry10drivenFlagEi.exit78, %_ZNK16UndrivenVarEntry10drivenFlagEi.exit68, %_ZNK16UndrivenVarEntry10drivenFlagEi.exit
-  %109 = trunc i8 %.0183 to i1
+  %109 = trunc nuw i8 %.0183 to i1
   %spec.select = select i1 %109, i32 %.031182, i32 %.042184
   %spec.select54 = select i1 %109, i8 %.0183, i8 1
   br label %361
@@ -7333,7 +7333,7 @@ _ZNK16UndrivenVarEntry10drivenFlagEi.exit.thread: ; preds = %52, %_ZNK16Undriven
   br label %.body
 
 _ZNK16UndrivenVarEntry8usedFlagEi.exit.thread:    ; preds = %86, %_ZNK16UndrivenVarEntry8usedFlagEi.exit63.thread, %39, %_ZNK16UndrivenVarEntry8usedFlagEi.exit63, %_ZNK16UndrivenVarEntry10drivenFlagEi.exit68, %_ZNK16UndrivenVarEntry8usedFlagEi.exit, %_ZNK16UndrivenVarEntry10drivenFlagEi.exit, %38, %_ZNK16UndrivenVarEntry10drivenFlagEi.exit78, %_ZNK16UndrivenVarEntry8usedFlagEi.exit73, %36
-  %110 = trunc i8 %.0183 to i1
+  %110 = trunc nuw i8 %.0183 to i1
   br i1 %110, label %111, label %361
 
 111:                                              ; preds = %_ZNK16UndrivenVarEntry8usedFlagEi.exit.thread

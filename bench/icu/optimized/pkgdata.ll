@@ -1353,8 +1353,8 @@ for.body13.lr.ph.i.i:                             ; preds = %if.else.i.i
   %111 = shl nuw nsw i64 %.us-phi, 3
   %112 = getelementptr i8, ptr %110, i64 %111
   %scevgep.i.i = getelementptr i8, ptr %112, i64 8
-  %113 = and i64 %111, 120
-  %114 = xor i64 %113, 120
+  %113 = sub nsw i64 120, %111
+  %114 = and i64 %113, 120
   %115 = add nuw nsw i64 %114, 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i.i, i8 0, i64 %115, i1 false)
   br label %_ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i
@@ -1433,7 +1433,7 @@ for.body65.i.i:                                   ; preds = %for.body65.i.i, %if
   %130 = load ptr, ptr @_ZL12pkgDataFlags, align 8
   %arrayidx69.i.i = getelementptr inbounds ptr, ptr %130, i64 %indvars.iv44.i.i
   %131 = load ptr, ptr %arrayidx69.i.i, align 8
-  %132 = trunc i64 %indvars.iv44.i.i to i32
+  %132 = trunc nuw nsw i64 %indvars.iv44.i.i to i32
   %call70.i.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %128, ptr noundef nonnull @.str.84, i32 noundef %132, ptr noundef %129, ptr noundef %131)
   %indvars.iv.next45.i.i = add nuw nsw i64 %indvars.iv44.i.i, 1
   %exitcond47.not.i.i = icmp eq i64 %indvars.iv.next45.i.i, 17
@@ -2175,7 +2175,7 @@ if.end47.i.i:                                     ; preds = %for.cond39.i.i
   br i1 %cmp55.i.i, label %for.end.i197.i, label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.end47.i.i, %if.then44.i.i
-  %indvars.iv.next.i196.i = add nuw i64 %indvars.iv.i194.i, 1
+  %indvars.iv.next.i196.i = add nuw nsw i64 %indvars.iv.i194.i, 1
   br label %for.cond39.i.i, !llvm.loop !23
 
 for.end.i197.i:                                   ; preds = %if.end47.i.i

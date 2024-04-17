@@ -106,7 +106,7 @@ while.body:                                       ; preds = %entry, %while.body
   %incdec.ptr7.i = getelementptr inbounds i8, ptr %call14, i64 5
   store i8 %flags.2, ptr %incdec.ptr6.i, align 1
   %shr8.i = lshr i32 %7, 24
-  %conv9.i = trunc i32 %shr8.i to i8
+  %conv9.i = trunc nuw i32 %shr8.i to i8
   %incdec.ptr10.i = getelementptr inbounds i8, ptr %call14, i64 6
   store i8 %conv9.i, ptr %incdec.ptr7.i, align 1
   %shr11.i = lshr i32 %7, 16
@@ -3351,7 +3351,7 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end11.i.i
-  %sub.i.i.i = xor i64 %deadline.coerce, 9223372036854775807
+  %sub.i.i.i = sub nuw nsw i64 9223372036854775807, %deadline.coerce
   %cmp1.i.i.i = icmp slt i64 %sub.i.i.i, %sub.i
   br i1 %cmp1.i.i.i, label %_ZN9grpc_coremiENS_9TimestampES0_.exit, label %if.end7.i.i.i
 

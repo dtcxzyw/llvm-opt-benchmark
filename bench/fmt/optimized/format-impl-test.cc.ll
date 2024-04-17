@@ -15255,7 +15255,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end, %_ZNKSt14de
   store ptr null, ptr %message_.i.i, align 8
   %11 = call noundef i32 @llvm.ctlz.i32(i32 %shl, i1 true), !range !177
   store i32 %11, ptr %ref.tmp16, align 4
-  %sub20 = xor i32 %i.045, 31
+  %sub20 = sub nuw nsw i32 31, %i.045
   store i32 %sub20, ptr %ref.tmp18, align 4
   %cmp.i.i19 = icmp eq i32 %11, %sub20
   br i1 %cmp.i.i19, label %if.then.i.i21, label %if.end.i.i20
@@ -34494,9 +34494,8 @@ if.end91:                                         ; preds = %_ZN3fmt3v106detail6
 
 if.then94:                                        ; preds = %if.end91
   %94 = load i32, ptr %exp10, align 4
-  %add95 = add nsw i32 %94, 1
   %cmp.i = icmp sgt i32 %94, -1
-  %sub.i = xor i32 %add95, 2147483647
+  %sub.i = sub nsw i32 2147483646, %94
   %cmp1.i = icmp slt i32 %sub.i, %num_digits
   %or.cond.i = select i1 %cmp.i, i1 %cmp1.i, i1 false
   br i1 %or.cond.i, label %if.then.i285, label %_ZN3fmt3v106detail16adjust_precisionERii.exit
@@ -34527,7 +34526,8 @@ lpad.i:                                           ; preds = %if.then.i285
   br label %lpad6.body
 
 _ZN3fmt3v106detail16adjust_precisionERii.exit:    ; preds = %if.then94
-  %add.i = add nsw i32 %add95, %num_digits
+  %add95 = add i32 %num_digits, 1
+  %add.i = add i32 %add95, %94
   br label %if.end98
 
 if.end98:                                         ; preds = %_ZN3fmt3v106detail16adjust_precisionERii.exit, %if.end91, %if.end62
@@ -44252,9 +44252,9 @@ if.end72:                                         ; preds = %if.end54.thread, %i
 if.then92:                                        ; preds = %if.end72
   %add93 = add nsw i32 %sub74.neg, %digits_in_the_first_segment.0
   %cmp.i135 = icmp sgt i32 %add93, 0
-  %sub.i = xor i32 %add93, 2147483647
-  %cmp1.i = icmp slt i32 %sub.i, %precision
-  %or.cond.i137 = and i1 %cmp.i135, %cmp1.i
+  %sub.i = sub nuw nsw i32 2147483647, %add93
+  %cmp1.i = icmp ult i32 %sub.i, %precision
+  %or.cond.i137 = select i1 %cmp.i135, i1 %cmp1.i, i1 false
   br i1 %or.cond.i137, label %if.then.i139, label %_ZN3fmt3v106detail16adjust_precisionERii.exit
 
 if.then.i139:                                     ; preds = %if.then92

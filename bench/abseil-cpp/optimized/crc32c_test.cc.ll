@@ -786,7 +786,7 @@ _ZN7testing15AssertionResultD2Ev.exit83:          ; preds = %if.end64, %_ZNKSt14
 for.body69:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit83, %for.body69
   %indvars.iv143 = phi i64 [ 0, %_ZN7testing15AssertionResultD2Ev.exit83 ], [ %indvars.iv.next144, %for.body69 ]
   %30 = trunc i64 %indvars.iv143 to i8
-  %conv70 = xor i8 %30, 31
+  %conv70 = sub nuw nsw i8 31, %30
   %arrayidx72 = getelementptr inbounds [32 x i8], ptr %data, i64 0, i64 %indvars.iv143
   store i8 %conv70, ptr %arrayidx72, align 1
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1

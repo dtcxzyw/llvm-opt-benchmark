@@ -3307,7 +3307,7 @@ if.end11.i.i.i:                                   ; preds = %if.end.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end11.i.i.i
-  %sub.i.i.i.i = xor i64 %call6.i194, 9223372036854775807
+  %sub.i.i.i.i = sub nuw nsw i64 9223372036854775807, %call6.i194
   %cmp1.i.i.i.i = icmp slt i64 %sub.i.i.i.i, %sub.i.i
   br i1 %cmp1.i.i.i.i, label %invoke.cont212, label %_ZN9grpc_coremiENS_9TimestampES0_.exit.i
 

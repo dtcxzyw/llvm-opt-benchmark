@@ -841,7 +841,7 @@ define internal fastcc noundef i32 @key_exchange_calc_key_cont(ptr noundef %0, i
   %indvars.iv.i.i = phi i64 [ 0, %34 ], [ %indvars.iv.next.i.i, %35 ]
   %36 = getelementptr i8, ptr getelementptr inbounds (%struct.key_exchange_context_s, ptr @key_exchange_context, i64 0, i32 2), i64 %indvars.iv.i.i
   %37 = load i8, ptr %36, align 1
-  %38 = xor i64 %indvars.iv.i.i, 7
+  %38 = sub nuw nsw i64 7, %indvars.iv.i.i
   %39 = getelementptr i8, ptr %11, i64 %38
   store i8 %37, ptr %39, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -852,7 +852,7 @@ reverse.exit.i:                                   ; preds = %35, %reverse.exit.i
   %indvars.iv.i9.i = phi i64 [ %indvars.iv.next.i10.i, %reverse.exit.i ], [ 0, %35 ]
   %40 = getelementptr i8, ptr getelementptr inbounds (%struct.key_exchange_context_s, ptr @key_exchange_context, i64 0, i32 3), i64 %indvars.iv.i9.i
   %41 = load i8, ptr %40, align 1
-  %42 = xor i64 %indvars.iv.i9.i, 7
+  %42 = sub nuw nsw i64 7, %indvars.iv.i9.i
   %43 = getelementptr i8, ptr %12, i64 %42
   store i8 %41, ptr %43, align 1
   %indvars.iv.next.i10.i = add nuw nsw i64 %indvars.iv.i9.i, 1
@@ -1168,7 +1168,7 @@ define hidden i32 @decrypt_data(ptr noundef %0, ptr noundef %1, i16 noundef zero
   %indvars.iv.i = phi i64 [ 0, %23 ], [ %indvars.iv.next.i, %25 ]
   %26 = getelementptr i8, ptr %4, i64 %indvars.iv.i
   %27 = load i8, ptr %26, align 1
-  %28 = xor i64 %indvars.iv.i, 7
+  %28 = sub nuw nsw i64 7, %indvars.iv.i
   %29 = getelementptr i8, ptr %7, i64 %28
   store i8 %27, ptr %29, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1185,7 +1185,7 @@ reverse.exit:                                     ; preds = %25
   %indvars.iv.i28 = phi i64 [ 0, %reverse.exit ], [ %indvars.iv.next.i29, %30 ]
   %31 = getelementptr i8, ptr %5, i64 %indvars.iv.i28
   %32 = load i8, ptr %31, align 1
-  %33 = xor i64 %indvars.iv.i28, 7
+  %33 = sub nuw nsw i64 7, %indvars.iv.i28
   %34 = getelementptr i8, ptr %15, i64 %33
   store i8 %32, ptr %34, align 1
   %indvars.iv.next.i29 = add nuw nsw i64 %indvars.iv.i28, 1

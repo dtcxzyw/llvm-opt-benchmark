@@ -107,7 +107,7 @@ while.body56.lr.ph.split.us.us:                   ; preds = %while.body56.lr.ph.
   %idxprom.us = zext nneg i32 %div58105.us.us to i64
   %arrayidx67.us = getelementptr inbounds [64 x i8], ptr %data65, i64 0, i64 %idxprom.us
   %4 = load i8, ptr %arrayidx67.us, align 1
-  %5 = trunc i32 %shr.us to i8
+  %5 = trunc nuw i32 %shr.us to i8
   %6 = and i8 %3, %5
   %conv69.us = or i8 %6, %4
   store i8 %conv69.us, ptr %arrayidx67.us, align 1
@@ -178,7 +178,7 @@ if.else42:                                        ; preds = %if.else
   %add.ptr46 = getelementptr inbounds i8, ptr %data, i64 %idx.ext45
   %div47108 = lshr i64 %bits.addr.1175, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr46, ptr align 1 %inp.1174, i64 %div47108, i1 false)
-  %conv48 = trunc i64 %bits.addr.1175 to i32
+  %conv48 = trunc nuw i64 %bits.addr.1175 to i32
   %add49 = add i32 %bitoff.1173, %conv48
   br label %if.end50
 
@@ -213,7 +213,7 @@ if.then97:                                        ; preds = %if.then84
   %idxprom102 = zext nneg i32 %div58105187 to i64
   %arrayidx103 = getelementptr inbounds [64 x i8], ptr %data65, i64 0, i64 %idxprom102
   %10 = load i8, ptr %arrayidx103, align 1
-  %11 = trunc i32 %shr99 to i8
+  %11 = trunc nuw nsw i32 %shr99 to i8
   %conv106 = or i8 %10, %11
   store i8 %conv106, ptr %arrayidx103, align 1
   br label %if.end112
@@ -266,7 +266,7 @@ if.then140:                                       ; preds = %if.else133
   %idxprom145 = zext nneg i32 %div58105.lcssa to i64
   %arrayidx146 = getelementptr inbounds [64 x i8], ptr %data65, i64 0, i64 %idxprom145
   %13 = load i8, ptr %arrayidx146, align 1
-  %14 = trunc i32 %shr142 to i8
+  %14 = trunc nuw nsw i32 %shr142 to i8
   %conv149 = or i8 %13, %14
   store i8 %conv149, ptr %arrayidx146, align 1
   br label %if.end155
@@ -280,7 +280,7 @@ if.else150:                                       ; preds = %if.else133
 
 if.end155:                                        ; preds = %if.else150, %if.then140
   %byteoff57.2 = add nuw nsw i32 %div58105.lcssa, 1
-  %conv156 = trunc i64 %bits.addr.4123.lcssa to i32
+  %conv156 = trunc nuw nsw i64 %bits.addr.4123.lcssa to i32
   %add157 = add i32 %bitoff.4121.lcssa, %conv156
   %cmp158 = icmp eq i32 %add157, 512
   br i1 %cmp158, label %if.then160, label %if.end164
@@ -337,7 +337,7 @@ if.then:                                          ; preds = %entry
   %idxprom = zext nneg i32 %div30 to i64
   %arrayidx = getelementptr inbounds [64 x i8], ptr %data, i64 0, i64 %idxprom
   %1 = load i8, ptr %arrayidx, align 1
-  %2 = trunc i32 %shr to i8
+  %2 = trunc nuw nsw i32 %shr to i8
   %conv2 = or i8 %1, %2
   store i8 %conv2, ptr %arrayidx, align 1
   br label %if.end
@@ -362,7 +362,7 @@ if.then10:                                        ; preds = %if.then7
   %data11 = getelementptr inbounds i8, ptr %c, i64 64
   %idxprom12 = zext nneg i32 %inc to i64
   %arrayidx13 = getelementptr inbounds [64 x i8], ptr %data11, i64 0, i64 %idxprom12
-  %sub = xor i32 %div30, 63
+  %sub = sub nuw nsw i32 63, %div30
   %conv14 = zext nneg i32 %sub to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx13, i8 0, i64 %conv14, i1 false)
   br label %if.end17.thread
@@ -475,7 +475,7 @@ if.then.i4:                                       ; preds = %WHIRLPOOL_Update.ex
   %idxprom.i = zext nneg i32 %div30.i to i64
   %arrayidx.i = getelementptr inbounds [64 x i8], ptr %data.i, i64 0, i64 %idxprom.i
   %1 = load i8, ptr %arrayidx.i, align 1
-  %2 = trunc i32 %shr.i to i8
+  %2 = trunc nuw nsw i32 %shr.i to i8
   %conv2.i = or i8 %1, %2
   store i8 %conv2.i, ptr %arrayidx.i, align 1
   br label %if.end.i
@@ -500,7 +500,7 @@ if.then10.i:                                      ; preds = %if.then7.i
   %data11.i = getelementptr inbounds i8, ptr %ctx, i64 64
   %idxprom12.i = zext nneg i32 %inc.i to i64
   %arrayidx13.i = getelementptr inbounds [64 x i8], ptr %data11.i, i64 0, i64 %idxprom12.i
-  %sub.i6 = xor i32 %div30.i, 63
+  %sub.i6 = sub nuw nsw i32 63, %div30.i
   %conv14.i = zext nneg i32 %sub.i6 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx13.i, i8 0, i64 %conv14.i, i1 false)
   br label %if.end17.thread.i

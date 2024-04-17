@@ -11617,7 +11617,7 @@ if.end.i.i235.i.i:                                ; preds = %if.then.i232.i.i
 
 if.end.i206.i.i:                                  ; preds = %stringlib_count.exit.i202.i.i
   %sub.i207.i.i = sub i64 %new.val12, %old.val11
-  %sub4.i208.i.i = xor i64 %self.val.i.i, 9223372036854775807
+  %sub4.i208.i.i = sub nuw nsw i64 9223372036854775807, %self.val.i.i
   %div50.i.i.i = udiv i64 %sub4.i208.i.i, %.call.i.i204.i.i
   %cmp5.i209.i.i = icmp sgt i64 %sub.i207.i.i, %div50.i.i.i
   br i1 %cmp5.i209.i.i, label %if.then6.i231.i.i, label %if.end7.i210.i.i

@@ -6399,7 +6399,7 @@ land.lhs.true.i:                                  ; preds = %if.then
 if.end.i:                                         ; preds = %if.then
   %cmp6.not.i = icmp ne i8 %1, 0
   %conv8.i = sext i8 %0 to i32
-  %sub11.i = xor i32 %conv.i, 127
+  %sub11.i = sub nuw nsw i32 127, %conv.i
   %cmp12.i = icmp slt i32 %sub11.i, %conv8.i
   %or.cond = select i1 %cmp6.not.i, i1 %cmp12.i, i1 false
   br i1 %or.cond, label %_ZL18ImAddClampOverflowIaET_S0_S0_S0_S0_.exit, label %if.end14.i
@@ -6485,7 +6485,7 @@ land.lhs.true.i103:                               ; preds = %if.then16
 if.end.i94:                                       ; preds = %if.then16
   %cmp6.not.i95 = icmp ne i16 %9, 0
   %conv8.i97 = sext i16 %8 to i32
-  %sub11.i98 = xor i32 %conv.i92, 32767
+  %sub11.i98 = sub nuw nsw i32 32767, %conv.i92
   %cmp12.i99 = icmp slt i32 %sub11.i98, %conv8.i97
   %or.cond169 = select i1 %cmp6.not.i95, i1 %cmp12.i99, i1 false
   br i1 %or.cond169, label %_ZL18ImAddClampOverflowIsET_S0_S0_S0_S0_.exit, label %if.end14.i100
@@ -6566,9 +6566,9 @@ if.then34:                                        ; preds = %sw.bb32
 
 if.end.i126:                                      ; preds = %if.then34
   %cmp2.i = icmp sgt i32 %17, 0
-  %sub4.i = xor i32 %17, 2147483647
+  %sub4.i = sub nuw nsw i32 2147483647, %17
   %cmp5.i = icmp slt i32 %sub4.i, %16
-  %or.cond9.i = and i1 %cmp2.i, %cmp5.i
+  %or.cond9.i = select i1 %cmp2.i, i1 %cmp5.i, i1 false
   %add.i127 = add nsw i32 %17, %16
   %spec.select.i = select i1 %or.cond9.i, i32 2147483647, i32 %add.i127
   br label %_ZL18ImAddClampOverflowIiET_S0_S0_S0_S0_.exit
@@ -6638,9 +6638,9 @@ if.then52:                                        ; preds = %sw.bb50
 
 if.end.i146:                                      ; preds = %if.then52
   %cmp2.i147 = icmp sgt i64 %25, 0
-  %sub4.i148 = xor i64 %25, 9223372036854775807
+  %sub4.i148 = sub nuw nsw i64 9223372036854775807, %25
   %cmp5.i149 = icmp slt i64 %sub4.i148, %24
-  %or.cond9.i150 = and i1 %cmp2.i147, %cmp5.i149
+  %or.cond9.i150 = select i1 %cmp2.i147, i1 %cmp5.i149, i1 false
   %add.i151 = add nsw i64 %25, %24
   %spec.select.i152 = select i1 %or.cond9.i150, i64 9223372036854775807, i64 %add.i151
   br label %_ZL18ImAddClampOverflowIxET_S0_S0_S0_S0_.exit

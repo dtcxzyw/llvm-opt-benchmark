@@ -16426,7 +16426,7 @@ if.else.i:                                        ; preds = %if.end
   br i1 %cmp7.i, label %if.then9.i, label %_mpd_get_msdigits.exit
 
 if.then9.i:                                       ; preds = %if.else.i
-  %sub11.i = xor i64 %cond.i, 3
+  %sub11.i = sub nuw nsw i64 3, %cond.i
   %arrayidx12.i = getelementptr [0 x i64], ptr @mpd_pow10, i64 0, i64 %sub11.i
   %27 = load i64, ptr %arrayidx12.i, align 8
   %mul.i17.i = mul i64 %27, %24

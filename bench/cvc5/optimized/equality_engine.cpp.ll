@@ -18228,10 +18228,10 @@ land.rhs:                                         ; preds = %invoke.cont435
           to label %call2.i.i.i.noexc1620 unwind label %lpad434
 
 call2.i.i.i.noexc1620:                            ; preds = %land.rhs
-  %sub = xor i32 %i427.02003, 1
   %cmp.i.i1601 = icmp eq i32 %call2.i.i.i1621, 2
   %inc.i.i1602 = zext i1 %cmp.i.i1601 to i32
-  %spec.select.i.i1603 = add nuw nsw i32 %sub, %inc.i.i1602
+  %reass.sub2004 = sub nsw i32 %inc.i.i1602, %i427.02003
+  %spec.select.i.i1603 = add nsw i32 %reass.sub2004, 1
   %idxprom.i.i1605 = zext nneg i32 %spec.select.i.i1603 to i64
   %arrayidx.i.i1606 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i1604, i64 0, i64 %idxprom.i.i1605
   %176 = load ptr, ptr %arrayidx.i.i1606, align 8, !noalias !359

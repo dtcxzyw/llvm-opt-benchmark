@@ -1227,7 +1227,7 @@ define internal fastcc void @_ZN5vcpkg4Hash12_GLOBAL__N_115Sha256Algorithm18proc
   %9 = phi i32 [ 0, %5 ], [ %15, %8 ]
   %.012.tr.i = trunc nuw i64 %.01213.i to i32
   %10 = shl nuw nsw i32 %.012.tr.i, 3
-  %11 = xor i32 %10, 24
+  %11 = sub nuw nsw i32 24, %10
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.01213.i
   %12 = load i8, ptr %gep.i, align 1
   %13 = zext i8 %12 to i32
@@ -1669,7 +1669,7 @@ define internal fastcc void @_ZN5vcpkg4Hash12_GLOBAL__N_115Sha512Algorithm18proc
   %.01213.i = phi i64 [ 0, %5 ], [ %16, %8 ]
   %9 = phi i64 [ 0, %5 ], [ %15, %8 ]
   %10 = shl nuw nsw i64 %.01213.i, 3
-  %11 = xor i64 %10, 56
+  %11 = sub nuw nsw i64 56, %10
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %.01213.i
   %12 = load i8, ptr %gep.i, align 1
   %13 = zext i8 %12 to i64

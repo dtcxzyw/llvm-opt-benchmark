@@ -8808,7 +8808,7 @@ if.end11.i.i.i:                                   ; preds = %if.end.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end11.i.i.i
-  %sub.i.i.i.i = xor i64 %agg.tmp.sroa.0.0.copyload.i, 9223372036854775807
+  %sub.i.i.i.i = sub nuw nsw i64 9223372036854775807, %agg.tmp.sroa.0.0.copyload.i
   %cmp1.i.i.i.i = icmp slt i64 %sub.i.i.i.i, %sub.i.i
   br i1 %cmp1.i.i.i.i, label %invoke.cont42.i, label %if.end7.i.i.i.i
 
@@ -8854,7 +8854,7 @@ if.end11.i.i16.i:                                 ; preds = %if.end.i.i12.i
   br i1 %cmp.i.i.i17.i, label %if.then.i.i.i24.i, label %if.else.i.i.i18.i
 
 if.then.i.i.i24.i:                                ; preds = %if.end11.i.i16.i
-  %sub.i.i.i25.i = xor i64 %agg.tmp.sroa.0.0.copyload.i, 9223372036854775807
+  %sub.i.i.i25.i = sub nuw nsw i64 9223372036854775807, %agg.tmp.sroa.0.0.copyload.i
   %cmp1.i.i.i26.i = icmp slt i64 %sub.i.i.i25.i, %sub.i8.i
   br i1 %cmp1.i.i.i26.i, label %if.end67.i, label %if.end7.i.i.i21.i
 
@@ -16997,7 +16997,7 @@ if.end11.i.i.i:                                   ; preds = %if.end.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end11.i.i.i
-  %sub.i.i.i.i = xor i64 %agg.tmp.sroa.0.0.copyload.i, 9223372036854775807
+  %sub.i.i.i.i = sub nuw nsw i64 9223372036854775807, %agg.tmp.sroa.0.0.copyload.i
   %cmp1.i.i.i.i = icmp slt i64 %sub.i.i.i.i, %sub.i.i
   br i1 %cmp1.i.i.i.i, label %invoke.cont45.i, label %if.end7.i.i.i.i
 
@@ -17043,7 +17043,7 @@ if.end11.i.i17.i:                                 ; preds = %if.end.i.i13.i
   br i1 %cmp.i.i.i18.i, label %if.then.i.i.i25.i, label %if.else.i.i.i19.i
 
 if.then.i.i.i25.i:                                ; preds = %if.end11.i.i17.i
-  %sub.i.i.i26.i = xor i64 %agg.tmp.sroa.0.0.copyload.i, 9223372036854775807
+  %sub.i.i.i26.i = sub nuw nsw i64 9223372036854775807, %agg.tmp.sroa.0.0.copyload.i
   %cmp1.i.i.i27.i = icmp slt i64 %sub.i.i.i26.i, %sub.i9.i
   br i1 %cmp1.i.i.i27.i, label %if.end69.i, label %if.end7.i.i.i22.i
 

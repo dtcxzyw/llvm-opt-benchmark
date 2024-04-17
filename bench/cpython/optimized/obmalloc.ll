@@ -9907,7 +9907,7 @@ for.body3.i:                                      ; preds = %for.body3.i, %for.b
   %spec.select.i = select i1 %cmp4.not.i, i8 120, i8 46
   %inc.i = zext i1 %cmp4.not.i to i64
   %spec.select8.i = add i64 %inuse_count.12.i, %inc.i
-  %sub.i = xor i64 %bit.01.i, 63
+  %sub.i = sub nuw nsw i64 63, %bit.01.i
   %arrayidx6.i = getelementptr [65 x i8], ptr %buf.i, i64 0, i64 %sub.i
   store i8 %spec.select.i, ptr %arrayidx6.i, align 1
   %inc7.i = add nuw nsw i64 %bit.01.i, 1
@@ -29440,7 +29440,7 @@ if.end6.i:                                        ; preds = %_mi_strlen.exit.i
 if.end10.i:                                       ; preds = %if.end6.i
   %add.i = add i64 %4, %len.0.i.i
   %cmp11.i = icmp ugt i64 %add.i, 32767
-  %sub13.i = xor i64 %4, 32767
+  %sub13.i = sub nuw nsw i64 32767, %4
   %spec.select.i = select i1 %cmp11.i, i64 %sub13.i, i64 %len.0.i.i
   %arrayidx.i = getelementptr [32769 x i8], ptr @out_buf, i64 0, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx.i, ptr nonnull align 1 %msg, i64 %spec.select.i, i1 false)
@@ -29481,7 +29481,7 @@ if.end6:                                          ; preds = %_mi_strlen.exit
 if.end10:                                         ; preds = %if.end6
   %add = add i64 %2, %len.0.i
   %cmp11 = icmp ugt i64 %add, 32767
-  %sub13 = xor i64 %2, 32767
+  %sub13 = sub nuw nsw i64 32767, %2
   %spec.select = select i1 %cmp11, i64 %sub13, i64 %len.0.i
   %arrayidx = getelementptr [32769 x i8], ptr @out_buf, i64 0, i64 %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %arrayidx, ptr nonnull align 1 %msg, i64 %spec.select, i1 false)

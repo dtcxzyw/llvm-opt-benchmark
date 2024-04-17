@@ -9274,10 +9274,10 @@ invoke.cont31:                                    ; preds = %if.else.i.i.i230, %
           to label %call2.i.i.i247.noexc unwind label %lpad36
 
 call2.i.i.i247.noexc:                             ; preds = %invoke.cont31
-  %sub = xor i32 %i.02869, 1
   %cmp.i.i248 = icmp eq i32 %call2.i.i.i247267, 2
   %inc.i.i249 = zext i1 %cmp.i.i248 to i32
-  %spec.select.i.i250 = add nuw nsw i32 %sub, %inc.i.i249
+  %reass.sub = xor i32 %i.02869, 1
+  %spec.select.i.i250 = add nuw nsw i32 %reass.sub, %inc.i.i249
   %idxprom.i.i252 = zext nneg i32 %spec.select.i.i250 to i64
   %arrayidx.i.i253 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i223, i64 0, i64 %idxprom.i.i252
   %9 = load ptr, ptr %arrayidx.i.i253, align 8, !noalias !63

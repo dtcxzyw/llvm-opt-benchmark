@@ -1940,7 +1940,7 @@ bend.exit:                                        ; preds = %156, %get_cycle_cen
 
 .preheader96:                                     ; preds = %226, %.preheader96
   %.086106 = phi i64 [ %240, %.preheader96 ], [ 0, %226 ]
-  %237 = xor i64 %.086106, 3
+  %237 = sub nuw nsw i64 3, %.086106
   %238 = getelementptr inbounds [4 x %struct.pointf_s], ptr %8, i64 0, i64 %237
   %239 = getelementptr inbounds [4 x %struct.pointf_s], ptr %7, i64 0, i64 %.086106
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %238, ptr noundef nonnull align 16 dereferenceable(16) %239, i64 16, i1 false)

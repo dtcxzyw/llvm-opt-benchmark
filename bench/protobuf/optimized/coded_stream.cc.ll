@@ -954,7 +954,7 @@ while.body20:                                     ; preds = %if.then14
 
 while.end24:                                      ; preds = %if.then14
   %15 = load i32, ptr %total_bytes_read_, align 8
-  %sub26 = xor i32 %11, 2147483647
+  %sub26 = sub nuw nsw i32 2147483647, %11
   %cmp27.not = icmp sgt i32 %15, %sub26
   br i1 %cmp27.not, label %if.else, label %if.then28
 
@@ -1854,7 +1854,7 @@ entry:
   %tobool = trunc i8 %1 to i1
   %cmp = icmp ult i64 %0, 2147483648
   %or.cond.not = select i1 %tobool, i1 %cmp, i1 false
-  %conv = trunc i64 %0 to i32
+  %conv = trunc nuw nsw i64 %0 to i32
   %retval.0 = select i1 %or.cond.not, i32 %conv, i32 -1
   ret i32 %retval.0
 }
@@ -2113,7 +2113,7 @@ _ZN6google8protobuf2io12_GLOBAL__N_121ReadVarint64FromArrayEPKhPm.exit: ; preds 
 if.end:                                           ; preds = %_ZN6google8protobuf2io12_GLOBAL__N_121ReadVarint64FromArrayEPKhPm.exit
   %add.ptr.i30 = getelementptr inbounds i8, ptr %1, i64 %.sink
   store ptr %add.ptr.i30, ptr %this, align 8
-  %conv11 = trunc i64 %temp.0 to i32
+  %conv11 = trunc nuw i64 %temp.0 to i32
   br label %return
 
 if.else:                                          ; preds = %land.lhs.true, %lor.lhs.false
@@ -2123,7 +2123,7 @@ if.else:                                          ; preds = %land.lhs.true, %lor
   %tobool.i = trunc i8 %22 to i1
   %cmp.i152 = icmp ult i64 %21, 2147483648
   %or.cond.not.i = select i1 %tobool.i, i1 %cmp.i152, i1 false
-  %conv.i153 = trunc i64 %21 to i32
+  %conv.i153 = trunc nuw nsw i64 %21 to i32
   %retval.0.i = select i1 %or.cond.not.i, i32 %conv.i153, i32 -1
   br label %return
 
@@ -4255,7 +4255,7 @@ while.body.i19:                                   ; preds = %_ZN6google8protobuf
 _ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit: ; preds = %while.body.i19, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
   %ptr.addr.i14.0.lcssa = phi ptr [ %retval.0.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit ], [ %incdec.ptr.i23, %while.body.i19 ]
   %value.addr.i13.0.lcssa = phi i32 [ %or.i11, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit ], [ %shr.i22, %while.body.i19 ]
-  %conv1.i17 = trunc i32 %value.addr.i13.0.lcssa to i8
+  %conv1.i17 = trunc nuw nsw i32 %value.addr.i13.0.lcssa to i8
   store i8 %conv1.i17, ptr %ptr.addr.i14.0.lcssa, align 1
   %ptr.addr.i6.029 = getelementptr inbounds i8, ptr %ptr.addr.i14.0.lcssa, i64 1
   %cmp.i30 = icmp ugt i32 %conv, 127
@@ -4276,7 +4276,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit: ; preds =
   %ptr.addr.i14.0.pn.lcssa = phi ptr [ %ptr.addr.i14.0.lcssa, %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit ], [ %ptr.addr.i6.032, %while.body.i ]
   %value.addr.i.0.lcssa = phi i32 [ %conv, %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit ], [ %shr.i, %while.body.i ]
   %ptr.addr.i6.0.lcssa = phi ptr [ %ptr.addr.i6.029, %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit ], [ %ptr.addr.i6.0, %while.body.i ]
-  %conv1.i = trunc i32 %value.addr.i.0.lcssa to i8
+  %conv1.i = trunc nuw nsw i32 %value.addr.i.0.lcssa to i8
   %incdec.ptr2.i = getelementptr inbounds i8, ptr %ptr.addr.i14.0.pn.lcssa, i64 2
   store i8 %conv1.i, ptr %ptr.addr.i6.0.lcssa, align 1
   %call4 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #17
@@ -4464,7 +4464,7 @@ while.body.i19:                                   ; preds = %_ZN6google8protobuf
 _ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit: ; preds = %while.body.i19, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
   %ptr.addr.i14.0.lcssa = phi ptr [ %retval.0.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit ], [ %incdec.ptr.i23, %while.body.i19 ]
   %value.addr.i13.0.lcssa = phi i32 [ %or.i11, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit ], [ %shr.i22, %while.body.i19 ]
-  %conv1.i17 = trunc i32 %value.addr.i13.0.lcssa to i8
+  %conv1.i17 = trunc nuw nsw i32 %value.addr.i13.0.lcssa to i8
   store i8 %conv1.i17, ptr %ptr.addr.i14.0.lcssa, align 1
   %ptr.addr.i6.023 = getelementptr inbounds i8, ptr %ptr.addr.i14.0.lcssa, i64 1
   %cmp.i24 = icmp ugt i32 %conv, 127
@@ -4485,7 +4485,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit: ; preds =
   %ptr.addr.i14.0.pn.lcssa = phi ptr [ %ptr.addr.i14.0.lcssa, %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit ], [ %ptr.addr.i6.026, %while.body.i ]
   %value.addr.i.0.lcssa = phi i32 [ %conv, %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit ], [ %shr.i, %while.body.i ]
   %ptr.addr.i6.0.lcssa = phi ptr [ %ptr.addr.i6.023, %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit ], [ %ptr.addr.i6.0, %while.body.i ]
-  %conv1.i = trunc i32 %value.addr.i.0.lcssa to i8
+  %conv1.i = trunc nuw nsw i32 %value.addr.i.0.lcssa to i8
   %incdec.ptr2.i = getelementptr inbounds i8, ptr %ptr.addr.i14.0.pn.lcssa, i64 2
   store i8 %conv1.i, ptr %ptr.addr.i6.0.lcssa, align 1
   %call4 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %s) #17
@@ -4623,7 +4623,7 @@ while.body.i19:                                   ; preds = %_ZN6google8protobuf
 _ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit: ; preds = %while.body.i19, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
   %ptr.addr.i14.0.lcssa = phi ptr [ %retval.0.i, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit ], [ %incdec.ptr.i23, %while.body.i19 ]
   %value.addr.i13.0.lcssa = phi i32 [ %or.i11, %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit ], [ %shr.i22, %while.body.i19 ]
-  %conv1.i17 = trunc i32 %value.addr.i13.0.lcssa to i8
+  %conv1.i17 = trunc nuw nsw i32 %value.addr.i13.0.lcssa to i8
   store i8 %conv1.i17, ptr %ptr.addr.i14.0.lcssa, align 1
   %ptr.addr.i6.022 = getelementptr inbounds i8, ptr %ptr.addr.i14.0.lcssa, i64 1
   %cmp.i23 = icmp ugt i32 %conv, 127
@@ -4644,7 +4644,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit: ; preds =
   %ptr.addr.i14.0.pn.lcssa = phi ptr [ %ptr.addr.i14.0.lcssa, %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit ], [ %ptr.addr.i6.025, %while.body.i ]
   %value.addr.i.0.lcssa = phi i32 [ %conv, %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit ], [ %shr.i, %while.body.i ]
   %ptr.addr.i6.0.lcssa = phi ptr [ %ptr.addr.i6.022, %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintIjEEPhT_S4_.exit ], [ %ptr.addr.i6.0, %while.body.i ]
-  %conv1.i = trunc i32 %value.addr.i.0.lcssa to i8
+  %conv1.i = trunc nuw nsw i32 %value.addr.i.0.lcssa to i8
   %incdec.ptr2.i = getelementptr inbounds i8, ptr %ptr.addr.i14.0.pn.lcssa, i64 2
   store i8 %conv1.i, ptr %ptr.addr.i6.0.lcssa, align 1
   %call5 = call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream8WriteRawEPKviPh(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %s.coerce1, i32 noundef %conv, ptr noundef nonnull %incdec.ptr2.i)
@@ -4690,7 +4690,7 @@ while.body.i:                                     ; preds = %_ZNK4absl12lts_2023
 _ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit: ; preds = %while.body.i, %_ZNK4absl12lts_202308024Cord4sizeEv.exit
   %ptr.addr.i.0.lcssa = phi ptr [ %ptr, %_ZNK4absl12lts_202308024Cord4sizeEv.exit ], [ %incdec.ptr.i, %while.body.i ]
   %value.addr.i.0.lcssa = phi i32 [ %conv, %_ZNK4absl12lts_202308024Cord4sizeEv.exit ], [ %shr.i, %while.body.i ]
-  %conv1.i = trunc i32 %value.addr.i.0.lcssa to i8
+  %conv1.i = trunc nuw nsw i32 %value.addr.i.0.lcssa to i8
   %incdec.ptr2.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.lcssa, i64 1
   store i8 %conv1.i, ptr %ptr.addr.i.0.lcssa, align 1
   %call3 = tail call noundef ptr @_ZN6google8protobuf2io19EpsCopyOutputStream9WriteCordERKN4absl12lts_202308024CordEPh(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef nonnull align 8 dereferenceable(16) %c, ptr noundef nonnull %incdec.ptr2.i)
@@ -4771,7 +4771,7 @@ while.body.i.i:                                   ; preds = %entry, %while.body.
 _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit: ; preds = %while.body.i.i, %entry
   %ptr.addr.i.0.lcssa.i = phi ptr [ %target, %entry ], [ %incdec.ptr.i.i, %while.body.i.i ]
   %value.addr.i.0.lcssa.i = phi i32 [ %conv, %entry ], [ %shr.i.i, %while.body.i.i ]
-  %conv1.i.i = trunc i32 %value.addr.i.0.lcssa.i to i8
+  %conv1.i.i = trunc nuw nsw i32 %value.addr.i.0.lcssa.i to i8
   %incdec.ptr2.i.i = getelementptr inbounds i8, ptr %ptr.addr.i.0.lcssa.i, i64 1
   store i8 %conv1.i.i, ptr %ptr.addr.i.0.lcssa.i, align 1
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #17

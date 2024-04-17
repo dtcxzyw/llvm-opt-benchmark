@@ -19396,7 +19396,7 @@ cond.true13.i:                                    ; preds = %if.end8.i2098
   br label %load_frame.exit
 
 cond.false19.i:                                   ; preds = %if.end8.i2098
-  %sub.i.i2101 = xor i64 %.x.0.i.i2096, 9223372036854775807
+  %sub.i.i2101 = sub nuw nsw i64 9223372036854775807, %.x.0.i.i2096
   %cmp.i20.i2102 = icmp sgt i64 %726, %sub.i.i2101
   br i1 %cmp.i20.i2102, label %if.then.i36.i, label %if.end.i21.i2103
 

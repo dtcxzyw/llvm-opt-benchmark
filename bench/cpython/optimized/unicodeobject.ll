@@ -66052,7 +66052,7 @@ PyUnicode_READ_CHAR.exit:                         ; preds = %PyUnicode_DATA.exit
   br i1 %cmp6, label %return, label %if.end9
 
 if.end9:                                          ; preds = %PyUnicode_READ_CHAR.exit
-  %sub = xor i64 %conv, 9223372036854775806
+  %sub = sub nuw nsw i64 9223372036854775807, %conv
   %div = udiv i64 %sub, 10
   %cmp10 = icmp sgt i64 %accumulator.012, %div
   br i1 %cmp10, label %if.then12, label %if.end14

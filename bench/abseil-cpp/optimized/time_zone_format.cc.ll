@@ -2004,7 +2004,7 @@ cond.true517:                                     ; preds = %if.then512, %if.end
 
 cond.false522:                                    ; preds = %if.end515
   %204 = load i64, ptr %fs, align 8
-  %sub525 = xor i32 %spec.select.i822, 15
+  %sub525 = sub nuw nsw i32 15, %spec.select.i822
   %idxprom526 = zext nneg i32 %sub525 to i64
   %arrayidx527 = getelementptr inbounds [19 x i64], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_16kExp10E, i64 0, i64 %idxprom526
   %205 = load i64, ptr %arrayidx527, align 8
@@ -4143,7 +4143,7 @@ if.then.i744:                                     ; preds = %_ZN4absl13time_inte
   br i1 %cmp.i745, label %if.then13.i, label %if.else.i
 
 if.then13.i:                                      ; preds = %if.then.i744
-  %sub15.i = xor i64 %sub.i742, 9223372036854775807
+  %sub15.i = sub nuw nsw i64 9223372036854775807, %sub.i742
   %cmp16.i = icmp sgt i64 %93, %sub15.i
   br i1 %cmp16.i, label %if.then425, label %if.end23.i
 

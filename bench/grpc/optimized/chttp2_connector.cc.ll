@@ -1353,7 +1353,7 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp.i.i.i110, label %if.then.i.i.i111, label %if.else.i.i.i
 
 if.then.i.i.i111:                                 ; preds = %if.end11.i.i
-  %sub.i.i.i112 = xor i64 %agg.tmp76.sroa.0.0.copyload, 9223372036854775807
+  %sub.i.i.i112 = sub nuw nsw i64 9223372036854775807, %agg.tmp76.sroa.0.0.copyload
   %cmp1.i.i.i = icmp slt i64 %sub.i.i.i112, %sub.i
   br i1 %cmp1.i.i.i, label %invoke.cont83, label %if.end7.i.i.i
 

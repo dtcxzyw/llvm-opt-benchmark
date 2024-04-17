@@ -1359,7 +1359,7 @@ for.body3.i:                                      ; preds = %for.body3.i, %for.b
   %spec.select.i = select i1 %cmp4.not.i, i8 120, i8 46
   %inc.i = zext i1 %cmp4.not.i to i64
   %spec.select8.i = add i64 %inuse_count.12.i, %inc.i
-  %sub.i = xor i64 %bit.01.i, 63
+  %sub.i = sub nuw nsw i64 63, %bit.01.i
   %arrayidx6.i = getelementptr inbounds [65 x i8], ptr %buf.i, i64 0, i64 %sub.i
   store i8 %spec.select.i, ptr %arrayidx6.i, align 1
   %inc7.i = add nuw nsw i64 %bit.01.i, 1

@@ -1819,9 +1819,9 @@ if.end36:                                         ; preds = %if.end33
 
 lor.lhs.false51:                                  ; preds = %if.end36
   %cmp53 = icmp ult i64 %10, 4097
-  %sub56 = xor i64 %10, 9223372036854775807
+  %sub56 = sub nuw nsw i64 9223372036854775807, %10
   %cmp57.not = icmp ugt i64 %sub56, %datlen
-  %or.cond = and i1 %cmp53, %cmp57.not
+  %or.cond = select i1 %cmp53, i1 %cmp57.not, i1 false
   br i1 %or.cond, label %if.else81, label %if.then58
 
 if.then58:                                        ; preds = %lor.lhs.false51, %if.end36
@@ -6301,10 +6301,10 @@ if.end8:                                          ; preds = %if.end7, %if.end
   store i64 %length.addr.0, ptr %length9, align 8
   %cmp10 = icmp slt i64 %offset, 0
   %cmp11 = icmp slt i64 %length.addr.0, 0
-  %sub = xor i64 %length.addr.0, 9223372036854775807
+  %or.cond1 = select i1 %cmp10, i1 true, i1 %cmp11
+  %sub = sub nuw nsw i64 9223372036854775807, %length.addr.0
   %cmp15 = icmp ult i64 %sub, %offset
-  %1 = or i1 %cmp11, %cmp15
-  %or.cond = select i1 %cmp10, i1 true, i1 %1
+  %or.cond = select i1 %or.cond1, i1 true, i1 %cmp15
   br i1 %or.cond, label %err, label %if.end17
 
 if.end17:                                         ; preds = %if.end8
@@ -6330,12 +6330,12 @@ done:                                             ; preds = %if.end20, %if.then1
   br i1 %tobool26.not, label %if.then27, label %return
 
 if.then27:                                        ; preds = %done
-  %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 2), align 8
-  %tobool28.not = icmp eq ptr %2, null
+  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 2), align 8
+  %tobool28.not = icmp eq ptr %1, null
   br i1 %tobool28.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %if.then27
-  %call29 = tail call ptr %2(i32 noundef 0) #16
+  %call29 = tail call ptr %1(i32 noundef 0) #16
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then27, %cond.true
@@ -6941,10 +6941,10 @@ if.end8.i:                                        ; preds = %if.end7.i, %if.end.
   store i64 %length.addr.0.i, ptr %length9.i, align 8
   %cmp10.i = icmp slt i64 %offset, 0
   %cmp11.i = icmp slt i64 %length.addr.0.i, 0
-  %sub.i = xor i64 %length.addr.0.i, 9223372036854775807
+  %or.cond1.i = select i1 %cmp10.i, i1 true, i1 %cmp11.i
+  %sub.i = sub nuw nsw i64 9223372036854775807, %length.addr.0.i
   %cmp15.i = icmp ult i64 %sub.i, %offset
-  %1 = or i1 %cmp11.i, %cmp15.i
-  %or.cond.i = select i1 %cmp10.i, i1 true, i1 %1
+  %or.cond.i = select i1 %or.cond1.i, i1 true, i1 %cmp15.i
   br i1 %or.cond.i, label %err.i, label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.end8.i
@@ -6952,12 +6952,12 @@ if.end17.i:                                       ; preds = %if.end8.i
   %bf.load.i = load i8, ptr %can_sendfile.i, align 8
   %bf.set.i = or i8 %bf.load.i, 1
   store i8 %bf.set.i, ptr %can_sendfile.i, align 8
-  %2 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 2), align 8
-  %tobool28.not.i = icmp eq ptr %2, null
+  %1 = load ptr, ptr getelementptr inbounds (%struct.evthread_lock_callbacks, ptr @evthread_lock_fns_, i64 0, i32 2), align 8
+  %tobool28.not.i = icmp eq ptr %1, null
   br i1 %tobool28.not.i, label %if.end, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end17.i
-  %call29.i = tail call ptr %2(i32 noundef 0) #16
+  %call29.i = tail call ptr %1(i32 noundef 0) #16
   br label %if.end
 
 err.i:                                            ; preds = %if.end8.i, %if.then3.i

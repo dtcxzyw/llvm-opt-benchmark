@@ -43337,7 +43337,7 @@ if.end.i:                                         ; preds = %_ZN8nlohmann16json_
   %cmp5.not.not.i = icmp eq i8 %5, 0
   %6 = load i64, ptr %current.i.i, align 8
   %conv7.i = trunc i64 %6 to i8
-  %sub8.i = xor i64 %i.07.i, 7
+  %sub8.i = sub nuw nsw i64 7, %i.07.i
   %sub8.sink.i = select i1 %cmp5.not.not.i, i64 %sub8.i, i64 %i.07.i
   %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %vec.i, i64 0, i64 %sub8.sink.i
   store i8 %conv7.i, ptr %arrayidx.i.i.i, align 1
@@ -43434,7 +43434,7 @@ if.end.i26:                                       ; preds = %call2.i24.noexc
   %cmp5.not.not.i27 = icmp eq i8 %16, 0
   %17 = load i64, ptr %current.i.i12, align 8
   %conv7.i28 = trunc i64 %17 to i8
-  %sub8.i29 = xor i64 %i.07.i16, 3
+  %sub8.i29 = sub nuw nsw i64 3, %i.07.i16
   %sub8.sink.i30 = select i1 %cmp5.not.not.i27, i64 %sub8.i29, i64 %i.07.i16
   %arrayidx.i.i.i31 = getelementptr inbounds [4 x i8], ptr %vec.i9, i64 0, i64 %sub8.sink.i30
   store i8 %conv7.i28, ptr %arrayidx.i.i.i31, align 1
@@ -43626,7 +43626,7 @@ if.end.i57:                                       ; preds = %_ZN8nlohmann16json_
   %cmp5.not.not.i58 = icmp eq i8 %40, 0
   %41 = load i64, ptr %current.i.i43, align 8
   %conv7.i59 = trunc i64 %41 to i8
-  %sub8.i60 = xor i64 %i.07.i47, 3
+  %sub8.i60 = sub nuw nsw i64 3, %i.07.i47
   %sub8.sink.i61 = select i1 %cmp5.not.not.i58, i64 %sub8.i60, i64 %i.07.i47
   %arrayidx.i.i.i62 = getelementptr inbounds [4 x i8], ptr %vec.i40, i64 0, i64 %sub8.sink.i61
   store i8 %conv7.i59, ptr %arrayidx.i.i.i62, align 1
@@ -43759,7 +43759,7 @@ if.end.i95:                                       ; preds = %_ZN8nlohmann16json_
   %cmp5.not.not.i96 = icmp eq i8 %57, 0
   %58 = load i64, ptr %current.i.i81, align 8
   %conv7.i97 = trunc i64 %58 to i8
-  %sub8.i98 = xor i64 %i.07.i85, 3
+  %sub8.i98 = sub nuw nsw i64 3, %i.07.i85
   %sub8.sink.i99 = select i1 %cmp5.not.not.i96, i64 %sub8.i98, i64 %i.07.i85
   %arrayidx.i.i.i100 = getelementptr inbounds [4 x i8], ptr %vec.i78, i64 0, i64 %sub8.sink.i99
   store i8 %conv7.i97, ptr %arrayidx.i.i.i100, align 1
@@ -43827,7 +43827,7 @@ if.end.i125:                                      ; preds = %_ZN8nlohmann16json_
   %cmp5.not.not.i126 = icmp eq i8 %67, 0
   %68 = load i64, ptr %current.i.i111, align 8
   %conv7.i127 = trunc i64 %68 to i8
-  %sub8.i128 = xor i64 %i.07.i115, 7
+  %sub8.i128 = sub nuw nsw i64 7, %i.07.i115
   %sub8.sink.i129 = select i1 %cmp5.not.not.i126, i64 %sub8.i128, i64 %i.07.i115
   %arrayidx.i.i.i130 = getelementptr inbounds [8 x i8], ptr %vec.i108, i64 0, i64 %sub8.sink.i129
   store i8 %conv7.i127, ptr %arrayidx.i.i.i130, align 1
@@ -44983,7 +44983,7 @@ if.end:                                           ; preds = %_ZN8nlohmann16json_
   %cmp7.not = xor i1 %0, %6
   %7 = load i64, ptr %current.i, align 8
   %conv13 = trunc i64 %7 to i8
-  %sub10 = xor i64 %i.08, 3
+  %sub10 = sub nuw nsw i64 3, %i.08
   %sub10.sink = select i1 %cmp7.not, i64 %i.08, i64 %sub10
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %vec, i64 0, i64 %sub10.sink
   store i8 %conv13, ptr %arrayidx.i.i, align 1
@@ -45044,7 +45044,7 @@ if.end:                                           ; preds = %_ZN8nlohmann16json_
   %cmp7.not = xor i1 %0, %6
   %7 = load i64, ptr %current.i, align 8
   %conv13 = trunc i64 %7 to i8
-  %sub10 = xor i64 %i.08, 7
+  %sub10 = sub nuw nsw i64 7, %i.08
   %sub10.sink = select i1 %cmp7.not, i64 %i.08, i64 %sub10
   %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %vec, i64 0, i64 %sub10.sink
   store i8 %conv13, ptr %arrayidx.i.i, align 1
@@ -45885,7 +45885,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %conv.i = uitofp i32 %and2 to double
+  %conv.i = uitofp nneg i32 %and2 to double
   %call.i = tail call noundef double @ldexp(double noundef %conv.i, i32 noundef -24) #21
   br label %return
 
@@ -45897,7 +45897,7 @@ sw.bb3:                                           ; preds = %entry
 sw.default:                                       ; preds = %entry
   %add = or disjoint i32 %and2, 1024
   %sub = add nsw i32 %and, -25
-  %conv.i4 = uitofp i32 %add to double
+  %conv.i4 = uitofp nneg i32 %add to double
   %call.i5 = tail call noundef double @ldexp(double noundef %conv.i4, i32 noundef %sub) #21
   br label %return
 
@@ -45948,7 +45948,7 @@ if.end:                                           ; preds = %_ZN8nlohmann16json_
   %cmp7.not = xor i1 %0, %6
   %7 = load i64, ptr %current.i, align 8
   %conv13 = trunc i64 %7 to i8
-  %sub10 = xor i64 %i.08, 3
+  %sub10 = sub nuw nsw i64 3, %i.08
   %sub10.sink = select i1 %cmp7.not, i64 %i.08, i64 %sub10
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %vec, i64 0, i64 %sub10.sink
   store i8 %conv13, ptr %arrayidx.i.i, align 1
@@ -46009,7 +46009,7 @@ if.end:                                           ; preds = %_ZN8nlohmann16json_
   %cmp7.not = xor i1 %0, %6
   %7 = load i64, ptr %current.i, align 8
   %conv13 = trunc i64 %7 to i8
-  %sub10 = xor i64 %i.08, 7
+  %sub10 = sub nuw nsw i64 7, %i.08
   %sub10.sink = select i1 %cmp7.not, i64 %i.08, i64 %sub10
   %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %vec, i64 0, i64 %sub10.sink
   store i8 %conv13, ptr %arrayidx.i.i, align 1
@@ -47403,7 +47403,7 @@ if.end.i39:                                       ; preds = %_ZN8nlohmann16json_
   %19 = trunc i8 %18 to i1
   %20 = load i64, ptr %current, align 8
   %conv13.i40 = trunc i64 %20 to i8
-  %sub10.i41 = xor i64 %i.08.i30, 3
+  %sub10.i41 = sub nuw nsw i64 3, %i.08.i30
   %sub10.sink.i42 = select i1 %19, i64 %sub10.i41, i64 %i.08.i30
   %arrayidx.i.i.i43 = getelementptr inbounds [4 x i8], ptr %vec.i24, i64 0, i64 %sub10.sink.i42
   store i8 %conv13.i40, ptr %arrayidx.i.i.i43, align 1
@@ -47608,7 +47608,7 @@ if.end.i129:                                      ; preds = %_ZN8nlohmann16json_
   %50 = trunc i8 %49 to i1
   %51 = load i64, ptr %current, align 8
   %conv13.i131 = trunc i64 %51 to i8
-  %sub10.i132 = xor i64 %i.08.i119, 3
+  %sub10.i132 = sub nuw nsw i64 3, %i.08.i119
   %sub10.sink.i133 = select i1 %50, i64 %sub10.i132, i64 %i.08.i119
   %arrayidx.i.i.i134 = getelementptr inbounds [4 x i8], ptr %vec.i112, i64 0, i64 %sub10.sink.i133
   store i8 %conv13.i131, ptr %arrayidx.i.i.i134, align 1
@@ -47988,7 +47988,7 @@ if.end:                                           ; preds = %_ZN8nlohmann16json_
   %cmp7.not = xor i1 %0, %6
   %7 = load i64, ptr %current.i, align 8
   %conv13 = trunc i64 %7 to i8
-  %sub10 = xor i64 %i.08, 3
+  %sub10 = sub nuw nsw i64 3, %i.08
   %sub10.sink = select i1 %cmp7.not, i64 %i.08, i64 %sub10
   %arrayidx.i.i = getelementptr inbounds [4 x i8], ptr %vec, i64 0, i64 %sub10.sink
   store i8 %conv13, ptr %arrayidx.i.i, align 1
@@ -48049,7 +48049,7 @@ if.end:                                           ; preds = %_ZN8nlohmann16json_
   %cmp7.not = xor i1 %0, %6
   %7 = load i64, ptr %current.i, align 8
   %conv13 = trunc i64 %7 to i8
-  %sub10 = xor i64 %i.08, 7
+  %sub10 = sub nuw nsw i64 7, %i.08
   %sub10.sink = select i1 %cmp7.not, i64 %i.08, i64 %sub10
   %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %vec, i64 0, i64 %sub10.sink
   store i8 %conv13, ptr %arrayidx.i.i, align 1
@@ -48385,7 +48385,7 @@ if.end.i68:                                       ; preds = %_ZN8nlohmann16json_
   %cmp7.not.i = xor i1 %30, %36
   %37 = load i64, ptr %current.i.i56, align 8
   %conv13.i69 = trunc i64 %37 to i8
-  %sub10.i70 = xor i64 %i.08.i59, 3
+  %sub10.i70 = sub nuw nsw i64 3, %i.08.i59
   %sub10.sink.i71 = select i1 %cmp7.not.i, i64 %i.08.i59, i64 %sub10.i70
   %arrayidx.i.i.i72 = getelementptr inbounds [4 x i8], ptr %vec.i53, i64 0, i64 %sub10.sink.i71
   store i8 %conv13.i69, ptr %arrayidx.i.i.i72, align 1
@@ -48456,7 +48456,7 @@ if.end.i93:                                       ; preds = %_ZN8nlohmann16json_
   %cmp7.not.i94 = xor i1 %42, %48
   %49 = load i64, ptr %current.i.i79, align 8
   %conv13.i95 = trunc i64 %49 to i8
-  %sub10.i96 = xor i64 %i.08.i83, 7
+  %sub10.i96 = sub nuw nsw i64 7, %i.08.i83
   %sub10.sink.i97 = select i1 %cmp7.not.i94, i64 %i.08.i83, i64 %sub10.i96
   %arrayidx.i.i.i98 = getelementptr inbounds [8 x i8], ptr %vec.i76, i64 0, i64 %sub10.sink.i97
   store i8 %conv13.i95, ptr %arrayidx.i.i.i98, align 1
@@ -48595,7 +48595,7 @@ if.end.i147:                                      ; preds = %_ZN8nlohmann16json_
   %69 = trunc i8 %68 to i1
   %70 = load i64, ptr %current.i.i133, align 8
   %conv13.i149 = trunc i64 %70 to i8
-  %sub10.i150 = xor i64 %i.08.i137, 3
+  %sub10.i150 = sub nuw nsw i64 3, %i.08.i137
   %sub10.sink.i151 = select i1 %69, i64 %i.08.i137, i64 %sub10.i150
   %arrayidx.i.i.i152 = getelementptr inbounds [4 x i8], ptr %vec.i130, i64 0, i64 %sub10.sink.i151
   store i8 %conv13.i149, ptr %arrayidx.i.i.i152, align 1
@@ -48668,7 +48668,7 @@ if.end.i176:                                      ; preds = %_ZN8nlohmann16json_
   %80 = trunc i8 %79 to i1
   %81 = load i64, ptr %current.i.i162, align 8
   %conv13.i178 = trunc i64 %81 to i8
-  %sub10.i179 = xor i64 %i.08.i166, 7
+  %sub10.i179 = sub nuw nsw i64 7, %i.08.i166
   %sub10.sink.i180 = select i1 %80, i64 %i.08.i166, i64 %sub10.i179
   %arrayidx.i.i.i181 = getelementptr inbounds [8 x i8], ptr %vec.i159, i64 0, i64 %sub10.sink.i180
   store i8 %conv13.i178, ptr %arrayidx.i.i.i181, align 1
@@ -48841,7 +48841,7 @@ if.end.i219:                                      ; preds = %_ZN8nlohmann16json_
   %cmp7.not.i220 = xor i1 %99, %105
   %106 = load i64, ptr %current.i.i205, align 8
   %conv13.i221 = trunc i64 %106 to i8
-  %sub10.i222 = xor i64 %i.08.i209, 3
+  %sub10.i222 = sub nuw nsw i64 3, %i.08.i209
   %sub10.sink.i223 = select i1 %cmp7.not.i220, i64 %i.08.i209, i64 %sub10.i222
   %arrayidx.i.i.i224 = getelementptr inbounds [4 x i8], ptr %vec.i202, i64 0, i64 %sub10.sink.i223
   store i8 %conv13.i221, ptr %arrayidx.i.i.i224, align 1
@@ -48938,7 +48938,7 @@ if.end.i250:                                      ; preds = %_ZN8nlohmann16json_
   %cmp7.not.i251 = xor i1 %113, %119
   %120 = load i64, ptr %current.i.i236, align 8
   %conv13.i252 = trunc i64 %120 to i8
-  %sub10.i253 = xor i64 %i.08.i240, 7
+  %sub10.i253 = sub nuw nsw i64 7, %i.08.i240
   %sub10.sink.i254 = select i1 %cmp7.not.i251, i64 %i.08.i240, i64 %sub10.i253
   %arrayidx.i.i.i255 = getelementptr inbounds [8 x i8], ptr %vec.i233, i64 0, i64 %sub10.sink.i254
   store i8 %conv13.i252, ptr %arrayidx.i.i.i255, align 1
@@ -49335,7 +49335,7 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %conv.i = uitofp i32 %and2 to double
+  %conv.i = uitofp nneg i32 %and2 to double
   %call.i = tail call noundef double @ldexp(double noundef %conv.i, i32 noundef -24) #21
   br label %return
 
@@ -49347,7 +49347,7 @@ sw.bb3:                                           ; preds = %entry
 sw.default:                                       ; preds = %entry
   %add = or disjoint i32 %and2, 1024
   %sub = add nsw i32 %and, -25
-  %conv.i4 = uitofp i32 %add to double
+  %conv.i4 = uitofp nneg i32 %add to double
   %call.i5 = tail call noundef double @ldexp(double noundef %conv.i4, i32 noundef %sub) #21
   br label %return
 
@@ -50382,7 +50382,7 @@ if.end.i110:                                      ; preds = %_ZN8nlohmann16json_
   %cmp7.not.i = xor i1 %47, %53
   %54 = load i64, ptr %current, align 8
   %conv13.i111 = trunc i64 %54 to i8
-  %sub10.i112 = xor i64 %i.08.i101, 3
+  %sub10.i112 = sub nuw nsw i64 3, %i.08.i101
   %sub10.sink.i113 = select i1 %cmp7.not.i, i64 %i.08.i101, i64 %sub10.i112
   %arrayidx.i.i.i114 = getelementptr inbounds [4 x i8], ptr %vec.i95, i64 0, i64 %sub10.sink.i113
   store i8 %conv13.i111, ptr %arrayidx.i.i.i114, align 1
@@ -50475,7 +50475,7 @@ if.end.i158:                                      ; preds = %_ZN8nlohmann16json_
   %cmp7.not.i159 = xor i1 %63, %69
   %70 = load i64, ptr %current, align 8
   %conv13.i160 = trunc i64 %70 to i8
-  %sub10.i161 = xor i64 %i.08.i148, 7
+  %sub10.i161 = sub nuw nsw i64 7, %i.08.i148
   %sub10.sink.i162 = select i1 %cmp7.not.i159, i64 %i.08.i148, i64 %sub10.i161
   %arrayidx.i.i.i163 = getelementptr inbounds [8 x i8], ptr %vec.i141, i64 0, i64 %sub10.sink.i162
   store i8 %conv13.i160, ptr %arrayidx.i.i.i163, align 1
@@ -50630,7 +50630,7 @@ if.end.i231:                                      ; preds = %_ZN8nlohmann16json_
   %95 = trunc i8 %94 to i1
   %96 = load i64, ptr %current, align 8
   %conv13.i233 = trunc i64 %96 to i8
-  %sub10.i234 = xor i64 %i.08.i221, 3
+  %sub10.i234 = sub nuw nsw i64 3, %i.08.i221
   %sub10.sink.i235 = select i1 %95, i64 %i.08.i221, i64 %sub10.i234
   %arrayidx.i.i.i236 = getelementptr inbounds [4 x i8], ptr %vec.i214, i64 0, i64 %sub10.sink.i235
   store i8 %conv13.i233, ptr %arrayidx.i.i.i236, align 1
@@ -50696,7 +50696,7 @@ if.end.i258:                                      ; preds = %_ZN8nlohmann16json_
   %105 = trunc i8 %104 to i1
   %106 = load i64, ptr %current, align 8
   %conv13.i260 = trunc i64 %106 to i8
-  %sub10.i261 = xor i64 %i.08.i248, 7
+  %sub10.i261 = sub nuw nsw i64 7, %i.08.i248
   %sub10.sink.i262 = select i1 %105, i64 %i.08.i248, i64 %sub10.i261
   %arrayidx.i.i.i263 = getelementptr inbounds [8 x i8], ptr %vec.i241, i64 0, i64 %sub10.sink.i262
   store i8 %conv13.i260, ptr %arrayidx.i.i.i263, align 1
@@ -52334,7 +52334,7 @@ if.end.i120:                                      ; preds = %_ZN8nlohmann16json_
   %cmp7.not.i = xor i1 %44, %50
   %51 = load i64, ptr %current.i.i108, align 8
   %conv13.i121 = trunc i64 %51 to i8
-  %sub10.i122 = xor i64 %i.08.i111, 3
+  %sub10.i122 = sub nuw nsw i64 3, %i.08.i111
   %sub10.sink.i123 = select i1 %cmp7.not.i, i64 %i.08.i111, i64 %sub10.i122
   %arrayidx.i.i.i124 = getelementptr inbounds [4 x i8], ptr %vec.i105, i64 0, i64 %sub10.sink.i123
   store i8 %conv13.i121, ptr %arrayidx.i.i.i124, align 1
@@ -52493,7 +52493,7 @@ if.end.i146:                                      ; preds = %_ZN8nlohmann16json_
   %cmp7.not.i147 = xor i1 %63, %69
   %70 = load i64, ptr %current.i.i132, align 8
   %conv13.i148 = trunc i64 %70 to i8
-  %sub10.i149 = xor i64 %i.08.i136, 7
+  %sub10.i149 = sub nuw nsw i64 7, %i.08.i136
   %sub10.sink.i150 = select i1 %cmp7.not.i147, i64 %i.08.i136, i64 %sub10.i149
   %arrayidx.i.i.i151 = getelementptr inbounds [8 x i8], ptr %vec.i129, i64 0, i64 %sub10.sink.i150
   store i8 %conv13.i148, ptr %arrayidx.i.i.i151, align 1
@@ -52715,7 +52715,7 @@ if.end.i200:                                      ; preds = %_ZN8nlohmann16json_
   %97 = trunc i8 %96 to i1
   %98 = load i64, ptr %current.i.i186, align 8
   %conv13.i202 = trunc i64 %98 to i8
-  %sub10.i203 = xor i64 %i.08.i190, 3
+  %sub10.i203 = sub nuw nsw i64 3, %i.08.i190
   %sub10.sink.i204 = select i1 %97, i64 %i.08.i190, i64 %sub10.i203
   %arrayidx.i.i.i205 = getelementptr inbounds [4 x i8], ptr %vec.i183, i64 0, i64 %sub10.sink.i204
   store i8 %conv13.i202, ptr %arrayidx.i.i.i205, align 1
@@ -52783,7 +52783,7 @@ if.end.i227:                                      ; preds = %_ZN8nlohmann16json_
   %107 = trunc i8 %106 to i1
   %108 = load i64, ptr %current.i.i213, align 8
   %conv13.i229 = trunc i64 %108 to i8
-  %sub10.i230 = xor i64 %i.08.i217, 7
+  %sub10.i230 = sub nuw nsw i64 7, %i.08.i217
   %sub10.sink.i231 = select i1 %107, i64 %i.08.i217, i64 %sub10.i230
   %arrayidx.i.i.i232 = getelementptr inbounds [8 x i8], ptr %vec.i210, i64 0, i64 %sub10.sink.i231
   store i8 %conv13.i229, ptr %arrayidx.i.i.i232, align 1

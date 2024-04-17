@@ -6658,7 +6658,7 @@ define internal fastcc noundef zeroext i1 @zend_inference_calc_binary_op_range(p
 
 .thread2858:                                      ; preds = %282, %300
   %304 = icmp sgt i64 %.02028, 0
-  %305 = xor i64 %.02028, 9223372036854775807
+  %305 = sub nuw nsw i64 9223372036854775807, %.02028
   %306 = icmp sgt i64 %.02061, %305
   %or.cond2699 = select i1 %304, i1 %306, i1 false
   br i1 %or.cond2699, label %.critedge, label %307
@@ -6810,7 +6810,7 @@ define internal fastcc noundef zeroext i1 @zend_inference_calc_binary_op_range(p
 
 .critedge2706:                                    ; preds = %372, %390
   %395 = icmp sgt i64 %.02017, 0
-  %396 = xor i64 %.02017, 9223372036854775807
+  %396 = sub nuw nsw i64 9223372036854775807, %.02017
   %397 = icmp sgt i64 %.02050, %396
   %or.cond2708 = select i1 %395, i1 %397, i1 false
   br i1 %or.cond2708, label %.critedge2, label %398
@@ -34285,9 +34285,9 @@ define internal fastcc zeroext i1 @zend_inference_calc_range(ptr noundef %0, ptr
   %208 = load i64, ptr %207, align 8
   %209 = load i64, ptr %24, align 8
   %210 = icmp sgt i64 %209, 0
-  %211 = xor i64 %209, 9223372036854775807
+  %211 = sub nuw nsw i64 9223372036854775807, %209
   %212 = icmp slt i64 %211, %208
-  %or.cond.i = and i1 %210, %212
+  %or.cond.i = select i1 %210, i1 %212, i1 false
   br i1 %or.cond.i, label %add_will_overflow.exit.thread, label %add_will_overflow.exit
 
 add_will_overflow.exit:                           ; preds = %202
@@ -34360,9 +34360,9 @@ add_will_overflow.exit.thread:                    ; preds = %add_will_overflow.e
   %249 = getelementptr inbounds i8, ptr %11, i64 24
   %250 = load i64, ptr %249, align 8
   %251 = icmp sgt i64 %250, 0
-  %252 = xor i64 %250, 9223372036854775807
+  %252 = sub nuw nsw i64 9223372036854775807, %250
   %253 = icmp slt i64 %252, %248
-  %or.cond.i268 = and i1 %251, %253
+  %or.cond.i268 = select i1 %251, i1 %253, i1 false
   br i1 %or.cond.i268, label %add_will_overflow.exit269.thread, label %add_will_overflow.exit269
 
 add_will_overflow.exit269:                        ; preds = %246
@@ -34431,9 +34431,9 @@ add_will_overflow.exit269.thread:                 ; preds = %246, %258, %add_wil
   %290 = load i64, ptr %289, align 8
   %291 = load i64, ptr %24, align 8
   %292 = icmp sgt i64 %291, 0
-  %293 = xor i64 %291, 9223372036854775807
+  %293 = sub nuw nsw i64 9223372036854775807, %291
   %294 = icmp slt i64 %293, %290
-  %or.cond.i270 = and i1 %292, %294
+  %or.cond.i270 = select i1 %292, i1 %294, i1 false
   br i1 %or.cond.i270, label %add_will_overflow.exit271.thread, label %add_will_overflow.exit271
 
 add_will_overflow.exit271:                        ; preds = %288
@@ -34498,9 +34498,9 @@ add_will_overflow.exit271.thread:                 ; preds = %288, %add_will_over
   %331 = getelementptr inbounds i8, ptr %11, i64 24
   %332 = load i64, ptr %331, align 8
   %333 = icmp sgt i64 %332, 0
-  %334 = xor i64 %332, 9223372036854775807
+  %334 = sub nuw nsw i64 9223372036854775807, %332
   %335 = icmp slt i64 %334, %330
-  %or.cond.i272 = and i1 %333, %335
+  %or.cond.i272 = select i1 %333, i1 %335, i1 false
   br i1 %or.cond.i272, label %add_will_overflow.exit273.thread, label %add_will_overflow.exit273
 
 add_will_overflow.exit273:                        ; preds = %328

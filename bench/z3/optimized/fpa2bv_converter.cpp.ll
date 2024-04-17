@@ -4457,7 +4457,7 @@ entry:
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
-  %conv.i.i.i.i = trunc i64 %u to i32
+  %conv.i.i.i.i = trunc nuw nsw i64 %u to i32
   store i32 %conv.i.i.i.i, ptr %ref.tmp, align 8
   store i8 0, ptr %m_kind.i.i.i, align 4
   br label %_ZN8rationalC2EmNS_4ui64E.exit
@@ -5696,7 +5696,7 @@ invoke.cont13:                                    ; preds = %_ZNK6vectorIP4sortL
 
 if.then15:                                        ; preds = %invoke.cont13
   %15 = load ptr, ptr %m, align 8
-  %16 = trunc i64 %indvars.iv to i32
+  %16 = trunc nuw i64 %indvars.iv to i32
   %call20 = invoke noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8 dereferenceable(976) %15, i32 noundef %16, ptr noundef nonnull %14)
           to label %invoke.cont19 unwind label %lpad4.loopexit
 
@@ -42593,7 +42593,7 @@ invoke.cont1294:                                  ; preds = %if.then.i.i.i1742, 
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %invoke.cont1294
-  %add1302 = xor i32 %call426, 7
+  %add1302 = sub nuw nsw i32 7, %call426
   %call1308 = invoke noundef ptr @_ZNK7bv_util10mk_numeralEmj(ptr noundef nonnull align 8 dereferenceable(24) %m_bv_util, i64 noundef 0, i32 noundef %add1302)
           to label %invoke.cont1307 unwind label %lpad1203
 
@@ -86212,7 +86212,7 @@ invoke.cont3:                                     ; preds = %if.end
   %m_fid.i9 = getelementptr inbounds i8, ptr %this, i64 568
   %4 = load i32, ptr %m_fid.i9, align 8
   %5 = call i64 @llvm.umin.i64(i64 %call.i.i.i1, i64 4)
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw nsw i64 %5 to i32
   %7 = invoke noundef ptr @_ZN11ast_manager6mk_appEiijPKP4expr(ptr noundef nonnull align 8 dereferenceable(976) %3, i32 noundef %4, i32 noundef %6, i32 noundef 0, ptr noundef null)
           to label %sw.epilog unwind label %lpad
 

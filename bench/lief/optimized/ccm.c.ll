@@ -93,8 +93,8 @@ define hidden i32 @mbedtls_ccm_starts(ptr noundef %0, i32 noundef %1, ptr nocapt
   %8 = trunc i32 %1 to i8
   %9 = getelementptr inbounds i8, ptr %0, i64 161
   store i8 %8, ptr %9, align 1
-  %10 = trunc i64 %3 to i8
-  %11 = xor i8 %10, 15
+  %10 = trunc nuw i64 %3 to i8
+  %11 = sub nuw nsw i8 15, %10
   %12 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 %11, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 16
@@ -258,7 +258,7 @@ define hidden i32 @mbedtls_ccm_set_lengths(ptr noundef %0, i64 noundef %1, i64 n
   %.not33.i = icmp eq i64 %1, 0
   %27 = select i1 %.not33.i, i8 0, i8 64
   %28 = load i8, ptr %0, align 8
-  %.tr.i = trunc i64 %3 to i8
+  %.tr.i = trunc nuw i64 %3 to i8
   %29 = shl nuw nsw i8 %.tr.i, 2
   %30 = add nsw i8 %29, -8
   %31 = getelementptr inbounds i8, ptr %0, i64 160
@@ -1020,7 +1020,7 @@ mbedtls_ccm_setkey.exit.thread:                   ; preds = %11, %8, %1, %mbedtl
   br i1 %.not29, label %22, label %18
 
 18:                                               ; preds = %17
-  %19 = trunc i64 %.045 to i32
+  %19 = trunc nuw nsw i64 %.045 to i32
   %20 = add nuw nsw i32 %19, 1
   %21 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %20)
   br label %22

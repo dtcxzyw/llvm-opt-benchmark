@@ -2336,7 +2336,7 @@ define noundef zeroext i16 @de_gmm_drx_param(ptr noundef %0, ptr noundef %1, ptr
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i16 @de_gmm_ms_net_cap(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define zeroext i16 @de_gmm_ms_net_cap(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_gsm_a_gmm_net_cap_gea1, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %10 = load i32, ptr @hf_gsm_a_gmm_net_cap_smdch, align 4
@@ -2355,7 +2355,7 @@ define noundef zeroext i16 @de_gmm_ms_net_cap(ptr noundef %0, ptr noundef %1, pt
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %7
-  %24 = trunc i32 %4 to i16
+  %24 = trunc nuw nsw i32 %4 to i16
   br label %93
 
 25:                                               ; preds = %7
@@ -2636,7 +2636,7 @@ define zeroext i16 @de_gmm_ms_radio_acc_cap(ptr noundef %0, ptr noundef %1, ptr 
   %.63489 = phi i32 [ %99, %94 ], [ %.53488, %88 ]
   %.6 = phi i32 [ %100, %94 ], [ %.5, %88 ]
   %102 = lshr i32 %.63654, 31
-  %trunc4274 = trunc i32 %102 to i1
+  %trunc4274 = trunc nuw i32 %102 to i1
   %switch = xor i32 %102, 1
   %.str.58..str.59 = select i1 %trunc4274, ptr @.str.59, ptr @.str.58
   %103 = load i32, ptr @hf_gsm_a_gm_presence, align 4
@@ -2690,7 +2690,7 @@ define zeroext i16 @de_gmm_ms_radio_acc_cap(ptr noundef %0, ptr noundef %1, ptr 
   %.8 = phi i32 [ %123, %116 ], [ %.74327, %.lr.ph4328 ]
   %126 = sub i32 %.239664322, %..23966
   %127 = shl i32 %.83656, %..23966
-  %128 = trunc i32 %..23966 to i8
+  %128 = trunc nuw nsw i32 %..23966 to i8
   %129 = sub i8 %.83793, %128
   %130 = add i32 %.336244325, %..23966
   %.not4281 = icmp eq i32 %126, 0
@@ -2908,7 +2908,7 @@ switch.lookup4373:                                ; preds = %182
 236:                                              ; preds = %234, %232
   %237 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.4) #5
   %238 = zext i8 %237 to i32
-  %narrow4226 = xor i8 %.43789, 31
+  %narrow4226 = sub nuw nsw i8 31, %.43789
   %239 = zext nneg i8 %narrow4226 to i32
   %240 = shl nuw i32 %238, %239
   %241 = or i32 %240, %84
@@ -3068,7 +3068,7 @@ switch.lookup4384:                                ; preds = %254
   %.163499 = phi i32 [ %310, %305 ], [ %.1534984310, %299 ]
   %.16 = phi i32 [ %311, %305 ], [ %.154311, %299 ]
   %313 = lshr i32 %.163664, 31
-  %trunc = trunc i32 %313 to i1
+  %trunc = trunc nuw i32 %313 to i1
   %.str.74..str.75 = select i1 %trunc, ptr @.str.75, ptr @.str.74
   %314 = load i32, ptr @hf_gsm_a_gm_a5_bits, align 4
   %315 = add i32 %.16, -1
@@ -3918,7 +3918,7 @@ switch.lookup4384:                                ; preds = %254
   %.433526 = phi i32 [ %787, %781 ], [ %.423525, %774 ]
   %.43 = phi i32 [ %788, %781 ], [ %.42, %774 ]
   %791 = lshr i32 %.433691, 30
-  %792 = trunc i32 %791 to i8
+  %792 = trunc nuw nsw i32 %791 to i8
   %793 = load i32, ptr @hf_gsm_a_gm_rac_dtm_gprs_multi_slot_class, align 4
   %794 = call ptr @proto_tree_add_bits_item(ptr noundef %40, i32 noundef %793, ptr noundef %0, i32 noundef %772, i32 noundef 2, i32 noundef 0) #5
   %795 = add i32 %.123633, 3
@@ -3988,7 +3988,7 @@ switch.lookup4384:                                ; preds = %254
   %.453528 = phi i32 [ %830, %825 ], [ %.443527, %819 ]
   %.45 = phi i32 [ %831, %825 ], [ %.44, %819 ]
   %833 = lshr i32 %.453693, 31
-  %834 = trunc i32 %833 to i8
+  %834 = trunc nuw nsw i32 %833 to i8
   %835 = load i32, ptr @hf_gsm_a_gm_rac_dtm_egprs_multi_slot_cls_pres, align 4
   %836 = call ptr @proto_tree_add_bits_item(ptr noundef %426, i32 noundef %835, ptr noundef %0, i32 noundef %815, i32 noundef 1, i32 noundef 0) #5
   %837 = add i32 %.123633, 5
@@ -6978,7 +6978,7 @@ switch.lookup4384:                                ; preds = %254
   %.135 = phi i32 [ %2560, %2553 ], [ %.1344317, %.lr.ph ]
   %2563 = sub i32 %.2339874313, %..233987
   %2564 = shl i32 %.1353783, %..233987
-  %2565 = trunc i32 %..233987 to i8
+  %2565 = trunc nuw nsw i32 %..233987 to i8
   %2566 = sub i8 %.1353920, %2565
   %.not4272 = icmp eq i32 %2563, 0
   br i1 %.not4272, label %.thread, label %.lr.ph, !llvm.loop !8
@@ -8226,7 +8226,7 @@ switch.lookup:                                    ; preds = %17
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i16 @de_sm_qos(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define zeroext i16 @de_sm_qos(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_gsm_a_spare_bits, align 4
   %9 = shl i32 %3, 3
   %10 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %9, i32 noundef 2, i32 noundef 0) #5
@@ -8253,7 +8253,7 @@ define noundef zeroext i16 @de_sm_qos(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %7
-  %32 = trunc i32 %4 to i16
+  %32 = trunc nuw nsw i32 %4 to i16
   br label %406
 
 33:                                               ; preds = %7

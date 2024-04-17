@@ -492,7 +492,7 @@ gpu_p_get_device_count.exit.i:                    ; preds = %72, %70
 
 90:                                               ; preds = %102, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %102 ]
-  %91 = trunc i64 %indvars.iv.i to i32
+  %91 = trunc nuw i64 %indvars.iv.i to i32
   %92 = call i32 @nvmlDeviceGetHandleByIndex_v2(i32 noundef %91, ptr noundef nonnull %36) #12
   %.not.i61.i = icmp eq i32 %92, 0
   br i1 %.not.i61.i, label %95, label %_nvml_get_handle.exit.i
@@ -819,7 +819,7 @@ _nvml_get_nvlink_remote_pcie.exit.i.i:            ; preds = %222, %220
   br i1 %exitcond.not.i.i.i, label %_get_index_from_str_arr.exit.thread.i.i, label %.lr.ph.i.i.i, !llvm.loop !9
 
 _get_index_from_str_arr.exit.i.i:                 ; preds = %.lr.ph.i.i.i
-  %232 = trunc i64 %indvars.iv.i.i.i to i32
+  %232 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %233 = icmp ne i32 %.2104.i, %232
   %234 = icmp ne i32 %232, -1
   %or.cond.i.i = and i1 %233, %234
@@ -1633,7 +1633,7 @@ _nvml_print_gfx_freqs.exit41.i.i:                 ; preds = %525, %_nvml_print_g
   %indvars.iv.i80.i = phi i64 [ %indvars.iv.next.i81.i, %_nvml_print_gfx_freqs.exit42.i.i ], [ 0, %.preheader.i.i ]
   %527 = getelementptr inbounds [512 x i32], ptr %9, i64 0, i64 %indvars.iv.i80.i
   %528 = load i32, ptr %527, align 4
-  %529 = trunc i64 %indvars.iv.i80.i to i32
+  %529 = trunc nuw i64 %indvars.iv.i80.i to i32
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.105, i32 noundef %528, i32 noundef %529) #12
   %530 = load i32, ptr %527, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
@@ -1945,13 +1945,13 @@ define void @gpu_p_step_hardware_init(ptr noundef %0, ptr noundef %1) local_unna
   br i1 %89, label %90, label %174
 
 90:                                               ; preds = %87
-  %91 = trunc i64 %indvars.iv.i to i32
+  %91 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 6, ptr noundef nonnull @.str.124, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._set_freq, i32 noundef %91) #12
   br label %174
 
 92:                                               ; preds = %85, %.lr.ph.i
   %93 = add nsw i32 %.03654.i, 1
-  %94 = trunc i64 %indvars.iv.i to i32
+  %94 = trunc nuw nsw i64 %indvars.iv.i to i32
   %95 = call i32 @nvmlDeviceGetHandleByIndex_v2(i32 noundef %94, ptr noundef nonnull %15) #12
   %.not.i.i = icmp eq i32 %95, 0
   br i1 %.not.i.i, label %98, label %_nvml_get_handle.exit.i
@@ -2300,7 +2300,7 @@ define void @gpu_p_step_hardware_fini() local_unnamed_addr #0 {
 
 12:                                               ; preds = %.lr.ph.i
   %13 = add nsw i32 %.01727.i, 1
-  %14 = trunc i64 %indvars.iv.i to i32
+  %14 = trunc nuw nsw i64 %indvars.iv.i to i32
   %15 = call i32 @nvmlDeviceGetHandleByIndex_v2(i32 noundef %14, ptr noundef nonnull %5) #12
   %.not.i.i = icmp eq i32 %15, 0
   br i1 %.not.i.i, label %18, label %_nvml_get_handle.exit.i
@@ -2486,7 +2486,7 @@ define ptr @gpu_p_test_cpu_conv(ptr noundef %0) local_unnamed_addr #0 {
 8:                                                ; preds = %7
   %9 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.6) #12
   %10 = tail call ptr @slurm_xstrdup(ptr noundef nonnull @.str.7) #12
-  br label %64
+  br label %63
 
 11:                                               ; preds = %7
   %12 = load i8, ptr %0, align 1
@@ -2505,7 +2505,7 @@ define ptr @gpu_p_test_cpu_conv(ptr noundef %0) local_unnamed_addr #0 {
 15:                                               ; preds = %11
   %16 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.8) #12
   %17 = tail call ptr @slurm_xstrdup(ptr noundef nonnull @.str.7) #12
-  br label %64
+  br label %63
 
 18:                                               ; preds = %.preheader48.preheader
   %19 = tail call i32 @slurm_xstrcmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.10) #12
@@ -2547,12 +2547,12 @@ define ptr @gpu_p_test_cpu_conv(ptr noundef %0) local_unnamed_addr #0 {
   %34 = getelementptr inbounds i8, ptr %0, i64 1
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, 88
-  br i1 %36, label %37, label %45
+  br i1 %36, label %37, label %44
 
 37:                                               ; preds = %33
   %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #14
   %spec.select45 = tail call i64 @llvm.umin.i64(i64 %38, i64 512)
-  %spec.select = trunc i64 %spec.select45 to i32
+  %spec.select = trunc nuw nsw i64 %spec.select45 to i32
   %.not55 = icmp eq i32 %spec.select, 0
   br i1 %.not55, label %.lr.ph52.preheader, label %.preheader46
 
@@ -2566,60 +2566,59 @@ define ptr @gpu_p_test_cpu_conv(ptr noundef %0) local_unnamed_addr #0 {
   %41 = shl nuw nsw i64 %spec.select45, 3
   %scevgep = getelementptr i8, ptr %2, i64 %41
   %42 = shl nuw nsw i64 %spec.select45, 3
-  %43 = xor i64 %42, 4088
-  %44 = add nuw nsw i64 %43, 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %44, i1 false)
+  %43 = sub nuw nsw i64 4096, %42
+  call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %43, i1 false)
   br label %.loopexit.preheader
 
-45:                                               ; preds = %33
-  %46 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.14) #12
-  %47 = tail call ptr @slurm_xstrdup(ptr noundef nonnull @.str.7) #12
-  br label %64
+44:                                               ; preds = %33
+  %45 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.14) #12
+  %46 = tail call ptr @slurm_xstrdup(ptr noundef nonnull @.str.7) #12
+  br label %63
 
-.loopexit:                                        ; preds = %.loopexit.preheader, %59
-  %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %.loopexit.preheader ]
-  %48 = getelementptr inbounds [512 x i64], ptr %2, i64 0, i64 %indvars.iv
-  %49 = load i64, ptr %48, align 8
-  %50 = and i64 %49, 4294967295
-  %51 = icmp eq i64 %50, 4294967295
-  br i1 %51, label %52, label %53
+.loopexit:                                        ; preds = %.loopexit.preheader, %58
+  %indvars.iv = phi i64 [ %indvars.iv.next, %58 ], [ 0, %.loopexit.preheader ]
+  %47 = getelementptr inbounds [512 x i64], ptr %2, i64 0, i64 %indvars.iv
+  %48 = load i64, ptr %47, align 8
+  %49 = and i64 %48, 4294967295
+  %50 = icmp eq i64 %49, 4294967295
+  br i1 %50, label %51, label %52
+
+51:                                               ; preds = %.loopexit
+  %putchar44 = tail call i32 @putchar(i32 88)
+  br label %58
 
 52:                                               ; preds = %.loopexit
-  %putchar44 = tail call i32 @putchar(i32 88)
-  br label %59
+  %53 = icmp ugt i64 %48, 9
+  br i1 %53, label %54, label %56
 
-53:                                               ; preds = %.loopexit
-  %54 = icmp ugt i64 %49, 9
-  br i1 %54, label %55, label %57
+54:                                               ; preds = %52
+  %55 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i64 noundef %48)
+  br label %58
 
-55:                                               ; preds = %53
-  %56 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i64 noundef %49)
-  br label %59
+56:                                               ; preds = %52
+  %57 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i64 noundef %48)
+  br label %58
 
-57:                                               ; preds = %53
-  %58 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i64 noundef %49)
-  br label %59
-
-59:                                               ; preds = %52, %57, %55
+58:                                               ; preds = %51, %56, %54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
-  br i1 %exitcond.not, label %60, label %.loopexit, !llvm.loop !19
+  br i1 %exitcond.not, label %59, label %.loopexit, !llvm.loop !19
 
-60:                                               ; preds = %59
+59:                                               ; preds = %58
   %putchar = tail call i32 @putchar(i32 10)
-  %61 = tail call ptr @slurm_bit_alloc(i64 noundef 32768) #12
-  store ptr %61, ptr %3, align 8
-  call fastcc void @_set_cpu_set_bitstr(ptr noundef %61, ptr noundef nonnull %2)
-  %62 = tail call ptr @slurm_bit_fmt_full(ptr noundef %61) #12
-  %.not43 = icmp eq ptr %61, null
-  br i1 %.not43, label %64, label %63
+  %60 = tail call ptr @slurm_bit_alloc(i64 noundef 32768) #12
+  store ptr %60, ptr %3, align 8
+  call fastcc void @_set_cpu_set_bitstr(ptr noundef %60, ptr noundef nonnull %2)
+  %61 = tail call ptr @slurm_bit_fmt_full(ptr noundef %60) #12
+  %.not43 = icmp eq ptr %60, null
+  br i1 %.not43, label %63, label %62
 
-63:                                               ; preds = %60
+62:                                               ; preds = %59
   call void @slurm_bit_free(ptr noundef nonnull %3) #12
-  br label %64
+  br label %63
 
-64:                                               ; preds = %60, %63, %45, %15, %8
-  %.0 = phi ptr [ %17, %15 ], [ %47, %45 ], [ %10, %8 ], [ %62, %63 ], [ %62, %60 ]
+63:                                               ; preds = %59, %62, %44, %15, %8
+  %.0 = phi ptr [ %17, %15 ], [ %46, %44 ], [ %10, %8 ], [ %61, %62 ], [ %61, %59 ]
   ret ptr %.0
 }
 
@@ -2687,7 +2686,7 @@ define internal fastcc void @_set_cpu_set_bitstr(ptr noundef %0, ptr nocapture n
   br i1 %exitcond.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit.loopexit:                               ; preds = %17
-  %20 = trunc i64 %indvars.iv.next to i32
+  %20 = trunc nsw i64 %indvars.iv.next to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %13

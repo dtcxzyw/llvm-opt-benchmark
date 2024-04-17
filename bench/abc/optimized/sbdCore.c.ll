@@ -6351,7 +6351,7 @@ Sbd_ManAddCube1.exit.us:                          ; preds = %.lr.ph.i246.us, %.l
   %indvars.iv.i253 = phi i64 [ %indvars.iv.next.i254, %309 ], [ 0, %.preheader ]
   %310 = getelementptr inbounds i64, ptr %12, i64 %indvars.iv.i253
   %311 = load i64, ptr %310, align 8
-  %312 = xor i64 %indvars.iv.i253, 63
+  %312 = sub nuw nsw i64 63, %indvars.iv.i253
   %313 = getelementptr inbounds i64, ptr %12, i64 %312
   %314 = load i64, ptr %313, align 8
   store i64 %314, ptr %310, align 8
@@ -6415,7 +6415,7 @@ Sbd_TransposeMatrix64.exit261:                    ; preds = %339, %Sbd_Transpose
   %indvars.iv.i262 = phi i64 [ %indvars.iv.next.i263, %Sbd_TransposeMatrix64.exit261 ], [ 0, %339 ]
   %344 = getelementptr inbounds i64, ptr %12, i64 %indvars.iv.i262
   %345 = load i64, ptr %344, align 8
-  %346 = xor i64 %indvars.iv.i262, 63
+  %346 = sub nuw nsw i64 63, %indvars.iv.i262
   %347 = getelementptr inbounds i64, ptr %12, i64 %346
   %348 = load i64, ptr %347, align 8
   store i64 %348, ptr %344, align 8

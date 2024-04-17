@@ -24104,7 +24104,7 @@ _ZN4asio6detail14io_object_implINS0_22deadline_timer_serviceINS0_18chrono_time_t
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %_ZN4asio6detail14io_object_implINS0_22deadline_timer_serviceINS0_18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS6_EEEEEENS_15any_io_executorEEC2EiRKSB_.exit
-  %sub.i.i.i.i = xor i64 %call.i.i, 9223372036854775807
+  %sub.i.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i.i
   %14 = load i64, ptr %expiry_time, align 8
   %cmp.i8.not.not.i.i = icmp slt i64 %sub.i.i.i.i, %14
   br i1 %cmp.i8.not.not.i.i, label %_ZN4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS4_EEE3addERKNS2_10time_pointIS4_NS2_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSC_.exit.i, label %if.end41.i.i
@@ -26587,7 +26587,7 @@ if.else.i:                                        ; preds = %if.then.i
   br i1 %cmp.i.i.i, label %if.end5.i, label %if.else20.i
 
 if.else20.i:                                      ; preds = %if.else.i
-  %sub.i.i29.i = xor i64 %retval.sroa.0.0.copyload.i.i.i, 9223372036854775807
+  %sub.i.i29.i = sub nuw nsw i64 9223372036854775807, %retval.sroa.0.0.copyload.i.i.i
   %sub.i.i32.i = sub nsw i64 0, %call.i
   %cmp.i33.not.not.i = icmp ult i64 %sub.i.i29.i, %sub.i.i32.i
   %sub.i.i36.i = sub nsw i64 %retval.sroa.0.0.copyload.i.i.i, %call.i
@@ -26645,7 +26645,7 @@ if.else.i:                                        ; preds = %if.then.i
   br i1 %cmp.i.i.i, label %if.end5.i, label %if.else20.i
 
 if.else20.i:                                      ; preds = %if.else.i
-  %sub.i.i29.i = xor i64 %retval.sroa.0.0.copyload.i.i.i, 9223372036854775807
+  %sub.i.i29.i = sub nuw nsw i64 9223372036854775807, %retval.sroa.0.0.copyload.i.i.i
   %sub.i.i32.i = sub nsw i64 0, %call.i
   %cmp.i33.not.not.i = icmp ult i64 %sub.i.i29.i, %sub.i.i32.i
   %sub.i.i36.i = sub nsw i64 %retval.sroa.0.0.copyload.i.i.i, %call.i
@@ -69408,7 +69408,7 @@ invoke.cont:                                      ; preds = %entry.resume
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %sub.i.i.i.i.i = xor i64 %call.i.i.i, 9223372036854775807
+  %sub.i.i.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i.i.i
   %cmp.i8.not.not.i.i.i = icmp slt i64 %sub.i.i.i.i.i, %mul.i.i.i
   br i1 %cmp.i8.not.not.i.i.i, label %_ZN4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS4_EEE3addERKNS2_10time_pointIS4_NS2_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSC_.exit.i.i, label %if.end41.i.i.i
 
@@ -72259,7 +72259,7 @@ invoke.cont10:                                    ; preds = %init.ready
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont10
-  %sub.i.i.i.i.i = xor i64 %call.i.i.i, 9223372036854775807
+  %sub.i.i.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i.i.i
   %4 = load i64, ptr %2, align 8
   %cmp.i8.not.not.i.i.i = icmp slt i64 %sub.i.i.i.i.i, %4
   br i1 %cmp.i8.not.not.i.i.i, label %_ZN4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS4_EEE3addERKNS2_10time_pointIS4_NS2_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSC_.exit.i.i, label %if.end41.i.i.i
@@ -75487,7 +75487,7 @@ invoke.cont13:                                    ; preds = %init.ready
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont13
-  %sub.i.i.i.i.i = xor i64 %call.i.i.i, 9223372036854775807
+  %sub.i.i.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i.i.i
   %cmp.i8.not.not.i.i.i = icmp slt i64 %sub.i.i.i.i.i, %mul.i.i.i
   br i1 %cmp.i8.not.not.i.i.i, label %_ZN4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS4_EEE3addERKNS2_10time_pointIS4_NS2_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSC_.exit.i.i, label %if.end41.i.i.i
 
@@ -85483,7 +85483,7 @@ invoke.cont:                                      ; preds = %entry.resume
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont
-  %sub.i.i.i.i.i = xor i64 %call.i.i.i, 9223372036854775807
+  %sub.i.i.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i.i.i
   %cmp.i8.not.not.i.i.i = icmp slt i64 %sub.i.i.i.i.i, %mul.i.i.i
   br i1 %cmp.i8.not.not.i.i.i, label %_ZN4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS4_EEE3addERKNS2_10time_pointIS4_NS2_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSC_.exit.i.i, label %if.end41.i.i.i
 
@@ -92219,7 +92219,7 @@ invoke.cont13:                                    ; preds = %init.ready
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont13
-  %sub.i.i.i.i.i = xor i64 %call.i.i.i, 9223372036854775807
+  %sub.i.i.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i.i.i
   %cmp.i8.not.not.i.i.i = icmp slt i64 %sub.i.i.i.i.i, %mul.i.i.i
   br i1 %cmp.i8.not.not.i.i.i, label %_ZN4asio6detail18chrono_time_traitsINSt6chrono3_V212steady_clockENS_11wait_traitsIS4_EEE3addERKNS2_10time_pointIS4_NS2_8durationIlSt5ratioILl1ELl1000000000EEEEEERKSC_.exit.i.i, label %if.end41.i.i.i
 

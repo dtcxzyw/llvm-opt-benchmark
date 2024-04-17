@@ -549,7 +549,7 @@ _ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i:    ; preds = %cond.true.i.i.i.i, 
   %result.sroa.4.0.i.i.i = phi i64 [ %not3.i.i.i.i.i, %cond.true.i.i.i.i ], [ %dividend.val63.i, %entry ]
   %result.sroa.0.0.i.i.i = phi i64 [ %add.i.i.i.i.i, %cond.true.i.i.i.i ], [ %dividend.val.i, %entry ]
   %call3.lobit.i.i = lshr i64 %dividend.val63.i, 63
-  %frombool.i.i = trunc i64 %call3.lobit.i.i to i8
+  %frombool.i.i = trunc nuw nsw i64 %call3.lobit.i.i to i8
   %cmp6.not.i.i = icmp eq i64 %result.sroa.4.0.i.i.i, 0
   br i1 %cmp6.not.i.i, label %if.end25.i.i, label %if.then.i.i
 
@@ -562,22 +562,22 @@ if.then.i.i:                                      ; preds = %_ZN5arrow15BasicDec
 
 if.then9.i.i:                                     ; preds = %if.then.i.i
   %shr.i.i = lshr i64 %result.sroa.4.0.i8.i.i, 32
-  %conv10.i.i = trunc i64 %shr.i.i to i32
+  %conv10.i.i = trunc nuw i64 %shr.i.i to i32
   store i32 %conv10.i.i, ptr %add.ptr.i, align 4
   %conv11.i.i = trunc i64 %result.sroa.4.0.i8.i.i to i32
   store i32 %conv11.i.i, ptr %retval.0.i.sroa.gep4.i, align 8
   %shr13.i.i = lshr i64 %result.sroa.0.0.i9.i.i, 32
-  %conv14.i.i = trunc i64 %shr13.i.i to i32
+  %conv14.i.i = trunc nuw i64 %shr13.i.i to i32
   store i32 %conv14.i.i, ptr %retval.0.i.sroa.gep3.i, align 4
   %conv16.i.i = trunc i64 %result.sroa.0.0.i9.i.i to i32
   store i32 %conv16.i.i, ptr %retval.0.i.sroa.gep.i, align 16
   br label %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.i
 
 if.end.i.i:                                       ; preds = %if.then.i.i
-  %conv18.i.i = trunc i64 %result.sroa.4.0.i8.i.i to i32
+  %conv18.i.i = trunc nuw i64 %result.sroa.4.0.i8.i.i to i32
   store i32 %conv18.i.i, ptr %add.ptr.i, align 4
   %shr20.i.i = lshr i64 %result.sroa.0.0.i9.i.i, 32
-  %conv21.i.i = trunc i64 %shr20.i.i to i32
+  %conv21.i.i = trunc nuw i64 %shr20.i.i to i32
   store i32 %conv21.i.i, ptr %retval.0.i.sroa.gep4.i, align 8
   %conv23.i.i = trunc i64 %result.sroa.0.0.i9.i.i to i32
   store i32 %conv23.i.i, ptr %retval.0.i.sroa.gep3.i, align 4
@@ -589,7 +589,7 @@ if.end25.i.i:                                     ; preds = %_ZN5arrow15BasicDec
 
 if.then29.i.i:                                    ; preds = %if.end25.i.i
   %shr30.i.i = lshr i64 %result.sroa.0.0.i.i.i, 32
-  %conv31.i.i = trunc i64 %shr30.i.i to i32
+  %conv31.i.i = trunc nuw i64 %shr30.i.i to i32
   store i32 %conv31.i.i, ptr %add.ptr.i, align 4
   %conv33.i.i = trunc i64 %result.sroa.0.0.i.i.i to i32
   store i32 %conv33.i.i, ptr %retval.0.i.sroa.gep4.i, align 8
@@ -600,7 +600,7 @@ if.end35.i.i:                                     ; preds = %if.end25.i.i
   br i1 %cmp36.i.i, label %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.i, label %if.end38.i.i
 
 if.end38.i.i:                                     ; preds = %if.end35.i.i
-  %conv39.i.i = trunc i64 %result.sroa.0.0.i.i.i to i32
+  %conv39.i.i = trunc nuw i64 %result.sroa.0.0.i.i.i to i32
   store i32 %conv39.i.i, ptr %add.ptr.i, align 4
   br label %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.i
 
@@ -629,7 +629,7 @@ _ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i66.i:  ; preds = %cond.true.i.i.i104.
   %result.sroa.4.0.i.i67.i = phi i64 [ %not3.i.i.i.i105.i, %cond.true.i.i.i104.i ], [ %divisor.val1, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.i ]
   %result.sroa.0.0.i.i68.i = phi i64 [ %add.i.i.i.i107.i, %cond.true.i.i.i104.i ], [ %divisor.val, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.i ]
   %call3.lobit.i69.i = lshr i64 %divisor.val1, 63
-  %frombool.i70.i = trunc i64 %call3.lobit.i69.i to i8
+  %frombool.i70.i = trunc nuw nsw i64 %call3.lobit.i69.i to i8
   %cmp6.not.i71.i = icmp eq i64 %result.sroa.4.0.i.i67.i, 0
   br i1 %cmp6.not.i71.i, label %if.end25.i93.i, label %if.then.i72.i
 
@@ -643,12 +643,12 @@ if.then.i72.i:                                    ; preds = %_ZN5arrow15BasicDec
 
 if.then9.i84.i:                                   ; preds = %if.then.i72.i
   %shr.i85.i = lshr i64 %result.sroa.4.0.i8.i74.i, 32
-  %conv10.i86.i = trunc i64 %shr.i85.i to i32
+  %conv10.i86.i = trunc nuw i64 %shr.i85.i to i32
   store i32 %conv10.i86.i, ptr %divisor_array.i, align 16
   %conv11.i87.i = trunc i64 %result.sroa.4.0.i8.i74.i to i32
   store i32 %conv11.i87.i, ptr %arrayidx12.i76.i, align 4
   %shr13.i88.i = lshr i64 %result.sroa.0.0.i9.i73.i, 32
-  %conv14.i89.i = trunc i64 %shr13.i88.i to i32
+  %conv14.i89.i = trunc nuw i64 %shr13.i88.i to i32
   %arrayidx15.i90.i = getelementptr inbounds i8, ptr %divisor_array.i, i64 8
   store i32 %conv14.i89.i, ptr %arrayidx15.i90.i, align 8
   %conv16.i91.i = trunc i64 %result.sroa.0.0.i9.i73.i to i32
@@ -657,10 +657,10 @@ if.then9.i84.i:                                   ; preds = %if.then.i72.i
   br label %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit110.i
 
 if.end.i77.i:                                     ; preds = %if.then.i72.i
-  %conv18.i78.i = trunc i64 %result.sroa.4.0.i8.i74.i to i32
+  %conv18.i78.i = trunc nuw i64 %result.sroa.4.0.i8.i74.i to i32
   store i32 %conv18.i78.i, ptr %divisor_array.i, align 16
   %shr20.i79.i = lshr i64 %result.sroa.0.0.i9.i73.i, 32
-  %conv21.i80.i = trunc i64 %shr20.i79.i to i32
+  %conv21.i80.i = trunc nuw i64 %shr20.i79.i to i32
   store i32 %conv21.i80.i, ptr %arrayidx12.i76.i, align 4
   %conv23.i81.i = trunc i64 %result.sroa.0.0.i9.i73.i to i32
   %arrayidx24.i82.i = getelementptr inbounds i8, ptr %divisor_array.i, i64 8
@@ -673,7 +673,7 @@ if.end25.i93.i:                                   ; preds = %_ZN5arrow15BasicDec
 
 if.then29.i99.i:                                  ; preds = %if.end25.i93.i
   %shr30.i100.i = lshr i64 %result.sroa.0.0.i.i68.i, 32
-  %conv31.i101.i = trunc i64 %shr30.i100.i to i32
+  %conv31.i101.i = trunc nuw i64 %shr30.i100.i to i32
   store i32 %conv31.i101.i, ptr %divisor_array.i, align 16
   %conv33.i102.i = trunc i64 %result.sroa.0.0.i.i68.i to i32
   %arrayidx34.i103.i = getelementptr inbounds i8, ptr %divisor_array.i, i64 4
@@ -685,7 +685,7 @@ if.end35.i95.i:                                   ; preds = %if.end25.i93.i
   br i1 %cmp36.i96.i, label %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit110.i, label %if.end38.i97.i
 
 if.end38.i97.i:                                   ; preds = %if.end35.i95.i
-  %conv39.i98.i = trunc i64 %result.sroa.0.0.i.i68.i to i32
+  %conv39.i98.i = trunc nuw i64 %result.sroa.0.0.i.i68.i to i32
   store i32 %conv39.i98.i, ptr %divisor_array.i, align 16
   br label %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit110.i
 
@@ -731,7 +731,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %if.t
   br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !5
 
 for.end.i.i:                                      ; preds = %for.body.i.i
-  %tobool.i = trunc i8 %dividend_was_negative.1.i to i1
+  %tobool.i = trunc nuw i8 %dividend_was_negative.1.i to i1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result_array.i.i.sroa.0.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %result_array.i.i.sroa.5.i)
   %6 = load i32, ptr %result_array.i.i, align 16
@@ -752,7 +752,7 @@ for.cond18.preheader.i.i.i.i:                     ; preds = %cond.end.i.i.i.i, %
   %ref.tmp.sroa.2.0.remainder.sroa_idx.i.i = getelementptr inbounds i8, ptr %remainder, i64 8
   store i64 0, ptr %ref.tmp.sroa.2.0.remainder.sroa_idx.i.i, align 8
   %7 = xor i8 %divisor_was_negative.1.i, %dividend_was_negative.1.i
-  %8 = trunc i8 %7 to i1
+  %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %if.then.i.i.i, label %if.end.i13.i.i
 
 for.body8.i.i.i.i:                                ; preds = %for.end.i.i, %cond.end.i.i.i.i
@@ -996,7 +996,7 @@ for.body102.i:                                    ; preds = %for.body102.i.prehe
 
 for.end120.i:                                     ; preds = %for.body102.i
   %.pre48.i = load i32, ptr %arrayidx25.i, align 4
-  %conv117.i = trunc i64 %shr116.i to i32
+  %conv117.i = trunc nuw nsw i64 %shr116.i to i32
   %add122.i = add i32 %.pre48.i, %conv117.i
   store i32 %add122.i, ptr %arrayidx25.i, align 4
   br label %if.end123.i
@@ -1122,9 +1122,9 @@ for.cond18.preheader.i.i173.i:                    ; preds = %cond.end.i.i166.i, 
   store i64 %result_array.i155.sroa.4.0.result_array.i155.sroa.4.0.result_array.i155.sroa.4.8..i, ptr %ref.tmp.sroa.2.0.value.sroa_idx.i175.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result_array.i155.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %result_array.i155.sroa.4.i)
-  %tobool139.i = trunc i8 %dividend_was_negative.1.i to i1
+  %tobool139.i = trunc nuw i8 %dividend_was_negative.1.i to i1
   %42 = xor i8 %divisor_was_negative.1.i, %dividend_was_negative.1.i
-  %43 = trunc i8 %42 to i1
+  %43 = trunc nuw i8 %42 to i1
   br i1 %43, label %if.then.i188.i, label %if.end.i187.i
 
 for.body8.i.i159.i:                               ; preds = %if.end133.i, %cond.end.i.i166.i
@@ -1372,7 +1372,7 @@ _ZN5arrow15BasicDecimal1283AbsERKS0_.exit22:      ; preds = %_ZN5arrow15BasicDec
   %or.i27 = or disjoint i128 %shl.i25, %conv3.i26
   %mul.i = mul i128 %or.i27, %or.i23
   %shr.i28 = lshr i128 %mul.i, 64
-  %conv.i29 = trunc i128 %shr.i28 to i64
+  %conv.i29 = trunc nuw i128 %shr.i28 to i64
   %conv.i30 = trunc i128 %mul.i to i64
   store i64 %conv.i30, ptr %this, align 8
   store i64 %conv.i29, ptr %arrayidx.i.i.i, align 8
@@ -1583,7 +1583,7 @@ _ZN5arrow15BasicDecimal1283AbsERKS0_.exit22.i:    ; preds = %cond.true.i.i16.i, 
   %or.i27.i = or disjoint i128 %shl.i25.i, %conv3.i26.i
   %mul.i.i = mul i128 %or.i27.i, %or.i23.i
   %shr.i28.i = lshr i128 %mul.i.i, 64
-  %conv.i29.i = trunc i128 %shr.i28.i to i64
+  %conv.i29.i = trunc nuw i128 %shr.i28.i to i64
   %conv.i30.i = trunc i128 %mul.i.i to i64
   br i1 %isneg.i, label %_ZN5arrow15BasicDecimal128mLERKS0_.exit, label %if.then.i
 
@@ -1724,7 +1724,7 @@ _ZN5arrow15BasicDecimal1283AbsERKS0_.exit22.i.i.i: ; preds = %cond.true.i.i16.i.
   %or.i27.i.i.i = or disjoint i128 %shl.i25.i.i.i, %conv3.i26.i.i.i
   %mul.i.i.i.i = mul i128 %or.i27.i.i.i, %or.i23.i.i.i
   %shr.i28.i.i.i = lshr i128 %mul.i.i.i.i, 64
-  %conv.i29.i.i.i = trunc i128 %shr.i28.i.i.i to i64
+  %conv.i29.i.i.i = trunc nuw i128 %shr.i28.i.i.i to i64
   %conv.i30.i.i.i = trunc i128 %mul.i.i.i.i to i64
   br i1 %isneg.i.i.i, label %_ZN5arrowmlERKNS_15BasicDecimal128ES2_.exit.i, label %if.then.i.i.i
 
@@ -1897,7 +1897,7 @@ _ZN5arrow15BasicDecimal1283AbsERKS0_.exit22.i.i:  ; preds = %cond.true.i.i16.i.i
   %or.i27.i.i = or disjoint i128 %shl.i25.i.i, %conv3.i26.i.i
   %mul.i.i.i = mul i128 %or.i27.i.i, %or.i23.i.i
   %shr.i28.i.i = lshr i128 %mul.i.i.i, 64
-  %conv.i29.i.i = trunc i128 %shr.i28.i.i to i64
+  %conv.i29.i.i = trunc nuw i128 %shr.i28.i.i to i64
   %conv.i30.i.i = trunc i128 %mul.i.i.i to i64
   br i1 %isneg.i.i, label %_ZN5arrowmlERKNS_15BasicDecimal128ES2_.exit, label %if.then.i.i
 
@@ -2008,13 +2008,13 @@ entry:
 if.then:                                          ; preds = %entry
   %1 = load i64, ptr %this, align 8
   %2 = tail call i64 @llvm.ctlz.i64(i64 %1, i1 false), !range !16
-  %cast.i = trunc i64 %2 to i32
+  %cast.i = trunc nuw nsw i64 %2 to i32
   %add = add nuw nsw i32 %cast.i, 64
   br label %return
 
 if.else:                                          ; preds = %entry
   %3 = tail call i64 @llvm.ctlz.i64(i64 %0, i1 true), !range !16
-  %cast.i2 = trunc i64 %3 to i32
+  %cast.i2 = trunc nuw nsw i64 %3 to i32
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
@@ -2280,7 +2280,7 @@ for.body.preheader:                               ; preds = %for.body.lr.ph
   %add.neg = xor i32 %div19, -1
   %1 = sext i32 %add.neg to i64
   %2 = zext nneg i32 %div19 to i64
-  %3 = xor i64 %2, 3
+  %3 = sub nuw nsw i64 3, %2
   %arrayidx.i.i.i48 = getelementptr inbounds [4 x i64], ptr %this, i64 0, i64 %3
   %4 = load i64, ptr %arrayidx.i.i.i48, align 8
   %arrayidx.i.i.i2049 = getelementptr inbounds i8, ptr %this, i64 24
@@ -2404,30 +2404,29 @@ for.body.us.preheader:                            ; preds = %for.body.lr.ph
   %7 = zext nneg i32 %6 to i64
   %scevgep = getelementptr i8, ptr %array_le, i64 %7
   %8 = shl nuw nsw i32 %div14, 3
-  %9 = xor i32 %8, 24
-  %narrow = add nuw nsw i32 %9, 8
-  %10 = zext nneg i32 %narrow to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %shifted_le, ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i64 %10, i1 false)
+  %narrow = sub nuw nsw i32 32, %8
+  %9 = zext nneg i32 %narrow to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %shifted_le, ptr align 8 %scevgep, i64 %9, i1 false)
   br label %for.end
 
 for.body:                                         ; preds = %for.body.preheader, %cond.end
   %indvars.iv = phi i64 [ %2, %for.body.preheader ], [ %indvars.iv.next.pre-phi, %cond.end ]
   %arrayidx.i.i21 = getelementptr inbounds [4 x i64], ptr %array_le, i64 0, i64 %indvars.iv
-  %11 = load i64, ptr %arrayidx.i.i21, align 8
-  %shr8 = lshr i64 %11, %sh_prom
-  %12 = sub nuw nsw i64 %indvars.iv, %3
-  %arrayidx.i.i22 = getelementptr inbounds [4 x i64], ptr %shifted_le, i64 0, i64 %12
+  %10 = load i64, ptr %arrayidx.i.i21, align 8
+  %shr8 = lshr i64 %10, %sh_prom
+  %11 = sub nuw nsw i64 %indvars.iv, %3
+  %arrayidx.i.i22 = getelementptr inbounds [4 x i64], ptr %shifted_le, i64 0, i64 %11
   %cmp13.not = icmp eq i64 %indvars.iv, 3
   br i1 %cmp13.not, label %cond.end, label %cond.true
 
 cond.true:                                        ; preds = %for.body
-  %13 = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx.i.i23 = getelementptr inbounds [4 x i64], ptr %array_le, i64 0, i64 %13
+  %12 = add nuw nsw i64 %indvars.iv, 1
+  %arrayidx.i.i23 = getelementptr inbounds [4 x i64], ptr %array_le, i64 0, i64 %12
   %cond.in.sroa.speculate.load.cond.true = load i64, ptr %arrayidx.i.i23, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %for.body, %cond.true
-  %indvars.iv.next.pre-phi = phi i64 [ %13, %cond.true ], [ 4, %for.body ]
+  %indvars.iv.next.pre-phi = phi i64 [ %12, %cond.true ], [ 4, %for.body ]
   %cond.in.sroa.speculated = phi i64 [ %cond.in.sroa.speculate.load.cond.true, %cond.true ], [ %shr, %for.body ]
   %shl = shl i64 %cond.in.sroa.speculated, %sh_prom18
   %or = or i64 %shl, %shr8
@@ -2527,7 +2526,7 @@ for.body7.i:                                      ; preds = %for.body7.i, %for.b
   %conv.i17.i = trunc i128 %add.i16.i to i64
   store i64 %conv.i17.i, ptr %arrayidx.i.i.i13.i, align 8
   %shr.i.i = lshr i128 %add.i16.i, 64
-  %conv.i19.i = trunc i128 %shr.i.i to i64
+  %conv.i19.i = trunc nuw i128 %shr.i.i to i64
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %indvars.iv33.i
   br i1 %exitcond.not.i, label %for.inc23.i, label %for.body7.i, !llvm.loop !22
@@ -2615,7 +2614,7 @@ if.then.i.i.i:                                    ; preds = %for.body.i2.i.i
   br i1 %cmp5.not.i.i.i, label %for.end.i.i.i, label %if.then6.i.i.i
 
 if.then6.i.i.i:                                   ; preds = %if.then.i.i.i
-  %conv8.i.i.i = trunc i64 %3 to i32
+  %conv8.i.i.i = trunc nuw i64 %3 to i32
   store i32 %conv8.i.i.i, ptr %add.ptr.i, align 4
   %dec.i.i.i = add nsw i64 %i.024.i.i.i, -1
   br label %for.end.i.i.i
@@ -2637,7 +2636,7 @@ for.body13.i.i.i:                                 ; preds = %for.end.i.i.i, %for
   %arrayidx.i.i.i17.i.i.i = getelementptr inbounds [4 x i64], ptr %positive_value.i.i, i64 0, i64 %j.027.i.i.i
   %4 = load i64, ptr %arrayidx.i.i.i17.i.i.i, align 8
   %shr.i.i.i = lshr i64 %4, 32
-  %conv15.i.i.i = trunc i64 %shr.i.i.i to i32
+  %conv15.i.i.i = trunc nuw i64 %shr.i.i.i to i32
   %arrayidx17.i.i.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 %next_index.126.i.i.i
   store i32 %conv15.i.i.i, ptr %arrayidx17.i.i.i, align 4
   %conv19.i.i.i = trunc i64 %4 to i32
@@ -2689,7 +2688,7 @@ if.then.i.i71.i:                                  ; preds = %for.body.i2.i67.i
   br i1 %cmp5.not.i.i72.i, label %for.end.i.i76.i, label %if.then6.i.i73.i
 
 if.then6.i.i73.i:                                 ; preds = %if.then.i.i71.i
-  %conv8.i.i74.i = trunc i64 %8 to i32
+  %conv8.i.i74.i = trunc nuw i64 %8 to i32
   store i32 %conv8.i.i74.i, ptr %divisor_array.i, align 16
   %dec.i.i75.i = add nsw i64 %i.024.i.i68.i, -1
   br label %for.end.i.i76.i
@@ -2711,7 +2710,7 @@ for.body13.i.i81.i:                               ; preds = %for.end.i.i76.i, %f
   %arrayidx.i.i.i17.i.i84.i = getelementptr inbounds [4 x i64], ptr %positive_value.i63.i, i64 0, i64 %j.027.i.i82.i
   %9 = load i64, ptr %arrayidx.i.i.i17.i.i84.i, align 8
   %shr.i.i85.i = lshr i64 %9, 32
-  %conv15.i.i86.i = trunc i64 %shr.i.i85.i to i32
+  %conv15.i.i86.i = trunc nuw i64 %shr.i.i85.i to i32
   %arrayidx17.i.i87.i = getelementptr inbounds i32, ptr %divisor_array.i, i64 %next_index.126.i.i83.i
   store i32 %conv15.i.i86.i, ptr %arrayidx17.i.i87.i, align 4
   %conv19.i.i88.i = trunc i64 %9 to i32
@@ -3061,7 +3060,7 @@ for.body102.i:                                    ; preds = %for.end.i, %for.bod
 
 for.end120.i:                                     ; preds = %for.body102.i
   %dec97.i = add i32 %guess.2.i, -1
-  %conv117.i = trunc i64 %shr116.i to i32
+  %conv117.i = trunc nuw nsw i64 %shr116.i to i32
   %.pre257.i = load i32, ptr %arrayidx25.i, align 4
   %add122.i = add i32 %.pre257.i, %conv117.i
   store i32 %add122.i, ptr %arrayidx25.i, align 4

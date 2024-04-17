@@ -8942,7 +8942,7 @@ if.end11.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %if.else.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end11.i.i.i.i
-  %sub.i.i.i.i.i = xor i64 %call.i19.i.i, 9223372036854775807
+  %sub.i.i.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i19.i.i
   %cmp1.i.i.i.i.i = icmp slt i64 %sub.i.i.i.i.i, %agg.tmp43.sroa.0.0.copyload.i.i
   br i1 %cmp1.i.i.i.i.i, label %invoke.cont57.i.i, label %if.end7.i.i.i.i.i
 
@@ -13738,7 +13738,7 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end11.i.i
-  %sub.i.i.i = xor i64 %call.i, 9223372036854775807
+  %sub.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i
   %cmp1.i.i.i = icmp slt i64 %sub.i.i.i, %agg.tmp2.sroa.0.0.copyload
   br i1 %cmp1.i.i.i, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit, label %if.end7.i.i.i
 
@@ -13890,7 +13890,7 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end11.i.i
-  %sub.i.i.i = xor i64 %agg.tmp6.sroa.0.0.copyload, 9223372036854775807
+  %sub.i.i.i = sub nuw nsw i64 9223372036854775807, %agg.tmp6.sroa.0.0.copyload
   %cmp1.i.i.i = icmp slt i64 %sub.i.i.i, %sub.i
   br i1 %cmp1.i.i.i, label %invoke.cont, label %if.end7.i.i.i
 
@@ -20732,7 +20732,7 @@ if.end11.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.end11.i.i.i.i.i.i.i
-  %sub.i.i.i.i.i.i.i.i = xor i64 %call.i.i20.i.i.i, 9223372036854775807
+  %sub.i.i.i.i.i.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i.i20.i.i.i
   %cmp1.i.i.i.i.i.i.i.i = icmp slt i64 %sub.i.i.i.i.i.i.i.i, %sub.i.i.i1.i.i.i
   br i1 %cmp1.i.i.i.i.i.i.i.i, label %_ZN9grpc_coremiENS_9TimestampES0_.exit.i.i.i.i.i, label %if.end7.i.i.i.i.i.i.i.i
 

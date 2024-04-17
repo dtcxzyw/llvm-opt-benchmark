@@ -13303,7 +13303,7 @@ define internal fastcc ptr @opa_format_port_select_mask(ptr noundef %0, i32 noun
   %3 = alloca [4 x i64], align 16
   %4 = tail call i32 @tvb_bytes_exist(ptr noundef %0, i32 noundef %1, i32 noundef 32) #6
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %55, label %5
+  br i1 %.not, label %53, label %5
 
 5:                                                ; preds = %2
   %6 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %1) #6
@@ -13325,97 +13325,97 @@ define internal fastcc ptr @opa_format_port_select_mask(ptr noundef %0, i32 noun
   br label %18
 
 18:                                               ; preds = %5, %._crit_edge
+  %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %._crit_edge ]
   %.05910 = phi i32 [ 0, %5 ], [ %.160.lcssa, %._crit_edge ]
   %.0629 = phi i32 [ -1, %5 ], [ %.163.lcssa, %._crit_edge ]
-  %.0688 = phi i32 [ 0, %5 ], [ %44, %._crit_edge ]
-  %19 = xor i32 %.0688, 3
-  %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr [4 x i64], ptr %3, i64 0, i64 %20
-  %22 = load i64, ptr %21, align 8
-  %.not12 = icmp eq i64 %22, 0
+  %19 = sub nuw nsw i64 3, %indvars.iv
+  %20 = getelementptr [4 x i64], ptr %3, i64 0, i64 %19
+  %21 = load i64, ptr %20, align 8
+  %.not12 = icmp eq i64 %21, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
-  %23 = shl nuw nsw i32 %.0688, 6
-  br label %24
+  %indvars.iv.tr = trunc i64 %indvars.iv to i32
+  %22 = shl i32 %indvars.iv.tr, 6
+  br label %23
 
-24:                                               ; preds = %.lr.ph, %38
-  %.0575 = phi i64 [ %22, %.lr.ph ], [ %40, %38 ]
-  %.1603 = phi i32 [ %.05910, %.lr.ph ], [ %.3, %38 ]
-  %.1632 = phi i32 [ %.0629, %.lr.ph ], [ %.365, %38 ]
-  %.0671 = phi i32 [ 0, %.lr.ph ], [ %39, %38 ]
-  %25 = and i64 %.0575, 1
-  %26 = icmp eq i64 %25, 0
-  br i1 %26, label %38, label %27
+23:                                               ; preds = %.lr.ph, %37
+  %.0575 = phi i64 [ %21, %.lr.ph ], [ %39, %37 ]
+  %.1603 = phi i32 [ %.05910, %.lr.ph ], [ %.3, %37 ]
+  %.1632 = phi i32 [ %.0629, %.lr.ph ], [ %.365, %37 ]
+  %.0671 = phi i32 [ 0, %.lr.ph ], [ %38, %37 ]
+  %24 = and i64 %.0575, 1
+  %25 = icmp eq i64 %24, 0
+  br i1 %25, label %37, label %26
 
-27:                                               ; preds = %24
-  %28 = add nuw nsw i32 %.0671, %23
-  %29 = icmp eq i32 %.1632, -1
-  br i1 %29, label %30, label %31
+26:                                               ; preds = %23
+  %27 = add nuw nsw i32 %.0671, %22
+  %28 = icmp eq i32 %.1632, -1
+  br i1 %28, label %29, label %30
 
-30:                                               ; preds = %27
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %17, ptr noundef nonnull @.str.2458, i32 noundef %28) #6
-  br label %38
+29:                                               ; preds = %26
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %17, ptr noundef nonnull @.str.2458, i32 noundef %27) #6
+  br label %37
 
-31:                                               ; preds = %27
-  %32 = sub i32 %28, %.1632
-  %33 = icmp sgt i32 %32, 1
-  br i1 %33, label %34, label %38
+30:                                               ; preds = %26
+  %31 = sub i32 %27, %.1632
+  %32 = icmp sgt i32 %31, 1
+  br i1 %32, label %33, label %37
 
-34:                                               ; preds = %31
-  %35 = icmp eq i32 %.1603, %.1632
-  br i1 %35, label %36, label %37
+33:                                               ; preds = %30
+  %34 = icmp eq i32 %.1603, %.1632
+  br i1 %34, label %35, label %36
 
-36:                                               ; preds = %34
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %17, ptr noundef nonnull @.str.2459, i32 noundef %28) #6
-  br label %38
+35:                                               ; preds = %33
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %17, ptr noundef nonnull @.str.2459, i32 noundef %27) #6
+  br label %37
 
-37:                                               ; preds = %34
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %17, ptr noundef nonnull @.str.2460, i32 noundef %.1632, i32 noundef %28) #6
-  br label %38
+36:                                               ; preds = %33
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %17, ptr noundef nonnull @.str.2460, i32 noundef %.1632, i32 noundef %27) #6
+  br label %37
 
-38:                                               ; preds = %30, %37, %36, %31, %24
-  %.365 = phi i32 [ %.1632, %24 ], [ %28, %31 ], [ %28, %36 ], [ %28, %37 ], [ %28, %30 ]
-  %.3 = phi i32 [ %.1603, %24 ], [ %.1603, %31 ], [ %28, %36 ], [ %28, %37 ], [ %28, %30 ]
-  %39 = add nuw nsw i32 %.0671, 1
-  %40 = lshr i64 %.0575, 1
-  %41 = icmp ugt i64 %.0575, 1
-  %42 = icmp ult i32 %.0671, 63
-  %43 = select i1 %41, i1 %42, i1 false
-  br i1 %43, label %24, label %._crit_edge, !llvm.loop !74
+37:                                               ; preds = %29, %36, %35, %30, %23
+  %.365 = phi i32 [ %.1632, %23 ], [ %27, %30 ], [ %27, %35 ], [ %27, %36 ], [ %27, %29 ]
+  %.3 = phi i32 [ %.1603, %23 ], [ %.1603, %30 ], [ %27, %35 ], [ %27, %36 ], [ %27, %29 ]
+  %38 = add nuw nsw i32 %.0671, 1
+  %39 = lshr i64 %.0575, 1
+  %40 = icmp ugt i64 %.0575, 1
+  %41 = icmp ult i32 %.0671, 63
+  %42 = select i1 %40, i1 %41, i1 false
+  br i1 %42, label %23, label %._crit_edge, !llvm.loop !74
 
-._crit_edge:                                      ; preds = %38, %18
-  %.163.lcssa = phi i32 [ %.0629, %18 ], [ %.365, %38 ]
-  %.160.lcssa = phi i32 [ %.05910, %18 ], [ %.3, %38 ]
-  %44 = add nuw nsw i32 %.0688, 1
-  %exitcond.not = icmp eq i32 %44, 4
-  br i1 %exitcond.not, label %45, label %18, !llvm.loop !75
+._crit_edge:                                      ; preds = %37, %18
+  %.163.lcssa = phi i32 [ %.0629, %18 ], [ %.365, %37 ]
+  %.160.lcssa = phi i32 [ %.05910, %18 ], [ %.3, %37 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 4
+  br i1 %exitcond.not, label %43, label %18, !llvm.loop !75
 
-45:                                               ; preds = %._crit_edge
-  %46 = icmp ne i32 %.160.lcssa, %.163.lcssa
-  %47 = icmp ne i32 %.163.lcssa, -1
-  %or.cond = and i1 %47, %46
-  br i1 %or.cond, label %48, label %49
+43:                                               ; preds = %._crit_edge
+  %44 = icmp ne i32 %.160.lcssa, %.163.lcssa
+  %45 = icmp ne i32 %.163.lcssa, -1
+  %or.cond = and i1 %45, %44
+  br i1 %or.cond, label %46, label %47
 
-48:                                               ; preds = %45
+46:                                               ; preds = %43
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %17, ptr noundef nonnull @.str.2461, i32 noundef %.163.lcssa) #6
-  br label %49
+  br label %47
 
-49:                                               ; preds = %48, %45
-  %50 = tail call i64 @wmem_strbuf_get_len(ptr noundef %17) #6
-  %51 = icmp eq i64 %50, 0
-  br i1 %51, label %52, label %53
+47:                                               ; preds = %46, %43
+  %48 = tail call i64 @wmem_strbuf_get_len(ptr noundef %17) #6
+  %49 = icmp eq i64 %48, 0
+  br i1 %49, label %50, label %51
 
-52:                                               ; preds = %49
+50:                                               ; preds = %47
   tail call void @wmem_strbuf_append(ptr noundef %17, ptr noundef nonnull @.str.2462) #6
+  br label %51
+
+51:                                               ; preds = %50, %47
+  %52 = tail call ptr @wmem_strbuf_finalize(ptr noundef %17) #6
   br label %53
 
-53:                                               ; preds = %52, %49
-  %54 = tail call ptr @wmem_strbuf_finalize(ptr noundef %17) #6
-  br label %55
-
-55:                                               ; preds = %2, %53
-  %.066 = phi ptr [ %54, %53 ], [ @.str.2457, %2 ]
+53:                                               ; preds = %2, %51
+  %.066 = phi ptr [ %52, %51 ], [ @.str.2457, %2 ]
   ret ptr %.066
 }
 

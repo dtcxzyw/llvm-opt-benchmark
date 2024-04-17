@@ -100,7 +100,7 @@ for.body.i.i:                                     ; preds = %entry, %for.body.i.
   br i1 %3, label %for.body.i.i, label %for.end.loopexit.i.i, !llvm.loop !4
 
 for.end.loopexit.i.i:                             ; preds = %for.body.i.i
-  %4 = trunc i64 %indvars.iv.next.i.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
   br label %mqtt_encode_len.exit.i
 
 mqtt_encode_len.exit.i:                           ; preds = %for.end.loopexit.i.i, %entry
@@ -177,7 +177,7 @@ add_user.exit.thread.i:                           ; preds = %if.then60.i
   %9 = or i8 %8, -128
   store i8 %9, ptr %arrayidx23.i.i, align 1
   %shr.i.i = lshr i64 %call.i, 8
-  %conv4.i.i = trunc i64 %shr.i.i to i8
+  %conv4.i.i = trunc nuw i64 %shr.i.i to i8
   %arrayidx5.i57.i = getelementptr inbounds i8, ptr %call32.i, i64 %conv57.i
   store i8 %conv4.i.i, ptr %arrayidx5.i57.i, align 1
   %conv7.i.i = trunc i64 %call.i to i8
@@ -204,7 +204,7 @@ add_passwd.exit.thread.i:                         ; preds = %if.then68.i
   %11 = or i8 %10, 64
   store i8 %11, ptr %arrayidx23.i.i, align 1
   %shr.i63.i = lshr i64 %call15.i, 8
-  %conv4.i64.i = trunc i64 %shr.i63.i to i8
+  %conv4.i64.i = trunc nuw i64 %shr.i63.i to i8
   %arrayidx5.i65.i = getelementptr inbounds i8, ptr %call32.i, i64 %start_pwd.0.i
   store i8 %conv4.i64.i, ptr %arrayidx5.i65.i, align 1
   %conv7.i66.i = trunc i64 %call15.i to i8
@@ -693,7 +693,7 @@ do.end.i.i.i:                                     ; preds = %sw.bb.i
   %42 = load ptr, ptr %conn1, align 8
   %sock.i.i.i = getelementptr inbounds i8, ptr %42, i64 392
   %43 = load i32, ptr %sock.i.i.i, align 8
-  %sub.i.i.i = xor i64 %call.i.i.i, 3
+  %sub.i.i.i = sub nuw nsw i64 3, %call.i.i.i
   %call1.i.i.i = call i32 @Curl_read(ptr noundef nonnull %data, i32 noundef %43, ptr noundef nonnull %readbuf.i.i.i, i64 noundef %sub.i.i.i, ptr noundef nonnull %nread.i.i.i) #8
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i, 0
   br i1 %tobool.not.i.i.i, label %do.end4.i.i.i, label %mqtt_recv_atleast.exit.thread.i.i

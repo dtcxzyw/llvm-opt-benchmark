@@ -1430,13 +1430,13 @@ define internal void @tele_param_user_data(ptr noundef %0, ptr noundef %1, ptr n
 
 14:                                               ; preds = %6
   %15 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_ansi_637_short_data, ptr noundef %0, i32 noundef %4, i32 noundef %3) #6
-  br label %132
+  br label %130
 
 16:                                               ; preds = %6
   %17 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %4) #6
   %18 = zext i16 %17 to i32
   %19 = lshr i16 %17, 11
-  %20 = trunc i16 %19 to i8
+  %20 = trunc nuw nsw i16 %19 to i8
   %21 = zext nneg i16 %19 to i32
   %22 = tail call ptr @val_to_str_const(i32 noundef %21, ptr noundef nonnull @ansi_tsb58_encoding_vals, ptr noundef nonnull @.str.43) #6
   switch i16 %19, label %23 [
@@ -1494,14 +1494,14 @@ define internal void @tele_param_user_data(ptr noundef %0, ptr noundef %1, ptr n
   %45 = trunc i16 %44 to i8
   store i8 %45, ptr %8, align 1
   %.mask = and i16 %44, 255
-  %46 = trunc i32 %.080 to i16
+  %46 = trunc nuw nsw i32 %.080 to i16
   %47 = mul nuw nsw i16 %.mask, %46
   %48 = add nuw nsw i16 %47, 8
   %49 = sub i16 %.083, %48
   store i8 0, ptr %9, align 1
   %50 = load i32, ptr %5, align 4
   %51 = icmp eq i32 %50, 1
-  br i1 %51, label %52, label %95
+  br i1 %51, label %52, label %93
 
 52:                                               ; preds = %39
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %11, i8 0, i64 10, i1 false)
@@ -1538,127 +1538,126 @@ define internal void @tele_param_user_data(ptr noundef %0, ptr noundef %1, ptr n
   store i8 %71, ptr %8, align 1
   call void @dis_field_udh(ptr noundef %68, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %8, i32 noundef %.081, ptr noundef nonnull %9, ptr noundef nonnull %11) #6
   store i32 %69, ptr %7, align 4
-  br i1 %.not, label %79, label %72
+  br i1 %.not, label %77, label %72
 
 .thread:                                          ; preds = %62
   call void @dis_field_udh(ptr noundef %68, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %8, i32 noundef %.081, ptr noundef nonnull %9, ptr noundef nonnull %11) #6
   store i32 %69, ptr %7, align 4
   %brmerge.demorgan.not = or i1 %cond1.not, %.not
-  br i1 %brmerge.demorgan.not, label %.thread94, label %.thread94condstore.split
+  br i1 %brmerge.demorgan.not, label %.thread95, label %.thread95condstore.split
 
 72:                                               ; preds = %70
-  br i1 %cond1.not, label %.thread94, label %.thread94condstore.split
+  br i1 %cond1.not, label %.thread95, label %.thread95condstore.split
 
-.thread94condstore.split:                         ; preds = %.thread, %72
+.thread95condstore.split:                         ; preds = %.thread, %72
   %73 = load i8, ptr %9, align 1
   %74 = icmp ugt i8 %73, 3
-  %75 = sub i8 11, %73
-  %76 = xor i8 %73, 3
-  %.082 = select i1 %74, i8 %75, i8 %76
-  %77 = icmp eq i8 %.082, 0
-  %.1.ph = select i1 %77, i8 8, i8 %.082
-  %78 = or i1 %74, %77
-  br i1 %78, label %82, label %.thread94
+  %.pn = select i1 %74, i8 11, i8 3
+  %.082 = sub i8 %.pn, %73
+  %75 = icmp eq i8 %.pn, %73
+  %.1.ph = select i1 %75, i8 8, i8 %.082
+  %76 = or i1 %74, %75
+  br i1 %76, label %80, label %.thread95
 
-79:                                               ; preds = %70
-  %80 = load i8, ptr %8, align 1
-  %81 = lshr i8 %80, 1
-  store i8 %81, ptr %8, align 1
-  br label %.thread94
+77:                                               ; preds = %70
+  %78 = load i8, ptr %8, align 1
+  %79 = lshr i8 %78, 1
+  store i8 %79, ptr %8, align 1
+  br label %.thread95
 
-82:                                               ; preds = %.thread94condstore.split
-  %83 = zext i1 %74 to i32
-  %84 = add i32 %69, %83
-  %85 = zext i1 %77 to i32
-  %simplifycfg.merge = add i32 %84, %85
+80:                                               ; preds = %.thread95condstore.split
+  %81 = zext i1 %74 to i32
+  %82 = add i32 %69, %81
+  %83 = zext i1 %75 to i32
+  %simplifycfg.merge = add i32 %82, %83
   store i32 %simplifycfg.merge, ptr %7, align 4
-  br label %.thread94
+  br label %.thread95
 
-.thread94:                                        ; preds = %82, %.thread94condstore.split, %.thread, %79, %72
-  %.1 = phi i8 [ 3, %72 ], [ 3, %79 ], [ 3, %.thread ], [ %.1.ph, %.thread94condstore.split ], [ %.1.ph, %82 ]
-  %86 = getelementptr inbounds i8, ptr %11, i64 2
-  %87 = load i16, ptr %86, align 2
-  %.not91 = icmp eq i16 %87, 0
-  br i1 %.not91, label %95, label %88
+.thread95:                                        ; preds = %80, %.thread95condstore.split, %.thread, %77, %72
+  %.1 = phi i8 [ 3, %72 ], [ 3, %77 ], [ 3, %.thread ], [ %.1.ph, %.thread95condstore.split ], [ %.1.ph, %80 ]
+  %84 = getelementptr inbounds i8, ptr %11, i64 2
+  %85 = load i16, ptr %84, align 2
+  %.not92 = icmp eq i16 %85, 0
+  br i1 %.not92, label %93, label %86
 
-88:                                               ; preds = %.thread94
-  %89 = zext i16 %87 to i32
-  %90 = getelementptr inbounds i8, ptr %1, i64 8
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %11, i64 4
-  %93 = load i16, ptr %92, align 2
-  %94 = zext i16 %93 to i32
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %91, i32 noundef 25, ptr noundef nonnull @.str.329, i32 noundef %94, i32 noundef %89) #6
-  br label %95
+86:                                               ; preds = %.thread95
+  %87 = zext i16 %85 to i32
+  %88 = getelementptr inbounds i8, ptr %1, i64 8
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds i8, ptr %11, i64 4
+  %91 = load i16, ptr %90, align 2
+  %92 = zext i16 %91 to i32
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %89, i32 noundef 25, ptr noundef nonnull @.str.329, i32 noundef %92, i32 noundef %87) #6
+  br label %93
 
-95:                                               ; preds = %.thread94, %88, %39
-  %.2 = phi i8 [ %.1, %88 ], [ %.1, %.thread94 ], [ 3, %39 ]
-  %96 = load i8, ptr %8, align 1
-  %.not92 = icmp eq i8 %96, 0
-  br i1 %.not92, label %104, label %97
+93:                                               ; preds = %.thread95, %86, %39
+  %.2 = phi i8 [ %.1, %86 ], [ %.1, %.thread95 ], [ 3, %39 ]
+  %94 = load i8, ptr %8, align 1
+  %.not93 = icmp eq i8 %94, 0
+  br i1 %.not93, label %102, label %95
 
-97:                                               ; preds = %95
-  %98 = load i32, ptr %7, align 4
-  %99 = zext i8 %96 to i32
-  %100 = mul nuw nsw i32 %.080, %99
-  %101 = trunc i32 %100 to i16
-  %102 = load i8, ptr %9, align 1
-  %103 = load i32, ptr @hf_ansi_637_tele_user_data_text, align 4
-  call fastcc void @text_decoder(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %98, i8 noundef zeroext %20, i8 noundef zeroext %96, i16 noundef zeroext %101, i8 noundef zeroext %.2, i8 noundef zeroext %102, i32 noundef %103)
-  br label %104
+95:                                               ; preds = %93
+  %96 = load i32, ptr %7, align 4
+  %97 = zext i8 %94 to i32
+  %98 = mul nuw nsw i32 %.080, %97
+  %99 = trunc nuw nsw i32 %98 to i16
+  %100 = load i8, ptr %9, align 1
+  %101 = load i32, ptr @hf_ansi_637_tele_user_data_text, align 4
+  call fastcc void @text_decoder(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %96, i8 noundef zeroext %20, i8 noundef zeroext %94, i16 noundef zeroext %99, i8 noundef zeroext %.2, i8 noundef zeroext %100, i32 noundef %101)
+  br label %102
 
-104:                                              ; preds = %97, %95
-  %105 = zext i16 %49 to i32
-  %.not93 = icmp eq i16 %.083, %48
-  br i1 %.not93, label %132, label %106
+102:                                              ; preds = %95, %93
+  %103 = zext i16 %49 to i32
+  %.not94 = icmp eq i16 %.083, %48
+  br i1 %.not94, label %130, label %104
 
-106:                                              ; preds = %104
-  %107 = add i32 %4, %3
-  %108 = shl i32 %107, 3
-  br i1 %cond, label %109, label %128
+104:                                              ; preds = %102
+  %105 = add i32 %4, %3
+  %106 = shl i32 %105, 3
+  br i1 %cond, label %107, label %126
 
-109:                                              ; preds = %106
-  %110 = icmp ugt i16 %49, 3
-  br i1 %110, label %111, label %117
+107:                                              ; preds = %104
+  %108 = icmp ugt i16 %49, 3
+  br i1 %108, label %109, label %115
 
-111:                                              ; preds = %109
-  %112 = add i32 %108, -11
-  %113 = trunc i16 %49 to i8
-  %114 = add i8 %113, -3
-  %115 = getelementptr inbounds i8, ptr %12, i64 4
-  store i8 %114, ptr %115, align 4
-  %116 = getelementptr inbounds i8, ptr %12, i64 8
-  store i32 8, ptr %116, align 8
-  br label %119
+109:                                              ; preds = %107
+  %110 = add i32 %106, -11
+  %111 = trunc i16 %49 to i8
+  %112 = add i8 %111, -3
+  %113 = getelementptr inbounds i8, ptr %12, i64 4
+  store i8 %112, ptr %113, align 4
+  %114 = getelementptr inbounds i8, ptr %12, i64 8
+  store i32 8, ptr %114, align 8
+  br label %117
 
-117:                                              ; preds = %109
-  %118 = add i32 %108, -3
-  br label %119
+115:                                              ; preds = %107
+  %116 = add i32 %106, -3
+  br label %117
 
-119:                                              ; preds = %117, %111
-  %.079 = phi i8 [ 1, %111 ], [ 0, %117 ]
-  %.0 = phi i32 [ %112, %111 ], [ %118, %117 ]
+117:                                              ; preds = %115, %109
+  %.079 = phi i8 [ 1, %109 ], [ 0, %115 ]
+  %.0 = phi i32 [ %110, %109 ], [ %116, %115 ]
   store i32 0, ptr %12, align 16
-  %120 = add nuw nsw i8 %.079, 1
-  %121 = zext nneg i8 %.079 to i64
-  %122 = getelementptr [3 x %struct.crumb_spec_t], ptr %12, i64 0, i64 %121, i32 1
-  store i8 3, ptr %122, align 4
-  %123 = zext nneg i8 %120 to i64
-  %124 = getelementptr [3 x %struct.crumb_spec_t], ptr %12, i64 0, i64 %123
-  store i32 0, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 4
-  store i8 0, ptr %125, align 4
-  %126 = load i32, ptr @hf_ansi_637_reserved_bits_16_generic, align 4
-  %127 = call ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef %2, i32 noundef %126, ptr noundef %0, i32 noundef %.0, ptr noundef nonnull %12, ptr noundef null) #6
-  br label %132
+  %118 = add nuw nsw i8 %.079, 1
+  %119 = zext nneg i8 %.079 to i64
+  %120 = getelementptr [3 x %struct.crumb_spec_t], ptr %12, i64 0, i64 %119, i32 1
+  store i8 3, ptr %120, align 4
+  %121 = zext nneg i8 %118 to i64
+  %122 = getelementptr [3 x %struct.crumb_spec_t], ptr %12, i64 0, i64 %121
+  store i32 0, ptr %122, align 8
+  %123 = getelementptr inbounds i8, ptr %122, i64 4
+  store i8 0, ptr %123, align 4
+  %124 = load i32, ptr @hf_ansi_637_reserved_bits_16_generic, align 4
+  %125 = call ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef %2, i32 noundef %124, ptr noundef %0, i32 noundef %.0, ptr noundef nonnull %12, ptr noundef null) #6
+  br label %130
 
-128:                                              ; preds = %106
-  %129 = load i32, ptr @hf_ansi_637_reserved_bits_8_generic, align 4
-  %130 = sub i32 %108, %105
-  %131 = call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %129, ptr noundef %0, i32 noundef %130, i32 noundef %105, i32 noundef 0) #6
-  br label %132
+126:                                              ; preds = %104
+  %127 = load i32, ptr @hf_ansi_637_reserved_bits_8_generic, align 4
+  %128 = sub i32 %106, %103
+  %129 = call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %127, ptr noundef %0, i32 noundef %128, i32 noundef %103, i32 noundef 0) #6
+  br label %130
 
-132:                                              ; preds = %119, %128, %104, %14
+130:                                              ; preds = %117, %126, %102, %14
   ret void
 }
 
@@ -2141,7 +2140,7 @@ define internal void @tele_param_mult_enc_user_data(ptr noundef %0, ptr noundef 
 31:                                               ; preds = %23
   %32 = and i32 %28, 7
   %.not68 = icmp eq i32 %32, 0
-  %33 = trunc i32 %32 to i8
+  %33 = trunc nuw nsw i32 %32 to i8
   %34 = sub nuw nsw i8 8, %33
   %35 = select i1 %.not68, i8 0, i8 %34
   %36 = lshr i32 %28, 3
@@ -2151,7 +2150,7 @@ define internal void @tele_param_mult_enc_user_data(ptr noundef %0, ptr noundef 
   %40 = trunc i64 %30 to i32
   %41 = and i32 %40, 255
   %42 = mul nuw nsw i32 %41, %.062
-  %43 = trunc i32 %42 to i16
+  %43 = trunc nuw nsw i32 %42 to i16
   %44 = load i32, ptr @hf_ansi_637_tele_mult_enc_user_data_text, align 4
   call fastcc void @text_decoder(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %36, i8 noundef zeroext %38, i8 noundef zeroext %39, i16 noundef zeroext %43, i8 noundef zeroext %35, i8 noundef zeroext 0, i32 noundef %44)
   %45 = load i64, ptr %8, align 8
@@ -2320,7 +2319,7 @@ define internal void @tele_param_srvc_cat_prog_data(ptr noundef %0, ptr noundef 
 47:                                               ; preds = %.lr.ph
   %48 = and i32 %.08395, 7
   %.not92 = icmp eq i32 %48, 0
-  %49 = trunc i32 %48 to i8
+  %49 = trunc nuw nsw i32 %48 to i8
   %50 = sub nuw nsw i8 8, %49
   %51 = select i1 %.not92, i8 0, i8 %50
   %52 = lshr i32 %44, 3
@@ -2330,7 +2329,7 @@ define internal void @tele_param_srvc_cat_prog_data(ptr noundef %0, ptr noundef 
   %56 = trunc i64 %46 to i32
   %57 = and i32 %56, 255
   %58 = mul nuw nsw i32 %57, %.086
-  %59 = trunc i32 %58 to i16
+  %59 = trunc nuw nsw i32 %58 to i16
   %60 = load i32, ptr @hf_ansi_637_tele_srvc_cat_prog_data_text, align 4
   call fastcc void @text_decoder(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %52, i8 noundef zeroext %54, i8 noundef zeroext %55, i16 noundef zeroext %59, i8 noundef zeroext %51, i8 noundef zeroext 0, i32 noundef %60)
   %61 = load i64, ptr %8, align 8
@@ -3006,7 +3005,7 @@ define internal void @trans_param_address(ptr noundef %0, ptr noundef %1, ptr no
 41:                                               ; preds = %34
   %42 = shl i32 %35, 3
   %43 = or disjoint i32 %42, 5
-  %44 = trunc i64 %32 to i32
+  %44 = trunc nuw i64 %32 to i32
   %45 = shl i32 %44, 3
   %46 = call ptr @tvb_new_octet_aligned(ptr noundef %0, i32 noundef %43, i32 noundef %45) #6
   call void @add_new_data_source(ptr noundef %1, ptr noundef %46, ptr noundef nonnull @.str.398) #6
@@ -3053,7 +3052,7 @@ define internal void @trans_param_address(ptr noundef %0, ptr noundef %1, ptr no
 77:                                               ; preds = %71
   %78 = shl i32 %68, 3
   %79 = or disjoint i32 %78, 1
-  %80 = trunc i64 %69 to i32
+  %80 = trunc nuw i64 %69 to i32
   %81 = shl i32 %80, 3
   %82 = call ptr @tvb_new_octet_aligned(ptr noundef %0, i32 noundef %79, i32 noundef %81) #6
   call void @add_new_data_source(ptr noundef %1, ptr noundef %82, ptr noundef nonnull @.str.398) #6

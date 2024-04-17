@@ -1255,7 +1255,7 @@ sw.default:                                       ; preds = %entry
   unreachable
 
 switch.lookup:                                    ; preds = %entry
-  %switch.offset = xor i32 %k, 7
+  %switch.offset = sub nuw nsw i32 7, %k
   ret i32 %switch.offset
 }
 

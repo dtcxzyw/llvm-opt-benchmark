@@ -23834,7 +23834,7 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.else.i1437
   br label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEPiiET0_T_SA_S9_RSaIT1_E.exit.i
 
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEPiiET0_T_SA_S9_RSaIT1_E.exit.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %if.else.i1437
-  %sub.i1442 = xor i64 %sub.ptr.div.i.i1436, 3
+  %sub.i1442 = sub nuw nsw i64 3, %sub.ptr.div.i.i1436
   %add.ptr50.i1443 = getelementptr inbounds i32, ptr %std_v140.sroa.11.42289, i64 %sub.i1442
   %tobool.not.i.i.i.i.i.i.i.i.i35.i = icmp eq ptr %std_v140.sroa.11.42289, %add.ptr.i403
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i35.i, label %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit38.i.thread, label %if.then.i.i.i.i.i43.i
@@ -25690,7 +25690,7 @@ if.then.i.i.i.i.i.i.i.i.i1799:                    ; preds = %if.else.i1792
   br label %_ZSt22__uninitialized_copy_aIPKiPiiET0_T_S4_S3_RSaIT1_E.exit.i
 
 _ZSt22__uninitialized_copy_aIPKiPiiET0_T_S4_S3_RSaIT1_E.exit.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i1799, %if.else.i1792
-  %sub.i1803 = xor i64 %sub.ptr.div.i.i1790, 3
+  %sub.i1803 = sub nuw nsw i64 3, %sub.ptr.div.i.i1790
   %add.ptr36.i = getelementptr inbounds i32, ptr %std_v344.sroa.11.42304, i64 %sub.i1803
   %tobool.not.i.i.i.i.i.i.i.i.i44.i = icmp eq ptr %std_v344.sroa.11.42304, %add.ptr.i811
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i44.i, label %_ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit47.i.thread, label %if.then.i.i.i.i.i52.i

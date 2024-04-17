@@ -5813,7 +5813,7 @@ invoke.cont.i.i117.i.i:                           ; preds = %if.else19.i113.i.i
   br label %invoke.cont6.i.i
 
 invoke.cont6.i.i:                                 ; preds = %invoke.cont.i.i117.i.i, %if.else19.i113.i.i, %_ZSt24__uninitialized_fill_n_aIPhmhhET_S1_T0_RKT1_RSaIT2_E.exit.i133.i.i, %if.then.i.i.i.i139.i.i, %call5.i.i.i.i1.i.i.i.noexc140.i.i
-  %sub7.i.i = xor i32 %238, 7
+  %sub7.i.i = sub nuw nsw i32 7, %238
   %conv.i71.i = zext nneg i32 %sub7.i.i to i64
   %start.i72.i = getelementptr inbounds i8, ptr %237, i64 72
   %agg.tmp.sroa.2.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %237, i64 80

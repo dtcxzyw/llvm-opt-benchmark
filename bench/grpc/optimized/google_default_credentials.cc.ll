@@ -1579,10 +1579,7 @@ invoke.cont38.i.i.i:                              ; preds = %_ZTWN9grpc_core9Tim
   ]
 
 if.end11.i.i.i.i.i:                               ; preds = %invoke.cont38.i.i.i
-  %cmp.i.i.i.i.i.i = icmp sgt i64 %call.i41.i.i.i, 0
-  %sub.i.i.i.i.i.i = xor i64 %call.i41.i.i.i, 9223372036854775800
-  %cmp1.i.i.i.i.i.i = icmp ult i64 %sub.i.i.i.i.i.i, 1000
-  %or.cond.i.i.i = and i1 %cmp.i.i.i.i.i.i, %cmp1.i.i.i.i.i.i
+  %or.cond.i.i.i = icmp sgt i64 %call.i41.i.i.i, 9223372036854774807
   %add.i.i.i.i.i.i = add nsw i64 %call.i41.i.i.i, 1000
   %spec.select.i.i.i = select i1 %or.cond.i.i.i, i64 9223372036854775807, i64 %add.i.i.i.i.i.i
   br label %invoke.cont44.i.i.i

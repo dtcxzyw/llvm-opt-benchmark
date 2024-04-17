@@ -7636,7 +7636,7 @@ _ZN9Stockfish12_GLOBAL__N_16numberIjLi1EEET_Pv.exit..preheader132_crit_edge: ; p
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader.i ], [ 0, %._crit_edge ]
   %51 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv.i.i
   %52 = load i8, ptr %51, align 1
-  %53 = xor i64 %indvars.iv.i.i, 7
+  %53 = sub nuw nsw i64 7, %indvars.iv.i.i
   %54 = getelementptr inbounds i8, ptr %3, i64 %53
   %55 = load i8, ptr %54, align 1
   store i8 %55, ptr %51, align 1

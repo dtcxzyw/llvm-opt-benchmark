@@ -2953,7 +2953,7 @@ while.cond.preheader:                             ; preds = %if.then107, %while.
 
 land.rhs.preheader:                               ; preds = %while.cond.preheader
   %17 = add nuw nsw i64 %conv113364, 1
-  %18 = xor i32 %i.0375, 3
+  %18 = sub nuw nsw i32 3, %i.0375
   %19 = zext nneg i32 %18 to i64
   %20 = add nuw nsw i64 %17, %19
   br label %land.rhs

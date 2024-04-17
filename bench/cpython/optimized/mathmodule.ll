@@ -3907,8 +3907,8 @@ if.end11:                                         ; preds = %if.end7
   br i1 %cmp12, label %if.then13, label %while.cond
 
 if.then13:                                        ; preds = %if.end11
-  %conv = trunc i64 %div94 to i32
-  %sub14 = xor i32 %conv, 31
+  %conv = trunc nuw nsw i64 %div94 to i32
+  %sub14 = sub nuw nsw i32 31, %conv
   %call15 = tail call i64 @PyLong_AsUnsignedLongLong(ptr noundef nonnull %call) #15
   %4 = load i64, ptr %call, align 8
   %5 = and i64 %4, 2147483648
@@ -3945,7 +3945,7 @@ if.end20:                                         ; preds = %land.lhs.true, %Py_
   %conv.i = zext i8 %6 to i32
   %shl.i = shl nuw nsw i32 %conv.i, 7
   %shr1.i = lshr i64 %shl, 41
-  %conv2.i = trunc i64 %shr1.i to i32
+  %conv2.i = trunc nuw nsw i64 %shr1.i to i32
   %div.i = udiv i32 %conv2.i, %conv.i
   %add.i = add nuw nsw i32 %shl.i, %div.i
   %shl3.i = shl i32 %add.i, 15
@@ -4013,7 +4013,7 @@ Py_DECREF.exit200.split:                          ; preds = %Py_DECREF.exit200
   %conv.i102 = zext i8 %9 to i32
   %shl.i103 = shl nuw nsw i32 %conv.i102, 7
   %shr1.i104 = lshr i64 %call45, 41
-  %conv2.i105 = trunc i64 %shr1.i104 to i32
+  %conv2.i105 = trunc nuw nsw i64 %shr1.i104 to i32
   %div.i106 = udiv i32 %conv2.i105, %conv.i102
   %add.i107 = add nuw nsw i32 %shl.i103, %div.i106
   %shl3.i108 = shl i32 %add.i107, 15
@@ -4051,7 +4051,7 @@ for.body.lr.ph:                                   ; preds = %if.end62
 
 for.cond:                                         ; preds = %Py_DECREF.exit155
   %indvars.iv.next133 = add nsw i64 %indvars.iv132, -1
-  %12 = trunc i64 %indvars.iv132 to i32
+  %12 = trunc nuw i64 %indvars.iv132 to i32
   %cmp64 = icmp sgt i32 %12, 0
   br i1 %cmp64, label %for.body, label %for.end, !llvm.loop !15
 
@@ -4571,7 +4571,7 @@ if.then20.i:                                      ; preds = %if.else18.i
 if.else22.i:                                      ; preds = %if.else18.i
   %call23.i = tail call ptr @__errno_location() #16
   store i32 0, ptr %call23.i, align 4
-  %conv.i9 = trunc i64 %exp.0.i to i32
+  %conv.i9 = trunc nsw i64 %exp.0.i to i32
   %call24.i = call double @ldexp(double noundef %x.0, i32 noundef %conv.i9) #15
   %11 = call double @llvm.fabs.f64(double %call24.i) #17
   %isinf.i = fcmp oeq double %11, 0x7FF0000000000000
@@ -5466,7 +5466,7 @@ if.end34.us.i:                                    ; preds = %if.end32.us.i, %if.
   br i1 %cmp38.not.us.i, label %if.end42.us.i, label %if.then40.i
 
 if.end42.us.i:                                    ; preds = %if.end34.us.i
-  %tobool36.us.i = trunc i8 %q_stopped.1.us.i to i1
+  %tobool36.us.i = trunc nuw i8 %q_stopped.1.us.i to i1
   br i1 %tobool36.us.i, label %finalize_int_path.split.us.i, label %land.lhs.true.us.i
 
 land.lhs.true.us.i:                               ; preds = %if.end42.us.i
@@ -5514,7 +5514,7 @@ _check_long_mult_overflow.exit.us.i:              ; preds = %if.end63.us.i
 
 if.end67.us.i:                                    ; preds = %_check_long_mult_overflow.exit.us.i, %if.end63.us.i
   %cmp.i151.us.i = icmp sgt i64 %int_total.0.us.i, 0
-  %sub.i152.us.i = xor i64 %int_total.0.us.i, 9223372036854775807
+  %sub.i152.us.i = sub nuw nsw i64 9223372036854775807, %int_total.0.us.i
   %cmp1.i.us.i = icmp slt i64 %sub.i152.us.i, %mul.i.us.i
   %sub2.i.us.i = sub nsw i64 -9223372036854775808, %int_total.0.us.i
   %cmp3.i.us.i = icmp sgt i64 %sub2.i.us.i, %mul.i.us.i
@@ -5603,7 +5603,7 @@ if.end32.i:                                       ; preds = %if.then28.i
 
 if.end34.i:                                       ; preds = %if.end32.i, %if.then25.i, %if.end22.i
   %q_stopped.1.i = phi i8 [ %q_stopped.0.ph.i, %if.end22.i ], [ 1, %if.end32.i ], [ 1, %if.then25.i ]
-  %tobool36.i = trunc i8 %q_stopped.1.i to i1
+  %tobool36.i = trunc nuw i8 %q_stopped.1.i to i1
   %26 = xor i8 %q_stopped.1.i, %p_stopped.1.i
   %27 = and i8 %26, 1
   %cmp38.not.i = icmp eq i8 %27, 0

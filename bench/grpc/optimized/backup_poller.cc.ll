@@ -141,7 +141,7 @@ if.end11.i.i.i:                                   ; preds = %if.end.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end11.i.i.i
-  %sub.i.i.i.i = xor i64 %call.i1.i, 9223372036854775807
+  %sub.i.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i1.i
   %cmp1.i.i.i.i = icmp slt i64 %sub.i.i.i.i, %agg.tmp7.sroa.0.0.copyload.i
   br i1 %cmp1.i.i.i.i, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i, label %if.end7.i.i.i.i
 
@@ -565,7 +565,7 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp.i.i.i61, label %if.then.i.i.i62, label %if.else.i.i.i
 
 if.then.i.i.i62:                                  ; preds = %if.end11.i.i
-  %sub.i.i.i63 = xor i64 %call.i5758, 9223372036854775807
+  %sub.i.i.i63 = sub nuw nsw i64 9223372036854775807, %call.i5758
   %cmp1.i.i.i = icmp slt i64 %sub.i.i.i63, %agg.tmp26.sroa.0.0.copyload
   br i1 %cmp1.i.i.i, label %invoke.cont29, label %if.end7.i.i.i
 

@@ -109,7 +109,7 @@ if.end11.i.i.i:                                   ; preds = %if.end.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end11.i.i.i
-  %sub.i.i.i.i = xor i64 %call.i, 9223372036854775807
+  %sub.i.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i
   %cmp1.i.i.i.i = icmp slt i64 %sub.i.i.i.i, %agg.tmp.sroa.0.0.copyload
   br i1 %cmp1.i.i.i.i, label %return, label %if.end7.i.i.i.i
 
@@ -238,7 +238,7 @@ if.end11.i.i:                                     ; preds = %if.end.i.i15
   br i1 %cmp.i.i.i16, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end11.i.i
-  %sub.i.i.i = xor i64 %call.i12, 9223372036854775807
+  %sub.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i12
   %cmp1.i.i.i = icmp slt i64 %sub.i.i.i, %agg.tmp36.sroa.0.0.copyload
   br i1 %cmp1.i.i.i, label %return, label %if.end7.i.i.i
 
@@ -269,7 +269,7 @@ if.end11.i.i24:                                   ; preds = %if.end.i.i20
   br i1 %cmp.i.i.i25, label %if.then.i.i.i32, label %if.else.i.i.i26
 
 if.then.i.i.i32:                                  ; preds = %if.end11.i.i24
-  %sub.i.i.i33 = xor i64 %retval.0.i.i, 9223372036854775807
+  %sub.i.i.i33 = sub nuw nsw i64 9223372036854775807, %retval.0.i.i
   %cmp1.i.i.i34 = icmp slt i64 %sub.i.i.i33, %retval.sroa.0.0.i9
   br i1 %cmp1.i.i.i34, label %return, label %if.end7.i.i.i29
 
@@ -465,8 +465,8 @@ if.end.i.i.i:                                     ; preds = %_ZN4absl12lts_20230
   %shr.i.i.i = lshr i64 %shl.i.i.i, 11
   %and.i.i.i = and i64 %shr.i.i.i, 4503599627370495
   %18 = shl nuw nsw i64 %17, 52
-  %reass.sub5 = sub nsw i64 %and.i.i.i, %18
-  %or2.i.i.i = add nsw i64 %reass.sub5, 4602678819172646912
+  %reass.sub4 = sub nsw i64 %and.i.i.i, %18
+  %or2.i.i.i = add nsw i64 %reass.sub4, 4602678819172646912
   %19 = bitcast i64 %or2.i.i.i to double
   br label %_ZN4absl12lts_2023080215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i
 

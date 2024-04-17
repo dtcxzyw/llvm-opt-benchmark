@@ -2963,7 +2963,7 @@ dissect_rtcp_sdes.exit:                           ; preds = %353, %288
   %656 = load i32, ptr %655, align 4
   %657 = call ptr @proto_tree_add_item(ptr noundef %651, i32 noundef %656, ptr noundef %0, i32 noundef %449, i32 noundef 2, i32 noundef 0) #7
   %658 = trunc i64 %indvars.iv.i.i to i32
-  %659 = xor i32 %658, 15
+  %659 = sub i32 15, %658
   %660 = shl nuw nsw i32 1, %659
   %661 = and i32 %660, %653
   %662 = getelementptr [5 x i32], ptr %30, i64 0, i64 %indvars.iv.i.i
@@ -4176,7 +4176,7 @@ validate_xr_block_length.exit.i:                  ; preds = %.sink.split.i.i390,
   br label %.loopexit.i
 
 1365:                                             ; preds = %1194
-  %.lhs.trunc.i = trunc i32 %.0471.i to i16
+  %.lhs.trunc.i = trunc nuw i32 %.0471.i to i16
   %.not517.i = icmp ult i16 %.lhs.trunc.i, 3
   br i1 %.not517.i, label %._crit_edge.i388, label %.lr.ph509.preheader.i
 
@@ -4971,7 +4971,7 @@ dissect_rtcp_rtpfb_nack.exit.us.i:                ; preds = %1720, %.loopexit.us
 1850:                                             ; preds = %1850, %1849
   %indvars.iv.i.us.i = phi i64 [ 0, %1849 ], [ %indvars.iv.next.i.us.i, %1850 ]
   %.1205246.i.us.i = phi i32 [ %.0204251.i.us.i, %1849 ], [ %1855, %1850 ]
-  %1851 = trunc i64 %indvars.iv.i.us.i to i32
+  %1851 = trunc nuw nsw i64 %indvars.iv.i.us.i to i32
   %1852 = add i32 %.0208250.i.us.i, %1851
   %1853 = zext i32 %1852 to i64
   %1854 = getelementptr i8, ptr %1744, i64 %1853
@@ -5001,7 +5001,7 @@ dissect_rtcp_rtpfb_nack.exit.us.i:                ; preds = %1720, %.loopexit.us
 1863:                                             ; preds = %1863, %1862
   %indvars.iv273.i.us.i = phi i64 [ 0, %1862 ], [ %indvars.iv.next274.i.us.i, %1863 ]
   %.2206248.i.us.i = phi i32 [ %.0204251.i.us.i, %1862 ], [ %1868, %1863 ]
-  %1864 = trunc i64 %indvars.iv273.i.us.i to i32
+  %1864 = trunc nuw nsw i64 %indvars.iv273.i.us.i to i32
   %1865 = add i32 %.0208250.i.us.i, %1864
   %1866 = zext i32 %1865 to i64
   %1867 = getelementptr i8, ptr %1744, i64 %1866

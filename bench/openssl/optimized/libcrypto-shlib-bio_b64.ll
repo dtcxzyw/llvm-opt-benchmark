@@ -174,7 +174,7 @@ cond.false74:                                     ; preds = %if.then70
   unreachable
 
 cond.end75:                                       ; preds = %if.then70
-  %sub78 = xor i32 %8, 3
+  %sub78 = sub nuw nsw i32 3, %8
   %cmp79 = icmp ugt i32 %sub78, %inl.addr.0176
   %spec.select = select i1 %cmp79, i32 1, i32 %sub78
   %idxprom83 = zext nneg i32 %8 to i64
@@ -184,7 +184,7 @@ cond.end75:                                       ; preds = %if.then70
   %9 = load i32, ptr %tmp_len68, align 8
   %add86 = add nsw i32 %9, %spec.select
   store i32 %add86, ptr %tmp_len68, align 8
-  %add87 = add nsw i32 %spec.select, %ret.0177
+  %add87 = add nuw nsw i32 %spec.select, %ret.0177
   %cmp89 = icmp slt i32 %add86, 3
   br i1 %cmp89, label %return, label %if.end92
 
@@ -219,11 +219,11 @@ if.then117:                                       ; preds = %if.else
   %conv120 = zext nneg i32 %7 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %tmp, ptr align 1 %in.addr.0178, i64 %conv120, i1 false)
   store i32 %7, ptr %tmp_len68, align 8
-  %add122 = add nsw i32 %ret.0177, %7
+  %add122 = add nuw nsw i32 %ret.0177, %7
   br label %return
 
 if.end123:                                        ; preds = %if.else
-  %rem.lhs.trunc = trunc i32 %7 to i16
+  %rem.lhs.trunc = trunc nuw nsw i32 %7 to i16
   %rem121 = urem i16 %rem.lhs.trunc, 3
   %rem.zext = zext nneg i16 %rem121 to i32
   %sub124 = sub nsw i32 %7, %rem.zext
@@ -246,7 +246,7 @@ cond.false141:                                    ; preds = %cond.end134
   unreachable
 
 cond.end142:                                      ; preds = %cond.end134
-  %add144 = add nsw i32 %sub124, %ret.0177
+  %add144 = add nuw nsw i32 %sub124, %ret.0177
   br label %if.end176
 
 if.else146:                                       ; preds = %while.body59
@@ -279,7 +279,7 @@ cond.false172:                                    ; preds = %cond.end165
   unreachable
 
 cond.end173:                                      ; preds = %cond.end165
-  %add175 = add nsw i32 %ret.0177, %7
+  %add175 = add nuw nsw i32 %ret.0177, %7
   br label %if.end176
 
 if.end176:                                        ; preds = %cond.end112, %cond.end142, %cond.end173

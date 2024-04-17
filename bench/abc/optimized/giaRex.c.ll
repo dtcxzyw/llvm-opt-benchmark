@@ -2270,73 +2270,72 @@ define i64 @Gia_ManAutomStep(ptr nocapture noundef readonly %0, i64 noundef %1, 
   %94 = zext nneg i32 %93 to i64
   %scevgep = getelementptr i8, ptr %2, i64 %94
   %95 = shl nuw nsw i32 %.3.lcssa152, 3
-  %96 = xor i32 %95, 504
-  %narrow = add nuw nsw i32 %96, 8
-  %97 = zext nneg i32 %narrow to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %97, i1 false)
+  %narrow = sub nuw nsw i32 512, %95
+  %96 = zext nneg i32 %narrow to i64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %96, i1 false)
   br label %.preheader.i.preheader
 
 .preheader.i.preheader:                           ; preds = %.lr.ph130.preheader, %.critedge6
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %.preheader.i.preheader, %117
-  %.032.i = phi i64 [ %121, %117 ], [ 4294967295, %.preheader.i.preheader ]
-  %.02831.i = phi i32 [ %118, %117 ], [ 32, %.preheader.i.preheader ]
-  %98 = zext nneg i32 %.02831.i to i64
-  %99 = xor i32 %.02831.i, -1
-  br label %100
+.preheader.i:                                     ; preds = %.preheader.i.preheader, %116
+  %.032.i = phi i64 [ %120, %116 ], [ 4294967295, %.preheader.i.preheader ]
+  %.02831.i = phi i32 [ %117, %116 ], [ 32, %.preheader.i.preheader ]
+  %97 = zext nneg i32 %.02831.i to i64
+  %98 = xor i32 %.02831.i, -1
+  br label %99
 
-100:                                              ; preds = %100, %.preheader.i
-  %.02930.i = phi i32 [ 0, %.preheader.i ], [ %115, %100 ]
-  %101 = sext i32 %.02930.i to i64
-  %102 = getelementptr inbounds i64, ptr %2, i64 %101
-  %103 = load i64, ptr %102, align 8
-  %104 = add nsw i32 %.02930.i, %.02831.i
-  %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds i64, ptr %2, i64 %105
-  %107 = load i64, ptr %106, align 8
-  %108 = lshr i64 %107, %98
-  %109 = xor i64 %108, %103
-  %110 = and i64 %109, %.032.i
-  %111 = xor i64 %110, %103
-  store i64 %111, ptr %102, align 8
-  %112 = shl i64 %110, %98
-  %113 = xor i64 %112, %107
-  store i64 %113, ptr %106, align 8
-  %114 = add nsw i32 %104, 1
-  %115 = and i32 %114, %99
-  %116 = icmp slt i32 %115, 64
-  br i1 %116, label %100, label %117, !llvm.loop !25
+99:                                               ; preds = %99, %.preheader.i
+  %.02930.i = phi i32 [ 0, %.preheader.i ], [ %114, %99 ]
+  %100 = sext i32 %.02930.i to i64
+  %101 = getelementptr inbounds i64, ptr %2, i64 %100
+  %102 = load i64, ptr %101, align 8
+  %103 = add nsw i32 %.02930.i, %.02831.i
+  %104 = sext i32 %103 to i64
+  %105 = getelementptr inbounds i64, ptr %2, i64 %104
+  %106 = load i64, ptr %105, align 8
+  %107 = lshr i64 %106, %97
+  %108 = xor i64 %107, %102
+  %109 = and i64 %108, %.032.i
+  %110 = xor i64 %109, %102
+  store i64 %110, ptr %101, align 8
+  %111 = shl i64 %109, %97
+  %112 = xor i64 %111, %106
+  store i64 %112, ptr %105, align 8
+  %113 = add nsw i32 %103, 1
+  %114 = and i32 %113, %98
+  %115 = icmp slt i32 %114, 64
+  br i1 %115, label %99, label %116, !llvm.loop !25
 
-117:                                              ; preds = %100
-  %118 = lshr i32 %.02831.i, 1
-  %119 = zext nneg i32 %118 to i64
-  %120 = shl i64 %.032.i, %119
-  %121 = xor i64 %120, %.032.i
+116:                                              ; preds = %99
+  %117 = lshr i32 %.02831.i, 1
+  %118 = zext nneg i32 %117 to i64
+  %119 = shl i64 %.032.i, %118
+  %120 = xor i64 %119, %.032.i
   %.not.i101 = icmp ult i32 %.02831.i, 2
   br i1 %.not.i101, label %Gia_ManAutomTranspose64.exit, label %.preheader.i, !llvm.loop !26
 
-Gia_ManAutomTranspose64.exit:                     ; preds = %117
+Gia_ManAutomTranspose64.exit:                     ; preds = %116
   %.val83 = load ptr, ptr %6, align 8
-  %122 = getelementptr i8, ptr %0, i64 72
-  %.val84 = load ptr, ptr %122, align 8
-  %123 = getelementptr i8, ptr %.val84, i64 8
-  %.val84.val = load ptr, ptr %123, align 8
+  %121 = getelementptr i8, ptr %0, i64 72
+  %.val84 = load ptr, ptr %121, align 8
+  %122 = getelementptr i8, ptr %.val84, i64 8
+  %.val84.val = load ptr, ptr %122, align 8
   %.val84.val.val = load i32, ptr %.val84.val, align 4
-  %124 = sext i32 %.val84.val.val to i64
-  %125 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val83, i64 %124
-  %.val.i102 = load i64, ptr %125, align 4
-  %126 = and i64 %.val.i102, 536870911
-  %127 = sub nsw i64 %124, %126
+  %123 = sext i32 %.val84.val.val to i64
+  %124 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val83, i64 %123
+  %.val.i102 = load i64, ptr %124, align 4
+  %125 = and i64 %.val.i102, 536870911
+  %126 = sub nsw i64 %123, %125
   %.val10.i104 = load ptr, ptr %5, align 8
-  %sext12.i105 = shl i64 %127, 32
-  %128 = ashr exact i64 %sext12.i105, 32
-  %129 = getelementptr inbounds i64, ptr %.val10.i104, i64 %128
-  %130 = load i64, ptr %129, align 8
-  %131 = shl i64 %.val.i102, 34
-  %sext.i106 = ashr i64 %131, 63
-  %132 = xor i64 %130, %sext.i106
-  ret i64 %132
+  %sext12.i105 = shl i64 %126, 32
+  %127 = ashr exact i64 %sext12.i105, 32
+  %128 = getelementptr inbounds i64, ptr %.val10.i104, i64 %127
+  %129 = load i64, ptr %128, align 8
+  %130 = shl i64 %.val.i102, 34
+  %sext.i106 = ashr i64 %130, 63
+  %131 = xor i64 %129, %sext.i106
+  ret i64 %131
 }
 
 ; Function Attrs: nounwind uwtable

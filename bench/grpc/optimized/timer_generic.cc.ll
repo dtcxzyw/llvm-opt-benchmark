@@ -298,7 +298,7 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp.i.i.i41, label %if.then.i.i.i42, label %if.else.i.i.i
 
 if.then.i.i.i42:                                  ; preds = %if.end11.i.i
-  %sub.i.i.i = xor i64 %deadline.coerce, 9223372036854775807
+  %sub.i.i.i = sub nuw nsw i64 9223372036854775807, %deadline.coerce
   %cmp1.i.i.i = icmp slt i64 %sub.i.i.i, %sub.i
   br i1 %cmp1.i.i.i, label %_ZN9grpc_coremiENS_9TimestampES0_.exit, label %if.end7.i.i.i
 
@@ -1297,7 +1297,7 @@ if.end14:                                         ; preds = %if.then11, %if.then
   %cmp5.i.i.i.i = icmp eq i64 %now.coerce, -9223372036854775808
   %cmp.i.i.i.i.i = icmp sgt i64 %now.coerce, 0
   %sub3.i.i.i.i.i = sub nsw i64 -9223372036854775808, %now.coerce
-  %sub.i.i.i.i.i = xor i64 %now.coerce, 9223372036854775807
+  %sub.i.i.i.i.i = sub nuw nsw i64 9223372036854775807, %now.coerce
   %.pre = load ptr, ptr @_ZL13g_shard_queue, align 8
   %9 = load ptr, ptr %.pre, align 8
   %min_deadline16167 = getelementptr inbounds i8, ptr %9, i64 72
@@ -1408,7 +1408,7 @@ if.end11.i.i.i.i.i:                               ; preds = %if.end.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end11.i.i.i.i.i
-  %sub.i.i.i.i.i.i = xor i64 %agg.tmp.sroa.0.0.copyload.sroa.speculated.i.i.i, 9223372036854775807
+  %sub.i.i.i.i.i.i = sub nuw nsw i64 9223372036854775807, %agg.tmp.sroa.0.0.copyload.sroa.speculated.i.i.i
   %cmp1.i.i.i.i.i.i = icmp slt i64 %sub.i.i.i.i.i.i, %retval.sroa.0.0.i.i.i.i
   br i1 %cmp1.i.i.i.i.i.i, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i.i.i, label %if.end7.i.i.i.i.i.i
 

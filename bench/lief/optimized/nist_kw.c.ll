@@ -130,7 +130,7 @@ define hidden i32 @mbedtls_nist_kw_wrap(ptr noundef %0, i32 noundef %1, ptr noca
 27:                                               ; preds = %20
   store i32 -1504093786, ptr %4, align 1
   %28 = lshr i64 %3, 24
-  %29 = trunc i64 %28 to i8
+  %29 = trunc nuw i64 %28 to i8
   %30 = getelementptr inbounds i8, ptr %4, i64 4
   store i8 %29, ptr %30, align 1
   %31 = lshr i64 %3, 16
@@ -199,7 +199,7 @@ define hidden i32 @mbedtls_nist_kw_wrap(ptr noundef %0, i32 noundef %1, ptr noca
 63:                                               ; preds = %63, %61
   %.05.i = phi i64 [ 0, %61 ], [ %71, %63 ]
   %64 = shl nuw nsw i64 %.05.i, 3
-  %65 = xor i64 %64, 56
+  %65 = sub nuw nsw i64 56, %64
   %66 = lshr i64 %.073102, %65
   %67 = getelementptr inbounds i8, ptr %4, i64 %.05.i
   %68 = load i8, ptr %67, align 1
@@ -441,7 +441,7 @@ define internal fastcc i32 @unwrap(ptr noundef %0, ptr nocapture noundef readonl
 21:                                               ; preds = %.preheader, %21
   %.05.i = phi i64 [ %29, %21 ], [ 0, %.preheader ]
   %22 = shl nuw nsw i64 %.05.i, 3
-  %23 = xor i64 %22, 56
+  %23 = sub nuw nsw i64 56, %22
   %24 = lshr i64 %.03245, %23
   %25 = getelementptr inbounds i8, ptr %3, i64 %.05.i
   %26 = load i8, ptr %25, align 1

@@ -3163,7 +3163,7 @@ if.end11.i.i.i:                                   ; preds = %invoke.cont29
   br i1 %cmp.i.i.i.i30, label %if.then.i.i.i.i32, label %if.else.i.i.i.i
 
 if.then.i.i.i.i32:                                ; preds = %if.end11.i.i.i
-  %sub.i.i.i.i33 = xor i64 %cond10.i.i.i, 9223372036854775807
+  %sub.i.i.i.i33 = sub nuw nsw i64 9223372036854775807, %cond10.i.i.i
   %cmp1.i.i.i.i = icmp slt i64 %sub.i.i.i.i33, %div.i.sext.i
   br i1 %cmp1.i.i.i.i, label %invoke.cont31, label %if.end7.i.i.i.i
 

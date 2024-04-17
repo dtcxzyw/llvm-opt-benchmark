@@ -242,16 +242,15 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 4, %entry ]
-  %sub23 = and i64 %indvars.iv, 4294967295
-  %idxprom = xor i64 %sub23, 7
-  %arrayidx24 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 %idxprom
-  %5 = load float, ptr %arrayidx24, align 4
-  %sub26 = fsub float 1.000000e+00, %5
+  %5 = sub nuw nsw i64 7, %indvars.iv
+  %arrayidx24 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 %5
+  %6 = load float, ptr %arrayidx24, align 4
+  %sub26 = fsub float 1.000000e+00, %6
   %arrayidx28 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 %indvars.iv
   store float %sub26, ptr %arrayidx28, align 4
   %v33 = getelementptr inbounds i8, ptr %arrayidx24, i64 4
-  %6 = load float, ptr %v33, align 4
-  %fneg = fneg float %6
+  %7 = load float, ptr %v33, align 4
+  %fneg = fneg float %7
   %v36 = getelementptr inbounds i8, ptr %arrayidx28, i64 4
   store float %fneg, ptr %v36, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -259,20 +258,20 @@ for.body:                                         ; preds = %entry, %for.body
   br i1 %exitcond.not, label %if.end, label %for.body, !llvm.loop !6
 
 for.body39:                                       ; preds = %entry, %for.body39
-  %indvars.iv85 = phi i64 [ %indvars.iv.next86, %for.body39 ], [ 4, %entry ]
-  %7 = getelementptr %struct.hexvert, ptr %vert, i64 %indvars.iv85
-  %arrayidx42 = getelementptr i8, ptr %7, i64 -48
-  %8 = load float, ptr %arrayidx42, align 4
-  %add = fadd float %8, 5.000000e-01
-  store float %add, ptr %7, align 4
-  %v50 = getelementptr i8, ptr %7, i64 -44
-  %9 = load float, ptr %v50, align 4
-  %fneg51 = fneg float %9
-  %v54 = getelementptr inbounds i8, ptr %7, i64 4
+  %indvars.iv86 = phi i64 [ %indvars.iv.next87, %for.body39 ], [ 4, %entry ]
+  %8 = getelementptr %struct.hexvert, ptr %vert, i64 %indvars.iv86
+  %arrayidx42 = getelementptr i8, ptr %8, i64 -48
+  %9 = load float, ptr %arrayidx42, align 4
+  %add = fadd float %9, 5.000000e-01
+  store float %add, ptr %8, align 4
+  %v50 = getelementptr i8, ptr %8, i64 -44
+  %10 = load float, ptr %v50, align 4
+  %fneg51 = fneg float %10
+  %v54 = getelementptr inbounds i8, ptr %8, i64 4
   store float %fneg51, ptr %v54, align 4
-  %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
-  %exitcond88.not = icmp eq i64 %indvars.iv.next86, 8
-  br i1 %exitcond88.not, label %if.end.loopexit, label %for.body39, !llvm.loop !7
+  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
+  %exitcond89.not = icmp eq i64 %indvars.iv.next87, 8
+  br i1 %exitcond89.not, label %if.end.loopexit, label %for.body39, !llvm.loop !7
 
 if.end.loopexit:                                  ; preds = %for.body39
   %.pre.pre = load float, ptr %vert, align 4
@@ -285,34 +284,34 @@ if.end:                                           ; preds = %for.body, %if.end.l
   br label %for.body64
 
 for.body64:                                       ; preds = %if.end, %for.inc83
-  %10 = phi float [ %.pre, %if.end ], [ %12, %for.inc83 ]
-  %indvars.iv89 = phi i64 [ 0, %if.end ], [ %indvars.iv.next90, %for.inc83 ]
-  %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
-  %arrayidx67 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 %indvars.iv.next90
-  %11 = load float, ptr %arrayidx67, align 4
-  %add72 = fadd float %div, %10
-  %cmp73 = fcmp ugt float %11, %add72
+  %11 = phi float [ %.pre, %if.end ], [ %13, %for.inc83 ]
+  %indvars.iv90 = phi i64 [ 0, %if.end ], [ %indvars.iv.next91, %for.inc83 ]
+  %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
+  %arrayidx67 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 %indvars.iv.next91
+  %12 = load float, ptr %arrayidx67, align 4
+  %add72 = fadd float %div, %11
+  %cmp73 = fcmp ugt float %12, %add72
   br i1 %cmp73, label %for.inc83, label %if.then74
 
 if.then74:                                        ; preds = %for.body64
-  store float %10, ptr %arrayidx67, align 4
+  store float %11, ptr %arrayidx67, align 4
   br label %for.inc83
 
 for.inc83:                                        ; preds = %for.body64, %if.then74
-  %12 = phi float [ %11, %for.body64 ], [ %10, %if.then74 ]
-  %exitcond92.not = icmp eq i64 %indvars.iv.next90, 8
-  br i1 %exitcond92.not, label %for.end85, label %for.body64, !llvm.loop !8
+  %13 = phi float [ %12, %for.body64 ], [ %11, %if.then74 ]
+  %exitcond93.not = icmp eq i64 %indvars.iv.next91, 8
+  br i1 %exitcond93.not, label %for.end85, label %for.body64, !llvm.loop !8
 
 for.end85:                                        ; preds = %for.inc83
-  %13 = load float, ptr %arrayidx58, align 4
-  %cmp88 = fcmp une float %13, 1.000000e+00
+  %14 = load float, ptr %arrayidx58, align 4
+  %cmp88 = fcmp une float %14, 1.000000e+00
   br i1 %cmp88, label %for.body95, label %if.end108
 
 for.body95:                                       ; preds = %for.end85, %for.inc105
-  %indvars.iv93 = phi i64 [ %indvars.iv.next94, %for.inc105 ], [ 5, %for.end85 ]
-  %arrayidx97 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 %indvars.iv93
-  %14 = load float, ptr %arrayidx97, align 4
-  %cmp99 = fcmp oeq float %14, %13
+  %indvars.iv94 = phi i64 [ %indvars.iv.next95, %for.inc105 ], [ 5, %for.end85 ]
+  %arrayidx97 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 %indvars.iv94
+  %15 = load float, ptr %arrayidx97, align 4
+  %cmp99 = fcmp oeq float %15, %14
   br i1 %cmp99, label %if.then100, label %for.inc105
 
 if.then100:                                       ; preds = %for.body95
@@ -320,47 +319,47 @@ if.then100:                                       ; preds = %for.body95
   br label %for.inc105
 
 for.inc105:                                       ; preds = %for.body95, %if.then100
-  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %exitcond96.not = icmp eq i64 %indvars.iv.next94, 9
-  br i1 %exitcond96.not, label %if.end108, label %for.body95, !llvm.loop !9
+  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
+  %exitcond97.not = icmp eq i64 %indvars.iv.next95, 9
+  br i1 %exitcond97.not, label %if.end108, label %for.body95, !llvm.loop !9
 
 if.end108:                                        ; preds = %for.inc105, %for.end85
-  %.pre101 = load float, ptr %vert, align 4
+  %.pre102 = load float, ptr %vert, align 4
   br label %for.body111
 
 for.body111:                                      ; preds = %if.end108, %for.inc145
-  %15 = phi float [ %.pre101, %if.end108 ], [ %16, %for.inc145 ]
-  %indvars.iv97 = phi i64 [ 0, %if.end108 ], [ %indvars.iv.next98, %for.inc145 ]
-  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
-  %arrayidx114 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 %indvars.iv.next98
-  %16 = load float, ptr %arrayidx114, align 4
-  %arrayidx117 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 %indvars.iv97
-  %cmp119 = fcmp oeq float %16, %15
+  %16 = phi float [ %.pre102, %if.end108 ], [ %17, %for.inc145 ]
+  %indvars.iv98 = phi i64 [ 0, %if.end108 ], [ %indvars.iv.next99, %for.inc145 ]
+  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
+  %arrayidx114 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 %indvars.iv.next99
+  %17 = load float, ptr %arrayidx114, align 4
+  %arrayidx117 = getelementptr inbounds %struct.hexvert, ptr %vert, i64 %indvars.iv98
+  %cmp119 = fcmp oeq float %17, %16
   br i1 %cmp119, label %for.inc145, label %if.else123
 
 if.else123:                                       ; preds = %for.body111
   %v127 = getelementptr inbounds i8, ptr %arrayidx114, i64 4
-  %17 = load float, ptr %v127, align 4
+  %18 = load float, ptr %v127, align 4
   %v130 = getelementptr inbounds i8, ptr %arrayidx117, i64 4
-  %18 = load float, ptr %v130, align 4
-  %sub131 = fsub float %17, %18
-  %sub139 = fsub float %16, %15
+  %19 = load float, ptr %v130, align 4
+  %sub131 = fsub float %18, %19
+  %sub139 = fsub float %17, %16
   %div140 = fdiv float %sub131, %sub139
   br label %for.inc145
 
 for.inc145:                                       ; preds = %for.body111, %if.else123
   %div140.sink = phi float [ %div140, %if.else123 ], [ 0.000000e+00, %for.body111 ]
-  %19 = getelementptr inbounds i8, ptr %arrayidx117, i64 8
-  store float %div140.sink, ptr %19, align 4
-  %exitcond100.not = icmp eq i64 %indvars.iv.next98, 8
-  br i1 %exitcond100.not, label %for.end147, label %for.body111, !llvm.loop !10
+  %20 = getelementptr inbounds i8, ptr %arrayidx117, i64 8
+  store float %div140.sink, ptr %20, align 4
+  %exitcond101.not = icmp eq i64 %indvars.iv.next99, 8
+  br i1 %exitcond101.not, label %for.end147, label %for.body111, !llvm.loop !10
 
 for.end147:                                       ; preds = %for.inc145
   store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %arrayidx58, align 4
   %s155 = getelementptr inbounds i8, ptr %vert, i64 8
-  %20 = load float, ptr %s155, align 4
+  %21 = load float, ptr %s155, align 4
   %s157 = getelementptr inbounds i8, ptr %vert, i64 104
-  store float %20, ptr %s157, align 4
+  store float %21, ptr %s157, align 4
   ret void
 }
 

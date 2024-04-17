@@ -89,8 +89,8 @@ define void @lib_dumpvhandler(ptr noundef %0, ptr noundef readonly %1, i32 nound
   br i1 %44, label %45, label %54
 
 45:                                               ; preds = %42
-  %46 = trunc i64 %indvars.iv to i32
-  %47 = xor i32 %46, 15
+  %46 = trunc nuw nsw i64 %indvars.iv to i32
+  %47 = sub nuw nsw i32 15, %46
   %48 = mul nuw nsw i32 %47, 3
   %49 = zext nneg i32 %48 to i64
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %32, i8 32, i64 %49, i1 false)
@@ -133,9 +133,9 @@ define void @lib_dumpvbuffer(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
 ; Function Attrs: nounwind uwtable
 define internal void @lib_dumpvbuffer_handler(ptr nocapture readnone %0, ptr noundef %1, ...) #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   call void @vsyslog(i32 noundef 6, ptr noundef %1, ptr noundef nonnull %3) #4
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
 
@@ -150,27 +150,27 @@ define void @lib_dumpvfile(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 n
 ; Function Attrs: nounwind uwtable
 define internal void @lib_dumpvfile_handler(ptr nocapture noundef readonly %0, ptr noundef %1, ...) #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.va_start(ptr nonnull %3)
+  call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = load i32, ptr %0, align 4
   %5 = call i32 @vdprintf(i32 noundef %4, ptr noundef %1, ptr noundef nonnull %3) #4
-  call void @llvm.va_end(ptr nonnull %3)
+  call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
 
+declare void @vsyslog(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
+declare i32 @vdprintf(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
+
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start(ptr) #2
-
-declare void @vsyslog(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @llvm.va_start.p0(ptr) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end(ptr) #2
-
-declare i32 @vdprintf(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
+declare void @llvm.va_end.p0(ptr) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #4 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}

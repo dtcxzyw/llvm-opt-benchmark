@@ -277,7 +277,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i, %ent
   br i1 %cmp.i, label %if.then.i7, label %if.else.i
 
 if.then.i7:                                       ; preds = %invoke.cont
-  %sub.i = xor i64 %sub.ptr.div.i.i, 3
+  %sub.i = sub nuw nsw i64 3, %sub.ptr.div.i.i
   invoke void @_ZNSt6vectorIN7rocksdb10BufferInfoESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %sub.i)
           to label %for.body unwind label %lpad10
 

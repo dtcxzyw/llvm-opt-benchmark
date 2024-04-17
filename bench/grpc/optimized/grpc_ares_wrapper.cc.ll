@@ -452,7 +452,7 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end11.i.i
-  %sub.i.i.i = xor i64 %call.i, 9223372036854775807
+  %sub.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i
   %cmp1.i.i.i = icmp slt i64 %sub.i.i.i, %conv
   br i1 %cmp1.i.i.i, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit, label %if.end7.i.i.i
 
@@ -496,10 +496,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit.i:             ; preds = %11, %do.end.i
   ]
 
 if.end11.i.i.i:                                   ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit.i
-  %cmp.i.i.i.i = icmp sgt i64 %call.i.i, 0
-  %sub.i.i.i.i = xor i64 %call.i.i, 9223372036854775800
-  %cmp1.i.i.i.i = icmp ult i64 %sub.i.i.i.i, 1000
-  %or.cond.i = and i1 %cmp.i.i.i.i, %cmp1.i.i.i.i
+  %or.cond.i = icmp sgt i64 %call.i.i, 9223372036854774807
   %add.i.i.i.i = add nsw i64 %call.i.i, 1000
   %spec.select.i = select i1 %or.cond.i, i64 9223372036854775807, i64 %add.i.i.i.i
   br label %_ZL37calculate_next_ares_backup_poll_alarmP19grpc_ares_ev_driver.exit
@@ -558,7 +555,7 @@ if.then:                                          ; preds = %entry
 for.body:                                         ; preds = %if.then, %for.inc
   %new_list.088 = phi ptr [ null, %if.then ], [ %new_list.1, %for.inc ]
   %i.087 = phi i64 [ 0, %if.then ], [ %inc, %for.inc ]
-  %sh_prom = trunc i64 %i.087 to i32
+  %sh_prom = trunc nuw nsw i64 %i.087 to i32
   %shl = shl nuw nsw i32 1, %sh_prom
   %and = and i32 %shl, %call
   %tobool1.not = icmp eq i32 %and, 0
@@ -1206,10 +1203,7 @@ call.i.i.noexc:                                   ; preds = %_ZN9grpc_core9Times
   ]
 
 if.end11.i.i.i:                                   ; preds = %call.i.i.noexc
-  %cmp.i.i.i.i = icmp sgt i64 %call.i.i28, 0
-  %sub.i.i.i.i = xor i64 %call.i.i28, 9223372036854775800
-  %cmp1.i.i.i.i = icmp ult i64 %sub.i.i.i.i, 1000
-  %or.cond.i = and i1 %cmp.i.i.i.i, %cmp1.i.i.i.i
+  %or.cond.i = icmp sgt i64 %call.i.i28, 9223372036854774807
   %add.i.i.i.i = add nsw i64 %call.i.i28, 1000
   %spec.select.i = select i1 %or.cond.i, i64 9223372036854775807, i64 %add.i.i.i.i
   br label %invoke.cont36

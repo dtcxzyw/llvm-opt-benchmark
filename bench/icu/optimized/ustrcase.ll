@@ -421,7 +421,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i.i.i, %if.
   br i1 %tobool.not.i.i, label %if.end2.i.i.i, label %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit.i
 
 if.end2.i.i.i:                                    ; preds = %if.end.i.i.i
-  %sub.i.i.i = xor i32 %call80, 2147483647
+  %sub.i.i.i = sub nuw nsw i32 2147483647, %call80
   %cmp3.i.i.i = icmp ult i32 %sub.i.i.i, %unchanged1.2.i
   br i1 %cmp3.i.i.i, label %_ZN6icu_7512_GLOBAL__N_115appendUnchangedEPDsiiPKDsijPNS_5EditsE.exit.i, label %if.end5.i.i.i
 
@@ -760,7 +760,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %or.cond, label %if.then7, label %if.end30
 
 if.then7:                                         ; preds = %if.end4
-  %conv = trunc i32 %not to i16
+  %conv = trunc nuw i32 %not to i16
   %inc = add nsw i32 %destIndex, 1
   %idxprom = sext i32 %destIndex to i64
   %arrayidx = getelementptr inbounds i16, ptr %dest, i64 %idxprom
@@ -778,7 +778,7 @@ if.else11:                                        ; preds = %if.else
   br i1 %or.cond1, label %if.then15, label %if.else23
 
 if.then15:                                        ; preds = %if.else11
-  %conv16 = trunc i32 %result to i16
+  %conv16 = trunc nuw i32 %result to i16
   %inc17 = add nsw i32 %destIndex, 1
   %idxprom18 = sext i32 %destIndex to i64
   %arrayidx19 = getelementptr inbounds i16, ptr %dest, i64 %idxprom18
@@ -824,7 +824,7 @@ if.then37:                                        ; preds = %if.then35
   br i1 %cmp38, label %if.then39, label %if.else44
 
 if.then39:                                        ; preds = %if.then37
-  %conv40 = trunc i32 %c.1 to i16
+  %conv40 = trunc nuw i32 %c.1 to i16
   %inc41 = add nsw i32 %destIndex, 1
   %idxprom42 = sext i32 %destIndex to i64
   %arrayidx43 = getelementptr inbounds i16, ptr %dest, i64 %idxprom42
@@ -842,7 +842,7 @@ land.lhs.true46:                                  ; preds = %if.else44
 
 if.then48:                                        ; preds = %land.lhs.true46
   %shr = lshr i32 %c.1, 10
-  %0 = trunc i32 %shr to i16
+  %0 = trunc nuw i32 %shr to i16
   %conv50 = add nuw nsw i16 %0, -10304
   %idxprom52 = sext i32 %destIndex to i64
   %arrayidx53 = getelementptr inbounds i16, ptr %dest, i64 %idxprom52
@@ -891,7 +891,7 @@ if.else78:                                        ; preds = %if.end33
   br label %return
 
 return.loopexit:                                  ; preds = %while.body
-  %5 = trunc i64 %indvars.iv.next to i32
+  %5 = trunc nsw i64 %indvars.iv.next to i32
   br label %return
 
 return:                                           ; preds = %return.loopexit, %while.cond.preheader, %do.end, %if.then39, %if.then48, %if.else78, %if.else66, %if.end30, %if.then15, %if.then21, %if.end, %if.then7
@@ -1534,7 +1534,7 @@ if.then50:                                        ; preds = %sw.bb4.i, %sw.bb3.i
   br i1 %exitcond.not, label %while.end, label %while.body, !llvm.loop !12
 
 while.end.loopexit.split.loop.exit:               ; preds = %while.body
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %if.then50, %while.end.loopexit.split.loop.exit, %if.end36
@@ -1713,7 +1713,7 @@ if.then166:                                       ; preds = %if.end98, %if.then1
   br i1 %cmp.i127, label %if.then.i, label %if.else.i128
 
 if.then.i:                                        ; preds = %if.then166
-  %conv167 = trunc i32 %upper.0 to i16
+  %conv167 = trunc nuw nsw i32 %upper.0 to i16
   %idxprom.i132 = sext i32 %destIndex.0201 to i64
   %arrayidx.i133 = getelementptr inbounds i16, ptr %dest, i64 %idxprom.i132
   store i16 %conv167, ptr %arrayidx.i133, align 2
@@ -2673,7 +2673,7 @@ do.body.us:                                       ; preds = %do.body.us.preheade
   br i1 %cmp26.us, label %do.body.us, label %do.end.us, !llvm.loop !17
 
 do.end.us:                                        ; preds = %do.body.us
-  %3 = trunc i64 %indvars.iv.next to i32
+  %3 = trunc nsw i64 %indvars.iv.next to i32
   %s.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 8
   %4 = load ptr, ptr %s.us, align 8
   %limit.us = getelementptr inbounds i8, ptr %arrayidx.us, i64 16
@@ -2722,7 +2722,7 @@ do.body:                                          ; preds = %do.body.preheader, 
   br i1 %cmp26, label %do.body, label %do.end, !llvm.loop !17
 
 do.end:                                           ; preds = %do.body
-  %9 = trunc i64 %indvars.iv.next118 to i32
+  %9 = trunc nsw i64 %indvars.iv.next118 to i32
   %s = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %10 = load ptr, ptr %s, align 8
   %limit = getelementptr inbounds i8, ptr %arrayidx, i64 16
@@ -2776,7 +2776,7 @@ do.body51:                                        ; preds = %do.body51.preheader
   br i1 %cmp57, label %do.body51, label %do.end58, !llvm.loop !19
 
 do.end58:                                         ; preds = %do.body51
-  %15 = trunc i64 %indvars.iv.next121 to i32
+  %15 = trunc nsw i64 %indvars.iv.next121 to i32
   %s61 = getelementptr inbounds i8, ptr %arrayidx54, i64 8
   %16 = load ptr, ptr %s61, align 8
   %limit64 = getelementptr inbounds i8, ptr %arrayidx54, i64 16
@@ -2971,7 +2971,7 @@ if.else197:                                       ; preds = %if.end187
   br i1 %cmp199, label %if.then200, label %if.else205
 
 if.then200:                                       ; preds = %if.else197
-  %conv201 = trunc i32 %call171 to i16
+  %conv201 = trunc nuw i32 %call171 to i16
   store i16 %conv201, ptr %fold1, align 16
   br label %if.end219
 
@@ -3042,7 +3042,7 @@ if.else255:                                       ; preds = %if.end243
   br i1 %cmp258, label %if.then259, label %if.else264
 
 if.then259:                                       ; preds = %if.else255
-  %conv260 = trunc i32 %call227 to i16
+  %conv260 = trunc nuw i32 %call227 to i16
   store i16 %conv260, ptr %fold2, align 16
   br label %if.end280
 

@@ -34712,7 +34712,7 @@ if.else.i:                                        ; preds = %if.then.i
   br i1 %cmp.i.i.i, label %if.end5.i, label %if.else20.i
 
 if.else20.i:                                      ; preds = %if.else.i
-  %sub.i.i29.i = xor i64 %retval.sroa.0.0.copyload.i.i.i, 9223372036854775807
+  %sub.i.i29.i = sub nuw nsw i64 9223372036854775807, %retval.sroa.0.0.copyload.i.i.i
   %sub.i.i32.i = sub nsw i64 0, %call.i
   %cmp.i33.not.not.i = icmp ult i64 %sub.i.i29.i, %sub.i.i32.i
   %sub.i.i36.i = sub nsw i64 %retval.sroa.0.0.copyload.i.i.i, %call.i
@@ -34770,7 +34770,7 @@ if.else.i:                                        ; preds = %if.then.i
   br i1 %cmp.i.i.i, label %if.end5.i, label %if.else20.i
 
 if.else20.i:                                      ; preds = %if.else.i
-  %sub.i.i29.i = xor i64 %retval.sroa.0.0.copyload.i.i.i, 9223372036854775807
+  %sub.i.i29.i = sub nuw nsw i64 9223372036854775807, %retval.sroa.0.0.copyload.i.i.i
   %sub.i.i32.i = sub nsw i64 0, %call.i
   %cmp.i33.not.not.i = icmp ult i64 %sub.i.i29.i, %sub.i.i32.i
   %sub.i.i36.i = sub nsw i64 %retval.sroa.0.0.copyload.i.i.i, %call.i
@@ -35002,10 +35002,7 @@ call2.i.i.i.i.i.i.i.i.i.i.i.noexc:                ; preds = %if.end.i.i.i.i.i.i.
   br label %_ZN4asio6detail19asio_handler_invokeINS0_7binder0IZ4taskI16async_rpc_clientEvSt17basic_string_viewIcSt11char_traitsIcEES8_EUlvE0_EES9_EEvRT_PNS2_IT0_EE.exit.i
 
 _ZN4asio6detail19asio_handler_invokeINS0_7binder0IZ4taskI16async_rpc_clientEvSt17basic_string_viewIcSt11char_traitsIcEES8_EUlvE0_EES9_EEvRT_PNS2_IT0_EE.exit.i: ; preds = %call2.i.i.i.i.i.i.i.i.i.i.i.noexc, %if.then
-  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %call.i.i.i.i.i.i.i.i.i.i, -1
-  %sub.i.i.i.i.i.i.i.i.i.i.i.i = xor i64 %call.i.i.i.i.i.i.i.i.i.i, 9223372036854775296
-  %cmp.i8.not.not.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i, 1000000000
-  %or.cond.i.i.i.i.i.i.i = and i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, %cmp.i8.not.not.i.i.i.i.i.i.i.i.i.i
+  %or.cond.i.i.i.i.i.i.i = icmp sgt i64 %call.i.i.i.i.i.i.i.i.i.i, 9223372035854775807
   %add.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %call.i.i.i.i.i.i.i.i.i.i, 1000000000
   %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i.i, i64 9223372036854775807, i64 %add.i.i.i.i.i.i.i.i.i.i.i.i
   %implementation_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tmp.sroa.0.0.copyload, i64 8
@@ -35736,10 +35733,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.end42
   br label %_Z5watchI16async_rpc_clientEvRN4asio20basic_waitable_timerINSt6chrono3_V212steady_clockENS1_11wait_traitsIS5_EENS1_15any_io_executorEEERjRSt5dequeIT_SaISD_EENS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEEddi.exit
 
 _Z5watchI16async_rpc_clientEvRN4asio20basic_waitable_timerINSt6chrono3_V212steady_clockENS1_11wait_traitsIS5_EENS1_15any_io_executorEEERjRSt5dequeIT_SaISD_EENS3_10time_pointIS5_NS3_8durationIlSt5ratioILl1ELl1000000000EEEEEEddi.exit: ; preds = %if.end42, %if.end.i.i.i.i.i
-  %cmp.i.i.i.i.i = icmp sgt i64 %call.i.i.i.i, -1
-  %sub.i.i.i.i.i.i = xor i64 %call.i.i.i.i, 9223372036854775296
-  %cmp.i8.not.not.i.i.i.i = icmp ult i64 %sub.i.i.i.i.i.i, 1000000000
-  %or.cond.i = and i1 %cmp.i.i.i.i.i, %cmp.i8.not.not.i.i.i.i
+  %or.cond.i = icmp sgt i64 %call.i.i.i.i, 9223372035854775807
   %add.i.i.i.i.i.i = add nsw i64 %call.i.i.i.i, 1000000000
   %retval.sroa.0.0.i.i.i.i = select i1 %or.cond.i, i64 9223372036854775807, i64 %add.i.i.i.i.i.i
   %implementation_.i.i.i = getelementptr inbounds i8, ptr %37, i64 8
@@ -36623,10 +36617,7 @@ call2.i.i.i.i.i.i.i.i.i.i.i.noexc:                ; preds = %if.end.i.i.i.i.i.i.
   br label %_ZN4asio6detail19asio_handler_invokeINS0_7binder0IZ4taskI16async_rpc_clientEvSt17basic_string_viewIcSt11char_traitsIcEES8_EUlvE0_EES9_EEvRT_PNS2_IT0_EE.exit.i
 
 _ZN4asio6detail19asio_handler_invokeINS0_7binder0IZ4taskI16async_rpc_clientEvSt17basic_string_viewIcSt11char_traitsIcEES8_EUlvE0_EES9_EEvRT_PNS2_IT0_EE.exit.i: ; preds = %call2.i.i.i.i.i.i.i.i.i.i.i.noexc, %if.then
-  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %call.i.i.i.i.i.i.i.i.i.i, -1
-  %sub.i.i.i.i.i.i.i.i.i.i.i.i = xor i64 %call.i.i.i.i.i.i.i.i.i.i, 9223372036854775296
-  %cmp.i8.not.not.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i, 1000000000
-  %or.cond.i.i.i.i.i.i.i = and i1 %cmp.i.i.i.i.i.i.i.i.i.i.i, %cmp.i8.not.not.i.i.i.i.i.i.i.i.i.i
+  %or.cond.i.i.i.i.i.i.i = icmp sgt i64 %call.i.i.i.i.i.i.i.i.i.i, 9223372035854775807
   %add.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %call.i.i.i.i.i.i.i.i.i.i, 1000000000
   %retval.sroa.0.0.i.i.i.i.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i.i, i64 9223372036854775807, i64 %add.i.i.i.i.i.i.i.i.i.i.i.i
   %implementation_.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %handler.sroa.0.0.copyload, i64 8

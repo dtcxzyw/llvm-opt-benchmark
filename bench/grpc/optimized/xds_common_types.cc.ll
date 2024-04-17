@@ -319,7 +319,7 @@ if.end11.i.i.i:                                   ; preds = %if.end13
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end11.i.i.i
-  %sub.i.i.i.i = xor i64 %cond10.i.i.i, 9223372036854775807
+  %sub.i.i.i.i = sub nuw nsw i64 9223372036854775807, %cond10.i.i.i
   %cmp1.i.i.i.i = icmp slt i64 %sub.i.i.i.i, %div.i.sext.i
   br i1 %cmp1.i.i.i.i, label %_ZN9grpc_core8Duration25FromSecondsAndNanosecondsEli.exit, label %if.end7.i.i.i.i
 

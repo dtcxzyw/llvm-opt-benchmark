@@ -356,7 +356,7 @@ invoke.cont20:                                    ; preds = %for.body
   %16 = load ptr, ptr %add.ptr.i, align 8
   %add.ptr.i38 = getelementptr inbounds i16, ptr %16, i64 %conv8325
   %17 = load i16, ptr %add.ptr.i38, align 2
-  %tobool = trunc i8 %outs2_broken.0324 to i1
+  %tobool = trunc nuw i8 %outs2_broken.0324 to i1
   br i1 %tobool, label %for.inc, label %invoke.cont29
 
 lpad16.loopexit:                                  ; preds = %if.then.i.i113
@@ -430,7 +430,7 @@ for.inc:                                          ; preds = %invoke.cont38, %lan
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc
-  %tobool41 = trunc i8 %outs2_broken.1 to i1
+  %tobool41 = trunc nuw i8 %outs2_broken.1 to i1
   br i1 %tobool41, label %do.end141, label %invoke.cont43
 
 invoke.cont43:                                    ; preds = %for.cond.preheader, %for.end
@@ -1866,7 +1866,7 @@ if.then.i.i.i147.i.i.i:                           ; preds = %invoke.cont.i140.i.
 
 if.else.i.i.i146.i.i.i:                           ; preds = %invoke.cont.i140.i.i.i
   %sub.ptr.lhs.cast.i156.i.i = ptrtoint ptr %add.ptr.i.i.i.i145.i.i.i to i64
-  %sub.i.i.i.i = xor i64 %.pre4.i142.i.i.i, 288230376151711743
+  %sub.i.i.i.i = sub nuw nsw i64 288230376151711743, %.pre4.i142.i.i.i
   %reass.sub405.i.i = add nsw i64 %storemerge403.i.i, 1
   %sub5.i.i.i.i = sub nsw i64 %reass.sub405.i.i, %.pre4.i142.i.i.i
   %cmp.i.i.i.i169 = icmp ult i64 %sub.i.i.i.i, %sub5.i.i.i.i
@@ -3056,7 +3056,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i
   br label %common.resume
 
 _ZN3ue29verify_u8IjEEhT_.exit:                    ; preds = %entry
-  %conv.i.i = trunc i32 %0 to i8
+  %conv.i.i = trunc nuw i32 %0 to i8
   %offset2 = getelementptr inbounds i8, ptr %accel_out, i64 1
   store i8 %conv.i.i, ptr %offset2, align 1
   %m_size.i.i.i = getelementptr inbounds i8, ptr %info, i64 8
@@ -3121,7 +3121,7 @@ lpad.i.i74:                                       ; preds = %if.then.i.i72
   br label %common.resume
 
 _ZN3ue29verify_u8IjEEhT_.exit77:                  ; preds = %if.then
-  %conv.i.i76 = trunc i32 %11 to i8
+  %conv.i.i76 = trunc nuw i32 %11 to i8
   store i8 %conv.i.i76, ptr %offset2, align 1
   br label %do.end156
 
@@ -3203,7 +3203,7 @@ lpad.i.i106:                                      ; preds = %if.then.i.i104
   br label %common.resume
 
 _ZN3ue29verify_u8IjEEhT_.exit109:                 ; preds = %if.then57
-  %conv.i.i108 = trunc i32 %23 to i8
+  %conv.i.i108 = trunc nuw i32 %23 to i8
   store i8 %conv.i.i108, ptr %offset2, align 1
   br label %do.end156
 
@@ -3238,7 +3238,7 @@ lpad.i.i113:                                      ; preds = %if.then.i.i111
   br label %common.resume
 
 _ZN3ue29verify_u8IjEEhT_.exit116:                 ; preds = %if.then68
-  %conv.i.i115 = trunc i32 %25 to i8
+  %conv.i.i115 = trunc nuw i32 %25 to i8
   store i8 %conv.i.i115, ptr %offset2, align 1
   %27 = load ptr, ptr %info, align 8, !noalias !141
   %28 = load i8, ptr %27, align 1
@@ -3305,7 +3305,7 @@ lpad.i.i134:                                      ; preds = %if.then.i.i132
   br label %common.resume
 
 _ZN3ue29verify_u8IjEEhT_.exit137:                 ; preds = %if.then101
-  %conv.i.i136 = trunc i32 %36 to i8
+  %conv.i.i136 = trunc nuw i32 %36 to i8
   store i8 %conv.i.i136, ptr %offset2, align 1
   br label %do.end156
 

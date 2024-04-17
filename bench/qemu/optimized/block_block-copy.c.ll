@@ -195,7 +195,7 @@ block_copy_calculate_cluster_size.exit.thread:    ; preds = %if.end20.i, %if.the
   call void @bdrv_graph_rdunlock_main_loop() #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %bdi.i)
   %2 = load ptr, ptr %source, align 8
-  %conv = trunc i64 %retval.0.i.ph to i32
+  %conv = trunc nuw nsw i64 %retval.0.i.ph to i32
   %call13 = call ptr @bdrv_create_dirty_bitmap(ptr noundef %2, i32 noundef %conv, ptr noundef null, ptr noundef nonnull %spec.select) #13
   %tobool14.not = icmp eq ptr %call13, null
   br i1 %tobool14.not, label %cleanup, label %if.end16
@@ -1970,9 +1970,9 @@ entry:
   %cmp1 = icmp slt i64 %offset, 0
   %cmp2 = icmp slt i64 %bytes, 1
   %or.cond.not113 = or i1 %cmp1, %cmp2
-  %sub4 = xor i64 %offset, 9223372036854775807
-  %cmp5.not = icmp slt i64 %sub4, %bytes
-  %or.cond65 = or i1 %cmp5.not, %or.cond.not113
+  %sub4 = sub nuw nsw i64 9223372036854775807, %offset
+  %cmp5.not = icmp ult i64 %sub4, %bytes
+  %or.cond65 = select i1 %or.cond.not113, i1 true, i1 %cmp5.not
   br i1 %or.cond65, label %if.else, label %if.end
 
 if.else:                                          ; preds = %entry

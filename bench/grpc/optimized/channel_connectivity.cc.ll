@@ -744,7 +744,7 @@ invoke.cont:                                      ; preds = %13, %invoke.cont2.i
 if.then:                                          ; preds = %invoke.cont
   %deadline.sroa.3.8.extract.trunc = trunc i64 %deadline.coerce1 to i32
   %deadline.sroa.3.12.extract.shift = lshr i64 %deadline.coerce1, 32
-  %deadline.sroa.3.12.extract.trunc = trunc i64 %deadline.sroa.3.12.extract.shift to i32
+  %deadline.sroa.3.12.extract.trunc = trunc nuw i64 %deadline.sroa.3.12.extract.shift to i32
   invoke void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 263, i32 noundef 1, ptr noundef nonnull @.str.4, ptr noundef %channel, i32 noundef %last_observed_state, i64 noundef %deadline.coerce0, i32 noundef %deadline.sroa.3.8.extract.trunc, i32 noundef %deadline.sroa.3.12.extract.trunc, ptr noundef %cq, ptr noundef %tag)
           to label %if.end unwind label %lpad1
 
@@ -1416,7 +1416,7 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end11.i.i
-  %sub.i.i.i = xor i64 %deadline.coerce, 9223372036854775807
+  %sub.i.i.i = sub nuw nsw i64 9223372036854775807, %deadline.coerce
   %cmp1.i.i.i = icmp slt i64 %sub.i.i.i, %sub.i
   br i1 %cmp1.i.i.i, label %invoke.cont10, label %if.end7.i.i.i
 

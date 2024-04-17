@@ -7166,7 +7166,7 @@ while.cond.outer.i:                               ; preds = %while.cond.outer.i.
   %i_result.0.ph.i = phi i64 [ %i_result.0.ph.i.ph128, %while.cond.outer.i.preheader ], [ %add.i, %while.cond.outer.i.backedge ]
   %cmp51.i = icmp sgt i64 %i_result.0.ph.i, -1
   %sub53.i = sub nsw i64 -9223372036854775808, %i_result.0.ph.i
-  %sub.i = xor i64 %i_result.0.ph.i, 9223372036854775807
+  %sub.i = sub nuw nsw i64 9223372036854775807, %i_result.0.ph.i
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %Py_DECREF.exit270.i, %while.cond.outer.i

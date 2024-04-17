@@ -2376,7 +2376,7 @@ if.end.i68.i:                                     ; preds = %if.then4.i
 if.end5.i:                                        ; preds = %if.end.i19
   %17 = getelementptr i8, ptr %self, i64 16
   %self.val39.i = load i64, ptr %17, align 8
-  %sub.i = xor i64 %call2.i, 9223372036854775807
+  %sub.i = sub nuw nsw i64 9223372036854775807, %call2.i
   %cmp7.i = icmp sgt i64 %self.val39.i, %sub.i
   br i1 %cmp7.i, label %if.end21.i, label %if.else.i20
 

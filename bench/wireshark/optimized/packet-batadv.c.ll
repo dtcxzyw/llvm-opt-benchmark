@@ -4410,7 +4410,7 @@ define internal fastcc void @dissect_batadv_unicast_frag(ptr noundef %0, ptr nou
   %5 = load ptr, ptr %4, align 8
   tail call void @col_set_str(ptr noundef %5, i32 noundef 34, ptr noundef nonnull @.str.310) #4
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
-  switch i8 %6, label %267 [
+  switch i8 %6, label %266 [
     i8 12, label %7
     i8 13, label %7
     i8 14, label %88
@@ -4794,44 +4794,44 @@ dissect_batadv_unicast_frag_v14.exit:             ; preds = %88, %172
   %spec.store.select.i18 = tail call i32 @llvm.smax.i32(i32 %249, i32 0)
   %250 = load i16, ptr %237, align 8
   %251 = zext i16 %250 to i32
-  %252 = xor i8 %248, 1
-  %253 = zext nneg i8 %252 to i32
-  %254 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @msg_reassembly_table, ptr noundef %0, i32 noundef 20, ptr noundef nonnull %1, i32 noundef %251, ptr noundef null, i32 noundef %253, i32 noundef %spec.store.select.i18, i32 noundef 1) #4
-  %255 = load i16, ptr %237, align 8
-  %256 = zext i16 %255 to i32
-  tail call void @fragment_set_tot_len(ptr noundef nonnull @msg_reassembly_table, ptr noundef nonnull %1, i32 noundef %256, ptr noundef null, i32 noundef 1) #4
-  %257 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 20, ptr noundef nonnull %1, ptr noundef nonnull @.str.312, ptr noundef %254, ptr noundef nonnull @msg_frag_items, ptr noundef null, ptr noundef %187) #4
-  %.not.i19 = icmp eq ptr %257, null
-  br i1 %.not.i19, label %266, label %258
+  %narrow.i = sub nuw nsw i8 1, %248
+  %252 = zext nneg i8 %narrow.i to i32
+  %253 = tail call ptr @fragment_add_seq_check(ptr noundef nonnull @msg_reassembly_table, ptr noundef %0, i32 noundef 20, ptr noundef nonnull %1, i32 noundef %251, ptr noundef null, i32 noundef %252, i32 noundef %spec.store.select.i18, i32 noundef 1) #4
+  %254 = load i16, ptr %237, align 8
+  %255 = zext i16 %254 to i32
+  tail call void @fragment_set_tot_len(ptr noundef nonnull @msg_reassembly_table, ptr noundef nonnull %1, i32 noundef %255, ptr noundef null, i32 noundef 1) #4
+  %256 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 20, ptr noundef nonnull %1, ptr noundef nonnull @.str.312, ptr noundef %253, ptr noundef nonnull @msg_frag_items, ptr noundef null, ptr noundef %187) #4
+  %.not.i19 = icmp eq ptr %256, null
+  br i1 %.not.i19, label %265, label %257
 
-258:                                              ; preds = %247
-  %259 = load i32, ptr @batadv_follow_tap, align 4
-  %260 = tail call i32 @have_tap_listener(i32 noundef %259) #4
-  %.not106.i = icmp eq i32 %260, 0
-  br i1 %.not106.i, label %263, label %261
+257:                                              ; preds = %247
+  %258 = load i32, ptr @batadv_follow_tap, align 4
+  %259 = tail call i32 @have_tap_listener(i32 noundef %258) #4
+  %.not106.i = icmp eq i32 %259, 0
+  br i1 %.not106.i, label %262, label %260
 
-261:                                              ; preds = %258
-  %262 = load i32, ptr @batadv_follow_tap, align 4
-  tail call void @tap_queue_packet(i32 noundef %262, ptr noundef nonnull %1, ptr noundef nonnull %257) #4
-  br label %263
+260:                                              ; preds = %257
+  %261 = load i32, ptr @batadv_follow_tap, align 4
+  tail call void @tap_queue_packet(i32 noundef %261, ptr noundef nonnull %1, ptr noundef nonnull %256) #4
+  br label %262
 
-263:                                              ; preds = %261, %258
-  %264 = load ptr, ptr @batman_handle, align 8
-  %265 = tail call i32 @call_dissector(ptr noundef %264, ptr noundef nonnull %257, ptr noundef nonnull %1, ptr noundef %2) #4
-  br label %266
+262:                                              ; preds = %260, %257
+  %263 = load ptr, ptr @batman_handle, align 8
+  %264 = tail call i32 @call_dissector(ptr noundef %263, ptr noundef nonnull %256, ptr noundef nonnull %1, ptr noundef %2) #4
+  br label %265
 
-266:                                              ; preds = %263, %247
+265:                                              ; preds = %262, %247
   store i32 %180, ptr %179, align 8
   br label %dissect_batadv_unicast_frag_v15.exit
 
-267:                                              ; preds = %3
-  %268 = zext i8 %6 to i32
-  %269 = load ptr, ptr %4, align 8
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %269, i32 noundef 25, ptr noundef nonnull @.str.288, i32 noundef %268) #4
-  %270 = tail call i32 @call_data_dissector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) #4
+266:                                              ; preds = %3
+  %267 = zext i8 %6 to i32
+  %268 = load ptr, ptr %4, align 8
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %268, i32 noundef 25, ptr noundef nonnull @.str.288, i32 noundef %267) #4
+  %269 = tail call i32 @call_data_dissector(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) #4
   br label %dissect_batadv_unicast_frag_v15.exit
 
-dissect_batadv_unicast_frag_v15.exit:             ; preds = %266, %175, %267, %dissect_batadv_unicast_frag_v14.exit, %dissect_batadv_unicast_frag_v12.exit
+dissect_batadv_unicast_frag_v15.exit:             ; preds = %265, %175, %266, %dissect_batadv_unicast_frag_v14.exit, %dissect_batadv_unicast_frag_v12.exit
   ret void
 }
 

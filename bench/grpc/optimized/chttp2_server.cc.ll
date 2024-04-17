@@ -4986,9 +4986,9 @@ if.end.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %call7.i.noexc.i.i.i
 
 if.end11.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp sgt i64 %call.i.i4.i.i.i.i.i.i.i.i, 0
-  %sub.i.i.i.i.i.i.i.i.i.i.i.i = xor i64 %call.i.i4.i.i.i.i.i.i.i.i, 9223372036854775807
+  %sub.i.i.i.i.i.i.i.i.i.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i.i4.i.i.i.i.i.i.i.i
   %cmp1.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i64 %sub.i.i.i.i.i.i.i.i.i.i.i.i, %agg.tmp1.sroa.0.0.copyload.sroa.speculated.i.i.i.i.i.i.i.i.i
-  %or.cond.i.i.i.i.i.i.i.i.i = and i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i, %cmp1.i.i.i.i.i.i.i.i.i.i.i.i
+  %or.cond.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i, i1 %cmp1.i.i.i.i.i.i.i.i.i.i.i.i, i1 false
   %add.i.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %agg.tmp1.sroa.0.0.copyload.sroa.speculated.i.i.i.i.i.i.i.i.i, %call.i.i4.i.i.i.i.i.i.i.i
   %spec.select.i.i.i.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i.i.i.i, i64 9223372036854775807, i64 %add.i.i.i.i.i.i.i.i.i.i.i.i
   br label %invoke.cont3.i.i.i.i.i.i.i.i
@@ -9930,7 +9930,7 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp.i.i.i100, label %if.then.i.i.i101, label %if.else.i.i.i
 
 if.then.i.i.i101:                                 ; preds = %if.end11.i.i
-  %sub.i.i.i = xor i64 %agg.tmp76.sroa.0.0.copyload, 9223372036854775807
+  %sub.i.i.i = sub nuw nsw i64 9223372036854775807, %agg.tmp76.sroa.0.0.copyload
   %cmp1.i.i.i = icmp slt i64 %sub.i.i.i, %sub.i
   br i1 %cmp1.i.i.i, label %invoke.cont82, label %if.end7.i.i.i
 

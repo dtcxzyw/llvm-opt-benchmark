@@ -185,7 +185,7 @@ sw.default.i:                                     ; preds = %switch.hole_check, 
   unreachable
 
 switch.hole_check:                                ; preds = %entry
-  %switch.maskindex = trunc i32 %rm to i8
+  %switch.maskindex = trunc nuw i32 %rm to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %sw.default.i
@@ -229,7 +229,7 @@ sw.default.i:                                     ; preds = %switch.hole_check, 
   unreachable
 
 switch.hole_check:                                ; preds = %entry
-  %switch.maskindex = trunc i32 %rm to i8
+  %switch.maskindex = trunc nuw i32 %rm to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %sw.default.i
@@ -473,7 +473,7 @@ sw.default.i:                                     ; preds = %switch.hole_check, 
   unreachable
 
 switch.hole_check:                                ; preds = %entry
-  %switch.maskindex = trunc i32 %rm to i8
+  %switch.maskindex = trunc nuw i32 %rm to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %sw.default.i
@@ -761,7 +761,7 @@ sw.default.i:                                     ; preds = %switch.hole_check, 
   unreachable
 
 switch.hole_check:                                ; preds = %entry
-  %switch.maskindex = trunc i32 %rm to i8
+  %switch.maskindex = trunc nuw i32 %rm to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %sw.default.i
@@ -790,7 +790,7 @@ sw.default.i:                                     ; preds = %switch.hole_check, 
   unreachable
 
 switch.hole_check:                                ; preds = %entry
-  %switch.maskindex = trunc i32 %rm to i8
+  %switch.maskindex = trunc nuw i32 %rm to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %sw.default.i
@@ -819,7 +819,7 @@ sw.default.i:                                     ; preds = %switch.hole_check, 
   unreachable
 
 switch.hole_check:                                ; preds = %entry
-  %switch.maskindex = trunc i32 %rm to i8
+  %switch.maskindex = trunc nuw i32 %rm to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %sw.default.i
@@ -848,7 +848,7 @@ sw.default.i:                                     ; preds = %switch.hole_check, 
   unreachable
 
 switch.hole_check:                                ; preds = %entry
-  %switch.maskindex = trunc i32 %rm to i8
+  %switch.maskindex = trunc nuw i32 %rm to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %sw.default.i
@@ -877,7 +877,7 @@ sw.default.i:                                     ; preds = %switch.hole_check, 
   unreachable
 
 switch.hole_check:                                ; preds = %entry
-  %switch.maskindex = trunc i32 %rm to i8
+  %switch.maskindex = trunc nuw i32 %rm to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %sw.default.i
@@ -910,7 +910,7 @@ sw.default.i:                                     ; preds = %switch.hole_check, 
   unreachable
 
 switch.hole_check:                                ; preds = %entry
-  %switch.maskindex = trunc i32 %rm to i8
+  %switch.maskindex = trunc nuw i32 %rm to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %sw.default.i
@@ -941,7 +941,7 @@ sw.default.i:                                     ; preds = %switch.hole_check, 
   unreachable
 
 switch.hole_check:                                ; preds = %entry
-  %switch.maskindex = trunc i32 %rm to i8
+  %switch.maskindex = trunc nuw i32 %rm to i8
   %switch.shifted = lshr i8 29, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %sw.default.i
@@ -1630,10 +1630,10 @@ if.end20:                                         ; preds = %if.then16, %if.end
 invoke.cont23:                                    ; preds = %if.end20
   %n.0.copyload.i.i37 = load i64, ptr %x, align 8
   %and.i38 = lshr i64 %n.0.copyload.i.i37, 52
-  %3 = trunc i64 %and.i38 to i32
+  %3 = trunc nuw nsw i64 %and.i38 to i32
   %4 = and i32 %3, 2047
   %cmp = icmp ugt i32 %4, 1022
-  %sub = xor i32 %4, 1023
+  %sub = sub nuw nsw i32 1023, %4
   %conv.i = add nsw i32 %4, -1023
   %5 = select i1 %cmp, ptr %m_num.i, ptr %m_num.i16
   %6 = select i1 %cmp, i32 %conv.i, i32 %sub
@@ -1947,7 +1947,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %and.i5 = lshr i64 %0, 52
-  %1 = trunc i64 %and.i5 to i32
+  %1 = trunc nuw nsw i64 %and.i5 to i32
   %2 = and i32 %1, 2047
   %cmp = icmp ugt i32 %2, 1074
   br i1 %cmp, label %return, label %if.else
@@ -2039,7 +2039,7 @@ _ZN11hwf_manager6is_posERK3hwf.exit:              ; preds = %entry
 
 if.end:                                           ; preds = %_ZN11hwf_manager6is_posERK3hwf.exit
   %and.i = lshr i64 %n.0.copyload.i.i.i, 52
-  %0 = trunc i64 %and.i to i32
+  %0 = trunc nuw nsw i64 %and.i to i32
   %spec.select = tail call i32 @llvm.usub.sat.i32(i32 %0, i32 972)
   br label %return
 

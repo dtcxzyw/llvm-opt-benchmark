@@ -230,7 +230,7 @@ if.else:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %1 = load i32, ptr %local_window_size_ptr, align 4
-  %sub = xor i32 %0, 2147483647
+  %sub = sub nuw nsw i32 2147483647, %0
   %cmp1 = icmp sgt i32 %1, %sub
   br i1 %cmp1, label %return, label %if.end3
 

@@ -1287,7 +1287,7 @@ if.end4.if.end25_crit_edge:                       ; preds = %if.end4
 if.then8:                                         ; preds = %if.end4
   %idxprom10 = zext nneg i32 %inc to i64
   %arrayidx11 = getelementptr inbounds i8, ptr %buffer, i64 %idxprom10
-  %sub = xor i32 %0, 63
+  %sub = sub nuw nsw i32 63, %0
   %conv = zext nneg i32 %sub to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx11, i8 0, i64 %conv, i1 false)
   store i32 64, ptr %sha, align 8

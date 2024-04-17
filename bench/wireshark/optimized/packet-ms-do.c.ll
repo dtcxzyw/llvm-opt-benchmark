@@ -511,7 +511,7 @@ define internal noundef zeroext i1 @dissect_do_bitfield(ptr noundef %0, ptr noca
 17:                                               ; preds = %.lr.ph, %17
   %.03642 = phi i32 [ 0, %.lr.ph ], [ %35, %17 ]
   %.141 = phi i32 [ %.03843, %.lr.ph ], [ %spec.select40, %17 ]
-  %18 = xor i32 %.03642, 7
+  %18 = sub nuw nsw i32 7, %.03642
   %19 = shl nuw nsw i32 1, %18
   %20 = and i32 %19, %15
   %.not = icmp ne i32 %20, 0

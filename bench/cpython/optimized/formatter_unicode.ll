@@ -1125,7 +1125,7 @@ if.then18.i:                                      ; preds = %if.end15.i, %land.l
   br label %Py_XDECREF.exit.i
 
 if.end75.i.thread:                                ; preds = %if.end15.i
-  %conv.i19 = trunc i64 %call.i18 to i32
+  %conv.i19 = trunc nuw nsw i64 %call.i18 to i32
   %call20.i = tail call ptr @PyUnicode_FromOrdinal(i32 noundef %conv.i19) #12
   %cond.i = tail call i32 @llvm.umax.i32(i32 %conv.i19, i32 127)
   store i32 %cond.i, ptr %maxchar.i, align 4
@@ -2447,7 +2447,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %if
   br i1 %cmp3.us, label %for.end, label %if.end.us
 
 if.end.us:                                        ; preds = %for.body.us
-  %sub.us = xor i64 %conv.us, 9223372036854775806
+  %sub.us = sub nuw nsw i64 9223372036854775807, %conv.us
   %div.us = udiv i64 %sub.us, 10
   %cmp5.us = icmp sgt i64 %accumulator.021.us, %div.us
   br i1 %cmp5.us, label %if.then7, label %if.end9.us
@@ -2473,7 +2473,7 @@ for.body.us34:                                    ; preds = %for.body.lr.ph, %if
   br i1 %cmp3.us42, label %for.end, label %if.end.us43
 
 if.end.us43:                                      ; preds = %for.body.us34
-  %sub.us44 = xor i64 %conv.us41, 9223372036854775806
+  %sub.us44 = sub nuw nsw i64 9223372036854775807, %conv.us41
   %div.us45 = udiv i64 %sub.us44, 10
   %cmp5.us46 = icmp sgt i64 %accumulator.021.us35, %div.us45
   br i1 %cmp5.us46, label %if.then7, label %if.end9.us47
@@ -2498,7 +2498,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %cmp3, label %for.end, label %if.end
 
 if.end:                                           ; preds = %for.body
-  %sub = xor i64 %conv, 9223372036854775806
+  %sub = sub nuw nsw i64 9223372036854775807, %conv
   %div = udiv i64 %sub, 10
   %cmp5 = icmp sgt i64 %accumulator.021, %div
   br i1 %cmp5, label %if.then7, label %if.end9

@@ -157,7 +157,7 @@ define dso_local i64 @simple_strtoull(ptr noundef %0, ptr noundef writeonly %1, 
 
 11:                                               ; preds = %3
   %12 = load i32, ptr %4, align 4
-  %13 = xor i64 %9, 2147483647
+  %13 = sub nuw nsw i64 2147483647, %9
   %14 = call i32 @_parse_integer_limit(ptr noundef %6, i32 noundef %12, ptr noundef nonnull %5, i64 noundef %13) #16
   %15 = and i32 %14, 2147483647
   %16 = zext nneg i32 %15 to i64
@@ -201,7 +201,7 @@ define dso_local i64 @simple_strtoul(ptr noundef %0, ptr noundef writeonly %1, i
 
 11:                                               ; preds = %3
   %12 = load i32, ptr %4, align 4
-  %13 = xor i64 %9, 2147483647
+  %13 = sub nuw nsw i64 2147483647, %9
   %14 = call i32 @_parse_integer_limit(ptr noundef %6, i32 noundef %12, ptr noundef nonnull %5, i64 noundef %13) #16
   %15 = and i32 %14, 2147483647
   %16 = zext nneg i32 %15 to i64
@@ -253,7 +253,7 @@ define dso_local i64 @simple_strtol(ptr noundef %0, ptr noundef writeonly %1, i3
 
 17:                                               ; preds = %10
   %18 = load i32, ptr %6, align 4
-  %19 = xor i64 %15, 2147483647
+  %19 = sub nuw nsw i64 2147483647, %15
   %20 = call i32 @_parse_integer_limit(ptr noundef %12, i32 noundef %18, ptr noundef nonnull %7, i64 noundef %19) #16
   %21 = and i32 %20, 2147483647
   %22 = zext nneg i32 %21 to i64
@@ -294,7 +294,7 @@ simple_strtoull.exit:                             ; preds = %26, %29
 
 38:                                               ; preds = %32
   %39 = load i32, ptr %4, align 4
-  %40 = xor i64 %36, 2147483647
+  %40 = sub nuw nsw i64 2147483647, %36
   %41 = call i32 @_parse_integer_limit(ptr noundef %33, i32 noundef %39, ptr noundef nonnull %5, i64 noundef %40) #16
   %42 = and i32 %41, 2147483647
   %43 = zext nneg i32 %42 to i64

@@ -10903,7 +10903,6 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i252
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %invoke.cont19, %if.then.i.i246, %if.then13.i.i252
-  %sub = zext i1 %upper_first.0.in to i32
   %d_mbp_bounds27 = getelementptr inbounds i8, ptr %this, i64 72
   %arrayctor.end148 = getelementptr inbounds i8, ptr %best_bound_value, i64 24
   %arrayctor.end166 = getelementptr inbounds i8, ptr %value, i64 24
@@ -10932,7 +10931,8 @@ for.body.outer:                                   ; preds = %for.body.outer.back
 
 for.body:                                         ; preds = %for.body.outer, %for.inc887.thread
   %r.05273 = phi i32 [ 1, %for.inc887.thread ], [ %r.05273.ph, %for.body.outer ]
-  %cond25 = xor i32 %r.05273, %sub
+  %sub = sub nuw nsw i32 1, %r.05273
+  %cond25 = select i1 %upper_first.0.in, i32 %sub, i32 %r.05273
   %idxprom = zext nneg i32 %cond25 to i64
   %arrayidx26 = getelementptr inbounds [2 x i32], ptr %best_used, i64 0, i64 %idxprom
   store i32 -1, ptr %arrayidx26, align 4
@@ -17421,13 +17421,14 @@ invoke.cont1317:                                  ; preds = %if.end1316
 for.cond1339.preheader:                           ; preds = %invoke.cont1317
   %d_type.i4662 = getelementptr inbounds i8, ptr %pv_prop_nopt_bound, i64 8
   %d_coeff.i4664 = getelementptr inbounds i8, ptr %pv_prop_nopt_bound, i64 16
+  %sub1345 = zext i1 %upper_first.0.in to i32
   br label %for.body1341
 
 for.body1341:                                     ; preds = %for.cond1339.preheader, %for.inc1489
   %retval.145282 = phi i1 [ %retval.13, %for.cond1339.preheader ], [ %retval.15.lcssa, %for.inc1489 ]
   %cmp1340 = phi i1 [ true, %for.cond1339.preheader ], [ false, %for.inc1489 ]
   %r1338.05281 = phi i32 [ 0, %for.cond1339.preheader ], [ 1, %for.inc1489 ]
-  %cond1348 = xor i32 %r1338.05281, %sub
+  %cond1348 = xor i32 %r1338.05281, %sub1345
   %idxprom1352 = zext nneg i32 %cond1348 to i64
   %arrayidx1353 = getelementptr inbounds [2 x %"class.std::vector"], ptr %d_mbp_bounds27, i64 0, i64 %idxprom1352
   %_M_finish.i4388 = getelementptr inbounds i8, ptr %arrayidx1353, i64 8

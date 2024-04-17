@@ -272,9 +272,9 @@ lpad:                                             ; preds = %invoke.cont12, %inv
 if.end:                                           ; preds = %entry
   %3 = load i32, ptr %this, align 4
   %cmp22 = icmp sgt i32 %3, 0
-  %sub = xor i32 %amount, 2147483647
+  %sub = sub nuw nsw i32 2147483647, %amount
   %cmp24 = icmp slt i32 %sub, %3
-  %or.cond = and i1 %cmp22, %cmp24
+  %or.cond = select i1 %cmp22, i1 %cmp24, i1 false
   br i1 %or.cond, label %if.then25, label %if.end55
 
 if.then25:                                        ; preds = %if.end

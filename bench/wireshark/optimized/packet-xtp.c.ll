@@ -374,7 +374,7 @@ define internal i32 @dissect_xtp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %49 ]
   %.0163181 = phi i32 [ 0, %11 ], [ %.1, %49 ]
   %34 = trunc i64 %indvars.iv to i32
-  %35 = xor i32 %34, 15
+  %35 = sub i32 15, %34
   %36 = shl nuw nsw i32 1, %35
   %37 = and i32 %36, %32
   %.not174 = icmp eq i32 %37, 0

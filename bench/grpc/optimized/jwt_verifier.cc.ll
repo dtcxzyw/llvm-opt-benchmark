@@ -3174,7 +3174,7 @@ if.end11.i.i.i:                                   ; preds = %if.end.i.i.i156
   br i1 %cmp.i.i.i.i157, label %if.then.i.i.i106.i, label %if.else.i.i.i105.i
 
 if.then.i.i.i106.i:                               ; preds = %if.end11.i.i.i
-  %sub.i.i.i.i = xor i64 %call.i101103.i, 9223372036854775807
+  %sub.i.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i101103.i
   %cmp1.i.i.i.i = icmp slt i64 %sub.i.i.i.i, %agg.tmp104.sroa.0.0.copyload.i
   br i1 %cmp1.i.i.i.i, label %invoke.cont107.i, label %if.end7.i.i.i.i
 
@@ -4963,7 +4963,7 @@ if.then.i.i17.cont:                               ; preds = %if.then.i.i17.invok
   unreachable
 
 do.end.i.i:                                       ; preds = %call1.i.i.noexc
-  %conv.i.i = trunc i64 %call2.i.i to i32
+  %conv.i.i = trunc nuw i64 %call2.i.i to i32
   %call3.i.i25 = invoke i32 @BIO_write(ptr noundef %call1.i.i23, ptr noundef %call5.i, i32 noundef %conv.i.i)
           to label %call3.i.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -6744,7 +6744,7 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i79, label %if.else.i.i.i78
 
 if.then.i.i.i79:                                  ; preds = %if.end11.i.i
-  %sub.i.i.i = xor i64 %call.i76, 9223372036854775807
+  %sub.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i76
   %cmp1.i.i.i = icmp slt i64 %sub.i.i.i, %agg.tmp68.sroa.0.0.copyload
   br i1 %cmp1.i.i.i, label %invoke.cont71, label %if.end7.i.i.i
 

@@ -713,7 +713,7 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end11.i.i
-  %sub.i.i.i = xor i64 %agg.tmp.sroa.0.0.copyload, 9223372036854775807
+  %sub.i.i.i = sub nuw nsw i64 9223372036854775807, %agg.tmp.sroa.0.0.copyload
   %cmp1.i.i.i = icmp slt i64 %sub.i.i.i, %agg.tmp7.sroa.0.0.copyload
   br i1 %cmp1.i.i.i, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit, label %if.end7.i.i.i
 
@@ -757,7 +757,7 @@ if.end11.i.i10:                                   ; preds = %if.end.i.i6
   br i1 %cmp.i.i.i11, label %if.then.i.i.i18, label %if.else.i.i.i12
 
 if.then.i.i.i18:                                  ; preds = %if.end11.i.i10
-  %sub.i.i.i19 = xor i64 %retval.0.i.i, 9223372036854775807
+  %sub.i.i.i19 = sub nuw nsw i64 9223372036854775807, %retval.0.i.i
   %cmp1.i.i.i20 = icmp slt i64 %sub.i.i.i19, %sub.i
   br i1 %cmp1.i.i.i20, label %_ZN9grpc_coremiENS_9TimestampES0_.exit.thread, label %_ZN9grpc_coremiENS_9TimestampES0_.exit
 
@@ -819,7 +819,7 @@ if.end11.i.i32:                                   ; preds = %if.end.i.i28
   br i1 %cmp.i.i.i33, label %if.then.i.i.i40, label %if.else.i.i.i34
 
 if.then.i.i.i40:                                  ; preds = %if.end11.i.i32
-  %sub.i.i.i41 = xor i64 %call.i22, 9223372036854775807
+  %sub.i.i.i41 = sub nuw nsw i64 9223372036854775807, %call.i22
   %cmp1.i.i.i42 = icmp slt i64 %sub.i.i.i41, %sub.i24
   br i1 %cmp1.i.i.i42, label %_ZN9grpc_coremiENS_9TimestampES0_.exit43, label %if.end7.i.i.i37
 
@@ -2364,7 +2364,7 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end11.i.i
-  %sub.i.i.i = xor i64 %call13, 9223372036854775807
+  %sub.i.i.i = sub nuw nsw i64 9223372036854775807, %call13
   %cmp1.i.i.i = icmp slt i64 %sub.i.i.i, %sub.i
   br i1 %cmp1.i.i.i, label %_ZN9grpc_coremiENS_9TimestampES0_.exit, label %if.end7.i.i.i
 

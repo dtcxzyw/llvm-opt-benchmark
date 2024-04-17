@@ -359,7 +359,7 @@ define hidden i32 @rb_num_to_uint(i64 noundef %0, ptr nocapture noundef writeonl
   br i1 %8, label %.critedge, label %9
 
 9:                                                ; preds = %7
-  %10 = trunc i64 %5 to i32
+  %10 = trunc nuw i64 %5 to i32
   store i32 %10, ptr %1, align 4
   br label %.critedge
 
@@ -905,7 +905,7 @@ rb_float_value_inline.exit:                       ; preds = %4, %5, %11
 
 17:                                               ; preds = %rb_float_value_inline.exit
   %18 = lshr i64 %16, 60
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %20 = and i32 %19, 7
   %21 = add nsw i32 %20, -3
   %.not7.i = icmp ult i32 %21, 2
@@ -945,7 +945,7 @@ define internal fastcc i64 @rb_float_new_inline(double noundef %0) unnamed_addr 
 
 3:                                                ; preds = %1
   %4 = lshr i64 %2, 60
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw nsw i64 %4 to i32
   %6 = and i32 %5, 7
   %7 = add nsw i32 %6, -3
   %.not7 = icmp ult i32 %7, 2
@@ -1020,7 +1020,7 @@ rb_float_value_inline.exit:                       ; preds = %9, %10, %16
 
 24:                                               ; preds = %rb_float_value_inline.exit
   %25 = lshr i64 %23, 60
-  %26 = trunc i64 %25 to i32
+  %26 = trunc nuw nsw i64 %25 to i32
   %27 = and i32 %26, 7
   %28 = add nsw i32 %27, -3
   %.not7.i = icmp ult i32 %28, 2
@@ -1097,7 +1097,7 @@ rb_float_value_inline.exit34:                     ; preds = %54, %55, %61
 
 68:                                               ; preds = %rb_float_value_inline.exit34
   %69 = lshr i64 %67, 60
-  %70 = trunc i64 %69 to i32
+  %70 = trunc nuw nsw i64 %69 to i32
   %71 = and i32 %70, 7
   %72 = add nsw i32 %71, -3
   %.not7.i36 = icmp ult i32 %72, 2
@@ -1185,7 +1185,7 @@ rb_float_value_inline.exit47:                     ; preds = %100, %101, %107
 
 113:                                              ; preds = %rb_float_value_inline.exit47
   %114 = lshr i64 %112, 60
-  %115 = trunc i64 %114 to i32
+  %115 = trunc nuw nsw i64 %114 to i32
   %116 = and i32 %115, 7
   %117 = add nsw i32 %116, -3
   %.not7.i49 = icmp ult i32 %117, 2
@@ -1275,7 +1275,7 @@ rb_float_value_inline.exit:                       ; preds = %9, %10, %16
 
 24:                                               ; preds = %rb_float_value_inline.exit
   %25 = lshr i64 %23, 60
-  %26 = trunc i64 %25 to i32
+  %26 = trunc nuw nsw i64 %25 to i32
   %27 = and i32 %26, 7
   %28 = add nsw i32 %27, -3
   %.not7.i = icmp ult i32 %28, 2
@@ -1352,7 +1352,7 @@ rb_float_value_inline.exit34:                     ; preds = %54, %55, %61
 
 68:                                               ; preds = %rb_float_value_inline.exit34
   %69 = lshr i64 %67, 60
-  %70 = trunc i64 %69 to i32
+  %70 = trunc nuw nsw i64 %69 to i32
   %71 = and i32 %70, 7
   %72 = add nsw i32 %71, -3
   %.not7.i36 = icmp ult i32 %72, 2
@@ -1440,7 +1440,7 @@ rb_float_value_inline.exit47:                     ; preds = %100, %101, %107
 
 113:                                              ; preds = %rb_float_value_inline.exit47
   %114 = lshr i64 %112, 60
-  %115 = trunc i64 %114 to i32
+  %115 = trunc nuw nsw i64 %114 to i32
   %116 = and i32 %115, 7
   %117 = add nsw i32 %116, -3
   %.not7.i49 = icmp ult i32 %117, 2
@@ -1528,7 +1528,7 @@ rb_float_value_inline.exit:                       ; preds = %9, %10, %16
 
 24:                                               ; preds = %rb_float_value_inline.exit
   %25 = lshr i64 %23, 60
-  %26 = trunc i64 %25 to i32
+  %26 = trunc nuw nsw i64 %25 to i32
   %27 = and i32 %26, 7
   %28 = add nsw i32 %27, -3
   %.not7.i = icmp ult i32 %28, 2
@@ -1605,7 +1605,7 @@ rb_float_value_inline.exit34:                     ; preds = %54, %55, %61
 
 68:                                               ; preds = %rb_float_value_inline.exit34
   %69 = lshr i64 %67, 60
-  %70 = trunc i64 %69 to i32
+  %70 = trunc nuw nsw i64 %69 to i32
   %71 = and i32 %70, 7
   %72 = add nsw i32 %71, -3
   %.not7.i36 = icmp ult i32 %72, 2
@@ -1693,7 +1693,7 @@ rb_float_value_inline.exit47:                     ; preds = %100, %101, %107
 
 113:                                              ; preds = %rb_float_value_inline.exit47
   %114 = lshr i64 %112, 60
-  %115 = trunc i64 %114 to i32
+  %115 = trunc nuw nsw i64 %114 to i32
   %116 = and i32 %115, 7
   %117 = add nsw i32 %116, -3
   %.not7.i49 = icmp ult i32 %117, 2
@@ -1820,7 +1820,7 @@ double_div_double.exit:                           ; preds = %30, %33, %35
 
 40:                                               ; preds = %double_div_double.exit
   %41 = lshr i64 %39, 60
-  %42 = trunc i64 %41 to i32
+  %42 = trunc nuw nsw i64 %41 to i32
   %43 = and i32 %42, 7
   %44 = add nsw i32 %43, -3
   %.not7.i = icmp ult i32 %44, 2
@@ -1978,7 +1978,7 @@ double_div_double.exit:                           ; preds = %48, %51, %53
 
 58:                                               ; preds = %double_div_double.exit
   %59 = lshr i64 %57, 60
-  %60 = trunc i64 %59 to i32
+  %60 = trunc nuw nsw i64 %59 to i32
   %61 = and i32 %60, 7
   %62 = add nsw i32 %61, -3
   %.not7.i = icmp ult i32 %62, 2
@@ -2092,7 +2092,7 @@ rb_float_value_inline.exit:                       ; preds = %9, %10, %16
 
 22:                                               ; preds = %rb_float_value_inline.exit
   %23 = lshr i64 %21, 60
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nuw nsw i64 %23 to i32
   %25 = and i32 %24, 7
   %26 = add nsw i32 %25, -3
   %.not7.i = icmp ult i32 %26, 2
@@ -2288,7 +2288,7 @@ RB_FLOAT_TYPE_P.exit.thread72:                    ; preds = %63, %.critedge
 
 120:                                              ; preds = %117
   %121 = lshr i64 %119, 60
-  %122 = trunc i64 %121 to i32
+  %122 = trunc nuw nsw i64 %121 to i32
   %123 = and i32 %122, 7
   %124 = add nsw i32 %123, -3
   %.not7.i68 = icmp ult i32 %124, 2
@@ -2903,7 +2903,7 @@ rb_float_value_inline.exit:                       ; preds = %4, %5, %11
 
 17:                                               ; preds = %rb_float_value_inline.exit
   %18 = lshr i64 %16, 60
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw nsw i64 %18 to i32
   %20 = and i32 %19, 7
   %21 = add nsw i32 %20, -3
   %.not7.i = icmp ult i32 %21, 2
@@ -3049,7 +3049,7 @@ rb_float_value_inline.exit.thread:                ; preds = %6, %rb_float_value_
 
 21:                                               ; preds = %19
   %22 = lshr i64 %20, 60
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw nsw i64 %22 to i32
   %24 = and i32 %23, 7
   %25 = add nsw i32 %24, -3
   %.not7.i = icmp ult i32 %25, 2
@@ -3140,7 +3140,7 @@ float_round_underflow.exit:                       ; preds = %55, %57
 
 68:                                               ; preds = %58
   %69 = lshr i64 %67, 60
-  %70 = trunc i64 %69 to i32
+  %70 = trunc nuw nsw i64 %69 to i32
   %71 = and i32 %70, 7
   %72 = add nsw i32 %71, -3
   %.not7.i37 = icmp ult i32 %72, 2
@@ -3392,7 +3392,7 @@ rb_float_value_inline.exit.thread:                ; preds = %6, %rb_float_value_
 
 21:                                               ; preds = %19
   %22 = lshr i64 %20, 60
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw nsw i64 %22 to i32
   %24 = and i32 %23, 7
   %25 = add nsw i32 %24, -3
   %.not7.i = icmp ult i32 %25, 2
@@ -3479,7 +3479,7 @@ float_round_underflow.exit:                       ; preds = %55, %57
 
 65:                                               ; preds = %58
   %66 = lshr i64 %64, 60
-  %67 = trunc i64 %66 to i32
+  %67 = trunc nuw nsw i64 %66 to i32
   %68 = and i32 %67, 7
   %69 = add nsw i32 %68, -3
   %.not7.i30 = icmp ult i32 %69, 2
@@ -3606,7 +3606,7 @@ int_round_zero_p.exit:                            ; preds = %2, %18, %22, %24
   %40 = icmp slt i64 %38, 0
   %41 = sub nsw i64 0, %38
   %42 = add nsw i64 %38, -1
-  %43 = add i64 %42, %39
+  %43 = add nsw i64 %42, %39
   %.024 = select i1 %40, i64 %41, i64 %43
   %.024.fr = freeze i64 %.024
   %44 = srem i64 %.024.fr, %39
@@ -4572,7 +4572,7 @@ RB_FLOAT_TYPE_P.exit.thread:                      ; preds = %RB_FLOAT_TYPE_P.exi
 
 105:                                              ; preds = %.lr.ph.split.us
   %106 = lshr i64 %104, 60
-  %107 = trunc i64 %106 to i32
+  %107 = trunc nuw nsw i64 %106 to i32
   %108 = and i32 %107, 7
   %109 = add nsw i32 %108, -3
   %.not7.i48.us = icmp ult i32 %109, 2
@@ -4620,7 +4620,7 @@ rb_float_new_inline.exit50.us:                    ; preds = %116, %112, %110
 
 131:                                              ; preds = %.thread
   %132 = lshr i64 %130, 60
-  %133 = trunc i64 %132 to i32
+  %133 = trunc nuw nsw i64 %132 to i32
   %134 = and i32 %133, 7
   %135 = add nsw i32 %134, -3
   %.not7.i = icmp ult i32 %135, 2
@@ -4659,7 +4659,7 @@ ruby_float_step_size.exit.thread:                 ; preds = %47
 
 151:                                              ; preds = %ruby_float_step_size.exit.thread
   %152 = lshr i64 %150, 60
-  %153 = trunc i64 %152 to i32
+  %153 = trunc nuw nsw i64 %152 to i32
   %154 = and i32 %153, 7
   %155 = add nsw i32 %154, -3
   %.not7.i44 = icmp ult i32 %155, 2
@@ -4706,7 +4706,7 @@ rb_float_new_inline.exit46:                       ; preds = %156, %160, %162
 
 175:                                              ; preds = %.lr.ph.split
   %176 = lshr i64 %174, 60
-  %177 = trunc i64 %176 to i32
+  %177 = trunc nuw nsw i64 %176 to i32
   %178 = and i32 %177, 7
   %179 = add nsw i32 %178, -3
   %.not7.i48 = icmp ult i32 %179, 2
@@ -4983,7 +4983,7 @@ ruby_float_step_size.exit.thread:                 ; preds = %RB_FLOAT_TYPE_P.exi
 
 130:                                              ; preds = %ruby_float_step_size.exit.thread
   %131 = lshr i64 %129, 60
-  %132 = trunc i64 %131 to i32
+  %132 = trunc nuw nsw i64 %131 to i32
   %133 = and i32 %132, 7
   %134 = add nsw i32 %133, -3
   %.not7.i = icmp ult i32 %134, 2
@@ -5250,7 +5250,7 @@ define internal fastcc i64 @rb_num2ulong_internal(i64 noundef %0, ptr noundef wr
 
 9:                                                ; preds = %7
   %.lobit = lshr i64 %8, 63
-  %10 = trunc i64 %.lobit to i32
+  %10 = trunc nuw nsw i64 %.lobit to i32
   store i32 %10, ptr %1, align 4
   br label %59
 
@@ -6479,7 +6479,7 @@ rb_float_value_inline.exit:                       ; preds = %27, %28, %34
 
 40:                                               ; preds = %rb_float_value_inline.exit
   %41 = lshr i64 %39, 60
-  %42 = trunc i64 %41 to i32
+  %42 = trunc nuw nsw i64 %41 to i32
   %43 = and i32 %42, 7
   %44 = add nsw i32 %43, -3
   %.not7.i = icmp ult i32 %44, 2
@@ -6605,7 +6605,7 @@ rb_float_value_inline.exit:                       ; preds = %29, %30, %36
 
 42:                                               ; preds = %rb_float_value_inline.exit
   %43 = lshr i64 %41, 60
-  %44 = trunc i64 %43 to i32
+  %44 = trunc nuw nsw i64 %43 to i32
   %45 = and i32 %44, 7
   %46 = add nsw i32 %45, -3
   %.not7.i = icmp ult i32 %46, 2
@@ -6685,7 +6685,7 @@ define hidden i64 @rb_int_mul(i64 noundef %0, i64 noundef %1) #2 {
 
 21:                                               ; preds = %10
   %.sroa.2.0.extract.shift.i.i = lshr i128 %15, 64
-  %.sroa.2.0.extract.trunc.i.i = trunc i128 %.sroa.2.0.extract.shift.i.i to i64
+  %.sroa.2.0.extract.trunc.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i to i64
   %22 = tail call i64 @rb_int128t2big(i64 noundef %17, i64 noundef %.sroa.2.0.extract.trunc.i.i) #23
   br label %fix_mul.exit
 
@@ -6753,7 +6753,7 @@ rb_float_value_inline.exit.i:                     ; preds = %44, %38, %37
 
 50:                                               ; preds = %rb_float_value_inline.exit.i
   %51 = lshr i64 %49, 60
-  %52 = trunc i64 %51 to i32
+  %52 = trunc nuw nsw i64 %51 to i32
   %53 = and i32 %52, 7
   %54 = add nsw i32 %53, -3
   %.not7.i.i = icmp ult i32 %54, 2
@@ -7139,7 +7139,7 @@ rb_integer_type_p.exit.thread:                    ; preds = %2, %rb_integer_type
 
 15:                                               ; preds = %rb_integer_type_p.exit.thread
   %16 = lshr i64 %14, 60
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw nsw i64 %16 to i32
   %18 = and i32 %17, 7
   %19 = add nsw i32 %18, -3
   %.not7.i = icmp ult i32 %19, 2
@@ -7377,7 +7377,7 @@ ruby_float_mod.exit:                              ; preds = %rb_float_value_inli
 
 64:                                               ; preds = %ruby_float_mod.exit
   %65 = lshr i64 %63, 60
-  %66 = trunc i64 %65 to i32
+  %66 = trunc nuw nsw i64 %65 to i32
   %67 = and i32 %66, 7
   %68 = add nsw i32 %67, -3
   %.not7.i = icmp ult i32 %68, 2
@@ -7621,7 +7621,7 @@ dbl2ival.exit.i:                                  ; preds = %84, %80
 
 87:                                               ; preds = %dbl2ival.exit.i
   %88 = lshr i64 %86, 60
-  %89 = trunc i64 %88 to i32
+  %89 = trunc nuw nsw i64 %88 to i32
   %90 = and i32 %89, 7
   %91 = add nsw i32 %90, -3
   %.not7.i.i = icmp ult i32 %91, 2
@@ -8566,7 +8566,7 @@ rb_num2long_inline.exit.i:                        ; preds = %2
   br i1 %24, label %rb_ulong2num_inline.exit.i.i, label %25
 
 25:                                               ; preds = %23
-  %26 = xor i64 %13, 63
+  %26 = sub nuw nsw i64 63, %13
   %27 = lshr i64 %4, %26
   %.not.i16.i = icmp eq i64 %27, 0
   br i1 %.not.i16.i, label %30, label %rb_ulong2num_inline.exit.i.i
@@ -8794,7 +8794,7 @@ define hidden i64 @rb_ulong_isqrt(i64 noundef %0) local_unnamed_addr #13 {
 
 3:                                                ; preds = %1
   %4 = tail call i64 @llvm.ctlz.i64(i64 %0, i1 true), !range !22
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw nsw i64 %4 to i32
   %6 = sub nuw nsw i32 64, %5
   %7 = lshr i32 %6, 1
   %8 = add nuw nsw i32 %7, 1
@@ -9158,7 +9158,7 @@ rb_class_of.exit7:                                ; preds = %121, %124, %125, %1
 
 159:                                              ; preds = %rb_class_of.exit7
   %160 = lshr i64 %158, 60
-  %161 = trunc i64 %160 to i32
+  %161 = trunc nuw nsw i64 %160 to i32
   %162 = and i32 %161, 7
   %163 = add nsw i32 %162, -3
   %.not7.i = icmp ult i32 %163, 2
@@ -9441,7 +9441,7 @@ define internal i64 @num_eql(i64 noundef %0, i64 noundef %1) #2 {
   br label %rb_type.exit
 
 switch.hole_check:                                ; preds = %12
-  %switch.maskindex = trunc i64 %13 to i16
+  %switch.maskindex = trunc nuw i64 %13 to i16
   %switch.shifted = lshr i16 547, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %15
@@ -9483,7 +9483,7 @@ rb_type.exit:                                     ; preds = %switch.lookup, %7, 
   br label %rb_type.exit29
 
 switch.hole_check31:                              ; preds = %29
-  %switch.maskindex33 = trunc i64 %30 to i16
+  %switch.maskindex33 = trunc nuw i64 %30 to i16
   %switch.shifted34 = lshr i16 547, %switch.maskindex33
   %switch.lobit35 = trunc i16 %switch.shifted34 to i1
   br i1 %switch.lobit35, label %switch.lookup32, label %32
@@ -10216,7 +10216,7 @@ define internal i64 @rb_int_s_isqrt(i64 %0, i64 noundef %1) #2 {
 
 12:                                               ; preds = %9
   %13 = tail call i64 @llvm.ctlz.i64(i64 %10, i1 true), !range !22
-  %14 = trunc i64 %13 to i32
+  %14 = trunc nuw nsw i64 %13 to i32
   %15 = sub nuw nsw i32 64, %14
   %16 = lshr i32 %15, 1
   %17 = add nuw nsw i32 %16, 1
@@ -10240,7 +10240,7 @@ define internal i64 @rb_int_s_isqrt(i64 %0, i64 noundef %1) #2 {
   br i1 %30, label %.lr.ph.i, label %rb_ulong_isqrt.exit, !llvm.loop !23
 
 31:                                               ; preds = %9
-  %32 = uitofp i64 %10 to double
+  %32 = uitofp nneg i64 %10 to double
   %sqrt.i = tail call double @llvm.sqrt.f64(double %32)
   %33 = fptoui double %sqrt.i to i64
   br label %rb_ulong_isqrt.exit
@@ -10578,7 +10578,7 @@ define internal i64 @int_chr(i32 noundef %0, ptr nocapture noundef readonly %1, 
   unreachable
 
 12:                                               ; preds = %6
-  %13 = trunc i64 %7 to i32
+  %13 = trunc nuw i64 %7 to i32
   switch i32 %0, label %27 [
     i32 0, label %14
     i32 1, label %28
@@ -10599,7 +10599,7 @@ define internal i64 @int_chr(i32 noundef %0, ptr nocapture noundef readonly %1, 
   unreachable
 
 20:                                               ; preds = %14
-  %21 = trunc i64 %7 to i8
+  %21 = trunc nuw i64 %7 to i8
   store i8 %21, ptr %4, align 1
   %22 = icmp ult i32 %13, 128
   br i1 %22, label %23, label %25
@@ -10739,7 +10739,7 @@ define internal i64 @int_to_f(i64 noundef %0) #2 {
 
 22:                                               ; preds = %20
   %23 = lshr i64 %21, 60
-  %24 = trunc i64 %23 to i32
+  %24 = trunc nuw nsw i64 %23 to i32
   %25 = and i32 %24, 7
   %26 = add nsw i32 %25, -3
   %.not7.i = icmp ult i32 %26, 2
@@ -11760,7 +11760,7 @@ define internal i64 @rb_int_rshift(i64 noundef %0, i64 noundef %1) #2 {
   br i1 %20, label %25, label %21
 
 21:                                               ; preds = %18
-  %22 = xor i64 %19, 63
+  %22 = add nsw i64 %14, 63
   %23 = lshr i64 %5, %22
   %.not.i.i = icmp eq i64 %23, 0
   br i1 %.not.i.i, label %36, label %.thread.i.i
@@ -12389,7 +12389,7 @@ ruby_float_mod.exit:                              ; preds = %rb_float_value_inli
 
 64:                                               ; preds = %ruby_float_mod.exit
   %65 = lshr i64 %63, 60
-  %66 = trunc i64 %65 to i32
+  %66 = trunc nuw nsw i64 %65 to i32
   %67 = and i32 %66, 7
   %68 = add nsw i32 %67, -3
   %.not7.i = icmp ult i32 %68, 2
@@ -12607,7 +12607,7 @@ dbl2ival.exit:                                    ; preds = %78, %82
 
 85:                                               ; preds = %dbl2ival.exit
   %86 = lshr i64 %84, 60
-  %87 = trunc i64 %86 to i32
+  %87 = trunc nuw nsw i64 %86 to i32
   %88 = and i32 %87, 7
   %89 = add nsw i32 %88, -3
   %.not7.i = icmp ult i32 %89, 2
@@ -13232,7 +13232,7 @@ rb_float_value_inline.exit.thread:                ; preds = %26, %rb_float_value
 
 41:                                               ; preds = %39
   %42 = lshr i64 %40, 60
-  %43 = trunc i64 %42 to i32
+  %43 = trunc nuw nsw i64 %42 to i32
   %44 = and i32 %43, 7
   %45 = add nsw i32 %44, -3
   %.not7.i = icmp ult i32 %45, 2
@@ -13713,7 +13713,7 @@ define internal i64 @flo_next_float(i64 noundef %0) #2 {
 
 5:                                                ; preds = %1
   %6 = lshr i64 %4, 60
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nuw nsw i64 %6 to i32
   %8 = and i32 %7, 7
   %9 = add nsw i32 %8, -3
   %.not7.i.i = icmp ult i32 %9, 2
@@ -13755,7 +13755,7 @@ define internal i64 @flo_prev_float(i64 noundef %0) #2 {
 
 5:                                                ; preds = %1
   %6 = lshr i64 %4, 60
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nuw nsw i64 %6 to i32
   %8 = and i32 %7, 7
   %9 = add nsw i32 %8, -3
   %.not7.i.i = icmp ult i32 %9, 2
@@ -13825,7 +13825,7 @@ define dso_local i64 @rb_float_new(double noundef %0) local_unnamed_addr #2 {
 
 3:                                                ; preds = %1
   %4 = lshr i64 %2, 60
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw nsw i64 %4 to i32
   %6 = and i32 %5, 7
   %7 = add nsw i32 %6, -3
   %.not7.i = icmp ult i32 %7, 2
@@ -14145,7 +14145,7 @@ rb_float_value_inline.exit.i:                     ; preds = %12, %6, %5
 
 18:                                               ; preds = %rb_float_value_inline.exit.i
   %19 = lshr i64 %17, 60
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw nsw i64 %19 to i32
   %21 = and i32 %20, 7
   %22 = add nsw i32 %21, -3
   %.not7.i.i = icmp ult i32 %22, 2
@@ -14211,7 +14211,7 @@ rb_float_value_inline.exit.i:                     ; preds = %12, %6, %5
 
 18:                                               ; preds = %rb_float_value_inline.exit.i
   %19 = lshr i64 %17, 60
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw nsw i64 %19 to i32
   %21 = and i32 %20, 7
   %22 = add nsw i32 %21, -3
   %.not7.i.i = icmp ult i32 %22, 2
@@ -14277,7 +14277,7 @@ rb_float_value_inline.exit.i:                     ; preds = %12, %6, %5
 
 18:                                               ; preds = %rb_float_value_inline.exit.i
   %19 = lshr i64 %17, 60
-  %20 = trunc i64 %19 to i32
+  %20 = trunc nuw nsw i64 %19 to i32
   %21 = and i32 %20, 7
   %22 = add nsw i32 %21, -3
   %.not7.i.i = icmp ult i32 %22, 2
@@ -14610,7 +14610,7 @@ RB_FLOAT_TYPE_P.exit.thread.thread:               ; preds = %35
 
 50:                                               ; preds = %46
   %51 = lshr i64 %49, 60
-  %52 = trunc i64 %51 to i32
+  %52 = trunc nuw nsw i64 %51 to i32
   %53 = and i32 %52, 7
   %54 = add nsw i32 %53, -3
   %.not7.i = icmp ult i32 %54, 2
@@ -14813,7 +14813,7 @@ rb_float_value_inline.exit:                       ; preds = %18, %19, %25
 
 32:                                               ; preds = %rb_float_value_inline.exit
   %33 = lshr i64 %31, 60
-  %34 = trunc i64 %33 to i32
+  %34 = trunc nuw nsw i64 %33 to i32
   %35 = and i32 %34, 7
   %36 = add nsw i32 %35, -3
   %.not7.i = icmp ult i32 %36, 2
@@ -15174,7 +15174,7 @@ define internal fastcc i32 @num_step_scan_args(i32 noundef %0, ptr noundef %1, p
 
 30:                                               ; preds = %26
   %.lobit.i.i = lshr i64 %27, 63
-  %31 = trunc i64 %.lobit.i.i to i32
+  %31 = trunc nuw nsw i64 %.lobit.i.i to i32
   br label %num_step_negative_p.exit.i
 
 32:                                               ; preds = %24

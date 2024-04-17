@@ -1228,7 +1228,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %sub.i = xor i64 %sub.ptr.div.i.i, 3
+  %sub.i = sub nuw nsw i64 3, %sub.ptr.div.i.i
   tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %_channels, i64 noundef %sub.i)
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
 
@@ -3937,7 +3937,7 @@ if.then103.i:                                     ; preds = %for.body77.i
   %56 = call float @llvm.fabs.f32(float %45)
   %and.i.i.i = bitcast float %56 to i32
   %shr.i.i.i = lshr i32 %55, 16
-  %57 = trunc i32 %shr.i.i.i to i16
+  %57 = trunc nuw i32 %shr.i.i.i to i16
   %conv.i.i.i = and i16 %57, -32768
   %cmp.i.i96.i = icmp ugt i32 %and.i.i.i, 947912703
   br i1 %cmp.i.i96.i, label %if.then.i.i97.i, label %if.end37.i.i.i
@@ -3956,7 +3956,7 @@ if.end.i.i.i:                                     ; preds = %if.then4.i.i.i
   %shr10.i.i.i = and i32 %and9.i.i.i, 1023
   %cmp15.i.i.i = icmp eq i32 %shr10.i.i.i, 0
   %58 = zext i1 %cmp15.i.i.i to i16
-  %59 = trunc i32 %shr10.i.i.i to i16
+  %59 = trunc nuw nsw i32 %shr10.i.i.i to i16
   %60 = or i16 %59, %58
   %conv19.i.i.i = or disjoint i16 %60, %conv6.i.i.i
   br label %_ZN9Imath_3_24halfC2Ef.exit.i
@@ -3994,7 +3994,7 @@ if.end40.i.i.i:                                   ; preds = %if.end37.i.i.i
   %shr46.i.i.i = lshr i32 %or44.i.i.i, %sub42.i.i.i
   %conv47.i.i.i = and i32 %shr.i.i.i, 32768
   %or48.i.i.i = or i32 %shr46.i.i.i, %conv47.i.i.i
-  %conv49.i.i.i = trunc i32 %or48.i.i.i to i16
+  %conv49.i.i.i = trunc nuw i32 %or48.i.i.i to i16
   %cmp50.i.i.i = icmp ugt i32 %shl.i.i.i, -2147483648
   br i1 %cmp50.i.i.i, label %if.then55.i.i.i, label %lor.lhs.false.i.i.i
 

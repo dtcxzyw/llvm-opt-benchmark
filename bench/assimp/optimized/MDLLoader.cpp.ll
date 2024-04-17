@@ -2575,7 +2575,7 @@ if.then.i145:                                     ; preds = %invoke.cont79
   br label %if.end83
 
 if.else.i142:                                     ; preds = %invoke.cont79
-  %sub.i143 = xor i64 %add.i.i.i140, 1
+  %sub.i143 = sub nuw nsw i64 1, %add.i.i.i140
   invoke void @_ZNSt6vectorIbSaIbEE14_M_fill_insertESt13_Bit_iteratormb(ptr noundef nonnull align 8 dereferenceable(40) %sharedData, ptr %50, i32 %51, i64 noundef %sub.i143, i1 noundef zeroext false)
           to label %if.end83 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 

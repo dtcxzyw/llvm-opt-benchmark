@@ -951,7 +951,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %17, %20
 
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %27 = trunc i64 %indvars.iv to i32
+  %27 = trunc nuw i64 %indvars.iv to i32
   %28 = mul i32 %27, 3
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds float, ptr %12, i64 %29
@@ -990,7 +990,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %17, %20
 
 46:                                               ; preds = %.lr.ph93, %46
   %indvars.iv107 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next108, %46 ]
-  %47 = trunc i64 %indvars.iv107 to i32
+  %47 = trunc nuw i64 %indvars.iv107 to i32
   %48 = shl i32 %47, 2
   %49 = zext i32 %48 to i64
   %50 = getelementptr inbounds float, ptr %44, i64 %49
@@ -1130,7 +1130,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE8AddFacesERS2_m.exit: ; preds = %106, %109
 
 116:                                              ; preds = %.lr.ph100, %116
   %indvars.iv117 = phi i64 [ 0, %.lr.ph100 ], [ %indvars.iv.next118, %116 ]
-  %117 = trunc i64 %indvars.iv117 to i32
+  %117 = trunc nuw i64 %indvars.iv117 to i32
   %118 = mul i32 %117, 3
   %119 = zext i32 %118 to i64
   %120 = getelementptr inbounds i32, ptr %14, i64 %119
@@ -5503,7 +5503,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit140.thread:          ; preds = %44
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %90 ]
   %91 = getelementptr inbounds %class.CVertexO, ptr %87, i64 %indvars.iv, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1
   %92 = load float, ptr %91, align 4
-  %93 = trunc i64 %indvars.iv to i32
+  %93 = trunc nuw i64 %indvars.iv to i32
   %94 = mul i32 %93, 3
   %95 = zext i32 %94 to i64
   %96 = getelementptr inbounds float, ptr %.sroa.0164.0221, i64 %95
@@ -5535,7 +5535,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit140.thread:          ; preds = %44
   %114 = sub i64 %112, %113
   %115 = sdiv exact i64 %114, 48
   %116 = trunc i64 %115 to i32
-  %117 = trunc i64 %indvars.iv203 to i32
+  %117 = trunc nuw i64 %indvars.iv203 to i32
   %118 = mul i32 %117, 3
   %119 = zext i32 %118 to i64
   %120 = load ptr, ptr %9, align 8
@@ -5589,7 +5589,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit140.thread:          ; preds = %44
   br i1 %154, label %155, label %157
 
 155:                                              ; preds = %148
-  %156 = xor i64 %153, 3
+  %156 = sub nuw nsw i64 3, %153
   invoke void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPjS1_EEmRKj(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr %149, i64 noundef %156, ptr noundef nonnull align 4 dereferenceable(4) %10)
           to label %._ZNSt6vectorIjSaIjEE6resizeEmRKj.exit_crit_edge unwind label %79
 
@@ -5726,7 +5726,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %167, %_ZNSt6vectorI
   %205 = load i8, ptr %204, align 1
   %206 = uitofp i8 %205 to float
   %207 = fdiv float %206, 2.550000e+02
-  %208 = trunc i64 %indvars.iv208 to i32
+  %208 = trunc nuw i64 %indvars.iv208 to i32
   %209 = shl i32 %208, 2
   %210 = zext i32 %209 to i64
   %211 = getelementptr inbounds float, ptr %.sroa.0151.3, i64 %210

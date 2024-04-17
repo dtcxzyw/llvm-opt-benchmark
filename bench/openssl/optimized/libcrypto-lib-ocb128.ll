@@ -296,7 +296,7 @@ entry:
 if.end:                                           ; preds = %entry
   %sess = getelementptr inbounds i8, ptr %ctx, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %sess, i8 0, i64 80, i1 false)
-  %taglen.tr = trunc i64 %taglen to i8
+  %taglen.tr = trunc nuw i64 %taglen to i8
   %conv = shl i8 %taglen.tr, 4
   store i8 %conv, ptr %nonce, align 16
   %add.ptr = getelementptr inbounds i8, ptr %nonce, i64 1
@@ -305,7 +305,7 @@ if.end:                                           ; preds = %entry
   %idx.neg = sub nsw i64 0, %len
   %add.ptr8 = getelementptr inbounds i8, ptr %add.ptr7, i64 %idx.neg
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr8, ptr align 1 %iv, i64 %len, i1 false)
-  %sub = xor i64 %len, 15
+  %sub = sub nuw nsw i64 15, %len
   %arrayidx9 = getelementptr inbounds [16 x i8], ptr %nonce, i64 0, i64 %sub
   %3 = load i8, ptr %arrayidx9, align 1
   %4 = or i8 %3, 1
@@ -375,7 +375,7 @@ ocb_block_lshift.exit:                            ; preds = %for.body.i19
   %shr = lshr i32 %and45, %sh_prom.i
   %arrayidx50 = getelementptr inbounds i8, ptr %ctx, i64 159
   %18 = load i8, ptr %arrayidx50, align 1
-  %19 = trunc i32 %shr to i8
+  %19 = trunc nuw nsw i32 %shr to i8
   %conv53 = or i8 %18, %19
   store i8 %conv53, ptr %arrayidx50, align 1
   br label %return

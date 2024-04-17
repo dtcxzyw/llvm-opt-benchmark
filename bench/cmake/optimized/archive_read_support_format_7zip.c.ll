@@ -4973,7 +4973,7 @@ define internal fastcc i64 @Bcj2_Decode(ptr nocapture noundef %0, ptr nocapture 
 
 216:                                              ; preds = %._crit_edge259
   %217 = trunc nuw nsw i64 %indvars.iv.next297 to i32
-  %218 = xor i64 %indvars.iv296, 3
+  %218 = sub nuw nsw i64 3, %indvars.iv296
   store i64 %218, ptr %64, align 8
   %219 = icmp ult i32 %217, 4
   br i1 %219, label %.lr.ph265, label %.thread

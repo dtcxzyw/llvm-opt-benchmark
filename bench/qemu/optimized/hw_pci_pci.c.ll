@@ -420,7 +420,7 @@ if.end.i:                                         ; preds = %entry, %pci_irq_han
 
 if.end8.i:                                        ; preds = %if.end.i
   %shl.i.i = shl nuw nsw i32 1, %i.03
-  %1 = trunc i32 %shl.i.i to i8
+  %1 = trunc nuw i32 %shl.i.i to i8
   %2 = xor i8 %1, -1
   %conv1.i.i = and i8 %opaque.val.i, %2
   store i8 %conv1.i.i, ptr %0, align 1
@@ -482,11 +482,11 @@ if.end6:                                          ; preds = %if.end
 
 if.end8:                                          ; preds = %if.end6
   %shl.i = shl nuw nsw i32 1, %irq_num
-  %1 = trunc i32 %shl.i to i8
+  %1 = trunc nuw i32 %shl.i to i8
   %2 = xor i8 %1, -1
   %conv1.i = and i8 %opaque.val, %2
   %shl2.i = shl nuw nsw i32 %level, %irq_num
-  %3 = trunc i32 %shl2.i to i8
+  %3 = trunc nuw i32 %shl2.i to i8
   %conv5.i = or i8 %conv1.i, %3
   store i8 %conv5.i, ptr %0, align 1
   %tobool.not.i = icmp eq i8 %conv5.i, 0
@@ -542,7 +542,7 @@ if.end.i.i:                                       ; preds = %pci_irq_handler.exi
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
   %shl.i.i.i = shl nuw nsw i32 1, %i.03.i
-  %1 = trunc i32 %shl.i.i.i to i8
+  %1 = trunc nuw i32 %shl.i.i.i to i8
   %2 = xor i8 %1, -1
   %conv1.i.i.i = and i8 %opaque.val.i.i, %2
   store i8 %conv1.i.i.i, ptr %0, align 1
@@ -1986,7 +1986,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end12 ]
   %val.079 = phi i32 [ %val_in, %for.body.lr.ph ], [ %shr, %if.end12 ]
   %4 = load ptr, ptr %wmask3, align 8
-  %5 = trunc i64 %indvars.iv to i32
+  %5 = trunc nuw nsw i64 %indvars.iv to i32
   %add4 = add i32 %5, %addr
   %idxprom = zext i32 %add4 to i64
   %arrayidx = getelementptr i8, ptr %4, i64 %idxprom
@@ -2012,7 +2012,7 @@ if.end12:                                         ; preds = %for.body
   %and18 = and i32 %conv16, %not
   %and20 = and i32 %val.079, %conv
   %or = or i32 %and18, %and20
-  %conv21 = trunc i32 %or to i8
+  %conv21 = trunc nuw i32 %or to i8
   store i8 %conv21, ptr %arrayidx15, align 1
   %11 = load ptr, ptr %0, align 8
   %arrayidx32 = getelementptr i8, ptr %11, i64 %idxprom
@@ -2153,7 +2153,7 @@ for.body:                                         ; preds = %entry, %for.inc
 if.end:                                           ; preds = %for.body
   %type = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %1 = load i8, ptr %type, align 8
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   %call = tail call i64 @pci_bar_address(ptr noundef nonnull %d, i32 noundef %2, i8 noundef zeroext %1, i64 noundef %0)
   %3 = load i8, ptr %has_power, align 1
   %tobool2 = trunc i8 %3 to i1
@@ -2385,11 +2385,11 @@ if.end6.i:                                        ; preds = %if.end.i
 
 if.end8.i:                                        ; preds = %if.end6.i
   %shl.i.i = shl nuw nsw i32 1, %sub.i
-  %3 = trunc i32 %shl.i.i to i8
+  %3 = trunc nuw i32 %shl.i.i to i8
   %4 = xor i8 %3, -1
   %conv1.i.i = and i8 %opaque.val.i, %4
   %shl2.i.i = shl nuw nsw i32 %level, %sub.i
-  %5 = trunc i32 %shl2.i.i to i8
+  %5 = trunc nuw i32 %shl2.i.i to i8
   %conv5.i.i = or i8 %conv1.i.i, %5
   store i8 %conv5.i.i, ptr %2, align 1
   %tobool.not.i.i = icmp eq i8 %conv5.i.i, 0
@@ -2628,10 +2628,9 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %devfn.05 = phi i32 [ 0, %entry ], [ %inc, %for.inc ]
-  %0 = xor i32 %devfn.05, 255
-  %sub = zext nneg i32 %0 to i64
-  %arrayidx = getelementptr [256 x ptr], ptr %devices, i64 0, i64 %sub
+  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
+  %0 = sub nuw nsw i64 255, %indvars.iv
+  %arrayidx = getelementptr [256 x ptr], ptr %devices, i64 0, i64 %0
   %1 = load ptr, ptr %arrayidx, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %for.inc, label %if.then
@@ -2641,8 +2640,8 @@ if.then:                                          ; preds = %for.body
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then
-  %inc = add nuw nsw i32 %devfn.05, 1
-  %exitcond.not = icmp eq i32 %inc, 256
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 256
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !17
 
 for.end:                                          ; preds = %for.inc
@@ -2661,10 +2660,9 @@ if.then:                                          ; preds = %entry
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %if.then
-  %devfn.05.i = phi i32 [ 0, %if.then ], [ %inc.i, %for.inc.i ]
-  %0 = xor i32 %devfn.05.i, 255
-  %sub.i = zext nneg i32 %0 to i64
-  %arrayidx.i = getelementptr [256 x ptr], ptr %devices.i, i64 0, i64 %sub.i
+  %indvars.iv.i = phi i64 [ 0, %if.then ], [ %indvars.iv.next.i, %for.inc.i ]
+  %0 = sub nuw nsw i64 255, %indvars.iv.i
+  %arrayidx.i = getelementptr [256 x ptr], ptr %devices.i, i64 0, i64 %0
   %1 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %1, null
   br i1 %tobool.not.i, label %for.inc.i, label %if.then.i
@@ -2674,8 +2672,8 @@ if.then.i:                                        ; preds = %for.body.i
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i, %for.body.i
-  %inc.i = add nuw nsw i32 %devfn.05.i, 1
-  %exitcond.not.i = icmp eq i32 %inc.i, 256
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
   br i1 %exitcond.not.i, label %if.end, label %for.body.i, !llvm.loop !17
 
 if.end:                                           ; preds = %for.inc.i, %entry
@@ -3065,7 +3063,7 @@ if.then34:                                        ; preds = %if.end32
   unreachable
 
 if.end35:                                         ; preds = %if.end32
-  %conv53.i = trunc i64 %bus.0.i to i32
+  %conv53.i = trunc nuw nsw i64 %bus.0.i to i32
   %and = shl nuw nsw i32 %conv21.i, 3
   br label %if.end36
 
@@ -3138,7 +3136,7 @@ entry:
   br i1 %1, label %switch.hole_check, label %return
 
 switch.hole_check:                                ; preds = %entry
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 279, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %return
@@ -3275,11 +3273,11 @@ for.body.i:                                       ; preds = %for.inc.i, %if.then
 
 if.then.i:                                        ; preds = %for.body.i
   %2 = add nuw nsw i64 %indvars.iv.i, 1
-  %3 = trunc i64 %2 to i32
+  %3 = trunc nuw nsw i64 %2 to i32
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %for.body.i
-  %4 = trunc i64 %indvars.iv.i to i32
+  %4 = trunc nuw nsw i64 %indvars.iv.i to i32
   %reass.sub = sub i32 %4, %offset.07.i
   %add1.i = add i32 %reass.sub, 1
   %cmp2.i = icmp eq i32 %add1.i, %conv.i
@@ -3838,7 +3836,7 @@ lor.lhs.false.i:                                  ; preds = %for.body.i3
   br i1 %or.cond.not.i, label %if.end24.i, label %for.inc.i6
 
 if.end24.i:                                       ; preds = %lor.lhs.false.i
-  %6 = trunc i64 %indvars.iv.i4 to i32
+  %6 = trunc nuw nsw i64 %indvars.iv.i4 to i32
   %call27.i = tail call i64 @pci_bar_address(ptr noundef nonnull %0, i32 noundef %6, i8 noundef zeroext %4, i64 noundef %3)
   %7 = load i64, ptr %size.i, align 8
   %add.i = add i64 %call27.i, -1
@@ -4210,9 +4208,9 @@ for.body12:                                       ; preds = %for.cond10.preheade
   %conv5.i1112 = phi i8 [ %pv.promoted, %for.cond10.preheader ], [ %conv5.i, %for.body12 ]
   %arrayidx14 = getelementptr [4 x i32], ptr %irq_state, i64 0, i64 %indvars.iv16
   %1 = load i32, ptr %arrayidx14, align 4
-  %2 = trunc i64 %indvars.iv16 to i32
+  %2 = trunc nuw nsw i64 %indvars.iv16 to i32
   %shl.i = shl nuw nsw i32 1, %2
-  %3 = trunc i32 %shl.i to i8
+  %3 = trunc nuw i32 %shl.i to i8
   %4 = xor i8 %3, -1
   %conv1.i = and i8 %conv5.i1112, %4
   %shl2.i = shl i32 %1, %2
@@ -5145,7 +5143,7 @@ if.then44.i:                                      ; preds = %pci_get_function_0.
   br label %do_pci_register_device.exit.thread
 
 if.end55.loopexit.i:                              ; preds = %land.lhs.true18.i
-  %27 = trunc i64 %indvars.iv.i to i32
+  %27 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %if.end55.i
 
 if.end55.i:                                       ; preds = %if.end55.loopexit.i, %pci_get_function_0.exit.i, %land.lhs.true38.i, %if.else36.i
@@ -5505,7 +5503,7 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
   br i1 %tobool45.not.i.i, label %for.cond.i.i, label %if.then46.i.i
 
 if.then46.i.i:                                    ; preds = %for.body.i.i
-  %98 = trunc i64 %indvars.iv.i.i to i32
+  %98 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err.i, ptr noundef nonnull @.str.1, i32 noundef 994, ptr noundef nonnull @__func__.pci_init_multifunction, ptr noundef nonnull @.str.203, i32 noundef %conv37.i.i, i32 noundef %conv37.i.i, i32 noundef %98) #23
   br label %pci_init_multifunction.exit.i
 
@@ -5755,7 +5753,7 @@ if.then55.i:                                      ; preds = %if.end51.i
 
 if.then60.i:                                      ; preds = %if.then55.i
   %122 = load ptr, ptr %romfile, align 16
-  %conv62.i = trunc i64 %call34.i to i32
+  %conv62.i = trunc nuw i64 %call34.i to i32
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %local_err, ptr noundef nonnull @.str.1, i32 noundef 2402, ptr noundef nonnull @__func__.pci_add_option_rom, ptr noundef nonnull @.str.208, ptr noundef %122, i32 noundef %conv62.i, i32 noundef %121) #23
   br label %pci_add_option_rom.exit
 
@@ -5811,7 +5809,7 @@ if.end89.i:                                       ; preds = %if.then81.i
   br i1 %is_default_rom.0, label %if.then91.i, label %if.end94.i74
 
 if.then91.i:                                      ; preds = %if.end89.i
-  %conv92.i = trunc i64 %size.0.i to i32
+  %conv92.i = trunc nuw i64 %size.0.i to i32
   call fastcc void @pci_patch_ids(ptr noundef nonnull %qdev, ptr noundef %call83.i, i32 noundef %conv92.i)
   br label %if.end94.i74
 
@@ -5918,7 +5916,7 @@ if.end.i.i:                                       ; preds = %pci_irq_handler.exi
 
 if.end8.i.i:                                      ; preds = %if.end.i.i
   %shl.i.i.i = shl nuw nsw i32 1, %i.03.i
-  %7 = trunc i32 %shl.i.i.i to i8
+  %7 = trunc nuw i32 %shl.i.i.i to i8
   %8 = xor i8 %7, -1
   %conv1.i.i.i = and i8 %opaque.val.i.i, %8
   store i8 %conv1.i.i.i, ptr %6, align 1

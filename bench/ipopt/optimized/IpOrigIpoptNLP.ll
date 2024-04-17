@@ -4805,7 +4805,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEE5ClearEv.exit193: ; preds =
   br i1 %356, label %357, label %359
 
 357:                                              ; preds = %349
-  %358 = xor i64 %355, 3
+  %358 = sub nuw nsw i64 3, %355
   invoke void @_ZNSt6vectorIPKN5Ipopt12TaggedObjectESaIS3_EE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPS3_S5_EEmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr %350, i64 noundef %358, ptr noundef nonnull align 8 dereferenceable(8) %30)
           to label %_ZNSt6vectorIPKN5Ipopt12TaggedObjectESaIS3_EE6resizeEmRKS3_.exit unwind label %373
 

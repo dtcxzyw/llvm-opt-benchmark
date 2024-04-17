@@ -3308,7 +3308,7 @@ if.else25:                                        ; preds = %PyByteArray_AS_STRI
   br i1 %cmp26.not, label %if.end48, label %if.then27
 
 if.then27:                                        ; preds = %if.else25
-  %sub29 = xor i64 %sub1, 9223372036854775807
+  %sub29 = sub nuw nsw i64 9223372036854775807, %sub1
   %cmp30 = icmp sgt i64 %op.val.i, %sub29
   br i1 %cmp30, label %if.then31, label %if.end33
 

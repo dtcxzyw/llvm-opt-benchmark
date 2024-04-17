@@ -163,7 +163,7 @@ define hidden void @_crypt_extended_init() local_unnamed_addr #0 {
   store i32 0, ptr %57, align 4
   %58 = getelementptr inbounds [8 x [256 x i32]], ptr @fp_maskr, i64 0, i64 %indvars.iv219, i64 %indvars.iv203
   store i32 0, ptr %58, align 4
-  %59 = trunc i64 %indvars.iv203 to i32
+  %59 = trunc nuw nsw i64 %indvars.iv203 to i32
   br label %60
 
 60:                                               ; preds = %54, %102
@@ -248,7 +248,7 @@ define hidden void @_crypt_extended_init() local_unnamed_addr #0 {
   store i32 0, ptr %109, align 4
   %110 = getelementptr inbounds [8 x [128 x i32]], ptr @key_perm_maskr, i64 0, i64 %indvars.iv219, i64 %indvars.iv215
   store i32 0, ptr %110, align 4
-  %111 = trunc i64 %indvars.iv215 to i32
+  %111 = trunc nuw nsw i64 %indvars.iv215 to i32
   br label %112
 
 112:                                              ; preds = %108, %134
@@ -378,7 +378,7 @@ define hidden void @_crypt_extended_init() local_unnamed_addr #0 {
   %indvars.iv231 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next232, %193 ]
   %175 = getelementptr inbounds [4 x [256 x i32]], ptr @psbox, i64 0, i64 %indvars.iv235, i64 %indvars.iv231
   store i32 0, ptr %175, align 4
-  %176 = trunc i64 %indvars.iv231 to i32
+  %176 = trunc nuw nsw i64 %indvars.iv231 to i32
   br label %177
 
 177:                                              ; preds = %174, %191
@@ -600,7 +600,7 @@ define hidden ptr @_crypt_extended_r(ptr nocapture noundef readonly %0, ptr noca
   call fastcc void @do_des(i32 noundef %82, i32 noundef %96, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 1, ptr noundef nonnull %2)
   %97 = load i32, ptr %4, align 4
   %98 = lshr i32 %97, 24
-  %99 = trunc i32 %98 to i8
+  %99 = trunc nuw i32 %98 to i8
   store i8 %99, ptr %8, align 4
   %100 = lshr i32 %97, 16
   %101 = trunc i32 %100 to i8
@@ -612,7 +612,7 @@ define hidden ptr @_crypt_extended_r(ptr nocapture noundef readonly %0, ptr noca
   store i8 %104, ptr %42, align 1
   %105 = load i32, ptr %5, align 4
   %106 = lshr i32 %105, 24
-  %107 = trunc i32 %106 to i8
+  %107 = trunc nuw i32 %106 to i8
   store i8 %107, ptr %47, align 4
   %108 = lshr i32 %105, 16
   %109 = trunc i32 %108 to i8
@@ -1001,37 +1001,36 @@ define internal fastcc void @des_setkey(ptr nocapture noundef readonly %0, ptr n
   %172 = or i32 %167, %171
   %173 = getelementptr inbounds [16 x i32], ptr %112, i64 0, i64 %indvars.iv
   store i32 %172, ptr %173, align 4
-  %174 = and i64 %indvars.iv, 4294967295
-  %175 = xor i64 %174, 15
-  %176 = getelementptr inbounds [16 x i32], ptr %113, i64 0, i64 %175
-  store i32 %172, ptr %176, align 4
-  %177 = getelementptr inbounds [128 x i32], ptr @comp_maskr, i64 0, i64 %130
-  %178 = load i32, ptr %177, align 4
-  %179 = getelementptr inbounds [8 x [128 x i32]], ptr @comp_maskr, i64 0, i64 1, i64 %135
-  %180 = load i32, ptr %179, align 4
-  %181 = or i32 %180, %178
-  %182 = getelementptr inbounds [8 x [128 x i32]], ptr @comp_maskr, i64 0, i64 2, i64 %141
-  %183 = load i32, ptr %182, align 4
-  %184 = or i32 %181, %183
-  %185 = getelementptr inbounds [8 x [128 x i32]], ptr @comp_maskr, i64 0, i64 3, i64 %146
-  %186 = load i32, ptr %185, align 4
-  %187 = or i32 %184, %186
-  %188 = getelementptr inbounds [8 x [128 x i32]], ptr @comp_maskr, i64 0, i64 4, i64 %152
-  %189 = load i32, ptr %188, align 4
-  %190 = or i32 %187, %189
-  %191 = getelementptr inbounds [8 x [128 x i32]], ptr @comp_maskr, i64 0, i64 5, i64 %158
-  %192 = load i32, ptr %191, align 4
-  %193 = or i32 %190, %192
-  %194 = getelementptr inbounds [8 x [128 x i32]], ptr @comp_maskr, i64 0, i64 6, i64 %164
-  %195 = load i32, ptr %194, align 4
-  %196 = or i32 %193, %195
-  %197 = getelementptr inbounds [8 x [128 x i32]], ptr @comp_maskr, i64 0, i64 7, i64 %169
-  %198 = load i32, ptr %197, align 4
-  %199 = or i32 %196, %198
-  %200 = getelementptr inbounds [16 x i32], ptr %114, i64 0, i64 %indvars.iv
-  store i32 %199, ptr %200, align 4
-  %201 = getelementptr inbounds [16 x i32], ptr %115, i64 0, i64 %175
-  store i32 %199, ptr %201, align 4
+  %174 = sub nuw nsw i64 15, %indvars.iv
+  %175 = getelementptr inbounds [16 x i32], ptr %113, i64 0, i64 %174
+  store i32 %172, ptr %175, align 4
+  %176 = getelementptr inbounds [128 x i32], ptr @comp_maskr, i64 0, i64 %130
+  %177 = load i32, ptr %176, align 4
+  %178 = getelementptr inbounds [8 x [128 x i32]], ptr @comp_maskr, i64 0, i64 1, i64 %135
+  %179 = load i32, ptr %178, align 4
+  %180 = or i32 %179, %177
+  %181 = getelementptr inbounds [8 x [128 x i32]], ptr @comp_maskr, i64 0, i64 2, i64 %141
+  %182 = load i32, ptr %181, align 4
+  %183 = or i32 %180, %182
+  %184 = getelementptr inbounds [8 x [128 x i32]], ptr @comp_maskr, i64 0, i64 3, i64 %146
+  %185 = load i32, ptr %184, align 4
+  %186 = or i32 %183, %185
+  %187 = getelementptr inbounds [8 x [128 x i32]], ptr @comp_maskr, i64 0, i64 4, i64 %152
+  %188 = load i32, ptr %187, align 4
+  %189 = or i32 %186, %188
+  %190 = getelementptr inbounds [8 x [128 x i32]], ptr @comp_maskr, i64 0, i64 5, i64 %158
+  %191 = load i32, ptr %190, align 4
+  %192 = or i32 %189, %191
+  %193 = getelementptr inbounds [8 x [128 x i32]], ptr @comp_maskr, i64 0, i64 6, i64 %164
+  %194 = load i32, ptr %193, align 4
+  %195 = or i32 %192, %194
+  %196 = getelementptr inbounds [8 x [128 x i32]], ptr @comp_maskr, i64 0, i64 7, i64 %169
+  %197 = load i32, ptr %196, align 4
+  %198 = or i32 %195, %197
+  %199 = getelementptr inbounds [16 x i32], ptr %114, i64 0, i64 %indvars.iv
+  store i32 %198, ptr %199, align 4
+  %200 = getelementptr inbounds [16 x i32], ptr %115, i64 0, i64 %174
+  store i32 %198, ptr %200, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %.loopexit, label %116

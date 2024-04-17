@@ -774,7 +774,7 @@ if.then:                                          ; preds = %entry
   %sub = sub nsw i64 %conv5.i, %.pre
   %max.val.i = tail call i64 @llvm.smin.i64(i64 %sub, i64 2147483647)
   %retval.0.i = tail call i64 @llvm.smax.i64(i64 %max.val.i, i64 0)
-  %conv9 = trunc i64 %retval.0.i to i32
+  %conv9 = trunc nuw nsw i64 %retval.0.i to i32
   br label %return
 
 return:                                           ; preds = %entry, %if.then
@@ -964,7 +964,7 @@ if.end11.i.i:                                     ; preds = %if.end.i.i
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %if.else.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end11.i.i
-  %sub.i.i.i = xor i64 %call.i, 9223372036854775807
+  %sub.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i
   %cmp1.i.i.i = icmp slt i64 %sub.i.i.i, %sub.i
   br i1 %cmp1.i.i.i, label %_ZN9grpc_coremiENS_9TimestampES0_.exit, label %if.end7.i.i.i
 
@@ -1298,7 +1298,7 @@ if.end11.i.i.i:                                   ; preds = %if.end.i.i.i
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.end11.i.i.i
-  %sub.i.i.i.i = xor i64 %call.i.i, 9223372036854775807
+  %sub.i.i.i.i = sub nuw nsw i64 9223372036854775807, %call.i.i
   %cmp1.i.i.i.i = icmp slt i64 %sub.i.i.i.i, %sub.i.i13
   br i1 %cmp1.i.i.i.i, label %_ZN9grpc_core6chttp220TransportFlowControl12SmoothLogBdpEd.exit, label %if.end7.i.i.i.i
 
@@ -1925,7 +1925,7 @@ return.sink.split.i:                              ; preds = %if.else10.i, %if.th
   %sub = sub nsw i64 %retval.0.i, %4
   %max.val.i = tail call i64 @llvm.smin.i64(i64 %sub, i64 2147483647)
   %retval.0.i2 = tail call i64 @llvm.smax.i64(i64 %max.val.i, i64 0)
-  %conv = trunc i64 %retval.0.i2 to i32
+  %conv = trunc nuw nsw i64 %retval.0.i2 to i32
   ret i32 %conv
 }
 

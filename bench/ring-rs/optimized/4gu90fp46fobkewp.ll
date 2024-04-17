@@ -191,7 +191,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h30872498a257e0b2
 define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h844461a0d7cfade2E.llvm.4505101779727634190"(ptr noalias nocapture noundef writeonly sret([32 x i8]) align 1 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(33) %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { {} }, align 1
   %5 = load i8, ptr %1, align 1, !range !9, !noundef !10
-  %trunc = trunc i8 %5 to i1
+  %trunc = trunc nuw i8 %5 to i1
   br i1 %trunc, label %9, label %6
 
 6:                                                ; preds = %3
@@ -690,7 +690,7 @@ define noundef zeroext i1 @"_ZN119_$LT$ring..ec..curve25519..ed25519..verificati
 
 38:                                               ; preds = %38, %34
   %.010.i.i.i = phi i64 [ 0, %34 ], [ %44, %38 ]
-  %39 = xor i64 %.010.i.i.i, 15
+  %39 = sub nuw nsw i64 15, %.010.i.i.i
   %40 = getelementptr inbounds [0 x i8], ptr %21, i64 0, i64 %.010.i.i.i
   %41 = getelementptr inbounds [0 x i8], ptr %37, i64 0, i64 %39
   call void @llvm.experimental.noalias.scope.decl(metadata !116)
@@ -1815,7 +1815,7 @@ _ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit: ; preds = %1
   br label %79
 
 25:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5bd61317eb40469aE.exit"
-  %trunc62 = trunc i8 %11 to i1
+  %trunc62 = trunc nuw i8 %11 to i1
   br i1 %trunc62, label %32, label %31
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5bd61317eb40469aE.exit.thread": ; preds = %20, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h5bd61317eb40469aE.exit"

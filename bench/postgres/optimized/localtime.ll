@@ -752,7 +752,7 @@ detzcode.exit481.i:                               ; preds = %268
   br i1 %343, label %.thread.i, label %345
 
 .thread.i:                                        ; preds = %.lr.ph601.i
-  %344 = trunc i64 %indvars.iv706.i to i32
+  %344 = trunc nuw nsw i64 %indvars.iv706.i to i32
   br label %.sink.split
 
 345:                                              ; preds = %.lr.ph601.i
@@ -825,7 +825,7 @@ detzcode.exit481.i:                               ; preds = %268
 .lr.ph:                                           ; preds = %.lr.ph614.preheader.i, %.lr.ph614.i
   %indvars.iv.next716.i50 = phi i64 [ %indvars.iv.next716.i, %.lr.ph614.i ], [ %indvars.iv.next716.i48, %.lr.ph614.preheader.i ]
   %indvars.iv715.i49 = phi i64 [ %indvars.iv.next716.i50, %.lr.ph614.i ], [ %361, %.lr.ph614.preheader.i ]
-  %374 = trunc i64 %indvars.iv.next716.i50 to i32
+  %374 = trunc nuw nsw i64 %indvars.iv.next716.i50 to i32
   store i32 %374, ptr %37, align 4
   %375 = icmp ugt i64 %indvars.iv715.i49, 2
   br i1 %375, label %.lr.ph614.i, label %.critedge.i, !llvm.loop !18
@@ -889,7 +889,7 @@ leapcorr.exit.i:                                  ; preds = %391, %398
   br i1 %exitcond719.not.i, label %.critedge21.i, label %.lr.ph622.split.i, !llvm.loop !20
 
 leapcorr.exit._crit_edge.i.loopexit:              ; preds = %leapcorr.exit.i
-  %404 = trunc i64 %indvars.iv to i32
+  %404 = trunc nuw nsw i64 %indvars.iv to i32
   br label %leapcorr.exit._crit_edge.i
 
 leapcorr.exit._crit_edge.i:                       ; preds = %leapcorr.exit._crit_edge.i.loopexit, %.critedge.i
@@ -1170,7 +1170,7 @@ typesequiv.exit494.i:                             ; preds = %544
 
 typesequiv.exit494.thread.i:                      ; preds = %560, %typesequiv.exit494.i, %544, %537, %530, %524, %.lr.ph636.split.i
   %indvars.iv.next735.i = add nsw i64 %indvars.iv734.i, -1
-  %567 = trunc i64 %indvars.iv734.i to i32
+  %567 = trunc nuw i64 %indvars.iv734.i to i32
   %568 = icmp sgt i32 %567, 0
   br i1 %568, label %.lr.ph636.split.i, label %.loopexit.i, !llvm.loop !24
 
@@ -1232,11 +1232,11 @@ typesequiv.exit494.thread.i:                      ; preds = %560, %typesequiv.ex
   br i1 %exitcond753.not.i, label %.thread500.i, label %586, !llvm.loop !27
 
 .thread500.loopexit642.i:                         ; preds = %582
-  %591 = trunc i64 %indvars.iv.next745.i to i32
+  %591 = trunc nsw i64 %indvars.iv.next745.i to i32
   br label %.thread500.i
 
 .thread500.loopexit.split.loop.exit.i:            ; preds = %586
-  %592 = trunc i64 %indvars.iv748.i to i32
+  %592 = trunc nuw nsw i64 %indvars.iv748.i to i32
   br label %.thread500.i
 
 .thread500.i:                                     ; preds = %570, %590, %.thread500.loopexit.split.loop.exit.i, %.thread500.loopexit642.i, %.loopexit.i
@@ -1514,7 +1514,7 @@ getzname.exit257:                                 ; preds = %.lr.ph.i252, %67
   %116 = getelementptr i8, ptr %1, i64 18040
   %117 = load i32, ptr %5, align 4
   %118 = sub i32 0, %117
-  %119 = trunc i64 %44 to i32
+  %119 = trunc nuw nsw i64 %44 to i32
   store i32 %118, ptr %116, align 4
   %120 = getelementptr i8, ptr %1, i64 18044
   store i8 1, ptr %120, align 4
@@ -1848,7 +1848,7 @@ increment_overflow_time.exit280.thread:           ; preds = %216, %213, %210
   %274 = getelementptr i8, ptr %1, i64 18040
   %275 = load i32, ptr %5, align 4
   %276 = sub i32 0, %275
-  %277 = trunc i64 %44 to i32
+  %277 = trunc nuw nsw i64 %44 to i32
   store i32 %276, ptr %274, align 4
   %278 = getelementptr i8, ptr %1, i64 18044
   store i8 1, ptr %278, align 4
@@ -1883,7 +1883,7 @@ increment_overflow_time.exit280.thread:           ; preds = %216, %213, %210
   store i8 0, ptr %292, align 1
   %293 = getelementptr inbounds i8, ptr %1, i64 23432
   store i32 0, ptr %293, align 8
-  %294 = trunc i64 %44 to i32
+  %294 = trunc nuw nsw i64 %44 to i32
   %295 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 %294, ptr %295, align 4
   %296 = getelementptr inbounds i8, ptr %1, i64 22120
@@ -1892,7 +1892,7 @@ increment_overflow_time.exit280.thread:           ; preds = %216, %213, %210
   br label %.loopexit304.sink.split
 
 298:                                              ; preds = %._crit_edge324, %222, %225, %221
-  %299 = trunc i64 %76 to i32
+  %299 = trunc nuw nsw i64 %76 to i32
   %300 = getelementptr inbounds i8, ptr %1, i64 12
   store i32 %299, ptr %300, align 4
   %301 = getelementptr inbounds i8, ptr %1, i64 22120
@@ -2352,13 +2352,13 @@ define internal fastcc i32 @transtime(i32 noundef %0, ptr nocapture noundef read
   %31 = add i32 %30, %0
   %.neg = sdiv i32 %31, -100
   %32 = srem i32 %31, 100
-  %33 = trunc i32 %28 to i16
+  %33 = trunc nsw i32 %28 to i16
   %34 = mul nsw i16 %33, 26
   %.lhs.trunc = add nsw i16 %34, 24
   %35 = sdiv i16 %.lhs.trunc, 10
   %narrow = add nsw i16 %35, 1
   %36 = sext i16 %narrow to i32
-  %.lhs.trunc55 = trunc i32 %32 to i8
+  %.lhs.trunc55 = trunc nsw i32 %32 to i8
   %37 = sdiv i8 %.lhs.trunc55, 4
   %.sext56 = sext i8 %37 to i32
   %38 = sdiv i32 %31, 400
@@ -2589,7 +2589,7 @@ gmtload.exit.i:                                   ; preds = %15, %13, %7
   br i1 %or.cond, label %82, label %gmtsub.exit
 
 82:                                               ; preds = %74
-  %83 = trunc i64 %.067 to i32
+  %83 = trunc nsw i64 %.067 to i32
   store i32 %83, ptr %75, align 4
   br label %gmtsub.exit
 
@@ -3037,7 +3037,7 @@ define dso_local noundef zeroext i1 @pg_interpret_timezone_abbrev(ptr nocapture 
 
 38:                                               ; preds = %.preheader58, %43
   %indvars.iv = phi i64 [ %28, %.preheader58 ], [ %44, %43 ]
-  %39 = trunc i64 %indvars.iv to i32
+  %39 = trunc nuw i64 %indvars.iv to i32
   %40 = icmp sgt i32 %39, 0
   br i1 %40, label %43, label %.preheader
 
@@ -3282,7 +3282,7 @@ define internal fastcc noundef ptr @timesub(ptr nocapture noundef readonly %0, i
 
 51:                                               ; preds = %.critedge
   %52 = sdiv i64 %.074, 366
-  %53 = trunc i64 %52 to i32
+  %53 = trunc nsw i64 %52 to i32
   %54 = icmp eq i32 %53, 0
   %55 = select i1 %35, i32 -1, i32 1
   %spec.select = select i1 %54, i32 %55, i32 %53
@@ -3290,7 +3290,7 @@ define internal fastcc noundef ptr @timesub(ptr nocapture noundef readonly %0, i
   br i1 %56, label %57, label %60
 
 57:                                               ; preds = %51
-  %58 = xor i32 %.016, 2147483647
+  %58 = sub nuw nsw i32 2147483647, %.016
   %59 = icmp slt i32 %58, %spec.select
   br i1 %59, label %increment_overflow.exit.thread, label %63
 
@@ -3541,7 +3541,7 @@ leaps_thru_end_of.exit106:                        ; preds = %182, %190
   %205 = trunc i64 %204 to i32
   store i32 %205, ptr getelementptr inbounds (%struct.pg_tm, ptr @tm, i64 0, i32 2), align 8
   %206 = urem i64 %.180.lcssa, 3600
-  %.lhs.trunc = trunc i64 %206 to i16
+  %.lhs.trunc = trunc nuw nsw i64 %206 to i16
   %207 = udiv i16 %.lhs.trunc, 60
   %208 = zext nneg i16 %207 to i32
   store i32 %208, ptr getelementptr inbounds (%struct.pg_tm, ptr @tm, i64 0, i32 1), align 4

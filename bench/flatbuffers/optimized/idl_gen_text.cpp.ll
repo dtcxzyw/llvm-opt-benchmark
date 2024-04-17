@@ -6230,7 +6230,7 @@ if.end9.i:                                        ; preds = %if.end5.i
   br i1 %or.cond.i, label %if.then23, label %for.body22.lr.ph.i
 
 for.body22.lr.ph.i:                               ; preds = %if.end9.i
-  %sub.i = xor i32 %len.031.i, 7
+  %sub.i = sub nuw nsw i32 7, %len.031.i
   %notmask.i = shl nsw i32 -1, %sub.i
   %sub17.i = xor i32 %notmask.i, -1
   %and18.i = and i32 %sub17.i, %conv37.i

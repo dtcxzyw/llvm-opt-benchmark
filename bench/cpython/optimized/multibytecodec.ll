@@ -4729,7 +4729,7 @@ if.end15:                                         ; preds = %if.end9
   br i1 %cmp18, label %if.then20, label %if.end41
 
 if.then20:                                        ; preds = %if.end15
-  %sub = xor i64 %7, 9223372036854775807
+  %sub = sub nuw nsw i64 9223372036854775807, %7
   %cmp23 = icmp sgt i64 %cres.0.val51, %sub
   br i1 %cmp23, label %if.then25, label %if.end27
 

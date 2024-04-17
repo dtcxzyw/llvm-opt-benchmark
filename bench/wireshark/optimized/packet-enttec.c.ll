@@ -262,7 +262,7 @@ define internal i32 @dissect_enttec_udp(ptr noundef %0, ptr nocapture noundef re
   %68 = zext nneg i16 %.0151175.i to i64
   %scevgep.i = getelementptr i8, ptr %42, i64 %68
   %69 = add nsw i16 %67, -1
-  %70 = xor i16 %.0151175.i, 511
+  %70 = sub nuw nsw i16 511, %.0151175.i
   %71 = tail call i16 @llvm.umin.i16(i16 %69, i16 %70)
   %narrow.i = add nuw nsw i16 %71, 1
   %72 = zext nneg i16 %narrow.i to i64
@@ -305,7 +305,7 @@ define internal i32 @dissect_enttec_udp(ptr noundef %0, ptr nocapture noundef re
   br label %.loopexit.i
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph172.i
-  %93 = trunc i64 %indvars.iv.next195.i to i16
+  %93 = trunc nuw nsw i64 %indvars.iv.next195.i to i16
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %87, %78, %59
@@ -318,13 +318,13 @@ define internal i32 @dissect_enttec_udp(ptr noundef %0, ptr nocapture noundef re
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %97 = trunc i64 %indvars.iv.i to i32
+  %97 = trunc nuw nsw i64 %indvars.iv.i to i32
   %98 = add nuw nsw i32 %97, 9
   %99 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %98) #4
   %100 = getelementptr i8, ptr %42, i64 %indvars.iv.i
   store i8 %99, ptr %100, align 1
   %101 = getelementptr i16, ptr %44, i64 %indvars.iv.i
-  %102 = trunc i64 %indvars.iv.i to i16
+  %102 = trunc nuw nsw i64 %indvars.iv.i to i16
   store i16 %102, ptr %101, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

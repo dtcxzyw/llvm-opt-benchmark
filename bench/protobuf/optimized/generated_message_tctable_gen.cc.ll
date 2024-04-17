@@ -235,7 +235,7 @@ if.then13:                                        ; preds = %invoke.cont11
   br i1 %cmp.i93, label %if.then.i100, label %if.else.i94
 
 if.then.i100:                                     ; preds = %if.then13
-  %sub.i101 = xor i64 %sub.ptr.div.i.i92, 3
+  %sub.i101 = sub nuw nsw i64 3, %sub.ptr.div.i.i92
   invoke void @_ZNSt6vectorIN6google8protobuf8internal17TailCallTableInfo8AuxEntryESaIS4_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %aux_entries, i64 noundef %sub.i101)
           to label %if.then.i100.invoke.cont15_crit_edge unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
