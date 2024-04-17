@@ -259,7 +259,7 @@ Psr_ManRoot.exit:                                 ; preds = %2, %7
 
 13:                                               ; preds = %Psr_ManRoot.exit
   %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef %0)
-  br label %185
+  br label %195
 
 15:                                               ; preds = %Psr_ManRoot.exit
   %16 = load i32, ptr %10, align 8
@@ -274,349 +274,365 @@ Psr_ManRoot.exit:                                 ; preds = %2, %7
 
 .lr.ph:                                           ; preds = %15
   %22 = getelementptr i8, ptr %1, i64 8
-  br label %23
+  %23 = getelementptr inbounds i8, ptr %3, i64 8
+  %24 = getelementptr inbounds i8, ptr %3, i64 16
+  %25 = getelementptr inbounds i8, ptr %3, i64 24
+  %26 = getelementptr inbounds i8, ptr %4, i64 8
+  %27 = getelementptr inbounds i8, ptr %4, i64 16
+  %28 = getelementptr inbounds i8, ptr %4, i64 24
+  br label %29
 
-23:                                               ; preds = %.lr.ph, %Psr_ManWriteVerilogNtk.exit
+29:                                               ; preds = %.lr.ph, %Psr_ManWriteVerilogNtk.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Psr_ManWriteVerilogNtk.exit ]
   %.val16 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds ptr, ptr %.val16, i64 %indvars.iv
-  %25 = load ptr, ptr %24, align 8
-  %26 = load i32, ptr %25, align 8
-  %27 = getelementptr i8, ptr %25, i64 8
-  %.val.i = load ptr, ptr %27, align 8
-  %28 = tail call ptr @Abc_NamStr(ptr noundef %.val.i, i32 noundef %26) #10
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.35, ptr noundef %28) #10
-  %30 = getelementptr i8, ptr %25, i64 20
-  %.val1112.i.i = load i32, ptr %30, align 4
-  %31 = icmp sgt i32 %.val1112.i.i, 0
-  br i1 %31, label %.lr.ph.i.i, label %Psr_ManWriteVerilogIoOrder.exit.i
+  %30 = getelementptr inbounds ptr, ptr %.val16, i64 %indvars.iv
+  %31 = load ptr, ptr %30, align 8
+  %32 = load i32, ptr %31, align 8
+  %33 = getelementptr i8, ptr %31, i64 8
+  %.val.i = load ptr, ptr %33, align 8
+  %34 = tail call ptr @Abc_NamStr(ptr noundef %.val.i, i32 noundef %32) #10
+  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.35, ptr noundef %34) #10
+  %36 = getelementptr i8, ptr %31, i64 20
+  %.val1112.i.i = load i32, ptr %36, align 4
+  %37 = icmp sgt i32 %.val1112.i.i, 0
+  br i1 %37, label %.lr.ph.i.i, label %Psr_ManWriteVerilogIoOrder.exit.i
 
-.lr.ph.i.i:                                       ; preds = %23
-  %32 = getelementptr i8, ptr %25, i64 24
-  br label %33
+.lr.ph.i.i:                                       ; preds = %29
+  %38 = getelementptr i8, ptr %31, i64 24
+  br label %39
 
-33:                                               ; preds = %33, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %33 ]
-  %.val.i.i17 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i32, ptr %.val.i.i17, i64 %indvars.iv.i.i
-  %35 = load i32, ptr %34, align 4
-  %.val9.i.i = load ptr, ptr %27, align 8
-  %36 = tail call ptr @Abc_NamStr(ptr noundef %.val9.i.i, i32 noundef %35) #10
-  %.val10.i.i = load i32, ptr %30, align 4
-  %37 = add nsw i32 %.val10.i.i, -1
-  %38 = zext i32 %37 to i64
-  %39 = icmp eq i64 %indvars.iv.i.i, %38
-  %40 = select i1 %39, ptr @.str.1, ptr @.str.2
-  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.32, ptr noundef %36, ptr noundef nonnull %40) #10
+39:                                               ; preds = %39, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %39 ]
+  %.val.i.i17 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i32, ptr %.val.i.i17, i64 %indvars.iv.i.i
+  %41 = load i32, ptr %40, align 4
+  %.val9.i.i = load ptr, ptr %33, align 8
+  %42 = tail call ptr @Abc_NamStr(ptr noundef %.val9.i.i, i32 noundef %41) #10
+  %.val10.i.i = load i32, ptr %36, align 4
+  %43 = add nsw i32 %.val10.i.i, -1
+  %44 = zext i32 %43 to i64
+  %45 = icmp eq i64 %indvars.iv.i.i, %44
+  %46 = select i1 %45, ptr @.str.1, ptr @.str.2
+  %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.32, ptr noundef %42, ptr noundef nonnull %46) #10
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %.val11.i.i = load i32, ptr %30, align 4
-  %42 = sext i32 %.val11.i.i to i64
-  %43 = icmp slt i64 %indvars.iv.next.i.i, %42
-  br i1 %43, label %33, label %Psr_ManWriteVerilogIoOrder.exit.i, !llvm.loop !6
+  %.val11.i.i = load i32, ptr %36, align 4
+  %48 = sext i32 %.val11.i.i to i64
+  %49 = icmp slt i64 %indvars.iv.next.i.i, %48
+  br i1 %49, label %39, label %Psr_ManWriteVerilogIoOrder.exit.i, !llvm.loop !6
 
-Psr_ManWriteVerilogIoOrder.exit.i:                ; preds = %33, %23
-  %44 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 6, i64 1, ptr %11)
-  %45 = insertelement <4 x ptr> poison, ptr %25, i64 0
-  %46 = shufflevector <4 x ptr> %45, <4 x ptr> poison, <4 x i32> zeroinitializer
-  %47 = getelementptr i8, <4 x ptr> %46, <4 x i64> <i64 32, i64 48, i64 64, i64 80>
-  %48 = getelementptr i8, <4 x ptr> %46, <4 x i64> <i64 96, i64 112, i64 128, i64 144>
-  br label %49
+Psr_ManWriteVerilogIoOrder.exit.i:                ; preds = %39, %29
+  %50 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 6, i64 1, ptr %11)
+  %51 = getelementptr inbounds i8, ptr %31, i64 32
+  %52 = getelementptr inbounds i8, ptr %31, i64 48
+  %53 = getelementptr inbounds i8, ptr %31, i64 64
+  %54 = getelementptr inbounds i8, ptr %31, i64 80
+  %55 = getelementptr inbounds i8, ptr %31, i64 96
+  %56 = getelementptr inbounds i8, ptr %31, i64 112
+  %57 = getelementptr inbounds i8, ptr %31, i64 128
+  %58 = getelementptr inbounds i8, ptr %31, i64 144
+  br label %59
 
-49:                                               ; preds = %Psr_ManWriteVerilogIos.exit.i, %Psr_ManWriteVerilogIoOrder.exit.i
+59:                                               ; preds = %Psr_ManWriteVerilogIos.exit.i, %Psr_ManWriteVerilogIoOrder.exit.i
   %indvars.iv.i = phi i64 [ 0, %Psr_ManWriteVerilogIoOrder.exit.i ], [ %indvars.iv.next.i, %Psr_ManWriteVerilogIos.exit.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  store <4 x ptr> %47, ptr %3, align 16
-  store <4 x ptr> %48, ptr %4, align 16
-  %50 = icmp eq i64 %indvars.iv.i, 3
-  br i1 %50, label %51, label %52
+  store ptr %51, ptr %3, align 16
+  store ptr %52, ptr %23, align 8
+  store ptr %53, ptr %24, align 16
+  store ptr %54, ptr %25, align 8
+  store ptr %55, ptr %4, align 16
+  store ptr %56, ptr %26, align 8
+  store ptr %57, ptr %27, align 16
+  store ptr %58, ptr %28, align 8
+  %60 = icmp eq i64 %indvars.iv.i, 3
+  br i1 %60, label %61, label %62
 
-51:                                               ; preds = %49
+61:                                               ; preds = %59
   %fputc.i.i = tail call i32 @fputc(i32 10, ptr %11)
-  br label %52
+  br label %62
 
-52:                                               ; preds = %51, %49
-  %53 = getelementptr inbounds [4 x ptr], ptr %3, i64 0, i64 %indvars.iv.i
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr i8, ptr %54, i64 4
-  %.val2728.i.i = load i32, ptr %55, align 4
-  %56 = icmp sgt i32 %.val2728.i.i, 0
-  br i1 %56, label %.lr.ph.i15.i, label %Psr_ManWriteVerilogIos.exit.i
+62:                                               ; preds = %61, %59
+  %63 = getelementptr inbounds [4 x ptr], ptr %3, i64 0, i64 %indvars.iv.i
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr i8, ptr %64, i64 4
+  %.val2728.i.i = load i32, ptr %65, align 4
+  %66 = icmp sgt i32 %.val2728.i.i, 0
+  br i1 %66, label %.lr.ph.i15.i, label %Psr_ManWriteVerilogIos.exit.i
 
-.lr.ph.i15.i:                                     ; preds = %52
-  %57 = getelementptr i8, ptr %54, i64 8
-  %58 = getelementptr inbounds [4 x ptr], ptr %4, i64 0, i64 %indvars.iv.i
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr i8, ptr %59, i64 8
-  %61 = getelementptr inbounds [4 x ptr], ptr @__const.Psr_ManWriteVerilogIos.pSigNames, i64 0, i64 %indvars.iv.i
-  %62 = load ptr, ptr %61, align 8
-  br label %63
+.lr.ph.i15.i:                                     ; preds = %62
+  %67 = getelementptr i8, ptr %64, i64 8
+  %68 = getelementptr inbounds [4 x ptr], ptr %4, i64 0, i64 %indvars.iv.i
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr i8, ptr %69, i64 8
+  %71 = getelementptr inbounds [4 x ptr], ptr @__const.Psr_ManWriteVerilogIos.pSigNames, i64 0, i64 %indvars.iv.i
+  %72 = load ptr, ptr %71, align 8
+  br label %73
 
-63:                                               ; preds = %70, %.lr.ph.i15.i
-  %indvars.iv.i16.i = phi i64 [ 0, %.lr.ph.i15.i ], [ %indvars.iv.next.i18.i, %70 ]
-  %.val24.i.i = load ptr, ptr %57, align 8
-  %64 = getelementptr inbounds i32, ptr %.val24.i.i, i64 %indvars.iv.i16.i
-  %65 = load i32, ptr %64, align 4
-  %.val.i17.i = load ptr, ptr %60, align 8
-  %66 = getelementptr inbounds i32, ptr %.val.i17.i, i64 %indvars.iv.i16.i
-  %67 = load i32, ptr %66, align 4
-  %.not.i.i = icmp eq i32 %67, 0
-  br i1 %.not.i.i, label %70, label %68
+73:                                               ; preds = %80, %.lr.ph.i15.i
+  %indvars.iv.i16.i = phi i64 [ 0, %.lr.ph.i15.i ], [ %indvars.iv.next.i18.i, %80 ]
+  %.val24.i.i = load ptr, ptr %67, align 8
+  %74 = getelementptr inbounds i32, ptr %.val24.i.i, i64 %indvars.iv.i16.i
+  %75 = load i32, ptr %74, align 4
+  %.val.i17.i = load ptr, ptr %70, align 8
+  %76 = getelementptr inbounds i32, ptr %.val.i17.i, i64 %indvars.iv.i16.i
+  %77 = load i32, ptr %76, align 4
+  %.not.i.i = icmp eq i32 %77, 0
+  br i1 %.not.i.i, label %80, label %78
 
-68:                                               ; preds = %63
-  %.val26.i.i = load ptr, ptr %27, align 8
-  %69 = tail call ptr @Abc_NamStr(ptr noundef %.val26.i.i, i32 noundef %67) #10
-  br label %70
+78:                                               ; preds = %73
+  %.val26.i.i = load ptr, ptr %33, align 8
+  %79 = tail call ptr @Abc_NamStr(ptr noundef %.val26.i.i, i32 noundef %77) #10
+  br label %80
 
-70:                                               ; preds = %68, %63
-  %71 = phi ptr [ %69, %68 ], [ @.str.1, %63 ]
-  %.val25.i.i = load ptr, ptr %27, align 8
-  %72 = tail call ptr @Abc_NamStr(ptr noundef %.val25.i.i, i32 noundef %65) #10
-  %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.40, ptr noundef %62, ptr noundef %71, ptr noundef %72) #10
+80:                                               ; preds = %78, %73
+  %81 = phi ptr [ %79, %78 ], [ @.str.1, %73 ]
+  %.val25.i.i = load ptr, ptr %33, align 8
+  %82 = tail call ptr @Abc_NamStr(ptr noundef %.val25.i.i, i32 noundef %75) #10
+  %83 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.40, ptr noundef %72, ptr noundef %81, ptr noundef %82) #10
   %indvars.iv.next.i18.i = add nuw nsw i64 %indvars.iv.i16.i, 1
-  %.val27.i.i = load i32, ptr %55, align 4
-  %74 = sext i32 %.val27.i.i to i64
-  %75 = icmp slt i64 %indvars.iv.next.i18.i, %74
-  br i1 %75, label %63, label %Psr_ManWriteVerilogIos.exit.i, !llvm.loop !7
+  %.val27.i.i = load i32, ptr %65, align 4
+  %84 = sext i32 %.val27.i.i to i64
+  %85 = icmp slt i64 %indvars.iv.next.i18.i, %84
+  br i1 %85, label %73, label %Psr_ManWriteVerilogIos.exit.i, !llvm.loop !7
 
-Psr_ManWriteVerilogIos.exit.i:                    ; preds = %70, %52
+Psr_ManWriteVerilogIos.exit.i:                    ; preds = %80, %62
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %76, label %49, !llvm.loop !8
+  br i1 %exitcond.not.i, label %86, label %59, !llvm.loop !8
 
-76:                                               ; preds = %Psr_ManWriteVerilogIos.exit.i
+86:                                               ; preds = %Psr_ManWriteVerilogIos.exit.i
   %fputc.i = tail call i32 @fputc(i32 10, ptr %11)
-  %77 = getelementptr i8, ptr %25, i64 212
-  %.val4166.i.i = load i32, ptr %77, align 4
-  %78 = icmp sgt i32 %.val4166.i.i, 0
-  br i1 %78, label %.lr.ph.i19.i, label %Psr_ManWriteVerilogNtk.exit
+  %87 = getelementptr i8, ptr %31, i64 212
+  %.val4166.i.i = load i32, ptr %87, align 4
+  %88 = icmp sgt i32 %.val4166.i.i, 0
+  br i1 %88, label %.lr.ph.i19.i, label %Psr_ManWriteVerilogNtk.exit
 
-.lr.ph.i19.i:                                     ; preds = %76
-  %79 = getelementptr i8, ptr %25, i64 200
-  %80 = getelementptr i8, ptr %25, i64 216
-  br label %81
+.lr.ph.i19.i:                                     ; preds = %86
+  %89 = getelementptr i8, ptr %31, i64 200
+  %90 = getelementptr i8, ptr %31, i64 216
+  br label %91
 
-81:                                               ; preds = %Psr_ManWriteVerilogMux.exit.i.i, %.lr.ph.i19.i
+91:                                               ; preds = %Psr_ManWriteVerilogMux.exit.i.i, %.lr.ph.i19.i
   %indvars.iv.i20.i = phi i64 [ 0, %.lr.ph.i19.i ], [ %indvars.iv.next.i22.i, %Psr_ManWriteVerilogMux.exit.i.i ]
-  %.val.i.i.i = load ptr, ptr %79, align 8
-  %.val3.i.i.i = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i32, ptr %.val3.i.i.i, i64 %indvars.iv.i20.i
-  %83 = load i32, ptr %82, align 4
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %84
-  %86 = load i32, ptr %85, align 4
-  %87 = add nsw i32 %86, -2
-  store i32 %87, ptr @Psr_BoxSignals.V.1, align 8
-  %.val4.i.i.i = load ptr, ptr %79, align 8
-  %.val5.i.i.i = load ptr, ptr %80, align 8
-  %88 = getelementptr inbounds i32, ptr %.val5.i.i.i, i64 %indvars.iv.i20.i
-  %89 = load i32, ptr %88, align 4
-  %90 = sext i32 %89 to i64
-  %91 = getelementptr i32, ptr %.val4.i.i.i, i64 %90
-  %92 = getelementptr i8, ptr %91, i64 12
-  store ptr %92, ptr @Psr_BoxSignals.V.2, align 8
-  %.val42.i.i = load ptr, ptr %79, align 8
-  %.val43.i.i = load ptr, ptr %80, align 8
-  %93 = getelementptr inbounds i32, ptr %.val43.i.i, i64 %indvars.iv.i20.i
-  %94 = load i32, ptr %93, align 4
-  %95 = sext i32 %94 to i64
-  %96 = getelementptr i32, ptr %.val42.i.i, i64 %95
-  %97 = getelementptr i8, ptr %96, i64 4
-  %98 = load i32, ptr %97, align 4
-  %99 = icmp eq i32 %98, 20
-  br i1 %99, label %100, label %119
+  %.val.i.i.i = load ptr, ptr %89, align 8
+  %.val3.i.i.i = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds i32, ptr %.val3.i.i.i, i64 %indvars.iv.i20.i
+  %93 = load i32, ptr %92, align 4
+  %94 = sext i32 %93 to i64
+  %95 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %94
+  %96 = load i32, ptr %95, align 4
+  %97 = add nsw i32 %96, -2
+  store i32 %97, ptr @Psr_BoxSignals.V.1, align 8
+  %.val4.i.i.i = load ptr, ptr %89, align 8
+  %.val5.i.i.i = load ptr, ptr %90, align 8
+  %98 = getelementptr inbounds i32, ptr %.val5.i.i.i, i64 %indvars.iv.i20.i
+  %99 = load i32, ptr %98, align 4
+  %100 = sext i32 %99 to i64
+  %101 = getelementptr i32, ptr %.val4.i.i.i, i64 %100
+  %102 = getelementptr i8, ptr %101, i64 12
+  store ptr %102, ptr @Psr_BoxSignals.V.2, align 8
+  %.val42.i.i = load ptr, ptr %89, align 8
+  %.val43.i.i = load ptr, ptr %90, align 8
+  %103 = getelementptr inbounds i32, ptr %.val43.i.i, i64 %indvars.iv.i20.i
+  %104 = load i32, ptr %103, align 4
+  %105 = sext i32 %104 to i64
+  %106 = getelementptr i32, ptr %.val42.i.i, i64 %105
+  %107 = getelementptr i8, ptr %106, i64 4
+  %108 = load i32, ptr %107, align 4
+  %109 = icmp eq i32 %108, 20
+  br i1 %109, label %110, label %129
 
-100:                                              ; preds = %81
-  %101 = tail call i64 @fwrite(ptr nonnull @.str.46, i64 9, i64 1, ptr %11)
+110:                                              ; preds = %91
+  %111 = tail call i64 @fwrite(ptr nonnull @.str.46, i64 9, i64 1, ptr %11)
   %.val20.i.i.i = load i32, ptr @Psr_BoxSignals.V.1, align 8
   %.val21.i.i.i = load ptr, ptr @Psr_BoxSignals.V.2, align 8
-  %102 = sext i32 %.val20.i.i.i to i64
-  %103 = getelementptr i32, ptr %.val21.i.i.i, i64 %102
-  %104 = getelementptr i8, ptr %103, i64 -4
-  %105 = load i32, ptr %104, align 4
-  tail call fastcc void @Psr_ManWriteVerilogSignal(ptr noundef %11, ptr noundef nonnull %25, i32 noundef %105)
-  %106 = tail call i64 @fwrite(ptr nonnull @.str.43, i64 3, i64 1, ptr %11)
+  %112 = sext i32 %.val20.i.i.i to i64
+  %113 = getelementptr i32, ptr %.val21.i.i.i, i64 %112
+  %114 = getelementptr i8, ptr %113, i64 -4
+  %115 = load i32, ptr %114, align 4
+  tail call fastcc void @Psr_ManWriteVerilogSignal(ptr noundef %11, ptr noundef nonnull %31, i32 noundef %115)
+  %116 = tail call i64 @fwrite(ptr nonnull @.str.43, i64 3, i64 1, ptr %11)
   %.val1922.i.i.i = load i32, ptr @Psr_BoxSignals.V.1, align 8
-  %107 = icmp sgt i32 %.val1922.i.i.i, 1
-  br i1 %107, label %.lr.ph.i.i.i, label %Psr_ManWriteVerilogMux.exit.i.i
+  %117 = icmp sgt i32 %.val1922.i.i.i, 1
+  br i1 %117, label %.lr.ph.i.i.i, label %Psr_ManWriteVerilogMux.exit.i.i
 
-108:                                              ; preds = %.lr.ph.i.i.i
+118:                                              ; preds = %.lr.ph.i.i.i
   %indvars.iv.next26.i.i.i = add nuw nsw i64 %indvars.iv25.i.i.i, 2
-  %109 = or disjoint i64 %indvars.iv.next26.i.i.i, 1
+  %119 = or disjoint i64 %indvars.iv.next26.i.i.i, 1
   %.val19.i.i.i = load i32, ptr @Psr_BoxSignals.V.1, align 8
-  %110 = sext i32 %.val19.i.i.i to i64
-  %111 = icmp slt i64 %109, %110
+  %120 = sext i32 %.val19.i.i.i to i64
+  %121 = icmp slt i64 %119, %120
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 2
-  br i1 %111, label %.lr.ph.i.i.i, label %Psr_ManWriteVerilogMux.exit.i.i, !llvm.loop !9
+  br i1 %121, label %.lr.ph.i.i.i, label %Psr_ManWriteVerilogMux.exit.i.i, !llvm.loop !9
 
-.lr.ph.i.i.i:                                     ; preds = %100, %108
-  %indvars.iv25.i.i.i = phi i64 [ %indvars.iv.next26.i.i.i, %108 ], [ 0, %100 ]
-  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %108 ], [ 1, %100 ]
+.lr.ph.i.i.i:                                     ; preds = %110, %118
+  %indvars.iv25.i.i.i = phi i64 [ %indvars.iv.next26.i.i.i, %118 ], [ 0, %110 ]
+  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %118 ], [ 1, %110 ]
   %.val18.i.i.i = load ptr, ptr @Psr_BoxSignals.V.2, align 8
-  %112 = getelementptr inbounds i32, ptr %.val18.i.i.i, i64 %indvars.iv.i.i.i
-  %113 = load i32, ptr %112, align 4
-  tail call fastcc void @Psr_ManWriteVerilogSignal(ptr noundef %11, ptr noundef nonnull %25, i32 noundef %113)
-  %114 = lshr exact i64 %indvars.iv25.i.i.i, 1
-  %115 = add nuw nsw i64 %114, 1
-  %116 = getelementptr inbounds [4 x ptr], ptr @__const.Psr_ManWriteVerilogMux.pStrs, i64 0, i64 %115
-  %117 = load ptr, ptr %116, align 8
-  %fputs.i.i.i = tail call i32 @fputs(ptr %117, ptr %11)
-  %118 = icmp eq i64 %indvars.iv25.i.i.i, 4
-  br i1 %118, label %Psr_ManWriteVerilogMux.exit.i.i, label %108
+  %122 = getelementptr inbounds i32, ptr %.val18.i.i.i, i64 %indvars.iv.i.i.i
+  %123 = load i32, ptr %122, align 4
+  tail call fastcc void @Psr_ManWriteVerilogSignal(ptr noundef %11, ptr noundef nonnull %31, i32 noundef %123)
+  %124 = lshr exact i64 %indvars.iv25.i.i.i, 1
+  %125 = add nuw nsw i64 %124, 1
+  %126 = getelementptr inbounds [4 x ptr], ptr @__const.Psr_ManWriteVerilogMux.pStrs, i64 0, i64 %125
+  %127 = load ptr, ptr %126, align 8
+  %fputs.i.i.i = tail call i32 @fputs(ptr %127, ptr %11)
+  %128 = icmp eq i64 %indvars.iv25.i.i.i, 4
+  br i1 %128, label %Psr_ManWriteVerilogMux.exit.i.i, label %118
 
-119:                                              ; preds = %81
-  %120 = getelementptr i8, ptr %96, i64 12
-  %121 = load i32, ptr %120, align 4
-  %.not.i.not.i.i = icmp eq i32 %121, 0
-  br i1 %.not.i.not.i.i, label %122, label %150
+129:                                              ; preds = %91
+  %130 = getelementptr i8, ptr %106, i64 12
+  %131 = load i32, ptr %130, align 4
+  %.not.i.not.i.i = icmp eq i32 %131, 0
+  br i1 %.not.i.not.i.i, label %132, label %160
 
-122:                                              ; preds = %119
-  %switch.tableidx = add i32 %98, -6
-  %123 = icmp ult i32 %switch.tableidx, 16
-  br i1 %123, label %switch.lookup, label %Ptr_TypeToName.exit.i.i
+132:                                              ; preds = %129
+  %switch.tableidx = add i32 %108, -6
+  %133 = icmp ult i32 %switch.tableidx, 16
+  br i1 %133, label %switch.lookup, label %Ptr_TypeToName.exit.i.i
 
-switch.lookup:                                    ; preds = %122
-  %124 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table.Psr_ManWriteVerilog, i64 0, i64 %124
+switch.lookup:                                    ; preds = %132
+  %134 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [16 x ptr], ptr @switch.table.Psr_ManWriteVerilog, i64 0, i64 %134
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %Ptr_TypeToName.exit.i.i
 
-Ptr_TypeToName.exit.i.i:                          ; preds = %122, %switch.lookup
-  %.0.i.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.63, %122 ]
-  %125 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.41, ptr noundef nonnull %.0.i.i.i) #10
+Ptr_TypeToName.exit.i.i:                          ; preds = %132, %switch.lookup
+  %.0.i.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.63, %132 ]
+  %135 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.41, ptr noundef nonnull %.0.i.i.i) #10
   %Psr_BoxSignals.V.val44.i.i = load i32, ptr @Psr_BoxSignals.V.1, align 8
   %Psr_BoxSignals.V.val45.i.i = load ptr, ptr @Psr_BoxSignals.V.2, align 8
-  %126 = sext i32 %Psr_BoxSignals.V.val44.i.i to i64
-  %127 = getelementptr i32, ptr %Psr_BoxSignals.V.val45.i.i, i64 %126
-  %128 = getelementptr i8, ptr %127, i64 -4
-  %129 = load i32, ptr %128, align 4
-  tail call fastcc void @Psr_ManWriteVerilogSignal(ptr noundef %11, ptr noundef nonnull %25, i32 noundef %129)
-  %.val48.i.i = load ptr, ptr %79, align 8
-  %.val49.i.i = load ptr, ptr %80, align 8
-  %130 = getelementptr inbounds i32, ptr %.val49.i.i, i64 %indvars.iv.i20.i
-  %131 = load i32, ptr %130, align 4
-  %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds i32, ptr %.val48.i.i, i64 %132
-  %134 = load i32, ptr %133, align 4
-  %135 = icmp sgt i32 %134, 5
-  br i1 %135, label %136, label %138
+  %136 = sext i32 %Psr_BoxSignals.V.val44.i.i to i64
+  %137 = getelementptr i32, ptr %Psr_BoxSignals.V.val45.i.i, i64 %136
+  %138 = getelementptr i8, ptr %137, i64 -4
+  %139 = load i32, ptr %138, align 4
+  tail call fastcc void @Psr_ManWriteVerilogSignal(ptr noundef %11, ptr noundef nonnull %31, i32 noundef %139)
+  %.val48.i.i = load ptr, ptr %89, align 8
+  %.val49.i.i = load ptr, ptr %90, align 8
+  %140 = getelementptr inbounds i32, ptr %.val49.i.i, i64 %indvars.iv.i20.i
+  %141 = load i32, ptr %140, align 4
+  %142 = sext i32 %141 to i64
+  %143 = getelementptr inbounds i32, ptr %.val48.i.i, i64 %142
+  %144 = load i32, ptr %143, align 4
+  %145 = icmp sgt i32 %144, 5
+  br i1 %145, label %146, label %148
 
-136:                                              ; preds = %Ptr_TypeToName.exit.i.i
-  %137 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 2, i64 1, ptr %11)
-  br label %138
-
-138:                                              ; preds = %136, %Ptr_TypeToName.exit.i.i
-  %Psr_BoxSignals.V.val.i.i = load i32, ptr @Psr_BoxSignals.V.1, align 8
-  %139 = icmp sgt i32 %Psr_BoxSignals.V.val.i.i, 2
-  br i1 %139, label %.lr.ph.i54.i.i, label %Psr_ManWriteVerilogMux.exit.sink.split.i.i
-
-.lr.ph.i54.i.i:                                   ; preds = %138
-  %140 = add nsw i32 %Psr_BoxSignals.V.val.i.i, -2
-  %141 = add nsw i32 %Psr_BoxSignals.V.val.i.i, -3
-  %sext20.i.i.i = zext nneg i32 %141 to i64
-  %zext.i.i = zext nneg i32 %140 to i64
-  br label %.lr.ph.split.i.i.i
-
-.lr.ph.split.i.i.i:                               ; preds = %148, %.lr.ph.i54.i.i
-  %indvars.iv.i55.i.i = phi i64 [ %indvars.iv.next.i58.i.i, %148 ], [ 0, %.lr.ph.i54.i.i ]
-  %142 = and i64 %indvars.iv.i55.i.i, 1
-  %.not14.i.i.i = icmp eq i64 %142, 0
-  br i1 %.not14.i.i.i, label %148, label %143
-
-143:                                              ; preds = %.lr.ph.split.i.i.i
-  %.val.i56.i.i = load ptr, ptr @Psr_BoxSignals.V.2, align 8
-  %144 = getelementptr inbounds i32, ptr %.val.i56.i.i, i64 %indvars.iv.i55.i.i
-  %145 = load i32, ptr %144, align 4
-  tail call fastcc void @Psr_ManWriteVerilogSignal(ptr noundef %11, ptr noundef nonnull %25, i32 noundef %145)
-  %146 = icmp eq i64 %indvars.iv.i55.i.i, %sext20.i.i.i
-  %147 = select i1 %146, ptr @.str.1, ptr @.str.2
-  %fputs.i57.i.i = tail call i32 @fputs(ptr nonnull %147, ptr %11)
+146:                                              ; preds = %Ptr_TypeToName.exit.i.i
+  %147 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 2, i64 1, ptr %11)
   br label %148
 
-148:                                              ; preds = %143, %.lr.ph.split.i.i.i
+148:                                              ; preds = %146, %Ptr_TypeToName.exit.i.i
+  %Psr_BoxSignals.V.val.i.i = load i32, ptr @Psr_BoxSignals.V.1, align 8
+  %149 = icmp sgt i32 %Psr_BoxSignals.V.val.i.i, 2
+  br i1 %149, label %.lr.ph.i54.i.i, label %Psr_ManWriteVerilogMux.exit.sink.split.i.i
+
+.lr.ph.i54.i.i:                                   ; preds = %148
+  %150 = add nsw i32 %Psr_BoxSignals.V.val.i.i, -2
+  %151 = add nsw i32 %Psr_BoxSignals.V.val.i.i, -3
+  %sext20.i.i.i = zext nneg i32 %151 to i64
+  %zext.i.i = zext nneg i32 %150 to i64
+  br label %.lr.ph.split.i.i.i
+
+.lr.ph.split.i.i.i:                               ; preds = %158, %.lr.ph.i54.i.i
+  %indvars.iv.i55.i.i = phi i64 [ %indvars.iv.next.i58.i.i, %158 ], [ 0, %.lr.ph.i54.i.i ]
+  %152 = and i64 %indvars.iv.i55.i.i, 1
+  %.not14.i.i.i = icmp eq i64 %152, 0
+  br i1 %.not14.i.i.i, label %158, label %153
+
+153:                                              ; preds = %.lr.ph.split.i.i.i
+  %.val.i56.i.i = load ptr, ptr @Psr_BoxSignals.V.2, align 8
+  %154 = getelementptr inbounds i32, ptr %.val.i56.i.i, i64 %indvars.iv.i55.i.i
+  %155 = load i32, ptr %154, align 4
+  tail call fastcc void @Psr_ManWriteVerilogSignal(ptr noundef %11, ptr noundef nonnull %31, i32 noundef %155)
+  %156 = icmp eq i64 %indvars.iv.i55.i.i, %sext20.i.i.i
+  %157 = select i1 %156, ptr @.str.1, ptr @.str.2
+  %fputs.i57.i.i = tail call i32 @fputs(ptr nonnull %157, ptr %11)
+  br label %158
+
+158:                                              ; preds = %153, %.lr.ph.split.i.i.i
   %indvars.iv.next.i58.i.i = add nuw nsw i64 %indvars.iv.i55.i.i, 1
-  %149 = icmp eq i64 %indvars.iv.next.i58.i.i, %zext.i.i
-  br i1 %149, label %Psr_ManWriteVerilogMux.exit.sink.split.i.i, label %.lr.ph.split.i.i.i, !llvm.loop !4
+  %159 = icmp eq i64 %indvars.iv.next.i58.i.i, %zext.i.i
+  br i1 %159, label %Psr_ManWriteVerilogMux.exit.sink.split.i.i, label %.lr.ph.split.i.i.i, !llvm.loop !4
 
-150:                                              ; preds = %119
-  %.val40.i.i = load ptr, ptr %27, align 8
-  %151 = tail call ptr @Abc_NamStr(ptr noundef %.val40.i.i, i32 noundef %98) #10
-  %.val50.i.i = load ptr, ptr %79, align 8
-  %.val51.i.i = load ptr, ptr %80, align 8
-  %152 = getelementptr inbounds i32, ptr %.val51.i.i, i64 %indvars.iv.i20.i
-  %153 = load i32, ptr %152, align 4
-  %154 = sext i32 %153 to i64
-  %155 = getelementptr i32, ptr %.val50.i.i, i64 %154
-  %156 = getelementptr i8, ptr %155, i64 8
-  %157 = load i32, ptr %156, align 4
-  %.not39.i.i = icmp eq i32 %157, 0
-  br i1 %.not39.i.i, label %160, label %158
+160:                                              ; preds = %129
+  %.val40.i.i = load ptr, ptr %33, align 8
+  %161 = tail call ptr @Abc_NamStr(ptr noundef %.val40.i.i, i32 noundef %108) #10
+  %.val50.i.i = load ptr, ptr %89, align 8
+  %.val51.i.i = load ptr, ptr %90, align 8
+  %162 = getelementptr inbounds i32, ptr %.val51.i.i, i64 %indvars.iv.i20.i
+  %163 = load i32, ptr %162, align 4
+  %164 = sext i32 %163 to i64
+  %165 = getelementptr i32, ptr %.val50.i.i, i64 %164
+  %166 = getelementptr i8, ptr %165, i64 8
+  %167 = load i32, ptr %166, align 4
+  %.not39.i.i = icmp eq i32 %167, 0
+  br i1 %.not39.i.i, label %170, label %168
 
-158:                                              ; preds = %150
-  %.val.i21.i = load ptr, ptr %27, align 8
-  %159 = tail call ptr @Abc_NamStr(ptr noundef %.val.i21.i, i32 noundef %157) #10
-  br label %160
+168:                                              ; preds = %160
+  %.val.i21.i = load ptr, ptr %33, align 8
+  %169 = tail call ptr @Abc_NamStr(ptr noundef %.val.i21.i, i32 noundef %167) #10
+  br label %170
 
-160:                                              ; preds = %158, %150
-  %161 = phi ptr [ %159, %158 ], [ @.str.1, %150 ]
-  %162 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.42, ptr noundef %151, ptr noundef %161) #10
+170:                                              ; preds = %168, %160
+  %171 = phi ptr [ %169, %168 ], [ @.str.1, %160 ]
+  %172 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.42, ptr noundef %161, ptr noundef %171) #10
   %.val2223.i.i.i = load i32, ptr @Psr_BoxSignals.V.1, align 8
-  %163 = icmp sgt i32 %.val2223.i.i.i, 1
-  br i1 %163, label %.lr.ph.i59.i.i, label %Psr_ManWriteVerilogMux.exit.sink.split.i.i
+  %173 = icmp sgt i32 %.val2223.i.i.i, 1
+  br i1 %173, label %.lr.ph.i59.i.i, label %Psr_ManWriteVerilogMux.exit.sink.split.i.i
 
-.lr.ph.i59.i.i:                                   ; preds = %160, %.lr.ph.i59.i.i
-  %indvars.iv.i60.i.i = phi i64 [ %indvars.iv.next.i65.i.i, %.lr.ph.i59.i.i ], [ 0, %160 ]
-  %164 = or disjoint i64 %indvars.iv.i60.i.i, 1
+.lr.ph.i59.i.i:                                   ; preds = %170, %.lr.ph.i59.i.i
+  %indvars.iv.i60.i.i = phi i64 [ %indvars.iv.next.i65.i.i, %.lr.ph.i59.i.i ], [ 0, %170 ]
+  %174 = or disjoint i64 %indvars.iv.i60.i.i, 1
   %.val19.i61.i.i = load ptr, ptr @Psr_BoxSignals.V.2, align 8
-  %165 = getelementptr inbounds i32, ptr %.val19.i61.i.i, i64 %indvars.iv.i60.i.i
-  %166 = load i32, ptr %165, align 4
-  %167 = getelementptr inbounds i32, ptr %.val19.i61.i.i, i64 %164
-  %168 = load i32, ptr %167, align 4
+  %175 = getelementptr inbounds i32, ptr %.val19.i61.i.i, i64 %indvars.iv.i60.i.i
+  %176 = load i32, ptr %175, align 4
+  %177 = getelementptr inbounds i32, ptr %.val19.i61.i.i, i64 %174
+  %178 = load i32, ptr %177, align 4
   %fputc.i.i.i = tail call i32 @fputc(i32 46, ptr %11)
-  %.val20.i62.i.i = load ptr, ptr %27, align 8
-  %169 = tail call ptr @Abc_NamStr(ptr noundef %.val20.i62.i.i, i32 noundef %166) #10
-  %fputs.i63.i.i = tail call i32 @fputs(ptr %169, ptr %11)
+  %.val20.i62.i.i = load ptr, ptr %33, align 8
+  %179 = tail call ptr @Abc_NamStr(ptr noundef %.val20.i62.i.i, i32 noundef %176) #10
+  %fputs.i63.i.i = tail call i32 @fputs(ptr %179, ptr %11)
   %fputc18.i.i.i = tail call i32 @fputc(i32 40, ptr %11)
-  tail call fastcc void @Psr_ManWriteVerilogSignal(ptr noundef %11, ptr noundef nonnull %25, i32 noundef %168)
+  tail call fastcc void @Psr_ManWriteVerilogSignal(ptr noundef %11, ptr noundef nonnull %31, i32 noundef %178)
   %.val21.i64.i.i = load i32, ptr @Psr_BoxSignals.V.1, align 8
-  %170 = add nsw i32 %.val21.i64.i.i, -2
-  %171 = zext i32 %170 to i64
-  %172 = icmp eq i64 %indvars.iv.i60.i.i, %171
-  %173 = select i1 %172, ptr @.str.1, ptr @.str.2
-  %174 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.64, ptr noundef nonnull %173) #10
+  %180 = add nsw i32 %.val21.i64.i.i, -2
+  %181 = zext i32 %180 to i64
+  %182 = icmp eq i64 %indvars.iv.i60.i.i, %181
+  %183 = select i1 %182, ptr @.str.1, ptr @.str.2
+  %184 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.64, ptr noundef nonnull %183) #10
   %indvars.iv.next.i65.i.i = add nuw nsw i64 %indvars.iv.i60.i.i, 2
   %.val22.i.i.i = load i32, ptr @Psr_BoxSignals.V.1, align 8
-  %175 = trunc i64 %indvars.iv.next.i65.i.i to i32
-  %176 = or disjoint i32 %175, 1
-  %177 = icmp slt i32 %176, %.val22.i.i.i
-  br i1 %177, label %.lr.ph.i59.i.i, label %Psr_ManWriteVerilogMux.exit.sink.split.i.i, !llvm.loop !10
+  %185 = trunc i64 %indvars.iv.next.i65.i.i to i32
+  %186 = or disjoint i32 %185, 1
+  %187 = icmp slt i32 %186, %.val22.i.i.i
+  br i1 %187, label %.lr.ph.i59.i.i, label %Psr_ManWriteVerilogMux.exit.sink.split.i.i, !llvm.loop !10
 
-Psr_ManWriteVerilogMux.exit.sink.split.i.i:       ; preds = %.lr.ph.i59.i.i, %148, %160, %138
-  %178 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 3, i64 1, ptr %11)
+Psr_ManWriteVerilogMux.exit.sink.split.i.i:       ; preds = %.lr.ph.i59.i.i, %158, %170, %148
+  %188 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 3, i64 1, ptr %11)
   br label %Psr_ManWriteVerilogMux.exit.i.i
 
-Psr_ManWriteVerilogMux.exit.i.i:                  ; preds = %.lr.ph.i.i.i, %108, %Psr_ManWriteVerilogMux.exit.sink.split.i.i, %100
+Psr_ManWriteVerilogMux.exit.i.i:                  ; preds = %.lr.ph.i.i.i, %118, %Psr_ManWriteVerilogMux.exit.sink.split.i.i, %110
   %indvars.iv.next.i22.i = add nuw nsw i64 %indvars.iv.i20.i, 1
-  %.val41.i.i = load i32, ptr %77, align 4
-  %179 = sext i32 %.val41.i.i to i64
-  %180 = icmp slt i64 %indvars.iv.next.i22.i, %179
-  br i1 %180, label %81, label %Psr_ManWriteVerilogNtk.exit, !llvm.loop !11
+  %.val41.i.i = load i32, ptr %87, align 4
+  %189 = sext i32 %.val41.i.i to i64
+  %190 = icmp slt i64 %indvars.iv.next.i22.i, %189
+  br i1 %190, label %91, label %Psr_ManWriteVerilogNtk.exit, !llvm.loop !11
 
-Psr_ManWriteVerilogNtk.exit:                      ; preds = %Psr_ManWriteVerilogMux.exit.i.i, %76
-  %181 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 11, i64 1, ptr %11)
+Psr_ManWriteVerilogNtk.exit:                      ; preds = %Psr_ManWriteVerilogMux.exit.i.i, %86
+  %191 = tail call i64 @fwrite(ptr nonnull @.str.26, i64 11, i64 1, ptr %11)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val15 = load i32, ptr %5, align 4
-  %182 = sext i32 %.val15 to i64
-  %183 = icmp slt i64 %indvars.iv.next, %182
-  br i1 %183, label %23, label %.critedge, !llvm.loop !12
+  %192 = sext i32 %.val15 to i64
+  %193 = icmp slt i64 %indvars.iv.next, %192
+  br i1 %193, label %29, label %.critedge, !llvm.loop !12
 
 .critedge:                                        ; preds = %Psr_ManWriteVerilogNtk.exit, %15
-  %184 = tail call i32 @fclose(ptr noundef nonnull %11)
-  br label %185
+  %194 = tail call i32 @fclose(ptr noundef nonnull %11)
+  br label %195
 
-185:                                              ; preds = %.critedge, %13
+195:                                              ; preds = %.critedge, %13
   ret void
 }
 

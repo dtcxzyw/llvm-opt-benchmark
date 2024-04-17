@@ -7128,37 +7128,42 @@ return:                                           ; preds = %_ZN4absl24uniform_i
 define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_28log_uniform_int_distributionINS_6int128EEEJRS7_S9_S9_EEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 16 dereferenceable(16) %args, ptr noundef nonnull align 16 dereferenceable(16) %args1, ptr noundef nonnull align 16 dereferenceable(16) %args3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dist = alloca %"class.absl::log_uniform_int_distribution.61", align 16
-  %0 = load <2 x i64>, ptr %args, align 16
-  %1 = load <2 x i64>, ptr %args1, align 16
+  %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 16
+  %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %args, i64 8
+  %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
+  %agg.tmp5.sroa.0.0.copyload = load i64, ptr %args1, align 16
+  %agg.tmp5.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %args1, i64 8
+  %agg.tmp5.sroa.2.0.copyload = load i64, ptr %agg.tmp5.sroa.2.0..sroa_idx, align 8
   %agg.tmp6.sroa.0.0.copyload = load i128, ptr %args3, align 16
-  %2 = shufflevector <2 x i64> %0, <2 x i64> %1, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  store <4 x i64> %2, ptr %dist, align 16
+  store i64 %agg.tmp.sroa.0.0.copyload, ptr %dist, align 16
+  %min.sroa.2.0.min_.sroa_idx.i.i = getelementptr inbounds i8, ptr %dist, i64 8
+  store i64 %agg.tmp.sroa.2.0.copyload, ptr %min.sroa.2.0.min_.sroa_idx.i.i, align 8
+  %max_.i.i = getelementptr inbounds i8, ptr %dist, i64 16
+  store i64 %agg.tmp5.sroa.0.0.copyload, ptr %max_.i.i, align 16
+  %max.sroa.2.0.max_.sroa_idx.i.i = getelementptr inbounds i8, ptr %dist, i64 24
+  store i64 %agg.tmp5.sroa.2.0.copyload, ptr %max.sroa.2.0.max_.sroa_idx.i.i, align 8
   %base_.i.i = getelementptr inbounds i8, ptr %dist, i64 32
   store i128 %agg.tmp6.sroa.0.0.copyload, ptr %base_.i.i, align 16
   %range_.i.i = getelementptr inbounds i8, ptr %dist, i64 48
-  %3 = extractelement <2 x i64> %1, i64 0
-  %coerce.sroa.0.0.insert.ext.i.i.i = zext i64 %3 to i128
-  %4 = extractelement <2 x i64> %0, i64 0
-  %coerce2.sroa.0.0.insert.ext.i.i.i = zext i64 %4 to i128
+  %coerce.sroa.0.0.insert.ext.i.i.i = zext i64 %agg.tmp5.sroa.0.0.copyload to i128
+  %coerce2.sroa.0.0.insert.ext.i.i.i = zext i64 %agg.tmp.sroa.0.0.copyload to i128
   %coerce2.sroa.0.0.insert.insert.neg.i.i.i = sub nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i
   %coerce3.sroa.0.0.extract.trunc.i.i.i = trunc i128 %coerce2.sroa.0.0.insert.insert.neg.i.i.i to i64
-  %5 = lshr i128 %coerce2.sroa.0.0.insert.insert.neg.i.i.i, 64
-  %.tr.i.i = trunc nuw i128 %5 to i64
-  %6 = extractelement <2 x i64> %1, i64 1
-  %.narrow.i.i = add i64 %6, %.tr.i.i
-  %7 = extractelement <2 x i64> %0, i64 1
-  %.narrow.i.i.i = sub i64 %.narrow.i.i, %7
+  %0 = lshr i128 %coerce2.sroa.0.0.insert.insert.neg.i.i.i, 64
+  %.tr.i.i = trunc nuw i128 %0 to i64
+  %.narrow.i.i = add i64 %agg.tmp5.sroa.2.0.copyload, %.tr.i.i
+  %.narrow.i.i.i = sub i64 %.narrow.i.i, %agg.tmp.sroa.2.0.copyload
   store i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, ptr %range_.i.i, align 16
-  %8 = getelementptr inbounds i8, ptr %dist, i64 56
-  store i64 %.narrow.i.i.i, ptr %8, align 8
+  %1 = getelementptr inbounds i8, ptr %dist, i64 56
+  store i64 %.narrow.i.i.i, ptr %1, align 8
   %cmp.i.i.i = icmp eq i128 %agg.tmp6.sroa.0.0.copyload, 2
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %cmp.i.i.not.i.i.i = icmp eq i64 %.narrow.i.i, %7
-  %9 = tail call i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, i1 false), !range !8
-  %10 = tail call i64 @llvm.ctlz.i64(i64 %.narrow.i.i.i, i1 true), !range !8
-  %.sink12.i.i.i = select i1 %cmp.i.i.not.i.i.i, i64 %9, i64 %10
+  %cmp.i.i.not.i.i.i = icmp eq i64 %.narrow.i.i, %agg.tmp.sroa.2.0.copyload
+  %2 = tail call i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, i1 false), !range !8
+  %3 = tail call i64 @llvm.ctlz.i64(i64 %.narrow.i.i.i, i1 true), !range !8
+  %.sink12.i.i.i = select i1 %cmp.i.i.not.i.i.i, i64 %2, i64 %3
   %.sink.i.i.i = select i1 %cmp.i.i.not.i.i.i, i32 64, i32 128
   %cast.i.i.i9.i.i.i = trunc nuw nsw i64 %.sink12.i.i.i to i32
   %sub.i10.i.i.i = sub nuw nsw i32 %.sink.i.i.i, %cast.i.i.i9.i.i.i
@@ -7175,8 +7180,8 @@ if.else.i.i:                                      ; preds = %entry
   %add.i.i = fadd double %add.i.i.i, 5.000000e-01
   %call22.i.i = tail call double @log(double noundef %add.i.i) #17
   %mul.i.i = fmul double %div.i.i, %call22.i.i
-  %11 = tail call double @llvm.ceil.f64(double %mul.i.i)
-  %conv.i.i = fptosi double %11 to i32
+  %4 = tail call double @llvm.ceil.f64(double %mul.i.i)
+  %conv.i.i = fptosi double %4 to i32
   br label %_ZN4absl28log_uniform_int_distributionINS_6int128EEC2ES1_S1_S1_.exit
 
 _ZN4absl28log_uniform_int_distributionINS_6int128EEC2ES1_S1_S1_.exit: ; preds = %if.then.i.i, %if.else.i.i
@@ -7184,16 +7189,16 @@ _ZN4absl28log_uniform_int_distributionINS_6int128EEC2ES1_S1_S1_.exit: ; preds = 
   %log_range_.i.i = getelementptr inbounds i8, ptr %dist, i64 64
   store i32 %storemerge.i.i, ptr %log_range_.i.i, align 16
   %call5.i.i = call { i64, i64 } @_ZN4absl28log_uniform_int_distributionINS_6int128EE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENS_7uint128ERT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %dist, ptr noundef nonnull align 8 dereferenceable(2504) %urbg, ptr noundef nonnull align 16 dereferenceable(68) %dist)
-  %12 = extractvalue { i64, i64 } %call5.i.i, 0
-  %13 = extractvalue { i64, i64 } %call5.i.i, 1
-  %coerce.sroa.2.0.insert.ext.i.i.i = zext i64 %7 to i128
+  %5 = extractvalue { i64, i64 } %call5.i.i, 0
+  %6 = extractvalue { i64, i64 } %call5.i.i, 1
+  %coerce.sroa.2.0.insert.ext.i.i.i = zext i64 %agg.tmp.sroa.2.0.copyload to i128
   %coerce.sroa.2.0.insert.shift.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i, 64
-  %coerce2.sroa.0.0.insert.ext.i.i.i3 = zext i64 %12 to i128
+  %coerce2.sroa.0.0.insert.ext.i.i.i3 = zext i64 %5 to i128
   %coerce2.sroa.0.0.insert.insert.i.i.i = or disjoint i128 %coerce.sroa.2.0.insert.shift.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i
   %coerce.sroa.0.0.insert.insert.i.i.i = add i128 %coerce2.sroa.0.0.insert.insert.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i3
-  %14 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i, 64
-  %.tr.i.i.i = trunc nuw i128 %14 to i64
-  %.narrow.i.i.i4 = add i64 %13, %.tr.i.i.i
+  %7 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i, 64
+  %.tr.i.i.i = trunc nuw i128 %7 to i64
+  %.narrow.i.i.i4 = add i64 %6, %.tr.i.i.i
   %retval.sroa.0.0.extract.trunc.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i.i.i to i64
   %.fca.0.insert.i.i = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0.extract.trunc.i.i, 0
   %.fca.1.insert.i.i = insertvalue { i64, i64 } %.fca.0.insert.i.i, i64 %.narrow.i.i.i4, 1
@@ -7528,28 +7533,33 @@ return:                                           ; preds = %if.then20, %while.c
 define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_28log_uniform_int_distributionINS_7uint128EEEJRS7_S9_S9_EEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 16 dereferenceable(16) %args, ptr noundef nonnull align 16 dereferenceable(16) %args1, ptr noundef nonnull align 16 dereferenceable(16) %args3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dist = alloca %"class.absl::log_uniform_int_distribution.64", align 16
-  %0 = load <2 x i64>, ptr %args, align 16
-  %1 = load <2 x i64>, ptr %args1, align 16
+  %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 16
+  %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %args, i64 8
+  %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
+  %agg.tmp5.sroa.0.0.copyload = load i64, ptr %args1, align 16
+  %agg.tmp5.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %args1, i64 8
+  %agg.tmp5.sroa.2.0.copyload = load i64, ptr %agg.tmp5.sroa.2.0..sroa_idx, align 8
   %base_.i = getelementptr inbounds i8, ptr %dist, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %base_.i, ptr noundef nonnull align 16 dereferenceable(16) %args3, i64 16, i1 false)
-  %2 = shufflevector <2 x i64> %0, <2 x i64> %1, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  store <4 x i64> %2, ptr %dist, align 16
+  store i64 %agg.tmp.sroa.0.0.copyload, ptr %dist, align 16
+  %min.sroa.2.0.min_.sroa_idx.i = getelementptr inbounds i8, ptr %dist, i64 8
+  store i64 %agg.tmp.sroa.2.0.copyload, ptr %min.sroa.2.0.min_.sroa_idx.i, align 8
+  %max_.i = getelementptr inbounds i8, ptr %dist, i64 16
+  store i64 %agg.tmp5.sroa.0.0.copyload, ptr %max_.i, align 16
+  %max.sroa.2.0.max_.sroa_idx.i = getelementptr inbounds i8, ptr %dist, i64 24
+  store i64 %agg.tmp5.sroa.2.0.copyload, ptr %max.sroa.2.0.max_.sroa_idx.i, align 8
   %range_.i = getelementptr inbounds i8, ptr %dist, i64 48
-  %3 = extractelement <2 x i64> %1, i64 0
-  %coerce.sroa.0.0.insert.ext.i.i = zext i64 %3 to i128
-  %4 = extractelement <2 x i64> %0, i64 0
-  %coerce2.sroa.0.0.insert.ext.i.i = zext i64 %4 to i128
+  %coerce.sroa.0.0.insert.ext.i.i = zext i64 %agg.tmp5.sroa.0.0.copyload to i128
+  %coerce2.sroa.0.0.insert.ext.i.i = zext i64 %agg.tmp.sroa.0.0.copyload to i128
   %coerce2.sroa.0.0.insert.insert.neg.i.i = sub nsw i128 %coerce.sroa.0.0.insert.ext.i.i, %coerce2.sroa.0.0.insert.ext.i.i
   %coerce3.sroa.0.0.extract.trunc.i.i = trunc i128 %coerce2.sroa.0.0.insert.insert.neg.i.i to i64
-  %5 = lshr i128 %coerce2.sroa.0.0.insert.insert.neg.i.i, 64
-  %.tr.i = trunc nuw i128 %5 to i64
-  %6 = extractelement <2 x i64> %1, i64 1
-  %.narrow.i = add i64 %6, %.tr.i
-  %7 = extractelement <2 x i64> %0, i64 1
-  %.narrow.i.i = sub i64 %.narrow.i, %7
+  %0 = lshr i128 %coerce2.sroa.0.0.insert.insert.neg.i.i, 64
+  %.tr.i = trunc nuw i128 %0 to i64
+  %.narrow.i = add i64 %agg.tmp5.sroa.2.0.copyload, %.tr.i
+  %.narrow.i.i = sub i64 %.narrow.i, %agg.tmp.sroa.2.0.copyload
   store i64 %coerce3.sroa.0.0.extract.trunc.i.i, ptr %range_.i, align 16
-  %8 = getelementptr inbounds i8, ptr %dist, i64 56
-  store i64 %.narrow.i.i, ptr %8, align 8
+  %1 = getelementptr inbounds i8, ptr %dist, i64 56
+  store i64 %.narrow.i.i, ptr %1, align 8
   %agg.tmp5.sroa.0.0.copyload.i = load i64, ptr %base_.i, align 16
   %agg.tmp5.sroa.2.0.base_6.sroa_idx.i = getelementptr inbounds i8, ptr %dist, i64 40
   %agg.tmp5.sroa.2.0.copyload.i = load i64, ptr %agg.tmp5.sroa.2.0.base_6.sroa_idx.i, align 8
@@ -7561,10 +7571,10 @@ entry:
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %cmp.i.i.not.i.i = icmp eq i64 %.narrow.i, %7
-  %9 = tail call i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i, i1 false), !range !8
-  %10 = tail call i64 @llvm.ctlz.i64(i64 %.narrow.i.i, i1 true), !range !8
-  %.sink12.i.i = select i1 %cmp.i.i.not.i.i, i64 %9, i64 %10
+  %cmp.i.i.not.i.i = icmp eq i64 %.narrow.i, %agg.tmp.sroa.2.0.copyload
+  %2 = tail call i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i, i1 false), !range !8
+  %3 = tail call i64 @llvm.ctlz.i64(i64 %.narrow.i.i, i1 true), !range !8
+  %.sink12.i.i = select i1 %cmp.i.i.not.i.i, i64 %2, i64 %3
   %.sink.i.i = select i1 %cmp.i.i.not.i.i, i32 64, i32 128
   %cast.i.i.i9.i.i = trunc nuw nsw i64 %.sink12.i.i to i32
   %sub.i10.i.i = sub nuw nsw i32 %.sink.i.i, %cast.i.i.i9.i.i
@@ -7584,8 +7594,8 @@ if.else.i:                                        ; preds = %entry
   %add.i = fadd double %add.i20.i, 5.000000e-01
   %call20.i = tail call double @log(double noundef %add.i) #17
   %mul.i = fmul double %div.i, %call20.i
-  %11 = tail call double @llvm.ceil.f64(double %mul.i)
-  %conv.i = fptosi double %11 to i32
+  %4 = tail call double @llvm.ceil.f64(double %mul.i)
+  %conv.i = fptosi double %4 to i32
   br label %_ZN4absl28log_uniform_int_distributionINS_7uint128EE10param_typeC2ES1_S1_S1_.exit
 
 _ZN4absl28log_uniform_int_distributionINS_7uint128EE10param_typeC2ES1_S1_S1_.exit: ; preds = %if.then.i, %if.else.i
@@ -7593,17 +7603,17 @@ _ZN4absl28log_uniform_int_distributionINS_7uint128EE10param_typeC2ES1_S1_S1_.exi
   %log_range_.i = getelementptr inbounds i8, ptr %dist, i64 64
   store i32 %storemerge.i, ptr %log_range_.i, align 16
   %call3.i.i = call { i64, i64 } @_ZN4absl28log_uniform_int_distributionINS_7uint128EE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %dist, ptr noundef nonnull align 8 dereferenceable(2504) %urbg, ptr noundef nonnull align 16 dereferenceable(68) %dist)
-  %12 = extractvalue { i64, i64 } %call3.i.i, 0
-  %13 = extractvalue { i64, i64 } %call3.i.i, 1
-  %coerce.sroa.2.0.insert.ext.i.i.i = zext i64 %7 to i128
+  %5 = extractvalue { i64, i64 } %call3.i.i, 0
+  %6 = extractvalue { i64, i64 } %call3.i.i, 1
+  %coerce.sroa.2.0.insert.ext.i.i.i = zext i64 %agg.tmp.sroa.2.0.copyload to i128
   %coerce.sroa.2.0.insert.shift.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i, 64
-  %coerce2.sroa.0.0.insert.ext.i.i.i = zext i64 %12 to i128
+  %coerce2.sroa.0.0.insert.ext.i.i.i = zext i64 %5 to i128
   %coerce2.sroa.0.0.insert.insert.i.i.i = or disjoint i128 %coerce.sroa.2.0.insert.shift.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i
   %coerce.sroa.0.0.insert.insert.i.i.i = add i128 %coerce2.sroa.0.0.insert.insert.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i
   %coerce3.sroa.0.0.extract.trunc.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i.i.i to i64
-  %14 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i, 64
-  %.tr.i.i.i = trunc nuw i128 %14 to i64
-  %.narrow.i.i.i = add i64 %13, %.tr.i.i.i
+  %7 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i, 64
+  %.tr.i.i.i = trunc nuw i128 %7 to i64
+  %.narrow.i.i.i = add i64 %6, %.tr.i.i.i
   %.fca.0.insert.i2.i.i = insertvalue { i64, i64 } poison, i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, 0
   %.fca.1.insert.i3.i.i = insertvalue { i64, i64 } %.fca.0.insert.i2.i.i, i64 %.narrow.i.i.i, 1
   ret { i64, i64 } %.fca.1.insert.i3.i.i
@@ -15165,37 +15175,42 @@ _ZN4absl28log_uniform_int_distributionImEclINS_15random_internal17NonsecureURBGB
 define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionINS_6int128EEEJRSA_SC_SC_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 16 dereferenceable(16) %args, ptr noundef nonnull align 16 dereferenceable(16) %args1, ptr noundef nonnull align 16 dereferenceable(16) %args3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dist = alloca %"class.absl::log_uniform_int_distribution.61", align 16
-  %0 = load <2 x i64>, ptr %args, align 16
-  %1 = load <2 x i64>, ptr %args1, align 16
+  %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 16
+  %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %args, i64 8
+  %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
+  %agg.tmp5.sroa.0.0.copyload = load i64, ptr %args1, align 16
+  %agg.tmp5.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %args1, i64 8
+  %agg.tmp5.sroa.2.0.copyload = load i64, ptr %agg.tmp5.sroa.2.0..sroa_idx, align 8
   %agg.tmp6.sroa.0.0.copyload = load i128, ptr %args3, align 16
-  %2 = shufflevector <2 x i64> %0, <2 x i64> %1, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  store <4 x i64> %2, ptr %dist, align 16
+  store i64 %agg.tmp.sroa.0.0.copyload, ptr %dist, align 16
+  %min.sroa.2.0.min_.sroa_idx.i.i = getelementptr inbounds i8, ptr %dist, i64 8
+  store i64 %agg.tmp.sroa.2.0.copyload, ptr %min.sroa.2.0.min_.sroa_idx.i.i, align 8
+  %max_.i.i = getelementptr inbounds i8, ptr %dist, i64 16
+  store i64 %agg.tmp5.sroa.0.0.copyload, ptr %max_.i.i, align 16
+  %max.sroa.2.0.max_.sroa_idx.i.i = getelementptr inbounds i8, ptr %dist, i64 24
+  store i64 %agg.tmp5.sroa.2.0.copyload, ptr %max.sroa.2.0.max_.sroa_idx.i.i, align 8
   %base_.i.i = getelementptr inbounds i8, ptr %dist, i64 32
   store i128 %agg.tmp6.sroa.0.0.copyload, ptr %base_.i.i, align 16
   %range_.i.i = getelementptr inbounds i8, ptr %dist, i64 48
-  %3 = extractelement <2 x i64> %1, i64 0
-  %coerce.sroa.0.0.insert.ext.i.i.i = zext i64 %3 to i128
-  %4 = extractelement <2 x i64> %0, i64 0
-  %coerce2.sroa.0.0.insert.ext.i.i.i = zext i64 %4 to i128
+  %coerce.sroa.0.0.insert.ext.i.i.i = zext i64 %agg.tmp5.sroa.0.0.copyload to i128
+  %coerce2.sroa.0.0.insert.ext.i.i.i = zext i64 %agg.tmp.sroa.0.0.copyload to i128
   %coerce2.sroa.0.0.insert.insert.neg.i.i.i = sub nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i
   %coerce3.sroa.0.0.extract.trunc.i.i.i = trunc i128 %coerce2.sroa.0.0.insert.insert.neg.i.i.i to i64
-  %5 = lshr i128 %coerce2.sroa.0.0.insert.insert.neg.i.i.i, 64
-  %.tr.i.i = trunc nuw i128 %5 to i64
-  %6 = extractelement <2 x i64> %1, i64 1
-  %.narrow.i.i = add i64 %6, %.tr.i.i
-  %7 = extractelement <2 x i64> %0, i64 1
-  %.narrow.i.i.i = sub i64 %.narrow.i.i, %7
+  %0 = lshr i128 %coerce2.sroa.0.0.insert.insert.neg.i.i.i, 64
+  %.tr.i.i = trunc nuw i128 %0 to i64
+  %.narrow.i.i = add i64 %agg.tmp5.sroa.2.0.copyload, %.tr.i.i
+  %.narrow.i.i.i = sub i64 %.narrow.i.i, %agg.tmp.sroa.2.0.copyload
   store i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, ptr %range_.i.i, align 16
-  %8 = getelementptr inbounds i8, ptr %dist, i64 56
-  store i64 %.narrow.i.i.i, ptr %8, align 8
+  %1 = getelementptr inbounds i8, ptr %dist, i64 56
+  store i64 %.narrow.i.i.i, ptr %1, align 8
   %cmp.i.i.i = icmp eq i128 %agg.tmp6.sroa.0.0.copyload, 2
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %cmp.i.i.not.i.i.i = icmp eq i64 %.narrow.i.i, %7
-  %9 = tail call i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, i1 false), !range !8
-  %10 = tail call i64 @llvm.ctlz.i64(i64 %.narrow.i.i.i, i1 true), !range !8
-  %.sink12.i.i.i = select i1 %cmp.i.i.not.i.i.i, i64 %9, i64 %10
+  %cmp.i.i.not.i.i.i = icmp eq i64 %.narrow.i.i, %agg.tmp.sroa.2.0.copyload
+  %2 = tail call i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, i1 false), !range !8
+  %3 = tail call i64 @llvm.ctlz.i64(i64 %.narrow.i.i.i, i1 true), !range !8
+  %.sink12.i.i.i = select i1 %cmp.i.i.not.i.i.i, i64 %2, i64 %3
   %.sink.i.i.i = select i1 %cmp.i.i.not.i.i.i, i32 64, i32 128
   %cast.i.i.i9.i.i.i = trunc nuw nsw i64 %.sink12.i.i.i to i32
   %sub.i10.i.i.i = sub nuw nsw i32 %.sink.i.i.i, %cast.i.i.i9.i.i.i
@@ -15212,8 +15227,8 @@ if.else.i.i:                                      ; preds = %entry
   %add.i.i = fadd double %add.i.i.i, 5.000000e-01
   %call22.i.i = tail call double @log(double noundef %add.i.i) #17
   %mul.i.i = fmul double %div.i.i, %call22.i.i
-  %11 = tail call double @llvm.ceil.f64(double %mul.i.i)
-  %conv.i.i = fptosi double %11 to i32
+  %4 = tail call double @llvm.ceil.f64(double %mul.i.i)
+  %conv.i.i = fptosi double %4 to i32
   br label %_ZN4absl28log_uniform_int_distributionINS_6int128EEC2ES1_S1_S1_.exit
 
 _ZN4absl28log_uniform_int_distributionINS_6int128EEC2ES1_S1_S1_.exit: ; preds = %if.then.i.i, %if.else.i.i
@@ -15221,16 +15236,16 @@ _ZN4absl28log_uniform_int_distributionINS_6int128EEC2ES1_S1_S1_.exit: ; preds = 
   %log_range_.i.i = getelementptr inbounds i8, ptr %dist, i64 64
   store i32 %storemerge.i.i, ptr %log_range_.i.i, align 16
   %call5.i.i = call { i64, i64 } @_ZN4absl28log_uniform_int_distributionINS_6int128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEENS_7uint128ERT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %dist, ptr noundef nonnull align 8 dereferenceable(288) %urbg, ptr noundef nonnull align 16 dereferenceable(68) %dist)
-  %12 = extractvalue { i64, i64 } %call5.i.i, 0
-  %13 = extractvalue { i64, i64 } %call5.i.i, 1
-  %coerce.sroa.2.0.insert.ext.i.i.i = zext i64 %7 to i128
+  %5 = extractvalue { i64, i64 } %call5.i.i, 0
+  %6 = extractvalue { i64, i64 } %call5.i.i, 1
+  %coerce.sroa.2.0.insert.ext.i.i.i = zext i64 %agg.tmp.sroa.2.0.copyload to i128
   %coerce.sroa.2.0.insert.shift.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i, 64
-  %coerce2.sroa.0.0.insert.ext.i.i.i3 = zext i64 %12 to i128
+  %coerce2.sroa.0.0.insert.ext.i.i.i3 = zext i64 %5 to i128
   %coerce2.sroa.0.0.insert.insert.i.i.i = or disjoint i128 %coerce.sroa.2.0.insert.shift.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i
   %coerce.sroa.0.0.insert.insert.i.i.i = add i128 %coerce2.sroa.0.0.insert.insert.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i3
-  %14 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i, 64
-  %.tr.i.i.i = trunc nuw i128 %14 to i64
-  %.narrow.i.i.i4 = add i64 %13, %.tr.i.i.i
+  %7 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i, 64
+  %.tr.i.i.i = trunc nuw i128 %7 to i64
+  %.narrow.i.i.i4 = add i64 %6, %.tr.i.i.i
   %retval.sroa.0.0.extract.trunc.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i.i.i to i64
   %.fca.0.insert.i.i = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0.extract.trunc.i.i, 0
   %.fca.1.insert.i.i = insertvalue { i64, i64 } %.fca.0.insert.i.i, i64 %.narrow.i.i.i4, 1
@@ -15641,28 +15656,33 @@ return:                                           ; preds = %if.then20, %while.c
 define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionINS_7uint128EEEJRSA_SC_SC_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 16 dereferenceable(16) %args, ptr noundef nonnull align 16 dereferenceable(16) %args1, ptr noundef nonnull align 16 dereferenceable(16) %args3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dist = alloca %"class.absl::log_uniform_int_distribution.64", align 16
-  %0 = load <2 x i64>, ptr %args, align 16
-  %1 = load <2 x i64>, ptr %args1, align 16
+  %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 16
+  %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %args, i64 8
+  %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
+  %agg.tmp5.sroa.0.0.copyload = load i64, ptr %args1, align 16
+  %agg.tmp5.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %args1, i64 8
+  %agg.tmp5.sroa.2.0.copyload = load i64, ptr %agg.tmp5.sroa.2.0..sroa_idx, align 8
   %base_.i = getelementptr inbounds i8, ptr %dist, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %base_.i, ptr noundef nonnull align 16 dereferenceable(16) %args3, i64 16, i1 false)
-  %2 = shufflevector <2 x i64> %0, <2 x i64> %1, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  store <4 x i64> %2, ptr %dist, align 16
+  store i64 %agg.tmp.sroa.0.0.copyload, ptr %dist, align 16
+  %min.sroa.2.0.min_.sroa_idx.i = getelementptr inbounds i8, ptr %dist, i64 8
+  store i64 %agg.tmp.sroa.2.0.copyload, ptr %min.sroa.2.0.min_.sroa_idx.i, align 8
+  %max_.i = getelementptr inbounds i8, ptr %dist, i64 16
+  store i64 %agg.tmp5.sroa.0.0.copyload, ptr %max_.i, align 16
+  %max.sroa.2.0.max_.sroa_idx.i = getelementptr inbounds i8, ptr %dist, i64 24
+  store i64 %agg.tmp5.sroa.2.0.copyload, ptr %max.sroa.2.0.max_.sroa_idx.i, align 8
   %range_.i = getelementptr inbounds i8, ptr %dist, i64 48
-  %3 = extractelement <2 x i64> %1, i64 0
-  %coerce.sroa.0.0.insert.ext.i.i = zext i64 %3 to i128
-  %4 = extractelement <2 x i64> %0, i64 0
-  %coerce2.sroa.0.0.insert.ext.i.i = zext i64 %4 to i128
+  %coerce.sroa.0.0.insert.ext.i.i = zext i64 %agg.tmp5.sroa.0.0.copyload to i128
+  %coerce2.sroa.0.0.insert.ext.i.i = zext i64 %agg.tmp.sroa.0.0.copyload to i128
   %coerce2.sroa.0.0.insert.insert.neg.i.i = sub nsw i128 %coerce.sroa.0.0.insert.ext.i.i, %coerce2.sroa.0.0.insert.ext.i.i
   %coerce3.sroa.0.0.extract.trunc.i.i = trunc i128 %coerce2.sroa.0.0.insert.insert.neg.i.i to i64
-  %5 = lshr i128 %coerce2.sroa.0.0.insert.insert.neg.i.i, 64
-  %.tr.i = trunc nuw i128 %5 to i64
-  %6 = extractelement <2 x i64> %1, i64 1
-  %.narrow.i = add i64 %6, %.tr.i
-  %7 = extractelement <2 x i64> %0, i64 1
-  %.narrow.i.i = sub i64 %.narrow.i, %7
+  %0 = lshr i128 %coerce2.sroa.0.0.insert.insert.neg.i.i, 64
+  %.tr.i = trunc nuw i128 %0 to i64
+  %.narrow.i = add i64 %agg.tmp5.sroa.2.0.copyload, %.tr.i
+  %.narrow.i.i = sub i64 %.narrow.i, %agg.tmp.sroa.2.0.copyload
   store i64 %coerce3.sroa.0.0.extract.trunc.i.i, ptr %range_.i, align 16
-  %8 = getelementptr inbounds i8, ptr %dist, i64 56
-  store i64 %.narrow.i.i, ptr %8, align 8
+  %1 = getelementptr inbounds i8, ptr %dist, i64 56
+  store i64 %.narrow.i.i, ptr %1, align 8
   %agg.tmp5.sroa.0.0.copyload.i = load i64, ptr %base_.i, align 16
   %agg.tmp5.sroa.2.0.base_6.sroa_idx.i = getelementptr inbounds i8, ptr %dist, i64 40
   %agg.tmp5.sroa.2.0.copyload.i = load i64, ptr %agg.tmp5.sroa.2.0.base_6.sroa_idx.i, align 8
@@ -15674,10 +15694,10 @@ entry:
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %cmp.i.i.not.i.i = icmp eq i64 %.narrow.i, %7
-  %9 = tail call i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i, i1 false), !range !8
-  %10 = tail call i64 @llvm.ctlz.i64(i64 %.narrow.i.i, i1 true), !range !8
-  %.sink12.i.i = select i1 %cmp.i.i.not.i.i, i64 %9, i64 %10
+  %cmp.i.i.not.i.i = icmp eq i64 %.narrow.i, %agg.tmp.sroa.2.0.copyload
+  %2 = tail call i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i, i1 false), !range !8
+  %3 = tail call i64 @llvm.ctlz.i64(i64 %.narrow.i.i, i1 true), !range !8
+  %.sink12.i.i = select i1 %cmp.i.i.not.i.i, i64 %2, i64 %3
   %.sink.i.i = select i1 %cmp.i.i.not.i.i, i32 64, i32 128
   %cast.i.i.i9.i.i = trunc nuw nsw i64 %.sink12.i.i to i32
   %sub.i10.i.i = sub nuw nsw i32 %.sink.i.i, %cast.i.i.i9.i.i
@@ -15697,8 +15717,8 @@ if.else.i:                                        ; preds = %entry
   %add.i = fadd double %add.i20.i, 5.000000e-01
   %call20.i = tail call double @log(double noundef %add.i) #17
   %mul.i = fmul double %div.i, %call20.i
-  %11 = tail call double @llvm.ceil.f64(double %mul.i)
-  %conv.i = fptosi double %11 to i32
+  %4 = tail call double @llvm.ceil.f64(double %mul.i)
+  %conv.i = fptosi double %4 to i32
   br label %_ZN4absl28log_uniform_int_distributionINS_7uint128EE10param_typeC2ES1_S1_S1_.exit
 
 _ZN4absl28log_uniform_int_distributionINS_7uint128EE10param_typeC2ES1_S1_S1_.exit: ; preds = %if.then.i, %if.else.i
@@ -15706,17 +15726,17 @@ _ZN4absl28log_uniform_int_distributionINS_7uint128EE10param_typeC2ES1_S1_S1_.exi
   %log_range_.i = getelementptr inbounds i8, ptr %dist, i64 64
   store i32 %storemerge.i, ptr %log_range_.i, align 16
   %call3.i.i = call { i64, i64 } @_ZN4absl28log_uniform_int_distributionINS_7uint128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_13randen_engineImEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %dist, ptr noundef nonnull align 8 dereferenceable(288) %urbg, ptr noundef nonnull align 16 dereferenceable(68) %dist)
-  %12 = extractvalue { i64, i64 } %call3.i.i, 0
-  %13 = extractvalue { i64, i64 } %call3.i.i, 1
-  %coerce.sroa.2.0.insert.ext.i.i.i = zext i64 %7 to i128
+  %5 = extractvalue { i64, i64 } %call3.i.i, 0
+  %6 = extractvalue { i64, i64 } %call3.i.i, 1
+  %coerce.sroa.2.0.insert.ext.i.i.i = zext i64 %agg.tmp.sroa.2.0.copyload to i128
   %coerce.sroa.2.0.insert.shift.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i, 64
-  %coerce2.sroa.0.0.insert.ext.i.i.i = zext i64 %12 to i128
+  %coerce2.sroa.0.0.insert.ext.i.i.i = zext i64 %5 to i128
   %coerce2.sroa.0.0.insert.insert.i.i.i = or disjoint i128 %coerce.sroa.2.0.insert.shift.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i
   %coerce.sroa.0.0.insert.insert.i.i.i = add i128 %coerce2.sroa.0.0.insert.insert.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i
   %coerce3.sroa.0.0.extract.trunc.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i.i.i to i64
-  %14 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i, 64
-  %.tr.i.i.i = trunc nuw i128 %14 to i64
-  %.narrow.i.i.i = add i64 %13, %.tr.i.i.i
+  %7 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i, 64
+  %.tr.i.i.i = trunc nuw i128 %7 to i64
+  %.narrow.i.i.i = add i64 %6, %.tr.i.i.i
   %.fca.0.insert.i2.i.i = insertvalue { i64, i64 } poison, i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, 0
   %.fca.1.insert.i3.i.i = insertvalue { i64, i64 } %.fca.0.insert.i2.i.i, i64 %.narrow.i.i.i, 1
   ret { i64, i64 } %.fca.1.insert.i3.i.i
@@ -22963,37 +22983,42 @@ return:                                           ; preds = %_ZN4absl24uniform_i
 define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionINS_6int128EEEJRSD_SF_SF_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 16 dereferenceable(16) %args, ptr noundef nonnull align 16 dereferenceable(16) %args1, ptr noundef nonnull align 16 dereferenceable(16) %args3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dist = alloca %"class.absl::log_uniform_int_distribution.61", align 16
-  %0 = load <2 x i64>, ptr %args, align 16
-  %1 = load <2 x i64>, ptr %args1, align 16
+  %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 16
+  %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %args, i64 8
+  %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
+  %agg.tmp5.sroa.0.0.copyload = load i64, ptr %args1, align 16
+  %agg.tmp5.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %args1, i64 8
+  %agg.tmp5.sroa.2.0.copyload = load i64, ptr %agg.tmp5.sroa.2.0..sroa_idx, align 8
   %agg.tmp6.sroa.0.0.copyload = load i128, ptr %args3, align 16
-  %2 = shufflevector <2 x i64> %0, <2 x i64> %1, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  store <4 x i64> %2, ptr %dist, align 16
+  store i64 %agg.tmp.sroa.0.0.copyload, ptr %dist, align 16
+  %min.sroa.2.0.min_.sroa_idx.i.i = getelementptr inbounds i8, ptr %dist, i64 8
+  store i64 %agg.tmp.sroa.2.0.copyload, ptr %min.sroa.2.0.min_.sroa_idx.i.i, align 8
+  %max_.i.i = getelementptr inbounds i8, ptr %dist, i64 16
+  store i64 %agg.tmp5.sroa.0.0.copyload, ptr %max_.i.i, align 16
+  %max.sroa.2.0.max_.sroa_idx.i.i = getelementptr inbounds i8, ptr %dist, i64 24
+  store i64 %agg.tmp5.sroa.2.0.copyload, ptr %max.sroa.2.0.max_.sroa_idx.i.i, align 8
   %base_.i.i = getelementptr inbounds i8, ptr %dist, i64 32
   store i128 %agg.tmp6.sroa.0.0.copyload, ptr %base_.i.i, align 16
   %range_.i.i = getelementptr inbounds i8, ptr %dist, i64 48
-  %3 = extractelement <2 x i64> %1, i64 0
-  %coerce.sroa.0.0.insert.ext.i.i.i = zext i64 %3 to i128
-  %4 = extractelement <2 x i64> %0, i64 0
-  %coerce2.sroa.0.0.insert.ext.i.i.i = zext i64 %4 to i128
+  %coerce.sroa.0.0.insert.ext.i.i.i = zext i64 %agg.tmp5.sroa.0.0.copyload to i128
+  %coerce2.sroa.0.0.insert.ext.i.i.i = zext i64 %agg.tmp.sroa.0.0.copyload to i128
   %coerce2.sroa.0.0.insert.insert.neg.i.i.i = sub nsw i128 %coerce.sroa.0.0.insert.ext.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i
   %coerce3.sroa.0.0.extract.trunc.i.i.i = trunc i128 %coerce2.sroa.0.0.insert.insert.neg.i.i.i to i64
-  %5 = lshr i128 %coerce2.sroa.0.0.insert.insert.neg.i.i.i, 64
-  %.tr.i.i = trunc nuw i128 %5 to i64
-  %6 = extractelement <2 x i64> %1, i64 1
-  %.narrow.i.i = add i64 %6, %.tr.i.i
-  %7 = extractelement <2 x i64> %0, i64 1
-  %.narrow.i.i.i = sub i64 %.narrow.i.i, %7
+  %0 = lshr i128 %coerce2.sroa.0.0.insert.insert.neg.i.i.i, 64
+  %.tr.i.i = trunc nuw i128 %0 to i64
+  %.narrow.i.i = add i64 %agg.tmp5.sroa.2.0.copyload, %.tr.i.i
+  %.narrow.i.i.i = sub i64 %.narrow.i.i, %agg.tmp.sroa.2.0.copyload
   store i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, ptr %range_.i.i, align 16
-  %8 = getelementptr inbounds i8, ptr %dist, i64 56
-  store i64 %.narrow.i.i.i, ptr %8, align 8
+  %1 = getelementptr inbounds i8, ptr %dist, i64 56
+  store i64 %.narrow.i.i.i, ptr %1, align 8
   %cmp.i.i.i = icmp eq i128 %agg.tmp6.sroa.0.0.copyload, 2
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %entry
-  %cmp.i.i.not.i.i.i = icmp eq i64 %.narrow.i.i, %7
-  %9 = tail call i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, i1 false), !range !8
-  %10 = tail call i64 @llvm.ctlz.i64(i64 %.narrow.i.i.i, i1 true), !range !8
-  %.sink12.i.i.i = select i1 %cmp.i.i.not.i.i.i, i64 %9, i64 %10
+  %cmp.i.i.not.i.i.i = icmp eq i64 %.narrow.i.i, %agg.tmp.sroa.2.0.copyload
+  %2 = tail call i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, i1 false), !range !8
+  %3 = tail call i64 @llvm.ctlz.i64(i64 %.narrow.i.i.i, i1 true), !range !8
+  %.sink12.i.i.i = select i1 %cmp.i.i.not.i.i.i, i64 %2, i64 %3
   %.sink.i.i.i = select i1 %cmp.i.i.not.i.i.i, i32 64, i32 128
   %cast.i.i.i9.i.i.i = trunc nuw nsw i64 %.sink12.i.i.i to i32
   %sub.i10.i.i.i = sub nuw nsw i32 %.sink.i.i.i, %cast.i.i.i9.i.i.i
@@ -23010,8 +23035,8 @@ if.else.i.i:                                      ; preds = %entry
   %add.i.i = fadd double %add.i.i.i, 5.000000e-01
   %call22.i.i = tail call double @log(double noundef %add.i.i) #17
   %mul.i.i = fmul double %div.i.i, %call22.i.i
-  %11 = tail call double @llvm.ceil.f64(double %mul.i.i)
-  %conv.i.i = fptosi double %11 to i32
+  %4 = tail call double @llvm.ceil.f64(double %mul.i.i)
+  %conv.i.i = fptosi double %4 to i32
   br label %_ZN4absl28log_uniform_int_distributionINS_6int128EEC2ES1_S1_S1_.exit
 
 _ZN4absl28log_uniform_int_distributionINS_6int128EEC2ES1_S1_S1_.exit: ; preds = %if.then.i.i, %if.else.i.i
@@ -23019,16 +23044,16 @@ _ZN4absl28log_uniform_int_distributionINS_6int128EEC2ES1_S1_S1_.exit: ; preds = 
   %log_range_.i.i = getelementptr inbounds i8, ptr %dist, i64 64
   store i32 %storemerge.i.i, ptr %log_range_.i.i, align 16
   %call5.i.i = call { i64, i64 } @_ZN4absl28log_uniform_int_distributionINS_6int128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEENS_7uint128ERT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %dist, ptr noundef nonnull align 16 dereferenceable(16) %urbg, ptr noundef nonnull align 16 dereferenceable(68) %dist)
-  %12 = extractvalue { i64, i64 } %call5.i.i, 0
-  %13 = extractvalue { i64, i64 } %call5.i.i, 1
-  %coerce.sroa.2.0.insert.ext.i.i.i = zext i64 %7 to i128
+  %5 = extractvalue { i64, i64 } %call5.i.i, 0
+  %6 = extractvalue { i64, i64 } %call5.i.i, 1
+  %coerce.sroa.2.0.insert.ext.i.i.i = zext i64 %agg.tmp.sroa.2.0.copyload to i128
   %coerce.sroa.2.0.insert.shift.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i, 64
-  %coerce2.sroa.0.0.insert.ext.i.i.i3 = zext i64 %12 to i128
+  %coerce2.sroa.0.0.insert.ext.i.i.i3 = zext i64 %5 to i128
   %coerce2.sroa.0.0.insert.insert.i.i.i = or disjoint i128 %coerce.sroa.2.0.insert.shift.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i
   %coerce.sroa.0.0.insert.insert.i.i.i = add i128 %coerce2.sroa.0.0.insert.insert.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i3
-  %14 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i, 64
-  %.tr.i.i.i = trunc nuw i128 %14 to i64
-  %.narrow.i.i.i4 = add i64 %13, %.tr.i.i.i
+  %7 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i, 64
+  %.tr.i.i.i = trunc nuw i128 %7 to i64
+  %.narrow.i.i.i4 = add i64 %6, %.tr.i.i.i
   %retval.sroa.0.0.extract.trunc.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i.i.i to i64
   %.fca.0.insert.i.i = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0.extract.trunc.i.i, 0
   %.fca.1.insert.i.i = insertvalue { i64, i64 } %.fca.0.insert.i.i, i64 %.narrow.i.i.i4, 1
@@ -23456,28 +23481,33 @@ return:                                           ; preds = %if.then20, %while.c
 define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS_28log_uniform_int_distributionINS_7uint128EEEJRSD_SF_SF_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef %urbg, ptr noundef nonnull align 16 dereferenceable(16) %args, ptr noundef nonnull align 16 dereferenceable(16) %args1, ptr noundef nonnull align 16 dereferenceable(16) %args3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dist = alloca %"class.absl::log_uniform_int_distribution.64", align 16
-  %0 = load <2 x i64>, ptr %args, align 16
-  %1 = load <2 x i64>, ptr %args1, align 16
+  %agg.tmp.sroa.0.0.copyload = load i64, ptr %args, align 16
+  %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %args, i64 8
+  %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx, align 8
+  %agg.tmp5.sroa.0.0.copyload = load i64, ptr %args1, align 16
+  %agg.tmp5.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %args1, i64 8
+  %agg.tmp5.sroa.2.0.copyload = load i64, ptr %agg.tmp5.sroa.2.0..sroa_idx, align 8
   %base_.i = getelementptr inbounds i8, ptr %dist, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %base_.i, ptr noundef nonnull align 16 dereferenceable(16) %args3, i64 16, i1 false)
-  %2 = shufflevector <2 x i64> %0, <2 x i64> %1, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  store <4 x i64> %2, ptr %dist, align 16
+  store i64 %agg.tmp.sroa.0.0.copyload, ptr %dist, align 16
+  %min.sroa.2.0.min_.sroa_idx.i = getelementptr inbounds i8, ptr %dist, i64 8
+  store i64 %agg.tmp.sroa.2.0.copyload, ptr %min.sroa.2.0.min_.sroa_idx.i, align 8
+  %max_.i = getelementptr inbounds i8, ptr %dist, i64 16
+  store i64 %agg.tmp5.sroa.0.0.copyload, ptr %max_.i, align 16
+  %max.sroa.2.0.max_.sroa_idx.i = getelementptr inbounds i8, ptr %dist, i64 24
+  store i64 %agg.tmp5.sroa.2.0.copyload, ptr %max.sroa.2.0.max_.sroa_idx.i, align 8
   %range_.i = getelementptr inbounds i8, ptr %dist, i64 48
-  %3 = extractelement <2 x i64> %1, i64 0
-  %coerce.sroa.0.0.insert.ext.i.i = zext i64 %3 to i128
-  %4 = extractelement <2 x i64> %0, i64 0
-  %coerce2.sroa.0.0.insert.ext.i.i = zext i64 %4 to i128
+  %coerce.sroa.0.0.insert.ext.i.i = zext i64 %agg.tmp5.sroa.0.0.copyload to i128
+  %coerce2.sroa.0.0.insert.ext.i.i = zext i64 %agg.tmp.sroa.0.0.copyload to i128
   %coerce2.sroa.0.0.insert.insert.neg.i.i = sub nsw i128 %coerce.sroa.0.0.insert.ext.i.i, %coerce2.sroa.0.0.insert.ext.i.i
   %coerce3.sroa.0.0.extract.trunc.i.i = trunc i128 %coerce2.sroa.0.0.insert.insert.neg.i.i to i64
-  %5 = lshr i128 %coerce2.sroa.0.0.insert.insert.neg.i.i, 64
-  %.tr.i = trunc nuw i128 %5 to i64
-  %6 = extractelement <2 x i64> %1, i64 1
-  %.narrow.i = add i64 %6, %.tr.i
-  %7 = extractelement <2 x i64> %0, i64 1
-  %.narrow.i.i = sub i64 %.narrow.i, %7
+  %0 = lshr i128 %coerce2.sroa.0.0.insert.insert.neg.i.i, 64
+  %.tr.i = trunc nuw i128 %0 to i64
+  %.narrow.i = add i64 %agg.tmp5.sroa.2.0.copyload, %.tr.i
+  %.narrow.i.i = sub i64 %.narrow.i, %agg.tmp.sroa.2.0.copyload
   store i64 %coerce3.sroa.0.0.extract.trunc.i.i, ptr %range_.i, align 16
-  %8 = getelementptr inbounds i8, ptr %dist, i64 56
-  store i64 %.narrow.i.i, ptr %8, align 8
+  %1 = getelementptr inbounds i8, ptr %dist, i64 56
+  store i64 %.narrow.i.i, ptr %1, align 8
   %agg.tmp5.sroa.0.0.copyload.i = load i64, ptr %base_.i, align 16
   %agg.tmp5.sroa.2.0.base_6.sroa_idx.i = getelementptr inbounds i8, ptr %dist, i64 40
   %agg.tmp5.sroa.2.0.copyload.i = load i64, ptr %agg.tmp5.sroa.2.0.base_6.sroa_idx.i, align 8
@@ -23489,10 +23519,10 @@ entry:
   br i1 %cmp.i.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %cmp.i.i.not.i.i = icmp eq i64 %.narrow.i, %7
-  %9 = tail call i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i, i1 false), !range !8
-  %10 = tail call i64 @llvm.ctlz.i64(i64 %.narrow.i.i, i1 true), !range !8
-  %.sink12.i.i = select i1 %cmp.i.i.not.i.i, i64 %9, i64 %10
+  %cmp.i.i.not.i.i = icmp eq i64 %.narrow.i, %agg.tmp.sroa.2.0.copyload
+  %2 = tail call i64 @llvm.ctlz.i64(i64 %coerce3.sroa.0.0.extract.trunc.i.i, i1 false), !range !8
+  %3 = tail call i64 @llvm.ctlz.i64(i64 %.narrow.i.i, i1 true), !range !8
+  %.sink12.i.i = select i1 %cmp.i.i.not.i.i, i64 %2, i64 %3
   %.sink.i.i = select i1 %cmp.i.i.not.i.i, i32 64, i32 128
   %cast.i.i.i9.i.i = trunc nuw nsw i64 %.sink12.i.i to i32
   %sub.i10.i.i = sub nuw nsw i32 %.sink.i.i, %cast.i.i.i9.i.i
@@ -23512,8 +23542,8 @@ if.else.i:                                        ; preds = %entry
   %add.i = fadd double %add.i20.i, 5.000000e-01
   %call20.i = tail call double @log(double noundef %add.i) #17
   %mul.i = fmul double %div.i, %call20.i
-  %11 = tail call double @llvm.ceil.f64(double %mul.i)
-  %conv.i = fptosi double %11 to i32
+  %4 = tail call double @llvm.ceil.f64(double %mul.i)
+  %conv.i = fptosi double %4 to i32
   br label %_ZN4absl28log_uniform_int_distributionINS_7uint128EE10param_typeC2ES1_S1_S1_.exit
 
 _ZN4absl28log_uniform_int_distributionINS_7uint128EE10param_typeC2ES1_S1_S1_.exit: ; preds = %if.then.i, %if.else.i
@@ -23521,17 +23551,17 @@ _ZN4absl28log_uniform_int_distributionINS_7uint128EE10param_typeC2ES1_S1_S1_.exi
   %log_range_.i = getelementptr inbounds i8, ptr %dist, i64 64
   store i32 %storemerge.i, ptr %log_range_.i, align 16
   %call3.i.i = call { i64, i64 } @_ZN4absl28log_uniform_int_distributionINS_7uint128EE8GenerateINS_15random_internal17NonsecureURBGBaseINS4_10pcg_engineINS4_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS4_17pcg_xsl_rr_128_64EEENS4_17RandenPoolSeedSeqEEEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %dist, ptr noundef nonnull align 16 dereferenceable(16) %urbg, ptr noundef nonnull align 16 dereferenceable(68) %dist)
-  %12 = extractvalue { i64, i64 } %call3.i.i, 0
-  %13 = extractvalue { i64, i64 } %call3.i.i, 1
-  %coerce.sroa.2.0.insert.ext.i.i.i = zext i64 %7 to i128
+  %5 = extractvalue { i64, i64 } %call3.i.i, 0
+  %6 = extractvalue { i64, i64 } %call3.i.i, 1
+  %coerce.sroa.2.0.insert.ext.i.i.i = zext i64 %agg.tmp.sroa.2.0.copyload to i128
   %coerce.sroa.2.0.insert.shift.i.i.i = shl nuw i128 %coerce.sroa.2.0.insert.ext.i.i.i, 64
-  %coerce2.sroa.0.0.insert.ext.i.i.i = zext i64 %12 to i128
+  %coerce2.sroa.0.0.insert.ext.i.i.i = zext i64 %5 to i128
   %coerce2.sroa.0.0.insert.insert.i.i.i = or disjoint i128 %coerce.sroa.2.0.insert.shift.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i
   %coerce.sroa.0.0.insert.insert.i.i.i = add i128 %coerce2.sroa.0.0.insert.insert.i.i.i, %coerce2.sroa.0.0.insert.ext.i.i.i
   %coerce3.sroa.0.0.extract.trunc.i.i.i = trunc i128 %coerce.sroa.0.0.insert.insert.i.i.i to i64
-  %14 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i, 64
-  %.tr.i.i.i = trunc nuw i128 %14 to i64
-  %.narrow.i.i.i = add i64 %13, %.tr.i.i.i
+  %7 = lshr i128 %coerce.sroa.0.0.insert.insert.i.i.i, 64
+  %.tr.i.i.i = trunc nuw i128 %7 to i64
+  %.narrow.i.i.i = add i64 %6, %.tr.i.i.i
   %.fca.0.insert.i2.i.i = insertvalue { i64, i64 } poison, i64 %coerce3.sroa.0.0.extract.trunc.i.i.i, 0
   %.fca.1.insert.i3.i.i = insertvalue { i64, i64 } %.fca.0.insert.i2.i.i, i64 %.narrow.i.i.i, 1
   ret { i64, i64 } %.fca.1.insert.i3.i.i

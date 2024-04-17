@@ -189,8 +189,23 @@ define internal void @_ZL56InitDefaultsscc_info_PhoneMetadata_phonemetadata_2epr
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str)
   tail call void @_ZN4i18n12phonenumbers13PhoneMetadataC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(280) @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, ptr noundef null)
   tail call void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZN6google8protobuf8internal14DestroyMessageEPKv, ptr noundef nonnull @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E)
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 128), align 8
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 136), align 8
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 144), align 8
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 152), align 8
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 160), align 8
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 168), align 8
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 176), align 8
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 184), align 8
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 192), align 8
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 208), align 8
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 216), align 8
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 224), align 8
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 232), align 8
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 240), align 8
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 248), align 8
   store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 256), align 8
-  store <16 x ptr> <ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E>, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 128), align 8
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 200), align 8
   ret void
 }
 
@@ -3632,8 +3647,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4i18n12phonenumbers13PhoneMetadata21InitAsDefaultInstanceEv() local_unnamed_addr #11 align 2 {
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 128), align 8
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 136), align 8
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 144), align 8
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 152), align 8
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 160), align 8
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 168), align 8
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 176), align 8
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 184), align 8
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 192), align 8
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 208), align 8
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 216), align 8
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 224), align 8
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 232), align 8
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 240), align 8
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 248), align 8
   store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 256), align 8
-  store <16 x ptr> <ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E>, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 128), align 8
+  store ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneMetadataDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers32_PhoneMetadata_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 200), align 8
   ret void
 }
 
@@ -3779,41 +3809,55 @@ define dso_local void @_ZN4i18n12phonenumbers13PhoneMetadataC2EPN6google8protobu
 
 11:                                               ; preds = %2
   invoke void @_ZN6google8protobuf8internal11InitSCCImplEPNS1_11SCCInfoBaseE(ptr noundef nonnull @scc_info_PhoneMetadata_phonemetadata_2eproto)
-          to label %12 unwind label %15
+          to label %12 unwind label %22
 
 12:                                               ; preds = %2, %11
   %13 = getelementptr inbounds i8, ptr %0, i64 72
-  store <8 x ptr> <ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E>, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 136
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(143) %14, i8 0, i64 143, i1 false)
+  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %0, i64 96
+  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 104
+  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 120
+  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 128
+  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 136
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(143) %21, i8 0, i64 143, i1 false)
   ret void
 
-15:                                               ; preds = %11
-  %16 = landingpad { ptr, i32 }
+22:                                               ; preds = %11
+  %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase7DestroyINS0_16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEE11TypeHandlerEEEvv(ptr noundef nonnull align 8 dereferenceable(24) %8)
-          to label %_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.exit unwind label %17
+          to label %_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.exit unwind label %24
 
-17:                                               ; preds = %15
-  %18 = landingpad { ptr, i32 }
+24:                                               ; preds = %22
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  tail call void @__clang_call_terminate(ptr %19) #24
+  %26 = extractvalue { ptr, i32 } %25, 0
+  tail call void @__clang_call_terminate(ptr %26) #24
   unreachable
 
-_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.exit: ; preds = %15
+_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.exit: ; preds = %22
   invoke void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase7DestroyINS0_16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEE11TypeHandlerEEEvv(ptr noundef nonnull align 8 dereferenceable(24) %6)
-          to label %_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.exit12 unwind label %20
+          to label %_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.exit12 unwind label %27
 
-20:                                               ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.exit
-  %21 = landingpad { ptr, i32 }
+27:                                               ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.exit
+  %28 = landingpad { ptr, i32 }
           catch ptr null
-  %22 = extractvalue { ptr, i32 } %21, 0
-  tail call void @__clang_call_terminate(ptr %22) #24
+  %29 = extractvalue { ptr, i32 } %28, 0
+  tail call void @__clang_call_terminate(ptr %29) #24
   unreachable
 
 _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.exit12: ; preds = %_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.exit
-  resume { ptr, i32 } %16
+  resume { ptr, i32 } %23
 }
 
 ; Function Attrs: mustprogress uwtable

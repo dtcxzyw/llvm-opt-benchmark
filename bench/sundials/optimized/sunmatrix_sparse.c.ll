@@ -2258,65 +2258,69 @@ SUNMatZero_Sparse.exit:                           ; preds = %.lr.ph17.i, %.prehe
 define noundef i32 @SUNSparseMatrix_ToCSC(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %0, align 8
-  %5 = load <2 x i64>, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = load i64, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8
-  %8 = load ptr, ptr %3, align 8
-  %9 = tail call ptr @SUNMatNewEmpty(ptr noundef %8) #18
-  %10 = getelementptr inbounds i8, ptr %9, i64 8
-  %11 = load ptr, ptr %10, align 8
-  store ptr @SUNMatGetID_Sparse, ptr %11, align 8
-  %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 8
-  store ptr @SUNMatClone_Sparse, ptr %13, align 8
-  %14 = load ptr, ptr %10, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr @SUNMatDestroy_Sparse, ptr %15, align 8
-  %16 = load ptr, ptr %10, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 24
-  store ptr @SUNMatZero_Sparse, ptr %17, align 8
-  %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 32
-  store ptr @SUNMatCopy_Sparse, ptr %19, align 8
-  %20 = load ptr, ptr %10, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 40
-  store ptr @SUNMatScaleAdd_Sparse, ptr %21, align 8
-  %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 48
-  store ptr @SUNMatScaleAddI_Sparse, ptr %23, align 8
-  %24 = load ptr, ptr %10, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 64
-  store ptr @SUNMatMatvec_Sparse, ptr %25, align 8
-  %26 = load ptr, ptr %10, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 72
-  store ptr @SUNMatSpace_Sparse, ptr %27, align 8
-  %28 = tail call noalias dereferenceable_or_null(96) ptr @malloc(i64 noundef 96) #19
-  store ptr %28, ptr %9, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 40
-  store i32 0, ptr %29, align 8
-  %30 = shufflevector <2 x i64> %5, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %31 = insertelement <4 x i64> %30, i64 %7, i64 2
-  %32 = shufflevector <4 x i64> %31, <4 x i64> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 1>
-  store <4 x i64> %32, ptr %28, align 8
-  %33 = getelementptr inbounds i8, ptr %28, i64 48
-  %34 = getelementptr inbounds i8, ptr %28, i64 64
-  store ptr %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %28, i64 56
-  %36 = getelementptr inbounds i8, ptr %28, i64 72
+  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %9 = load i64, ptr %8, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = tail call ptr @SUNMatNewEmpty(ptr noundef %10) #18
+  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  %13 = load ptr, ptr %12, align 8
+  store ptr @SUNMatGetID_Sparse, ptr %13, align 8
+  %14 = load ptr, ptr %12, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr @SUNMatClone_Sparse, ptr %15, align 8
+  %16 = load ptr, ptr %12, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  store ptr @SUNMatDestroy_Sparse, ptr %17, align 8
+  %18 = load ptr, ptr %12, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 24
+  store ptr @SUNMatZero_Sparse, ptr %19, align 8
+  %20 = load ptr, ptr %12, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 32
+  store ptr @SUNMatCopy_Sparse, ptr %21, align 8
+  %22 = load ptr, ptr %12, align 8
+  %23 = getelementptr inbounds i8, ptr %22, i64 40
+  store ptr @SUNMatScaleAdd_Sparse, ptr %23, align 8
+  %24 = load ptr, ptr %12, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 48
+  store ptr @SUNMatScaleAddI_Sparse, ptr %25, align 8
+  %26 = load ptr, ptr %12, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 64
+  store ptr @SUNMatMatvec_Sparse, ptr %27, align 8
+  %28 = load ptr, ptr %12, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 72
+  store ptr @SUNMatSpace_Sparse, ptr %29, align 8
+  %30 = tail call noalias dereferenceable_or_null(96) ptr @malloc(i64 noundef 96) #19
+  store ptr %30, ptr %11, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 40
+  store i32 0, ptr %31, align 8
+  store i64 %5, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %30, i64 8
+  store i64 %7, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %30, i64 16
+  store i64 %9, ptr %33, align 8
+  %34 = getelementptr inbounds i8, ptr %30, i64 24
+  store i64 %7, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %30, i64 48
+  %36 = getelementptr inbounds i8, ptr %30, i64 64
   store ptr %35, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %28, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
-  %38 = extractelement <2 x i64> %5, i64 1
-  %39 = add nsw i64 %38, 1
-  %40 = getelementptr inbounds i8, ptr %28, i64 32
-  %41 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #20
-  store ptr %41, ptr %40, align 8
-  %42 = tail call noalias ptr @calloc(i64 noundef %7, i64 noundef 8) #20
-  store ptr %42, ptr %33, align 8
-  %43 = tail call noalias ptr @calloc(i64 noundef %39, i64 noundef 8) #20
+  %37 = getelementptr inbounds i8, ptr %30, i64 56
+  %38 = getelementptr inbounds i8, ptr %30, i64 72
+  store ptr %37, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %30, i64 80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
+  %40 = add nsw i64 %7, 1
+  %41 = getelementptr inbounds i8, ptr %30, i64 32
+  %42 = tail call noalias ptr @calloc(i64 noundef %9, i64 noundef 8) #20
+  store ptr %42, ptr %41, align 8
+  %43 = tail call noalias ptr @calloc(i64 noundef %9, i64 noundef 8) #20
   store ptr %43, ptr %35, align 8
-  store ptr %9, ptr %1, align 8
-  tail call fastcc void @format_convert(ptr noundef nonnull %0, ptr noundef nonnull %9)
+  %44 = tail call noalias ptr @calloc(i64 noundef %40, i64 noundef 8) #20
+  store ptr %44, ptr %37, align 8
+  store ptr %11, ptr %1, align 8
+  tail call fastcc void @format_convert(ptr noundef nonnull %0, ptr noundef nonnull %11)
   ret i32 0
 }
 

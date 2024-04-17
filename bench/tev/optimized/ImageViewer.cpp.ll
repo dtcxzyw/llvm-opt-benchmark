@@ -27158,50 +27158,52 @@ define linkonce_odr dso_local void @_ZN3tev11SharedQueueINS_13ImageAdditionEE6tr
   %20 = getelementptr inbounds i8, ptr %18, i64 8
   %21 = getelementptr inbounds i8, ptr %3, i64 16
   %22 = getelementptr inbounds i8, ptr %3, i64 24
-  %23 = getelementptr inbounds i8, ptr %18, i64 16
-  %24 = getelementptr inbounds i8, ptr %18, i64 24
-  %25 = getelementptr inbounds i8, ptr %3, i64 32
-  %26 = getelementptr inbounds i8, ptr %18, i64 32
-  %27 = load ptr, ptr %20, align 8
-  store ptr %27, ptr %19, align 8
-  %28 = load ptr, ptr %23, align 8
-  store ptr %28, ptr %21, align 8
-  %29 = load ptr, ptr %24, align 8
-  store ptr %29, ptr %22, align 8
+  %23 = load ptr, ptr %20, align 8
+  store ptr %23, ptr %19, align 8
+  %24 = getelementptr inbounds i8, ptr %18, i64 16
+  %25 = load ptr, ptr %24, align 8
+  store ptr %25, ptr %21, align 8
+  %26 = getelementptr inbounds i8, ptr %18, i64 24
+  %27 = load ptr, ptr %26, align 8
+  store ptr %27, ptr %22, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
-  %30 = load ptr, ptr %26, align 8
-  store ptr %30, ptr %25, align 8
+  %28 = getelementptr inbounds i8, ptr %3, i64 32
+  %29 = getelementptr inbounds i8, ptr %18, i64 32
+  %30 = load ptr, ptr %29, align 8
+  store ptr %30, ptr %28, align 8
   %31 = getelementptr inbounds i8, ptr %3, i64 40
   %32 = getelementptr inbounds i8, ptr %18, i64 40
   %33 = load ptr, ptr %32, align 8
   store ptr %33, ptr %31, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   invoke void @_ZNSt3__15dequeIN3tev13ImageAdditionENS_9allocatorIS2_EEE9pop_frontEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
           to label %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit.i unwind label %_ZNSt3__111unique_lockINS_5mutexEED2B8ne190000Ev.exit
 
 _ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit.i: ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %0, ptr noundef nonnull align 8 dereferenceable(5) %3, i64 5, i1 false)
   %34 = getelementptr inbounds i8, ptr %0, i64 8
-  %35 = insertelement <4 x ptr> poison, ptr %27, i64 0
-  %36 = insertelement <4 x ptr> %35, ptr %28, i64 1
-  %37 = insertelement <4 x ptr> %36, ptr %29, i64 2
-  %38 = insertelement <4 x ptr> %37, ptr %30, i64 3
-  store <4 x ptr> %38, ptr %34, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %33, ptr %39, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %23, ptr %34, align 8
+  store ptr %25, ptr %35, align 8
+  store ptr %27, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %30, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %33, ptr %38, align 8
   br label %_ZNSt3__111unique_lockINS_5mutexEED2B8ne190000Ev.exit2
 
 _ZNSt3__111unique_lockINS_5mutexEED2B8ne190000Ev.exit: ; preds = %9
-  %40 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3tev13ImageAdditionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #39
   call void @_ZNSt3__15mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(40) %4) #39
-  resume { ptr, i32 } %40
+  resume { ptr, i32 } %39
 
 _ZNSt3__111unique_lockINS_5mutexEED2B8ne190000Ev.exit2: ; preds = %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit.i, %8
   %.sink = phi i8 [ 1, %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit.i ], [ 0, %8 ]
-  %41 = getelementptr inbounds i8, ptr %0, i64 48
-  store i8 %.sink, ptr %41, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 48
+  store i8 %.sink, ptr %40, align 8
   tail call void @_ZNSt3__15mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(40) %4) #39
   ret void
 }

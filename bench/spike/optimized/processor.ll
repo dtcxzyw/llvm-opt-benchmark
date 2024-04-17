@@ -128117,7 +128117,21 @@ _ZN11processor_t13register_insnE11insn_desc_t.exit14318: ; preds = %33434, %_ZNS
 33462:                                            ; preds = %_ZN11processor_t13register_insnE11insn_desc_t.exit14318
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33461, i8 0, i64 16, i1 false)
   %.sroa.560891.0..sroa_idx = getelementptr inbounds i8, ptr %33461, i64 16
-  store <8 x ptr> <ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr @_Z19illegal_instructionP11processor_t6insn_tm>, ptr %.sroa.560891.0..sroa_idx, align 8
+  store ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr %.sroa.560891.0..sroa_idx, align 8
+  %.sroa.660894.0..sroa_idx = getelementptr inbounds i8, ptr %33461, i64 24
+  store ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr %.sroa.660894.0..sroa_idx, align 8
+  %.sroa.760897.0..sroa_idx = getelementptr inbounds i8, ptr %33461, i64 32
+  store ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr %.sroa.760897.0..sroa_idx, align 8
+  %.sroa.860900.0..sroa_idx = getelementptr inbounds i8, ptr %33461, i64 40
+  store ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr %.sroa.860900.0..sroa_idx, align 8
+  %.sroa.960903.0..sroa_idx = getelementptr inbounds i8, ptr %33461, i64 48
+  store ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr %.sroa.960903.0..sroa_idx, align 8
+  %.sroa.1060906.0..sroa_idx = getelementptr inbounds i8, ptr %33461, i64 56
+  store ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr %.sroa.1060906.0..sroa_idx, align 8
+  %.sroa.1160909.0..sroa_idx = getelementptr inbounds i8, ptr %33461, i64 64
+  store ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr %.sroa.1160909.0..sroa_idx, align 8
+  %.sroa.1260912.0..sroa_idx = getelementptr inbounds i8, ptr %33461, i64 72
+  store ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr %.sroa.1260912.0..sroa_idx, align 8
   %33463 = load ptr, ptr %18, align 8
   %33464 = getelementptr inbounds i8, ptr %33463, i64 80
   store ptr %33464, ptr %18, align 8
@@ -128155,7 +128169,21 @@ _ZNSt12_Vector_baseI11insn_desc_tSaIS0_EE11_M_allocateEm.exit.i.i.i14323: ; pred
   %33481 = getelementptr inbounds %struct.insn_desc_t, ptr %33480, i64 %33472
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33481, i8 0, i64 16, i1 false)
   %.sroa.560891.0..sroa_idx60892 = getelementptr inbounds i8, ptr %33481, i64 16
-  store <8 x ptr> <ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr @_Z19illegal_instructionP11processor_t6insn_tm>, ptr %.sroa.560891.0..sroa_idx60892, align 8
+  store ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr %.sroa.560891.0..sroa_idx60892, align 8
+  %.sroa.660894.0..sroa_idx60895 = getelementptr inbounds i8, ptr %33481, i64 24
+  store ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr %.sroa.660894.0..sroa_idx60895, align 8
+  %.sroa.760897.0..sroa_idx60898 = getelementptr inbounds i8, ptr %33481, i64 32
+  store ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr %.sroa.760897.0..sroa_idx60898, align 8
+  %.sroa.860900.0..sroa_idx60901 = getelementptr inbounds i8, ptr %33481, i64 40
+  store ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr %.sroa.860900.0..sroa_idx60901, align 8
+  %.sroa.960903.0..sroa_idx60904 = getelementptr inbounds i8, ptr %33481, i64 48
+  store ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr %.sroa.960903.0..sroa_idx60904, align 8
+  %.sroa.1060906.0..sroa_idx60907 = getelementptr inbounds i8, ptr %33481, i64 56
+  store ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr %.sroa.1060906.0..sroa_idx60907, align 8
+  %.sroa.1160909.0..sroa_idx60910 = getelementptr inbounds i8, ptr %33481, i64 64
+  store ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr %.sroa.1160909.0..sroa_idx60910, align 8
+  %.sroa.1260912.0..sroa_idx60913 = getelementptr inbounds i8, ptr %33481, i64 72
+  store ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr %.sroa.1260912.0..sroa_idx60913, align 8
   %33482 = icmp sgt i64 %33469, 0
   br i1 %33482, label %33483, label %_ZNSt6vectorI11insn_desc_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i14324
 
@@ -185276,7 +185304,21 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIP11insn_desc_tSt6vectorIS2_SaIS2_EEEEZN
   %73 = getelementptr inbounds [8191 x %struct.insn_desc_t], ptr %71, i64 0, i64 %.04
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, i8 0, i64 16, i1 false)
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %73, i64 16
-  store <8 x ptr> <ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr @_Z19illegal_instructionP11processor_t6insn_tm>, ptr %.sroa.2.0..sroa_idx, align 8
+  store ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %73, i64 24
+  store ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %73, i64 32
+  store ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %73, i64 40
+  store ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %73, i64 48
+  store ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr %.sroa.6.0..sroa_idx, align 8
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %73, i64 56
+  store ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr %.sroa.7.0..sroa_idx, align 8
+  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %73, i64 64
+  store ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr %.sroa.8.0..sroa_idx, align 8
+  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %73, i64 72
+  store ptr @_Z19illegal_instructionP11processor_t6insn_tm, ptr %.sroa.9.0..sroa_idx, align 8
   %74 = add nuw nsw i64 %.04, 1
   %exitcond.not = icmp eq i64 %74, 8191
   br i1 %exitcond.not, label %75, label %72, !llvm.loop !532

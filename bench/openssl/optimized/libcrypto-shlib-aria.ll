@@ -1194,216 +1194,254 @@ if.end263:                                        ; preds = %if.end7, %if.then19
   %xor541 = xor i32 %xor530, %xor528
   %xor529 = xor i32 %xor523, %xor271
   %xor544 = xor i32 %xor529, %xor526
-  %135 = insertelement <16 x i32> poison, i32 %xor271, i64 0
-  %136 = insertelement <16 x i32> %135, i32 %xor265, i64 1
-  %137 = insertelement <16 x i32> %136, i32 %xor267, i64 2
-  %138 = insertelement <16 x i32> %137, i32 %xor269, i64 3
-  %139 = insertelement <16 x i32> %138, i32 %xor406, i64 4
-  %140 = insertelement <16 x i32> %139, i32 %xor400, i64 5
-  %141 = insertelement <16 x i32> %140, i32 %xor402, i64 6
-  %142 = insertelement <16 x i32> %141, i32 %xor404, i64 7
-  %143 = insertelement <16 x i32> %142, i32 %xor544, i64 8
-  %144 = insertelement <16 x i32> %143, i32 %xor535, i64 9
-  %145 = insertelement <16 x i32> %144, i32 %xor538, i64 10
-  %146 = insertelement <16 x i32> %145, i32 %xor541, i64 11
-  %147 = insertelement <16 x i32> %146, i32 %xor65, i64 12
-  %148 = insertelement <16 x i32> %147, i32 %xor20, i64 13
-  %149 = insertelement <16 x i32> %148, i32 %xor35, i64 14
-  %150 = insertelement <16 x i32> %149, i32 %xor50, i64 15
-  %151 = shufflevector <16 x i32> %146, <16 x i32> poison, <16 x i32> <i32 1, i32 2, i32 3, i32 0, i32 5, i32 6, i32 7, i32 4, i32 9, i32 10, i32 11, i32 8, i32 poison, i32 poison, i32 poison, i32 poison>
-  %152 = insertelement <16 x i32> %151, i32 %xor, i64 12
-  %153 = insertelement <16 x i32> %152, i32 %xor28, i64 13
-  %154 = insertelement <16 x i32> %153, i32 %xor43, i64 14
-  %155 = insertelement <16 x i32> %154, i32 %xor58, i64 15
-  %156 = tail call <16 x i32> @llvm.fshl.v16i32(<16 x i32> %150, <16 x i32> %155, <16 x i32> <i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13>)
-  %157 = shufflevector <16 x i32> %150, <16 x i32> poison, <16 x i32> <i32 13, i32 14, i32 15, i32 12, i32 1, i32 2, i32 3, i32 0, i32 5, i32 6, i32 7, i32 4, i32 9, i32 10, i32 11, i32 8>
-  %158 = xor <16 x i32> %156, %157
-  store <16 x i32> %158, ptr %key, align 4
+  %135 = tail call i32 @llvm.fshl.i32(i32 %xor271, i32 %xor265, i32 13)
+  %xor553 = xor i32 %135, %xor20
+  store i32 %xor553, ptr %key, align 4
+  %136 = tail call i32 @llvm.fshl.i32(i32 %xor265, i32 %xor267, i32 13)
+  %xor561 = xor i32 %136, %xor35
+  %arrayidx562 = getelementptr inbounds i8, ptr %key, i64 4
+  store i32 %xor561, ptr %arrayidx562, align 4
+  %137 = tail call i32 @llvm.fshl.i32(i32 %xor267, i32 %xor269, i32 13)
+  %xor569 = xor i32 %137, %xor50
+  %arrayidx570 = getelementptr inbounds i8, ptr %key, i64 8
+  store i32 %xor569, ptr %arrayidx570, align 4
+  %138 = tail call i32 @llvm.fshl.i32(i32 %xor269, i32 %xor271, i32 13)
+  %xor577 = xor i32 %138, %xor65
+  %arrayidx578 = getelementptr inbounds i8, ptr %key, i64 12
+  store i32 %xor577, ptr %arrayidx578, align 4
+  %incdec.ptr = getelementptr inbounds i8, ptr %key, i64 16
+  %139 = tail call i32 @llvm.fshl.i32(i32 %xor406, i32 %xor400, i32 13)
+  %xor587 = xor i32 %139, %xor265
+  store i32 %xor587, ptr %incdec.ptr, align 4
+  %140 = tail call i32 @llvm.fshl.i32(i32 %xor400, i32 %xor402, i32 13)
+  %xor595 = xor i32 %140, %xor267
+  %arrayidx596 = getelementptr inbounds i8, ptr %key, i64 20
+  store i32 %xor595, ptr %arrayidx596, align 4
+  %141 = tail call i32 @llvm.fshl.i32(i32 %xor402, i32 %xor404, i32 13)
+  %xor603 = xor i32 %141, %xor269
+  %arrayidx604 = getelementptr inbounds i8, ptr %key, i64 24
+  store i32 %xor603, ptr %arrayidx604, align 4
+  %142 = tail call i32 @llvm.fshl.i32(i32 %xor404, i32 %xor406, i32 13)
+  %xor611 = xor i32 %142, %xor271
+  %arrayidx612 = getelementptr inbounds i8, ptr %key, i64 28
+  store i32 %xor611, ptr %arrayidx612, align 4
+  %incdec.ptr614 = getelementptr inbounds i8, ptr %key, i64 32
+  %143 = tail call i32 @llvm.fshl.i32(i32 %xor544, i32 %xor535, i32 13)
+  %xor622 = xor i32 %143, %xor400
+  store i32 %xor622, ptr %incdec.ptr614, align 4
+  %144 = tail call i32 @llvm.fshl.i32(i32 %xor535, i32 %xor538, i32 13)
+  %xor630 = xor i32 %144, %xor402
+  %arrayidx631 = getelementptr inbounds i8, ptr %key, i64 36
+  store i32 %xor630, ptr %arrayidx631, align 4
+  %145 = tail call i32 @llvm.fshl.i32(i32 %xor538, i32 %xor541, i32 13)
+  %xor638 = xor i32 %145, %xor404
+  %arrayidx639 = getelementptr inbounds i8, ptr %key, i64 40
+  store i32 %xor638, ptr %arrayidx639, align 4
+  %146 = tail call i32 @llvm.fshl.i32(i32 %xor541, i32 %xor544, i32 13)
+  %xor646 = xor i32 %146, %xor406
+  %arrayidx647 = getelementptr inbounds i8, ptr %key, i64 44
+  store i32 %xor646, ptr %arrayidx647, align 4
+  %incdec.ptr649 = getelementptr inbounds i8, ptr %key, i64 48
+  %147 = tail call i32 @llvm.fshl.i32(i32 %xor65, i32 %xor, i32 13)
+  %xor657 = xor i32 %xor535, %147
+  store i32 %xor657, ptr %incdec.ptr649, align 4
+  %148 = tail call i32 @llvm.fshl.i32(i32 %xor20, i32 %xor28, i32 13)
+  %xor665 = xor i32 %xor538, %148
+  %arrayidx666 = getelementptr inbounds i8, ptr %key, i64 52
+  store i32 %xor665, ptr %arrayidx666, align 4
+  %149 = tail call i32 @llvm.fshl.i32(i32 %xor35, i32 %xor43, i32 13)
+  %xor673 = xor i32 %xor541, %149
+  %arrayidx674 = getelementptr inbounds i8, ptr %key, i64 56
+  store i32 %xor673, ptr %arrayidx674, align 4
+  %150 = tail call i32 @llvm.fshl.i32(i32 %xor50, i32 %xor58, i32 13)
+  %xor681 = xor i32 %xor544, %150
+  %arrayidx682 = getelementptr inbounds i8, ptr %key, i64 60
+  store i32 %xor681, ptr %arrayidx682, align 4
   %incdec.ptr684 = getelementptr inbounds i8, ptr %key, i64 64
-  %159 = tail call i32 @llvm.fshl.i32(i32 %xor271, i32 %xor265, i32 1)
-  %xor692 = xor i32 %159, %xor20
+  %151 = tail call i32 @llvm.fshl.i32(i32 %xor271, i32 %xor265, i32 1)
+  %xor692 = xor i32 %151, %xor20
   store i32 %xor692, ptr %incdec.ptr684, align 4
-  %160 = tail call i32 @llvm.fshl.i32(i32 %xor265, i32 %xor267, i32 1)
-  %xor700 = xor i32 %160, %xor35
+  %152 = tail call i32 @llvm.fshl.i32(i32 %xor265, i32 %xor267, i32 1)
+  %xor700 = xor i32 %152, %xor35
   %arrayidx701 = getelementptr inbounds i8, ptr %key, i64 68
   store i32 %xor700, ptr %arrayidx701, align 4
-  %161 = tail call i32 @llvm.fshl.i32(i32 %xor267, i32 %xor269, i32 1)
-  %xor708 = xor i32 %161, %xor50
+  %153 = tail call i32 @llvm.fshl.i32(i32 %xor267, i32 %xor269, i32 1)
+  %xor708 = xor i32 %153, %xor50
   %arrayidx709 = getelementptr inbounds i8, ptr %key, i64 72
   store i32 %xor708, ptr %arrayidx709, align 4
-  %162 = tail call i32 @llvm.fshl.i32(i32 %xor269, i32 %xor271, i32 1)
-  %xor716 = xor i32 %162, %xor65
+  %154 = tail call i32 @llvm.fshl.i32(i32 %xor269, i32 %xor271, i32 1)
+  %xor716 = xor i32 %154, %xor65
   %arrayidx717 = getelementptr inbounds i8, ptr %key, i64 76
   store i32 %xor716, ptr %arrayidx717, align 4
   %incdec.ptr719 = getelementptr inbounds i8, ptr %key, i64 80
-  %163 = tail call i32 @llvm.fshl.i32(i32 %xor406, i32 %xor400, i32 1)
-  %xor727 = xor i32 %163, %xor265
+  %155 = tail call i32 @llvm.fshl.i32(i32 %xor406, i32 %xor400, i32 1)
+  %xor727 = xor i32 %155, %xor265
   store i32 %xor727, ptr %incdec.ptr719, align 4
-  %164 = tail call i32 @llvm.fshl.i32(i32 %xor400, i32 %xor402, i32 1)
-  %xor735 = xor i32 %164, %xor267
+  %156 = tail call i32 @llvm.fshl.i32(i32 %xor400, i32 %xor402, i32 1)
+  %xor735 = xor i32 %156, %xor267
   %arrayidx736 = getelementptr inbounds i8, ptr %key, i64 84
   store i32 %xor735, ptr %arrayidx736, align 4
-  %165 = tail call i32 @llvm.fshl.i32(i32 %xor402, i32 %xor404, i32 1)
-  %xor743 = xor i32 %165, %xor269
+  %157 = tail call i32 @llvm.fshl.i32(i32 %xor402, i32 %xor404, i32 1)
+  %xor743 = xor i32 %157, %xor269
   %arrayidx744 = getelementptr inbounds i8, ptr %key, i64 88
   store i32 %xor743, ptr %arrayidx744, align 4
-  %166 = tail call i32 @llvm.fshl.i32(i32 %xor404, i32 %xor406, i32 1)
-  %xor751 = xor i32 %166, %xor271
+  %158 = tail call i32 @llvm.fshl.i32(i32 %xor404, i32 %xor406, i32 1)
+  %xor751 = xor i32 %158, %xor271
   %arrayidx752 = getelementptr inbounds i8, ptr %key, i64 92
   store i32 %xor751, ptr %arrayidx752, align 4
   %incdec.ptr754 = getelementptr inbounds i8, ptr %key, i64 96
-  %167 = tail call i32 @llvm.fshl.i32(i32 %xor544, i32 %xor535, i32 1)
-  %xor762 = xor i32 %167, %xor400
+  %159 = tail call i32 @llvm.fshl.i32(i32 %xor544, i32 %xor535, i32 1)
+  %xor762 = xor i32 %159, %xor400
   store i32 %xor762, ptr %incdec.ptr754, align 4
-  %168 = tail call i32 @llvm.fshl.i32(i32 %xor535, i32 %xor538, i32 1)
-  %xor770 = xor i32 %168, %xor402
+  %160 = tail call i32 @llvm.fshl.i32(i32 %xor535, i32 %xor538, i32 1)
+  %xor770 = xor i32 %160, %xor402
   %arrayidx771 = getelementptr inbounds i8, ptr %key, i64 100
   store i32 %xor770, ptr %arrayidx771, align 4
-  %169 = tail call i32 @llvm.fshl.i32(i32 %xor538, i32 %xor541, i32 1)
-  %xor778 = xor i32 %169, %xor404
+  %161 = tail call i32 @llvm.fshl.i32(i32 %xor538, i32 %xor541, i32 1)
+  %xor778 = xor i32 %161, %xor404
   %arrayidx779 = getelementptr inbounds i8, ptr %key, i64 104
   store i32 %xor778, ptr %arrayidx779, align 4
-  %170 = tail call i32 @llvm.fshl.i32(i32 %xor541, i32 %xor544, i32 1)
-  %xor786 = xor i32 %170, %xor406
+  %162 = tail call i32 @llvm.fshl.i32(i32 %xor541, i32 %xor544, i32 1)
+  %xor786 = xor i32 %162, %xor406
   %arrayidx787 = getelementptr inbounds i8, ptr %key, i64 108
   store i32 %xor786, ptr %arrayidx787, align 4
   %incdec.ptr789 = getelementptr inbounds i8, ptr %key, i64 112
   %shr793 = lshr i32 %conv, 7
   %shl796 = shl i32 %xor65, 1
-  %171 = or disjoint i32 %shl796, %shr793
-  %xor797 = xor i32 %xor535, %171
+  %163 = or disjoint i32 %shl796, %shr793
+  %xor797 = xor i32 %xor535, %163
   store i32 %xor797, ptr %incdec.ptr789, align 4
   %shr801 = lshr i32 %conv23, 7
   %shl804 = shl i32 %xor20, 1
-  %172 = or disjoint i32 %shl804, %shr801
-  %xor805 = xor i32 %xor538, %172
+  %164 = or disjoint i32 %shl804, %shr801
+  %xor805 = xor i32 %xor538, %164
   %arrayidx806 = getelementptr inbounds i8, ptr %key, i64 116
   store i32 %xor805, ptr %arrayidx806, align 4
   %shr809 = lshr i32 %conv38, 7
   %shl812 = shl i32 %xor35, 1
-  %173 = or disjoint i32 %shl812, %shr809
-  %xor813 = xor i32 %xor541, %173
+  %165 = or disjoint i32 %shl812, %shr809
+  %xor813 = xor i32 %xor541, %165
   %arrayidx814 = getelementptr inbounds i8, ptr %key, i64 120
   store i32 %xor813, ptr %arrayidx814, align 4
   %shr817 = lshr i32 %conv53, 7
   %shl820 = shl i32 %xor50, 1
-  %174 = or disjoint i32 %shl820, %shr817
-  %xor821 = xor i32 %xor544, %174
+  %166 = or disjoint i32 %shl820, %shr817
+  %xor821 = xor i32 %xor544, %166
   %arrayidx822 = getelementptr inbounds i8, ptr %key, i64 124
   store i32 %xor821, ptr %arrayidx822, align 4
   %incdec.ptr824 = getelementptr inbounds i8, ptr %key, i64 128
-  %175 = tail call i32 @llvm.fshl.i32(i32 %xor267, i32 %xor269, i32 29)
-  %xor832 = xor i32 %175, %xor20
+  %167 = tail call i32 @llvm.fshl.i32(i32 %xor267, i32 %xor269, i32 29)
+  %xor832 = xor i32 %167, %xor20
   store i32 %xor832, ptr %incdec.ptr824, align 4
-  %176 = tail call i32 @llvm.fshl.i32(i32 %xor269, i32 %xor271, i32 29)
-  %xor840 = xor i32 %176, %xor35
+  %168 = tail call i32 @llvm.fshl.i32(i32 %xor269, i32 %xor271, i32 29)
+  %xor840 = xor i32 %168, %xor35
   %arrayidx841 = getelementptr inbounds i8, ptr %key, i64 132
   store i32 %xor840, ptr %arrayidx841, align 4
-  %177 = tail call i32 @llvm.fshl.i32(i32 %xor271, i32 %xor265, i32 29)
-  %xor848 = xor i32 %177, %xor50
+  %169 = tail call i32 @llvm.fshl.i32(i32 %xor271, i32 %xor265, i32 29)
+  %xor848 = xor i32 %169, %xor50
   %arrayidx849 = getelementptr inbounds i8, ptr %key, i64 136
   store i32 %xor848, ptr %arrayidx849, align 4
-  %178 = tail call i32 @llvm.fshl.i32(i32 %xor265, i32 %xor267, i32 29)
-  %xor856 = xor i32 %178, %xor65
+  %170 = tail call i32 @llvm.fshl.i32(i32 %xor265, i32 %xor267, i32 29)
+  %xor856 = xor i32 %170, %xor65
   %arrayidx857 = getelementptr inbounds i8, ptr %key, i64 140
   store i32 %xor856, ptr %arrayidx857, align 4
   %incdec.ptr859 = getelementptr inbounds i8, ptr %key, i64 144
-  %179 = tail call i32 @llvm.fshl.i32(i32 %xor402, i32 %xor404, i32 29)
-  %xor867 = xor i32 %179, %xor265
+  %171 = tail call i32 @llvm.fshl.i32(i32 %xor402, i32 %xor404, i32 29)
+  %xor867 = xor i32 %171, %xor265
   store i32 %xor867, ptr %incdec.ptr859, align 4
-  %180 = tail call i32 @llvm.fshl.i32(i32 %xor404, i32 %xor406, i32 29)
-  %xor875 = xor i32 %180, %xor267
+  %172 = tail call i32 @llvm.fshl.i32(i32 %xor404, i32 %xor406, i32 29)
+  %xor875 = xor i32 %172, %xor267
   %arrayidx876 = getelementptr inbounds i8, ptr %key, i64 148
   store i32 %xor875, ptr %arrayidx876, align 4
-  %181 = tail call i32 @llvm.fshl.i32(i32 %xor406, i32 %xor400, i32 29)
-  %xor883 = xor i32 %181, %xor269
+  %173 = tail call i32 @llvm.fshl.i32(i32 %xor406, i32 %xor400, i32 29)
+  %xor883 = xor i32 %173, %xor269
   %arrayidx884 = getelementptr inbounds i8, ptr %key, i64 152
   store i32 %xor883, ptr %arrayidx884, align 4
-  %182 = tail call i32 @llvm.fshl.i32(i32 %xor400, i32 %xor402, i32 29)
-  %xor891 = xor i32 %182, %xor271
+  %174 = tail call i32 @llvm.fshl.i32(i32 %xor400, i32 %xor402, i32 29)
+  %xor891 = xor i32 %174, %xor271
   %arrayidx892 = getelementptr inbounds i8, ptr %key, i64 156
   store i32 %xor891, ptr %arrayidx892, align 4
   %incdec.ptr894 = getelementptr inbounds i8, ptr %key, i64 160
-  %183 = tail call i32 @llvm.fshl.i32(i32 %xor538, i32 %xor541, i32 29)
-  %xor902 = xor i32 %183, %xor400
+  %175 = tail call i32 @llvm.fshl.i32(i32 %xor538, i32 %xor541, i32 29)
+  %xor902 = xor i32 %175, %xor400
   store i32 %xor902, ptr %incdec.ptr894, align 4
-  %184 = tail call i32 @llvm.fshl.i32(i32 %xor541, i32 %xor544, i32 29)
-  %xor910 = xor i32 %184, %xor402
+  %176 = tail call i32 @llvm.fshl.i32(i32 %xor541, i32 %xor544, i32 29)
+  %xor910 = xor i32 %176, %xor402
   %arrayidx911 = getelementptr inbounds i8, ptr %key, i64 164
   store i32 %xor910, ptr %arrayidx911, align 4
-  %185 = tail call i32 @llvm.fshl.i32(i32 %xor544, i32 %xor535, i32 29)
-  %xor918 = xor i32 %185, %xor404
+  %177 = tail call i32 @llvm.fshl.i32(i32 %xor544, i32 %xor535, i32 29)
+  %xor918 = xor i32 %177, %xor404
   %arrayidx919 = getelementptr inbounds i8, ptr %key, i64 168
   store i32 %xor918, ptr %arrayidx919, align 4
-  %186 = tail call i32 @llvm.fshl.i32(i32 %xor535, i32 %xor538, i32 29)
-  %xor926 = xor i32 %186, %xor406
+  %178 = tail call i32 @llvm.fshl.i32(i32 %xor535, i32 %xor538, i32 29)
+  %xor926 = xor i32 %178, %xor406
   %arrayidx927 = getelementptr inbounds i8, ptr %key, i64 172
   store i32 %xor926, ptr %arrayidx927, align 4
   %incdec.ptr929 = getelementptr inbounds i8, ptr %key, i64 176
-  %187 = tail call i32 @llvm.fshl.i32(i32 %conv34, i32 %xor50, i32 29)
-  %xor937 = xor i32 %xor535, %187
+  %179 = tail call i32 @llvm.fshl.i32(i32 %conv34, i32 %xor50, i32 29)
+  %xor937 = xor i32 %xor535, %179
   store i32 %xor937, ptr %incdec.ptr929, align 4
-  %188 = tail call i32 @llvm.fshl.i32(i32 %conv49, i32 %xor65, i32 29)
-  %xor945 = xor i32 %xor538, %188
+  %180 = tail call i32 @llvm.fshl.i32(i32 %conv49, i32 %xor65, i32 29)
+  %xor945 = xor i32 %xor538, %180
   %arrayidx946 = getelementptr inbounds i8, ptr %key, i64 180
   store i32 %xor945, ptr %arrayidx946, align 4
-  %189 = tail call i32 @llvm.fshl.i32(i32 %conv64, i32 %xor20, i32 29)
-  %xor953 = xor i32 %xor541, %189
+  %181 = tail call i32 @llvm.fshl.i32(i32 %conv64, i32 %xor20, i32 29)
+  %xor953 = xor i32 %xor541, %181
   %arrayidx954 = getelementptr inbounds i8, ptr %key, i64 184
   store i32 %xor953, ptr %arrayidx954, align 4
-  %190 = tail call i32 @llvm.fshl.i32(i32 %conv19, i32 %xor35, i32 29)
-  %xor961 = xor i32 %xor544, %190
+  %182 = tail call i32 @llvm.fshl.i32(i32 %conv19, i32 %xor35, i32 29)
+  %xor961 = xor i32 %xor544, %182
   %arrayidx962 = getelementptr inbounds i8, ptr %key, i64 188
   store i32 %xor961, ptr %arrayidx962, align 4
   %incdec.ptr964 = getelementptr inbounds i8, ptr %key, i64 192
-  %191 = tail call i32 @llvm.fshl.i32(i32 %xor265, i32 %xor267, i32 31)
-  %xor972 = xor i32 %191, %xor20
+  %183 = tail call i32 @llvm.fshl.i32(i32 %xor265, i32 %xor267, i32 31)
+  %xor972 = xor i32 %183, %xor20
   store i32 %xor972, ptr %incdec.ptr964, align 4
-  %192 = tail call i32 @llvm.fshl.i32(i32 %xor267, i32 %xor269, i32 31)
-  %xor980 = xor i32 %192, %xor35
+  %184 = tail call i32 @llvm.fshl.i32(i32 %xor267, i32 %xor269, i32 31)
+  %xor980 = xor i32 %184, %xor35
   %arrayidx981 = getelementptr inbounds i8, ptr %key, i64 196
   store i32 %xor980, ptr %arrayidx981, align 4
-  %193 = tail call i32 @llvm.fshl.i32(i32 %xor269, i32 %xor271, i32 31)
-  %xor988 = xor i32 %193, %xor50
+  %185 = tail call i32 @llvm.fshl.i32(i32 %xor269, i32 %xor271, i32 31)
+  %xor988 = xor i32 %185, %xor50
   %arrayidx989 = getelementptr inbounds i8, ptr %key, i64 200
   store i32 %xor988, ptr %arrayidx989, align 4
-  %194 = tail call i32 @llvm.fshl.i32(i32 %xor271, i32 %xor265, i32 31)
-  %xor996 = xor i32 %194, %xor65
+  %186 = tail call i32 @llvm.fshl.i32(i32 %xor271, i32 %xor265, i32 31)
+  %xor996 = xor i32 %186, %xor65
   %arrayidx997 = getelementptr inbounds i8, ptr %key, i64 204
   store i32 %xor996, ptr %arrayidx997, align 4
   br i1 %cmp189, label %if.end1072, label %return
 
 if.end1072:                                       ; preds = %if.end263
   %incdec.ptr1002 = getelementptr inbounds i8, ptr %key, i64 208
-  %195 = tail call i32 @llvm.fshl.i32(i32 %xor400, i32 %xor402, i32 31)
-  %xor1010 = xor i32 %195, %xor265
+  %187 = tail call i32 @llvm.fshl.i32(i32 %xor400, i32 %xor402, i32 31)
+  %xor1010 = xor i32 %187, %xor265
   store i32 %xor1010, ptr %incdec.ptr1002, align 4
-  %196 = tail call i32 @llvm.fshl.i32(i32 %xor402, i32 %xor404, i32 31)
-  %xor1018 = xor i32 %196, %xor267
+  %188 = tail call i32 @llvm.fshl.i32(i32 %xor402, i32 %xor404, i32 31)
+  %xor1018 = xor i32 %188, %xor267
   %arrayidx1019 = getelementptr inbounds i8, ptr %key, i64 212
   store i32 %xor1018, ptr %arrayidx1019, align 4
-  %197 = tail call i32 @llvm.fshl.i32(i32 %xor404, i32 %xor406, i32 31)
-  %xor1026 = xor i32 %197, %xor269
+  %189 = tail call i32 @llvm.fshl.i32(i32 %xor404, i32 %xor406, i32 31)
+  %xor1026 = xor i32 %189, %xor269
   %arrayidx1027 = getelementptr inbounds i8, ptr %key, i64 216
   store i32 %xor1026, ptr %arrayidx1027, align 4
-  %198 = tail call i32 @llvm.fshl.i32(i32 %xor406, i32 %xor400, i32 31)
-  %xor1034 = xor i32 %198, %xor271
+  %190 = tail call i32 @llvm.fshl.i32(i32 %xor406, i32 %xor400, i32 31)
+  %xor1034 = xor i32 %190, %xor271
   %arrayidx1035 = getelementptr inbounds i8, ptr %key, i64 220
   store i32 %xor1034, ptr %arrayidx1035, align 4
   %incdec.ptr1037 = getelementptr inbounds i8, ptr %key, i64 224
-  %199 = tail call i32 @llvm.fshl.i32(i32 %xor535, i32 %xor538, i32 31)
-  %xor1045 = xor i32 %199, %xor400
+  %191 = tail call i32 @llvm.fshl.i32(i32 %xor535, i32 %xor538, i32 31)
+  %xor1045 = xor i32 %191, %xor400
   store i32 %xor1045, ptr %incdec.ptr1037, align 4
-  %200 = tail call i32 @llvm.fshl.i32(i32 %xor538, i32 %xor541, i32 31)
-  %xor1053 = xor i32 %200, %xor402
+  %192 = tail call i32 @llvm.fshl.i32(i32 %xor538, i32 %xor541, i32 31)
+  %xor1053 = xor i32 %192, %xor402
   %arrayidx1054 = getelementptr inbounds i8, ptr %key, i64 228
   store i32 %xor1053, ptr %arrayidx1054, align 4
-  %201 = tail call i32 @llvm.fshl.i32(i32 %xor541, i32 %xor544, i32 31)
-  %xor1061 = xor i32 %201, %xor404
+  %193 = tail call i32 @llvm.fshl.i32(i32 %xor541, i32 %xor544, i32 31)
+  %xor1061 = xor i32 %193, %xor404
   %arrayidx1062 = getelementptr inbounds i8, ptr %key, i64 232
   store i32 %xor1061, ptr %arrayidx1062, align 4
-  %202 = tail call i32 @llvm.fshl.i32(i32 %xor544, i32 %xor535, i32 31)
-  %xor1069 = xor i32 %202, %xor406
+  %194 = tail call i32 @llvm.fshl.i32(i32 %xor544, i32 %xor535, i32 31)
+  %xor1069 = xor i32 %194, %xor406
   %arrayidx1070 = getelementptr inbounds i8, ptr %key, i64 236
   store i32 %xor1069, ptr %arrayidx1070, align 4
   %cmp1073 = icmp ugt i32 %bits, 192
@@ -1411,35 +1449,35 @@ if.end1072:                                       ; preds = %if.end263
 
 if.then1075:                                      ; preds = %if.end1072
   %incdec.ptr1076 = getelementptr inbounds i8, ptr %key, i64 240
-  %203 = tail call i32 @llvm.fshl.i32(i32 %conv19, i32 %xor35, i32 31)
-  %xor1084 = xor i32 %xor535, %203
+  %195 = tail call i32 @llvm.fshl.i32(i32 %conv19, i32 %xor35, i32 31)
+  %xor1084 = xor i32 %xor535, %195
   store i32 %xor1084, ptr %incdec.ptr1076, align 4
-  %204 = tail call i32 @llvm.fshl.i32(i32 %conv34, i32 %xor50, i32 31)
-  %xor1092 = xor i32 %xor538, %204
+  %196 = tail call i32 @llvm.fshl.i32(i32 %conv34, i32 %xor50, i32 31)
+  %xor1092 = xor i32 %xor538, %196
   %arrayidx1093 = getelementptr inbounds i8, ptr %key, i64 244
   store i32 %xor1092, ptr %arrayidx1093, align 4
-  %205 = tail call i32 @llvm.fshl.i32(i32 %conv49, i32 %xor65, i32 31)
-  %xor1100 = xor i32 %xor541, %205
+  %197 = tail call i32 @llvm.fshl.i32(i32 %conv49, i32 %xor65, i32 31)
+  %xor1100 = xor i32 %xor541, %197
   %arrayidx1101 = getelementptr inbounds i8, ptr %key, i64 248
   store i32 %xor1100, ptr %arrayidx1101, align 4
-  %206 = tail call i32 @llvm.fshl.i32(i32 %conv64, i32 %xor20, i32 31)
-  %xor1108 = xor i32 %xor544, %206
+  %198 = tail call i32 @llvm.fshl.i32(i32 %conv64, i32 %xor20, i32 31)
+  %xor1108 = xor i32 %xor544, %198
   %arrayidx1109 = getelementptr inbounds i8, ptr %key, i64 252
   store i32 %xor1108, ptr %arrayidx1109, align 4
   %incdec.ptr1111 = getelementptr inbounds i8, ptr %key, i64 256
-  %207 = tail call i32 @llvm.fshl.i32(i32 %xor265, i32 %xor267, i32 19)
-  %xor1119 = xor i32 %207, %xor20
+  %199 = tail call i32 @llvm.fshl.i32(i32 %xor265, i32 %xor267, i32 19)
+  %xor1119 = xor i32 %199, %xor20
   store i32 %xor1119, ptr %incdec.ptr1111, align 4
-  %208 = tail call i32 @llvm.fshl.i32(i32 %xor267, i32 %xor269, i32 19)
-  %xor1127 = xor i32 %208, %xor35
+  %200 = tail call i32 @llvm.fshl.i32(i32 %xor267, i32 %xor269, i32 19)
+  %xor1127 = xor i32 %200, %xor35
   %arrayidx1128 = getelementptr inbounds i8, ptr %key, i64 260
   store i32 %xor1127, ptr %arrayidx1128, align 4
-  %209 = tail call i32 @llvm.fshl.i32(i32 %xor269, i32 %xor271, i32 19)
-  %xor1135 = xor i32 %209, %xor50
+  %201 = tail call i32 @llvm.fshl.i32(i32 %xor269, i32 %xor271, i32 19)
+  %xor1135 = xor i32 %201, %xor50
   %arrayidx1136 = getelementptr inbounds i8, ptr %key, i64 264
   store i32 %xor1135, ptr %arrayidx1136, align 4
-  %210 = tail call i32 @llvm.fshl.i32(i32 %xor271, i32 %xor265, i32 19)
-  %xor1143 = xor i32 %210, %xor65
+  %202 = tail call i32 @llvm.fshl.i32(i32 %xor271, i32 %xor265, i32 19)
+  %xor1143 = xor i32 %202, %xor65
   %arrayidx1144 = getelementptr inbounds i8, ptr %key, i64 268
   store i32 %xor1143, ptr %arrayidx1144, align 4
   br label %return
@@ -1641,9 +1679,6 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #4
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <16 x i32> @llvm.fshl.v16i32(<16 x i32>, <16 x i32>, <16 x i32>) #4
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
