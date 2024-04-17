@@ -39,15 +39,14 @@ define void @_ZN7rocksdb12DynamicBloomC2EPNS_9AllocatorEjjmPNS_6LoggerE(ptr noca
 entry:
   %kNumDoubleProbes = getelementptr inbounds i8, ptr %this, i64 4
   %cmp = icmp eq i32 %num_probes, 1
-  %conv = zext i1 %cmp to i32
-  %add = add i32 %conv, %num_probes
-  %div14 = lshr i32 %add, 1
-  store i32 %div14, ptr %kNumDoubleProbes, align 4
+  %0 = lshr i32 %num_probes, 1
+  %div = select i1 %cmp, i32 1, i32 %0
+  store i32 %div, ptr %kNumDoubleProbes, align 4
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i, %entry
   %rv.0.i = phi i32 [ 1, %entry ], [ %shl.i, %while.cond.i ]
-  %cmp.i = icmp ult i32 %rv.0.i, %div14
+  %cmp.i = icmp ult i32 %rv.0.i, %div
   %shl.i = shl i32 %rv.0.i, 1
   br i1 %cmp.i, label %while.cond.i, label %_ZN7rocksdb12_GLOBAL__N_113roundUpToPow2Ej.exit, !llvm.loop !4
 
@@ -59,20 +58,20 @@ _ZN7rocksdb12_GLOBAL__N_113roundUpToPow2Ej.exit:  ; preds = %while.cond.i
   %sub = add i32 %add6, %mul5
   %div7 = udiv i32 %sub, %mul5
   %mul8 = mul i32 %div7, %mul
-  %div915 = lshr exact i32 %mul8, 3
-  store i32 %div915, ptr %this, align 8
+  %div914 = lshr exact i32 %mul8, 3
+  store i32 %div914, ptr %this, align 8
   %sub10 = add i32 %mul, -1
   %add11 = add i32 %sub10, %mul8
   %conv12 = zext i32 %add11 to i64
   %vtable = load ptr, ptr %allocator, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
-  %0 = load ptr, ptr %vfn, align 8
-  %call13 = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(8) %allocator, i64 noundef %conv12, i64 noundef %huge_page_tlb_size, ptr noundef %logger)
+  %1 = load ptr, ptr %vfn, align 8
+  %call13 = tail call noundef ptr %1(ptr noundef nonnull align 8 dereferenceable(8) %allocator, i64 noundef %conv12, i64 noundef %huge_page_tlb_size, ptr noundef %logger)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call13, i8 0, i64 %conv12, i1 false)
-  %1 = ptrtoint ptr %call13 to i64
+  %2 = ptrtoint ptr %call13 to i64
   %conv15 = zext i32 %mul to i64
-  %2 = add nsw i64 %conv15, -1
-  %rem = and i64 %2, %1
+  %3 = add nsw i64 %conv15, -1
+  %rem = and i64 %3, %2
   %cmp16.not = icmp eq i64 %rem, 0
   %sub18 = sub nsw i64 %conv15, %rem
   %raw.0.idx = select i1 %cmp16.not, i64 0, i64 %sub18

@@ -5130,11 +5130,9 @@ if.end12.i:                                       ; preds = %land.lhs.true.i, %l
   %idxprom.i.i.i = zext nneg i8 %7 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32 x i8], ptr @.str.19, i64 0, i64 %idxprom.i.i.i
   %8 = load i8, ptr %arrayidx.i.i.i, align 1
-  %conv1.i.i.i = sext i8 %8 to i64
-  %9 = lshr i64 2164195328, %idxprom.i.i.i
-  %conv.i.i = and i64 %9, 1
-  %10 = getelementptr i8, ptr %0, i64 %conv.i.i
-  %add.ptr.i = getelementptr i8, ptr %10, i64 %conv1.i.i.i
+  %9 = tail call i8 @llvm.umax.i8(i8 %8, i8 1)
+  %idx.ext.i = sext i8 %9 to i64
+  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %idx.ext.i
   %sub.ptr.rhs.cast.i70 = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.sub.i71 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i70
   %cmp1.i72 = icmp slt i64 %sub.ptr.sub.i71, 1
@@ -5143,8 +5141,8 @@ if.end12.i:                                       ; preds = %land.lhs.true.i, %l
 
 for.cond.i:                                       ; preds = %if.else20.i, %if.end12.i
   %p.1.i = phi ptr [ %spec.select.i, %if.end12.i ], [ %0, %if.else20.i ]
-  %11 = load i8, ptr %p.1.i, align 1
-  switch i8 %11, label %if.else20.i [
+  %10 = load i8, ptr %p.1.i, align 1
+  switch i8 %10, label %if.else20.i [
     i8 60, label %if.then7.i.loopexit
     i8 62, label %if.then7.i.loopexit138
     i8 94, label %if.then7.i
@@ -5183,9 +5181,9 @@ if.then.i.i.i:                                    ; preds = %if.end13.i
 for.body.i.i.i:                                   ; preds = %if.end13.i, %for.body.i.i.i
   %i.07.i.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %if.end13.i ]
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i.i
-  %12 = load i8, ptr %arrayidx.i.i.i.i, align 1
+  %11 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %arrayidx.i.i22.i = getelementptr inbounds [4 x i8], ptr %fill2.i.i, i64 0, i64 %i.07.i.i.i
-  store i8 %12, ptr %arrayidx.i.i22.i, align 1
+  store i8 %11, ptr %arrayidx.i.i22.i, align 1
   %inc.i.i.i = add nuw nsw i64 %i.07.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %sub.ptr.sub16.i
   br i1 %exitcond.not.i.i.i, label %_ZN3fmt2v96detail12specs_setterIcE7on_fillENS0_17basic_string_viewIcEE.exit.i, label %for.body.i.i.i, !llvm.loop !43
@@ -5216,8 +5214,8 @@ _ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handler
   br i1 %cmp14.i, label %_ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit
-  %13 = load i8, ptr %retval.0.i, align 1
-  switch i8 %13, label %if.end42.i [
+  %12 = load i8, ptr %retval.0.i, align 1
+  switch i8 %12, label %if.end42.i [
     i8 43, label %if.then.i.i
     i8 45, label %if.then.i.i76
     i8 32, label %if.then.i.i86
@@ -5251,8 +5249,8 @@ if.end42.i:                                       ; preds = %if.end16.i
   br i1 %cmp44.i, label %_ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit, label %if.end46.i
 
 if.end46.i:                                       ; preds = %if.end42.i
-  %14 = load i8, ptr %call43.i, align 1
-  %cmp48.i = icmp eq i8 %14, 46
+  %13 = load i8, ptr %call43.i, align 1
+  %cmp48.i = icmp eq i8 %13, 46
   br i1 %cmp48.i, label %if.then49.i, label %if.end54.i
 
 if.then49.i:                                      ; preds = %if.end46.i
@@ -5265,24 +5263,24 @@ if.end54.ithread-pre-split:                       ; preds = %if.then49.i
   br label %if.end54.i
 
 if.end54.i:                                       ; preds = %if.end54.ithread-pre-split, %if.end46.i
-  %15 = phi i8 [ %.pr114, %if.end54.ithread-pre-split ], [ %14, %if.end46.i ]
+  %14 = phi i8 [ %.pr114, %if.end54.ithread-pre-split ], [ %13, %if.end46.i ]
   %begin.addr.i.3 = phi ptr [ %call50.i, %if.end54.ithread-pre-split ], [ %call43.i, %if.end46.i ]
-  %cmp56.i = icmp eq i8 %15, 76
+  %cmp56.i = icmp eq i8 %14, 76
   br i1 %cmp56.i, label %if.then57.i, label %land.lhs.true61.i
 
 if.then57.i:                                      ; preds = %if.end54.i
-  %16 = load i32, ptr %arg_type_.i, align 8
-  %17 = add i32 %16, -1
-  %18 = icmp ult i32 %17, 11
-  br i1 %18, label %if.end59.i, label %if.then.i.i106
+  %15 = load i32, ptr %arg_type_.i, align 8
+  %16 = add i32 %15, -1
+  %17 = icmp ult i32 %16, 11
+  br i1 %17, label %if.end59.i, label %if.then.i.i106
 
 if.then.i.i106:                                   ; preds = %if.then57.i
   call void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef nonnull @.str.21) #19
   unreachable
 
 if.end59.i:                                       ; preds = %if.then57.i
-  %19 = load ptr, ptr %checker, align 8
-  %localized.i.i = getelementptr inbounds i8, ptr %19, i64 9
+  %18 = load ptr, ptr %checker, align 8
+  %localized.i.i = getelementptr inbounds i8, ptr %18, i64 9
   %bf.load.i.i108 = load i16, ptr %localized.i.i, align 1
   %bf.set.i.i109 = or i16 %bf.load.i.i108, 256
   store i16 %bf.set.i.i109, ptr %localized.i.i, align 1
@@ -5295,19 +5293,19 @@ if.end59.i.land.lhs.true61.i_crit_edge:           ; preds = %if.end59.i
   br label %land.lhs.true61.i
 
 land.lhs.true61.i:                                ; preds = %if.end59.i.land.lhs.true61.i_crit_edge, %if.end54.i
-  %20 = phi i8 [ %.pre, %if.end59.i.land.lhs.true61.i_crit_edge ], [ %15, %if.end54.i ]
+  %19 = phi i8 [ %.pre, %if.end59.i.land.lhs.true61.i_crit_edge ], [ %14, %if.end54.i ]
   %begin.addr.i.4117 = phi ptr [ %incdec.ptr58.i, %if.end59.i.land.lhs.true61.i_crit_edge ], [ %begin.addr.i.3, %if.end54.i ]
-  %cmp63.i.not = icmp eq i8 %20, 125
+  %cmp63.i.not = icmp eq i8 %19, 125
   br i1 %cmp63.i.not, label %_ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit, label %if.then64.i
 
 if.then64.i:                                      ; preds = %land.lhs.true61.i
-  %call67.i = call noundef zeroext i8 @_ZN3fmt2v96detail23parse_presentation_typeIcEENS0_17presentation_typeET_(i8 noundef signext %20)
+  %call67.i = call noundef zeroext i8 @_ZN3fmt2v96detail23parse_presentation_typeIcEENS0_17presentation_typeET_(i8 noundef signext %19)
   %cmp68.i = icmp eq i8 %call67.i, 0
   br i1 %cmp68.i, label %if.then69.i, label %if.then64.i.split
 
 if.then64.i.split:                                ; preds = %if.then64.i
   %incdec.ptr66.i = getelementptr inbounds i8, ptr %begin.addr.i.4117, i64 1
-  %21 = load ptr, ptr %checker, align 8
+  %20 = load ptr, ptr %checker, align 8
   br label %_ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit.sink.split
 
 if.then69.i:                                      ; preds = %if.then64.i
@@ -5315,7 +5313,7 @@ if.then69.i:                                      ; preds = %if.then64.i
   unreachable
 
 _ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit.sink.split: ; preds = %if.then.i, %if.then64.i.split
-  %.sink = phi ptr [ %21, %if.then64.i.split ], [ %this, %if.then.i ]
+  %.sink = phi ptr [ %20, %if.then64.i.split ], [ %this, %if.then.i ]
   %call67.i.sink = phi i8 [ %call67.i, %if.then64.i.split ], [ %call6.i, %if.then.i ]
   %retval.i.0.ph = phi ptr [ %incdec.ptr66.i, %if.then64.i.split ], [ %arrayidx.i, %if.then.i ]
   %type2.i110 = getelementptr inbounds i8, ptr %.sink, i64 8
@@ -5325,8 +5323,8 @@ _ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_
 _ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit: ; preds = %_ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit.sink.split, %if.end59.i, %land.lhs.true61.i, %if.then49.i, %if.end42.i, %_ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit
   %retval.i.0 = phi ptr [ %add.ptr.i.i, %_ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit ], [ %add.ptr.i.i, %if.end42.i ], [ %add.ptr.i.i, %if.then49.i ], [ %begin.addr.i.4117, %land.lhs.true61.i ], [ %add.ptr.i.i, %if.end59.i ], [ %retval.i.0.ph, %_ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit.sink.split ]
   %type33 = getelementptr inbounds i8, ptr %this, i64 8
-  %22 = load i8, ptr %type33, align 8
-  switch i8 %22, label %if.then5.i [
+  %21 = load i8, ptr %type33, align 8
+  switch i8 %21, label %if.then5.i [
     i8 18, label %return
     i8 16, label %return
     i8 0, label %return
@@ -6250,11 +6248,9 @@ if.end12.i:                                       ; preds = %land.lhs.true.i, %l
   %idxprom.i.i.i = zext nneg i8 %7 to i64
   %arrayidx.i.i.i = getelementptr inbounds [32 x i8], ptr @.str.19, i64 0, i64 %idxprom.i.i.i
   %8 = load i8, ptr %arrayidx.i.i.i, align 1
-  %conv1.i.i.i = sext i8 %8 to i64
-  %9 = lshr i64 2164195328, %idxprom.i.i.i
-  %conv.i.i = and i64 %9, 1
-  %10 = getelementptr i8, ptr %0, i64 %conv.i.i
-  %add.ptr.i = getelementptr i8, ptr %10, i64 %conv1.i.i.i
+  %9 = tail call i8 @llvm.umax.i8(i8 %8, i8 1)
+  %idx.ext.i = sext i8 %9 to i64
+  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %idx.ext.i
   %sub.ptr.rhs.cast.i70 = ptrtoint ptr %add.ptr.i to i64
   %sub.ptr.sub.i71 = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i70
   %cmp1.i72 = icmp slt i64 %sub.ptr.sub.i71, 1
@@ -6263,8 +6259,8 @@ if.end12.i:                                       ; preds = %land.lhs.true.i, %l
 
 for.cond.i:                                       ; preds = %if.else20.i, %if.end12.i
   %p.1.i = phi ptr [ %spec.select.i, %if.end12.i ], [ %0, %if.else20.i ]
-  %11 = load i8, ptr %p.1.i, align 1
-  switch i8 %11, label %if.else20.i [
+  %10 = load i8, ptr %p.1.i, align 1
+  switch i8 %10, label %if.else20.i [
     i8 60, label %if.then7.i.loopexit
     i8 62, label %if.then7.i.loopexit141
     i8 94, label %if.then7.i
@@ -6303,9 +6299,9 @@ if.then.i.i.i:                                    ; preds = %if.end13.i
 for.body.i.i.i:                                   ; preds = %if.end13.i, %for.body.i.i.i
   %i.07.i.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %if.end13.i ]
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %i.07.i.i.i
-  %12 = load i8, ptr %arrayidx.i.i.i.i, align 1
+  %11 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %arrayidx.i.i22.i = getelementptr inbounds [4 x i8], ptr %fill2.i.i, i64 0, i64 %i.07.i.i.i
-  store i8 %12, ptr %arrayidx.i.i22.i, align 1
+  store i8 %11, ptr %arrayidx.i.i22.i, align 1
   %inc.i.i.i = add nuw nsw i64 %i.07.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %sub.ptr.sub16.i
   br i1 %exitcond.not.i.i.i, label %_ZN3fmt2v96detail12specs_setterIcE7on_fillENS0_17basic_string_viewIcEE.exit.i, label %for.body.i.i.i, !llvm.loop !43
@@ -6336,8 +6332,8 @@ _ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handler
   br i1 %cmp14.i, label %_ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %_ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit
-  %13 = load i8, ptr %retval.0.i, align 1
-  switch i8 %13, label %sw.epilog.i [
+  %12 = load i8, ptr %retval.0.i, align 1
+  switch i8 %12, label %sw.epilog.i [
     i8 43, label %sw.epilog.i.sink.split
     i8 45, label %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEE7on_signENS0_4sign4typeE.exit84
     i8 32, label %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEE7on_signENS0_4sign4typeE.exit94
@@ -6365,8 +6361,8 @@ sw.epilog.i:                                      ; preds = %sw.epilog.i.sink.sp
   br i1 %cmp24.i, label %_ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit, label %if.end26.i
 
 if.end26.i:                                       ; preds = %sw.epilog.i
-  %14 = load i8, ptr %begin.addr.i.0, align 1
-  %cmp28.i = icmp eq i8 %14, 35
+  %13 = load i8, ptr %begin.addr.i.0, align 1
+  %cmp28.i = icmp eq i8 %13, 35
   br i1 %cmp28.i, label %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEE7on_hashEv.exit, label %if.end34.i
 
 _ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEE7on_hashEv.exit: ; preds = %if.end26.i
@@ -6383,16 +6379,16 @@ if.end34.ithread-pre-split:                       ; preds = %_ZN3fmt2v96detail13
   br label %if.end34.i
 
 if.end34.i:                                       ; preds = %if.end34.ithread-pre-split, %if.end26.i
-  %15 = phi i8 [ %.pr114, %if.end34.ithread-pre-split ], [ %14, %if.end26.i ]
+  %14 = phi i8 [ %.pr114, %if.end34.ithread-pre-split ], [ %13, %if.end26.i ]
   %begin.addr.i.1 = phi ptr [ %incdec.ptr30.i, %if.end34.ithread-pre-split ], [ %begin.addr.i.0, %if.end26.i ]
-  %cmp36.i = icmp eq i8 %15, 48
+  %cmp36.i = icmp eq i8 %14, 48
   br i1 %cmp36.i, label %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEE24require_numeric_argumentEv.exit.i102, label %if.end42.i
 
 _ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEE24require_numeric_argumentEv.exit.i102: ; preds = %if.end34.i
   %align.i.i = getelementptr inbounds i8, ptr %this, i64 9
   %bf.load.i.i103 = load i16, ptr %align.i.i, align 1
-  %16 = and i16 %bf.load.i.i103, 15
-  %cmp.i.i = icmp eq i16 %16, 0
+  %15 = and i16 %bf.load.i.i103, 15
+  %cmp.i.i = icmp eq i16 %15, 0
   br i1 %cmp.i.i, label %if.then.i1.i, label %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEE7on_zeroEv.exit
 
 if.then.i1.i:                                     ; preds = %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEE24require_numeric_argumentEv.exit.i102
@@ -6414,8 +6410,8 @@ if.end42.i:                                       ; preds = %_ZN3fmt2v96detail13
   br i1 %cmp44.i, label %_ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit, label %if.end46.i
 
 if.end46.i:                                       ; preds = %if.end42.i
-  %17 = load i8, ptr %call43.i, align 1
-  %cmp48.i = icmp eq i8 %17, 46
+  %16 = load i8, ptr %call43.i, align 1
+  %cmp48.i = icmp eq i8 %16, 46
   br i1 %cmp48.i, label %if.then49.i, label %if.end54.i
 
 if.then49.i:                                      ; preds = %if.end46.i
@@ -6428,24 +6424,24 @@ if.end54.ithread-pre-split:                       ; preds = %if.then49.i
   br label %if.end54.i
 
 if.end54.i:                                       ; preds = %if.end54.ithread-pre-split, %if.end46.i
-  %18 = phi i8 [ %.pr115, %if.end54.ithread-pre-split ], [ %17, %if.end46.i ]
+  %17 = phi i8 [ %.pr115, %if.end54.ithread-pre-split ], [ %16, %if.end46.i ]
   %begin.addr.i.3 = phi ptr [ %call50.i, %if.end54.ithread-pre-split ], [ %call43.i, %if.end46.i ]
-  %cmp56.i = icmp eq i8 %18, 76
+  %cmp56.i = icmp eq i8 %17, 76
   br i1 %cmp56.i, label %if.then57.i, label %land.lhs.true61.i
 
 if.then57.i:                                      ; preds = %if.end54.i
-  %19 = load i32, ptr %arg_type_.i, align 8
-  %20 = add i32 %19, -1
-  %21 = icmp ult i32 %20, 11
-  br i1 %21, label %if.end59.i, label %if.then.i.i106
+  %18 = load i32, ptr %arg_type_.i, align 8
+  %19 = add i32 %18, -1
+  %20 = icmp ult i32 %19, 11
+  br i1 %20, label %if.end59.i, label %if.then.i.i106
 
 if.then.i.i106:                                   ; preds = %if.then57.i
   call void @_ZN3fmt2v96detail18throw_format_errorEPKc(ptr noundef nonnull @.str.21) #19
   unreachable
 
 if.end59.i:                                       ; preds = %if.then57.i
-  %22 = load ptr, ptr %checker, align 8
-  %localized.i.i = getelementptr inbounds i8, ptr %22, i64 9
+  %21 = load ptr, ptr %checker, align 8
+  %localized.i.i = getelementptr inbounds i8, ptr %21, i64 9
   %bf.load.i.i108 = load i16, ptr %localized.i.i, align 1
   %bf.set.i.i109 = or i16 %bf.load.i.i108, 256
   store i16 %bf.set.i.i109, ptr %localized.i.i, align 1
@@ -6458,19 +6454,19 @@ if.end59.i.land.lhs.true61.i_crit_edge:           ; preds = %if.end59.i
   br label %land.lhs.true61.i
 
 land.lhs.true61.i:                                ; preds = %if.end59.i.land.lhs.true61.i_crit_edge, %if.end54.i
-  %23 = phi i8 [ %.pre, %if.end59.i.land.lhs.true61.i_crit_edge ], [ %18, %if.end54.i ]
+  %22 = phi i8 [ %.pre, %if.end59.i.land.lhs.true61.i_crit_edge ], [ %17, %if.end54.i ]
   %begin.addr.i.4118 = phi ptr [ %incdec.ptr58.i, %if.end59.i.land.lhs.true61.i_crit_edge ], [ %begin.addr.i.3, %if.end54.i ]
-  %cmp63.i.not = icmp eq i8 %23, 125
+  %cmp63.i.not = icmp eq i8 %22, 125
   br i1 %cmp63.i.not, label %_ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit, label %if.then64.i
 
 if.then64.i:                                      ; preds = %land.lhs.true61.i
-  %call67.i = call noundef zeroext i8 @_ZN3fmt2v96detail23parse_presentation_typeIcEENS0_17presentation_typeET_(i8 noundef signext %23)
+  %call67.i = call noundef zeroext i8 @_ZN3fmt2v96detail23parse_presentation_typeIcEENS0_17presentation_typeET_(i8 noundef signext %22)
   %cmp68.i = icmp eq i8 %call67.i, 0
   br i1 %cmp68.i, label %if.then69.i, label %if.then64.i.split
 
 if.then64.i.split:                                ; preds = %if.then64.i
   %incdec.ptr66.i = getelementptr inbounds i8, ptr %begin.addr.i.4118, i64 1
-  %24 = load ptr, ptr %checker, align 8
+  %23 = load ptr, ptr %checker, align 8
   br label %_ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit.sink.split
 
 if.then69.i:                                      ; preds = %if.then64.i
@@ -6478,7 +6474,7 @@ if.then69.i:                                      ; preds = %if.then64.i
   unreachable
 
 _ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit.sink.split: ; preds = %if.then.i, %if.then64.i.split
-  %.sink136 = phi ptr [ %24, %if.then64.i.split ], [ %this, %if.then.i ]
+  %.sink136 = phi ptr [ %23, %if.then64.i.split ], [ %this, %if.then.i ]
   %call67.i.sink = phi i8 [ %call67.i, %if.then64.i.split ], [ %call6.i, %if.then.i ]
   %retval.i.0.ph = phi ptr [ %incdec.ptr66.i, %if.then64.i.split ], [ %arrayidx.i, %if.then.i ]
   %type2.i110 = getelementptr inbounds i8, ptr %.sink136, i64 8
@@ -6488,8 +6484,8 @@ _ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_
 _ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit: ; preds = %_ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit.sink.split, %if.end59.i, %land.lhs.true61.i, %if.then49.i, %if.end42.i, %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEE7on_zeroEv.exit, %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEE7on_hashEv.exit, %sw.epilog.i, %_ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit
   %retval.i.0 = phi ptr [ %add.ptr.i.i, %_ZN3fmt2v96detail11parse_alignIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit ], [ %add.ptr.i.i, %sw.epilog.i ], [ %add.ptr.i.i, %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEE7on_hashEv.exit ], [ %add.ptr.i.i, %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEE7on_zeroEv.exit ], [ %add.ptr.i.i, %if.end42.i ], [ %add.ptr.i.i, %if.then49.i ], [ %begin.addr.i.4118, %land.lhs.true61.i ], [ %add.ptr.i.i, %if.end59.i ], [ %retval.i.0.ph, %_ZN3fmt2v96detail18parse_format_specsIcRNS1_13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEEEEEPKT_SD_SD_OT0_.exit.sink.split ]
   %type16 = getelementptr inbounds i8, ptr %this, i64 8
-  %25 = load i8, ptr %type16, align 8
-  switch i8 %25, label %if.then.i113 [
+  %24 = load i8, ptr %type16, align 8
+  switch i8 %24, label %if.then.i113 [
     i8 15, label %return
     i8 6, label %return
     i8 5, label %return
@@ -7266,6 +7262,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.umax.i8(i8, i8) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16

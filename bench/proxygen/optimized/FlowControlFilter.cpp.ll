@@ -1150,9 +1150,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.
   br i1 %cmp1.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.i.i
-  %cmp2.i.i.i.i.i.i.i = icmp eq i64 %i.i.06.i.i.i.i.i.i, 0
-  %conv.i.i.i.i.i.i.i = zext i1 %cmp2.i.i.i.i.i.i.i to i64
-  %add.i.i.i.i.i.i.i = add nuw nsw i64 %i.i.06.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i
+  %add.i.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %i.i.06.i.i.i.i.i.i, i64 1)
   br label %_ZN5folly19estimateSpaceNeededIiEENSt9enable_ifIXaaaaaa13is_integral_vIT_E11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i.i
@@ -1180,9 +1178,7 @@ for.body.i.i.i.i5.i.i.i:                          ; preds = %if.end.i.i.i.i9.i.i
   br i1 %cmp1.i.i.i.i8.i.i.i, label %if.then.i.i.i.i13.i.i.i, label %if.end.i.i.i.i9.i.i.i
 
 if.then.i.i.i.i13.i.i.i:                          ; preds = %for.body.i.i.i.i5.i.i.i
-  %cmp2.i.i.i.i14.i.i.i = icmp eq i64 %i.i.06.i.i.i6.i.i.i, 0
-  %conv.i.i.i.i15.i.i.i = zext i1 %cmp2.i.i.i.i14.i.i.i to i64
-  %add.i.i.i.i16.i.i.i = add nuw nsw i64 %i.i.06.i.i.i6.i.i.i, %conv.i.i.i.i15.i.i.i
+  %add.i.i.i.i14.i.i.i = tail call i64 @llvm.umax.i64(i64 %i.i.06.i.i.i6.i.i.i, i64 1)
   br label %_ZN5folly19estimateSpaceNeededImEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i
 
 if.end.i.i.i.i9.i.i.i:                            ; preds = %for.body.i.i.i.i5.i.i.i
@@ -1191,19 +1187,19 @@ if.end.i.i.i.i9.i.i.i:                            ; preds = %for.body.i.i.i.i5.i
   br i1 %exitcond.not.i.i.i11.i.i.i, label %_ZN5folly19estimateSpaceNeededImEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i, label %for.body.i.i.i.i5.i.i.i, !llvm.loop !7
 
 _ZN5folly19estimateSpaceNeededImEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i: ; preds = %if.end.i.i.i.i9.i.i.i, %if.then.i.i.i.i13.i.i.i
-  %retval.i.0.i.i.i12.i.i.i = phi i64 [ %add.i.i.i.i16.i.i.i, %if.then.i.i.i.i13.i.i.i ], [ 20, %if.end.i.i.i.i9.i.i.i ]
+  %retval.i.0.i.i.i12.i.i.i = phi i64 [ %add.i.i.i.i14.i.i.i, %if.then.i.i.i.i13.i.i.i ], [ 20, %if.end.i.i.i.i9.i.i.i ]
   store i64 %retval.i.0.i.i.i12.i.i.i, ptr %arrayinit.element14.i.i.i, align 8
   %arrayinit.element17.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 32
   store i64 0, ptr %arrayinit.element17.i.i.i, align 16
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %_ZN5folly19estimateSpaceNeededImEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i
-  %size.020.i.i.i = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededImEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i ], [ %add.i.i.i, %for.body.i.i.i ]
-  %__begin0.0.idx19.i.i.i = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededImEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i ], [ %__begin0.0.add.i.i.i, %for.body.i.i.i ]
-  %__begin0.0.ptr.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 %__begin0.0.idx19.i.i.i
+  %size.018.i.i.i = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededImEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i ], [ %add.i.i.i, %for.body.i.i.i ]
+  %__begin0.0.idx17.i.i.i = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededImEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i ], [ %__begin0.0.add.i.i.i, %for.body.i.i.i ]
+  %__begin0.0.ptr.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 %__begin0.0.idx17.i.i.i
   %5 = load i64, ptr %__begin0.0.ptr.i.i.i, align 8
-  %add.i.i.i = add i64 %5, %size.020.i.i.i
-  %__begin0.0.add.i.i.i = add nuw nsw i64 %__begin0.0.idx19.i.i.i, 8
+  %add.i.i.i = add i64 %5, %size.018.i.i.i
+  %__begin0.0.add.i.i.i = add nuw nsw i64 %__begin0.0.idx17.i.i.i, 8
   %cmp.not.i.i.i = icmp eq i64 %__begin0.0.add.i.i.i, 40
   br i1 %cmp.not.i.i.i, label %_ZN5folly6detail15reserveInTargetIA47_ciJA10_cmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRKT_RKT0_DpRKT1_.exit.i, label %for.body.i.i.i
 
@@ -1554,9 +1550,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.
   br i1 %cmp1.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i.i.i.i
-  %cmp2.i.i.i.i.i.i.i = icmp eq i64 %i.i.06.i.i.i.i.i.i, 0
-  %conv.i.i.i.i.i.i.i = zext i1 %cmp2.i.i.i.i.i.i.i to i64
-  %add.i.i.i.i.i.i.i = add nuw nsw i64 %i.i.06.i.i.i.i.i.i, %conv.i.i.i.i.i.i.i
+  %add.i.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %i.i.06.i.i.i.i.i.i, i64 1)
   br label %_ZN5folly19estimateSpaceNeededIjEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i.i
@@ -1582,30 +1576,28 @@ for.body.i.i.i.i6.i.i.i:                          ; preds = %if.end.i.i.i.i10.i.
   br i1 %cmp1.i.i.i.i9.i.i.i, label %if.then.i.i.i.i14.i.i.i, label %if.end.i.i.i.i10.i.i.i
 
 if.then.i.i.i.i14.i.i.i:                          ; preds = %for.body.i.i.i.i6.i.i.i
-  %cmp2.i.i.i.i15.i.i.i = icmp eq i64 %i.i.06.i.i.i7.i.i.i, 0
-  %conv.i.i.i.i16.i.i.i = zext i1 %cmp2.i.i.i.i15.i.i.i to i64
-  %add.i.i.i.i17.i.i.i = add nuw nsw i64 %i.i.06.i.i.i7.i.i.i, %conv.i.i.i.i16.i.i.i
-  br label %_ZN5folly19estimateSpaceNeededIjEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit18.i.i.i
+  %add.i.i.i.i15.i.i.i = tail call i64 @llvm.umax.i64(i64 %i.i.06.i.i.i7.i.i.i, i64 1)
+  br label %_ZN5folly19estimateSpaceNeededIjEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit16.i.i.i
 
 if.end.i.i.i.i10.i.i.i:                           ; preds = %for.body.i.i.i.i6.i.i.i
   %inc.i.i.i.i11.i.i.i = add nuw nsw i64 %i.i.06.i.i.i7.i.i.i, 1
   %exitcond.not.i.i.i12.i.i.i = icmp eq i64 %inc.i.i.i.i11.i.i.i, 20
-  br i1 %exitcond.not.i.i.i12.i.i.i, label %_ZN5folly19estimateSpaceNeededIjEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit18.i.i.i, label %for.body.i.i.i.i6.i.i.i, !llvm.loop !7
+  br i1 %exitcond.not.i.i.i12.i.i.i, label %_ZN5folly19estimateSpaceNeededIjEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit16.i.i.i, label %for.body.i.i.i.i6.i.i.i, !llvm.loop !7
 
-_ZN5folly19estimateSpaceNeededIjEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit18.i.i.i: ; preds = %if.end.i.i.i.i10.i.i.i, %if.then.i.i.i.i14.i.i.i
-  %retval.i.0.i.i.i13.i.i.i = phi i64 [ %add.i.i.i.i17.i.i.i, %if.then.i.i.i.i14.i.i.i ], [ 20, %if.end.i.i.i.i10.i.i.i ]
+_ZN5folly19estimateSpaceNeededIjEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit16.i.i.i: ; preds = %if.end.i.i.i.i10.i.i.i, %if.then.i.i.i.i14.i.i.i
+  %retval.i.0.i.i.i13.i.i.i = phi i64 [ %add.i.i.i.i15.i.i.i, %if.then.i.i.i.i14.i.i.i ], [ 20, %if.end.i.i.i.i10.i.i.i ]
   store i64 %retval.i.0.i.i.i13.i.i.i, ptr %arrayinit.element14.i.i.i, align 8
   %arrayinit.element17.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 32
   store i64 0, ptr %arrayinit.element17.i.i.i, align 16
   br label %for.body.i.i.i
 
-for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %_ZN5folly19estimateSpaceNeededIjEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit18.i.i.i
-  %size.022.i.i.i = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededIjEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit18.i.i.i ], [ %add.i.i.i, %for.body.i.i.i ]
-  %__begin0.0.idx21.i.i.i = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededIjEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit18.i.i.i ], [ %__begin0.0.add.i.i.i, %for.body.i.i.i ]
-  %__begin0.0.ptr.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 %__begin0.0.idx21.i.i.i
+for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %_ZN5folly19estimateSpaceNeededIjEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit16.i.i.i
+  %size.020.i.i.i = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededIjEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit16.i.i.i ], [ %add.i.i.i, %for.body.i.i.i ]
+  %__begin0.0.idx19.i.i.i = phi i64 [ 0, %_ZN5folly19estimateSpaceNeededIjEENSt9enable_ifIXaaaaaa13is_integral_vIT_Ent11is_signed_vIS2_EgestS2_Li4EltstS2_Li16EEmE4typeES2_.exit16.i.i.i ], [ %__begin0.0.add.i.i.i, %for.body.i.i.i ]
+  %__begin0.0.ptr.i.i.i = getelementptr inbounds i8, ptr %sizes.i.i.i, i64 %__begin0.0.idx19.i.i.i
   %4 = load i64, ptr %__begin0.0.ptr.i.i.i, align 8
-  %add.i.i.i = add i64 %4, %size.022.i.i.i
-  %__begin0.0.add.i.i.i = add nuw nsw i64 %__begin0.0.idx21.i.i.i, 8
+  %add.i.i.i = add i64 %4, %size.020.i.i.i
+  %__begin0.0.add.i.i.i = add nuw nsw i64 %__begin0.0.idx19.i.i.i, 8
   %cmp.not.i.i.i = icmp eq i64 %__begin0.0.add.i.i.i, 40
   br i1 %cmp.not.i.i.i, label %_ZN5folly6detail15reserveInTargetIA43_cjJA10_cjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvRKT_RKT0_DpRKT1_.exit.i, label %for.body.i.i.i
 
@@ -2927,10 +2919,8 @@ if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
   br i1 %exitcond.not.i.i.i.i, label %while.body.i.preheader.i.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !7
 
 _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i
-  %cmp2.i.i.i.i.i.i = icmp eq i64 %i.i.i.015.i.i.i.i, 0
-  %conv.i.i.i.i.i.i = zext i1 %cmp2.i.i.i.i.i.i to i64
-  %add.i.i.i.i.i.i = add nuw nsw i64 %i.i.i.015.i.i.i.i, %conv.i.i.i.i.i.i
-  %cmp.i16.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i.i, 2
+  %add.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %i.i.i.015.i.i.i.i, i64 1)
+  %cmp.i16.i.i.i.i = icmp ugt i64 %i.i.i.015.i.i.i.i, 2
   br i1 %cmp.i16.i.i.i.i, label %while.body.i.preheader.i.i.i.i, label %while.end.i.i.i.i.i
 
 while.body.i.preheader.i.i.i.i:                   ; preds = %if.end.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i
@@ -2965,7 +2955,7 @@ if.then.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
   %6 = lshr i16 %5, 8
-  %conv4.i.i.i.i.i = trunc i16 %6 to i8
+  %conv4.i.i.i.i.i = trunc nuw i16 %6 to i8
   store i8 %conv4.i.i.i.i.i, ptr %buffer.i, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEENSt9enable_ifIXaaaaaa13is_integral_vIT0_E11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit
 
@@ -2990,14 +2980,12 @@ if.end.i.i.i.i.i.i18:                             ; preds = %for.body.i.i.i.i.i.
   br i1 %exitcond.not.i.i.i.i20, label %while.body.i.preheader.i.i.i.i21, label %for.body.i.i.i.i.i.i14, !llvm.loop !7
 
 _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i41: ; preds = %for.body.i.i.i.i.i.i14
-  %cmp2.i.i.i.i.i.i42 = icmp eq i64 %i.i.i.015.i.i.i.i15, 0
-  %conv.i.i.i.i.i.i43 = zext i1 %cmp2.i.i.i.i.i.i42 to i64
-  %add.i.i.i.i.i.i44 = add nuw nsw i64 %i.i.i.015.i.i.i.i15, %conv.i.i.i.i.i.i43
-  %cmp.i16.i.i.i.i45 = icmp ugt i64 %add.i.i.i.i.i.i44, 2
-  br i1 %cmp.i16.i.i.i.i45, label %while.body.i.preheader.i.i.i.i21, label %while.end.i.i.i.i.i32
+  %add.i.i.i.i.i.i42 = call i64 @llvm.umax.i64(i64 %i.i.i.015.i.i.i.i15, i64 1)
+  %cmp.i16.i.i.i.i43 = icmp ugt i64 %i.i.i.015.i.i.i.i15, 2
+  br i1 %cmp.i16.i.i.i.i43, label %while.body.i.preheader.i.i.i.i21, label %while.end.i.i.i.i.i32
 
 while.body.i.preheader.i.i.i.i21:                 ; preds = %if.end.i.i.i.i.i.i18, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i41
-  %retval.i.i.024.i.i.i.i22 = phi i64 [ %add.i.i.i.i.i.i44, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i41 ], [ 20, %if.end.i.i.i.i.i.i18 ]
+  %retval.i.i.024.i.i.i.i22 = phi i64 [ %add.i.i.i.i.i.i42, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i41 ], [ 20, %if.end.i.i.i.i.i.i18 ]
   br label %while.body.i.i.i.i.i23
 
 while.body.i.i.i.i.i23:                           ; preds = %while.body.i.i.i.i.i23, %while.body.i.preheader.i.i.i.i21
@@ -3014,8 +3002,8 @@ while.body.i.i.i.i.i23:                           ; preds = %while.body.i.i.i.i.
   br i1 %cmp.i.i.i.i.i31, label %while.body.i.i.i.i.i23, label %while.end.i.i.i.i.i32, !llvm.loop !14
 
 while.end.i.i.i.i.i32:                            ; preds = %while.body.i.i.i.i.i23, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i41
-  %retval.i.i.023.i.i.i.i33 = phi i64 [ %add.i.i.i.i.i.i44, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i41 ], [ %retval.i.i.024.i.i.i.i22, %while.body.i.i.i.i.i23 ]
-  %pos.i.0.lcssa.i.i.i.i34 = phi i64 [ %add.i.i.i.i.i.i44, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i41 ], [ %sub.i.i.i.i.i26, %while.body.i.i.i.i.i23 ]
+  %retval.i.i.023.i.i.i.i33 = phi i64 [ %add.i.i.i.i.i.i42, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i41 ], [ %retval.i.i.024.i.i.i.i22, %while.body.i.i.i.i.i23 ]
+  %pos.i.0.lcssa.i.i.i.i34 = phi i64 [ %add.i.i.i.i.i.i42, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i41 ], [ %sub.i.i.i.i.i26, %while.body.i.i.i.i.i23 ]
   %v.addr.i4.0.lcssa.i.i.i.i35 = phi i64 [ %7, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i41 ], [ %div.i.i.i.i.i27, %while.body.i.i.i.i.i23 ]
   %arrayidx2.i.i.i.i.i36 = getelementptr inbounds [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.0.lcssa.i.i.i.i35
   %10 = load i16, ptr %arrayidx2.i.i.i.i.i36, align 2
@@ -3028,7 +3016,7 @@ if.then.i.i.i.i.i40:                              ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i38:                              ; preds = %while.end.i.i.i.i.i32
   %11 = lshr i16 %10, 8
-  %conv4.i.i.i.i.i39 = trunc i16 %11 to i8
+  %conv4.i.i.i.i.i39 = trunc nuw i16 %11 to i8
   store i8 %conv4.i.i.i.i.i39, ptr %buffer.i13, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEENSt9enable_ifIXaaaaaa13is_integral_vIT0_Ent11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit
 
@@ -3069,10 +3057,8 @@ if.end.i.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.
   br i1 %exitcond.not.i.i.i.i, label %while.body.i.preheader.i.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !7
 
 _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i
-  %cmp2.i.i.i.i.i.i = icmp eq i64 %i.i.i.015.i.i.i.i, 0
-  %conv.i.i.i.i.i.i = zext i1 %cmp2.i.i.i.i.i.i to i64
-  %add.i.i.i.i.i.i = add nuw nsw i64 %i.i.i.015.i.i.i.i, %conv.i.i.i.i.i.i
-  %cmp.i16.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i.i, 2
+  %add.i.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %i.i.i.015.i.i.i.i, i64 1)
+  %cmp.i16.i.i.i.i = icmp ugt i64 %i.i.i.015.i.i.i.i, 2
   br i1 %cmp.i16.i.i.i.i, label %while.body.i.preheader.i.i.i.i, label %while.end.i.i.i.i.i
 
 while.body.i.preheader.i.i.i.i:                   ; preds = %if.end.i.i.i.i.i.i, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i
@@ -3107,7 +3093,7 @@ if.then.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
 
 if.else.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
   %5 = lshr i16 %4, 8
-  %conv4.i.i.i.i.i = trunc i16 %5 to i8
+  %conv4.i.i.i.i.i = trunc nuw i16 %5 to i8
   store i8 %conv4.i.i.i.i.i, ptr %buffer.i, align 16
   br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEENSt9enable_ifIXaaaaaa13is_integral_vIT0_Ent11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit
 
@@ -3133,14 +3119,12 @@ if.end.i.i.i.i.i.i17:                             ; preds = %for.body.i.i.i.i.i.
   br i1 %exitcond.not.i.i.i.i19, label %while.body.i.preheader.i.i.i.i20, label %for.body.i.i.i.i.i.i13, !llvm.loop !7
 
 _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i41: ; preds = %for.body.i.i.i.i.i.i13
-  %cmp2.i.i.i.i.i.i42 = icmp eq i64 %i.i.i.015.i.i.i.i14, 0
-  %conv.i.i.i.i.i.i43 = zext i1 %cmp2.i.i.i.i.i.i42 to i64
-  %add.i.i.i.i.i.i44 = add nuw nsw i64 %i.i.i.015.i.i.i.i14, %conv.i.i.i.i.i.i43
-  %cmp.i16.i.i.i.i45 = icmp ugt i64 %add.i.i.i.i.i.i44, 2
-  br i1 %cmp.i16.i.i.i.i45, label %while.body.i.preheader.i.i.i.i20, label %while.end.i.i.i.i.i31
+  %add.i.i.i.i.i.i42 = call i64 @llvm.umax.i64(i64 %i.i.i.015.i.i.i.i14, i64 1)
+  %cmp.i16.i.i.i.i43 = icmp ugt i64 %i.i.i.015.i.i.i.i14, 2
+  br i1 %cmp.i16.i.i.i.i43, label %while.body.i.preheader.i.i.i.i20, label %while.end.i.i.i.i.i31
 
 while.body.i.preheader.i.i.i.i20:                 ; preds = %if.end.i.i.i.i.i.i17, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i41
-  %retval.i.i.024.i.i.i.i21 = phi i64 [ %add.i.i.i.i.i.i44, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i41 ], [ 20, %if.end.i.i.i.i.i.i17 ]
+  %retval.i.i.024.i.i.i.i21 = phi i64 [ %add.i.i.i.i.i.i42, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i41 ], [ 20, %if.end.i.i.i.i.i.i17 ]
   br label %while.body.i.i.i.i.i22
 
 while.body.i.i.i.i.i22:                           ; preds = %while.body.i.i.i.i.i22, %while.body.i.preheader.i.i.i.i20
@@ -3157,8 +3141,8 @@ while.body.i.i.i.i.i22:                           ; preds = %while.body.i.i.i.i.
   br i1 %cmp.i.i.i.i.i30, label %while.body.i.i.i.i.i22, label %while.end.i.i.i.i.i31, !llvm.loop !14
 
 while.end.i.i.i.i.i31:                            ; preds = %while.body.i.i.i.i.i22, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i41
-  %retval.i.i.023.i.i.i.i32 = phi i64 [ %add.i.i.i.i.i.i44, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i41 ], [ %retval.i.i.024.i.i.i.i21, %while.body.i.i.i.i.i22 ]
-  %pos.i.0.lcssa.i.i.i.i33 = phi i64 [ %add.i.i.i.i.i.i44, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i41 ], [ %sub.i.i.i.i.i25, %while.body.i.i.i.i.i22 ]
+  %retval.i.i.023.i.i.i.i32 = phi i64 [ %add.i.i.i.i.i.i42, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i41 ], [ %retval.i.i.024.i.i.i.i21, %while.body.i.i.i.i.i22 ]
+  %pos.i.0.lcssa.i.i.i.i33 = phi i64 [ %add.i.i.i.i.i.i42, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i41 ], [ %sub.i.i.i.i.i25, %while.body.i.i.i.i.i22 ]
   %v.addr.i4.0.lcssa.i.i.i.i34 = phi i64 [ %conv.i12, %_ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEmPcm.exit.i.i.i.i41 ], [ %div.i.i.i.i.i26, %while.body.i.i.i.i.i22 ]
   %arrayidx2.i.i.i.i.i35 = getelementptr inbounds [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i4.0.lcssa.i.i.i.i34
   %9 = load i16, ptr %arrayidx2.i.i.i.i.i35, align 2
@@ -3167,15 +3151,15 @@ while.end.i.i.i.i.i31:                            ; preds = %while.body.i.i.i.i.
 
 if.then.i.i.i.i.i40:                              ; preds = %while.end.i.i.i.i.i31
   store i16 %9, ptr %buffer.i11, align 16
-  br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEENSt9enable_ifIXaaaaaa13is_integral_vIT0_Ent11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit46
+  br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEENSt9enable_ifIXaaaaaa13is_integral_vIT0_Ent11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit44
 
 if.else.i.i.i.i.i37:                              ; preds = %while.end.i.i.i.i.i31
   %10 = lshr i16 %9, 8
-  %conv4.i.i.i.i.i38 = trunc i16 %10 to i8
+  %conv4.i.i.i.i.i38 = trunc nuw i16 %10 to i8
   store i8 %conv4.i.i.i.i.i38, ptr %buffer.i11, align 16
-  br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEENSt9enable_ifIXaaaaaa13is_integral_vIT0_Ent11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit46
+  br label %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEENSt9enable_ifIXaaaaaa13is_integral_vIT0_Ent11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit44
 
-_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEENSt9enable_ifIXaaaaaa13is_integral_vIT0_Ent11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit46: ; preds = %if.then.i.i.i.i.i40, %if.else.i.i.i.i.i37
+_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEENSt9enable_ifIXaaaaaa13is_integral_vIT0_Ent11is_signed_vIS8_Esr12IsSomeStringIT_EE5valuegestS8_Li4EEvE4typeES8_PS9_.exit44: ; preds = %if.then.i.i.i.i.i40, %if.else.i.i.i.i.i37
   %call1.i39 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %buffer.i11, i64 noundef %retval.i.i.023.i.i.i.i32)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %buffer.i11)
   ret void
@@ -3191,6 +3175,9 @@ entry:
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14

@@ -155,7 +155,7 @@ if.end9:                                          ; preds = %entry
   store i32 -332356553, ptr %header, align 16
   %call10 = tail call i64 @ZSTD_XXH64(ptr nocapture noundef %customDictContent, i64 noundef %dictContentSize, i64 noundef 0) #18
   %rem = urem i64 %call10, 2147450880
-  %2 = trunc i64 %rem to i32
+  %2 = trunc nuw nsw i64 %rem to i32
   %conv11 = add nuw nsw i32 %2, 32768
   %dictID12 = getelementptr inbounds i8, ptr %params, i64 8
   %3 = load i32, ptr %dictID12, align 8
@@ -264,8 +264,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 ZDICT_totalSampleSize.exit:                       ; preds = %for.body.i, %entry
   %total.0.lcssa.i = phi i64 [ 0, %entry ], [ %add.i, %for.body.i ]
-  %lnot.ext = zext i1 %cmp4.not.i to i32
-  %add2 = add i32 %lnot.ext, %nbFiles
+  %add2 = tail call i32 @llvm.umax.i32(i32 %nbFiles, i32 1)
   %conv3 = zext i32 %add2 to i64
   %div = udiv i64 %total.0.lcssa.i, %conv3
   %cmp = icmp eq i32 %1, 0
@@ -535,7 +534,7 @@ do.body102:                                       ; preds = %do.body88, %do.body
   %38 = load ptr, ptr @stderr, align 8
   %arrayidx104 = getelementptr inbounds [31 x i32], ptr %offcodeCount, i64 0, i64 %indvars.iv190
   %39 = load i32, ptr %arrayidx104, align 4
-  %40 = trunc i64 %indvars.iv190 to i32
+  %40 = trunc nuw nsw i64 %indvars.iv190 to i32
   %call105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.5, i32 noundef %40, i32 noundef %39) #19
   %41 = load ptr, ptr @stderr, align 8
   %call106 = call i32 @fflush(ptr noundef %41)
@@ -604,7 +603,7 @@ for.body155:                                      ; preds = %if.end150, %ZDICT_i
   %indvars.iv198 = phi i64 [ 1, %if.end150 ], [ %indvars.iv.next199, %ZDICT_insertSortCount.exit ]
   %arrayidx158 = getelementptr inbounds [1024 x i32], ptr %repOffset, i64 0, i64 %indvars.iv198
   %48 = load i32, ptr %arrayidx158, align 4
-  %49 = trunc i64 %indvars.iv198 to i32
+  %49 = trunc nuw nsw i64 %indvars.iv198 to i32
   store i32 %49, ptr %arrayidx.i135, align 8
   store i32 %48, ptr %count2.i, align 4
   br label %for.body.i136
@@ -627,7 +626,7 @@ if.end.i:                                         ; preds = %for.body.i136
   store i64 %52, ptr %arrayidx6.i, align 8
   %cmp.not.i = icmp eq i64 %indvars.iv.next196, 0
   %54 = lshr i64 %53, 32
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nuw i64 %54 to i32
   br i1 %cmp.not.i, label %ZDICT_insertSortCount.exit, label %for.body.i136, !llvm.loop !18
 
 ZDICT_insertSortCount.exit:                       ; preds = %for.body.i136, %if.end.i
@@ -1005,14 +1004,14 @@ do.body41.i.i:                                    ; preds = %while.body.i.i, %if
 do.body45.i.i:                                    ; preds = %do.body41.i.i
   %9 = load ptr, ptr @stderr, align 8
   %shr.i.i = lshr i64 %bufferSize.addr.0.lcssa.i.i, 20
-  %conv46.i.i = trunc i64 %shr.i.i to i32
+  %conv46.i.i = trunc nuw nsw i64 %shr.i.i to i32
   %call47.i.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.30, i32 noundef %nbFiles.addr.0.lcssa.i.i, i32 noundef %conv46.i.i) #19
   %10 = load ptr, ptr @stderr, align 8
   %call48.i.i = tail call i32 @fflush(ptr noundef %10)
   br label %do.end51.i.i
 
 do.end51.i.i:                                     ; preds = %do.body45.i.i, %do.body41.i.i
-  %conv52.i.i = trunc i64 %bufferSize.addr.0.lcssa.i.i to i32
+  %conv52.i.i = trunc nuw nsw i64 %bufferSize.addr.0.lcssa.i.i to i32
   %call53.i.i = tail call i32 @divsufsort(ptr noundef nonnull %call1, ptr noundef nonnull %add.ptr.i.i, i32 noundef %conv52.i.i, i32 noundef 0) #16
   %cmp54.not.i.i = icmp eq i32 %call53.i.i, 0
   br i1 %cmp54.not.i.i, label %if.end57.i.i, label %ZDICT_trainBuffer_legacy.exit.i
@@ -1026,7 +1025,7 @@ if.end57.i.i:                                     ; preds = %do.end51.i.i
 
 for.body.i110.i:                                  ; preds = %if.end57.i.i, %for.body.i110.i
   %pos.086.i.i = phi i64 [ %inc.i.i, %for.body.i110.i ], [ 0, %if.end57.i.i ]
-  %conv64.i.i = trunc i64 %pos.086.i.i to i32
+  %conv64.i.i = trunc nuw nsw i64 %pos.086.i.i to i32
   %arrayidx65.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i, i64 %pos.086.i.i
   %11 = load i32, ptr %arrayidx65.i.i, align 4
   %idxprom66.i.i = sext i32 %11 to i64
@@ -1062,7 +1061,7 @@ for.body109.lr.ph.lr.ph.i.i:                      ; preds = %do.end104.i.i
   %arrayidx231.i.i.i = getelementptr inbounds i8, ptr %cumulLength.i.i.i, i64 252
   %arrayidx284.i.i.i = getelementptr inbounds i8, ptr %savings.i.i.i, i64 20
   %sub.i.i.i = add i32 %cond.conv.i, -1
-  %conv137.i.i = uitofp i64 %bufferSize.addr.0.lcssa.i.i to double
+  %conv137.i.i = uitofp nneg i64 %bufferSize.addr.0.lcssa.i.i to double
   br label %for.body109.lr.ph.i.i
 
 for.body109.lr.ph.i.i:                            ; preds = %do.end149.i.i, %for.body109.lr.ph.lr.ph.i.i
@@ -1304,7 +1303,7 @@ if.then152.i.i.i:                                 ; preds = %for.body142.i.i.i
   %cmp153.i.i.i = icmp ugt i32 %currentCount.0257.i.i.i, %selectedCount.0260.i.i.i
   %spec.select162.i.i.i = tail call i32 @llvm.umax.i32(i32 %currentCount.0257.i.i.i, i32 %selectedCount.0260.i.i.i)
   %spec.select163.i.i.i = select i1 %cmp153.i.i.i, i32 %currentID.0258.i.i.i, i32 %selectedID.0261.i.i.i
-  %41 = trunc i64 %indvars.iv.i.i.i to i32
+  %41 = trunc nuw i64 %indvars.iv.i.i.i to i32
   br label %if.end162.i.i.i
 
 if.end162.i.i.i:                                  ; preds = %if.then152.i.i.i, %for.body142.i.i.i
@@ -1800,7 +1799,7 @@ do.body101.i:                                     ; preds = %for.body.i19
   %85 = load ptr, ptr @stderr, align 8
   %savings.i = getelementptr inbounds i8, ptr %arrayidx78.i, i64 8
   %86 = load i32, ptr %savings.i, align 4
-  %87 = trunc i64 %indvars.iv.i20 to i32
+  %87 = trunc nuw nsw i64 %indvars.iv.i20 to i32
   %call104.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.20, i32 noundef %87, i32 noundef %84, i32 noundef %83, i32 noundef %86) #19
   %88 = load ptr, ptr @stderr, align 8
   %call105.i = tail call i32 @fflush(ptr noundef %88)
@@ -1897,9 +1896,9 @@ do.body151.i:                                     ; preds = %do.end142.i
 
 if.end159.i:                                      ; preds = %do.body151.i, %do.end142.i
   %cmp160.i = icmp ugt i32 %cond28.i, 4
-  br i1 %cmp160.i, label %do.body178.i, label %if.end185.i
+  br i1 %cmp160.i, label %do.body167.i, label %if.end185.i
 
-do.body178.i:                                     ; preds = %if.end159.i
+do.body167.i:                                     ; preds = %if.end159.i
   %105 = load ptr, ptr @stderr, align 8
   %add168.i = add i32 %cond22.i, 1
   %call169.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %105, ptr noundef nonnull @.str.24, i32 noundef %add168.i) #19
@@ -1911,7 +1910,7 @@ do.body178.i:                                     ; preds = %if.end159.i
   %call180.i = tail call i32 @fflush(ptr noundef %109)
   br label %if.end185.i
 
-if.end185.i:                                      ; preds = %do.body178.i, %if.end159.i, %if.end126.i
+if.end185.i:                                      ; preds = %do.body167.i, %if.end159.i, %if.end126.i
   %mul187.i = mul i64 %dictBufferCapacity, 3
   %cmp188.i = icmp ult i64 %mul187.i, %conv127.i
   %cmp190.i = icmp ugt i32 %nbSamples, 8
@@ -2088,7 +2087,7 @@ if.end22:                                         ; preds = %do.end16
   store i32 -332356553, ptr %dictBuffer, align 1
   %call26 = tail call i64 @ZSTD_XXH64(ptr nocapture noundef nonnull %add.ptr18, i64 noundef %dictContentSize, i64 noundef 0) #18
   %rem = urem i64 %call26, 2147450880
-  %7 = trunc i64 %rem to i32
+  %7 = trunc nuw nsw i64 %rem to i32
   %conv = add nuw nsw i32 %7, 32768
   %dictID28 = getelementptr inbounds i8, ptr %params, i64 8
   %8 = load i32, ptr %dictID28, align 8
@@ -2158,7 +2157,7 @@ define internal fastcc i32 @ZDICT_tryMerge(ptr nocapture noundef %table, i64 %el
 entry:
   %elt.sroa.0.sroa.0.0.extract.trunc = trunc i64 %elt.coerce0 to i32
   %elt.sroa.0.sroa.14.0.extract.shift = lshr i64 %elt.coerce0, 32
-  %elt.sroa.0.sroa.14.0.extract.trunc = trunc i64 %elt.sroa.0.sroa.14.0.extract.shift to i32
+  %elt.sroa.0.sroa.14.0.extract.trunc = trunc nuw i64 %elt.sroa.0.sroa.14.0.extract.shift to i32
   %0 = load i32, ptr %table, align 4
   %add = add i32 %elt.sroa.0.sroa.14.0.extract.trunc, %elt.sroa.0.sroa.0.0.extract.trunc
   %cmp158 = icmp ugt i32 %0, 1
@@ -2194,7 +2193,7 @@ if.end:                                           ; preds = %for.body
   br i1 %or.cond, label %for.inc, label %if.then10
 
 if.then10:                                        ; preds = %if.end
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw i64 %indvars.iv to i32
   %sub = sub i32 %3, %elt.sroa.0.sroa.0.0.extract.trunc
   %length17 = getelementptr inbounds i8, ptr %arrayidx, i64 4
   %5 = load i32, ptr %length17, align 4
@@ -2231,7 +2230,7 @@ while.body:                                       ; preds = %land.rhs
   br i1 %cmp36.not, label %while.end, label %land.rhs, !llvm.loop !49
 
 while.end.loopexit.split.loop.exit225:            ; preds = %land.rhs
-  %9 = trunc i64 %indvars.iv190 to i32
+  %9 = trunc nuw i64 %indvars.iv190 to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.body, %while.end.loopexit.split.loop.exit225, %if.then10
@@ -2265,7 +2264,7 @@ if.end56:                                         ; preds = %for.body53
   br i1 %or.cond135, label %if.then72, label %if.end125
 
 if.then72:                                        ; preds = %if.end56
-  %12 = trunc i64 %indvars.iv193 to i32
+  %12 = trunc nuw i64 %indvars.iv193 to i32
   %sub81 = sub nsw i32 %add, %add63
   %div83133 = lshr i32 %elt.sroa.0.sroa.14.0.extract.trunc, 3
   %savings86 = getelementptr inbounds i8, ptr %arrayidx58, i64 8
@@ -2309,7 +2308,7 @@ while.body115:                                    ; preds = %land.rhs107
   br i1 %cmp106.not, label %while.end122, label %land.rhs107, !llvm.loop !51
 
 while.end122.loopexit.split.loop.exit232:         ; preds = %land.rhs107
-  %16 = trunc i64 %indvars.iv202 to i32
+  %16 = trunc nuw i64 %indvars.iv202 to i32
   br label %while.end122
 
 while.end122:                                     ; preds = %while.body115, %while.end122.loopexit.split.loop.exit232, %if.end102
