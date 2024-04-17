@@ -16580,21 +16580,7 @@ invoke.cont:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %map_.i.i.i, i8 0, i64 32, i1 false)
   store ptr %arena, ptr %arena_.i.i.i.i, align 8
   %java_package_.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %java_package_.i.i, align 8
-  %java_outer_classname_.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %java_outer_classname_.i.i, align 8
-  %go_package_.i.i = getelementptr inbounds i8, ptr %this, i64 88
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %go_package_.i.i, align 8
-  %objc_class_prefix_.i.i = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %objc_class_prefix_.i.i, align 8
-  %csharp_namespace_.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %csharp_namespace_.i.i, align 8
-  %swift_prefix_.i.i = getelementptr inbounds i8, ptr %this, i64 112
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %swift_prefix_.i.i, align 8
-  %php_class_prefix_.i.i = getelementptr inbounds i8, ptr %this, i64 120
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %php_class_prefix_.i.i, align 8
-  %php_namespace_.i.i = getelementptr inbounds i8, ptr %this, i64 128
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %php_namespace_.i.i, align 8
+  store <8 x ptr> <ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E>, ptr %java_package_.i.i, align 8
   %php_metadata_namespace_.i.i = getelementptr inbounds i8, ptr %this, i64 136
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %php_metadata_namespace_.i.i, align 8
   %ruby_package_.i.i = getelementptr inbounds i8, ptr %this, i64 144

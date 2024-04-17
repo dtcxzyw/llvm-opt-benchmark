@@ -40091,7 +40091,9 @@ define void @GenMeshCube(ptr dead_on_unwind noalias nocapture writable sret(%str
   %.sroa.70.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 276
   store float %19, ptr %.sroa.70.0..sroa_idx, align 4
   %.sroa.71.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 280
-  store <2 x float> %12, ptr %.sroa.71.0..sroa_idx, align 4
+  store float %18, ptr %.sroa.71.0..sroa_idx, align 4
+  %.sroa.72.0..sroa_idx = getelementptr inbounds i8, ptr %13, i64 284
+  store float %21, ptr %.sroa.72.0..sroa_idx, align 4
   %26 = tail call noalias dereferenceable_or_null(192) ptr @malloc(i64 noundef 192) #55
   %27 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %26, ptr %27, align 8

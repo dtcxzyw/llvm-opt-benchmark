@@ -3665,103 +3665,30 @@ if.end9:                                          ; preds = %if.then3
   %call.i = tail call noundef float @_ZNK10ODDLParser5Value8getFloatEv(ptr noundef nonnull align 8 dereferenceable(32) %call.val)
   store float %call.i, ptr %m.i, align 16
   %cmp.not1.i = icmp eq ptr %7, null
+  %8 = insertelement <16 x float> <float poison, float undef, float undef, float undef, float undef, float undef, float undef, float undef, float undef, float undef, float undef, float undef, float undef, float undef, float undef, float undef>, float %call.i, i64 0
   br i1 %cmp.not1.i, label %_ZN6Assimp7OpenGEXL9setMatrixEP6aiNodePN10ODDLParser13DataArrayListE.exit, label %while.body.i
 
 while.body.i:                                     ; preds = %if.end9, %while.body.i
-  %next.03.i = phi ptr [ %8, %while.body.i ], [ %7, %if.end9 ]
+  %next.03.i = phi ptr [ %9, %while.body.i ], [ %7, %if.end9 ]
   %i.02.i = phi i64 [ %inc.i, %while.body.i ], [ 1, %if.end9 ]
   %call2.i = tail call noundef float @_ZNK10ODDLParser5Value8getFloatEv(ptr noundef nonnull align 8 dereferenceable(32) %next.03.i)
   %arrayidx3.i = getelementptr inbounds [16 x float], ptr %m.i, i64 0, i64 %i.02.i
   store float %call2.i, ptr %arrayidx3.i, align 4
   %m_next4.i = getelementptr inbounds i8, ptr %next.03.i, i64 24
-  %8 = load ptr, ptr %m_next4.i, align 8
+  %9 = load ptr, ptr %m_next4.i, align 8
   %inc.i = add i64 %i.02.i, 1
-  %cmp.not.i = icmp eq ptr %8, null
+  %cmp.not.i = icmp eq ptr %9, null
   br i1 %cmp.not.i, label %while.end.loopexit.i, label %while.body.i, !llvm.loop !29
 
 while.end.loopexit.i:                             ; preds = %while.body.i
-  %.pre.i = load float, ptr %m.i, align 16
-  %arrayidx6.phi.trans.insert.i = getelementptr inbounds i8, ptr %m.i, i64 16
-  %.pre4.i = load float, ptr %arrayidx6.phi.trans.insert.i, align 16
-  %arrayidx8.phi.trans.insert.i = getelementptr inbounds i8, ptr %m.i, i64 32
-  %.pre5.i = load float, ptr %arrayidx8.phi.trans.insert.i, align 16
-  %arrayidx10.phi.trans.insert.i = getelementptr inbounds i8, ptr %m.i, i64 48
-  %.pre6.i = load float, ptr %arrayidx10.phi.trans.insert.i, align 16
-  %arrayidx12.phi.trans.insert.i = getelementptr inbounds i8, ptr %m.i, i64 4
-  %.pre7.i = load float, ptr %arrayidx12.phi.trans.insert.i, align 4
-  %arrayidx14.phi.trans.insert.i = getelementptr inbounds i8, ptr %m.i, i64 20
-  %.pre8.i = load float, ptr %arrayidx14.phi.trans.insert.i, align 4
-  %arrayidx16.phi.trans.insert.i = getelementptr inbounds i8, ptr %m.i, i64 36
-  %.pre9.i = load float, ptr %arrayidx16.phi.trans.insert.i, align 4
-  %arrayidx18.phi.trans.insert.i = getelementptr inbounds i8, ptr %m.i, i64 52
-  %.pre10.i = load float, ptr %arrayidx18.phi.trans.insert.i, align 4
-  %arrayidx20.phi.trans.insert.i = getelementptr inbounds i8, ptr %m.i, i64 8
-  %.pre11.i = load float, ptr %arrayidx20.phi.trans.insert.i, align 8
-  %arrayidx22.phi.trans.insert.i = getelementptr inbounds i8, ptr %m.i, i64 24
-  %.pre12.i = load float, ptr %arrayidx22.phi.trans.insert.i, align 8
-  %arrayidx24.phi.trans.insert.i = getelementptr inbounds i8, ptr %m.i, i64 40
-  %.pre13.i = load float, ptr %arrayidx24.phi.trans.insert.i, align 8
-  %arrayidx26.phi.trans.insert.i = getelementptr inbounds i8, ptr %m.i, i64 56
-  %.pre14.i = load float, ptr %arrayidx26.phi.trans.insert.i, align 8
-  %arrayidx28.phi.trans.insert.i = getelementptr inbounds i8, ptr %m.i, i64 12
-  %.pre15.i = load float, ptr %arrayidx28.phi.trans.insert.i, align 4
-  %arrayidx30.phi.trans.insert.i = getelementptr inbounds i8, ptr %m.i, i64 28
-  %.pre16.i = load float, ptr %arrayidx30.phi.trans.insert.i, align 4
-  %arrayidx32.phi.trans.insert.i = getelementptr inbounds i8, ptr %m.i, i64 44
-  %.pre17.i = load float, ptr %arrayidx32.phi.trans.insert.i, align 4
-  %arrayidx34.phi.trans.insert.i = getelementptr inbounds i8, ptr %m.i, i64 60
-  %.pre18.i = load float, ptr %arrayidx34.phi.trans.insert.i, align 4
+  %10 = load <16 x float>, ptr %m.i, align 16
+  %11 = shufflevector <16 x float> %10, <16 x float> poison, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13, i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
   br label %_ZN6Assimp7OpenGEXL9setMatrixEP6aiNodePN10ODDLParser13DataArrayListE.exit
 
 _ZN6Assimp7OpenGEXL9setMatrixEP6aiNodePN10ODDLParser13DataArrayListE.exit: ; preds = %if.end9, %while.end.loopexit.i
-  %9 = phi float [ %.pre18.i, %while.end.loopexit.i ], [ undef, %if.end9 ]
-  %10 = phi float [ %.pre17.i, %while.end.loopexit.i ], [ undef, %if.end9 ]
-  %11 = phi float [ %.pre16.i, %while.end.loopexit.i ], [ undef, %if.end9 ]
-  %12 = phi float [ %.pre15.i, %while.end.loopexit.i ], [ undef, %if.end9 ]
-  %13 = phi float [ %.pre14.i, %while.end.loopexit.i ], [ undef, %if.end9 ]
-  %14 = phi float [ %.pre13.i, %while.end.loopexit.i ], [ undef, %if.end9 ]
-  %15 = phi float [ %.pre12.i, %while.end.loopexit.i ], [ undef, %if.end9 ]
-  %16 = phi float [ %.pre11.i, %while.end.loopexit.i ], [ undef, %if.end9 ]
-  %17 = phi float [ %.pre10.i, %while.end.loopexit.i ], [ undef, %if.end9 ]
-  %18 = phi float [ %.pre9.i, %while.end.loopexit.i ], [ undef, %if.end9 ]
-  %19 = phi float [ %.pre8.i, %while.end.loopexit.i ], [ undef, %if.end9 ]
-  %20 = phi float [ %.pre7.i, %while.end.loopexit.i ], [ undef, %if.end9 ]
-  %21 = phi float [ %.pre6.i, %while.end.loopexit.i ], [ undef, %if.end9 ]
-  %22 = phi float [ %.pre5.i, %while.end.loopexit.i ], [ undef, %if.end9 ]
-  %23 = phi float [ %.pre4.i, %while.end.loopexit.i ], [ undef, %if.end9 ]
-  %24 = phi float [ %.pre.i, %while.end.loopexit.i ], [ %call.i, %if.end9 ]
+  %12 = phi <16 x float> [ %11, %while.end.loopexit.i ], [ %8, %if.end9 ]
   %mTransformation.i = getelementptr inbounds i8, ptr %5, i64 1028
-  store float %24, ptr %mTransformation.i, align 4
-  %a2.i = getelementptr inbounds i8, ptr %5, i64 1032
-  store float %23, ptr %a2.i, align 4
-  %a3.i = getelementptr inbounds i8, ptr %5, i64 1036
-  store float %22, ptr %a3.i, align 4
-  %a4.i = getelementptr inbounds i8, ptr %5, i64 1040
-  store float %21, ptr %a4.i, align 4
-  %b1.i = getelementptr inbounds i8, ptr %5, i64 1044
-  store float %20, ptr %b1.i, align 4
-  %b2.i = getelementptr inbounds i8, ptr %5, i64 1048
-  store float %19, ptr %b2.i, align 4
-  %b3.i = getelementptr inbounds i8, ptr %5, i64 1052
-  store float %18, ptr %b3.i, align 4
-  %b4.i = getelementptr inbounds i8, ptr %5, i64 1056
-  store float %17, ptr %b4.i, align 4
-  %c1.i = getelementptr inbounds i8, ptr %5, i64 1060
-  store float %16, ptr %c1.i, align 4
-  %c2.i = getelementptr inbounds i8, ptr %5, i64 1064
-  store float %15, ptr %c2.i, align 4
-  %c3.i = getelementptr inbounds i8, ptr %5, i64 1068
-  store float %14, ptr %c3.i, align 4
-  %c4.i = getelementptr inbounds i8, ptr %5, i64 1072
-  store float %13, ptr %c4.i, align 4
-  %d1.i = getelementptr inbounds i8, ptr %5, i64 1076
-  store float %12, ptr %d1.i, align 4
-  %d2.i = getelementptr inbounds i8, ptr %5, i64 1080
-  store float %11, ptr %d2.i, align 4
-  %d3.i = getelementptr inbounds i8, ptr %5, i64 1084
-  store float %10, ptr %d3.i, align 4
-  %d4.i = getelementptr inbounds i8, ptr %5, i64 1088
-  store float %9, ptr %d4.i, align 4
+  store <16 x float> %12, ptr %mTransformation.i, align 4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %m.i)
   br label %if.end11
 

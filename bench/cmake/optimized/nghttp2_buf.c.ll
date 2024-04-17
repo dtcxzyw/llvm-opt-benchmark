@@ -479,24 +479,21 @@ define dso_local noundef i32 @nghttp2_bufs_wrap_init2(ptr nocapture noundef writ
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %19, i64 8
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %17, i64 16
+  %23 = getelementptr inbounds i8, ptr %17, i64 40
   store ptr %20, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %17, i64 40
-  store ptr %20, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %17, i64 32
-  store ptr %20, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %17, i64 24
-  store ptr %20, ptr %26, align 8
-  store ptr %20, ptr %18, align 8
+  %24 = insertelement <4 x ptr> poison, ptr %20, i64 0
+  %25 = shufflevector <4 x ptr> %24, <4 x ptr> poison, <4 x i32> zeroinitializer
+  store <4 x ptr> %25, ptr %18, align 8
   %.not.i = icmp eq i64 %22, 0
-  br i1 %.not.i, label %nghttp2_buf_wrap_init.exit, label %27
+  br i1 %.not.i, label %nghttp2_buf_wrap_init.exit, label %26
 
-27:                                               ; preds = %.preheader
+26:                                               ; preds = %.preheader
+  %27 = getelementptr inbounds i8, ptr %17, i64 16
   %28 = getelementptr inbounds i8, ptr %20, i64 %22
-  store ptr %28, ptr %23, align 8
+  store ptr %28, ptr %27, align 8
   br label %nghttp2_buf_wrap_init.exit
 
-nghttp2_buf_wrap_init.exit:                       ; preds = %.preheader, %27
+nghttp2_buf_wrap_init.exit:                       ; preds = %.preheader, %26
   store ptr %17, ptr %.037, align 8
   %29 = add nuw i64 %.03236, 1
   %exitcond.not = icmp eq i64 %29, %2

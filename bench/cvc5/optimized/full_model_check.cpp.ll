@@ -39183,127 +39183,116 @@ eh.resume:                                        ; preds = %lpad13, %lpad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN9__gnu_cxx5__ops16__iter_comp_iterIN4cvc58internal6theory11quantifiers7fmcheck17ModelBasisArgSortEEENS0_15_Iter_comp_iterIT_EES9_(ptr noalias sret(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %agg.result, ptr noundef %__comp) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %agg.tmp = alloca %"struct.cvc5::internal::theory::quantifiers::fmcheck::ModelBasisArgSort", align 8
-  %0 = load ptr, ptr %__comp, align 8
-  store ptr %0, ptr %agg.tmp, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
-  %_M_finish3.i.i.i.i.i = getelementptr inbounds i8, ptr %__comp, i64 8
-  %1 = load ptr, ptr %_M_finish3.i.i.i.i.i, align 8
-  store ptr %1, ptr %_M_finish.i.i.i.i.i, align 8
+  %agg.tmp = alloca %"struct.cvc5::internal::theory::quantifiers::fmcheck::ModelBasisArgSort", align 16
+  %0 = load <2 x ptr>, ptr %__comp, align 8
+  store <2 x ptr> %0, ptr %agg.tmp, align 16
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds i8, ptr %__comp, i64 16
-  %2 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8
-  store ptr %2, ptr %_M_end_of_storage.i.i.i.i.i, align 8
+  %1 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8
+  store ptr %1, ptr %_M_end_of_storage.i.i.i.i.i, align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__comp, i8 0, i64 24, i1 false)
   %d_mba_count.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   %d_mba_count3.i = getelementptr inbounds i8, ptr %__comp, i64 24
-  %3 = load ptr, ptr %d_mba_count3.i, align 8
-  store ptr %3, ptr %d_mba_count.i, align 8
+  %2 = load ptr, ptr %d_mba_count3.i, align 8
+  store ptr %2, ptr %d_mba_count.i, align 8
   %_M_bucket_count.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 32
   %_M_bucket_count3.i.i.i.i = getelementptr inbounds i8, ptr %__comp, i64 32
-  %4 = load i64, ptr %_M_bucket_count3.i.i.i.i, align 8
-  store i64 %4, ptr %_M_bucket_count.i.i.i.i, align 8
+  %3 = load i64, ptr %_M_bucket_count3.i.i.i.i, align 8
+  store i64 %3, ptr %_M_bucket_count.i.i.i.i, align 16
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 40
   %_M_before_begin4.i.i.i.i = getelementptr inbounds i8, ptr %__comp, i64 40
-  %5 = load ptr, ptr %_M_before_begin4.i.i.i.i, align 8
-  store ptr %5, ptr %_M_before_begin.i.i.i.i, align 8
+  %4 = load ptr, ptr %_M_before_begin4.i.i.i.i, align 8
+  store ptr %4, ptr %_M_before_begin.i.i.i.i, align 8
   %_M_element_count.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 48
   %_M_element_count5.i.i.i.i = getelementptr inbounds i8, ptr %__comp, i64 48
-  %6 = load i64, ptr %_M_element_count5.i.i.i.i, align 8
-  store i64 %6, ptr %_M_element_count.i.i.i.i, align 8
+  %5 = load i64, ptr %_M_element_count5.i.i.i.i, align 8
+  store i64 %5, ptr %_M_element_count.i.i.i.i, align 16
   %_M_rehash_policy.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 56
   %_M_rehash_policy6.i.i.i.i = getelementptr inbounds i8, ptr %__comp, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy6.i.i.i.i, i64 16, i1 false)
   %_M_single_bucket.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 72
   store ptr null, ptr %_M_single_bucket.i.i.i.i, align 8
   %_M_single_bucket.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__comp, i64 72
-  %cmp.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i.i, %3
+  %cmp.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i.i.i, %2
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %entry
   store ptr %_M_single_bucket.i.i.i.i, ptr %d_mba_count.i, align 8
-  %7 = load ptr, ptr %3, align 8
-  store ptr %7, ptr %_M_single_bucket.i.i.i.i, align 8
+  %6 = load ptr, ptr %2, align 8
+  store ptr %6, ptr %_M_single_bucket.i.i.i.i, align 8
   br label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i, %entry
-  %8 = phi ptr [ %_M_single_bucket.i.i.i.i, %if.then.i.i.i.i ], [ %3, %entry ]
-  %tobool.not.i.i.i.i.i = icmp eq ptr %5, null
+  %7 = phi ptr [ %_M_single_bucket.i.i.i.i, %if.then.i.i.i.i ], [ %2, %entry ]
+  %tobool.not.i.i.i.i.i = icmp eq ptr %4, null
+  %8 = shufflevector <2 x ptr> %0, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %9 = insertelement <4 x ptr> %8, ptr %1, i64 2
+  %10 = insertelement <4 x ptr> %9, ptr %7, i64 3
   br i1 %tobool.not.i.i.i.i.i, label %_ZN4cvc58internal6theory11quantifiers7fmcheck17ModelBasisArgSortC2EOS4_.exit, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 24
-  %9 = load i64, ptr %add.ptr.i.i.i.i.i.i.i, align 8
-  %rem.i.i.i.i.i.i.i.i = urem i64 %9, %4
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %8, i64 %rem.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 24
+  %11 = load i64, ptr %add.ptr.i.i.i.i.i.i.i, align 8
+  %rem.i.i.i.i.i.i.i.i = urem i64 %11, %3
+  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %7, i64 %rem.i.i.i.i.i.i.i.i
   store ptr %_M_before_begin.i.i.i.i, ptr %arrayidx.i.i.i.i.i, align 8
-  %.pre = load ptr, ptr %agg.tmp, align 8
-  %.pre2 = load ptr, ptr %_M_finish.i.i.i.i.i, align 8
-  %.pre3 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  %.pre4 = load ptr, ptr %d_mba_count.i, align 8
-  %.pre5 = load i64, ptr %_M_bucket_count.i.i.i.i, align 8
+  %12 = load <4 x ptr>, ptr %agg.tmp, align 16
+  %.pre5 = load i64, ptr %_M_bucket_count.i.i.i.i, align 16
   %.pre6 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
-  %.pre7 = load i64, ptr %_M_element_count.i.i.i.i, align 8
+  %.pre7 = load i64, ptr %_M_element_count.i.i.i.i, align 16
   br label %_ZN4cvc58internal6theory11quantifiers7fmcheck17ModelBasisArgSortC2EOS4_.exit
 
 _ZN4cvc58internal6theory11quantifiers7fmcheck17ModelBasisArgSortC2EOS4_.exit: ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i.i
-  %10 = phi i64 [ %6, %if.end.i.i.i.i ], [ %.pre7, %if.then.i.i.i.i.i ]
-  %11 = phi ptr [ null, %if.end.i.i.i.i ], [ %.pre6, %if.then.i.i.i.i.i ]
-  %12 = phi i64 [ %4, %if.end.i.i.i.i ], [ %.pre5, %if.then.i.i.i.i.i ]
-  %13 = phi ptr [ %8, %if.end.i.i.i.i ], [ %.pre4, %if.then.i.i.i.i.i ]
-  %14 = phi ptr [ %2, %if.end.i.i.i.i ], [ %.pre3, %if.then.i.i.i.i.i ]
-  %15 = phi ptr [ %1, %if.end.i.i.i.i ], [ %.pre2, %if.then.i.i.i.i.i ]
-  %16 = phi ptr [ %0, %if.end.i.i.i.i ], [ %.pre, %if.then.i.i.i.i.i ]
+  %13 = phi i64 [ %5, %if.end.i.i.i.i ], [ %.pre7, %if.then.i.i.i.i.i ]
+  %14 = phi ptr [ null, %if.end.i.i.i.i ], [ %.pre6, %if.then.i.i.i.i.i ]
+  %15 = phi i64 [ %3, %if.end.i.i.i.i ], [ %.pre5, %if.then.i.i.i.i.i ]
+  %16 = phi <4 x ptr> [ %10, %if.end.i.i.i.i ], [ %12, %if.then.i.i.i.i.i ]
   %_M_next_resize.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__comp, i64 64
   store i64 0, ptr %_M_next_resize.i.i.i.i.i.i, align 8
   store i64 1, ptr %_M_bucket_count3.i.i.i.i, align 8
   store ptr null, ptr %_M_single_bucket.i.i.i.i.i.i, align 8
   store ptr %_M_single_bucket.i.i.i.i.i.i, ptr %d_mba_count3.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin4.i.i.i.i, i8 0, i64 16, i1 false)
-  store ptr %16, ptr %agg.result, align 8
-  %_M_finish.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %15, ptr %_M_finish.i.i.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
-  store ptr %14, ptr %_M_end_of_storage.i.i.i.i.i.i, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 0, i64 24, i1 false)
-  %d_mba_count.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store ptr %13, ptr %d_mba_count.i.i, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %agg.tmp, i8 0, i64 24, i1 false)
+  store <4 x ptr> %16, ptr %agg.result, align 8
   %_M_bucket_count.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
-  store i64 %12, ptr %_M_bucket_count.i.i.i.i.i, align 8
+  store i64 %15, ptr %_M_bucket_count.i.i.i.i.i, align 8
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
-  store ptr %11, ptr %_M_before_begin.i.i.i.i.i, align 8
+  store ptr %14, ptr %_M_before_begin.i.i.i.i.i, align 8
   %_M_element_count.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
-  store i64 %10, ptr %_M_element_count.i.i.i.i.i, align 8
+  store i64 %13, ptr %_M_element_count.i.i.i.i.i, align 8
   %_M_rehash_policy.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %_M_rehash_policy.i.i.i.i, i64 16, i1 false)
   %_M_single_bucket.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 72
   store ptr null, ptr %_M_single_bucket.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %13
+  %17 = extractelement <4 x ptr> %16, i64 3
+  %cmp.i.i.i.i.i.i.i = icmp eq ptr %_M_single_bucket.i.i.i.i, %17
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i1, label %if.end.i.i.i.i.i
 
 if.then.i.i.i.i.i1:                               ; preds = %_ZN4cvc58internal6theory11quantifiers7fmcheck17ModelBasisArgSortC2EOS4_.exit
+  %d_mba_count.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   store ptr %_M_single_bucket.i.i.i.i.i, ptr %d_mba_count.i.i, align 8
-  %17 = load ptr, ptr %_M_single_bucket.i.i.i.i, align 8
-  store ptr %17, ptr %_M_single_bucket.i.i.i.i.i, align 8
+  %18 = load ptr, ptr %_M_single_bucket.i.i.i.i, align 8
+  store ptr %18, ptr %_M_single_bucket.i.i.i.i.i, align 8
   br label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i.i1, %_ZN4cvc58internal6theory11quantifiers7fmcheck17ModelBasisArgSortC2EOS4_.exit
-  %18 = phi ptr [ %_M_single_bucket.i.i.i.i.i, %if.then.i.i.i.i.i1 ], [ %13, %_ZN4cvc58internal6theory11quantifiers7fmcheck17ModelBasisArgSortC2EOS4_.exit ]
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %11, null
+  %19 = phi ptr [ %_M_single_bucket.i.i.i.i.i, %if.then.i.i.i.i.i1 ], [ %17, %_ZN4cvc58internal6theory11quantifiers7fmcheck17ModelBasisArgSortC2EOS4_.exit ]
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory11quantifiers7fmcheck17ModelBasisArgSortEEC2ES7_.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 24
-  %19 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
-  %rem.i.i.i.i.i.i.i.i.i = urem i64 %19, %12
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %18, i64 %rem.i.i.i.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %14, i64 24
+  %20 = load i64, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
+  %rem.i.i.i.i.i.i.i.i.i = urem i64 %20, %15
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds ptr, ptr %19, i64 %rem.i.i.i.i.i.i.i.i.i
   store ptr %_M_before_begin.i.i.i.i.i, ptr %arrayidx.i.i.i.i.i.i, align 8
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory11quantifiers7fmcheck17ModelBasisArgSortEEC2ES7_.exit
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal6theory11quantifiers7fmcheck17ModelBasisArgSortEEC2ES7_.exit: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i.i.i
   %_M_next_resize.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 64
-  store i64 0, ptr %_M_next_resize.i.i.i.i.i.i.i, align 8
-  store i64 1, ptr %_M_bucket_count.i.i.i.i, align 8
+  store i64 0, ptr %_M_next_resize.i.i.i.i.i.i.i, align 16
+  store i64 1, ptr %_M_bucket_count.i.i.i.i, align 16
   store ptr null, ptr %_M_single_bucket.i.i.i.i, align 8
   store ptr %_M_single_bucket.i.i.i.i, ptr %d_mba_count.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_before_begin.i.i.i.i, i8 0, i64 16, i1 false)

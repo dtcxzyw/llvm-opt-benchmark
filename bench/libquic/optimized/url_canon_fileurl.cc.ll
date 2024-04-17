@@ -52,21 +52,9 @@ $_ZTVN3url15RawCanonOutputTIcLi1024EEE = comdat any
 define dso_local noundef zeroext i1 @_ZN3url19CanonicalizeFileURLEPKciRKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, i32 noundef %spec_len, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef %query_converter, ptr noundef %output, ptr noundef %new_parsed) local_unnamed_addr #0 {
 entry:
   %ref.tmp = alloca %"struct.url::URLComponentSource", align 8
-  store ptr %spec, ptr %ref.tmp, align 8
-  %username.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store ptr %spec, ptr %username.i, align 8
-  %password.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store ptr %spec, ptr %password.i, align 8
-  %host.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
-  store ptr %spec, ptr %host.i, align 8
-  %port.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  store ptr %spec, ptr %port.i, align 8
-  %path.i = getelementptr inbounds i8, ptr %ref.tmp, i64 40
-  store ptr %spec, ptr %path.i, align 8
-  %query.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
-  store ptr %spec, ptr %query.i, align 8
-  %ref.i = getelementptr inbounds i8, ptr %ref.tmp, i64 56
-  store ptr %spec, ptr %ref.i, align 8
+  %0 = insertelement <8 x ptr> poison, ptr %spec, i64 0
+  %1 = shufflevector <8 x ptr> %0, <8 x ptr> poison, <8 x i32> zeroinitializer
+  store <8 x ptr> %1, ptr %ref.tmp, align 8
   %call = call fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_121DoCanonicalizeFileURLIchEEbRKNS_18URLComponentSourceIT_EERKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS7_(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef %query_converter, ptr noundef %output, ptr noundef %new_parsed)
   ret i1 %call
 }
@@ -562,21 +550,9 @@ define dso_local noundef zeroext i1 @_ZN3url14ReplaceFileURLEPKcRKNS_6ParsedERKN
 entry:
   %source = alloca %"struct.url::URLComponentSource", align 8
   %parsed = alloca %"struct.url::Parsed", align 8
-  store ptr %base, ptr %source, align 8
-  %username.i = getelementptr inbounds i8, ptr %source, i64 8
-  store ptr %base, ptr %username.i, align 8
-  %password.i = getelementptr inbounds i8, ptr %source, i64 16
-  store ptr %base, ptr %password.i, align 8
-  %host.i = getelementptr inbounds i8, ptr %source, i64 24
-  store ptr %base, ptr %host.i, align 8
-  %port.i = getelementptr inbounds i8, ptr %source, i64 32
-  store ptr %base, ptr %port.i, align 8
-  %path.i = getelementptr inbounds i8, ptr %source, i64 40
-  store ptr %base, ptr %path.i, align 8
-  %query.i = getelementptr inbounds i8, ptr %source, i64 48
-  store ptr %base, ptr %query.i, align 8
-  %ref.i = getelementptr inbounds i8, ptr %source, i64 56
-  store ptr %base, ptr %ref.i, align 8
+  %0 = insertelement <8 x ptr> poison, ptr %base, i64 0
+  %1 = shufflevector <8 x ptr> %0, <8 x ptr> poison, <8 x i32> zeroinitializer
+  store <8 x ptr> %1, ptr %source, align 8
   call void @_ZN3url6ParsedC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef nonnull align 8 dereferenceable(72) %base_parsed)
   invoke void @_ZN3url23SetupOverrideComponentsEPKcRKNS_12ReplacementsIcEEPNS_18URLComponentSourceIcEEPNS_6ParsedE(ptr noundef %base, ptr noundef nonnull align 8 dereferenceable(136) %replacements, ptr noundef nonnull %source, ptr noundef nonnull %parsed)
           to label %invoke.cont unwind label %lpad
@@ -590,10 +566,10 @@ invoke.cont1:                                     ; preds = %invoke.cont
   ret i1 %call
 
 lpad:                                             ; preds = %invoke.cont, %entry
-  %0 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %parsed) #9
-  resume { ptr, i32 } %0
+  resume { ptr, i32 } %2
 }
 
 declare void @_ZN3url6ParsedC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
@@ -617,21 +593,9 @@ entry:
   %fixed_buffer_.i.i = getelementptr inbounds i8, ptr %utf8, i64 24
   store ptr %fixed_buffer_.i.i, ptr %buffer_.i.i.i, align 8
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url14RawCanonOutputILi1024EEE, i64 0, i32 0, i64 2), ptr %utf8, align 8
-  store ptr %base, ptr %source, align 8
-  %username.i = getelementptr inbounds i8, ptr %source, i64 8
-  store ptr %base, ptr %username.i, align 8
-  %password.i = getelementptr inbounds i8, ptr %source, i64 16
-  store ptr %base, ptr %password.i, align 8
-  %host.i = getelementptr inbounds i8, ptr %source, i64 24
-  store ptr %base, ptr %host.i, align 8
-  %port.i = getelementptr inbounds i8, ptr %source, i64 32
-  store ptr %base, ptr %port.i, align 8
-  %path.i = getelementptr inbounds i8, ptr %source, i64 40
-  store ptr %base, ptr %path.i, align 8
-  %query.i = getelementptr inbounds i8, ptr %source, i64 48
-  store ptr %base, ptr %query.i, align 8
-  %ref.i = getelementptr inbounds i8, ptr %source, i64 56
-  store ptr %base, ptr %ref.i, align 8
+  %1 = insertelement <8 x ptr> poison, ptr %base, i64 0
+  %2 = shufflevector <8 x ptr> %1, <8 x ptr> poison, <8 x i32> zeroinitializer
+  store <8 x ptr> %2, ptr %source, align 8
   invoke void @_ZN3url6ParsedC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef nonnull align 8 dereferenceable(72) %base_parsed)
           to label %invoke.cont1 unwind label %lpad
 
@@ -646,41 +610,41 @@ invoke.cont3:                                     ; preds = %invoke.cont1
 invoke.cont4:                                     ; preds = %invoke.cont3
   call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %parsed) #9
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 0, i32 0, i64 2), ptr %utf8, align 8
-  %1 = load ptr, ptr %buffer_.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %1, %fixed_buffer_.i.i
-  %isnull.i.i = icmp eq ptr %1, null
+  %3 = load ptr, ptr %buffer_.i.i.i, align 8
+  %cmp.not.i.i = icmp eq ptr %3, %fixed_buffer_.i.i
+  %isnull.i.i = icmp eq ptr %3, null
   %or.cond.i.i = or i1 %cmp.not.i.i, %isnull.i.i
   br i1 %or.cond.i.i, label %_ZN3url14RawCanonOutputILi1024EED2Ev.exit, label %delete.notnull.i.i
 
 delete.notnull.i.i:                               ; preds = %invoke.cont4
-  call void @_ZdaPv(ptr noundef nonnull %1) #10
+  call void @_ZdaPv(ptr noundef nonnull %3) #10
   br label %_ZN3url14RawCanonOutputILi1024EED2Ev.exit
 
 _ZN3url14RawCanonOutputILi1024EED2Ev.exit:        ; preds = %invoke.cont4, %delete.notnull.i.i
   ret i1 %call5
 
 lpad:                                             ; preds = %entry
-  %2 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad2:                                            ; preds = %invoke.cont3, %invoke.cont1
-  %3 = landingpad { ptr, i32 }
+  %5 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3url6ParsedD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %parsed) #9
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad2, %lpad
-  %.pn = phi { ptr, i32 } [ %3, %lpad2 ], [ %2, %lpad ]
+  %.pn = phi { ptr, i32 } [ %5, %lpad2 ], [ %4, %lpad ]
   store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi1024EEE, i64 0, i32 0, i64 2), ptr %utf8, align 8
-  %4 = load ptr, ptr %buffer_.i.i.i, align 8
-  %cmp.not.i.i6 = icmp eq ptr %4, %fixed_buffer_.i.i
-  %isnull.i.i7 = icmp eq ptr %4, null
+  %6 = load ptr, ptr %buffer_.i.i.i, align 8
+  %cmp.not.i.i6 = icmp eq ptr %6, %fixed_buffer_.i.i
+  %isnull.i.i7 = icmp eq ptr %6, null
   %or.cond.i.i8 = or i1 %cmp.not.i.i6, %isnull.i.i7
   br i1 %or.cond.i.i8, label %_ZN3url14RawCanonOutputILi1024EED2Ev.exit10, label %delete.notnull.i.i9
 
 delete.notnull.i.i9:                              ; preds = %ehcleanup
-  call void @_ZdaPv(ptr noundef nonnull %4) #10
+  call void @_ZdaPv(ptr noundef nonnull %6) #10
   br label %_ZN3url14RawCanonOutputILi1024EED2Ev.exit10
 
 _ZN3url14RawCanonOutputILi1024EED2Ev.exit10:      ; preds = %ehcleanup, %delete.notnull.i.i9

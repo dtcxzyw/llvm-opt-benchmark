@@ -31021,113 +31021,82 @@ cond.false:                                       ; preds = %entry
 cleanup.done:                                     ; preds = %entry
   %total_ = getelementptr inbounds i8, ptr %this, i64 112
   %call7 = tail call fastcc noundef ptr @_ZN6google8protobuf14DescriptorPool6Tables15CreateFlatAllocIJcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14SourceCodeInfoENS0_20FileDescriptorTablesENS0_10FeatureSetENS0_14MessageOptionsENS0_12FieldOptionsENS0_11EnumOptionsENS0_16EnumValueOptionsENS0_21ExtensionRangeOptionsENS0_12OneofOptionsENS0_14ServiceOptionsENS0_13MethodOptionsENS0_11FileOptionsEEEEPNS0_12_GLOBAL__N_114FlatAllocationIJcS9_SA_SB_SC_SD_SE_SF_SG_SH_SI_SJ_SK_SL_EEERKNSM_7TypeMapINSM_4IntTEJDpT_EEE(ptr noundef nonnull align 8 dereferenceable(416) %alloc.0.val, ptr noundef nonnull align 4 dereferenceable(56) %total_)
-  %this.val.i.i = load i32, ptr %call7, align 4, !noalias !474
-  %cmp.i.i = icmp eq i32 %this.val.i.i, 56
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call7, i64 56
-  %spec.select.i.i = select i1 %cmp.i.i, ptr null, ptr %add.ptr.i.i
-  %0 = getelementptr inbounds i8, ptr %call7, i64 4
-  %this.val2.i.i = load i32, ptr %0, align 4, !noalias !474
-  %cmp.i2.i = icmp eq i32 %this.val.i.i, %this.val2.i.i
-  %idx.ext.i.i = sext i32 %this.val.i.i to i64
-  %add.ptr.i3.i = getelementptr inbounds i8, ptr %call7, i64 %idx.ext.i.i
-  %retval.0.i.i = select i1 %cmp.i2.i, ptr null, ptr %add.ptr.i3.i
-  %1 = getelementptr inbounds i8, ptr %call7, i64 8
-  %this.val2.i6.i = load i32, ptr %1, align 4, !noalias !474
-  %cmp.i7.i = icmp eq i32 %this.val2.i.i, %this.val2.i6.i
-  %idx.ext.i8.i = sext i32 %this.val2.i.i to i64
-  %add.ptr.i9.i = getelementptr inbounds i8, ptr %call7, i64 %idx.ext.i8.i
-  %retval.0.i10.i = select i1 %cmp.i7.i, ptr null, ptr %add.ptr.i9.i
-  %2 = getelementptr inbounds i8, ptr %call7, i64 12
-  %this.val2.i13.i = load i32, ptr %2, align 4, !noalias !474
-  %cmp.i14.i = icmp eq i32 %this.val2.i6.i, %this.val2.i13.i
-  %idx.ext.i15.i = sext i32 %this.val2.i6.i to i64
-  %add.ptr.i16.i = getelementptr inbounds i8, ptr %call7, i64 %idx.ext.i15.i
-  %retval.0.i17.i = select i1 %cmp.i14.i, ptr null, ptr %add.ptr.i16.i
-  %3 = getelementptr inbounds i8, ptr %call7, i64 16
-  %this.val2.i20.i = load i32, ptr %3, align 4, !noalias !474
-  %cmp.i21.i = icmp eq i32 %this.val2.i13.i, %this.val2.i20.i
-  %idx.ext.i22.i = sext i32 %this.val2.i13.i to i64
-  %add.ptr.i23.i = getelementptr inbounds i8, ptr %call7, i64 %idx.ext.i22.i
-  %retval.0.i24.i = select i1 %cmp.i21.i, ptr null, ptr %add.ptr.i23.i
-  %4 = getelementptr inbounds i8, ptr %call7, i64 20
-  %this.val2.i27.i = load i32, ptr %4, align 4, !noalias !474
-  %cmp.i28.i = icmp eq i32 %this.val2.i20.i, %this.val2.i27.i
-  %idx.ext.i29.i = sext i32 %this.val2.i20.i to i64
-  %add.ptr.i30.i = getelementptr inbounds i8, ptr %call7, i64 %idx.ext.i29.i
-  %retval.0.i31.i = select i1 %cmp.i28.i, ptr null, ptr %add.ptr.i30.i
-  %5 = getelementptr inbounds i8, ptr %call7, i64 24
-  %this.val2.i34.i = load i32, ptr %5, align 4, !noalias !474
-  %cmp.i35.i = icmp eq i32 %this.val2.i27.i, %this.val2.i34.i
-  %idx.ext.i36.i = sext i32 %this.val2.i27.i to i64
-  %add.ptr.i37.i = getelementptr inbounds i8, ptr %call7, i64 %idx.ext.i36.i
-  %retval.0.i38.i = select i1 %cmp.i35.i, ptr null, ptr %add.ptr.i37.i
-  %6 = getelementptr inbounds i8, ptr %call7, i64 28
-  %this.val2.i41.i = load i32, ptr %6, align 4, !noalias !474
-  %cmp.i42.i = icmp eq i32 %this.val2.i34.i, %this.val2.i41.i
-  %idx.ext.i43.i = sext i32 %this.val2.i34.i to i64
-  %add.ptr.i44.i = getelementptr inbounds i8, ptr %call7, i64 %idx.ext.i43.i
-  %retval.0.i45.i = select i1 %cmp.i42.i, ptr null, ptr %add.ptr.i44.i
-  %7 = getelementptr inbounds i8, ptr %call7, i64 32
-  %this.val2.i48.i = load i32, ptr %7, align 4, !noalias !474
-  %cmp.i49.i = icmp eq i32 %this.val2.i41.i, %this.val2.i48.i
-  %idx.ext.i50.i = sext i32 %this.val2.i41.i to i64
-  %add.ptr.i51.i = getelementptr inbounds i8, ptr %call7, i64 %idx.ext.i50.i
-  %retval.0.i52.i = select i1 %cmp.i49.i, ptr null, ptr %add.ptr.i51.i
-  %8 = getelementptr inbounds i8, ptr %call7, i64 36
-  %this.val2.i55.i = load i32, ptr %8, align 4, !noalias !474
-  %cmp.i56.i = icmp eq i32 %this.val2.i48.i, %this.val2.i55.i
-  %idx.ext.i57.i = sext i32 %this.val2.i48.i to i64
-  %add.ptr.i58.i = getelementptr inbounds i8, ptr %call7, i64 %idx.ext.i57.i
-  %retval.0.i59.i = select i1 %cmp.i56.i, ptr null, ptr %add.ptr.i58.i
-  %9 = getelementptr inbounds i8, ptr %call7, i64 40
-  %this.val2.i62.i = load i32, ptr %9, align 4, !noalias !474
-  %cmp.i63.i = icmp eq i32 %this.val2.i55.i, %this.val2.i62.i
-  %idx.ext.i64.i = sext i32 %this.val2.i55.i to i64
-  %add.ptr.i65.i = getelementptr inbounds i8, ptr %call7, i64 %idx.ext.i64.i
-  %retval.0.i66.i = select i1 %cmp.i63.i, ptr null, ptr %add.ptr.i65.i
-  %10 = getelementptr inbounds i8, ptr %call7, i64 44
-  %this.val2.i69.i = load i32, ptr %10, align 4, !noalias !474
-  %cmp.i70.i = icmp eq i32 %this.val2.i62.i, %this.val2.i69.i
-  %idx.ext.i71.i = sext i32 %this.val2.i62.i to i64
-  %add.ptr.i72.i = getelementptr inbounds i8, ptr %call7, i64 %idx.ext.i71.i
-  %retval.0.i73.i = select i1 %cmp.i70.i, ptr null, ptr %add.ptr.i72.i
-  %11 = getelementptr inbounds i8, ptr %call7, i64 48
-  %this.val2.i76.i = load i32, ptr %11, align 4, !noalias !474
-  %cmp.i77.i = icmp eq i32 %this.val2.i69.i, %this.val2.i76.i
-  %idx.ext.i78.i = sext i32 %this.val2.i69.i to i64
-  %add.ptr.i79.i = getelementptr inbounds i8, ptr %call7, i64 %idx.ext.i78.i
-  %retval.0.i80.i = select i1 %cmp.i77.i, ptr null, ptr %add.ptr.i79.i
-  %12 = getelementptr inbounds i8, ptr %call7, i64 52
-  %this.val2.i83.i = load i32, ptr %12, align 4, !noalias !474
+  %0 = getelementptr inbounds i8, ptr %call7, i64 32
+  %1 = getelementptr inbounds i8, ptr %call7, i64 48
+  %this.val2.i76.i = load i32, ptr %1, align 4, !noalias !474
+  %2 = getelementptr inbounds i8, ptr %call7, i64 52
+  %this.val2.i83.i = load i32, ptr %2, align 4, !noalias !474
   %cmp.i84.i = icmp eq i32 %this.val2.i76.i, %this.val2.i83.i
   %idx.ext.i85.i = sext i32 %this.val2.i76.i to i64
   %add.ptr.i86.i = getelementptr inbounds i8, ptr %call7, i64 %idx.ext.i85.i
   %retval.0.i87.i = select i1 %cmp.i84.i, ptr null, ptr %add.ptr.i86.i
-  store ptr %spec.select.i.i, ptr %this, align 8
   %ref.tmp5.sroa.2.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr %retval.0.i.i, ptr %ref.tmp5.sroa.2.0.this.sroa_idx, align 8
-  %ref.tmp5.sroa.3.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr %retval.0.i10.i, ptr %ref.tmp5.sroa.3.0.this.sroa_idx, align 8
-  %ref.tmp5.sroa.4.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr %retval.0.i17.i, ptr %ref.tmp5.sroa.4.0.this.sroa_idx, align 8
-  %ref.tmp5.sroa.5.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr %retval.0.i24.i, ptr %ref.tmp5.sroa.5.0.this.sroa_idx, align 8
-  %ref.tmp5.sroa.6.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
-  store ptr %retval.0.i31.i, ptr %ref.tmp5.sroa.6.0.this.sroa_idx, align 8
-  %ref.tmp5.sroa.7.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 48
-  store ptr %retval.0.i38.i, ptr %ref.tmp5.sroa.7.0.this.sroa_idx, align 8
-  %ref.tmp5.sroa.8.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr %retval.0.i45.i, ptr %ref.tmp5.sroa.8.0.this.sroa_idx, align 8
-  %ref.tmp5.sroa.9.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 64
-  store ptr %retval.0.i52.i, ptr %ref.tmp5.sroa.9.0.this.sroa_idx, align 8
+  %3 = load <8 x i32>, ptr %call7, align 4, !noalias !474
+  %4 = extractelement <8 x i32> %3, i64 0
+  %cmp.i.i = icmp eq i32 %4, 56
+  %spec.select.i.i = select i1 %cmp.i.i, ptr null, ptr %add.ptr.i.i
+  %idx.ext.i.i = sext i32 %4 to i64
+  %add.ptr.i3.i = getelementptr inbounds i8, ptr %call7, i64 %idx.ext.i.i
+  %5 = extractelement <8 x i32> %3, i64 1
+  %idx.ext.i8.i = sext i32 %5 to i64
+  %add.ptr.i9.i = getelementptr inbounds i8, ptr %call7, i64 %idx.ext.i8.i
+  %6 = extractelement <8 x i32> %3, i64 2
+  %idx.ext.i15.i = sext i32 %6 to i64
+  %add.ptr.i16.i = getelementptr inbounds i8, ptr %call7, i64 %idx.ext.i15.i
+  %7 = extractelement <8 x i32> %3, i64 3
+  %idx.ext.i22.i = sext i32 %7 to i64
+  %add.ptr.i23.i = getelementptr inbounds i8, ptr %call7, i64 %idx.ext.i22.i
+  %8 = extractelement <8 x i32> %3, i64 4
+  %idx.ext.i29.i = sext i32 %8 to i64
+  %add.ptr.i30.i = getelementptr inbounds i8, ptr %call7, i64 %idx.ext.i29.i
+  %9 = extractelement <8 x i32> %3, i64 5
+  %idx.ext.i36.i = sext i32 %9 to i64
+  %add.ptr.i37.i = getelementptr inbounds i8, ptr %call7, i64 %idx.ext.i36.i
+  %10 = extractelement <8 x i32> %3, i64 6
+  %idx.ext.i43.i = sext i32 %10 to i64
+  %add.ptr.i44.i = getelementptr inbounds i8, ptr %call7, i64 %idx.ext.i43.i
+  %11 = shufflevector <8 x i32> %3, <8 x i32> poison, <8 x i32> <i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison>
+  %12 = extractelement <8 x i32> %3, i64 7
+  %idx.ext.i50.i = sext i32 %12 to i64
+  %add.ptr.i51.i = getelementptr inbounds i8, ptr %call7, i64 %idx.ext.i50.i
+  %13 = insertelement <8 x ptr> poison, ptr %add.ptr.i3.i, i64 0
+  %14 = insertelement <8 x ptr> %13, ptr %add.ptr.i9.i, i64 1
+  %15 = insertelement <8 x ptr> %14, ptr %add.ptr.i16.i, i64 2
+  %16 = insertelement <8 x ptr> %15, ptr %add.ptr.i23.i, i64 3
+  %17 = insertelement <8 x ptr> %16, ptr %add.ptr.i30.i, i64 4
+  %18 = insertelement <8 x ptr> %17, ptr %add.ptr.i37.i, i64 5
+  %19 = insertelement <8 x ptr> %18, ptr %add.ptr.i44.i, i64 6
+  %20 = insertelement <8 x ptr> %19, ptr %add.ptr.i51.i, i64 7
   %ref.tmp5.sroa.10.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
-  store ptr %retval.0.i59.i, ptr %ref.tmp5.sroa.10.0.this.sroa_idx, align 8
-  %ref.tmp5.sroa.11.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 80
-  store ptr %retval.0.i66.i, ptr %ref.tmp5.sroa.11.0.this.sroa_idx, align 8
-  %ref.tmp5.sroa.12.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 88
-  store ptr %retval.0.i73.i, ptr %ref.tmp5.sroa.12.0.this.sroa_idx, align 8
-  %ref.tmp5.sroa.13.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %retval.0.i80.i, ptr %ref.tmp5.sroa.13.0.this.sroa_idx, align 8
+  %21 = load <4 x i32>, ptr %0, align 4, !noalias !474
+  %22 = extractelement <4 x i32> %21, i64 0
+  %idx.ext.i57.i = sext i32 %22 to i64
+  %add.ptr.i58.i = getelementptr inbounds i8, ptr %call7, i64 %idx.ext.i57.i
+  %23 = extractelement <4 x i32> %21, i64 1
+  %idx.ext.i64.i = sext i32 %23 to i64
+  %add.ptr.i65.i = getelementptr inbounds i8, ptr %call7, i64 %idx.ext.i64.i
+  %24 = extractelement <4 x i32> %21, i64 2
+  %idx.ext.i71.i = sext i32 %24 to i64
+  %add.ptr.i72.i = getelementptr inbounds i8, ptr %call7, i64 %idx.ext.i71.i
+  %25 = shufflevector <4 x i32> %21, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 poison>
+  %26 = insertelement <4 x i32> %25, i32 %this.val2.i76.i, i64 3
+  %27 = icmp eq <4 x i32> %21, %26
+  %28 = extractelement <4 x i32> %21, i64 3
+  %idx.ext.i78.i = sext i32 %28 to i64
+  %add.ptr.i79.i = getelementptr inbounds i8, ptr %call7, i64 %idx.ext.i78.i
+  %29 = insertelement <4 x ptr> poison, ptr %add.ptr.i58.i, i64 0
+  %30 = insertelement <4 x ptr> %29, ptr %add.ptr.i65.i, i64 1
+  %31 = insertelement <4 x ptr> %30, ptr %add.ptr.i72.i, i64 2
+  %32 = insertelement <4 x ptr> %31, ptr %add.ptr.i79.i, i64 3
+  %33 = select <4 x i1> %27, <4 x ptr> zeroinitializer, <4 x ptr> %32
+  %34 = shufflevector <4 x i32> %21, <4 x i32> poison, <8 x i32> <i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %35 = shufflevector <8 x i32> %11, <8 x i32> %34, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 8>
+  %36 = icmp eq <8 x i32> %3, %35
+  %37 = select <8 x i1> %36, <8 x ptr> zeroinitializer, <8 x ptr> %20
+  store ptr %spec.select.i.i, ptr %this, align 8
+  store <8 x ptr> %37, ptr %ref.tmp5.sroa.2.0.this.sroa_idx, align 8
+  store <4 x ptr> %33, ptr %ref.tmp5.sroa.10.0.this.sroa_idx, align 8
   %ref.tmp5.sroa.14.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 104
   store ptr %retval.0.i87.i, ptr %ref.tmp5.sroa.14.0.this.sroa_idx, align 8
   br i1 %cmp.i.i, label %cond.false11, label %cleanup.done20
@@ -32867,113 +32836,82 @@ cond.false:                                       ; preds = %entry
 cleanup.done:                                     ; preds = %entry
   %total_ = getelementptr inbounds i8, ptr %this, i64 112
   %call6 = tail call fastcc noundef ptr @_ZN6google8protobuf14DescriptorPool6Tables15CreateFlatAllocIJcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_14SourceCodeInfoENS0_20FileDescriptorTablesENS0_10FeatureSetENS0_14MessageOptionsENS0_12FieldOptionsENS0_11EnumOptionsENS0_16EnumValueOptionsENS0_21ExtensionRangeOptionsENS0_12OneofOptionsENS0_14ServiceOptionsENS0_13MethodOptionsENS0_11FileOptionsEEEEPNS0_12_GLOBAL__N_114FlatAllocationIJcS9_SA_SB_SC_SD_SE_SF_SG_SH_SI_SJ_SK_SL_EEERKNSM_7TypeMapINSM_4IntTEJDpT_EEE(ptr noundef nonnull align 8 dereferenceable(416) %alloc.0.val, ptr noundef nonnull align 4 dereferenceable(56) %total_)
-  %this.val.i.i = load i32, ptr %call6, align 4, !noalias !481
-  %cmp.i.i = icmp eq i32 %this.val.i.i, 56
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call6, i64 56
-  %spec.select.i.i = select i1 %cmp.i.i, ptr null, ptr %add.ptr.i.i
-  %0 = getelementptr inbounds i8, ptr %call6, i64 4
-  %this.val2.i.i = load i32, ptr %0, align 4, !noalias !481
-  %cmp.i2.i = icmp eq i32 %this.val.i.i, %this.val2.i.i
-  %idx.ext.i.i = sext i32 %this.val.i.i to i64
-  %add.ptr.i3.i = getelementptr inbounds i8, ptr %call6, i64 %idx.ext.i.i
-  %retval.0.i.i = select i1 %cmp.i2.i, ptr null, ptr %add.ptr.i3.i
-  %1 = getelementptr inbounds i8, ptr %call6, i64 8
-  %this.val2.i6.i = load i32, ptr %1, align 4, !noalias !481
-  %cmp.i7.i = icmp eq i32 %this.val2.i.i, %this.val2.i6.i
-  %idx.ext.i8.i = sext i32 %this.val2.i.i to i64
-  %add.ptr.i9.i = getelementptr inbounds i8, ptr %call6, i64 %idx.ext.i8.i
-  %retval.0.i10.i = select i1 %cmp.i7.i, ptr null, ptr %add.ptr.i9.i
-  %2 = getelementptr inbounds i8, ptr %call6, i64 12
-  %this.val2.i13.i = load i32, ptr %2, align 4, !noalias !481
-  %cmp.i14.i = icmp eq i32 %this.val2.i6.i, %this.val2.i13.i
-  %idx.ext.i15.i = sext i32 %this.val2.i6.i to i64
-  %add.ptr.i16.i = getelementptr inbounds i8, ptr %call6, i64 %idx.ext.i15.i
-  %retval.0.i17.i = select i1 %cmp.i14.i, ptr null, ptr %add.ptr.i16.i
-  %3 = getelementptr inbounds i8, ptr %call6, i64 16
-  %this.val2.i20.i = load i32, ptr %3, align 4, !noalias !481
-  %cmp.i21.i = icmp eq i32 %this.val2.i13.i, %this.val2.i20.i
-  %idx.ext.i22.i = sext i32 %this.val2.i13.i to i64
-  %add.ptr.i23.i = getelementptr inbounds i8, ptr %call6, i64 %idx.ext.i22.i
-  %retval.0.i24.i = select i1 %cmp.i21.i, ptr null, ptr %add.ptr.i23.i
-  %4 = getelementptr inbounds i8, ptr %call6, i64 20
-  %this.val2.i27.i = load i32, ptr %4, align 4, !noalias !481
-  %cmp.i28.i = icmp eq i32 %this.val2.i20.i, %this.val2.i27.i
-  %idx.ext.i29.i = sext i32 %this.val2.i20.i to i64
-  %add.ptr.i30.i = getelementptr inbounds i8, ptr %call6, i64 %idx.ext.i29.i
-  %retval.0.i31.i = select i1 %cmp.i28.i, ptr null, ptr %add.ptr.i30.i
-  %5 = getelementptr inbounds i8, ptr %call6, i64 24
-  %this.val2.i34.i = load i32, ptr %5, align 4, !noalias !481
-  %cmp.i35.i = icmp eq i32 %this.val2.i27.i, %this.val2.i34.i
-  %idx.ext.i36.i = sext i32 %this.val2.i27.i to i64
-  %add.ptr.i37.i = getelementptr inbounds i8, ptr %call6, i64 %idx.ext.i36.i
-  %retval.0.i38.i = select i1 %cmp.i35.i, ptr null, ptr %add.ptr.i37.i
-  %6 = getelementptr inbounds i8, ptr %call6, i64 28
-  %this.val2.i41.i = load i32, ptr %6, align 4, !noalias !481
-  %cmp.i42.i = icmp eq i32 %this.val2.i34.i, %this.val2.i41.i
-  %idx.ext.i43.i = sext i32 %this.val2.i34.i to i64
-  %add.ptr.i44.i = getelementptr inbounds i8, ptr %call6, i64 %idx.ext.i43.i
-  %retval.0.i45.i = select i1 %cmp.i42.i, ptr null, ptr %add.ptr.i44.i
-  %7 = getelementptr inbounds i8, ptr %call6, i64 32
-  %this.val2.i48.i = load i32, ptr %7, align 4, !noalias !481
-  %cmp.i49.i = icmp eq i32 %this.val2.i41.i, %this.val2.i48.i
-  %idx.ext.i50.i = sext i32 %this.val2.i41.i to i64
-  %add.ptr.i51.i = getelementptr inbounds i8, ptr %call6, i64 %idx.ext.i50.i
-  %retval.0.i52.i = select i1 %cmp.i49.i, ptr null, ptr %add.ptr.i51.i
-  %8 = getelementptr inbounds i8, ptr %call6, i64 36
-  %this.val2.i55.i = load i32, ptr %8, align 4, !noalias !481
-  %cmp.i56.i = icmp eq i32 %this.val2.i48.i, %this.val2.i55.i
-  %idx.ext.i57.i = sext i32 %this.val2.i48.i to i64
-  %add.ptr.i58.i = getelementptr inbounds i8, ptr %call6, i64 %idx.ext.i57.i
-  %retval.0.i59.i = select i1 %cmp.i56.i, ptr null, ptr %add.ptr.i58.i
-  %9 = getelementptr inbounds i8, ptr %call6, i64 40
-  %this.val2.i62.i = load i32, ptr %9, align 4, !noalias !481
-  %cmp.i63.i = icmp eq i32 %this.val2.i55.i, %this.val2.i62.i
-  %idx.ext.i64.i = sext i32 %this.val2.i55.i to i64
-  %add.ptr.i65.i = getelementptr inbounds i8, ptr %call6, i64 %idx.ext.i64.i
-  %retval.0.i66.i = select i1 %cmp.i63.i, ptr null, ptr %add.ptr.i65.i
-  %10 = getelementptr inbounds i8, ptr %call6, i64 44
-  %this.val2.i69.i = load i32, ptr %10, align 4, !noalias !481
-  %cmp.i70.i = icmp eq i32 %this.val2.i62.i, %this.val2.i69.i
-  %idx.ext.i71.i = sext i32 %this.val2.i62.i to i64
-  %add.ptr.i72.i = getelementptr inbounds i8, ptr %call6, i64 %idx.ext.i71.i
-  %retval.0.i73.i = select i1 %cmp.i70.i, ptr null, ptr %add.ptr.i72.i
-  %11 = getelementptr inbounds i8, ptr %call6, i64 48
-  %this.val2.i76.i = load i32, ptr %11, align 4, !noalias !481
-  %cmp.i77.i = icmp eq i32 %this.val2.i69.i, %this.val2.i76.i
-  %idx.ext.i78.i = sext i32 %this.val2.i69.i to i64
-  %add.ptr.i79.i = getelementptr inbounds i8, ptr %call6, i64 %idx.ext.i78.i
-  %retval.0.i80.i = select i1 %cmp.i77.i, ptr null, ptr %add.ptr.i79.i
-  %12 = getelementptr inbounds i8, ptr %call6, i64 52
-  %this.val2.i83.i = load i32, ptr %12, align 4, !noalias !481
+  %0 = getelementptr inbounds i8, ptr %call6, i64 32
+  %1 = getelementptr inbounds i8, ptr %call6, i64 48
+  %this.val2.i76.i = load i32, ptr %1, align 4, !noalias !481
+  %2 = getelementptr inbounds i8, ptr %call6, i64 52
+  %this.val2.i83.i = load i32, ptr %2, align 4, !noalias !481
   %cmp.i84.i = icmp eq i32 %this.val2.i76.i, %this.val2.i83.i
   %idx.ext.i85.i = sext i32 %this.val2.i76.i to i64
   %add.ptr.i86.i = getelementptr inbounds i8, ptr %call6, i64 %idx.ext.i85.i
   %retval.0.i87.i = select i1 %cmp.i84.i, ptr null, ptr %add.ptr.i86.i
-  store ptr %spec.select.i.i, ptr %this, align 8
   %ref.tmp5.sroa.2.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr %retval.0.i.i, ptr %ref.tmp5.sroa.2.0.this.sroa_idx, align 8
-  %ref.tmp5.sroa.3.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr %retval.0.i10.i, ptr %ref.tmp5.sroa.3.0.this.sroa_idx, align 8
-  %ref.tmp5.sroa.4.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr %retval.0.i17.i, ptr %ref.tmp5.sroa.4.0.this.sroa_idx, align 8
-  %ref.tmp5.sroa.5.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr %retval.0.i24.i, ptr %ref.tmp5.sroa.5.0.this.sroa_idx, align 8
-  %ref.tmp5.sroa.6.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 40
-  store ptr %retval.0.i31.i, ptr %ref.tmp5.sroa.6.0.this.sroa_idx, align 8
-  %ref.tmp5.sroa.7.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 48
-  store ptr %retval.0.i38.i, ptr %ref.tmp5.sroa.7.0.this.sroa_idx, align 8
-  %ref.tmp5.sroa.8.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr %retval.0.i45.i, ptr %ref.tmp5.sroa.8.0.this.sroa_idx, align 8
-  %ref.tmp5.sroa.9.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 64
-  store ptr %retval.0.i52.i, ptr %ref.tmp5.sroa.9.0.this.sroa_idx, align 8
+  %3 = load <8 x i32>, ptr %call6, align 4, !noalias !481
+  %4 = extractelement <8 x i32> %3, i64 0
+  %cmp.i.i = icmp eq i32 %4, 56
+  %spec.select.i.i = select i1 %cmp.i.i, ptr null, ptr %add.ptr.i.i
+  %idx.ext.i.i = sext i32 %4 to i64
+  %add.ptr.i3.i = getelementptr inbounds i8, ptr %call6, i64 %idx.ext.i.i
+  %5 = extractelement <8 x i32> %3, i64 1
+  %idx.ext.i8.i = sext i32 %5 to i64
+  %add.ptr.i9.i = getelementptr inbounds i8, ptr %call6, i64 %idx.ext.i8.i
+  %6 = extractelement <8 x i32> %3, i64 2
+  %idx.ext.i15.i = sext i32 %6 to i64
+  %add.ptr.i16.i = getelementptr inbounds i8, ptr %call6, i64 %idx.ext.i15.i
+  %7 = extractelement <8 x i32> %3, i64 3
+  %idx.ext.i22.i = sext i32 %7 to i64
+  %add.ptr.i23.i = getelementptr inbounds i8, ptr %call6, i64 %idx.ext.i22.i
+  %8 = extractelement <8 x i32> %3, i64 4
+  %idx.ext.i29.i = sext i32 %8 to i64
+  %add.ptr.i30.i = getelementptr inbounds i8, ptr %call6, i64 %idx.ext.i29.i
+  %9 = extractelement <8 x i32> %3, i64 5
+  %idx.ext.i36.i = sext i32 %9 to i64
+  %add.ptr.i37.i = getelementptr inbounds i8, ptr %call6, i64 %idx.ext.i36.i
+  %10 = extractelement <8 x i32> %3, i64 6
+  %idx.ext.i43.i = sext i32 %10 to i64
+  %add.ptr.i44.i = getelementptr inbounds i8, ptr %call6, i64 %idx.ext.i43.i
+  %11 = shufflevector <8 x i32> %3, <8 x i32> poison, <8 x i32> <i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison>
+  %12 = extractelement <8 x i32> %3, i64 7
+  %idx.ext.i50.i = sext i32 %12 to i64
+  %add.ptr.i51.i = getelementptr inbounds i8, ptr %call6, i64 %idx.ext.i50.i
+  %13 = insertelement <8 x ptr> poison, ptr %add.ptr.i3.i, i64 0
+  %14 = insertelement <8 x ptr> %13, ptr %add.ptr.i9.i, i64 1
+  %15 = insertelement <8 x ptr> %14, ptr %add.ptr.i16.i, i64 2
+  %16 = insertelement <8 x ptr> %15, ptr %add.ptr.i23.i, i64 3
+  %17 = insertelement <8 x ptr> %16, ptr %add.ptr.i30.i, i64 4
+  %18 = insertelement <8 x ptr> %17, ptr %add.ptr.i37.i, i64 5
+  %19 = insertelement <8 x ptr> %18, ptr %add.ptr.i44.i, i64 6
+  %20 = insertelement <8 x ptr> %19, ptr %add.ptr.i51.i, i64 7
   %ref.tmp5.sroa.10.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 72
-  store ptr %retval.0.i59.i, ptr %ref.tmp5.sroa.10.0.this.sroa_idx, align 8
-  %ref.tmp5.sroa.11.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 80
-  store ptr %retval.0.i66.i, ptr %ref.tmp5.sroa.11.0.this.sroa_idx, align 8
-  %ref.tmp5.sroa.12.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 88
-  store ptr %retval.0.i73.i, ptr %ref.tmp5.sroa.12.0.this.sroa_idx, align 8
-  %ref.tmp5.sroa.13.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr %retval.0.i80.i, ptr %ref.tmp5.sroa.13.0.this.sroa_idx, align 8
+  %21 = load <4 x i32>, ptr %0, align 4, !noalias !481
+  %22 = extractelement <4 x i32> %21, i64 0
+  %idx.ext.i57.i = sext i32 %22 to i64
+  %add.ptr.i58.i = getelementptr inbounds i8, ptr %call6, i64 %idx.ext.i57.i
+  %23 = extractelement <4 x i32> %21, i64 1
+  %idx.ext.i64.i = sext i32 %23 to i64
+  %add.ptr.i65.i = getelementptr inbounds i8, ptr %call6, i64 %idx.ext.i64.i
+  %24 = extractelement <4 x i32> %21, i64 2
+  %idx.ext.i71.i = sext i32 %24 to i64
+  %add.ptr.i72.i = getelementptr inbounds i8, ptr %call6, i64 %idx.ext.i71.i
+  %25 = shufflevector <4 x i32> %21, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 poison>
+  %26 = insertelement <4 x i32> %25, i32 %this.val2.i76.i, i64 3
+  %27 = icmp eq <4 x i32> %21, %26
+  %28 = extractelement <4 x i32> %21, i64 3
+  %idx.ext.i78.i = sext i32 %28 to i64
+  %add.ptr.i79.i = getelementptr inbounds i8, ptr %call6, i64 %idx.ext.i78.i
+  %29 = insertelement <4 x ptr> poison, ptr %add.ptr.i58.i, i64 0
+  %30 = insertelement <4 x ptr> %29, ptr %add.ptr.i65.i, i64 1
+  %31 = insertelement <4 x ptr> %30, ptr %add.ptr.i72.i, i64 2
+  %32 = insertelement <4 x ptr> %31, ptr %add.ptr.i79.i, i64 3
+  %33 = select <4 x i1> %27, <4 x ptr> zeroinitializer, <4 x ptr> %32
+  %34 = shufflevector <4 x i32> %21, <4 x i32> poison, <8 x i32> <i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
+  %35 = shufflevector <8 x i32> %11, <8 x i32> %34, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 8>
+  %36 = icmp eq <8 x i32> %3, %35
+  %37 = select <8 x i1> %36, <8 x ptr> zeroinitializer, <8 x ptr> %20
+  store ptr %spec.select.i.i, ptr %this, align 8
+  store <8 x ptr> %37, ptr %ref.tmp5.sroa.2.0.this.sroa_idx, align 8
+  store <4 x ptr> %33, ptr %ref.tmp5.sroa.10.0.this.sroa_idx, align 8
   %ref.tmp5.sroa.14.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 104
   store ptr %retval.0.i87.i, ptr %ref.tmp5.sroa.14.0.this.sroa_idx, align 8
   br i1 %cmp.i.i, label %cond.false10, label %cleanup.done19

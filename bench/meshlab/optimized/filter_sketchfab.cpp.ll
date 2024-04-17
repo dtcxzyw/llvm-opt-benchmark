@@ -1373,25 +1373,25 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #18
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @mz_deflateReset(ptr noundef %0) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %49, label %2
+  br i1 %.not, label %46, label %2
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %.not9 = icmp eq ptr %4, null
-  br i1 %.not9, label %49, label %5
+  br i1 %.not9, label %46, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %.not10 = icmp eq ptr %7, null
-  br i1 %.not10, label %49, label %8
+  br i1 %.not10, label %46, label %8
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8
   %.not11 = icmp eq ptr %10, null
-  br i1 %.not11, label %49, label %11
+  br i1 %.not11, label %46, label %11
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1433,40 +1433,34 @@ define noundef i32 @mz_deflateReset(ptr noundef %0) local_unnamed_addr #19 {
 tdefl_init.exit:                                  ; preds = %11, %29
   %31 = getelementptr inbounds i8, ptr %4, i64 84
   %32 = getelementptr inbounds i8, ptr %4, i64 112
-  %33 = getelementptr inbounds i8, ptr %4, i64 37546
-  %34 = getelementptr inbounds i8, ptr %4, i64 37547
-  %35 = getelementptr inbounds i8, ptr %4, i64 48
+  %33 = insertelement <4 x ptr> poison, ptr %4, i64 0
+  %34 = shufflevector <4 x ptr> %33, <4 x ptr> poison, <4 x i32> zeroinitializer
+  %35 = getelementptr i8, <4 x ptr> %34, <4 x i64> <i64 37547, i64 37546, i64 234154, i64 234154>
+  %36 = getelementptr inbounds i8, ptr %4, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %32, i8 0, i64 20, i1 false)
-  store ptr %34, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %4, i64 56
-  store ptr %33, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 80
   store i32 8, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 234154
-  %39 = getelementptr inbounds i8, ptr %4, i64 64
-  store ptr %38, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %4, i64 72
-  store ptr %38, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %4, i64 132
+  store <4 x ptr> %35, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %4, i64 132
+  store i32 0, ptr %38, align 4
+  %39 = getelementptr inbounds i8, ptr %4, i64 108
+  store i32 0, ptr %39, align 4
+  %40 = getelementptr inbounds i8, ptr %4, i64 104
+  store i32 0, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %4, i64 100
   store i32 0, ptr %41, align 4
-  %42 = getelementptr inbounds i8, ptr %4, i64 108
-  store i32 0, ptr %42, align 4
-  %43 = getelementptr inbounds i8, ptr %4, i64 104
-  store i32 0, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %4, i64 100
-  store i32 0, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %4, i64 32
-  store <4 x i32> <i32 1, i32 0, i32 0, i32 0>, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %4, i64 136
-  %47 = getelementptr inbounds i8, ptr %4, i64 176
-  %48 = getelementptr inbounds i8, ptr %4, i64 33226
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %46, i8 0, i64 36, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, i8 0, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(640) %48, i8 0, i64 640, i1 false)
-  br label %49
+  %42 = getelementptr inbounds i8, ptr %4, i64 32
+  store <4 x i32> <i32 1, i32 0, i32 0, i32 0>, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %4, i64 136
+  %44 = getelementptr inbounds i8, ptr %4, i64 176
+  %45 = getelementptr inbounds i8, ptr %4, i64 33226
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %43, i8 0, i64 36, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(640) %45, i8 0, i64 640, i1 false)
+  br label %46
 
-49:                                               ; preds = %1, %2, %5, %8, %tdefl_init.exit
+46:                                               ; preds = %1, %2, %5, %8, %tdefl_init.exit
   %.0 = phi i32 [ 0, %tdefl_init.exit ], [ -2, %8 ], [ -2, %5 ], [ -2, %2 ], [ -2, %1 ]
   ret i32 %.0
 }
