@@ -58410,209 +58410,220 @@ _ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE7SetValAEiif.ex
 define linkonce_odr void @_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE11AddAreaTermEPA3_A2_if(ptr noundef nonnull align 8 dereferenceable(252) %0, ptr noundef %1, float noundef %2) local_unnamed_addr #9 comdat align 2 {
   %4 = alloca [3 x [3 x float]], align 16
   %5 = fmul float %2, 5.000000e-01
-  %6 = fneg float %5
-  %7 = insertelement <8 x float> <float 0.000000e+00, float poison, float poison, float 0.000000e+00, float poison, float poison, float poison, float poison>, float %5, i64 1
-  %8 = insertelement <8 x float> %7, float %6, i64 2
-  %9 = shufflevector <8 x float> %8, <8 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 2, i32 3, i32 1, i32 1, i32 2>
-  store <8 x float> %9, ptr %4, align 16
-  %10 = getelementptr inbounds i8, ptr %4, i64 32
+  store float 0.000000e+00, ptr %4, align 16
+  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  store float %5, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %8 = fneg float %5
+  store float %8, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %4, i64 12
+  store float %8, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %4, i64 16
   store float 0.000000e+00, ptr %10, align 16
-  %11 = getelementptr inbounds i8, ptr %0, i64 128
-  %12 = getelementptr inbounds i8, ptr %0, i64 152
-  %13 = getelementptr inbounds i8, ptr %0, i64 160
-  %14 = getelementptr inbounds i8, ptr %0, i64 168
-  %15 = getelementptr inbounds i8, ptr %0, i64 176
+  %11 = getelementptr inbounds i8, ptr %4, i64 20
+  store float %5, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %4, i64 24
+  store float %5, ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %4, i64 28
+  store float %8, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %4, i64 32
+  store float 0.000000e+00, ptr %14, align 16
+  %15 = getelementptr inbounds i8, ptr %0, i64 128
+  %16 = getelementptr inbounds i8, ptr %0, i64 152
+  %17 = getelementptr inbounds i8, ptr %0, i64 160
+  %18 = getelementptr inbounds i8, ptr %0, i64 168
+  %19 = getelementptr inbounds i8, ptr %0, i64 176
   br label %.preheader
 
-.preheader:                                       ; preds = %3, %117
-  %indvars.iv40 = phi i64 [ 0, %3 ], [ %indvars.iv.next41, %117 ]
-  br label %16
+.preheader:                                       ; preds = %3, %121
+  %indvars.iv40 = phi i64 [ 0, %3 ], [ %indvars.iv.next41, %121 ]
+  br label %20
 
-16:                                               ; preds = %.preheader, %_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE7SetValAEiif.exit36
+20:                                               ; preds = %.preheader, %_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE7SetValAEiif.exit36
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE7SetValAEiif.exit36 ]
-  %17 = getelementptr inbounds [3 x [2 x i32]], ptr %1, i64 %indvars.iv40, i64 %indvars.iv
-  %18 = load i32, ptr %17, align 4
-  %19 = shl nsw i32 %18, 1
-  %20 = getelementptr inbounds i8, ptr %17, i64 4
-  %21 = load i32, ptr %20, align 4
-  %22 = shl nsw i32 %21, 1
-  %23 = or disjoint i32 %19, 1
-  %24 = getelementptr inbounds [3 x [3 x float]], ptr %4, i64 0, i64 %indvars.iv40, i64 %indvars.iv
-  %25 = load float, ptr %24, align 4
-  %26 = fneg float %25
-  %27 = sext i32 %23 to i64
-  %28 = sext i32 %22 to i64
-  %29 = load ptr, ptr %12, align 8
-  %30 = getelementptr inbounds i32, ptr %29, i64 %28
-  %31 = load i32, ptr %30, align 4
-  %32 = sext i32 %31 to i64
-  %33 = load ptr, ptr %13, align 8
-  %.not.i.i = icmp eq ptr %33, null
-  br i1 %.not.i.i, label %38, label %34
+  %21 = getelementptr inbounds [3 x [2 x i32]], ptr %1, i64 %indvars.iv40, i64 %indvars.iv
+  %22 = load i32, ptr %21, align 4
+  %23 = shl nsw i32 %22, 1
+  %24 = getelementptr inbounds i8, ptr %21, i64 4
+  %25 = load i32, ptr %24, align 4
+  %26 = shl nsw i32 %25, 1
+  %27 = or disjoint i32 %23, 1
+  %28 = getelementptr inbounds [3 x [3 x float]], ptr %4, i64 0, i64 %indvars.iv40, i64 %indvars.iv
+  %29 = load float, ptr %28, align 4
+  %30 = fneg float %29
+  %31 = sext i32 %27 to i64
+  %32 = sext i32 %26 to i64
+  %33 = load ptr, ptr %16, align 8
+  %34 = getelementptr inbounds i32, ptr %33, i64 %32
+  %35 = load i32, ptr %34, align 4
+  %36 = sext i32 %35 to i64
+  %37 = load ptr, ptr %17, align 8
+  %.not.i.i = icmp eq ptr %37, null
+  br i1 %.not.i.i, label %42, label %38
 
-34:                                               ; preds = %16
-  %35 = getelementptr inbounds i32, ptr %33, i64 %28
-  %36 = load i32, ptr %35, align 4
-  %37 = add nsw i32 %36, %31
-  br label %41
-
-38:                                               ; preds = %16
-  %39 = getelementptr i8, ptr %30, i64 4
+38:                                               ; preds = %20
+  %39 = getelementptr inbounds i32, ptr %37, i64 %32
   %40 = load i32, ptr %39, align 4
-  br label %41
+  %41 = add nsw i32 %40, %35
+  br label %45
 
-41:                                               ; preds = %38, %34
-  %42 = phi i32 [ %37, %34 ], [ %40, %38 ]
-  %.not25.i.i = icmp sgt i32 %42, %31
-  br i1 %.not25.i.i, label %45, label %43
+42:                                               ; preds = %20
+  %43 = getelementptr i8, ptr %34, i64 4
+  %44 = load i32, ptr %43, align 4
+  br label %45
 
-43:                                               ; preds = %41
-  %44 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen12SparseMatrixIdLi0EiE6insertEll(ptr noundef nonnull align 8 dereferenceable(72) %11, i64 noundef %27, i64 noundef %28)
+45:                                               ; preds = %42, %38
+  %46 = phi i32 [ %41, %38 ], [ %44, %42 ]
+  %.not25.i.i = icmp sgt i32 %46, %35
+  br i1 %.not25.i.i, label %49, label %47
+
+47:                                               ; preds = %45
+  %48 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen12SparseMatrixIdLi0EiE6insertEll(ptr noundef nonnull align 8 dereferenceable(72) %15, i64 noundef %31, i64 noundef %32)
   br label %_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE7SetValAEiif.exit
 
-45:                                               ; preds = %41
-  %46 = sext i32 %42 to i64
-  %47 = add nsw i64 %46, -1
-  %48 = icmp sgt i64 %47, %32
-  br i1 %48, label %.lr.ph.i.i.i, label %_ZNK5Eigen8internal17CompressedStorageIdiE16searchLowerIndexElll.exit.i.i
+49:                                               ; preds = %45
+  %50 = sext i32 %46 to i64
+  %51 = add nsw i64 %50, -1
+  %52 = icmp sgt i64 %51, %36
+  br i1 %52, label %.lr.ph.i.i.i, label %_ZNK5Eigen8internal17CompressedStorageIdiE16searchLowerIndexElll.exit.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %45
-  %49 = load ptr, ptr %15, align 8
-  br label %50
+.lr.ph.i.i.i:                                     ; preds = %49
+  %53 = load ptr, ptr %19, align 8
+  br label %54
 
-50:                                               ; preds = %50, %.lr.ph.i.i.i
-  %.012.i.i.i = phi i64 [ %32, %.lr.ph.i.i.i ], [ %.1.i.i.i, %50 ]
-  %.0911.i.i.i = phi i64 [ %47, %.lr.ph.i.i.i ], [ %.110.i.i.i, %50 ]
-  %51 = add nsw i64 %.0911.i.i.i, %.012.i.i.i
-  %52 = ashr i64 %51, 1
-  %53 = getelementptr inbounds i32, ptr %49, i64 %52
-  %54 = load i32, ptr %53, align 4
-  %.not = icmp sgt i32 %54, %19
-  %55 = add nsw i64 %52, 1
-  %.110.i.i.i = select i1 %.not, i64 %52, i64 %.0911.i.i.i
-  %.1.i.i.i = select i1 %.not, i64 %.012.i.i.i, i64 %55
-  %56 = icmp sgt i64 %.110.i.i.i, %.1.i.i.i
-  br i1 %56, label %50, label %_ZNK5Eigen8internal17CompressedStorageIdiE16searchLowerIndexElll.exit.i.i, !llvm.loop !572
+54:                                               ; preds = %54, %.lr.ph.i.i.i
+  %.012.i.i.i = phi i64 [ %36, %.lr.ph.i.i.i ], [ %.1.i.i.i, %54 ]
+  %.0911.i.i.i = phi i64 [ %51, %.lr.ph.i.i.i ], [ %.110.i.i.i, %54 ]
+  %55 = add nsw i64 %.0911.i.i.i, %.012.i.i.i
+  %56 = ashr i64 %55, 1
+  %57 = getelementptr inbounds i32, ptr %53, i64 %56
+  %58 = load i32, ptr %57, align 4
+  %.not = icmp sgt i32 %58, %23
+  %59 = add nsw i64 %56, 1
+  %.110.i.i.i = select i1 %.not, i64 %56, i64 %.0911.i.i.i
+  %.1.i.i.i = select i1 %.not, i64 %.012.i.i.i, i64 %59
+  %60 = icmp sgt i64 %.110.i.i.i, %.1.i.i.i
+  br i1 %60, label %54, label %_ZNK5Eigen8internal17CompressedStorageIdiE16searchLowerIndexElll.exit.i.i, !llvm.loop !572
 
-_ZNK5Eigen8internal17CompressedStorageIdiE16searchLowerIndexElll.exit.i.i: ; preds = %50, %45
-  %.0.lcssa.i.i.i = phi i64 [ %32, %45 ], [ %.1.i.i.i, %50 ]
-  %57 = icmp slt i64 %.0.lcssa.i.i.i, %46
-  br i1 %57, label %58, label %66
+_ZNK5Eigen8internal17CompressedStorageIdiE16searchLowerIndexElll.exit.i.i: ; preds = %54, %49
+  %.0.lcssa.i.i.i = phi i64 [ %36, %49 ], [ %.1.i.i.i, %54 ]
+  %61 = icmp slt i64 %.0.lcssa.i.i.i, %50
+  br i1 %61, label %62, label %70
 
-58:                                               ; preds = %_ZNK5Eigen8internal17CompressedStorageIdiE16searchLowerIndexElll.exit.i.i
-  %59 = load ptr, ptr %15, align 8
-  %60 = getelementptr inbounds i32, ptr %59, i64 %.0.lcssa.i.i.i
-  %61 = load i32, ptr %60, align 4
-  %62 = icmp eq i32 %61, %23
-  br i1 %62, label %63, label %66
+62:                                               ; preds = %_ZNK5Eigen8internal17CompressedStorageIdiE16searchLowerIndexElll.exit.i.i
+  %63 = load ptr, ptr %19, align 8
+  %64 = getelementptr inbounds i32, ptr %63, i64 %.0.lcssa.i.i.i
+  %65 = load i32, ptr %64, align 4
+  %66 = icmp eq i32 %65, %27
+  br i1 %66, label %67, label %70
 
-63:                                               ; preds = %58
-  %64 = load ptr, ptr %14, align 8
-  %65 = getelementptr inbounds double, ptr %64, i64 %.0.lcssa.i.i.i
+67:                                               ; preds = %62
+  %68 = load ptr, ptr %18, align 8
+  %69 = getelementptr inbounds double, ptr %68, i64 %.0.lcssa.i.i.i
   br label %_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE7SetValAEiif.exit
 
-66:                                               ; preds = %58, %_ZNK5Eigen8internal17CompressedStorageIdiE16searchLowerIndexElll.exit.i.i
-  %67 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen12SparseMatrixIdLi0EiE6insertEll(ptr noundef nonnull align 8 dereferenceable(72) %11, i64 noundef %27, i64 noundef %28)
+70:                                               ; preds = %62, %_ZNK5Eigen8internal17CompressedStorageIdiE16searchLowerIndexElll.exit.i.i
+  %71 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen12SparseMatrixIdLi0EiE6insertEll(ptr noundef nonnull align 8 dereferenceable(72) %15, i64 noundef %31, i64 noundef %32)
   br label %_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE7SetValAEiif.exit
 
-_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE7SetValAEiif.exit: ; preds = %43, %63, %66
-  %.0.i.i = phi ptr [ %44, %43 ], [ %65, %63 ], [ %67, %66 ]
-  %68 = fpext float %26 to double
-  %69 = load double, ptr %.0.i.i, align 8
-  %70 = fadd double %69, %68
-  store double %70, ptr %.0.i.i, align 8
-  %71 = or disjoint i32 %22, 1
-  %72 = sext i32 %19 to i64
-  %73 = sext i32 %71 to i64
-  %74 = load ptr, ptr %12, align 8
-  %75 = getelementptr inbounds i32, ptr %74, i64 %73
-  %76 = load i32, ptr %75, align 4
-  %77 = sext i32 %76 to i64
-  %78 = load ptr, ptr %13, align 8
-  %.not.i.i26 = icmp eq ptr %78, null
-  br i1 %.not.i.i26, label %83, label %79
-
-79:                                               ; preds = %_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE7SetValAEiif.exit
-  %80 = getelementptr inbounds i32, ptr %78, i64 %73
-  %81 = load i32, ptr %80, align 4
-  %82 = add nsw i32 %81, %76
-  br label %86
+_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE7SetValAEiif.exit: ; preds = %47, %67, %70
+  %.0.i.i = phi ptr [ %48, %47 ], [ %69, %67 ], [ %71, %70 ]
+  %72 = fpext float %30 to double
+  %73 = load double, ptr %.0.i.i, align 8
+  %74 = fadd double %73, %72
+  store double %74, ptr %.0.i.i, align 8
+  %75 = or disjoint i32 %26, 1
+  %76 = sext i32 %23 to i64
+  %77 = sext i32 %75 to i64
+  %78 = load ptr, ptr %16, align 8
+  %79 = getelementptr inbounds i32, ptr %78, i64 %77
+  %80 = load i32, ptr %79, align 4
+  %81 = sext i32 %80 to i64
+  %82 = load ptr, ptr %17, align 8
+  %.not.i.i26 = icmp eq ptr %82, null
+  br i1 %.not.i.i26, label %87, label %83
 
 83:                                               ; preds = %_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE7SetValAEiif.exit
-  %84 = getelementptr i8, ptr %75, i64 4
+  %84 = getelementptr inbounds i32, ptr %82, i64 %77
   %85 = load i32, ptr %84, align 4
-  br label %86
+  %86 = add nsw i32 %85, %80
+  br label %90
 
-86:                                               ; preds = %83, %79
-  %87 = phi i32 [ %82, %79 ], [ %85, %83 ]
-  %.not25.i.i27 = icmp sgt i32 %87, %76
-  br i1 %.not25.i.i27, label %90, label %88
+87:                                               ; preds = %_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE7SetValAEiif.exit
+  %88 = getelementptr i8, ptr %79, i64 4
+  %89 = load i32, ptr %88, align 4
+  br label %90
 
-88:                                               ; preds = %86
-  %89 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen12SparseMatrixIdLi0EiE6insertEll(ptr noundef nonnull align 8 dereferenceable(72) %11, i64 noundef %72, i64 noundef %73)
+90:                                               ; preds = %87, %83
+  %91 = phi i32 [ %86, %83 ], [ %89, %87 ]
+  %.not25.i.i27 = icmp sgt i32 %91, %80
+  br i1 %.not25.i.i27, label %94, label %92
+
+92:                                               ; preds = %90
+  %93 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen12SparseMatrixIdLi0EiE6insertEll(ptr noundef nonnull align 8 dereferenceable(72) %15, i64 noundef %76, i64 noundef %77)
   br label %_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE7SetValAEiif.exit36
 
-90:                                               ; preds = %86
-  %91 = sext i32 %87 to i64
-  %92 = add nsw i64 %91, -1
-  %93 = icmp sgt i64 %92, %77
-  br i1 %93, label %.lr.ph.i.i.i31, label %_ZNK5Eigen8internal17CompressedStorageIdiE16searchLowerIndexElll.exit.i.i29
+94:                                               ; preds = %90
+  %95 = sext i32 %91 to i64
+  %96 = add nsw i64 %95, -1
+  %97 = icmp sgt i64 %96, %81
+  br i1 %97, label %.lr.ph.i.i.i31, label %_ZNK5Eigen8internal17CompressedStorageIdiE16searchLowerIndexElll.exit.i.i29
 
-.lr.ph.i.i.i31:                                   ; preds = %90
-  %94 = load ptr, ptr %15, align 8
-  br label %95
+.lr.ph.i.i.i31:                                   ; preds = %94
+  %98 = load ptr, ptr %19, align 8
+  br label %99
 
-95:                                               ; preds = %95, %.lr.ph.i.i.i31
-  %.012.i.i.i32 = phi i64 [ %77, %.lr.ph.i.i.i31 ], [ %.1.i.i.i35, %95 ]
-  %.0911.i.i.i33 = phi i64 [ %92, %.lr.ph.i.i.i31 ], [ %.110.i.i.i34, %95 ]
-  %96 = add nsw i64 %.0911.i.i.i33, %.012.i.i.i32
-  %97 = ashr i64 %96, 1
-  %98 = getelementptr inbounds i32, ptr %94, i64 %97
-  %99 = load i32, ptr %98, align 4
-  %100 = icmp slt i32 %99, %19
-  %101 = add nsw i64 %97, 1
-  %.110.i.i.i34 = select i1 %100, i64 %.0911.i.i.i33, i64 %97
-  %.1.i.i.i35 = select i1 %100, i64 %101, i64 %.012.i.i.i32
-  %102 = icmp sgt i64 %.110.i.i.i34, %.1.i.i.i35
-  br i1 %102, label %95, label %_ZNK5Eigen8internal17CompressedStorageIdiE16searchLowerIndexElll.exit.i.i29, !llvm.loop !572
+99:                                               ; preds = %99, %.lr.ph.i.i.i31
+  %.012.i.i.i32 = phi i64 [ %81, %.lr.ph.i.i.i31 ], [ %.1.i.i.i35, %99 ]
+  %.0911.i.i.i33 = phi i64 [ %96, %.lr.ph.i.i.i31 ], [ %.110.i.i.i34, %99 ]
+  %100 = add nsw i64 %.0911.i.i.i33, %.012.i.i.i32
+  %101 = ashr i64 %100, 1
+  %102 = getelementptr inbounds i32, ptr %98, i64 %101
+  %103 = load i32, ptr %102, align 4
+  %104 = icmp slt i32 %103, %23
+  %105 = add nsw i64 %101, 1
+  %.110.i.i.i34 = select i1 %104, i64 %.0911.i.i.i33, i64 %101
+  %.1.i.i.i35 = select i1 %104, i64 %105, i64 %.012.i.i.i32
+  %106 = icmp sgt i64 %.110.i.i.i34, %.1.i.i.i35
+  br i1 %106, label %99, label %_ZNK5Eigen8internal17CompressedStorageIdiE16searchLowerIndexElll.exit.i.i29, !llvm.loop !572
 
-_ZNK5Eigen8internal17CompressedStorageIdiE16searchLowerIndexElll.exit.i.i29: ; preds = %95, %90
-  %.0.lcssa.i.i.i30 = phi i64 [ %77, %90 ], [ %.1.i.i.i35, %95 ]
-  %103 = icmp slt i64 %.0.lcssa.i.i.i30, %91
-  br i1 %103, label %104, label %112
+_ZNK5Eigen8internal17CompressedStorageIdiE16searchLowerIndexElll.exit.i.i29: ; preds = %99, %94
+  %.0.lcssa.i.i.i30 = phi i64 [ %81, %94 ], [ %.1.i.i.i35, %99 ]
+  %107 = icmp slt i64 %.0.lcssa.i.i.i30, %95
+  br i1 %107, label %108, label %116
 
-104:                                              ; preds = %_ZNK5Eigen8internal17CompressedStorageIdiE16searchLowerIndexElll.exit.i.i29
-  %105 = load ptr, ptr %15, align 8
-  %106 = getelementptr inbounds i32, ptr %105, i64 %.0.lcssa.i.i.i30
-  %107 = load i32, ptr %106, align 4
-  %108 = icmp eq i32 %107, %19
-  br i1 %108, label %109, label %112
+108:                                              ; preds = %_ZNK5Eigen8internal17CompressedStorageIdiE16searchLowerIndexElll.exit.i.i29
+  %109 = load ptr, ptr %19, align 8
+  %110 = getelementptr inbounds i32, ptr %109, i64 %.0.lcssa.i.i.i30
+  %111 = load i32, ptr %110, align 4
+  %112 = icmp eq i32 %111, %23
+  br i1 %112, label %113, label %116
 
-109:                                              ; preds = %104
-  %110 = load ptr, ptr %14, align 8
-  %111 = getelementptr inbounds double, ptr %110, i64 %.0.lcssa.i.i.i30
+113:                                              ; preds = %108
+  %114 = load ptr, ptr %18, align 8
+  %115 = getelementptr inbounds double, ptr %114, i64 %.0.lcssa.i.i.i30
   br label %_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE7SetValAEiif.exit36
 
-112:                                              ; preds = %104, %_ZNK5Eigen8internal17CompressedStorageIdiE16searchLowerIndexElll.exit.i.i29
-  %113 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen12SparseMatrixIdLi0EiE6insertEll(ptr noundef nonnull align 8 dereferenceable(72) %11, i64 noundef %72, i64 noundef %73)
+116:                                              ; preds = %108, %_ZNK5Eigen8internal17CompressedStorageIdiE16searchLowerIndexElll.exit.i.i29
+  %117 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen12SparseMatrixIdLi0EiE6insertEll(ptr noundef nonnull align 8 dereferenceable(72) %15, i64 noundef %76, i64 noundef %77)
   br label %_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE7SetValAEiif.exit36
 
-_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE7SetValAEiif.exit36: ; preds = %88, %109, %112
-  %.0.i.i28 = phi ptr [ %89, %88 ], [ %111, %109 ], [ %113, %112 ]
-  %114 = fpext float %25 to double
-  %115 = load double, ptr %.0.i.i28, align 8
-  %116 = fadd double %115, %114
-  store double %116, ptr %.0.i.i28, align 8
+_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE7SetValAEiif.exit36: ; preds = %92, %113, %116
+  %.0.i.i28 = phi ptr [ %93, %92 ], [ %115, %113 ], [ %117, %116 ]
+  %118 = fpext float %29 to double
+  %119 = load double, ptr %.0.i.i28, align 8
+  %120 = fadd double %119, %118
+  store double %120, ptr %.0.i.i28, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %117, label %16, !llvm.loop !594
+  br i1 %exitcond.not, label %121, label %20, !llvm.loop !594
 
-117:                                              ; preds = %_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE7SetValAEiif.exit36
+121:                                              ; preds = %_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE7SetValAEiif.exit36
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 3
-  br i1 %exitcond43.not, label %118, label %.preheader, !llvm.loop !595
+  br i1 %exitcond43.not, label %122, label %.preheader, !llvm.loop !595
 
-118:                                              ; preds = %117
+122:                                              ; preds = %121
   ret void
 }
 

@@ -492,16 +492,19 @@ for.body:                                         ; preds = %if.end, %nghttp2_bu
   %0 = load ptr, ptr %arrayidx6, align 8
   %len = getelementptr inbounds i8, ptr %arrayidx6, i64 8
   %1 = load i64, ptr %len, align 8
+  %end.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
+  store ptr %0, ptr %end.i, align 8
   %mark.i = getelementptr inbounds i8, ptr %arrayidx, i64 40
   store ptr %0, ptr %mark.i, align 8
-  %2 = insertelement <4 x ptr> poison, ptr %0, i64 0
-  %3 = shufflevector <4 x ptr> %2, <4 x ptr> poison, <4 x i32> zeroinitializer
-  store <4 x ptr> %3, ptr %buf, align 8
+  %last.i = getelementptr inbounds i8, ptr %arrayidx, i64 32
+  store ptr %0, ptr %last.i, align 8
+  %pos.i = getelementptr inbounds i8, ptr %arrayidx, i64 24
+  store ptr %0, ptr %pos.i, align 8
+  store ptr %0, ptr %buf, align 8
   %tobool.not.i = icmp eq i64 %1, 0
   br i1 %tobool.not.i, label %nghttp2_buf_wrap_init.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  %end.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %1
   store ptr %add.ptr.i, ptr %end.i, align 8
   br label %nghttp2_buf_wrap_init.exit

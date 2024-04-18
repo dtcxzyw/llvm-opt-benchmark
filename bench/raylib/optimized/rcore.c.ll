@@ -22960,11 +22960,70 @@ define void @rlSetVertexAttributeDefault(i32 noundef %0, ptr noundef %1, i32 nou
 ; Function Attrs: nounwind uwtable
 define void @rlSetUniformMatrix(i32 noundef %0, ptr nocapture noundef readonly byval(%struct.Matrix) align 8 %1) local_unnamed_addr #0 {
   %3 = alloca [16 x float], align 16
-  %4 = load <16 x float>, ptr %1, align 8
-  %5 = shufflevector <16 x float> %4, <16 x float> poison, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13, i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
-  store <16 x float> %5, ptr %3, align 16
-  %6 = load ptr, ptr @glad_glUniformMatrix4fv, align 8
-  call void %6(i32 noundef %0, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %3) #55
+  %4 = load float, ptr %1, align 8
+  store float %4, ptr %3, align 16
+  %5 = getelementptr inbounds i8, ptr %3, i64 4
+  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %7 = load float, ptr %6, align 8
+  store float %7, ptr %5, align 4
+  %8 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds i8, ptr %1, i64 32
+  %10 = load float, ptr %9, align 8
+  store float %10, ptr %8, align 8
+  %11 = getelementptr inbounds i8, ptr %3, i64 12
+  %12 = getelementptr inbounds i8, ptr %1, i64 48
+  %13 = load float, ptr %12, align 8
+  store float %13, ptr %11, align 4
+  %14 = getelementptr inbounds i8, ptr %3, i64 16
+  %15 = getelementptr inbounds i8, ptr %1, i64 4
+  %16 = load float, ptr %15, align 4
+  store float %16, ptr %14, align 16
+  %17 = getelementptr inbounds i8, ptr %3, i64 20
+  %18 = getelementptr inbounds i8, ptr %1, i64 20
+  %19 = load float, ptr %18, align 4
+  store float %19, ptr %17, align 4
+  %20 = getelementptr inbounds i8, ptr %3, i64 24
+  %21 = getelementptr inbounds i8, ptr %1, i64 36
+  %22 = load float, ptr %21, align 4
+  store float %22, ptr %20, align 8
+  %23 = getelementptr inbounds i8, ptr %3, i64 28
+  %24 = getelementptr inbounds i8, ptr %1, i64 52
+  %25 = load float, ptr %24, align 4
+  store float %25, ptr %23, align 4
+  %26 = getelementptr inbounds i8, ptr %3, i64 32
+  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  %28 = load float, ptr %27, align 8
+  store float %28, ptr %26, align 16
+  %29 = getelementptr inbounds i8, ptr %3, i64 36
+  %30 = getelementptr inbounds i8, ptr %1, i64 24
+  %31 = load float, ptr %30, align 8
+  store float %31, ptr %29, align 4
+  %32 = getelementptr inbounds i8, ptr %3, i64 40
+  %33 = getelementptr inbounds i8, ptr %1, i64 40
+  %34 = load float, ptr %33, align 8
+  store float %34, ptr %32, align 8
+  %35 = getelementptr inbounds i8, ptr %3, i64 44
+  %36 = getelementptr inbounds i8, ptr %1, i64 56
+  %37 = load float, ptr %36, align 8
+  store float %37, ptr %35, align 4
+  %38 = getelementptr inbounds i8, ptr %3, i64 48
+  %39 = getelementptr inbounds i8, ptr %1, i64 12
+  %40 = load float, ptr %39, align 4
+  store float %40, ptr %38, align 16
+  %41 = getelementptr inbounds i8, ptr %3, i64 52
+  %42 = getelementptr inbounds i8, ptr %1, i64 28
+  %43 = load float, ptr %42, align 4
+  store float %43, ptr %41, align 4
+  %44 = getelementptr inbounds i8, ptr %3, i64 56
+  %45 = getelementptr inbounds i8, ptr %1, i64 44
+  %46 = load float, ptr %45, align 4
+  store float %46, ptr %44, align 8
+  %47 = getelementptr inbounds i8, ptr %3, i64 60
+  %48 = getelementptr inbounds i8, ptr %1, i64 60
+  %49 = load float, ptr %48, align 4
+  store float %49, ptr %47, align 4
+  %50 = load ptr, ptr @glad_glUniformMatrix4fv, align 8
+  call void %50(i32 noundef %0, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %3) #55
   ret void
 }
 
@@ -25330,9 +25389,68 @@ define float @MatrixTrace(ptr nocapture noundef readonly byval(%struct.Matrix) a
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @MatrixTranspose(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Matrix) align 4 %0, ptr nocapture noundef readonly byval(%struct.Matrix) align 8 %1) local_unnamed_addr #19 {
-  %3 = load <16 x float>, ptr %1, align 8
-  %4 = shufflevector <16 x float> %3, <16 x float> poison, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13, i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
-  store <16 x float> %4, ptr %0, align 4
+  %3 = load float, ptr %1, align 8
+  store float %3, ptr %0, align 4
+  %4 = getelementptr inbounds i8, ptr %1, i64 4
+  %5 = load float, ptr %4, align 4
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  store float %5, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = load float, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  store float %8, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %1, i64 12
+  %11 = load float, ptr %10, align 4
+  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  store float %11, ptr %12, align 4
+  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = load float, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  store float %14, ptr %15, align 4
+  %16 = getelementptr inbounds i8, ptr %1, i64 20
+  %17 = load float, ptr %16, align 4
+  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  store float %17, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %1, i64 24
+  %20 = load float, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %0, i64 36
+  store float %20, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %1, i64 28
+  %23 = load float, ptr %22, align 4
+  %24 = getelementptr inbounds i8, ptr %0, i64 52
+  store float %23, ptr %24, align 4
+  %25 = getelementptr inbounds i8, ptr %1, i64 32
+  %26 = load float, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 8
+  store float %26, ptr %27, align 4
+  %28 = getelementptr inbounds i8, ptr %1, i64 36
+  %29 = load float, ptr %28, align 4
+  %30 = getelementptr inbounds i8, ptr %0, i64 24
+  store float %29, ptr %30, align 4
+  %31 = getelementptr inbounds i8, ptr %1, i64 40
+  %32 = load float, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  store float %32, ptr %33, align 4
+  %34 = getelementptr inbounds i8, ptr %1, i64 44
+  %35 = load float, ptr %34, align 4
+  %36 = getelementptr inbounds i8, ptr %0, i64 56
+  store float %35, ptr %36, align 4
+  %37 = getelementptr inbounds i8, ptr %1, i64 48
+  %38 = load float, ptr %37, align 8
+  %39 = getelementptr inbounds i8, ptr %0, i64 12
+  store float %38, ptr %39, align 4
+  %40 = getelementptr inbounds i8, ptr %1, i64 52
+  %41 = load float, ptr %40, align 4
+  %42 = getelementptr inbounds i8, ptr %0, i64 28
+  store float %41, ptr %42, align 4
+  %43 = getelementptr inbounds i8, ptr %1, i64 56
+  %44 = load float, ptr %43, align 8
+  %45 = getelementptr inbounds i8, ptr %0, i64 44
+  store float %44, ptr %45, align 4
+  %46 = getelementptr inbounds i8, ptr %1, i64 60
+  %47 = load float, ptr %46, align 4
+  %48 = getelementptr inbounds i8, ptr %0, i64 60
+  store float %47, ptr %48, align 4
   ret void
 }
 
@@ -26256,9 +26374,68 @@ define void @MatrixLookAt(ptr dead_on_unwind noalias nocapture writable writeonl
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @MatrixToFloatV(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.float16) align 4 %0, ptr nocapture noundef readonly byval(%struct.Matrix) align 8 %1) local_unnamed_addr #19 {
-  %3 = load <16 x float>, ptr %1, align 8
-  %4 = shufflevector <16 x float> %3, <16 x float> poison, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13, i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
-  store <16 x float> %4, ptr %0, align 4
+  %3 = load float, ptr %1, align 8
+  store float %3, ptr %0, align 4
+  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %5 = load float, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 4
+  store float %5, ptr %6, align 4
+  %7 = getelementptr inbounds i8, ptr %1, i64 32
+  %8 = load float, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  store float %8, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %1, i64 48
+  %11 = load float, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 12
+  store float %11, ptr %12, align 4
+  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = load float, ptr %13, align 4
+  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  store float %14, ptr %15, align 4
+  %16 = getelementptr inbounds i8, ptr %1, i64 20
+  %17 = load float, ptr %16, align 4
+  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  store float %17, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %1, i64 36
+  %20 = load float, ptr %19, align 4
+  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  store float %20, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %1, i64 52
+  %23 = load float, ptr %22, align 4
+  %24 = getelementptr inbounds i8, ptr %0, i64 28
+  store float %23, ptr %24, align 4
+  %25 = getelementptr inbounds i8, ptr %1, i64 8
+  %26 = load float, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %0, i64 32
+  store float %26, ptr %27, align 4
+  %28 = getelementptr inbounds i8, ptr %1, i64 24
+  %29 = load float, ptr %28, align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 36
+  store float %29, ptr %30, align 4
+  %31 = getelementptr inbounds i8, ptr %1, i64 40
+  %32 = load float, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  store float %32, ptr %33, align 4
+  %34 = getelementptr inbounds i8, ptr %1, i64 56
+  %35 = load float, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %0, i64 44
+  store float %35, ptr %36, align 4
+  %37 = getelementptr inbounds i8, ptr %1, i64 12
+  %38 = load float, ptr %37, align 4
+  %39 = getelementptr inbounds i8, ptr %0, i64 48
+  store float %38, ptr %39, align 4
+  %40 = getelementptr inbounds i8, ptr %1, i64 28
+  %41 = load float, ptr %40, align 4
+  %42 = getelementptr inbounds i8, ptr %0, i64 52
+  store float %41, ptr %42, align 4
+  %43 = getelementptr inbounds i8, ptr %1, i64 44
+  %44 = load float, ptr %43, align 4
+  %45 = getelementptr inbounds i8, ptr %0, i64 56
+  store float %44, ptr %45, align 4
+  %46 = getelementptr inbounds i8, ptr %1, i64 60
+  %47 = load float, ptr %46, align 4
+  %48 = getelementptr inbounds i8, ptr %0, i64 60
+  store float %47, ptr %48, align 4
   ret void
 }
 
@@ -39137,9 +39314,53 @@ define void @BeginDrawing() local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.5.0..sroa_idx.i, i8 0, i64 16, i1 false)
   %.sroa.52.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 60
   store float 1.000000e+00, ptr %.sroa.52.0..sroa_idx.i, align 4
-  %6 = load <16 x float>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18), align 4
-  %7 = shufflevector <16 x float> %6, <16 x float> poison, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13, i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
-  store <16 x float> %7, ptr %1, align 4, !alias.scope !24
+  %.sroa.01.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18), align 4
+  %.sroa.2.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 1), align 8
+  %.sroa.3.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 2), align 4
+  %.sroa.42.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 3), align 8
+  %.sroa.53.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 4), align 4
+  %.sroa.64.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 5), align 8
+  %.sroa.75.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 6), align 4
+  %.sroa.86.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 7), align 8
+  %.sroa.97.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 8), align 4
+  %.sroa.108.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 9), align 8
+  %.sroa.119.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 10), align 4
+  %.sroa.1210.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 11), align 8
+  %.sroa.1311.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 12), align 4
+  %.sroa.1412.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 13), align 8
+  %.sroa.1513.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 14), align 4
+  %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 15), align 8
+  store float %.sroa.01.0.copyload, ptr %1, align 4, !alias.scope !24
+  %6 = getelementptr inbounds i8, ptr %1, i64 4
+  store float %.sroa.53.0.copyload, ptr %6, align 4, !alias.scope !24
+  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  store float %.sroa.97.0.copyload, ptr %7, align 4, !alias.scope !24
+  %8 = getelementptr inbounds i8, ptr %1, i64 12
+  store float %.sroa.1311.0.copyload, ptr %8, align 4, !alias.scope !24
+  %9 = getelementptr inbounds i8, ptr %1, i64 16
+  store float %.sroa.2.0.copyload, ptr %9, align 4, !alias.scope !24
+  %10 = getelementptr inbounds i8, ptr %1, i64 20
+  store float %.sroa.64.0.copyload, ptr %10, align 4, !alias.scope !24
+  %11 = getelementptr inbounds i8, ptr %1, i64 24
+  store float %.sroa.108.0.copyload, ptr %11, align 4, !alias.scope !24
+  %12 = getelementptr inbounds i8, ptr %1, i64 28
+  store float %.sroa.1412.0.copyload, ptr %12, align 4, !alias.scope !24
+  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  store float %.sroa.3.0.copyload, ptr %13, align 4, !alias.scope !24
+  %14 = getelementptr inbounds i8, ptr %1, i64 36
+  store float %.sroa.75.0.copyload, ptr %14, align 4, !alias.scope !24
+  %15 = getelementptr inbounds i8, ptr %1, i64 40
+  store float %.sroa.119.0.copyload, ptr %15, align 4, !alias.scope !24
+  %16 = getelementptr inbounds i8, ptr %1, i64 44
+  store float %.sroa.1513.0.copyload, ptr %16, align 4, !alias.scope !24
+  %17 = getelementptr inbounds i8, ptr %1, i64 48
+  store float %.sroa.42.0.copyload, ptr %17, align 4, !alias.scope !24
+  %18 = getelementptr inbounds i8, ptr %1, i64 52
+  store float %.sroa.86.0.copyload, ptr %18, align 4, !alias.scope !24
+  %19 = getelementptr inbounds i8, ptr %1, i64 56
+  store float %.sroa.1210.0.copyload, ptr %19, align 4, !alias.scope !24
+  %20 = getelementptr inbounds i8, ptr %1, i64 60
+  store float %.sroa.1614.0.copyload, ptr %20, align 4, !alias.scope !24
   call void @rlMultMatrixf(ptr noundef nonnull %1)
   ret void
 }
@@ -40468,9 +40689,68 @@ define void @BeginMode2D(ptr nocapture noundef readonly byval(%struct.Camera2D) 
   %.sroa.52.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 60
   store float 1.000000e+00, ptr %.sroa.52.0..sroa_idx.i, align 4
   call void @GetCameraMatrix2D(ptr dead_on_unwind nonnull writable sret(%struct.Matrix) align 4 %2, ptr noundef nonnull byval(%struct.Camera2D) align 8 %0)
-  %6 = load <16 x float>, ptr %2, align 8
-  %7 = shufflevector <16 x float> %6, <16 x float> poison, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13, i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
-  store <16 x float> %7, ptr %3, align 4, !alias.scope !27
+  %.sroa.0.0.copyload = load float, ptr %2, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
+  %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
+  %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 12
+  %.sroa.6.0.copyload = load float, ptr %.sroa.6.0..sroa_idx, align 4
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
+  %.sroa.7.0.copyload = load float, ptr %.sroa.7.0..sroa_idx, align 8
+  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 20
+  %.sroa.8.0.copyload = load float, ptr %.sroa.8.0..sroa_idx, align 4
+  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
+  %.sroa.9.0.copyload = load float, ptr %.sroa.9.0..sroa_idx, align 8
+  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 28
+  %.sroa.10.0.copyload = load float, ptr %.sroa.10.0..sroa_idx, align 4
+  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
+  %.sroa.11.0.copyload = load float, ptr %.sroa.11.0..sroa_idx, align 8
+  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 36
+  %.sroa.12.0.copyload = load float, ptr %.sroa.12.0..sroa_idx, align 4
+  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 40
+  %.sroa.13.0.copyload = load float, ptr %.sroa.13.0..sroa_idx, align 8
+  %.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 44
+  %.sroa.14.0.copyload = load float, ptr %.sroa.14.0..sroa_idx, align 4
+  %.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 48
+  %.sroa.15.0.copyload = load float, ptr %.sroa.15.0..sroa_idx, align 8
+  %.sroa.16.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 52
+  %.sroa.16.0.copyload = load float, ptr %.sroa.16.0..sroa_idx, align 4
+  %.sroa.17.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 56
+  %.sroa.17.0.copyload = load float, ptr %.sroa.17.0..sroa_idx, align 8
+  %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 60
+  %.sroa.18.0.copyload = load float, ptr %.sroa.18.0..sroa_idx, align 4
+  store float %.sroa.0.0.copyload, ptr %3, align 4, !alias.scope !27
+  %6 = getelementptr inbounds i8, ptr %3, i64 4
+  store float %.sroa.7.0.copyload, ptr %6, align 4, !alias.scope !27
+  %7 = getelementptr inbounds i8, ptr %3, i64 8
+  store float %.sroa.11.0.copyload, ptr %7, align 4, !alias.scope !27
+  %8 = getelementptr inbounds i8, ptr %3, i64 12
+  store float %.sroa.15.0.copyload, ptr %8, align 4, !alias.scope !27
+  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  store float %.sroa.4.0.copyload, ptr %9, align 4, !alias.scope !27
+  %10 = getelementptr inbounds i8, ptr %3, i64 20
+  store float %.sroa.8.0.copyload, ptr %10, align 4, !alias.scope !27
+  %11 = getelementptr inbounds i8, ptr %3, i64 24
+  store float %.sroa.12.0.copyload, ptr %11, align 4, !alias.scope !27
+  %12 = getelementptr inbounds i8, ptr %3, i64 28
+  store float %.sroa.16.0.copyload, ptr %12, align 4, !alias.scope !27
+  %13 = getelementptr inbounds i8, ptr %3, i64 32
+  store float %.sroa.5.0.copyload, ptr %13, align 4, !alias.scope !27
+  %14 = getelementptr inbounds i8, ptr %3, i64 36
+  store float %.sroa.9.0.copyload, ptr %14, align 4, !alias.scope !27
+  %15 = getelementptr inbounds i8, ptr %3, i64 40
+  store float %.sroa.13.0.copyload, ptr %15, align 4, !alias.scope !27
+  %16 = getelementptr inbounds i8, ptr %3, i64 44
+  store float %.sroa.17.0.copyload, ptr %16, align 4, !alias.scope !27
+  %17 = getelementptr inbounds i8, ptr %3, i64 48
+  store float %.sroa.6.0.copyload, ptr %17, align 4, !alias.scope !27
+  %18 = getelementptr inbounds i8, ptr %3, i64 52
+  store float %.sroa.10.0.copyload, ptr %18, align 4, !alias.scope !27
+  %19 = getelementptr inbounds i8, ptr %3, i64 56
+  store float %.sroa.14.0.copyload, ptr %19, align 4, !alias.scope !27
+  %20 = getelementptr inbounds i8, ptr %3, i64 60
+  store float %.sroa.18.0.copyload, ptr %20, align 4, !alias.scope !27
   call void @rlMultMatrixf(ptr noundef nonnull %3)
   ret void
 }
@@ -40684,16 +40964,60 @@ define void @EndMode2D() local_unnamed_addr #0 {
   %6 = load i32, ptr %1, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %11
+  br i1 %7, label %8, label %24
 
 8:                                                ; preds = %0
-  %9 = load <16 x float>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18), align 4
-  %10 = shufflevector <16 x float> %9, <16 x float> poison, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13, i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
-  store <16 x float> %10, ptr %2, align 4, !alias.scope !33
+  %.sroa.01.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18), align 4
+  %.sroa.2.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 1), align 8
+  %.sroa.3.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 2), align 4
+  %.sroa.42.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 3), align 8
+  %.sroa.53.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 4), align 4
+  %.sroa.64.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 5), align 8
+  %.sroa.75.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 6), align 4
+  %.sroa.86.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 7), align 8
+  %.sroa.97.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 8), align 4
+  %.sroa.108.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 9), align 8
+  %.sroa.119.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 10), align 4
+  %.sroa.1210.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 11), align 8
+  %.sroa.1311.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 12), align 4
+  %.sroa.1412.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 13), align 8
+  %.sroa.1513.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 14), align 4
+  %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 15), align 8
+  store float %.sroa.01.0.copyload, ptr %2, align 4, !alias.scope !33
+  %9 = getelementptr inbounds i8, ptr %2, i64 4
+  store float %.sroa.53.0.copyload, ptr %9, align 4, !alias.scope !33
+  %10 = getelementptr inbounds i8, ptr %2, i64 8
+  store float %.sroa.97.0.copyload, ptr %10, align 4, !alias.scope !33
+  %11 = getelementptr inbounds i8, ptr %2, i64 12
+  store float %.sroa.1311.0.copyload, ptr %11, align 4, !alias.scope !33
+  %12 = getelementptr inbounds i8, ptr %2, i64 16
+  store float %.sroa.2.0.copyload, ptr %12, align 4, !alias.scope !33
+  %13 = getelementptr inbounds i8, ptr %2, i64 20
+  store float %.sroa.64.0.copyload, ptr %13, align 4, !alias.scope !33
+  %14 = getelementptr inbounds i8, ptr %2, i64 24
+  store float %.sroa.108.0.copyload, ptr %14, align 4, !alias.scope !33
+  %15 = getelementptr inbounds i8, ptr %2, i64 28
+  store float %.sroa.1412.0.copyload, ptr %15, align 4, !alias.scope !33
+  %16 = getelementptr inbounds i8, ptr %2, i64 32
+  store float %.sroa.3.0.copyload, ptr %16, align 4, !alias.scope !33
+  %17 = getelementptr inbounds i8, ptr %2, i64 36
+  store float %.sroa.75.0.copyload, ptr %17, align 4, !alias.scope !33
+  %18 = getelementptr inbounds i8, ptr %2, i64 40
+  store float %.sroa.119.0.copyload, ptr %18, align 4, !alias.scope !33
+  %19 = getelementptr inbounds i8, ptr %2, i64 44
+  store float %.sroa.1513.0.copyload, ptr %19, align 4, !alias.scope !33
+  %20 = getelementptr inbounds i8, ptr %2, i64 48
+  store float %.sroa.42.0.copyload, ptr %20, align 4, !alias.scope !33
+  %21 = getelementptr inbounds i8, ptr %2, i64 52
+  store float %.sroa.86.0.copyload, ptr %21, align 4, !alias.scope !33
+  %22 = getelementptr inbounds i8, ptr %2, i64 56
+  store float %.sroa.1210.0.copyload, ptr %22, align 4, !alias.scope !33
+  %23 = getelementptr inbounds i8, ptr %2, i64 60
+  store float %.sroa.1614.0.copyload, ptr %23, align 4, !alias.scope !33
   call void @rlMultMatrixf(ptr noundef nonnull %2)
-  br label %11
+  br label %24
 
-11:                                               ; preds = %8, %0
+24:                                               ; preds = %8, %0
   ret void
 }
 
@@ -40940,18 +41264,62 @@ rlPopMatrix.exit:                                 ; preds = %0, %6
   %11 = load i32, ptr %1, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %16
+  br i1 %12, label %13, label %29
 
 13:                                               ; preds = %rlPopMatrix.exit
-  %14 = load <16 x float>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18), align 4
-  %15 = shufflevector <16 x float> %14, <16 x float> poison, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13, i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
-  store <16 x float> %15, ptr %2, align 4, !alias.scope !39
+  %.sroa.01.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18), align 4
+  %.sroa.2.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 1), align 8
+  %.sroa.3.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 2), align 4
+  %.sroa.42.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 3), align 8
+  %.sroa.53.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 4), align 4
+  %.sroa.64.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 5), align 8
+  %.sroa.75.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 6), align 4
+  %.sroa.86.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 7), align 8
+  %.sroa.97.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 8), align 4
+  %.sroa.108.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 9), align 8
+  %.sroa.119.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 10), align 4
+  %.sroa.1210.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 11), align 8
+  %.sroa.1311.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 12), align 4
+  %.sroa.1412.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 13), align 8
+  %.sroa.1513.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 14), align 4
+  %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 15), align 8
+  store float %.sroa.01.0.copyload, ptr %2, align 4, !alias.scope !39
+  %14 = getelementptr inbounds i8, ptr %2, i64 4
+  store float %.sroa.53.0.copyload, ptr %14, align 4, !alias.scope !39
+  %15 = getelementptr inbounds i8, ptr %2, i64 8
+  store float %.sroa.97.0.copyload, ptr %15, align 4, !alias.scope !39
+  %16 = getelementptr inbounds i8, ptr %2, i64 12
+  store float %.sroa.1311.0.copyload, ptr %16, align 4, !alias.scope !39
+  %17 = getelementptr inbounds i8, ptr %2, i64 16
+  store float %.sroa.2.0.copyload, ptr %17, align 4, !alias.scope !39
+  %18 = getelementptr inbounds i8, ptr %2, i64 20
+  store float %.sroa.64.0.copyload, ptr %18, align 4, !alias.scope !39
+  %19 = getelementptr inbounds i8, ptr %2, i64 24
+  store float %.sroa.108.0.copyload, ptr %19, align 4, !alias.scope !39
+  %20 = getelementptr inbounds i8, ptr %2, i64 28
+  store float %.sroa.1412.0.copyload, ptr %20, align 4, !alias.scope !39
+  %21 = getelementptr inbounds i8, ptr %2, i64 32
+  store float %.sroa.3.0.copyload, ptr %21, align 4, !alias.scope !39
+  %22 = getelementptr inbounds i8, ptr %2, i64 36
+  store float %.sroa.75.0.copyload, ptr %22, align 4, !alias.scope !39
+  %23 = getelementptr inbounds i8, ptr %2, i64 40
+  store float %.sroa.119.0.copyload, ptr %23, align 4, !alias.scope !39
+  %24 = getelementptr inbounds i8, ptr %2, i64 44
+  store float %.sroa.1513.0.copyload, ptr %24, align 4, !alias.scope !39
+  %25 = getelementptr inbounds i8, ptr %2, i64 48
+  store float %.sroa.42.0.copyload, ptr %25, align 4, !alias.scope !39
+  %26 = getelementptr inbounds i8, ptr %2, i64 52
+  store float %.sroa.86.0.copyload, ptr %26, align 4, !alias.scope !39
+  %27 = getelementptr inbounds i8, ptr %2, i64 56
+  store float %.sroa.1210.0.copyload, ptr %27, align 4, !alias.scope !39
+  %28 = getelementptr inbounds i8, ptr %2, i64 60
+  store float %.sroa.1614.0.copyload, ptr %28, align 4, !alias.scope !39
   call void @rlMultMatrixf(ptr noundef nonnull %2)
-  br label %16
+  br label %29
 
-16:                                               ; preds = %13, %rlPopMatrix.exit
-  %17 = load ptr, ptr @glad_glDisable, align 8
-  call void %17(i32 noundef 2929) #55
+29:                                               ; preds = %13, %rlPopMatrix.exit
+  %30 = load ptr, ptr @glad_glDisable, align 8
+  call void %30(i32 noundef 2929) #55
   ret void
 }
 
@@ -41035,12 +41403,56 @@ define void @EndTextureMode() local_unnamed_addr #0 {
   store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 10), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 11), i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr getelementptr inbounds (%struct.rlglData, ptr @RLGL, i64 0, i32 2, i32 12, i32 15), align 4
-  %15 = load <16 x float>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18), align 4
-  %16 = shufflevector <16 x float> %15, <16 x float> poison, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13, i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
-  store <16 x float> %16, ptr %1, align 4, !alias.scope !42
+  %.sroa.01.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18), align 4
+  %.sroa.2.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 1), align 8
+  %.sroa.3.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 2), align 4
+  %.sroa.42.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 3), align 8
+  %.sroa.53.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 4), align 4
+  %.sroa.64.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 5), align 8
+  %.sroa.75.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 6), align 4
+  %.sroa.86.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 7), align 8
+  %.sroa.97.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 8), align 4
+  %.sroa.108.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 9), align 8
+  %.sroa.119.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 10), align 4
+  %.sroa.1210.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 11), align 8
+  %.sroa.1311.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 12), align 4
+  %.sroa.1412.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 13), align 8
+  %.sroa.1513.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 14), align 4
+  %.sroa.1614.0.copyload = load float, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 18, i32 15), align 8
+  store float %.sroa.01.0.copyload, ptr %1, align 4, !alias.scope !42
+  %15 = getelementptr inbounds i8, ptr %1, i64 4
+  store float %.sroa.53.0.copyload, ptr %15, align 4, !alias.scope !42
+  %16 = getelementptr inbounds i8, ptr %1, i64 8
+  store float %.sroa.97.0.copyload, ptr %16, align 4, !alias.scope !42
+  %17 = getelementptr inbounds i8, ptr %1, i64 12
+  store float %.sroa.1311.0.copyload, ptr %17, align 4, !alias.scope !42
+  %18 = getelementptr inbounds i8, ptr %1, i64 16
+  store float %.sroa.2.0.copyload, ptr %18, align 4, !alias.scope !42
+  %19 = getelementptr inbounds i8, ptr %1, i64 20
+  store float %.sroa.64.0.copyload, ptr %19, align 4, !alias.scope !42
+  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  store float %.sroa.108.0.copyload, ptr %20, align 4, !alias.scope !42
+  %21 = getelementptr inbounds i8, ptr %1, i64 28
+  store float %.sroa.1412.0.copyload, ptr %21, align 4, !alias.scope !42
+  %22 = getelementptr inbounds i8, ptr %1, i64 32
+  store float %.sroa.3.0.copyload, ptr %22, align 4, !alias.scope !42
+  %23 = getelementptr inbounds i8, ptr %1, i64 36
+  store float %.sroa.75.0.copyload, ptr %23, align 4, !alias.scope !42
+  %24 = getelementptr inbounds i8, ptr %1, i64 40
+  store float %.sroa.119.0.copyload, ptr %24, align 4, !alias.scope !42
+  %25 = getelementptr inbounds i8, ptr %1, i64 44
+  store float %.sroa.1513.0.copyload, ptr %25, align 4, !alias.scope !42
+  %26 = getelementptr inbounds i8, ptr %1, i64 48
+  store float %.sroa.42.0.copyload, ptr %26, align 4, !alias.scope !42
+  %27 = getelementptr inbounds i8, ptr %1, i64 52
+  store float %.sroa.86.0.copyload, ptr %27, align 4, !alias.scope !42
+  %28 = getelementptr inbounds i8, ptr %1, i64 56
+  store float %.sroa.1210.0.copyload, ptr %28, align 4, !alias.scope !42
+  %29 = getelementptr inbounds i8, ptr %1, i64 60
+  store float %.sroa.1614.0.copyload, ptr %29, align 4, !alias.scope !42
   call void @rlMultMatrixf(ptr noundef nonnull %1)
-  %17 = load <2 x i32>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14), align 4
-  store <2 x i32> %17, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 13), align 4
+  %30 = load <2 x i32>, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 14), align 4
+  store <2 x i32> %30, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 13), align 4
   store i8 0, ptr getelementptr inbounds (%struct.CoreData, ptr @CORE, i64 0, i32 0, i32 7), align 1
   ret void
 }
@@ -41567,21 +41979,80 @@ define void @SetShaderValueV(i32 %0, ptr nocapture readnone %1, i32 noundef %2, 
 define void @SetShaderValueMatrix(i32 %0, ptr nocapture readnone %1, i32 noundef %2, ptr nocapture noundef readonly byval(%struct.Matrix) align 8 %3) local_unnamed_addr #0 {
   %5 = alloca [16 x float], align 16
   %6 = icmp sgt i32 %2, -1
-  br i1 %6, label %7, label %12
+  br i1 %6, label %7, label %25
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr @glad_glUseProgram, align 8
   tail call void %8(i32 noundef %0) #55
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
-  %9 = load <16 x float>, ptr %3, align 8
-  %10 = shufflevector <16 x float> %9, <16 x float> poison, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13, i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
-  store <16 x float> %10, ptr %5, align 16
-  %11 = load ptr, ptr @glad_glUniformMatrix4fv, align 8
-  call void %11(i32 noundef %2, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %5) #55
+  %.sroa.0.0.copyload = load float, ptr %3, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 4
+  %.sroa.4.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 8
+  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 12
+  %.sroa.6.0.copyload = load float, ptr %.sroa.6.0..sroa_idx, align 4
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
+  %.sroa.7.0.copyload = load float, ptr %.sroa.7.0..sroa_idx, align 8
+  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 20
+  %.sroa.8.0.copyload = load float, ptr %.sroa.8.0..sroa_idx, align 4
+  %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
+  %.sroa.9.0.copyload = load float, ptr %.sroa.9.0..sroa_idx, align 8
+  %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 28
+  %.sroa.10.0.copyload = load float, ptr %.sroa.10.0..sroa_idx, align 4
+  %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 32
+  %.sroa.11.0.copyload = load float, ptr %.sroa.11.0..sroa_idx, align 8
+  %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 36
+  %.sroa.12.0.copyload = load float, ptr %.sroa.12.0..sroa_idx, align 4
+  %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 40
+  %.sroa.13.0.copyload = load float, ptr %.sroa.13.0..sroa_idx, align 8
+  %.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 44
+  %.sroa.14.0.copyload = load float, ptr %.sroa.14.0..sroa_idx, align 4
+  %.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 48
+  %.sroa.15.0.copyload = load float, ptr %.sroa.15.0..sroa_idx, align 8
+  %.sroa.16.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 52
+  %.sroa.16.0.copyload = load float, ptr %.sroa.16.0..sroa_idx, align 4
+  %.sroa.17.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 56
+  %.sroa.17.0.copyload = load float, ptr %.sroa.17.0..sroa_idx, align 8
+  %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 60
+  %.sroa.18.0.copyload = load float, ptr %.sroa.18.0..sroa_idx, align 4
+  store float %.sroa.0.0.copyload, ptr %5, align 16
+  %9 = getelementptr inbounds i8, ptr %5, i64 4
+  store float %.sroa.7.0.copyload, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  store float %.sroa.11.0.copyload, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %5, i64 12
+  store float %.sroa.15.0.copyload, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %5, i64 16
+  store float %.sroa.4.0.copyload, ptr %12, align 16
+  %13 = getelementptr inbounds i8, ptr %5, i64 20
+  store float %.sroa.8.0.copyload, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %5, i64 24
+  store float %.sroa.12.0.copyload, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %5, i64 28
+  store float %.sroa.16.0.copyload, ptr %15, align 4
+  %16 = getelementptr inbounds i8, ptr %5, i64 32
+  store float %.sroa.5.0.copyload, ptr %16, align 16
+  %17 = getelementptr inbounds i8, ptr %5, i64 36
+  store float %.sroa.9.0.copyload, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %5, i64 40
+  store float %.sroa.13.0.copyload, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %5, i64 44
+  store float %.sroa.17.0.copyload, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %5, i64 48
+  store float %.sroa.6.0.copyload, ptr %20, align 16
+  %21 = getelementptr inbounds i8, ptr %5, i64 52
+  store float %.sroa.10.0.copyload, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %5, i64 56
+  store float %.sroa.14.0.copyload, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %5, i64 60
+  store float %.sroa.18.0.copyload, ptr %23, align 4
+  %24 = load ptr, ptr @glad_glUniformMatrix4fv, align 8
+  call void %24(i32 noundef %2, i32 noundef 1, i8 noundef zeroext 0, ptr noundef nonnull %5) #55
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  br label %12
+  br label %25
 
-12:                                               ; preds = %7, %4
+25:                                               ; preds = %7, %4
   ret void
 }
 

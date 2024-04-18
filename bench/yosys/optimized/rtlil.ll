@@ -145738,78 +145738,86 @@ define linkonce_odr void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Yos
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %5, i64 24
   %11 = getelementptr inbounds i8, ptr %2, i64 24
-  %12 = getelementptr inbounds i8, ptr %5, i64 40
-  %13 = getelementptr inbounds i8, ptr %2, i64 40
-  %14 = getelementptr inbounds i8, ptr %2, i64 48
-  %15 = load <2 x ptr>, ptr %11, align 8
-  store <2 x ptr> %15, ptr %10, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 56
-  %17 = getelementptr inbounds i8, ptr %2, i64 64
-  %18 = load ptr, ptr %13, align 8
+  %12 = load ptr, ptr %11, align 8
+  store ptr %12, ptr %10, align 8
+  %13 = getelementptr inbounds i8, ptr %5, i64 32
+  %14 = getelementptr inbounds i8, ptr %2, i64 32
+  %15 = load ptr, ptr %14, align 8
+  store ptr %15, ptr %13, align 8
+  %16 = getelementptr inbounds i8, ptr %5, i64 40
+  %17 = getelementptr inbounds i8, ptr %2, i64 40
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %16, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
-  %19 = load ptr, ptr %14, align 8
-  %20 = load ptr, ptr %16, align 8
-  %21 = load ptr, ptr %17, align 8
-  %22 = insertelement <4 x ptr> poison, ptr %18, i64 0
-  %23 = insertelement <4 x ptr> %22, ptr %19, i64 1
-  %24 = insertelement <4 x ptr> %23, ptr %20, i64 2
-  %25 = insertelement <4 x ptr> %24, ptr %21, i64 3
-  store <4 x ptr> %25, ptr %12, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
-  %26 = getelementptr inbounds i8, ptr %5, i64 72
-  %27 = getelementptr inbounds i8, ptr %2, i64 72
-  %28 = load i32, ptr %27, align 8
-  store i32 %28, ptr %26, align 8
-  %29 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZNSt4pairIN5Yosys5RTLIL8IdStringENS1_7SigSpecEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(72) %0)
-          to label %30 unwind label %47
+  %19 = getelementptr inbounds i8, ptr %5, i64 48
+  %20 = getelementptr inbounds i8, ptr %2, i64 48
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %19, align 8
+  %22 = getelementptr inbounds i8, ptr %5, i64 56
+  %23 = getelementptr inbounds i8, ptr %2, i64 56
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr %22, align 8
+  %25 = getelementptr inbounds i8, ptr %5, i64 64
+  %26 = getelementptr inbounds i8, ptr %2, i64 64
+  %27 = load ptr, ptr %26, align 8
+  store ptr %27, ptr %25, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
+  %28 = getelementptr inbounds i8, ptr %5, i64 72
+  %29 = getelementptr inbounds i8, ptr %2, i64 72
+  %30 = load i32, ptr %29, align 8
+  store i32 %30, ptr %28, align 8
+  %31 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZNSt4pairIN5Yosys5RTLIL8IdStringENS1_7SigSpecEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(72) %0)
+          to label %32 unwind label %48
 
-30:                                               ; preds = %4
-  %31 = getelementptr inbounds i8, ptr %5, i64 48
-  %32 = getelementptr inbounds i8, ptr %0, i64 72
-  %33 = load i32, ptr %32, align 8
-  store i32 %33, ptr %27, align 8
-  %34 = ptrtoint ptr %1 to i64
-  %35 = ptrtoint ptr %0 to i64
-  %36 = sub i64 %34, %35
-  %37 = sdiv exact i64 %36, 80
+32:                                               ; preds = %4
+  %33 = getelementptr inbounds i8, ptr %0, i64 72
+  %34 = load i32, ptr %33, align 8
+  store i32 %34, ptr %29, align 8
+  %35 = ptrtoint ptr %1 to i64
+  %36 = ptrtoint ptr %0 to i64
+  %37 = sub i64 %35, %36
+  %38 = sdiv exact i64 %37, 80
   store i32 %7, ptr %6, align 8
   store i32 0, ptr %5, align 8
-  %38 = getelementptr inbounds i8, ptr %6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
-  %39 = getelementptr inbounds i8, ptr %6, i64 24
+  %39 = getelementptr inbounds i8, ptr %6, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
+  %40 = getelementptr inbounds i8, ptr %6, i64 24
+  store ptr %12, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr %15, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %6, i64 40
+  store ptr %18, ptr %42, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
-  %40 = shufflevector <2 x ptr> %15, <2 x ptr> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %41 = insertelement <4 x ptr> %40, ptr %18, i64 2
-  %42 = insertelement <4 x ptr> %41, ptr %19, i64 3
-  store <4 x ptr> %42, ptr %39, align 8
-  %43 = getelementptr inbounds i8, ptr %6, i64 56
-  store ptr %20, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %6, i64 64
-  store ptr %21, ptr %44, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, i8 0, i64 24, i1 false)
-  %45 = getelementptr inbounds i8, ptr %6, i64 72
-  store i32 %28, ptr %45, align 8
-  invoke void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictINS2_5RTLIL8IdStringENS5_7SigSpecENS3_8hash_opsIS6_EEE7entry_tESt6vectorISB_SaISB_EEEElSB_NS0_5__ops15_Iter_comp_iterIZNSA_4sortINS5_14sort_by_id_strEEEvT_EUlRKSB_SN_E_EEEvSL_T0_SQ_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %37, ptr noundef nonnull %6)
-          to label %46 unwind label %49
+  %43 = getelementptr inbounds i8, ptr %6, i64 48
+  store ptr %21, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %6, i64 56
+  store ptr %24, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %6, i64 64
+  store ptr %27, ptr %45, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
+  %46 = getelementptr inbounds i8, ptr %6, i64 72
+  store i32 %30, ptr %46, align 8
+  invoke void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Yosys7hashlib4dictINS2_5RTLIL8IdStringENS5_7SigSpecENS3_8hash_opsIS6_EEE7entry_tESt6vectorISB_SaISB_EEEElSB_NS0_5__ops15_Iter_comp_iterIZNSA_4sortINS5_14sort_by_id_strEEEvT_EUlRKSB_SN_E_EEEvSL_T0_SQ_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %38, ptr noundef nonnull %6)
+          to label %47 unwind label %50
 
-46:                                               ; preds = %30
+47:                                               ; preds = %32
   call void @_ZNSt4pairIN5Yosys5RTLIL8IdStringENS1_7SigSpecEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #35
   call void @_ZNSt4pairIN5Yosys5RTLIL8IdStringENS1_7SigSpecEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #35
   ret void
 
-47:                                               ; preds = %4
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %4
+  %49 = landingpad { ptr, i32 }
           cleanup
-  br label %51
+  br label %52
 
-49:                                               ; preds = %30
-  %50 = landingpad { ptr, i32 }
+50:                                               ; preds = %32
+  %51 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt4pairIN5Yosys5RTLIL8IdStringENS1_7SigSpecEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %6) #35
-  br label %51
+  br label %52
 
-51:                                               ; preds = %49, %47
-  %.pn = phi { ptr, i32 } [ %50, %49 ], [ %48, %47 ]
+52:                                               ; preds = %50, %48
+  %.pn = phi { ptr, i32 } [ %51, %50 ], [ %49, %48 ]
   call void @_ZNSt4pairIN5Yosys5RTLIL8IdStringENS1_7SigSpecEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #35
   resume { ptr, i32 } %.pn
 }

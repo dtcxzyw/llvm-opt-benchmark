@@ -19162,9 +19162,14 @@ for.end:                                          ; preds = %for.body
   store ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr %arrayidx73, align 8
   %arrayidx75 = getelementptr inbounds i8, ptr %this, i64 1568
   store ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr %arrayidx75, align 8
+  %arrayidx77 = getelementptr inbounds i8, ptr %this, i64 1592
+  store ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr %arrayidx77, align 8
   %arrayidx79 = getelementptr inbounds i8, ptr %this, i64 1552
   store ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr %arrayidx79, align 8
   %arrayidx81 = getelementptr inbounds i8, ptr %this, i64 1584
+  store ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr %arrayidx81, align 8
+  %arrayidx83 = getelementptr inbounds i8, ptr %this, i64 1600
+  store ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr %arrayidx83, align 8
   %arrayidx85 = getelementptr inbounds i8, ptr %this, i64 64
   store ptr @_ZN4cvc58internal6theory2fp7rewrite8variableENS0_12NodeTemplateILb0EEEb, ptr %arrayidx85, align 8
   %arrayidx87 = getelementptr inbounds i8, ptr %this, i64 72
@@ -19175,7 +19180,16 @@ for.end:                                          ; preds = %for.body
   store ptr @_ZN4cvc58internal6theory2fp7rewrite8variableENS0_12NodeTemplateILb0EEEb, ptr %arrayidx91, align 8
   %arrayidx93 = getelementptr inbounds i8, ptr %this, i64 48
   store ptr @_ZN4cvc58internal6theory2fp7rewrite5equalENS0_12NodeTemplateILb0EEEb, ptr %arrayidx93, align 8
-  store <8 x ptr> <ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb>, ptr %arrayidx81, align 8
+  %arrayidx95 = getelementptr inbounds i8, ptr %this, i64 1608
+  store ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr %arrayidx95, align 8
+  %arrayidx97 = getelementptr inbounds i8, ptr %this, i64 1616
+  store ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr %arrayidx97, align 8
+  %arrayidx99 = getelementptr inbounds i8, ptr %this, i64 1624
+  store ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr %arrayidx99, align 8
+  %arrayidx101 = getelementptr inbounds i8, ptr %this, i64 1632
+  store ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr %arrayidx101, align 8
+  %arrayidx103 = getelementptr inbounds i8, ptr %this, i64 1640
+  store ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr %arrayidx103, align 8
   %arrayidx105 = getelementptr inbounds i8, ptr %this, i64 1648
   store ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr %arrayidx105, align 8
   %arrayidx107 = getelementptr inbounds i8, ptr %this, i64 1656
@@ -19266,9 +19280,14 @@ for.end116:                                       ; preds = %for.body111
   store ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr %arrayidx188, align 8
   %arrayidx190 = getelementptr inbounds i8, ptr %this, i64 4488
   store ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr %arrayidx190, align 8
+  %arrayidx192 = getelementptr inbounds i8, ptr %this, i64 4512
+  store ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr %arrayidx192, align 8
   %arrayidx194 = getelementptr inbounds i8, ptr %this, i64 4472
   store ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr %arrayidx194, align 8
   %arrayidx196 = getelementptr inbounds i8, ptr %this, i64 4504
+  store ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr %arrayidx196, align 8
+  %arrayidx198 = getelementptr inbounds i8, ptr %this, i64 4520
+  store ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr %arrayidx198, align 8
   %arrayidx200 = getelementptr inbounds i8, ptr %this, i64 2984
   store ptr @_ZN4cvc58internal6theory2fp7rewrite8variableENS0_12NodeTemplateILb0EEEb, ptr %arrayidx200, align 8
   %arrayidx202 = getelementptr inbounds i8, ptr %this, i64 2992
@@ -19279,7 +19298,16 @@ for.end116:                                       ; preds = %for.body111
   store ptr @_ZN4cvc58internal6theory2fp7rewrite8variableENS0_12NodeTemplateILb0EEEb, ptr %arrayidx206, align 8
   %arrayidx208 = getelementptr inbounds i8, ptr %this, i64 2968
   store ptr @_ZN4cvc58internal6theory2fp7rewrite5equalENS0_12NodeTemplateILb0EEEb, ptr %arrayidx208, align 8
-  store <8 x ptr> <ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb>, ptr %arrayidx196, align 8
+  %arrayidx210 = getelementptr inbounds i8, ptr %this, i64 4528
+  store ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr %arrayidx210, align 8
+  %arrayidx212 = getelementptr inbounds i8, ptr %this, i64 4536
+  store ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr %arrayidx212, align 8
+  %arrayidx214 = getelementptr inbounds i8, ptr %this, i64 4544
+  store ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr %arrayidx214, align 8
+  %arrayidx216 = getelementptr inbounds i8, ptr %this, i64 4552
+  store ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr %arrayidx216, align 8
+  %arrayidx218 = getelementptr inbounds i8, ptr %this, i64 4560
+  store ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr %arrayidx218, align 8
   %arrayidx220 = getelementptr inbounds i8, ptr %this, i64 4568
   store ptr @_ZN4cvc58internal6theory2fp7rewrite8identityENS0_12NodeTemplateILb0EEEb, ptr %arrayidx220, align 8
   %arrayidx222 = getelementptr inbounds i8, ptr %this, i64 4576

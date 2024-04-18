@@ -85,160 +85,262 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 define noundef zeroext i1 @_ZNK3nix11BuildResulteqERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(144) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::tuple", align 8
   %4 = alloca %"class.std::tuple", align 8
-  %5 = insertelement <8 x ptr> poison, ptr %0, i64 0
-  %6 = shufflevector <8 x ptr> %5, <8 x ptr> poison, <8 x i32> zeroinitializer
-  %7 = getelementptr i8, <8 x ptr> %6, <8 x i64> <i64 128, i64 112, i64 104, i64 96, i64 48, i64 44, i64 40, i64 8>
-  store <8 x ptr> %7, ptr %3, align 8, !alias.scope !4
-  %8 = getelementptr inbounds i8, ptr %3, i64 64
-  store ptr %0, ptr %8, align 8, !alias.scope !4
-  %9 = insertelement <8 x ptr> poison, ptr %1, i64 0
-  %10 = shufflevector <8 x ptr> %9, <8 x ptr> poison, <8 x i32> zeroinitializer
-  %11 = getelementptr i8, <8 x ptr> %10, <8 x i64> <i64 128, i64 112, i64 104, i64 96, i64 48, i64 44, i64 40, i64 8>
-  store <8 x ptr> %11, ptr %4, align 8, !alias.scope !7
-  %12 = getelementptr inbounds i8, ptr %4, i64 64
-  store ptr %1, ptr %12, align 8, !alias.scope !7
-  %13 = load i32, ptr %0, align 8
-  %14 = load i32, ptr %1, align 8
-  %15 = icmp eq i32 %13, %14
-  br i1 %15, label %16, label %_ZSteqIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISA_NS0_11RealisationESt4lessISA_ESaISt4pairISB_SI_EEERKlSS_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES11_EJS4_SC_SE_SG_SQ_SS_SS_S11_S11_EEbRKSt5tupleIJDpT_EERKS12_IJDpT0_EE.exit
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %10 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds i8, ptr %0, i64 112
+  %12 = getelementptr inbounds i8, ptr %0, i64 128
+  store ptr %12, ptr %3, align 8, !alias.scope !4
+  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %11, ptr %13, align 8, !alias.scope !4
+  %14 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %10, ptr %14, align 8, !alias.scope !4
+  %15 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %9, ptr %15, align 8, !alias.scope !4
+  %16 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %8, ptr %16, align 8, !alias.scope !4
+  %17 = getelementptr inbounds i8, ptr %3, i64 40
+  store ptr %7, ptr %17, align 8, !alias.scope !4
+  %18 = getelementptr inbounds i8, ptr %3, i64 48
+  store ptr %6, ptr %18, align 8, !alias.scope !4
+  %19 = getelementptr inbounds i8, ptr %3, i64 56
+  store ptr %5, ptr %19, align 8, !alias.scope !4
+  %20 = getelementptr inbounds i8, ptr %3, i64 64
+  store ptr %0, ptr %20, align 8, !alias.scope !4
+  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds i8, ptr %1, i64 40
+  %23 = getelementptr inbounds i8, ptr %1, i64 44
+  %24 = getelementptr inbounds i8, ptr %1, i64 48
+  %25 = getelementptr inbounds i8, ptr %1, i64 96
+  %26 = getelementptr inbounds i8, ptr %1, i64 104
+  %27 = getelementptr inbounds i8, ptr %1, i64 112
+  %28 = getelementptr inbounds i8, ptr %1, i64 128
+  store ptr %28, ptr %4, align 8, !alias.scope !7
+  %29 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %27, ptr %29, align 8, !alias.scope !7
+  %30 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %26, ptr %30, align 8, !alias.scope !7
+  %31 = getelementptr inbounds i8, ptr %4, i64 24
+  store ptr %25, ptr %31, align 8, !alias.scope !7
+  %32 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %24, ptr %32, align 8, !alias.scope !7
+  %33 = getelementptr inbounds i8, ptr %4, i64 40
+  store ptr %23, ptr %33, align 8, !alias.scope !7
+  %34 = getelementptr inbounds i8, ptr %4, i64 48
+  store ptr %22, ptr %34, align 8, !alias.scope !7
+  %35 = getelementptr inbounds i8, ptr %4, i64 56
+  store ptr %21, ptr %35, align 8, !alias.scope !7
+  %36 = getelementptr inbounds i8, ptr %4, i64 64
+  store ptr %1, ptr %36, align 8, !alias.scope !7
+  %37 = load i32, ptr %0, align 8
+  %38 = load i32, ptr %1, align 8
+  %39 = icmp eq i32 %37, %38
+  br i1 %39, label %40, label %_ZSteqIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISA_NS0_11RealisationESt4lessISA_ESaISt4pairISB_SI_EEERKlSS_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES11_EJS4_SC_SE_SG_SQ_SS_SS_S11_S11_EEbRKSt5tupleIJDpT_EERKS12_IJDpT0_EE.exit
 
-16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
-  %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
-  %20 = load i64, ptr %19, align 8
-  %21 = icmp eq i64 %18, %20
-  br i1 %21, label %22, label %_ZSteqIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISA_NS0_11RealisationESt4lessISA_ESaISt4pairISB_SI_EEERKlSS_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES11_EJS4_SC_SE_SG_SQ_SS_SS_S11_S11_EEbRKSt5tupleIJDpT_EERKS12_IJDpT0_EE.exit
+40:                                               ; preds = %2
+  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %42 = load i64, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %1, i64 16
+  %44 = load i64, ptr %43, align 8
+  %45 = icmp eq i64 %42, %44
+  br i1 %45, label %46, label %_ZSteqIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISA_NS0_11RealisationESt4lessISA_ESaISt4pairISB_SI_EEERKlSS_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES11_EJS4_SC_SE_SG_SQ_SS_SS_S11_S11_EEbRKSt5tupleIJDpT_EERKS12_IJDpT0_EE.exit
 
-22:                                               ; preds = %16
-  %23 = icmp eq i64 %18, 0
-  br i1 %23, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i
+46:                                               ; preds = %40
+  %47 = icmp eq i64 %42, 0
+  br i1 %47, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i: ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %27, ptr %25, i64 %18)
-  %28 = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %28, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i, label %_ZSteqIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISA_NS0_11RealisationESt4lessISA_ESaISt4pairISB_SI_EEERKlSS_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES11_EJS4_SC_SE_SG_SQ_SS_SS_S11_S11_EEbRKSt5tupleIJDpT_EERKS12_IJDpT0_EE.exit
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i: ; preds = %46
+  %48 = load ptr, ptr %21, align 8
+  %49 = load ptr, ptr %5, align 8
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %49, ptr %48, i64 %42)
+  %50 = icmp eq i32 %bcmp.i.i.i.i, 0
+  br i1 %50, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i, label %_ZSteqIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISA_NS0_11RealisationESt4lessISA_ESaISt4pairISB_SI_EEERKlSS_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES11_EJS4_SC_SE_SG_SQ_SS_SS_S11_S11_EEbRKSt5tupleIJDpT_EERKS12_IJDpT0_EE.exit
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i, %22
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
-  %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 40
-  %32 = load i32, ptr %31, align 8
-  %33 = icmp eq i32 %30, %32
-  br i1 %33, label %34, label %_ZSteqIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISA_NS0_11RealisationESt4lessISA_ESaISt4pairISB_SI_EEERKlSS_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES11_EJS4_SC_SE_SG_SQ_SS_SS_S11_S11_EEbRKSt5tupleIJDpT_EERKS12_IJDpT0_EE.exit
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i, %46
+  %51 = load i32, ptr %6, align 8
+  %52 = load i32, ptr %22, align 8
+  %53 = icmp eq i32 %51, %52
+  br i1 %53, label %54, label %_ZSteqIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISA_NS0_11RealisationESt4lessISA_ESaISt4pairISB_SI_EEERKlSS_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES11_EJS4_SC_SE_SG_SQ_SS_SS_S11_S11_EEbRKSt5tupleIJDpT_EERKS12_IJDpT0_EE.exit
 
-34:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i
-  %35 = getelementptr inbounds i8, ptr %0, i64 44
-  %36 = load i8, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %1, i64 44
-  %38 = load i8, ptr %37, align 4
-  %39 = xor i8 %38, %36
-  %40 = and i8 %39, 1
-  %41 = icmp eq i8 %40, 0
-  br i1 %41, label %42, label %_ZSteqIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISA_NS0_11RealisationESt4lessISA_ESaISt4pairISB_SI_EEERKlSS_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES11_EJS4_SC_SE_SG_SQ_SS_SS_S11_S11_EEbRKSt5tupleIJDpT_EERKS12_IJDpT0_EE.exit
+54:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i
+  %55 = load i8, ptr %7, align 4
+  %56 = load i8, ptr %23, align 4
+  %57 = xor i8 %56, %55
+  %58 = and i8 %57, 1
+  %59 = icmp eq i8 %58, 0
+  br i1 %59, label %60, label %_ZSteqIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISA_NS0_11RealisationESt4lessISA_ESaISt4pairISB_SI_EEERKlSS_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES11_EJS4_SC_SE_SG_SQ_SS_SS_S11_S11_EEbRKSt5tupleIJDpT_EERKS12_IJDpT0_EE.exit
 
-42:                                               ; preds = %34
-  %43 = call noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISB_NS1_11RealisationESt4lessISB_ESaISt4pairISC_SJ_EEERKlST_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES12_EES13_Lm4ELm9EE4__eqERKS13_S16_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %4)
+60:                                               ; preds = %54
+  %61 = call noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISB_NS1_11RealisationESt4lessISB_ESaISt4pairISC_SJ_EEERKlST_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES12_EES13_Lm4ELm9EE4__eqERKS13_S16_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %4)
   br label %_ZSteqIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISA_NS0_11RealisationESt4lessISA_ESaISt4pairISB_SI_EEERKlSS_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES11_EJS4_SC_SE_SG_SQ_SS_SS_S11_S11_EEbRKSt5tupleIJDpT_EERKS12_IJDpT0_EE.exit
 
-_ZSteqIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISA_NS0_11RealisationESt4lessISA_ESaISt4pairISB_SI_EEERKlSS_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES11_EJS4_SC_SE_SG_SQ_SS_SS_S11_S11_EEbRKSt5tupleIJDpT_EERKS12_IJDpT0_EE.exit: ; preds = %2, %16, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i, %34, %42
-  %44 = phi i1 [ false, %2 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i ], [ false, %34 ], [ %43, %42 ], [ false, %16 ]
-  ret i1 %44
+_ZSteqIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISA_NS0_11RealisationESt4lessISA_ESaISt4pairISB_SI_EEERKlSS_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES11_EJS4_SC_SE_SG_SQ_SS_SS_S11_S11_EEbRKSt5tupleIJDpT_EERKS12_IJDpT0_EE.exit: ; preds = %2, %40, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i, %54, %60
+  %62 = phi i1 [ false, %2 ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i ], [ false, %54 ], [ %61, %60 ], [ false, %40 ]
+  ret i1 %62
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK3nix11BuildResultltERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(144) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::tuple", align 8
   %4 = alloca %"class.std::tuple", align 8
-  %5 = insertelement <8 x ptr> poison, ptr %0, i64 0
-  %6 = shufflevector <8 x ptr> %5, <8 x ptr> poison, <8 x i32> zeroinitializer
-  %7 = getelementptr i8, <8 x ptr> %6, <8 x i64> <i64 128, i64 112, i64 104, i64 96, i64 48, i64 44, i64 40, i64 8>
-  store <8 x ptr> %7, ptr %3, align 8, !alias.scope !10
-  %8 = getelementptr inbounds i8, ptr %3, i64 64
-  store ptr %0, ptr %8, align 8, !alias.scope !10
-  %9 = insertelement <8 x ptr> poison, ptr %1, i64 0
-  %10 = shufflevector <8 x ptr> %9, <8 x ptr> poison, <8 x i32> zeroinitializer
-  %11 = getelementptr i8, <8 x ptr> %10, <8 x i64> <i64 128, i64 112, i64 104, i64 96, i64 48, i64 44, i64 40, i64 8>
-  store <8 x ptr> %11, ptr %4, align 8, !alias.scope !13
-  %12 = getelementptr inbounds i8, ptr %4, i64 64
-  store ptr %1, ptr %12, align 8, !alias.scope !13
-  %13 = call i8 @_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISC_NS2_11RealisationESt4lessISC_ESaISt4pairISD_SK_EEERKlSU_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES13_EES14_Lm0EJLm1ELm2ELm3ELm4ELm5ELm6ELm7ELm8EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %4)
-  %14 = icmp slt i8 %13, 0
-  ret i1 %14
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %10 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds i8, ptr %0, i64 112
+  %12 = getelementptr inbounds i8, ptr %0, i64 128
+  store ptr %12, ptr %3, align 8, !alias.scope !10
+  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %11, ptr %13, align 8, !alias.scope !10
+  %14 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %10, ptr %14, align 8, !alias.scope !10
+  %15 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %9, ptr %15, align 8, !alias.scope !10
+  %16 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %8, ptr %16, align 8, !alias.scope !10
+  %17 = getelementptr inbounds i8, ptr %3, i64 40
+  store ptr %7, ptr %17, align 8, !alias.scope !10
+  %18 = getelementptr inbounds i8, ptr %3, i64 48
+  store ptr %6, ptr %18, align 8, !alias.scope !10
+  %19 = getelementptr inbounds i8, ptr %3, i64 56
+  store ptr %5, ptr %19, align 8, !alias.scope !10
+  %20 = getelementptr inbounds i8, ptr %3, i64 64
+  store ptr %0, ptr %20, align 8, !alias.scope !10
+  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds i8, ptr %1, i64 40
+  %23 = getelementptr inbounds i8, ptr %1, i64 44
+  %24 = getelementptr inbounds i8, ptr %1, i64 48
+  %25 = getelementptr inbounds i8, ptr %1, i64 96
+  %26 = getelementptr inbounds i8, ptr %1, i64 104
+  %27 = getelementptr inbounds i8, ptr %1, i64 112
+  %28 = getelementptr inbounds i8, ptr %1, i64 128
+  store ptr %28, ptr %4, align 8, !alias.scope !13
+  %29 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %27, ptr %29, align 8, !alias.scope !13
+  %30 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %26, ptr %30, align 8, !alias.scope !13
+  %31 = getelementptr inbounds i8, ptr %4, i64 24
+  store ptr %25, ptr %31, align 8, !alias.scope !13
+  %32 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %24, ptr %32, align 8, !alias.scope !13
+  %33 = getelementptr inbounds i8, ptr %4, i64 40
+  store ptr %23, ptr %33, align 8, !alias.scope !13
+  %34 = getelementptr inbounds i8, ptr %4, i64 48
+  store ptr %22, ptr %34, align 8, !alias.scope !13
+  %35 = getelementptr inbounds i8, ptr %4, i64 56
+  store ptr %21, ptr %35, align 8, !alias.scope !13
+  %36 = getelementptr inbounds i8, ptr %4, i64 64
+  store ptr %1, ptr %36, align 8, !alias.scope !13
+  %37 = call i8 @_ZSt11__tuple_cmpISt13weak_orderingSt5tupleIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISC_NS2_11RealisationESt4lessISC_ESaISt4pairISD_SK_EEERKlSU_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES13_EES14_Lm0EJLm1ELm2ELm3ELm4ELm5ELm6ELm7ELm8EEET_RKT0_RKT1_St16integer_sequenceImJXT2_EXspT3_EEE(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %4)
+  %38 = icmp slt i8 %37, 0
+  ret i1 %38
 }
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK3nix11BuildResultneERKS0_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(144) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::tuple", align 8
   %4 = alloca %"class.std::tuple", align 8
-  %5 = insertelement <8 x ptr> poison, ptr %0, i64 0
-  %6 = shufflevector <8 x ptr> %5, <8 x ptr> poison, <8 x i32> zeroinitializer
-  %7 = getelementptr i8, <8 x ptr> %6, <8 x i64> <i64 128, i64 112, i64 104, i64 96, i64 48, i64 44, i64 40, i64 8>
-  store <8 x ptr> %7, ptr %3, align 8, !alias.scope !16
-  %8 = getelementptr inbounds i8, ptr %3, i64 64
-  store ptr %0, ptr %8, align 8, !alias.scope !16
-  %9 = insertelement <8 x ptr> poison, ptr %1, i64 0
-  %10 = shufflevector <8 x ptr> %9, <8 x ptr> poison, <8 x i32> zeroinitializer
-  %11 = getelementptr i8, <8 x ptr> %10, <8 x i64> <i64 128, i64 112, i64 104, i64 96, i64 48, i64 44, i64 40, i64 8>
-  store <8 x ptr> %11, ptr %4, align 8, !alias.scope !19
-  %12 = getelementptr inbounds i8, ptr %4, i64 64
-  store ptr %1, ptr %12, align 8, !alias.scope !19
-  %13 = load i32, ptr %0, align 8
-  %14 = load i32, ptr %1, align 8
-  %15 = icmp eq i32 %13, %14
-  br i1 %15, label %16, label %_ZSteqIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISA_NS0_11RealisationESt4lessISA_ESaISt4pairISB_SI_EEERKlSS_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES11_EJS4_SC_SE_SG_SQ_SS_SS_S11_S11_EEbRKSt5tupleIJDpT_EERKS12_IJDpT0_EE.exit
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 40
+  %7 = getelementptr inbounds i8, ptr %0, i64 44
+  %8 = getelementptr inbounds i8, ptr %0, i64 48
+  %9 = getelementptr inbounds i8, ptr %0, i64 96
+  %10 = getelementptr inbounds i8, ptr %0, i64 104
+  %11 = getelementptr inbounds i8, ptr %0, i64 112
+  %12 = getelementptr inbounds i8, ptr %0, i64 128
+  store ptr %12, ptr %3, align 8, !alias.scope !16
+  %13 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr %11, ptr %13, align 8, !alias.scope !16
+  %14 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %10, ptr %14, align 8, !alias.scope !16
+  %15 = getelementptr inbounds i8, ptr %3, i64 24
+  store ptr %9, ptr %15, align 8, !alias.scope !16
+  %16 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %8, ptr %16, align 8, !alias.scope !16
+  %17 = getelementptr inbounds i8, ptr %3, i64 40
+  store ptr %7, ptr %17, align 8, !alias.scope !16
+  %18 = getelementptr inbounds i8, ptr %3, i64 48
+  store ptr %6, ptr %18, align 8, !alias.scope !16
+  %19 = getelementptr inbounds i8, ptr %3, i64 56
+  store ptr %5, ptr %19, align 8, !alias.scope !16
+  %20 = getelementptr inbounds i8, ptr %3, i64 64
+  store ptr %0, ptr %20, align 8, !alias.scope !16
+  %21 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds i8, ptr %1, i64 40
+  %23 = getelementptr inbounds i8, ptr %1, i64 44
+  %24 = getelementptr inbounds i8, ptr %1, i64 48
+  %25 = getelementptr inbounds i8, ptr %1, i64 96
+  %26 = getelementptr inbounds i8, ptr %1, i64 104
+  %27 = getelementptr inbounds i8, ptr %1, i64 112
+  %28 = getelementptr inbounds i8, ptr %1, i64 128
+  store ptr %28, ptr %4, align 8, !alias.scope !19
+  %29 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %27, ptr %29, align 8, !alias.scope !19
+  %30 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %26, ptr %30, align 8, !alias.scope !19
+  %31 = getelementptr inbounds i8, ptr %4, i64 24
+  store ptr %25, ptr %31, align 8, !alias.scope !19
+  %32 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %24, ptr %32, align 8, !alias.scope !19
+  %33 = getelementptr inbounds i8, ptr %4, i64 40
+  store ptr %23, ptr %33, align 8, !alias.scope !19
+  %34 = getelementptr inbounds i8, ptr %4, i64 48
+  store ptr %22, ptr %34, align 8, !alias.scope !19
+  %35 = getelementptr inbounds i8, ptr %4, i64 56
+  store ptr %21, ptr %35, align 8, !alias.scope !19
+  %36 = getelementptr inbounds i8, ptr %4, i64 64
+  store ptr %1, ptr %36, align 8, !alias.scope !19
+  %37 = load i32, ptr %0, align 8
+  %38 = load i32, ptr %1, align 8
+  %39 = icmp eq i32 %37, %38
+  br i1 %39, label %40, label %_ZSteqIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISA_NS0_11RealisationESt4lessISA_ESaISt4pairISB_SI_EEERKlSS_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES11_EJS4_SC_SE_SG_SQ_SS_SS_S11_S11_EEbRKSt5tupleIJDpT_EERKS12_IJDpT0_EE.exit
 
-16:                                               ; preds = %2
-  %17 = getelementptr inbounds i8, ptr %0, i64 16
-  %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
-  %20 = load i64, ptr %19, align 8
-  %21 = icmp eq i64 %18, %20
-  br i1 %21, label %22, label %_ZSteqIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISA_NS0_11RealisationESt4lessISA_ESaISt4pairISB_SI_EEERKlSS_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES11_EJS4_SC_SE_SG_SQ_SS_SS_S11_S11_EEbRKSt5tupleIJDpT_EERKS12_IJDpT0_EE.exit
+40:                                               ; preds = %2
+  %41 = getelementptr inbounds i8, ptr %0, i64 16
+  %42 = load i64, ptr %41, align 8
+  %43 = getelementptr inbounds i8, ptr %1, i64 16
+  %44 = load i64, ptr %43, align 8
+  %45 = icmp eq i64 %42, %44
+  br i1 %45, label %46, label %_ZSteqIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISA_NS0_11RealisationESt4lessISA_ESaISt4pairISB_SI_EEERKlSS_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES11_EJS4_SC_SE_SG_SQ_SS_SS_S11_S11_EEbRKSt5tupleIJDpT_EERKS12_IJDpT0_EE.exit
 
-22:                                               ; preds = %16
-  %23 = icmp eq i64 %18, 0
-  br i1 %23, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i
+46:                                               ; preds = %40
+  %47 = icmp eq i64 %42, 0
+  br i1 %47, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i: ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %1, i64 8
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %27, ptr %25, i64 %18)
-  %28 = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %28, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i, label %_ZSteqIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISA_NS0_11RealisationESt4lessISA_ESaISt4pairISB_SI_EEERKlSS_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES11_EJS4_SC_SE_SG_SQ_SS_SS_S11_S11_EEbRKSt5tupleIJDpT_EERKS12_IJDpT0_EE.exit
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i: ; preds = %46
+  %48 = load ptr, ptr %21, align 8
+  %49 = load ptr, ptr %5, align 8
+  %bcmp.i.i.i.i = tail call i32 @bcmp(ptr %49, ptr %48, i64 %42)
+  %50 = icmp eq i32 %bcmp.i.i.i.i, 0
+  br i1 %50, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i, label %_ZSteqIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISA_NS0_11RealisationESt4lessISA_ESaISt4pairISB_SI_EEERKlSS_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES11_EJS4_SC_SE_SG_SQ_SS_SS_S11_S11_EEbRKSt5tupleIJDpT_EERKS12_IJDpT0_EE.exit
 
-_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i, %22
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
-  %30 = load i32, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %1, i64 40
-  %32 = load i32, ptr %31, align 8
-  %33 = icmp eq i32 %30, %32
-  br i1 %33, label %34, label %_ZSteqIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISA_NS0_11RealisationESt4lessISA_ESaISt4pairISB_SI_EEERKlSS_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES11_EJS4_SC_SE_SG_SQ_SS_SS_S11_S11_EEbRKSt5tupleIJDpT_EERKS12_IJDpT0_EE.exit
+_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i, %46
+  %51 = load i32, ptr %6, align 8
+  %52 = load i32, ptr %22, align 8
+  %53 = icmp eq i32 %51, %52
+  br i1 %53, label %54, label %_ZSteqIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISA_NS0_11RealisationESt4lessISA_ESaISt4pairISB_SI_EEERKlSS_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES11_EJS4_SC_SE_SG_SQ_SS_SS_S11_S11_EEbRKSt5tupleIJDpT_EERKS12_IJDpT0_EE.exit
 
-34:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i
-  %35 = getelementptr inbounds i8, ptr %0, i64 44
-  %36 = load i8, ptr %35, align 4
-  %37 = getelementptr inbounds i8, ptr %1, i64 44
-  %38 = load i8, ptr %37, align 4
-  %39 = xor i8 %38, %36
-  %40 = and i8 %39, 1
-  %41 = icmp eq i8 %40, 0
-  br i1 %41, label %42, label %_ZSteqIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISA_NS0_11RealisationESt4lessISA_ESaISt4pairISB_SI_EEERKlSS_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES11_EJS4_SC_SE_SG_SQ_SS_SS_S11_S11_EEbRKSt5tupleIJDpT_EERKS12_IJDpT0_EE.exit
+54:                                               ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i
+  %55 = load i8, ptr %7, align 4
+  %56 = load i8, ptr %23, align 4
+  %57 = xor i8 %56, %55
+  %58 = and i8 %57, 1
+  %59 = icmp eq i8 %58, 0
+  br i1 %59, label %60, label %_ZSteqIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISA_NS0_11RealisationESt4lessISA_ESaISt4pairISB_SI_EEERKlSS_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES11_EJS4_SC_SE_SG_SQ_SS_SS_S11_S11_EEbRKSt5tupleIJDpT_EERKS12_IJDpT0_EE.exit
 
-42:                                               ; preds = %34
-  %43 = call noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISB_NS1_11RealisationESt4lessISB_ESaISt4pairISC_SJ_EEERKlST_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES12_EES13_Lm4ELm9EE4__eqERKS13_S16_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %4)
-  %44 = xor i1 %43, true
+60:                                               ; preds = %54
+  %61 = call noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISB_NS1_11RealisationESt4lessISB_ESaISt4pairISC_SJ_EEERKlST_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES12_EES13_Lm4ELm9EE4__eqERKS13_S16_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %4)
+  %62 = xor i1 %61, true
   br label %_ZSteqIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISA_NS0_11RealisationESt4lessISA_ESaISt4pairISB_SI_EEERKlSS_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES11_EJS4_SC_SE_SG_SQ_SS_SS_S11_S11_EEbRKSt5tupleIJDpT_EERKS12_IJDpT0_EE.exit
 
-_ZSteqIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISA_NS0_11RealisationESt4lessISA_ESaISt4pairISB_SI_EEERKlSS_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES11_EJS4_SC_SE_SG_SQ_SS_SS_S11_S11_EEbRKSt5tupleIJDpT_EERKS12_IJDpT0_EE.exit: ; preds = %2, %16, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i, %34, %42
-  %45 = phi i1 [ true, %2 ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i ], [ true, %34 ], [ %44, %42 ], [ true, %16 ]
-  ret i1 %45
+_ZSteqIJRKN3nix11BuildResult6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKjRKbRKSt3mapISA_NS0_11RealisationESt4lessISA_ESaISt4pairISB_SI_EEERKlSS_RKSt8optionalINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEES11_EJS4_SC_SE_SG_SQ_SS_SS_S11_S11_EEbRKSt5tupleIJDpT_EERKS12_IJDpT0_EE.exit: ; preds = %2, %40, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i, %54, %60
+  %63 = phi i1 [ true, %2 ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i.i.i ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread.i.i.i ], [ true, %54 ], [ %62, %60 ], [ true, %40 ]
+  ret i1 %63
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

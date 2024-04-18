@@ -9,11 +9,15 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden void @_ZN5ceres8internal24TrustRegionStepEvaluatorC2Edi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) %0, double noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store i32 %2, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = insertelement <4 x double> poison, double %1, i64 0
-  %6 = shufflevector <4 x double> %5, <4 x double> poison, <4 x i32> zeroinitializer
-  store <4 x double> %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %7, i8 0, i64 20, i1 false)
+  store double %1, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  store double %1, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  store double %1, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  store double %1, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8, i8 0, i64 20, i1 false)
   ret void
 }
 

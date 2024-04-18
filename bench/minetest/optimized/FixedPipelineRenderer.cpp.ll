@@ -435,9 +435,21 @@ if.end:                                           ; preds = %if.then, %entry
   %vtable39 = load ptr, ptr %call, align 8, !tbaa !3
   %vfn40 = getelementptr inbounds i8, ptr %vtable39, i64 56
   %27 = load ptr, ptr %vfn40, align 8
+  %arrayidx.i291.i135 = getelementptr inbounds i8, ptr %Matrix, i64 4
+  %arrayidx.i295.i141 = getelementptr inbounds i8, ptr %Matrix, i64 8
+  %arrayidx.i299.i147 = getelementptr inbounds i8, ptr %Matrix, i64 12
   %arrayidx.i304.i153 = getelementptr inbounds i8, ptr %Matrix, i64 16
+  %arrayidx.i309.i155 = getelementptr inbounds i8, ptr %Matrix, i64 20
+  %arrayidx.i314.i157 = getelementptr inbounds i8, ptr %Matrix, i64 24
+  %arrayidx.i319.i159 = getelementptr inbounds i8, ptr %Matrix, i64 28
   %arrayidx.i324.i165 = getelementptr inbounds i8, ptr %Matrix, i64 32
+  %arrayidx.i329.i167 = getelementptr inbounds i8, ptr %Matrix, i64 36
+  %arrayidx.i334.i169 = getelementptr inbounds i8, ptr %Matrix, i64 40
+  %arrayidx.i339.i171 = getelementptr inbounds i8, ptr %Matrix, i64 44
   %arrayidx.i344.i177 = getelementptr inbounds i8, ptr %Matrix, i64 48
+  %arrayidx.i349.i179 = getelementptr inbounds i8, ptr %Matrix, i64 52
+  %arrayidx.i354.i181 = getelementptr inbounds i8, ptr %Matrix, i64 56
+  %arrayidx.i359.i183 = getelementptr inbounds i8, ptr %Matrix, i64 60
   %WVPMatrixID42 = getelementptr inbounds i8, ptr %this, i64 12
   %28 = load <4 x float>, ptr %call38, align 4
   %29 = load <4 x float>, ptr %V.sroa.11.0.call38.sroa_idx, align 4
@@ -565,23 +577,67 @@ _ZN3irr4core8CMatrix4IfE11makeInverseEv.exit:     ; preds = %if.then.i, %if.end
   %120 = load i32, ptr %NMatrixID54, align 4, !tbaa !36
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %ref.tmp55) #13
   call void @llvm.experimental.noalias.scope.decl(metadata !49)
-  %121 = load <16 x float>, ptr %Matrix, align 16, !tbaa !15, !noalias !49
-  %122 = shufflevector <16 x float> %121, <16 x float> poison, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13, i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
-  store <16 x float> %122, ptr %ref.tmp55, align 4, !tbaa !15, !alias.scope !49
+  %121 = load float, ptr %Matrix, align 16, !tbaa !15, !noalias !49
+  store float %121, ptr %ref.tmp55, align 4, !tbaa !15, !alias.scope !49
+  %122 = load float, ptr %arrayidx.i304.i153, align 16, !tbaa !15, !noalias !49
+  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %ref.tmp55, i64 4
+  store float %122, ptr %arrayidx.i.i.i, align 4, !tbaa !15, !alias.scope !49
+  %123 = load float, ptr %arrayidx.i324.i165, align 16, !tbaa !15, !noalias !49
+  %arrayidx.i62.i.i = getelementptr inbounds i8, ptr %ref.tmp55, i64 8
+  store float %123, ptr %arrayidx.i62.i.i, align 4, !tbaa !15, !alias.scope !49
+  %124 = load float, ptr %arrayidx.i344.i177, align 16, !tbaa !15, !noalias !49
+  %arrayidx.i63.i.i = getelementptr inbounds i8, ptr %ref.tmp55, i64 12
+  store float %124, ptr %arrayidx.i63.i.i, align 4, !tbaa !15, !alias.scope !49
+  %125 = load float, ptr %arrayidx.i291.i135, align 4, !tbaa !15, !noalias !49
+  %arrayidx.i64.i.i = getelementptr inbounds i8, ptr %ref.tmp55, i64 16
+  store float %125, ptr %arrayidx.i64.i.i, align 4, !tbaa !15, !alias.scope !49
+  %126 = load float, ptr %arrayidx.i309.i155, align 4, !tbaa !15, !noalias !49
+  %arrayidx.i65.i.i = getelementptr inbounds i8, ptr %ref.tmp55, i64 20
+  store float %126, ptr %arrayidx.i65.i.i, align 4, !tbaa !15, !alias.scope !49
+  %127 = load float, ptr %arrayidx.i329.i167, align 4, !tbaa !15, !noalias !49
+  %arrayidx.i66.i.i = getelementptr inbounds i8, ptr %ref.tmp55, i64 24
+  store float %127, ptr %arrayidx.i66.i.i, align 4, !tbaa !15, !alias.scope !49
+  %128 = load float, ptr %arrayidx.i349.i179, align 4, !tbaa !15, !noalias !49
+  %arrayidx.i67.i.i = getelementptr inbounds i8, ptr %ref.tmp55, i64 28
+  store float %128, ptr %arrayidx.i67.i.i, align 4, !tbaa !15, !alias.scope !49
+  %129 = load float, ptr %arrayidx.i295.i141, align 8, !tbaa !15, !noalias !49
+  %arrayidx.i68.i.i = getelementptr inbounds i8, ptr %ref.tmp55, i64 32
+  store float %129, ptr %arrayidx.i68.i.i, align 4, !tbaa !15, !alias.scope !49
+  %130 = load float, ptr %arrayidx.i314.i157, align 8, !tbaa !15, !noalias !49
+  %arrayidx.i69.i.i = getelementptr inbounds i8, ptr %ref.tmp55, i64 36
+  store float %130, ptr %arrayidx.i69.i.i, align 4, !tbaa !15, !alias.scope !49
+  %131 = load float, ptr %arrayidx.i334.i169, align 8, !tbaa !15, !noalias !49
+  %arrayidx.i70.i.i = getelementptr inbounds i8, ptr %ref.tmp55, i64 40
+  store float %131, ptr %arrayidx.i70.i.i, align 4, !tbaa !15, !alias.scope !49
+  %132 = load float, ptr %arrayidx.i354.i181, align 8, !tbaa !15, !noalias !49
+  %arrayidx.i71.i.i = getelementptr inbounds i8, ptr %ref.tmp55, i64 44
+  store float %132, ptr %arrayidx.i71.i.i, align 4, !tbaa !15, !alias.scope !49
+  %133 = load float, ptr %arrayidx.i299.i147, align 4, !tbaa !15, !noalias !49
+  %arrayidx.i72.i.i = getelementptr inbounds i8, ptr %ref.tmp55, i64 48
+  store float %133, ptr %arrayidx.i72.i.i, align 4, !tbaa !15, !alias.scope !49
+  %134 = load float, ptr %arrayidx.i319.i159, align 4, !tbaa !15, !noalias !49
+  %arrayidx.i73.i.i = getelementptr inbounds i8, ptr %ref.tmp55, i64 52
+  store float %134, ptr %arrayidx.i73.i.i, align 4, !tbaa !15, !alias.scope !49
+  %135 = load float, ptr %arrayidx.i339.i171, align 4, !tbaa !15, !noalias !49
+  %arrayidx.i74.i.i = getelementptr inbounds i8, ptr %ref.tmp55, i64 56
+  store float %135, ptr %arrayidx.i74.i.i, align 4, !tbaa !15, !alias.scope !49
+  %136 = load float, ptr %arrayidx.i359.i183, align 4, !tbaa !15, !noalias !49
+  %arrayidx.i75.i.i = getelementptr inbounds i8, ptr %ref.tmp55, i64 60
+  store float %136, ptr %arrayidx.i75.i.i, align 4, !tbaa !15, !alias.scope !49
   %vtable57 = load ptr, ptr %services, align 8, !tbaa !3
   %vfn58 = getelementptr inbounds i8, ptr %vtable57, i64 64
-  %123 = load ptr, ptr %vfn58, align 8
-  %call59 = call noundef zeroext i1 %123(ptr noundef nonnull align 8 dereferenceable(8) %services, i32 noundef %120, ptr noundef nonnull %ref.tmp55, i32 noundef 16) #13
+  %137 = load ptr, ptr %vfn58, align 8
+  %call59 = call noundef zeroext i1 %137(ptr noundef nonnull align 8 dereferenceable(8) %services, i32 noundef %120, ptr noundef nonnull %ref.tmp55, i32 noundef 16) #13
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %ref.tmp55) #13
   %FogEnableID60 = getelementptr inbounds i8, ptr %this, i64 24
-  %124 = load i32, ptr %FogEnableID60, align 8, !tbaa !37
+  %138 = load i32, ptr %FogEnableID60, align 8, !tbaa !37
   %FogEnable = getelementptr inbounds i8, ptr %this, i64 140
   %vtable61 = load ptr, ptr %services, align 8, !tbaa !3
   %vfn62 = getelementptr inbounds i8, ptr %vtable61, i64 72
-  %125 = load ptr, ptr %vfn62, align 8
-  %call63 = call noundef zeroext i1 %125(ptr noundef nonnull align 8 dereferenceable(8) %services, i32 noundef %124, ptr noundef nonnull %FogEnable, i32 noundef 1) #13
-  %126 = load i32, ptr %FogEnable, align 4, !tbaa !17
-  %tobool65.not = icmp eq i32 %126, 0
+  %139 = load ptr, ptr %vfn62, align 8
+  %call63 = call noundef zeroext i1 %139(ptr noundef nonnull align 8 dereferenceable(8) %services, i32 noundef %138, ptr noundef nonnull %FogEnable, i32 noundef 1) #13
+  %140 = load i32, ptr %FogEnable, align 4, !tbaa !17
+  %tobool65.not = icmp eq i32 %140, 0
   br i1 %tobool65.not, label %if.end95, label %if.then66
 
 if.then66:                                        ; preds = %_ZN3irr4core8CMatrix4IfE11makeInverseEv.exit
@@ -598,11 +654,11 @@ if.then66:                                        ; preds = %_ZN3irr4core8CMatri
   %FogDensity = getelementptr inbounds i8, ptr %this, i64 172
   %vtable67 = load ptr, ptr %call, align 8, !tbaa !3
   %vfn68 = getelementptr inbounds i8, ptr %vtable67, i64 456
-  %127 = load ptr, ptr %vfn68, align 8
-  call void %127(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 4 dereferenceable(4) %TempColor, ptr noundef nonnull align 4 dereferenceable(4) %TempType, ptr noundef nonnull align 4 dereferenceable(4) %FogStart, ptr noundef nonnull align 4 dereferenceable(4) %FogEnd, ptr noundef nonnull align 4 dereferenceable(4) %FogDensity, ptr noundef nonnull align 1 dereferenceable(1) %TempPerFragment, ptr noundef nonnull align 1 dereferenceable(1) %TempRange) #13
-  %128 = load i32, ptr %TempType, align 4, !tbaa !53
+  %141 = load ptr, ptr %vfn68, align 8
+  call void %141(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 4 dereferenceable(4) %TempColor, ptr noundef nonnull align 4 dereferenceable(4) %TempType, ptr noundef nonnull align 4 dereferenceable(4) %FogStart, ptr noundef nonnull align 4 dereferenceable(4) %FogEnd, ptr noundef nonnull align 4 dereferenceable(4) %FogDensity, ptr noundef nonnull align 1 dereferenceable(1) %TempPerFragment, ptr noundef nonnull align 1 dereferenceable(1) %TempRange) #13
+  %142 = load i32, ptr %TempType, align 4, !tbaa !53
   %FogType = getelementptr inbounds i8, ptr %this, i64 144
-  store i32 %128, ptr %FogType, align 8, !tbaa !18
+  store i32 %142, ptr %FogType, align 8, !tbaa !18
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %TempColor, align 4, !tbaa !23
   %shr.i.i = lshr i32 %agg.tmp.sroa.0.0.copyload, 16
   %and.i.i = and i32 %shr.i.i, 255
@@ -627,35 +683,35 @@ if.then66:                                        ; preds = %_ZN3irr4core8CMatri
   %ref.tmp69.sroa.6.0.FogColor.sroa_idx = getelementptr inbounds i8, ptr %this, i64 160
   store float %mul10.i, ptr %ref.tmp69.sroa.6.0.FogColor.sroa_idx, align 8, !tbaa !15
   %FogTypeID70 = getelementptr inbounds i8, ptr %this, i64 28
-  %129 = load i32, ptr %FogTypeID70, align 4, !tbaa !38
+  %143 = load i32, ptr %FogTypeID70, align 4, !tbaa !38
   %vtable72 = load ptr, ptr %services, align 8, !tbaa !3
   %vfn73 = getelementptr inbounds i8, ptr %vtable72, i64 72
-  %130 = load ptr, ptr %vfn73, align 8
-  %call74 = call noundef zeroext i1 %130(ptr noundef nonnull align 8 dereferenceable(8) %services, i32 noundef %129, ptr noundef nonnull %FogType, i32 noundef 1) #13
+  %144 = load ptr, ptr %vfn73, align 8
+  %call74 = call noundef zeroext i1 %144(ptr noundef nonnull align 8 dereferenceable(8) %services, i32 noundef %143, ptr noundef nonnull %FogType, i32 noundef 1) #13
   %FogColorID75 = getelementptr inbounds i8, ptr %this, i64 32
-  %131 = load i32, ptr %FogColorID75, align 8, !tbaa !39
+  %145 = load i32, ptr %FogColorID75, align 8, !tbaa !39
   %vtable77 = load ptr, ptr %services, align 8, !tbaa !3
   %vfn78 = getelementptr inbounds i8, ptr %vtable77, i64 64
-  %132 = load ptr, ptr %vfn78, align 8
-  %call79 = call noundef zeroext i1 %132(ptr noundef nonnull align 8 dereferenceable(8) %services, i32 noundef %131, ptr noundef nonnull %FogColor, i32 noundef 4) #13
+  %146 = load ptr, ptr %vfn78, align 8
+  %call79 = call noundef zeroext i1 %146(ptr noundef nonnull align 8 dereferenceable(8) %services, i32 noundef %145, ptr noundef nonnull %FogColor, i32 noundef 4) #13
   %FogStartID80 = getelementptr inbounds i8, ptr %this, i64 36
-  %133 = load i32, ptr %FogStartID80, align 4, !tbaa !40
+  %147 = load i32, ptr %FogStartID80, align 4, !tbaa !40
   %vtable82 = load ptr, ptr %services, align 8, !tbaa !3
   %vfn83 = getelementptr inbounds i8, ptr %vtable82, i64 64
-  %134 = load ptr, ptr %vfn83, align 8
-  %call84 = call noundef zeroext i1 %134(ptr noundef nonnull align 8 dereferenceable(8) %services, i32 noundef %133, ptr noundef nonnull %FogStart, i32 noundef 1) #13
+  %148 = load ptr, ptr %vfn83, align 8
+  %call84 = call noundef zeroext i1 %148(ptr noundef nonnull align 8 dereferenceable(8) %services, i32 noundef %147, ptr noundef nonnull %FogStart, i32 noundef 1) #13
   %FogEndID85 = getelementptr inbounds i8, ptr %this, i64 40
-  %135 = load i32, ptr %FogEndID85, align 8, !tbaa !41
+  %149 = load i32, ptr %FogEndID85, align 8, !tbaa !41
   %vtable87 = load ptr, ptr %services, align 8, !tbaa !3
   %vfn88 = getelementptr inbounds i8, ptr %vtable87, i64 64
-  %136 = load ptr, ptr %vfn88, align 8
-  %call89 = call noundef zeroext i1 %136(ptr noundef nonnull align 8 dereferenceable(8) %services, i32 noundef %135, ptr noundef nonnull %FogEnd, i32 noundef 1) #13
+  %150 = load ptr, ptr %vfn88, align 8
+  %call89 = call noundef zeroext i1 %150(ptr noundef nonnull align 8 dereferenceable(8) %services, i32 noundef %149, ptr noundef nonnull %FogEnd, i32 noundef 1) #13
   %FogDensityID90 = getelementptr inbounds i8, ptr %this, i64 44
-  %137 = load i32, ptr %FogDensityID90, align 4, !tbaa !42
+  %151 = load i32, ptr %FogDensityID90, align 4, !tbaa !42
   %vtable92 = load ptr, ptr %services, align 8, !tbaa !3
   %vfn93 = getelementptr inbounds i8, ptr %vtable92, i64 64
-  %138 = load ptr, ptr %vfn93, align 8
-  %call94 = call noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(8) %services, i32 noundef %137, ptr noundef nonnull %FogDensity, i32 noundef 1) #13
+  %152 = load ptr, ptr %vfn93, align 8
+  %call94 = call noundef zeroext i1 %152(ptr noundef nonnull align 8 dereferenceable(8) %services, i32 noundef %151, ptr noundef nonnull %FogDensity, i32 noundef 1) #13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %TempRange) #13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %TempPerFragment) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %TempType) #13
@@ -664,12 +720,12 @@ if.then66:                                        ; preds = %_ZN3irr4core8CMatri
 
 if.end95:                                         ; preds = %if.then66, %_ZN3irr4core8CMatrix4IfE11makeInverseEv.exit
   %ThicknessID96 = getelementptr inbounds i8, ptr %this, i64 48
-  %139 = load i32, ptr %ThicknessID96, align 8, !tbaa !43
+  %153 = load i32, ptr %ThicknessID96, align 8, !tbaa !43
   %Thickness = getelementptr inbounds i8, ptr %this, i64 176
   %vtable97 = load ptr, ptr %services, align 8, !tbaa !3
   %vfn98 = getelementptr inbounds i8, ptr %vtable97, i64 64
-  %140 = load ptr, ptr %vfn98, align 8
-  %call99 = call noundef zeroext i1 %140(ptr noundef nonnull align 8 dereferenceable(8) %services, i32 noundef %139, ptr noundef nonnull %Thickness, i32 noundef 1) #13
+  %154 = load ptr, ptr %vfn98, align 8
+  %call99 = call noundef zeroext i1 %154(ptr noundef nonnull align 8 dereferenceable(8) %services, i32 noundef %153, ptr noundef nonnull %Thickness, i32 noundef 1) #13
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %Matrix) #13
   ret void
 }

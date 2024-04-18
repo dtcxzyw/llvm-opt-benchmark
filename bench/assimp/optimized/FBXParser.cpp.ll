@@ -8685,20 +8685,79 @@ ehcleanup:                                        ; preds = %lpad4, %lpad2
   br label %ehcleanup24
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %invoke.cont
-  %5 = load <16 x float>, ptr %1, align 4
-  %6 = shufflevector <16 x float> %5, <16 x float> poison, <16 x i32> <i32 0, i32 4, i32 8, i32 12, i32 1, i32 5, i32 9, i32 13, i32 2, i32 6, i32 10, i32 14, i32 3, i32 7, i32 11, i32 15>
-  store <16 x float> %6, ptr %agg.result, align 4
+  %a2.i = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %b2.i = getelementptr inbounds i8, ptr %agg.result, i64 20
+  %b3.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  %c3.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %c4.i = getelementptr inbounds i8, ptr %agg.result, i64 44
+  %d4.i = getelementptr inbounds i8, ptr %agg.result, i64 60
+  %5 = load float, ptr %1, align 4
+  store float %5, ptr %agg.result, align 4
+  %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 4
+  %6 = load float, ptr %add.ptr.i, align 4
+  %add.ptr.i3 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = load float, ptr %add.ptr.i3, align 4
+  %a3 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %add.ptr.i4 = getelementptr inbounds i8, ptr %1, i64 12
+  %8 = load float, ptr %add.ptr.i4, align 4
+  %a4 = getelementptr inbounds i8, ptr %agg.result, i64 12
+  %add.ptr.i5 = getelementptr inbounds i8, ptr %1, i64 16
+  %9 = load float, ptr %add.ptr.i5, align 4
+  %b1 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %add.ptr.i6 = getelementptr inbounds i8, ptr %1, i64 20
+  %10 = load float, ptr %add.ptr.i6, align 4
+  store float %10, ptr %b2.i, align 4
+  %add.ptr.i7 = getelementptr inbounds i8, ptr %1, i64 24
+  %11 = load float, ptr %add.ptr.i7, align 4
+  %add.ptr.i8 = getelementptr inbounds i8, ptr %1, i64 28
+  %12 = load float, ptr %add.ptr.i8, align 4
+  %b4 = getelementptr inbounds i8, ptr %agg.result, i64 28
+  %add.ptr.i9 = getelementptr inbounds i8, ptr %1, i64 32
+  %13 = load float, ptr %add.ptr.i9, align 4
+  %c1 = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %add.ptr.i10 = getelementptr inbounds i8, ptr %1, i64 36
+  %14 = load float, ptr %add.ptr.i10, align 4
+  %c2 = getelementptr inbounds i8, ptr %agg.result, i64 36
+  %add.ptr.i11 = getelementptr inbounds i8, ptr %1, i64 40
+  %15 = load float, ptr %add.ptr.i11, align 4
+  store float %15, ptr %c3.i, align 4
+  %add.ptr.i12 = getelementptr inbounds i8, ptr %1, i64 44
+  %16 = load float, ptr %add.ptr.i12, align 4
+  %add.ptr.i13 = getelementptr inbounds i8, ptr %1, i64 48
+  %17 = load float, ptr %add.ptr.i13, align 4
+  %d1 = getelementptr inbounds i8, ptr %agg.result, i64 48
+  %add.ptr.i14 = getelementptr inbounds i8, ptr %1, i64 52
+  %18 = load float, ptr %add.ptr.i14, align 4
+  %d2 = getelementptr inbounds i8, ptr %agg.result, i64 52
+  %add.ptr.i15 = getelementptr inbounds i8, ptr %1, i64 56
+  %19 = load float, ptr %add.ptr.i15, align 4
+  %d3 = getelementptr inbounds i8, ptr %agg.result, i64 56
+  %add.ptr.i16 = getelementptr inbounds i8, ptr %1, i64 60
+  %20 = load float, ptr %add.ptr.i16, align 4
+  store float %20, ptr %d4.i, align 4
+  store float %6, ptr %b1, align 4
+  store float %9, ptr %a2.i, align 4
+  store float %7, ptr %c1, align 4
+  store float %13, ptr %a3, align 4
+  store float %11, ptr %c2, align 4
+  store float %14, ptr %b3.i, align 4
+  store float %8, ptr %d1, align 4
+  store float %17, ptr %a4, align 4
+  store float %12, ptr %d2, align 4
+  store float %18, ptr %b4, align 4
+  store float %16, ptr %d3, align 4
+  store float %19, ptr %c4.i, align 4
   tail call void @_ZdlPv(ptr noundef nonnull %1) #25
   ret void
 
 ehcleanup24:                                      ; preds = %ehcleanup, %lpad
-  %7 = phi ptr [ %1, %ehcleanup ], [ %.pre, %lpad ]
+  %21 = phi ptr [ %1, %ehcleanup ], [ %.pre, %lpad ]
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %2, %lpad ]
-  %tobool.not.i.i.i20 = icmp eq ptr %7, null
+  %tobool.not.i.i.i20 = icmp eq ptr %21, null
   br i1 %tobool.not.i.i.i20, label %_ZNSt6vectorIfSaIfEED2Ev.exit22, label %if.then.i.i.i21
 
 if.then.i.i.i21:                                  ; preds = %ehcleanup24
-  call void @_ZdlPv(ptr noundef nonnull %7) #25
+  call void @_ZdlPv(ptr noundef nonnull %21) #25
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit22
 
 _ZNSt6vectorIfSaIfEED2Ev.exit22:                  ; preds = %ehcleanup24, %if.then.i.i.i21

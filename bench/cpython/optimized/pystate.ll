@@ -1230,25 +1230,44 @@ entry:
   %main_thread = getelementptr inbounds i8, ptr %runtime, i64 368
   store i64 %call, ptr %main_thread, align 8
   tail call void @_PyParkingLot_AfterFork() #15
-  %0 = insertelement <8 x ptr> poison, ptr %runtime, i64 0
-  %1 = shufflevector <8 x ptr> %0, <8 x ptr> poison, <8 x i32> zeroinitializer
-  %2 = getelementptr i8, <8 x ptr> %1, <8 x i64> <i64 336, i64 384, i64 3624, i64 2216, i64 2316, i64 1928, i64 3592, i64 400>
-  store <8 x ptr> %2, ptr %locks, align 16
+  %interpreters = getelementptr inbounds i8, ptr %runtime, i64 336
+  store ptr %interpreters, ptr %locks, align 16
+  %arrayinit.element = getelementptr inbounds i8, ptr %locks, i64 8
+  %mutex1 = getelementptr inbounds i8, ptr %runtime, i64 384
+  store ptr %mutex1, ptr %arrayinit.element, align 8
+  %arrayinit.element2 = getelementptr inbounds i8, ptr %locks, i64 16
+  %unicode_state = getelementptr inbounds i8, ptr %runtime, i64 3624
+  store ptr %unicode_state, ptr %arrayinit.element2, align 16
+  %arrayinit.element4 = getelementptr inbounds i8, ptr %locks, i64 24
+  %extensions = getelementptr inbounds i8, ptr %runtime, i64 2216
+  store ptr %extensions, ptr %arrayinit.element4, align 8
+  %arrayinit.element6 = getelementptr inbounds i8, ptr %locks, i64 32
+  %mutex7 = getelementptr inbounds i8, ptr %runtime, i64 2316
+  store ptr %mutex7, ptr %arrayinit.element6, align 16
+  %arrayinit.element8 = getelementptr inbounds i8, ptr %locks, i64 40
+  %atexit = getelementptr inbounds i8, ptr %runtime, i64 1928
+  store ptr %atexit, ptr %arrayinit.element8, align 8
+  %arrayinit.element10 = getelementptr inbounds i8, ptr %locks, i64 48
+  %audit_hooks = getelementptr inbounds i8, ptr %runtime, i64 3592
+  store ptr %audit_hooks, ptr %arrayinit.element10, align 16
+  %arrayinit.element12 = getelementptr inbounds i8, ptr %locks, i64 56
+  %allocators = getelementptr inbounds i8, ptr %runtime, i64 400
+  store ptr %allocators, ptr %arrayinit.element12, align 8
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
   %i.028 = phi i64 [ 0, %entry ], [ %inc, %for.body ]
   %arrayidx = getelementptr [8 x ptr], ptr %locks, i64 0, i64 %i.028
-  %3 = load ptr, ptr %arrayidx, align 8
-  store i8 0, ptr %3, align 1
+  %0 = load ptr, ptr %arrayidx, align 8
+  store i8 0, ptr %0, align 1
   %inc = add nuw nsw i64 %i.028, 1
   %exitcond.not = icmp eq i64 %inc, 8
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
 for.end:                                          ; preds = %for.body
   %main = getelementptr inbounds i8, ptr %runtime, i64 352
-  %4 = load ptr, ptr %main, align 8
-  %id_mutex = getelementptr inbounds i8, ptr %4, i64 912
+  %1 = load ptr, ptr %main, align 8
+  %id_mutex = getelementptr inbounds i8, ptr %1, i64 912
   %call15 = tail call i32 @_PyThread_at_fork_reinit(ptr noundef nonnull %id_mutex) #15
   %cmp16 = icmp slt i32 %call15, 0
   br i1 %cmp16, label %if.then, label %if.end
