@@ -130528,14 +130528,12 @@ if.then:                                          ; preds = %entry
   %brmerge = select i1 %cmp14, i1 true, i1 %5
   %spec.select.v = select i1 %brmerge, i64 2, i64 1
   %idx.ext = sext i32 %0 to i64
-  %6 = add nsw i32 %sub, -1
-  %7 = zext nneg i32 %6 to i64
-  %8 = add nuw nsw i64 %7, 1
-  %9 = select i1 %5, i64 %8, i64 0
+  %6 = sext i32 %sub to i64
+  %7 = select i1 %5, i64 %6, i64 0
   %spec.select = add i64 %it.coerce, -1
   %gepdiff379 = add i64 %spec.select, %idx.ext
-  %10 = add i64 %gepdiff379, %spec.select.v
-  %it.sroa.0.1 = add i64 %10, %9
+  %8 = add i64 %gepdiff379, %7
+  %it.sroa.0.1 = add i64 %8, %spec.select.v
   %sub49 = add nsw i32 %add, -1
   %it.sroa.0.0.i = add i64 %it.sroa.0.1, 2
   %exp.addr.0.i = tail call i32 @llvm.abs.i32(i32 %sub49, i1 true)
@@ -130553,28 +130551,24 @@ if.end54:                                         ; preds = %entry
   br i1 %cmp56.not, label %if.else, label %if.then57
 
 if.then57:                                        ; preds = %if.end54
-  %11 = load ptr, ptr %this, align 8, !tbaa !2623
+  %9 = load ptr, ptr %this, align 8, !tbaa !2623
   %idx.ext62 = sext i32 %0 to i64
-  %add.ptr63 = getelementptr inbounds i8, ptr %11, i64 %idx.ext62
+  %add.ptr63 = getelementptr inbounds i8, ptr %9, i64 %idx.ext62
   %cmp.not7.i.i307 = icmp eq i32 %0, 0
-  %__first11.i.i308 = ptrtoint ptr %11 to i64
+  %__first11.i.i308 = ptrtoint ptr %9 to i64
   %__last10.i.i309 = ptrtoint ptr %add.ptr63 to i64
-  %12 = sub i64 %it.coerce, %__first11.i.i308
-  %13 = add i64 %12, %__last10.i.i309
-  %__result.sroa.0.0.lcssa.i.i310 = select i1 %cmp.not7.i.i307, i64 %it.coerce, i64 %13
-  %cmp4.i.i.i311.not = icmp eq i32 %1, 0
-  %14 = add nsw i32 %1, -1
-  %15 = zext nneg i32 %14 to i64
-  %16 = add nuw nsw i64 %15, 1
-  %17 = select i1 %cmp4.i.i.i311.not, i64 0, i64 %16
-  %__first.sroa.0.0.lcssa.i.i.i312 = add i64 %__result.sroa.0.0.lcssa.i.i310, %17
-  %18 = and i32 %bf.load, 2097152
-  %bf.cast81.not = icmp eq i32 %18, 0
+  %10 = sub i64 %it.coerce, %__first11.i.i308
+  %11 = add i64 %10, %__last10.i.i309
+  %__result.sroa.0.0.lcssa.i.i310 = select i1 %cmp.not7.i.i307, i64 %it.coerce, i64 %11
+  %12 = zext nneg i32 %1 to i64
+  %__first.sroa.0.0.lcssa.i.i.i312 = add i64 %__result.sroa.0.0.lcssa.i.i310, %12
+  %13 = and i32 %bf.load, 2097152
+  %bf.cast81.not = icmp eq i32 %13, 0
   br i1 %bf.cast81.not, label %cleanup268, label %if.then82
 
 if.then82:                                        ; preds = %if.then57
-  %19 = load i32, ptr %specs_, align 8, !tbaa !2631
-  %sub92 = sub nsw i32 %19, %add
+  %14 = load i32, ptr %specs_, align 8, !tbaa !2631
+  %sub92 = sub nsw i32 %14, %add
   %cmp93 = icmp sgt i32 %sub92, 0
   br i1 %cmp93, label %cleanup, label %if.then94
 
@@ -130585,10 +130579,10 @@ if.then94:                                        ; preds = %if.then82
   br label %cleanup268
 
 cleanup:                                          ; preds = %if.then82
-  %20 = add nsw i32 %sub92, -1
-  %21 = zext nneg i32 %20 to i64
-  %22 = add i64 %__first.sroa.0.0.lcssa.i.i.i312, 2
-  %23 = add i64 %22, %21
+  %15 = add nsw i32 %sub92, -1
+  %16 = zext nneg i32 %15 to i64
+  %17 = add i64 %__first.sroa.0.0.lcssa.i.i.i312, 2
+  %18 = add i64 %17, %16
   br label %cleanup268
 
 if.else:                                          ; preds = %if.end54
@@ -130596,29 +130590,29 @@ if.else:                                          ; preds = %if.end54
   br i1 %cmp117, label %if.then118, label %if.else198
 
 if.then118:                                       ; preds = %if.else
-  %24 = load ptr, ptr %this, align 8, !tbaa !2623
+  %19 = load ptr, ptr %this, align 8, !tbaa !2623
   %idx.ext122 = zext nneg i32 %add to i64
-  %add.ptr123 = getelementptr inbounds i8, ptr %24, i64 %idx.ext122
-  %__first11.i.i320 = ptrtoint ptr %24 to i64
+  %add.ptr123 = getelementptr inbounds i8, ptr %19, i64 %idx.ext122
+  %__first11.i.i320 = ptrtoint ptr %19 to i64
   %__last10.i.i321 = ptrtoint ptr %add.ptr123 to i64
-  %25 = sub i64 %it.coerce, %__first11.i.i320
-  %26 = add i64 %25, %__last10.i.i321
-  %27 = and i32 %bf.load, 2097152
-  %bf.cast133.not = icmp eq i32 %27, 0
+  %20 = sub i64 %it.coerce, %__first11.i.i320
+  %21 = add i64 %20, %__last10.i.i321
+  %22 = and i32 %bf.load, 2097152
+  %bf.cast133.not = icmp eq i32 %22, 0
   br i1 %bf.cast133.not, label %land.rhs137.preheader, label %if.end162
 
 land.rhs137.preheader:                            ; preds = %if.then118
-  %invariant.gep374 = getelementptr i8, ptr %24, i64 -1
-  %28 = sext i32 %0 to i64
-  %29 = add i32 %0, -1
-  %smin = tail call i32 @llvm.smin.i32(i32 %add, i32 %29)
+  %invariant.gep374 = getelementptr i8, ptr %19, i64 -1
+  %23 = sext i32 %0 to i64
+  %24 = add i32 %0, -1
+  %smin = tail call i32 @llvm.smin.i32(i32 %add, i32 %24)
   br label %land.rhs137
 
 land.rhs137:                                      ; preds = %while.body, %land.rhs137.preheader
-  %indvars.iv = phi i64 [ %28, %land.rhs137.preheader ], [ %indvars.iv.next, %while.body ]
+  %indvars.iv = phi i64 [ %23, %land.rhs137.preheader ], [ %indvars.iv.next, %while.body ]
   %gep375 = getelementptr i8, ptr %invariant.gep374, i64 %indvars.iv
-  %30 = load i8, ptr %gep375, align 1, !tbaa !35
-  %cmp140 = icmp eq i8 %30, 48
+  %25 = load i8, ptr %gep375, align 1, !tbaa !35
+  %cmp140 = icmp eq i8 %25, 48
   br i1 %cmp140, label %while.body, label %while.end.split.loop.exit
 
 while.body:                                       ; preds = %land.rhs137
@@ -130627,66 +130621,66 @@ while.body:                                       ; preds = %land.rhs137
   br i1 %cmp136, label %land.rhs137, label %while.end, !llvm.loop !2651
 
 while.end.split.loop.exit:                        ; preds = %land.rhs137
-  %31 = trunc nsw i64 %indvars.iv to i32
+  %26 = trunc nsw i64 %indvars.iv to i32
   br label %while.end
 
 while.end:                                        ; preds = %while.body, %while.end.split.loop.exit
-  %num_digits.0.lcssa.ph = phi i32 [ %31, %while.end.split.loop.exit ], [ %smin, %while.body ]
+  %num_digits.0.lcssa.ph = phi i32 [ %26, %while.end.split.loop.exit ], [ %smin, %while.body ]
   %cmp142.not = icmp ne i32 %num_digits.0.lcssa.ph, %add
   %inc.i.i324 = zext i1 %cmp142.not to i64
-  %spec.select371 = add i64 %26, %inc.i.i324
+  %spec.select371 = add i64 %21, %inc.i.i324
   %idx.ext155 = sext i32 %num_digits.0.lcssa.ph to i64
-  %add.ptr156 = getelementptr inbounds i8, ptr %24, i64 %idx.ext155
+  %add.ptr156 = getelementptr inbounds i8, ptr %19, i64 %idx.ext155
   %cmp.not7.i.i325 = icmp eq i32 %add, %num_digits.0.lcssa.ph
   %__last10.i.i327 = ptrtoint ptr %add.ptr156 to i64
-  %32 = add i64 %25, %inc.i.i324
-  %33 = add i64 %32, %__last10.i.i327
-  %__result.sroa.0.0.lcssa.i.i328 = select i1 %cmp.not7.i.i325, i64 %spec.select371, i64 %33
+  %27 = add i64 %20, %inc.i.i324
+  %28 = add i64 %27, %__last10.i.i327
+  %__result.sroa.0.0.lcssa.i.i328 = select i1 %cmp.not7.i.i325, i64 %spec.select371, i64 %28
   br label %cleanup268
 
 if.end162:                                        ; preds = %if.then118
   %idx.ext175 = sext i32 %0 to i64
   %gepdiff = add nsw i64 %idx.ext175, 1
-  %34 = sub nsw i64 %gepdiff, %idx.ext122
-  %35 = add i64 %34, %26
-  %36 = load i32, ptr %specs_, align 8, !tbaa !2631
-  %cmp184 = icmp sgt i32 %36, %0
+  %29 = sub nsw i64 %gepdiff, %idx.ext122
+  %30 = add i64 %29, %21
+  %31 = load i32, ptr %specs_, align 8, !tbaa !2631
+  %cmp184 = icmp sgt i32 %31, %0
   br i1 %cmp184, label %if.then185, label %cleanup268
 
 if.then185:                                       ; preds = %if.end162
-  %sub190 = sub nsw i32 %36, %0
+  %sub190 = sub nsw i32 %31, %0
   %cmp4.i.i.i335 = icmp sgt i32 %sub190, 0
-  %37 = add nsw i32 %sub190, -1
-  %38 = zext nneg i32 %37 to i64
-  %39 = add i64 %35, 1
-  %40 = add i64 %39, %38
-  %__first.sroa.0.0.lcssa.i.i.i336 = select i1 %cmp4.i.i.i335, i64 %40, i64 %35
+  %32 = add nsw i32 %sub190, -1
+  %33 = zext nneg i32 %32 to i64
+  %34 = add i64 %30, 1
+  %35 = add i64 %34, %33
+  %__first.sroa.0.0.lcssa.i.i.i336 = select i1 %cmp4.i.i.i335, i64 %35, i64 %30
   br label %cleanup268
 
 if.else198:                                       ; preds = %if.else
   %inc.i.i338 = add i64 %it.coerce, 1
   %sub206 = sub nsw i32 0, %add
-  %41 = load i32, ptr %specs_, align 8, !tbaa !2631
-  %42 = tail call i32 @llvm.smin.i32(i32 %41, i32 %sub206)
-  %cmp209372 = icmp slt i32 %41, 0
-  %num_zeros205.0 = select i1 %cmp209372, i32 %sub206, i32 %42
-  %43 = and i32 %bf.load, 2097152
-  %bf.cast224.not301 = icmp eq i32 %43, 0
+  %36 = load i32, ptr %specs_, align 8, !tbaa !2631
+  %37 = tail call i32 @llvm.smin.i32(i32 %36, i32 %sub206)
+  %cmp209372 = icmp slt i32 %36, 0
+  %num_zeros205.0 = select i1 %cmp209372, i32 %sub206, i32 %37
+  %38 = and i32 %bf.load, 2097152
+  %bf.cast224.not301 = icmp eq i32 %38, 0
   %cmp227 = icmp sgt i32 %0, 0
   %or.cond271 = select i1 %bf.cast224.not301, i1 %cmp227, i1 false
   br i1 %or.cond271, label %land.rhs228.preheader, label %if.end239
 
 land.rhs228.preheader:                            ; preds = %if.else198
-  %44 = load ptr, ptr %this, align 8, !tbaa !2623
-  %invariant.gep = getelementptr i8, ptr %44, i64 -1
+  %39 = load ptr, ptr %this, align 8, !tbaa !2623
+  %invariant.gep = getelementptr i8, ptr %39, i64 -1
   br label %land.rhs228
 
 land.rhs228:                                      ; preds = %while.body236, %land.rhs228.preheader
   %num_digits217.0 = phi i32 [ %dec237, %while.body236 ], [ %0, %land.rhs228.preheader ]
-  %45 = zext nneg i32 %num_digits217.0 to i64
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %45
-  %46 = load i8, ptr %gep, align 1, !tbaa !35
-  %cmp234 = icmp eq i8 %46, 48
+  %40 = zext nneg i32 %num_digits217.0 to i64
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %40
+  %41 = load i8, ptr %gep, align 1, !tbaa !35
+  %cmp234 = icmp eq i8 %41, 48
   br i1 %cmp234, label %while.body236, label %if.then243
 
 while.body236:                                    ; preds = %land.rhs228
@@ -130706,27 +130700,27 @@ if.end239.if.then243_crit_edge:                   ; preds = %if.end239
   br label %if.then243
 
 if.then243:                                       ; preds = %land.rhs228, %if.end239.if.then243_crit_edge
-  %47 = phi ptr [ %.pre, %if.end239.if.then243_crit_edge ], [ %44, %land.rhs228 ]
+  %42 = phi ptr [ %.pre, %if.end239.if.then243_crit_edge ], [ %39, %land.rhs228 ]
   %num_digits217.1369 = phi i32 [ %num_digits217.1, %if.end239.if.then243_crit_edge ], [ %num_digits217.0, %land.rhs228 ]
   %inc.i.i340 = add i64 %it.coerce, 2
   %cmp4.i.i.i341 = icmp sgt i32 %num_zeros205.0, 0
-  %48 = add nsw i32 %num_zeros205.0, -1
-  %49 = zext nneg i32 %48 to i64
-  %50 = add i64 %it.coerce, 3
-  %51 = add i64 %50, %49
-  %__first.sroa.0.0.lcssa.i.i.i342 = select i1 %cmp4.i.i.i341, i64 %51, i64 %inc.i.i340
+  %43 = add nsw i32 %num_zeros205.0, -1
+  %44 = zext nneg i32 %43 to i64
+  %45 = add i64 %it.coerce, 3
+  %46 = add i64 %45, %44
+  %__first.sroa.0.0.lcssa.i.i.i342 = select i1 %cmp4.i.i.i341, i64 %46, i64 %inc.i.i340
   %idx.ext259 = sext i32 %num_digits217.1369 to i64
-  %add.ptr260 = getelementptr inbounds i8, ptr %47, i64 %idx.ext259
+  %add.ptr260 = getelementptr inbounds i8, ptr %42, i64 %idx.ext259
   %cmp.not7.i.i343 = icmp eq i32 %num_digits217.1369, 0
-  %__first11.i.i344 = ptrtoint ptr %47 to i64
+  %__first11.i.i344 = ptrtoint ptr %42 to i64
   %__last10.i.i345 = ptrtoint ptr %add.ptr260 to i64
-  %52 = sub i64 %__first.sroa.0.0.lcssa.i.i.i342, %__first11.i.i344
-  %53 = add i64 %52, %__last10.i.i345
-  %__result.sroa.0.0.lcssa.i.i346 = select i1 %cmp.not7.i.i343, i64 %__first.sroa.0.0.lcssa.i.i.i342, i64 %53
+  %47 = sub i64 %__first.sroa.0.0.lcssa.i.i.i342, %__first11.i.i344
+  %48 = add i64 %47, %__last10.i.i345
+  %__result.sroa.0.0.lcssa.i.i346 = select i1 %cmp.not7.i.i343, i64 %__first.sroa.0.0.lcssa.i.i.i342, i64 %48
   br label %cleanup268
 
 cleanup268:                                       ; preds = %if.then243, %if.end239, %if.then185, %if.end162, %while.end, %cleanup, %if.then94, %if.then57, %if.then
-  %retval.sroa.0.1 = phi i64 [ %inc.i.i64.i, %if.then ], [ %__result.sroa.0.0.lcssa.i.i328, %while.end ], [ %__first.sroa.0.0.lcssa.i.i.i336, %if.then185 ], [ %35, %if.end162 ], [ %__result.sroa.0.0.lcssa.i.i346, %if.then243 ], [ %inc.i.i338, %if.end239 ], [ %__first.sroa.0.0.lcssa.i.i.i312, %if.then57 ], [ %23, %cleanup ], [ %spec.select370, %if.then94 ]
+  %retval.sroa.0.1 = phi i64 [ %inc.i.i64.i, %if.then ], [ %__result.sroa.0.0.lcssa.i.i328, %while.end ], [ %__first.sroa.0.0.lcssa.i.i.i336, %if.then185 ], [ %30, %if.end162 ], [ %__result.sroa.0.0.lcssa.i.i346, %if.then243 ], [ %inc.i.i338, %if.end239 ], [ %__first.sroa.0.0.lcssa.i.i.i312, %if.then57 ], [ %18, %cleanup ], [ %spec.select370, %if.then94 ]
   ret i64 %retval.sroa.0.1
 }
 

@@ -55,14 +55,14 @@ default.unreachable9:                             ; preds = %2
 
 5:                                                ; preds = %2
   %6 = lshr i64 %3, 32
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nuw i64 %6 to i32
   %8 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %7, ptr %8, align 4
   br label %61
 
 9:                                                ; preds = %2
   %10 = lshr i64 %3, 32
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw i64 %10 to i32
   switch i32 %11, label %52 [
     i32 0, label %_ZN3std2io5error14repr_bitpacked14kind_from_prim17hee8848ea1926270fE.exit
     i32 1, label %12
@@ -1530,7 +1530,7 @@ default.unreachable:                              ; preds = %1
 
 _ZN3std2io5error14repr_bitpacked14kind_from_prim17hee8848ea1926270fE.exit.i.i: ; preds = %1
   %5 = lshr i64 %3, 32
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw i64 %5 to i32
   %switch.i = icmp ult i32 %6, 41
   tail call void @llvm.assume(i1 %switch.i)
   br label %"_ZN78_$LT$std..io..error..repr_bitpacked..Repr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h89ad090c4481e9c8E.llvm.11290379560268722015.exit"
@@ -1727,86 +1727,87 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$influxdb_influxql_p
   %2 = load i8, ptr %0, align 8, !range !893, !noundef !4
   %3 = add nsw i8 %2, -8
   %4 = icmp ult i8 %3, 3
-  %5 = add nsw i8 %2, -7
-  %trunc = select i1 %4, i8 %5, i8 0
-  switch i8 %trunc, label %"_ZN4core3ptr68drop_in_place$LT$influxdb_influxql_parser..select..TimeDimension$GT$17hf53e530a50a23547E.exit" [
-    i8 0, label %6
-    i8 1, label %20
-    i8 2, label %26
+  %5 = zext nneg i8 %2 to i64
+  %6 = add nsw i64 %5, -7
+  %7 = select i1 %4, i64 %6, i64 0
+  switch i64 %7, label %"_ZN4core3ptr68drop_in_place$LT$influxdb_influxql_parser..select..TimeDimension$GT$17hf53e530a50a23547E.exit" [
+    i64 0, label %8
+    i64 1, label %22
+    i64 2, label %28
   ]
 
-"_ZN4core3ptr68drop_in_place$LT$influxdb_influxql_parser..select..TimeDimension$GT$17hf53e530a50a23547E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.11290379560268722015.exit.i.i1.i.i.i", %26, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.11290379560268722015.exit.i.i1.i.i.i.i", %20, %17, %13, %1
+"_ZN4core3ptr68drop_in_place$LT$influxdb_influxql_parser..select..TimeDimension$GT$17hf53e530a50a23547E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.11290379560268722015.exit.i.i1.i.i.i", %28, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.11290379560268722015.exit.i.i1.i.i.i.i", %22, %19, %15, %1
   ret void
 
-6:                                                ; preds = %1
+8:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !894)
   invoke void @"_ZN4core3ptr75drop_in_place$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$17hb923def21a527eecE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
-          to label %13 unwind label %7
+          to label %15 unwind label %9
 
-7:                                                ; preds = %6
-  %8 = landingpad { ptr, i32 }
+9:                                                ; preds = %8
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
-  %10 = load i8, ptr %9, align 8, !range !897, !alias.scope !898, !noundef !4
-  %11 = icmp eq i8 %10, 8
-  br i1 %11, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$$GT$17h1eb766cd97127655E.exit.i", label %12
+  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %12 = load i8, ptr %11, align 8, !range !897, !alias.scope !898, !noundef !4
+  %13 = icmp eq i8 %12, 8
+  br i1 %13, label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$$GT$17h1eb766cd97127655E.exit.i", label %14
 
-12:                                               ; preds = %7
-  invoke void @"_ZN4core3ptr75drop_in_place$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$17hb923def21a527eecE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(56) %9)
-          to label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$$GT$17h1eb766cd97127655E.exit.i" unwind label %18
+14:                                               ; preds = %9
+  invoke void @"_ZN4core3ptr75drop_in_place$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$17hb923def21a527eecE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(56) %11)
+          to label %"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$$GT$17h1eb766cd97127655E.exit.i" unwind label %20
 
-13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %0, i64 56
-  %15 = load i8, ptr %14, align 8, !range !897, !alias.scope !901, !noundef !4
-  %16 = icmp eq i8 %15, 8
-  br i1 %16, label %"_ZN4core3ptr68drop_in_place$LT$influxdb_influxql_parser..select..TimeDimension$GT$17hf53e530a50a23547E.exit", label %17
+15:                                               ; preds = %8
+  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = load i8, ptr %16, align 8, !range !897, !alias.scope !901, !noundef !4
+  %18 = icmp eq i8 %17, 8
+  br i1 %18, label %"_ZN4core3ptr68drop_in_place$LT$influxdb_influxql_parser..select..TimeDimension$GT$17hf53e530a50a23547E.exit", label %19
 
-17:                                               ; preds = %13
-  tail call void @"_ZN4core3ptr75drop_in_place$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$17hb923def21a527eecE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(56) %14)
+19:                                               ; preds = %15
+  tail call void @"_ZN4core3ptr75drop_in_place$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$17hb923def21a527eecE.llvm.11290379560268722015"(ptr noalias noundef nonnull align 8 dereferenceable(56) %16)
   br label %"_ZN4core3ptr68drop_in_place$LT$influxdb_influxql_parser..select..TimeDimension$GT$17hf53e530a50a23547E.exit"
 
-18:                                               ; preds = %12
-  %19 = landingpad { ptr, i32 }
+20:                                               ; preds = %14
+  %21 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #14, !noalias !894
   unreachable
 
-"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$$GT$17h1eb766cd97127655E.exit.i": ; preds = %12, %7
-  resume { ptr, i32 } %8
+"_ZN4core3ptr103drop_in_place$LT$core..option..Option$LT$influxdb_influxql_parser..expression..arithmetic..Expr$GT$$GT$17h1eb766cd97127655E.exit.i": ; preds = %14, %9
+  resume { ptr, i32 } %10
 
-20:                                               ; preds = %1
+22:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !904)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !907)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !910)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !913)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !916)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !919)
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
-  %22 = load i64, ptr %21, align 8, !alias.scope !922, !noalias !925, !noundef !4
-  %23 = icmp eq i64 %22, 0
-  br i1 %23, label %"_ZN4core3ptr68drop_in_place$LT$influxdb_influxql_parser..select..TimeDimension$GT$17hf53e530a50a23547E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.11290379560268722015.exit.i.i1.i.i.i.i"
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = load i64, ptr %23, align 8, !alias.scope !922, !noalias !925, !noundef !4
+  %25 = icmp eq i64 %24, 0
+  br i1 %25, label %"_ZN4core3ptr68drop_in_place$LT$influxdb_influxql_parser..select..TimeDimension$GT$17hf53e530a50a23547E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.11290379560268722015.exit.i.i1.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.11290379560268722015.exit.i.i1.i.i.i.i": ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  %25 = load ptr, ptr %24, align 8, !alias.scope !922, !noalias !925, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef %22, i64 noundef 1) #13, !noalias !927
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.11290379560268722015.exit.i.i1.i.i.i.i": ; preds = %22
+  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %27 = load ptr, ptr %26, align 8, !alias.scope !922, !noalias !925, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %27, i64 noundef %24, i64 noundef 1) #13, !noalias !927
   br label %"_ZN4core3ptr68drop_in_place$LT$influxdb_influxql_parser..select..TimeDimension$GT$17hf53e530a50a23547E.exit"
 
-26:                                               ; preds = %1
+28:                                               ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !928)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !931)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !934)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !937)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !940)
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
-  %28 = load i64, ptr %27, align 8, !alias.scope !943, !noalias !946, !noundef !4
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %"_ZN4core3ptr68drop_in_place$LT$influxdb_influxql_parser..select..TimeDimension$GT$17hf53e530a50a23547E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.11290379560268722015.exit.i.i1.i.i.i"
+  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = load i64, ptr %29, align 8, !alias.scope !943, !noalias !946, !noundef !4
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %"_ZN4core3ptr68drop_in_place$LT$influxdb_influxql_parser..select..TimeDimension$GT$17hf53e530a50a23547E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.11290379560268722015.exit.i.i1.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.11290379560268722015.exit.i.i1.i.i.i": ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  %31 = load ptr, ptr %30, align 8, !alias.scope !943, !noalias !946, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %31, i64 noundef %28, i64 noundef 1) #13, !noalias !948
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.11290379560268722015.exit.i.i1.i.i.i": ; preds = %28
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = load ptr, ptr %32, align 8, !alias.scope !943, !noalias !946, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %33, i64 noundef %30, i64 noundef 1) #13, !noalias !948
   br label %"_ZN4core3ptr68drop_in_place$LT$influxdb_influxql_parser..select..TimeDimension$GT$17hf53e530a50a23547E.exit"
 }
 
@@ -5472,7 +5473,7 @@ default.unreachable:                              ; preds = %1
 
 _ZN3std2io5error14repr_bitpacked14kind_from_prim17hee8848ea1926270fE.exit.i: ; preds = %1
   %5 = lshr i64 %3, 32
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw i64 %5 to i32
   %switch = icmp ult i32 %6, 41
   tail call void @llvm.assume(i1 %switch)
   br label %"_ZN4core3ptr101drop_in_place$LT$std..io..error..ErrorData$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$$GT$17h05beac1b5dbe39b8E.llvm.11290379560268722015.exit"

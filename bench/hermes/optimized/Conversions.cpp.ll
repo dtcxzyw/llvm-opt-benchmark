@@ -15,10 +15,10 @@ define hidden noundef i32 @_ZN6hermes23truncateToInt32SlowPathEd(double noundef 
 entry:
   %0 = bitcast double %d to i64
   %shr = lshr i64 %0, 52
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nuw nsw i64 %shr to i32
   %and = and i32 %conv, 2047
   %shr1 = lshr i64 %0, 62
-  %conv2 = trunc i64 %shr1 to i32
+  %conv2 = trunc nuw nsw i64 %shr1 to i32
   %and3 = and i32 %conv2, 2
   %sub = sub nsw i32 1, %and3
   %tobool.not = icmp eq i32 %and, 0
@@ -196,7 +196,7 @@ for.body50:                                       ; preds = %for.body50.preheade
   store i8 %15, ptr %destPtr.497, align 1
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %destPtr.4 = getelementptr inbounds i8, ptr %destPtr.497, i64 1
-  %16 = trunc i64 %indvars.iv.next132 to i32
+  %16 = trunc nuw i64 %indvars.iv.next132 to i32
   %cmp49 = icmp slt i32 %16, %conv
   br i1 %cmp49, label %for.body50, label %if.end141, !llvm.loop !7
 
@@ -267,16 +267,15 @@ if.then85:                                        ; preds = %if.else83
 for.body97.preheader:                             ; preds = %if.then85
   %23 = zext nneg i32 %call87 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %incdec.ptr93, ptr nonnull align 16 %nBuf, i64 %23, i1 false)
-  %24 = add nsw i32 %call87, -1
-  %25 = zext nneg i32 %24 to i64
-  %26 = add nuw nsw i64 %25, 4
-  %scevgep = getelementptr i8, ptr %destPtr.0, i64 %26
+  %narrow = add nuw i32 %call87, 3
+  %24 = zext i32 %narrow to i64
+  %scevgep = getelementptr i8, ptr %destPtr.0, i64 %24
   br label %if.end141
 
 if.else104:                                       ; preds = %if.else83
   %call109 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %nBuf105, i64 noundef 32, ptr noundef nonnull @.str.4, i32 noundef %20) #7
-  %27 = load i8, ptr %call16, align 1
-  store i8 %27, ptr %destPtr.0, align 1
+  %25 = load i8, ptr %call16, align 1
+  store i8 %25, ptr %destPtr.0, align 1
   store i8 46, ptr %incdec.ptr89, align 1
   %cmp11570 = icmp sgt i32 %conv, 1
   br i1 %cmp11570, label %for.body116.preheader, label %for.end122
@@ -289,9 +288,9 @@ for.body116:                                      ; preds = %for.body116.prehead
   %indvars.iv = phi i64 [ 1, %for.body116.preheader ], [ %indvars.iv.next, %for.body116 ]
   %destPtr.871 = phi ptr [ %incdec.ptr90, %for.body116.preheader ], [ %incdec.ptr119, %for.body116 ]
   %arrayidx118 = getelementptr inbounds i8, ptr %call16, i64 %indvars.iv
-  %28 = load i8, ptr %arrayidx118, align 1
+  %26 = load i8, ptr %arrayidx118, align 1
   %incdec.ptr119 = getelementptr inbounds i8, ptr %destPtr.871, i64 1
-  store i8 %28, ptr %destPtr.871, align 1
+  store i8 %26, ptr %destPtr.871, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end122, label %for.body116, !llvm.loop !10
@@ -300,8 +299,8 @@ for.end122:                                       ; preds = %for.body116, %if.el
   %destPtr.8.lcssa = phi ptr [ %incdec.ptr90, %if.else104 ], [ %incdec.ptr119, %for.body116 ]
   %incdec.ptr123 = getelementptr inbounds i8, ptr %destPtr.8.lcssa, i64 1
   store i8 101, ptr %destPtr.8.lcssa, align 1
-  %29 = load i32, ptr %n, align 4
-  %cmp125 = icmp slt i32 %29, 1
+  %27 = load i32, ptr %n, align 4
+  %cmp125 = icmp slt i32 %27, 1
   %cond126 = select i1 %cmp125, i8 45, i8 43
   %incdec.ptr127 = getelementptr i8, ptr %destPtr.8.lcssa, i64 2
   store i8 %cond126, ptr %incdec.ptr123, align 1
@@ -316,9 +315,9 @@ for.body131:                                      ; preds = %for.body131.prehead
   %indvars.iv112 = phi i64 [ 0, %for.body131.preheader ], [ %indvars.iv.next113, %for.body131 ]
   %destPtr.974 = phi ptr [ %incdec.ptr127, %for.body131.preheader ], [ %incdec.ptr134, %for.body131 ]
   %arrayidx133 = getelementptr inbounds [32 x i8], ptr %nBuf105, i64 0, i64 %indvars.iv112
-  %30 = load i8, ptr %arrayidx133, align 1
+  %28 = load i8, ptr %arrayidx133, align 1
   %incdec.ptr134 = getelementptr inbounds i8, ptr %destPtr.974, i64 1
-  store i8 %30, ptr %destPtr.974, align 1
+  store i8 %28, ptr %destPtr.974, align 1
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond116.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count115
   br i1 %exitcond116.not, label %if.end141, label %for.body131, !llvm.loop !11
@@ -327,19 +326,19 @@ if.end141:                                        ; preds = %for.body131, %for.b
   %destPtr.10 = phi ptr [ %destPtr.1.lcssa, %for.cond25.preheader ], [ %destPtr.494, %for.end45 ], [ %destPtr.5.lcssa, %for.cond74.preheader ], [ %incdec.ptr93, %if.then85 ], [ %incdec.ptr127, %for.end122 ], [ %scevgep139, %for.body27.preheader ], [ %scevgep, %for.body97.preheader ], [ %destPtr.4, %for.body50 ], [ %incdec.ptr79, %for.body76 ], [ %incdec.ptr134, %for.body131 ]
   %incdec.ptr142 = getelementptr inbounds i8, ptr %destPtr.10, i64 1
   store i8 0, ptr %destPtr.10, align 1
-  %31 = load ptr, ptr %dalloc_.i, align 8
-  call void @g_freedtoa(ptr noundef %31, ptr noundef %call16) #7
+  %29 = load ptr, ptr %dalloc_.i, align 8
+  call void @g_freedtoa(ptr noundef %29, ptr noundef %call16) #7
   %sub.ptr.lhs.cast144 = ptrtoint ptr %incdec.ptr142 to i64
   %sub.ptr.rhs.cast145 = ptrtoint ptr %dest to i64
-  %32 = xor i64 %sub.ptr.rhs.cast145, -1
-  %sub147 = add i64 %sub.ptr.lhs.cast144, %32
+  %30 = xor i64 %sub.ptr.rhs.cast145, -1
+  %sub147 = add i64 %sub.ptr.lhs.cast144, %30
   %.pre = load ptr, ptr %dalloc_.i, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end141, %if.then12, %if.then7, %if.then2, %if.then
-  %33 = phi ptr [ %call.i, %if.then ], [ %call.i, %if.then2 ], [ %call.i, %if.then7 ], [ %call.i, %if.then12 ], [ %.pre, %if.end141 ]
+  %31 = phi ptr [ %call.i, %if.then ], [ %call.i, %if.then2 ], [ %call.i, %if.then7 ], [ %call.i, %if.then12 ], [ %.pre, %if.end141 ]
   %retval.0 = phi i64 [ 3, %if.then ], [ 1, %if.then2 ], [ 8, %if.then7 ], [ 9, %if.then12 ], [ %sub147, %if.end141 ]
-  call void @dtoa_alloc_done(ptr noundef %33) #7
+  call void @dtoa_alloc_done(ptr noundef %31) #7
   ret i64 %retval.0
 }
 
@@ -356,7 +355,7 @@ declare void @g_freedtoa(ptr noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef i64 @hermes_numberToString(double noundef %m, ptr noundef %dest, i64 noundef %destSize) local_unnamed_addr #1 {
 entry:
-  %call = tail call noundef i64 @_ZN6hermes14numberToStringEdPcm(double noundef %m, ptr noundef %dest, i64 poison)
+  %call = tail call noundef i64 @_ZN6hermes14numberToStringEdPcm(double noundef %m, ptr noundef %dest, i64 poison), !range !12
   ret i64 %call
 }
 
@@ -393,3 +392,4 @@ attributes #7 = { nounwind }
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
+!12 = !{i64 -9223372036854775808, i64 9223372036854775807}

@@ -27175,9 +27175,8 @@ sw.bb146:                                         ; preds = %_ZL15stbtt__buf_get
   br i1 %cmp147, label %return, label %for.body154.preheader
 
 for.body154.preheader:                            ; preds = %sw.bb146
-  %sub152 = add nsw i32 %sp.0258, -2
-  %45 = zext nneg i32 %sub152 to i64
-  %invariant.op = add nsw i64 %45, -11
+  %45 = zext nneg i32 %sp.0258 to i64
+  %invariant.op = add nsw i64 %45, -13
   br label %for.body154
 
 for.body154:                                      ; preds = %for.body154.preheader, %for.body154

@@ -4000,37 +4000,38 @@ define internal noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Displ
   %4 = load i8, ptr %3, align 1, !range !583, !alias.scope !580, !noalias !584, !noundef !5
   %5 = and i8 %4, 6
   %6 = icmp eq i8 %5, 4
-  %7 = add nsw i8 %4, -3
-  %trunc.i = select i1 %6, i8 %7, i8 0
-  switch i8 %trunc.i, label %8 [
-    i8 0, label %switch.lookup
-    i8 1, label %12
-    i8 2, label %14
+  %7 = zext nneg i8 %4 to i64
+  %8 = add nsw i64 %7, -3
+  %9 = select i1 %6, i64 %8, i64 0
+  switch i64 %9, label %10 [
+    i64 0, label %switch.lookup
+    i64 1, label %14
+    i64 2, label %16
   ]
 
-8:                                                ; preds = %2
+10:                                               ; preds = %2
   unreachable
 
 switch.lookup:                                    ; preds = %2
-  %9 = zext nneg i8 %4 to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E", i64 0, i64 %9
+  %11 = zext nneg i8 %4 to i64
+  %switch.gep = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E", i64 0, i64 %11
   %switch.load = load i64, ptr %switch.gep, align 8
-  %10 = zext nneg i8 %4 to i64
-  %switch.gep1 = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E.119", i64 0, i64 %10
+  %12 = zext nneg i8 %4 to i64
+  %switch.gep1 = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E.119", i64 0, i64 %12
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
-  %11 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !586
-  br label %"_ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E.exit"
-
-12:                                               ; preds = %2
-  %13 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.388, i64 noundef 18), !noalias !580
+  %13 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !586
   br label %"_ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E.exit"
 
 14:                                               ; preds = %2
-  %15 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.389, i64 noundef 6), !noalias !580
+  %15 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.388, i64 noundef 18), !noalias !580
   br label %"_ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E.exit"
 
-"_ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E.exit": ; preds = %switch.lookup, %12, %14
-  %.0.in.i = phi i1 [ %15, %14 ], [ %13, %12 ], [ %11, %switch.lookup ]
+16:                                               ; preds = %2
+  %17 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.389, i64 noundef 6), !noalias !580
+  br label %"_ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E.exit"
+
+"_ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E.exit": ; preds = %switch.lookup, %14, %16
+  %.0.in.i = phi i1 [ %17, %16 ], [ %15, %14 ], [ %13, %switch.lookup ]
   ret i1 %.0.in.i
 }
 
@@ -24182,37 +24183,38 @@ define noundef zeroext i1 @"_ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSour
   %3 = load i8, ptr %0, align 1, !range !583, !noundef !5
   %4 = and i8 %3, 6
   %5 = icmp eq i8 %4, 4
-  %6 = add nsw i8 %3, -3
-  %trunc = select i1 %5, i8 %6, i8 0
-  switch i8 %trunc, label %7 [
-    i8 0, label %switch.lookup
-    i8 1, label %11
-    i8 2, label %13
+  %6 = zext nneg i8 %3 to i64
+  %7 = add nsw i64 %6, -3
+  %8 = select i1 %5, i64 %7, i64 0
+  switch i64 %8, label %9 [
+    i64 0, label %switch.lookup
+    i64 1, label %13
+    i64 2, label %15
   ]
 
-7:                                                ; preds = %2
+9:                                                ; preds = %2
   unreachable
 
 switch.lookup:                                    ; preds = %2
-  %8 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E", i64 0, i64 %8
+  %10 = zext nneg i8 %3 to i64
+  %switch.gep = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E", i64 0, i64 %10
   %switch.load = load i64, ptr %switch.gep, align 8
-  %9 = zext nneg i8 %3 to i64
-  %switch.gep1 = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E.119", i64 0, i64 %9
+  %11 = zext nneg i8 %3 to i64
+  %switch.gep1 = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZN83_$LT$image..codecs..pnm..decoder..ErrorDataSource$u20$as$u20$core..fmt..Display$GT$3fmt17hc51e1b86dd75de79E.119", i64 0, i64 %11
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
-  %10 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !4745
-  br label %15
-
-11:                                               ; preds = %2
-  %12 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.388, i64 noundef 18)
-  br label %15
+  %12 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load), !noalias !4745
+  br label %17
 
 13:                                               ; preds = %2
-  %14 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.389, i64 noundef 6)
-  br label %15
+  %14 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.388, i64 noundef 18)
+  br label %17
 
-15:                                               ; preds = %13, %11, %switch.lookup
-  %.0.in = phi i1 [ %14, %13 ], [ %12, %11 ], [ %10, %switch.lookup ]
+15:                                               ; preds = %2
+  %16 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.389, i64 noundef 6)
+  br label %17
+
+17:                                               ; preds = %15, %13, %switch.lookup
+  %.0.in = phi i1 [ %16, %15 ], [ %14, %13 ], [ %12, %switch.lookup ]
   ret i1 %.0.in
 }
 

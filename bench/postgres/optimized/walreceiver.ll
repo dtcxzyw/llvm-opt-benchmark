@@ -372,7 +372,7 @@ define dso_local void @WalReceiverMain() local_unnamed_addr #3 {
   br label %138
 
 ._crit_edge198:                                   ; preds = %WalRcvWaitForStartPosition.exit, %115
-  %.lcssa168 = phi ptr [ %120, %115 ], [ %733, %WalRcvWaitForStartPosition.exit ]
+  %.lcssa168 = phi ptr [ %120, %115 ], [ %732, %WalRcvWaitForStartPosition.exit ]
   %134 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
   call void @llvm.assume(i1 %134)
   %135 = call i32 @errcode(i32 noundef 325) #15
@@ -383,7 +383,7 @@ define dso_local void @WalReceiverMain() local_unnamed_addr #3 {
 
 138:                                              ; preds = %.lr.ph197, %WalRcvWaitForStartPosition.exit
   %.075195 = phi i1 [ true, %.lr.ph197 ], [ %.1, %WalRcvWaitForStartPosition.exit ]
-  %.0194 = phi i64 [ %49, %.lr.ph197 ], [ %715, %WalRcvWaitForStartPosition.exit ]
+  %.0194 = phi i64 [ %49, %.lr.ph197 ], [ %714, %WalRcvWaitForStartPosition.exit ]
   %139 = load i32, ptr %15, align 4
   %140 = load i32, ptr %14, align 4
   %141 = icmp ult i32 %139, %140
@@ -445,7 +445,7 @@ define dso_local void @WalReceiverMain() local_unnamed_addr #3 {
   %174 = load ptr, ptr @wrconn, align 8
   %175 = call zeroext i1 %173(ptr noundef %174, ptr noundef nonnull %20) #15
   %176 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #15
-  br i1 %175, label %177, label %612
+  br i1 %175, label %177, label %611
 
 177:                                              ; preds = %167
   br i1 %.075195, label %178, label %185
@@ -455,7 +455,7 @@ define dso_local void @WalReceiverMain() local_unnamed_addr #3 {
 
 179:                                              ; preds = %178
   %180 = lshr i64 %.0194, 32
-  %181 = trunc i64 %180 to i32
+  %181 = trunc nuw i64 %180 to i32
   %182 = trunc i64 %.0194 to i32
   %183 = load i32, ptr %14, align 4
   %184 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, i32 noundef %181, i32 noundef %182, i32 noundef %183) #15
@@ -466,7 +466,7 @@ define dso_local void @WalReceiverMain() local_unnamed_addr #3 {
 
 186:                                              ; preds = %185
   %187 = lshr i64 %.0194, 32
-  %188 = trunc i64 %187 to i32
+  %188 = trunc nuw i64 %187 to i32
   %189 = trunc i64 %.0194 to i32
   %190 = load i32, ptr %14, align 4
   %191 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.13, i32 noundef %188, i32 noundef %189, i32 noundef %190) #15
@@ -562,7 +562,7 @@ WalRcvComputeNextWakeup.exit.thread:              ; preds = %WalRcvComputeNextWa
   %223 = call zeroext i1 @RecoveryInProgress() #15
   br i1 %223, label %.lr.ph190, label %._crit_edge191
 
-._crit_edge191:                                   ; preds = %WalRcvComputeNextWakeup.exit.thread, %603
+._crit_edge191:                                   ; preds = %WalRcvComputeNextWakeup.exit.thread, %602
   %224 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #16
   call void @llvm.assume(i1 %224)
   %225 = call i32 @errcode(i32 noundef 325) #15
@@ -570,7 +570,7 @@ WalRcvComputeNextWakeup.exit.thread:              ; preds = %WalRcvComputeNextWa
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 456, ptr noundef nonnull @__func__.WalReceiverMain) #15
   unreachable
 
-.lr.ph190:                                        ; preds = %WalRcvComputeNextWakeup.exit.thread, %603
+.lr.ph190:                                        ; preds = %WalRcvComputeNextWakeup.exit.thread, %602
   %227 = load volatile i32, ptr @InterruptPending, align 4
   %.not.i = icmp eq i32 %227, 0
   br i1 %.not.i, label %229, label %228
@@ -691,7 +691,7 @@ WalRcvComputeNextWakeup.exit113.thread:           ; preds = %WalRcvComputeNextWa
   br i1 %272, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %.preheader, %XLogWalRcvProcessMsg.exit
-  %.081186 = phi i32 [ %481, %XLogWalRcvProcessMsg.exit ], [ %271, %.preheader ]
+  %.081186 = phi i32 [ %480, %XLogWalRcvProcessMsg.exit ], [ %271, %.preheader ]
   %273 = call i64 @GetCurrentTimestamp() #15
   %274 = load i32, ptr @wal_receiver_timeout, align 4
   %275 = icmp slt i32 %274, 1
@@ -715,134 +715,133 @@ WalRcvComputeNextWakeup.exit115:                  ; preds = %.lr.ph, %276
   %284 = load ptr, ptr %21, align 8
   %285 = load i8, ptr %284, align 1
   %286 = getelementptr i8, ptr %284, i64 1
-  %287 = add nsw i32 %.081186, -1
-  %288 = zext nneg i32 %287 to i64
-  %289 = load i32, ptr %14, align 4
+  %287 = load i32, ptr %14, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
-  switch i8 %285, label %472 [
-    i8 119, label %290
-    i8 107, label %462
+  switch i8 %285, label %471 [
+    i8 119, label %288
+    i8 107, label %461
   ]
 
-290:                                              ; preds = %WalRcvComputeNextWakeup.exit115
-  %291 = icmp ult i32 %.081186, 25
-  br i1 %291, label %292, label %296
+288:                                              ; preds = %WalRcvComputeNextWakeup.exit115
+  %289 = icmp ult i32 %.081186, 25
+  br i1 %289, label %290, label %294
 
-292:                                              ; preds = %290
-  %293 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %293)
-  %294 = call i32 @errcode(i32 noundef 16908800) #15
-  %295 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.29) #15
+290:                                              ; preds = %288
+  %291 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  call void @llvm.assume(i1 %291)
+  %292 = call i32 @errcode(i32 noundef 16908800) #15
+  %293 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.29) #15
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 855, ptr noundef nonnull @__func__.XLogWalRcvProcessMsg) #15
   unreachable
 
-296:                                              ; preds = %290
+294:                                              ; preds = %288
   store ptr %286, ptr %10, align 8
   store i32 24, ptr %130, align 8
   store i32 0, ptr %131, align 4
   store i32 0, ptr %132, align 8
+  %295 = call i64 @pq_getmsgint64(ptr noundef nonnull %10) #15
+  %296 = call i64 @pq_getmsgint64(ptr noundef nonnull %10) #15
   %297 = call i64 @pq_getmsgint64(ptr noundef nonnull %10) #15
-  %298 = call i64 @pq_getmsgint64(ptr noundef nonnull %10) #15
-  %299 = call i64 @pq_getmsgint64(ptr noundef nonnull %10) #15
-  call fastcc void @ProcessWalSndrMessage(i64 noundef %298, i64 noundef %299)
-  %300 = add nsw i64 %288, -24
+  call fastcc void @ProcessWalSndrMessage(i64 noundef %296, i64 noundef %297)
+  %298 = zext nneg i32 %.081186 to i64
+  %299 = add nsw i64 %298, -25
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
-  %.not35.i.i = icmp eq i64 %300, 0
+  %.not35.i.i = icmp eq i64 %299, 0
   br i1 %.not35.i.i, label %.._crit_edge_crit_edge.i.i, label %.lr.ph.i.preheader.i
 
-.lr.ph.i.preheader.i:                             ; preds = %296
-  %301 = getelementptr i8, ptr %284, i64 25
+.lr.ph.i.preheader.i:                             ; preds = %294
+  %300 = getelementptr i8, ptr %284, i64 25
   br label %.lr.ph.i.i
 
-.._crit_edge_crit_edge.i.i:                       ; preds = %296
+.._crit_edge_crit_edge.i.i:                       ; preds = %294
   %.pre.i.i = load i64, ptr @LogstreamResult.0, align 8
   br label %._crit_edge.i.i
 
-.lr.ph.i.i:                                       ; preds = %394, %.lr.ph.i.preheader.i
-  %.038.i.i = phi ptr [ %398, %394 ], [ %301, %.lr.ph.i.preheader.i ]
-  %.02937.i.i = phi i64 [ %397, %394 ], [ %300, %.lr.ph.i.preheader.i ]
-  %.03036.i.i = phi i64 [ %396, %394 ], [ %297, %.lr.ph.i.preheader.i ]
-  %302 = load i32, ptr @recvFile, align 4
-  %303 = icmp sgt i32 %302, -1
+.lr.ph.i.i:                                       ; preds = %393, %.lr.ph.i.preheader.i
+  %.038.i.i = phi ptr [ %397, %393 ], [ %300, %.lr.ph.i.preheader.i ]
+  %.02937.i.i = phi i64 [ %396, %393 ], [ %299, %.lr.ph.i.preheader.i ]
+  %.03036.i.i = phi i64 [ %395, %393 ], [ %295, %.lr.ph.i.preheader.i ]
+  %301 = load i32, ptr @recvFile, align 4
+  %302 = icmp sgt i32 %301, -1
   %.pre46.i.i = load i32, ptr @wal_segment_size, align 4
-  br i1 %303, label %304, label %.thread.i.i
+  br i1 %302, label %303, label %.thread.i.i
 
-304:                                              ; preds = %.lr.ph.i.i
-  %305 = sext i32 %.pre46.i.i to i64
-  %306 = udiv i64 %.03036.i.i, %305
-  %307 = load i64, ptr @recvSegNo, align 8
-  %308 = icmp eq i64 %306, %307
-  br i1 %308, label %.thread50.i.i, label %309
+303:                                              ; preds = %.lr.ph.i.i
+  %304 = sext i32 %.pre46.i.i to i64
+  %305 = udiv i64 %.03036.i.i, %304
+  %306 = load i64, ptr @recvSegNo, align 8
+  %307 = icmp eq i64 %305, %306
+  br i1 %307, label %.thread50.i.i, label %308
 
-309:                                              ; preds = %304
+308:                                              ; preds = %303
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %1)
-  %310 = load i64, ptr @LogstreamResult.1, align 8
-  %311 = load i64, ptr @LogstreamResult.0, align 8
-  %312 = icmp ult i64 %310, %311
-  br i1 %312, label %313, label %XLogWalRcvFlush.exit139
+  %309 = load i64, ptr @LogstreamResult.1, align 8
+  %310 = load i64, ptr @LogstreamResult.0, align 8
+  %311 = icmp ult i64 %309, %310
+  br i1 %311, label %312, label %XLogWalRcvFlush.exit139
 
-313:                                              ; preds = %309
-  %314 = load ptr, ptr @WalRcv, align 8
-  call void @issue_xlog_fsync(i32 noundef %302, i64 noundef %307, i32 noundef %289) #15
-  %315 = load i64, ptr @LogstreamResult.0, align 8
-  store i64 %315, ptr @LogstreamResult.1, align 8
-  %316 = getelementptr inbounds i8, ptr %314, i64 2240
-  %317 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %316, i8 1, ptr nonnull elementtype(i8) %316) #15, !srcloc !5
-  %.not.i137 = icmp eq i8 %317, 0
-  br i1 %.not.i137, label %320, label %318
+312:                                              ; preds = %308
+  %313 = load ptr, ptr @WalRcv, align 8
+  call void @issue_xlog_fsync(i32 noundef %301, i64 noundef %306, i32 noundef %287) #15
+  %314 = load i64, ptr @LogstreamResult.0, align 8
+  store i64 %314, ptr @LogstreamResult.1, align 8
+  %315 = getelementptr inbounds i8, ptr %313, i64 2240
+  %316 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %315, i8 1, ptr nonnull elementtype(i8) %315) #15, !srcloc !5
+  %.not.i137 = icmp eq i8 %316, 0
+  br i1 %.not.i137, label %319, label %317
 
-318:                                              ; preds = %313
-  %319 = call i32 @s_lock(ptr noundef nonnull %316, ptr noundef nonnull @.str.1, i32 noundef 1004, ptr noundef nonnull @__func__.XLogWalRcvFlush) #15
-  br label %320
+317:                                              ; preds = %312
+  %318 = call i32 @s_lock(ptr noundef nonnull %315, ptr noundef nonnull @.str.1, i32 noundef 1004, ptr noundef nonnull @__func__.XLogWalRcvFlush) #15
+  br label %319
 
-320:                                              ; preds = %318, %313
-  %321 = getelementptr inbounds i8, ptr %314, i64 48
-  %322 = load i64, ptr %321, align 8
-  %323 = load i64, ptr @LogstreamResult.1, align 8
-  %324 = icmp ult i64 %322, %323
-  br i1 %324, label %325, label %328
+319:                                              ; preds = %317, %312
+  %320 = getelementptr inbounds i8, ptr %313, i64 48
+  %321 = load i64, ptr %320, align 8
+  %322 = load i64, ptr @LogstreamResult.1, align 8
+  %323 = icmp ult i64 %321, %322
+  br i1 %323, label %324, label %327
 
-325:                                              ; preds = %320
-  %326 = getelementptr inbounds i8, ptr %314, i64 64
-  store i64 %322, ptr %326, align 8
-  store i64 %323, ptr %321, align 8
-  %327 = getelementptr inbounds i8, ptr %314, i64 56
-  store i32 %289, ptr %327, align 8
-  br label %328
+324:                                              ; preds = %319
+  %325 = getelementptr inbounds i8, ptr %313, i64 64
+  store i64 %321, ptr %325, align 8
+  store i64 %322, ptr %320, align 8
+  %326 = getelementptr inbounds i8, ptr %313, i64 56
+  store i32 %287, ptr %326, align 8
+  br label %327
 
-328:                                              ; preds = %325, %320
+327:                                              ; preds = %324, %319
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !14
-  store i8 0, ptr %316, align 8
+  store i8 0, ptr %315, align 8
   call void @WakeupRecovery() #15
-  %329 = load i8, ptr @EnableHotStandby, align 1
-  %330 = trunc i8 %329 to i1
-  %331 = load i32, ptr @max_wal_senders, align 4
-  %332 = icmp sgt i32 %331, 0
-  %or.cond.i138 = select i1 %330, i1 %332, i1 false
-  br i1 %or.cond.i138, label %333, label %334
+  %328 = load i8, ptr @EnableHotStandby, align 1
+  %329 = trunc i8 %328 to i1
+  %330 = load i32, ptr @max_wal_senders, align 4
+  %331 = icmp sgt i32 %330, 0
+  %or.cond.i138 = select i1 %329, i1 %331, i1 false
+  br i1 %or.cond.i138, label %332, label %333
 
-333:                                              ; preds = %328
+332:                                              ; preds = %327
   call void @WalSndWakeup(i1 noundef zeroext true, i1 noundef zeroext false) #15
-  br label %334
+  br label %333
 
-334:                                              ; preds = %333, %328
-  %335 = load i8, ptr @update_process_title, align 1
-  %336 = trunc i8 %335 to i1
-  br i1 %336, label %337, label %344
+333:                                              ; preds = %332, %327
+  %334 = load i8, ptr @update_process_title, align 1
+  %335 = trunc i8 %334 to i1
+  br i1 %335, label %336, label %343
 
-337:                                              ; preds = %334
-  %338 = load i64, ptr @LogstreamResult.0, align 8
-  %339 = lshr i64 %338, 32
-  %340 = trunc i64 %339 to i32
-  %341 = trunc i64 %338 to i32
-  %342 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 50, ptr noundef nonnull @.str.35, i32 noundef %340, i32 noundef %341) #15
-  %343 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
-  call void @set_ps_display_with_len(ptr noundef nonnull %1, i64 noundef %343) #15
-  br label %344
+336:                                              ; preds = %333
+  %337 = load i64, ptr @LogstreamResult.0, align 8
+  %338 = lshr i64 %337, 32
+  %339 = trunc nuw i64 %338 to i32
+  %340 = trunc i64 %337 to i32
+  %341 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %1, i64 noundef 50, ptr noundef nonnull @.str.35, i32 noundef %339, i32 noundef %340) #15
+  %342 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
+  call void @set_ps_display_with_len(ptr noundef nonnull %1, i64 noundef %342) #15
+  br label %343
 
-344:                                              ; preds = %337, %334
+343:                                              ; preds = %336, %333
   call fastcc void @XLogWalRcvSendReply(i1 noundef zeroext false, i1 noundef zeroext false)
   call fastcc void @XLogWalRcvSendHSFeedback(i1 noundef zeroext false)
   %.pre = load i64, ptr @recvSegNo, align 8
@@ -850,198 +849,198 @@ WalRcvComputeNextWakeup.exit115:                  ; preds = %.lr.ph, %276
   %.pre233 = sext i32 %.pre227 to i64
   br label %XLogWalRcvFlush.exit139
 
-XLogWalRcvFlush.exit139:                          ; preds = %309, %344
-  %.pre-phi234 = phi i64 [ %305, %309 ], [ %.pre233, %344 ]
-  %345 = phi i64 [ %307, %309 ], [ %.pre, %344 ]
+XLogWalRcvFlush.exit139:                          ; preds = %308, %343
+  %.pre-phi234 = phi i64 [ %304, %308 ], [ %.pre233, %343 ]
+  %344 = phi i64 [ %306, %308 ], [ %.pre, %343 ]
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %1)
-  %346 = load i32, ptr @recvFileTLI, align 4
-  %347 = udiv i64 4294967296, %.pre-phi234
-  %348 = udiv i64 %345, %347
-  %349 = trunc i64 %348 to i32
-  %350 = urem i64 %345, %347
-  %351 = trunc i64 %350 to i32
-  %352 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 64, ptr noundef nonnull @.str.22, i32 noundef %346, i32 noundef %349, i32 noundef %351) #15
-  %353 = load i32, ptr @recvFile, align 4
-  %354 = call i32 @close(i32 noundef %353) #15
-  %.not.i131 = icmp eq i32 %354, 0
-  br i1 %.not.i131, label %359, label %355
+  %345 = load i32, ptr @recvFileTLI, align 4
+  %346 = udiv i64 4294967296, %.pre-phi234
+  %347 = udiv i64 %344, %346
+  %348 = trunc i64 %347 to i32
+  %349 = urem i64 %344, %346
+  %350 = trunc nuw i64 %349 to i32
+  %351 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 64, ptr noundef nonnull @.str.22, i32 noundef %345, i32 noundef %348, i32 noundef %350) #15
+  %352 = load i32, ptr @recvFile, align 4
+  %353 = call i32 @close(i32 noundef %352) #15
+  %.not.i131 = icmp eq i32 %353, 0
+  br i1 %.not.i131, label %358, label %354
 
-355:                                              ; preds = %XLogWalRcvFlush.exit139
-  %356 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #16
-  call void @llvm.assume(i1 %356)
-  %357 = call i32 @errcode_for_file_access() #15
-  %358 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef nonnull %3) #15
+354:                                              ; preds = %XLogWalRcvFlush.exit139
+  %355 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #16
+  call void @llvm.assume(i1 %355)
+  %356 = call i32 @errcode_for_file_access() #15
+  %357 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef nonnull %3) #15
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1070, ptr noundef nonnull @__func__.XLogWalRcvClose) #15
   unreachable
 
-359:                                              ; preds = %XLogWalRcvFlush.exit139
-  %360 = load i32, ptr @XLogArchiveMode, align 4
-  %.not1.i132 = icmp eq i32 %360, 2
-  br i1 %.not1.i132, label %362, label %361
+358:                                              ; preds = %XLogWalRcvFlush.exit139
+  %359 = load i32, ptr @XLogArchiveMode, align 4
+  %.not1.i132 = icmp eq i32 %359, 2
+  br i1 %.not1.i132, label %361, label %360
 
-361:                                              ; preds = %359
+360:                                              ; preds = %358
   call void @XLogArchiveForceDone(ptr noundef nonnull %3) #15
   br label %XLogWalRcvClose.exit133
 
-362:                                              ; preds = %359
+361:                                              ; preds = %358
   call void @XLogArchiveNotify(ptr noundef nonnull %3) #15
   br label %XLogWalRcvClose.exit133
 
-XLogWalRcvClose.exit133:                          ; preds = %361, %362
+XLogWalRcvClose.exit133:                          ; preds = %360, %361
   store i32 -1, ptr @recvFile, align 4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   %.pre48.pre.i.i = load i32, ptr @wal_segment_size, align 4
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %XLogWalRcvClose.exit133, %.lr.ph.i.i
-  %363 = phi i32 [ %.pre46.i.i, %.lr.ph.i.i ], [ %.pre48.pre.i.i, %XLogWalRcvClose.exit133 ]
-  %364 = sext i32 %363 to i64
-  %365 = udiv i64 %.03036.i.i, %364
-  store i64 %365, ptr @recvSegNo, align 8
-  %366 = call i32 @XLogFileInit(i64 noundef %365, i32 noundef %289) #15
-  store i32 %366, ptr @recvFile, align 4
-  store i32 %289, ptr @recvFileTLI, align 4
+  %362 = phi i32 [ %.pre46.i.i, %.lr.ph.i.i ], [ %.pre48.pre.i.i, %XLogWalRcvClose.exit133 ]
+  %363 = sext i32 %362 to i64
+  %364 = udiv i64 %.03036.i.i, %363
+  store i64 %364, ptr @recvSegNo, align 8
+  %365 = call i32 @XLogFileInit(i64 noundef %364, i32 noundef %287) #15
+  store i32 %365, ptr @recvFile, align 4
+  store i32 %287, ptr @recvFileTLI, align 4
   %.pre47.i.i = load i32, ptr @wal_segment_size, align 4
   %.pre231 = sext i32 %.pre47.i.i to i64
   br label %.thread50.i.i
 
-.thread50.i.i:                                    ; preds = %.thread.i.i, %304
-  %.pre-phi232 = phi i64 [ %.pre231, %.thread.i.i ], [ %305, %304 ]
-  %367 = phi i32 [ %366, %.thread.i.i ], [ %302, %304 ]
-  %368 = phi i32 [ %.pre47.i.i, %.thread.i.i ], [ %.pre46.i.i, %304 ]
-  %369 = add i32 %368, -1
-  %370 = trunc i64 %.03036.i.i to i32
-  %371 = and i32 %369, %370
-  %372 = sext i32 %371 to i64
-  %373 = add i64 %.02937.i.i, %372
-  %374 = icmp ugt i64 %373, %.pre-phi232
-  %375 = sub i32 %368, %371
-  %376 = trunc i64 %.02937.i.i to i32
-  %.028.i.i = select i1 %374, i32 %375, i32 %376
-  %377 = tail call ptr @__errno_location() #19
-  store i32 0, ptr %377, align 4
-  %378 = sext i32 %.028.i.i to i64
-  %379 = call i64 @pwrite(i32 noundef %367, ptr noundef %.038.i.i, i64 noundef %378, i64 noundef %372) #15
-  %380 = trunc i64 %379 to i32
-  %381 = icmp slt i32 %380, 1
-  br i1 %381, label %382, label %394
+.thread50.i.i:                                    ; preds = %.thread.i.i, %303
+  %.pre-phi232 = phi i64 [ %.pre231, %.thread.i.i ], [ %304, %303 ]
+  %366 = phi i32 [ %365, %.thread.i.i ], [ %301, %303 ]
+  %367 = phi i32 [ %.pre47.i.i, %.thread.i.i ], [ %.pre46.i.i, %303 ]
+  %368 = add i32 %367, -1
+  %369 = trunc i64 %.03036.i.i to i32
+  %370 = and i32 %368, %369
+  %371 = sext i32 %370 to i64
+  %372 = add i64 %.02937.i.i, %371
+  %373 = icmp ugt i64 %372, %.pre-phi232
+  %374 = sub i32 %367, %370
+  %375 = trunc i64 %.02937.i.i to i32
+  %.028.i.i = select i1 %373, i32 %374, i32 %375
+  %376 = tail call ptr @__errno_location() #19
+  store i32 0, ptr %376, align 4
+  %377 = sext i32 %.028.i.i to i64
+  %378 = call i64 @pwrite(i32 noundef %366, ptr noundef %.038.i.i, i64 noundef %377, i64 noundef %371) #15
+  %379 = trunc i64 %378 to i32
+  %380 = icmp slt i32 %379, 1
+  br i1 %380, label %381, label %393
 
-382:                                              ; preds = %.thread50.i.i
-  %383 = load i32, ptr %377, align 4
-  %384 = icmp eq i32 %383, 0
-  br i1 %384, label %385, label %386
+381:                                              ; preds = %.thread50.i.i
+  %382 = load i32, ptr %376, align 4
+  %383 = icmp eq i32 %382, 0
+  br i1 %383, label %384, label %385
 
-385:                                              ; preds = %382
-  store i32 28, ptr %377, align 4
-  br label %386
+384:                                              ; preds = %381
+  store i32 28, ptr %376, align 4
+  br label %385
 
-386:                                              ; preds = %385, %382
-  %387 = phi i32 [ 28, %385 ], [ %383, %382 ]
-  %388 = load i32, ptr @recvFileTLI, align 4
-  %389 = load i64, ptr @recvSegNo, align 8
-  %390 = load i32, ptr @wal_segment_size, align 4
-  call fastcc void @XLogFileName(ptr noundef nonnull %9, i32 noundef %388, i64 noundef %389, i32 noundef %390)
-  store i32 %387, ptr %377, align 4
-  %391 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #16
-  call void @llvm.assume(i1 %391)
-  %392 = call i32 @errcode_for_file_access() #15
-  %393 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.34, ptr noundef nonnull %9, i32 noundef %371, i64 noundef %378) #15
+385:                                              ; preds = %384, %381
+  %386 = phi i32 [ 28, %384 ], [ %382, %381 ]
+  %387 = load i32, ptr @recvFileTLI, align 4
+  %388 = load i64, ptr @recvSegNo, align 8
+  %389 = load i32, ptr @wal_segment_size, align 4
+  call fastcc void @XLogFileName(ptr noundef nonnull %9, i32 noundef %387, i64 noundef %388, i32 noundef %389)
+  store i32 %386, ptr %376, align 4
+  %390 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #16
+  call void @llvm.assume(i1 %390)
+  %391 = call i32 @errcode_for_file_access() #15
+  %392 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.34, ptr noundef nonnull %9, i32 noundef %370, i64 noundef %377) #15
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 959, ptr noundef nonnull @__func__.XLogWalRcvWrite) #15
   unreachable
 
-394:                                              ; preds = %.thread50.i.i
-  %395 = and i64 %379, 2147483647
-  %396 = add i64 %395, %.03036.i.i
-  %397 = sub i64 %.02937.i.i, %395
-  %398 = getelementptr i8, ptr %.038.i.i, i64 %395
-  store i64 %396, ptr @LogstreamResult.0, align 8
-  %.not.i.i = icmp eq i64 %397, 0
+393:                                              ; preds = %.thread50.i.i
+  %394 = and i64 %378, 2147483647
+  %395 = add i64 %394, %.03036.i.i
+  %396 = sub i64 %.02937.i.i, %394
+  %397 = getelementptr i8, ptr %.038.i.i, i64 %394
+  store i64 %395, ptr @LogstreamResult.0, align 8
+  %.not.i.i = icmp eq i64 %396, 0
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !15
 
-._crit_edge.i.i:                                  ; preds = %394, %.._crit_edge_crit_edge.i.i
-  %399 = phi i64 [ %.pre.i.i, %.._crit_edge_crit_edge.i.i ], [ %396, %394 ]
-  %.030.lcssa.i.i = phi i64 [ %297, %.._crit_edge_crit_edge.i.i ], [ %396, %394 ]
-  %400 = load ptr, ptr @WalRcv, align 8
-  %401 = getelementptr inbounds i8, ptr %400, i64 2248
-  store volatile i64 %399, ptr %401, align 8
-  %402 = load i32, ptr @recvFile, align 4
-  %403 = icmp sgt i32 %402, -1
-  br i1 %403, label %404, label %XLogWalRcvWrite.exit.i
+._crit_edge.i.i:                                  ; preds = %393, %.._crit_edge_crit_edge.i.i
+  %398 = phi i64 [ %.pre.i.i, %.._crit_edge_crit_edge.i.i ], [ %395, %393 ]
+  %.030.lcssa.i.i = phi i64 [ %295, %.._crit_edge_crit_edge.i.i ], [ %395, %393 ]
+  %399 = load ptr, ptr @WalRcv, align 8
+  %400 = getelementptr inbounds i8, ptr %399, i64 2248
+  store volatile i64 %398, ptr %400, align 8
+  %401 = load i32, ptr @recvFile, align 4
+  %402 = icmp sgt i32 %401, -1
+  br i1 %402, label %403, label %XLogWalRcvWrite.exit.i
 
-404:                                              ; preds = %._crit_edge.i.i
-  %405 = load i32, ptr @wal_segment_size, align 4
-  %406 = sext i32 %405 to i64
-  %407 = udiv i64 %.030.lcssa.i.i, %406
-  %408 = load i64, ptr @recvSegNo, align 8
-  %409 = icmp eq i64 %407, %408
-  br i1 %409, label %XLogWalRcvWrite.exit.i, label %410
+403:                                              ; preds = %._crit_edge.i.i
+  %404 = load i32, ptr @wal_segment_size, align 4
+  %405 = sext i32 %404 to i64
+  %406 = udiv i64 %.030.lcssa.i.i, %405
+  %407 = load i64, ptr @recvSegNo, align 8
+  %408 = icmp eq i64 %406, %407
+  br i1 %408, label %XLogWalRcvWrite.exit.i, label %409
 
-410:                                              ; preds = %404
+409:                                              ; preds = %403
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %2)
-  %411 = load i64, ptr @LogstreamResult.1, align 8
-  %412 = icmp ult i64 %411, %399
-  br i1 %412, label %413, label %XLogWalRcvFlush.exit136
+  %410 = load i64, ptr @LogstreamResult.1, align 8
+  %411 = icmp ult i64 %410, %398
+  br i1 %411, label %412, label %XLogWalRcvFlush.exit136
 
-413:                                              ; preds = %410
-  call void @issue_xlog_fsync(i32 noundef %402, i64 noundef %408, i32 noundef %289) #15
-  %414 = load i64, ptr @LogstreamResult.0, align 8
-  store i64 %414, ptr @LogstreamResult.1, align 8
-  %415 = getelementptr inbounds i8, ptr %400, i64 2240
-  %416 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %415, i8 1, ptr nonnull elementtype(i8) %415) #15, !srcloc !5
-  %.not.i134 = icmp eq i8 %416, 0
-  br i1 %.not.i134, label %419, label %417
+412:                                              ; preds = %409
+  call void @issue_xlog_fsync(i32 noundef %401, i64 noundef %407, i32 noundef %287) #15
+  %413 = load i64, ptr @LogstreamResult.0, align 8
+  store i64 %413, ptr @LogstreamResult.1, align 8
+  %414 = getelementptr inbounds i8, ptr %399, i64 2240
+  %415 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %414, i8 1, ptr nonnull elementtype(i8) %414) #15, !srcloc !5
+  %.not.i134 = icmp eq i8 %415, 0
+  br i1 %.not.i134, label %418, label %416
 
-417:                                              ; preds = %413
-  %418 = call i32 @s_lock(ptr noundef nonnull %415, ptr noundef nonnull @.str.1, i32 noundef 1004, ptr noundef nonnull @__func__.XLogWalRcvFlush) #15
-  br label %419
+416:                                              ; preds = %412
+  %417 = call i32 @s_lock(ptr noundef nonnull %414, ptr noundef nonnull @.str.1, i32 noundef 1004, ptr noundef nonnull @__func__.XLogWalRcvFlush) #15
+  br label %418
 
-419:                                              ; preds = %417, %413
-  %420 = getelementptr inbounds i8, ptr %400, i64 48
-  %421 = load i64, ptr %420, align 8
-  %422 = load i64, ptr @LogstreamResult.1, align 8
-  %423 = icmp ult i64 %421, %422
-  br i1 %423, label %424, label %427
+418:                                              ; preds = %416, %412
+  %419 = getelementptr inbounds i8, ptr %399, i64 48
+  %420 = load i64, ptr %419, align 8
+  %421 = load i64, ptr @LogstreamResult.1, align 8
+  %422 = icmp ult i64 %420, %421
+  br i1 %422, label %423, label %426
 
-424:                                              ; preds = %419
-  %425 = getelementptr inbounds i8, ptr %400, i64 64
-  store i64 %421, ptr %425, align 8
-  store i64 %422, ptr %420, align 8
-  %426 = getelementptr inbounds i8, ptr %400, i64 56
-  store i32 %289, ptr %426, align 8
-  br label %427
+423:                                              ; preds = %418
+  %424 = getelementptr inbounds i8, ptr %399, i64 64
+  store i64 %420, ptr %424, align 8
+  store i64 %421, ptr %419, align 8
+  %425 = getelementptr inbounds i8, ptr %399, i64 56
+  store i32 %287, ptr %425, align 8
+  br label %426
 
-427:                                              ; preds = %424, %419
+426:                                              ; preds = %423, %418
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !14
-  store i8 0, ptr %415, align 8
+  store i8 0, ptr %414, align 8
   call void @WakeupRecovery() #15
-  %428 = load i8, ptr @EnableHotStandby, align 1
-  %429 = trunc i8 %428 to i1
-  %430 = load i32, ptr @max_wal_senders, align 4
-  %431 = icmp sgt i32 %430, 0
-  %or.cond.i135 = select i1 %429, i1 %431, i1 false
-  br i1 %or.cond.i135, label %432, label %433
+  %427 = load i8, ptr @EnableHotStandby, align 1
+  %428 = trunc i8 %427 to i1
+  %429 = load i32, ptr @max_wal_senders, align 4
+  %430 = icmp sgt i32 %429, 0
+  %or.cond.i135 = select i1 %428, i1 %430, i1 false
+  br i1 %or.cond.i135, label %431, label %432
 
-432:                                              ; preds = %427
+431:                                              ; preds = %426
   call void @WalSndWakeup(i1 noundef zeroext true, i1 noundef zeroext false) #15
-  br label %433
+  br label %432
 
-433:                                              ; preds = %432, %427
-  %434 = load i8, ptr @update_process_title, align 1
-  %435 = trunc i8 %434 to i1
-  br i1 %435, label %436, label %443
+432:                                              ; preds = %431, %426
+  %433 = load i8, ptr @update_process_title, align 1
+  %434 = trunc i8 %433 to i1
+  br i1 %434, label %435, label %442
 
-436:                                              ; preds = %433
-  %437 = load i64, ptr @LogstreamResult.0, align 8
-  %438 = lshr i64 %437, 32
-  %439 = trunc i64 %438 to i32
-  %440 = trunc i64 %437 to i32
-  %441 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 50, ptr noundef nonnull @.str.35, i32 noundef %439, i32 noundef %440) #15
-  %442 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #18
-  call void @set_ps_display_with_len(ptr noundef nonnull %2, i64 noundef %442) #15
-  br label %443
+435:                                              ; preds = %432
+  %436 = load i64, ptr @LogstreamResult.0, align 8
+  %437 = lshr i64 %436, 32
+  %438 = trunc nuw i64 %437 to i32
+  %439 = trunc i64 %436 to i32
+  %440 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 50, ptr noundef nonnull @.str.35, i32 noundef %438, i32 noundef %439) #15
+  %441 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #18
+  call void @set_ps_display_with_len(ptr noundef nonnull %2, i64 noundef %441) #15
+  br label %442
 
-443:                                              ; preds = %436, %433
+442:                                              ; preds = %435, %432
   call fastcc void @XLogWalRcvSendReply(i1 noundef zeroext false, i1 noundef zeroext false)
   call fastcc void @XLogWalRcvSendHSFeedback(i1 noundef zeroext false)
   %.pre228 = load i64, ptr @recvSegNo, align 8
@@ -1049,270 +1048,270 @@ XLogWalRcvClose.exit133:                          ; preds = %361, %362
   %.pre230 = sext i32 %.pre229 to i64
   br label %XLogWalRcvFlush.exit136
 
-XLogWalRcvFlush.exit136:                          ; preds = %410, %443
-  %.pre-phi = phi i64 [ %406, %410 ], [ %.pre230, %443 ]
-  %444 = phi i64 [ %408, %410 ], [ %.pre228, %443 ]
+XLogWalRcvFlush.exit136:                          ; preds = %409, %442
+  %.pre-phi = phi i64 [ %405, %409 ], [ %.pre230, %442 ]
+  %443 = phi i64 [ %407, %409 ], [ %.pre228, %442 ]
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %2)
-  %445 = load i32, ptr @recvFileTLI, align 4
-  %446 = udiv i64 4294967296, %.pre-phi
-  %447 = udiv i64 %444, %446
-  %448 = trunc i64 %447 to i32
-  %449 = urem i64 %444, %446
-  %450 = trunc i64 %449 to i32
-  %451 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 64, ptr noundef nonnull @.str.22, i32 noundef %445, i32 noundef %448, i32 noundef %450) #15
-  %452 = load i32, ptr @recvFile, align 4
-  %453 = call i32 @close(i32 noundef %452) #15
-  %.not.i129 = icmp eq i32 %453, 0
-  br i1 %.not.i129, label %458, label %454
+  %444 = load i32, ptr @recvFileTLI, align 4
+  %445 = udiv i64 4294967296, %.pre-phi
+  %446 = udiv i64 %443, %445
+  %447 = trunc i64 %446 to i32
+  %448 = urem i64 %443, %445
+  %449 = trunc nuw i64 %448 to i32
+  %450 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 64, ptr noundef nonnull @.str.22, i32 noundef %444, i32 noundef %447, i32 noundef %449) #15
+  %451 = load i32, ptr @recvFile, align 4
+  %452 = call i32 @close(i32 noundef %451) #15
+  %.not.i129 = icmp eq i32 %452, 0
+  br i1 %.not.i129, label %457, label %453
 
-454:                                              ; preds = %XLogWalRcvFlush.exit136
-  %455 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #16
-  call void @llvm.assume(i1 %455)
-  %456 = call i32 @errcode_for_file_access() #15
-  %457 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef nonnull %4) #15
+453:                                              ; preds = %XLogWalRcvFlush.exit136
+  %454 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #16
+  call void @llvm.assume(i1 %454)
+  %455 = call i32 @errcode_for_file_access() #15
+  %456 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef nonnull %4) #15
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1070, ptr noundef nonnull @__func__.XLogWalRcvClose) #15
   unreachable
 
-458:                                              ; preds = %XLogWalRcvFlush.exit136
-  %459 = load i32, ptr @XLogArchiveMode, align 4
-  %.not1.i130 = icmp eq i32 %459, 2
-  br i1 %.not1.i130, label %461, label %460
+457:                                              ; preds = %XLogWalRcvFlush.exit136
+  %458 = load i32, ptr @XLogArchiveMode, align 4
+  %.not1.i130 = icmp eq i32 %458, 2
+  br i1 %.not1.i130, label %460, label %459
 
-460:                                              ; preds = %458
+459:                                              ; preds = %457
   call void @XLogArchiveForceDone(ptr noundef nonnull %4) #15
   br label %XLogWalRcvClose.exit
 
-461:                                              ; preds = %458
+460:                                              ; preds = %457
   call void @XLogArchiveNotify(ptr noundef nonnull %4) #15
   br label %XLogWalRcvClose.exit
 
-XLogWalRcvClose.exit:                             ; preds = %460, %461
+XLogWalRcvClose.exit:                             ; preds = %459, %460
   store i32 -1, ptr @recvFile, align 4
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
   br label %XLogWalRcvWrite.exit.i
 
-XLogWalRcvWrite.exit.i:                           ; preds = %XLogWalRcvClose.exit, %404, %._crit_edge.i.i
+XLogWalRcvWrite.exit.i:                           ; preds = %XLogWalRcvClose.exit, %403, %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   br label %XLogWalRcvProcessMsg.exit
 
-462:                                              ; preds = %WalRcvComputeNextWakeup.exit115
-  %.not.i116 = icmp eq i32 %287, 17
-  br i1 %.not.i116, label %467, label %463
+461:                                              ; preds = %WalRcvComputeNextWakeup.exit115
+  %.not.i116 = icmp eq i32 %.081186, 18
+  br i1 %.not.i116, label %466, label %462
 
-463:                                              ; preds = %462
-  %464 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %464)
-  %465 = call i32 @errcode(i32 noundef 16908800) #15
-  %466 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30) #15
+462:                                              ; preds = %461
+  %463 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  call void @llvm.assume(i1 %463)
+  %464 = call i32 @errcode(i32 noundef 16908800) #15
+  %465 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30) #15
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 879, ptr noundef nonnull @__func__.XLogWalRcvProcessMsg) #15
   unreachable
 
-467:                                              ; preds = %462
+466:                                              ; preds = %461
   store ptr %286, ptr %11, align 8
   store i32 17, ptr %127, align 8
   store i32 0, ptr %128, align 4
   store i32 0, ptr %129, align 8
+  %467 = call i64 @pq_getmsgint64(ptr noundef nonnull %11) #15
   %468 = call i64 @pq_getmsgint64(ptr noundef nonnull %11) #15
-  %469 = call i64 @pq_getmsgint64(ptr noundef nonnull %11) #15
-  %470 = call i32 @pq_getmsgbyte(ptr noundef nonnull %11) #15
-  %.not22.i = icmp eq i32 %470, 0
-  call fastcc void @ProcessWalSndrMessage(i64 noundef %468, i64 noundef %469)
-  br i1 %.not22.i, label %XLogWalRcvProcessMsg.exit, label %471
+  %469 = call i32 @pq_getmsgbyte(ptr noundef nonnull %11) #15
+  %.not22.i = icmp eq i32 %469, 0
+  call fastcc void @ProcessWalSndrMessage(i64 noundef %467, i64 noundef %468)
+  br i1 %.not22.i, label %XLogWalRcvProcessMsg.exit, label %470
 
-471:                                              ; preds = %467
+470:                                              ; preds = %466
   call fastcc void @XLogWalRcvSendReply(i1 noundef zeroext true, i1 noundef zeroext false)
   br label %XLogWalRcvProcessMsg.exit
 
-472:                                              ; preds = %WalRcvComputeNextWakeup.exit115
-  %473 = zext i8 %285 to i32
-  %474 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %474)
-  %475 = call i32 @errcode(i32 noundef 16908800) #15
-  %476 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, i32 noundef %473) #15
+471:                                              ; preds = %WalRcvComputeNextWakeup.exit115
+  %472 = zext i8 %285 to i32
+  %473 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  call void @llvm.assume(i1 %473)
+  %474 = call i32 @errcode(i32 noundef 16908800) #15
+  %475 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.31, i32 noundef %472) #15
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 900, ptr noundef nonnull @__func__.XLogWalRcvProcessMsg) #15
   unreachable
 
-XLogWalRcvProcessMsg.exit:                        ; preds = %XLogWalRcvWrite.exit.i, %467, %471
+XLogWalRcvProcessMsg.exit:                        ; preds = %XLogWalRcvWrite.exit.i, %466, %470
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  %477 = load ptr, ptr @WalReceiverFunctions, align 8
-  %478 = getelementptr inbounds i8, ptr %477, i64 80
-  %479 = load ptr, ptr %478, align 8
-  %480 = load ptr, ptr @wrconn, align 8
-  %481 = call i32 %479(ptr noundef %480, ptr noundef nonnull %21, ptr noundef nonnull %22) #15
-  %482 = icmp sgt i32 %481, 0
-  br i1 %482, label %.lr.ph, label %._crit_edge
+  %476 = load ptr, ptr @WalReceiverFunctions, align 8
+  %477 = getelementptr inbounds i8, ptr %476, i64 80
+  %478 = load ptr, ptr %477, align 8
+  %479 = load ptr, ptr @wrconn, align 8
+  %480 = call i32 %478(ptr noundef %479, ptr noundef nonnull %21, ptr noundef nonnull %22) #15
+  %481 = icmp sgt i32 %480, 0
+  br i1 %481, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %XLogWalRcvProcessMsg.exit
-  %.not143 = icmp eq i32 %481, 0
+  %.not143 = icmp eq i32 %480, 0
   br i1 %.not143, label %.critedge111, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %483 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #15
-  br i1 %483, label %484, label %492
+  %482 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #15
+  br i1 %482, label %483, label %491
 
-484:                                              ; preds = %._crit_edge.thread
-  %485 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15) #15
-  %486 = load i32, ptr %14, align 4
-  %487 = load i64, ptr @LogstreamResult.0, align 8
-  %488 = lshr i64 %487, 32
-  %489 = trunc i64 %488 to i32
-  %490 = trunc i64 %487 to i32
-  %491 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.16, i32 noundef %486, i32 noundef %489, i32 noundef %490) #15
+483:                                              ; preds = %._crit_edge.thread
+  %484 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15) #15
+  %485 = load i32, ptr %14, align 4
+  %486 = load i64, ptr @LogstreamResult.0, align 8
+  %487 = lshr i64 %486, 32
+  %488 = trunc nuw i64 %487 to i32
+  %489 = trunc i64 %486 to i32
+  %490 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.16, i32 noundef %485, i32 noundef %488, i32 noundef %489) #15
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 503, ptr noundef nonnull @__func__.WalReceiverMain) #15
-  br label %492
+  br label %491
 
-492:                                              ; preds = %484, %._crit_edge.thread
+491:                                              ; preds = %483, %._crit_edge.thread
   call fastcc void @XLogWalRcvSendReply(i1 noundef zeroext false, i1 noundef zeroext false)
-  %493 = load i32, ptr %14, align 4
+  %492 = load i32, ptr %14, align 4
   call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %8)
-  %494 = load i64, ptr @LogstreamResult.1, align 8
-  %495 = load i64, ptr @LogstreamResult.0, align 8
-  %496 = icmp ult i64 %494, %495
-  br i1 %496, label %497, label %605
+  %493 = load i64, ptr @LogstreamResult.1, align 8
+  %494 = load i64, ptr @LogstreamResult.0, align 8
+  %495 = icmp ult i64 %493, %494
+  br i1 %495, label %496, label %604
 
-497:                                              ; preds = %492
-  %498 = load ptr, ptr @WalRcv, align 8
-  %499 = load i32, ptr @recvFile, align 4
-  %500 = load i64, ptr @recvSegNo, align 8
-  call void @issue_xlog_fsync(i32 noundef %499, i64 noundef %500, i32 noundef %493) #15
-  %501 = load i64, ptr @LogstreamResult.0, align 8
-  store i64 %501, ptr @LogstreamResult.1, align 8
-  %502 = getelementptr inbounds i8, ptr %498, i64 2240
-  %503 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %502, i8 1, ptr nonnull elementtype(i8) %502) #15, !srcloc !5
-  %.not.i117 = icmp eq i8 %503, 0
-  br i1 %.not.i117, label %506, label %504
+496:                                              ; preds = %491
+  %497 = load ptr, ptr @WalRcv, align 8
+  %498 = load i32, ptr @recvFile, align 4
+  %499 = load i64, ptr @recvSegNo, align 8
+  call void @issue_xlog_fsync(i32 noundef %498, i64 noundef %499, i32 noundef %492) #15
+  %500 = load i64, ptr @LogstreamResult.0, align 8
+  store i64 %500, ptr @LogstreamResult.1, align 8
+  %501 = getelementptr inbounds i8, ptr %497, i64 2240
+  %502 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %501, i8 1, ptr nonnull elementtype(i8) %501) #15, !srcloc !5
+  %.not.i117 = icmp eq i8 %502, 0
+  br i1 %.not.i117, label %505, label %503
 
-504:                                              ; preds = %497
-  %505 = call i32 @s_lock(ptr noundef nonnull %502, ptr noundef nonnull @.str.1, i32 noundef 1004, ptr noundef nonnull @__func__.XLogWalRcvFlush) #15
-  br label %506
+503:                                              ; preds = %496
+  %504 = call i32 @s_lock(ptr noundef nonnull %501, ptr noundef nonnull @.str.1, i32 noundef 1004, ptr noundef nonnull @__func__.XLogWalRcvFlush) #15
+  br label %505
 
-506:                                              ; preds = %504, %497
-  %507 = getelementptr inbounds i8, ptr %498, i64 48
-  %508 = load i64, ptr %507, align 8
-  %509 = load i64, ptr @LogstreamResult.1, align 8
-  %510 = icmp ult i64 %508, %509
-  br i1 %510, label %511, label %514
+505:                                              ; preds = %503, %496
+  %506 = getelementptr inbounds i8, ptr %497, i64 48
+  %507 = load i64, ptr %506, align 8
+  %508 = load i64, ptr @LogstreamResult.1, align 8
+  %509 = icmp ult i64 %507, %508
+  br i1 %509, label %510, label %513
 
-511:                                              ; preds = %506
-  %512 = getelementptr inbounds i8, ptr %498, i64 64
-  store i64 %508, ptr %512, align 8
-  store i64 %509, ptr %507, align 8
-  %513 = getelementptr inbounds i8, ptr %498, i64 56
-  store i32 %493, ptr %513, align 8
-  br label %514
+510:                                              ; preds = %505
+  %511 = getelementptr inbounds i8, ptr %497, i64 64
+  store i64 %507, ptr %511, align 8
+  store i64 %508, ptr %506, align 8
+  %512 = getelementptr inbounds i8, ptr %497, i64 56
+  store i32 %492, ptr %512, align 8
+  br label %513
 
-514:                                              ; preds = %511, %506
+513:                                              ; preds = %510, %505
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !14
-  store i8 0, ptr %502, align 8
+  store i8 0, ptr %501, align 8
   call void @WakeupRecovery() #15
-  %515 = load i8, ptr @EnableHotStandby, align 1
-  %516 = trunc i8 %515 to i1
-  %517 = load i32, ptr @max_wal_senders, align 4
-  %518 = icmp sgt i32 %517, 0
-  %or.cond.i = select i1 %516, i1 %518, i1 false
-  br i1 %or.cond.i, label %519, label %520
+  %514 = load i8, ptr @EnableHotStandby, align 1
+  %515 = trunc i8 %514 to i1
+  %516 = load i32, ptr @max_wal_senders, align 4
+  %517 = icmp sgt i32 %516, 0
+  %or.cond.i = select i1 %515, i1 %517, i1 false
+  br i1 %or.cond.i, label %518, label %519
 
-519:                                              ; preds = %514
+518:                                              ; preds = %513
   call void @WalSndWakeup(i1 noundef zeroext true, i1 noundef zeroext false) #15
-  br label %520
+  br label %519
 
-520:                                              ; preds = %519, %514
-  %521 = load i8, ptr @update_process_title, align 1
-  %522 = trunc i8 %521 to i1
-  br i1 %522, label %523, label %530
+519:                                              ; preds = %518, %513
+  %520 = load i8, ptr @update_process_title, align 1
+  %521 = trunc i8 %520 to i1
+  br i1 %521, label %522, label %529
 
-523:                                              ; preds = %520
-  %524 = load i64, ptr @LogstreamResult.0, align 8
-  %525 = lshr i64 %524, 32
-  %526 = trunc i64 %525 to i32
-  %527 = trunc i64 %524 to i32
-  %528 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 50, ptr noundef nonnull @.str.35, i32 noundef %526, i32 noundef %527) #15
-  %529 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #18
-  call void @set_ps_display_with_len(ptr noundef nonnull %8, i64 noundef %529) #15
-  br label %530
+522:                                              ; preds = %519
+  %523 = load i64, ptr @LogstreamResult.0, align 8
+  %524 = lshr i64 %523, 32
+  %525 = trunc nuw i64 %524 to i32
+  %526 = trunc i64 %523 to i32
+  %527 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 50, ptr noundef nonnull @.str.35, i32 noundef %525, i32 noundef %526) #15
+  %528 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #18
+  call void @set_ps_display_with_len(ptr noundef nonnull %8, i64 noundef %528) #15
+  br label %529
 
-530:                                              ; preds = %523, %520
+529:                                              ; preds = %522, %519
   call fastcc void @XLogWalRcvSendReply(i1 noundef zeroext false, i1 noundef zeroext false)
   call fastcc void @XLogWalRcvSendHSFeedback(i1 noundef zeroext false)
-  br label %605
+  br label %604
 
 .critedge111:                                     ; preds = %._crit_edge
   call fastcc void @XLogWalRcvSendReply(i1 noundef zeroext false, i1 noundef zeroext false)
-  %531 = load i32, ptr %14, align 4
+  %530 = load i32, ptr %14, align 4
   call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %7)
-  %532 = load i64, ptr @LogstreamResult.1, align 8
-  %533 = load i64, ptr @LogstreamResult.0, align 8
-  %534 = icmp ult i64 %532, %533
-  br i1 %534, label %535, label %XLogWalRcvFlush.exit120
+  %531 = load i64, ptr @LogstreamResult.1, align 8
+  %532 = load i64, ptr @LogstreamResult.0, align 8
+  %533 = icmp ult i64 %531, %532
+  br i1 %533, label %534, label %XLogWalRcvFlush.exit120
 
-535:                                              ; preds = %.critedge111
-  %536 = load ptr, ptr @WalRcv, align 8
-  %537 = load i32, ptr @recvFile, align 4
-  %538 = load i64, ptr @recvSegNo, align 8
-  call void @issue_xlog_fsync(i32 noundef %537, i64 noundef %538, i32 noundef %531) #15
-  %539 = load i64, ptr @LogstreamResult.0, align 8
-  store i64 %539, ptr @LogstreamResult.1, align 8
-  %540 = getelementptr inbounds i8, ptr %536, i64 2240
-  %541 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %540, i8 1, ptr nonnull elementtype(i8) %540) #15, !srcloc !5
-  %.not.i118 = icmp eq i8 %541, 0
-  br i1 %.not.i118, label %544, label %542
+534:                                              ; preds = %.critedge111
+  %535 = load ptr, ptr @WalRcv, align 8
+  %536 = load i32, ptr @recvFile, align 4
+  %537 = load i64, ptr @recvSegNo, align 8
+  call void @issue_xlog_fsync(i32 noundef %536, i64 noundef %537, i32 noundef %530) #15
+  %538 = load i64, ptr @LogstreamResult.0, align 8
+  store i64 %538, ptr @LogstreamResult.1, align 8
+  %539 = getelementptr inbounds i8, ptr %535, i64 2240
+  %540 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %539, i8 1, ptr nonnull elementtype(i8) %539) #15, !srcloc !5
+  %.not.i118 = icmp eq i8 %540, 0
+  br i1 %.not.i118, label %543, label %541
 
-542:                                              ; preds = %535
-  %543 = call i32 @s_lock(ptr noundef nonnull %540, ptr noundef nonnull @.str.1, i32 noundef 1004, ptr noundef nonnull @__func__.XLogWalRcvFlush) #15
-  br label %544
+541:                                              ; preds = %534
+  %542 = call i32 @s_lock(ptr noundef nonnull %539, ptr noundef nonnull @.str.1, i32 noundef 1004, ptr noundef nonnull @__func__.XLogWalRcvFlush) #15
+  br label %543
 
-544:                                              ; preds = %542, %535
-  %545 = getelementptr inbounds i8, ptr %536, i64 48
-  %546 = load i64, ptr %545, align 8
-  %547 = load i64, ptr @LogstreamResult.1, align 8
-  %548 = icmp ult i64 %546, %547
-  br i1 %548, label %549, label %552
+543:                                              ; preds = %541, %534
+  %544 = getelementptr inbounds i8, ptr %535, i64 48
+  %545 = load i64, ptr %544, align 8
+  %546 = load i64, ptr @LogstreamResult.1, align 8
+  %547 = icmp ult i64 %545, %546
+  br i1 %547, label %548, label %551
 
-549:                                              ; preds = %544
-  %550 = getelementptr inbounds i8, ptr %536, i64 64
-  store i64 %546, ptr %550, align 8
-  store i64 %547, ptr %545, align 8
-  %551 = getelementptr inbounds i8, ptr %536, i64 56
-  store i32 %531, ptr %551, align 8
-  br label %552
+548:                                              ; preds = %543
+  %549 = getelementptr inbounds i8, ptr %535, i64 64
+  store i64 %545, ptr %549, align 8
+  store i64 %546, ptr %544, align 8
+  %550 = getelementptr inbounds i8, ptr %535, i64 56
+  store i32 %530, ptr %550, align 8
+  br label %551
 
-552:                                              ; preds = %549, %544
+551:                                              ; preds = %548, %543
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !14
-  store i8 0, ptr %540, align 8
+  store i8 0, ptr %539, align 8
   call void @WakeupRecovery() #15
-  %553 = load i8, ptr @EnableHotStandby, align 1
-  %554 = trunc i8 %553 to i1
-  %555 = load i32, ptr @max_wal_senders, align 4
-  %556 = icmp sgt i32 %555, 0
-  %or.cond.i119 = select i1 %554, i1 %556, i1 false
-  br i1 %or.cond.i119, label %557, label %558
+  %552 = load i8, ptr @EnableHotStandby, align 1
+  %553 = trunc i8 %552 to i1
+  %554 = load i32, ptr @max_wal_senders, align 4
+  %555 = icmp sgt i32 %554, 0
+  %or.cond.i119 = select i1 %553, i1 %555, i1 false
+  br i1 %or.cond.i119, label %556, label %557
 
-557:                                              ; preds = %552
+556:                                              ; preds = %551
   call void @WalSndWakeup(i1 noundef zeroext true, i1 noundef zeroext false) #15
-  br label %558
+  br label %557
 
-558:                                              ; preds = %557, %552
-  %559 = load i8, ptr @update_process_title, align 1
-  %560 = trunc i8 %559 to i1
-  br i1 %560, label %561, label %568
+557:                                              ; preds = %556, %551
+  %558 = load i8, ptr @update_process_title, align 1
+  %559 = trunc i8 %558 to i1
+  br i1 %559, label %560, label %567
 
-561:                                              ; preds = %558
-  %562 = load i64, ptr @LogstreamResult.0, align 8
-  %563 = lshr i64 %562, 32
-  %564 = trunc i64 %563 to i32
-  %565 = trunc i64 %562 to i32
-  %566 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 50, ptr noundef nonnull @.str.35, i32 noundef %564, i32 noundef %565) #15
-  %567 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #18
-  call void @set_ps_display_with_len(ptr noundef nonnull %7, i64 noundef %567) #15
-  br label %568
+560:                                              ; preds = %557
+  %561 = load i64, ptr @LogstreamResult.0, align 8
+  %562 = lshr i64 %561, 32
+  %563 = trunc nuw i64 %562 to i32
+  %564 = trunc i64 %561 to i32
+  %565 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %7, i64 noundef 50, ptr noundef nonnull @.str.35, i32 noundef %563, i32 noundef %564) #15
+  %566 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #18
+  call void @set_ps_display_with_len(ptr noundef nonnull %7, i64 noundef %566) #15
+  br label %567
 
-568:                                              ; preds = %561, %558
+567:                                              ; preds = %560, %557
   call fastcc void @XLogWalRcvSendReply(i1 noundef zeroext false, i1 noundef zeroext false)
   call fastcc void @XLogWalRcvSendHSFeedback(i1 noundef zeroext false)
   br label %XLogWalRcvFlush.exit120
 
-XLogWalRcvFlush.exit120:                          ; preds = %.critedge111, %568
+XLogWalRcvFlush.exit120:                          ; preds = %.critedge111, %567
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %7)
   br label %.critedge.preheader
 
@@ -1322,375 +1321,375 @@ XLogWalRcvFlush.exit120:                          ; preds = %.critedge111, %568
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge ], [ 0, %.critedge.preheader ]
   %.077187 = phi i64 [ %..077, %.critedge ], [ 9223372036854775807, %.critedge.preheader ]
-  %569 = getelementptr [4 x i64], ptr @wakeup, i64 0, i64 %indvars.iv
-  %570 = load i64, ptr %569, align 8
-  %..077 = call i64 @llvm.smin.i64(i64 %570, i64 %.077187)
+  %568 = getelementptr [4 x i64], ptr @wakeup, i64 0, i64 %indvars.iv
+  %569 = load i64, ptr %568, align 8
+  %..077 = call i64 @llvm.smin.i64(i64 %569, i64 %.077187)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond226.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond226.not, label %571, label %.critedge, !llvm.loop !16
+  br i1 %exitcond226.not, label %570, label %.critedge, !llvm.loop !16
 
-571:                                              ; preds = %.critedge
-  %572 = call i64 @GetCurrentTimestamp() #15
-  %573 = call i64 @TimestampDifferenceMilliseconds(i64 noundef %572, i64 noundef %..077) #15
-  %574 = load ptr, ptr @MyLatch, align 8
-  %575 = load i32, ptr %22, align 4
-  %576 = call i32 @WaitLatchOrSocket(ptr noundef %574, i32 noundef 43, i32 noundef %575, i64 noundef %573, i32 noundef 83886092) #15
-  %577 = and i32 %576, 1
-  %.not103 = icmp eq i32 %577, 0
-  br i1 %.not103, label %590, label %578
+570:                                              ; preds = %.critedge
+  %571 = call i64 @GetCurrentTimestamp() #15
+  %572 = call i64 @TimestampDifferenceMilliseconds(i64 noundef %571, i64 noundef %..077) #15
+  %573 = load ptr, ptr @MyLatch, align 8
+  %574 = load i32, ptr %22, align 4
+  %575 = call i32 @WaitLatchOrSocket(ptr noundef %573, i32 noundef 43, i32 noundef %574, i64 noundef %572, i32 noundef 83886092) #15
+  %576 = and i32 %575, 1
+  %.not103 = icmp eq i32 %576, 0
+  br i1 %.not103, label %589, label %577
 
-578:                                              ; preds = %571
-  %579 = load ptr, ptr @MyLatch, align 8
-  call void @ResetLatch(ptr noundef %579) #15
-  %580 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i121 = icmp eq i32 %580, 0
-  br i1 %.not.i121, label %582, label %581
+577:                                              ; preds = %570
+  %578 = load ptr, ptr @MyLatch, align 8
+  call void @ResetLatch(ptr noundef %578) #15
+  %579 = load volatile i32, ptr @InterruptPending, align 4
+  %.not.i121 = icmp eq i32 %579, 0
+  br i1 %.not.i121, label %581, label %580
 
-581:                                              ; preds = %578
+580:                                              ; preds = %577
   call void @ProcessInterrupts() #15
-  br label %582
+  br label %581
 
-582:                                              ; preds = %581, %578
-  %583 = load volatile i32, ptr @ShutdownRequestPending, align 4
-  %.not1.i122 = icmp eq i32 %583, 0
-  br i1 %.not1.i122, label %ProcessWalRcvInterrupts.exit123, label %584
+581:                                              ; preds = %580, %577
+  %582 = load volatile i32, ptr @ShutdownRequestPending, align 4
+  %.not1.i122 = icmp eq i32 %582, 0
+  br i1 %.not1.i122, label %ProcessWalRcvInterrupts.exit123, label %583
 
-584:                                              ; preds = %582
-  %585 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #16
-  call void @llvm.assume(i1 %585)
-  %586 = call i32 @errcode(i32 noundef 16908741) #15
-  %587 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #15
+583:                                              ; preds = %581
+  %584 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #16
+  call void @llvm.assume(i1 %584)
+  %585 = call i32 @errcode(i32 noundef 16908741) #15
+  %586 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #15
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 179, ptr noundef nonnull @__func__.ProcessWalRcvInterrupts) #15
   unreachable
 
-ProcessWalRcvInterrupts.exit123:                  ; preds = %582
-  %588 = load i32, ptr %133, align 8
-  %.not104 = icmp eq i32 %588, 0
-  br i1 %.not104, label %590, label %589
+ProcessWalRcvInterrupts.exit123:                  ; preds = %581
+  %587 = load i32, ptr %133, align 8
+  %.not104 = icmp eq i32 %587, 0
+  br i1 %.not104, label %589, label %588
 
-589:                                              ; preds = %ProcessWalRcvInterrupts.exit123
+588:                                              ; preds = %ProcessWalRcvInterrupts.exit123
   store i32 0, ptr %133, align 8
   call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !17
   call fastcc void @XLogWalRcvSendReply(i1 noundef zeroext true, i1 noundef zeroext false)
-  br label %590
+  br label %589
 
-590:                                              ; preds = %ProcessWalRcvInterrupts.exit123, %589, %571
-  %591 = and i32 %576, 8
-  %.not105 = icmp eq i32 %591, 0
-  br i1 %.not105, label %603, label %592
+589:                                              ; preds = %ProcessWalRcvInterrupts.exit123, %588, %570
+  %590 = and i32 %575, 8
+  %.not105 = icmp eq i32 %590, 0
+  br i1 %.not105, label %602, label %591
 
-592:                                              ; preds = %590
-  %593 = call i64 @GetCurrentTimestamp() #15
-  %594 = load i64, ptr @wakeup, align 16
-  %.not106 = icmp slt i64 %593, %594
-  br i1 %.not106, label %599, label %595
+591:                                              ; preds = %589
+  %592 = call i64 @GetCurrentTimestamp() #15
+  %593 = load i64, ptr @wakeup, align 16
+  %.not106 = icmp slt i64 %592, %593
+  br i1 %.not106, label %598, label %594
 
-595:                                              ; preds = %592
-  %596 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
-  call void @llvm.assume(i1 %596)
-  %597 = call i32 @errcode(i32 noundef 100663808) #15
-  %598 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17) #15
+594:                                              ; preds = %591
+  %595 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #16
+  call void @llvm.assume(i1 %595)
+  %596 = call i32 @errcode(i32 noundef 100663808) #15
+  %597 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17) #15
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 591, ptr noundef nonnull @__func__.WalReceiverMain) #15
   unreachable
 
-599:                                              ; preds = %592
-  %600 = load i64, ptr getelementptr inbounds ([4 x i64], ptr @wakeup, i64 0, i64 1), align 8
-  %.not107 = icmp sge i64 %593, %600
-  br i1 %.not107, label %601, label %602
+598:                                              ; preds = %591
+  %599 = load i64, ptr getelementptr inbounds ([4 x i64], ptr @wakeup, i64 0, i64 1), align 8
+  %.not107 = icmp sge i64 %592, %599
+  br i1 %.not107, label %600, label %601
 
-601:                                              ; preds = %599
+600:                                              ; preds = %598
   store i64 9223372036854775807, ptr getelementptr inbounds ([4 x i64], ptr @wakeup, i64 0, i64 1), align 8
-  br label %602
+  br label %601
 
-602:                                              ; preds = %601, %599
+601:                                              ; preds = %600, %598
   call fastcc void @XLogWalRcvSendReply(i1 noundef zeroext %.not107, i1 noundef zeroext %.not107)
   call fastcc void @XLogWalRcvSendHSFeedback(i1 noundef zeroext false)
-  br label %603
+  br label %602
 
-603:                                              ; preds = %602, %590
+602:                                              ; preds = %601, %589
   store i32 -1, ptr %22, align 4
-  %604 = call zeroext i1 @RecoveryInProgress() #15
-  br i1 %604, label %.lr.ph190, label %._crit_edge191
+  %603 = call zeroext i1 @RecoveryInProgress() #15
+  br i1 %603, label %.lr.ph190, label %._crit_edge191
 
-605:                                              ; preds = %530, %492
+604:                                              ; preds = %529, %491
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %8)
-  %606 = load ptr, ptr @WalReceiverFunctions, align 8
-  %607 = getelementptr inbounds i8, ptr %606, i64 72
-  %608 = load ptr, ptr %607, align 8
-  %609 = load ptr, ptr @wrconn, align 8
-  call void %608(ptr noundef %609, ptr noundef nonnull %15) #15
-  %610 = load i32, ptr %14, align 4
-  %611 = load i32, ptr %15, align 4
-  call fastcc void @WalRcvFetchTimeLineHistoryFiles(i32 noundef %610, i32 noundef %611)
-  br label %616
+  %605 = load ptr, ptr @WalReceiverFunctions, align 8
+  %606 = getelementptr inbounds i8, ptr %605, i64 72
+  %607 = load ptr, ptr %606, align 8
+  %608 = load ptr, ptr @wrconn, align 8
+  call void %607(ptr noundef %608, ptr noundef nonnull %15) #15
+  %609 = load i32, ptr %14, align 4
+  %610 = load i32, ptr %15, align 4
+  call fastcc void @WalRcvFetchTimeLineHistoryFiles(i32 noundef %609, i32 noundef %610)
+  br label %615
 
-612:                                              ; preds = %167
-  br i1 %176, label %613, label %616
+611:                                              ; preds = %167
+  br i1 %176, label %612, label %615
 
-613:                                              ; preds = %612
-  %614 = load i32, ptr %14, align 4
-  %615 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, i32 noundef %614) #15
+612:                                              ; preds = %611
+  %613 = load i32, ptr %14, align 4
+  %614 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, i32 noundef %613) #15
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 624, ptr noundef nonnull @__func__.WalReceiverMain) #15
-  br label %616
+  br label %615
 
-616:                                              ; preds = %613, %612, %605
-  %.1 = phi i1 [ false, %605 ], [ %.075195, %613 ], [ %.075195, %612 ]
-  %617 = load i32, ptr @recvFile, align 4
-  %618 = icmp sgt i32 %617, -1
-  br i1 %618, label %619, label %677
+615:                                              ; preds = %612, %611, %604
+  %.1 = phi i1 [ false, %604 ], [ %.075195, %612 ], [ %.075195, %611 ]
+  %616 = load i32, ptr @recvFile, align 4
+  %617 = icmp sgt i32 %616, -1
+  br i1 %617, label %618, label %676
 
-619:                                              ; preds = %616
-  %620 = load i32, ptr %14, align 4
+618:                                              ; preds = %615
+  %619 = load i32, ptr %14, align 4
   call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %6)
-  %621 = load i64, ptr @LogstreamResult.1, align 8
-  %622 = load i64, ptr @LogstreamResult.0, align 8
-  %623 = icmp ult i64 %621, %622
-  br i1 %623, label %624, label %XLogWalRcvFlush.exit126
+  %620 = load i64, ptr @LogstreamResult.1, align 8
+  %621 = load i64, ptr @LogstreamResult.0, align 8
+  %622 = icmp ult i64 %620, %621
+  br i1 %622, label %623, label %XLogWalRcvFlush.exit126
 
-624:                                              ; preds = %619
-  %625 = load ptr, ptr @WalRcv, align 8
-  %626 = load i64, ptr @recvSegNo, align 8
-  call void @issue_xlog_fsync(i32 noundef %617, i64 noundef %626, i32 noundef %620) #15
-  %627 = load i64, ptr @LogstreamResult.0, align 8
-  store i64 %627, ptr @LogstreamResult.1, align 8
-  %628 = getelementptr inbounds i8, ptr %625, i64 2240
-  %629 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %628, i8 1, ptr nonnull elementtype(i8) %628) #15, !srcloc !5
-  %.not.i124 = icmp eq i8 %629, 0
-  br i1 %.not.i124, label %632, label %630
+623:                                              ; preds = %618
+  %624 = load ptr, ptr @WalRcv, align 8
+  %625 = load i64, ptr @recvSegNo, align 8
+  call void @issue_xlog_fsync(i32 noundef %616, i64 noundef %625, i32 noundef %619) #15
+  %626 = load i64, ptr @LogstreamResult.0, align 8
+  store i64 %626, ptr @LogstreamResult.1, align 8
+  %627 = getelementptr inbounds i8, ptr %624, i64 2240
+  %628 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %627, i8 1, ptr nonnull elementtype(i8) %627) #15, !srcloc !5
+  %.not.i124 = icmp eq i8 %628, 0
+  br i1 %.not.i124, label %631, label %629
 
-630:                                              ; preds = %624
-  %631 = call i32 @s_lock(ptr noundef nonnull %628, ptr noundef nonnull @.str.1, i32 noundef 1004, ptr noundef nonnull @__func__.XLogWalRcvFlush) #15
-  br label %632
+629:                                              ; preds = %623
+  %630 = call i32 @s_lock(ptr noundef nonnull %627, ptr noundef nonnull @.str.1, i32 noundef 1004, ptr noundef nonnull @__func__.XLogWalRcvFlush) #15
+  br label %631
 
-632:                                              ; preds = %630, %624
-  %633 = getelementptr inbounds i8, ptr %625, i64 48
-  %634 = load i64, ptr %633, align 8
-  %635 = load i64, ptr @LogstreamResult.1, align 8
-  %636 = icmp ult i64 %634, %635
-  br i1 %636, label %637, label %640
+631:                                              ; preds = %629, %623
+  %632 = getelementptr inbounds i8, ptr %624, i64 48
+  %633 = load i64, ptr %632, align 8
+  %634 = load i64, ptr @LogstreamResult.1, align 8
+  %635 = icmp ult i64 %633, %634
+  br i1 %635, label %636, label %639
 
-637:                                              ; preds = %632
-  %638 = getelementptr inbounds i8, ptr %625, i64 64
-  store i64 %634, ptr %638, align 8
-  store i64 %635, ptr %633, align 8
-  %639 = getelementptr inbounds i8, ptr %625, i64 56
-  store i32 %620, ptr %639, align 8
-  br label %640
+636:                                              ; preds = %631
+  %637 = getelementptr inbounds i8, ptr %624, i64 64
+  store i64 %633, ptr %637, align 8
+  store i64 %634, ptr %632, align 8
+  %638 = getelementptr inbounds i8, ptr %624, i64 56
+  store i32 %619, ptr %638, align 8
+  br label %639
 
-640:                                              ; preds = %637, %632
+639:                                              ; preds = %636, %631
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !14
-  store i8 0, ptr %628, align 8
+  store i8 0, ptr %627, align 8
   call void @WakeupRecovery() #15
-  %641 = load i8, ptr @EnableHotStandby, align 1
-  %642 = trunc i8 %641 to i1
-  %643 = load i32, ptr @max_wal_senders, align 4
-  %644 = icmp sgt i32 %643, 0
-  %or.cond.i125 = select i1 %642, i1 %644, i1 false
-  br i1 %or.cond.i125, label %645, label %646
+  %640 = load i8, ptr @EnableHotStandby, align 1
+  %641 = trunc i8 %640 to i1
+  %642 = load i32, ptr @max_wal_senders, align 4
+  %643 = icmp sgt i32 %642, 0
+  %or.cond.i125 = select i1 %641, i1 %643, i1 false
+  br i1 %or.cond.i125, label %644, label %645
 
-645:                                              ; preds = %640
+644:                                              ; preds = %639
   call void @WalSndWakeup(i1 noundef zeroext true, i1 noundef zeroext false) #15
-  br label %646
+  br label %645
 
-646:                                              ; preds = %645, %640
-  %647 = load i8, ptr @update_process_title, align 1
-  %648 = trunc i8 %647 to i1
-  br i1 %648, label %649, label %656
+645:                                              ; preds = %644, %639
+  %646 = load i8, ptr @update_process_title, align 1
+  %647 = trunc i8 %646 to i1
+  br i1 %647, label %648, label %655
 
-649:                                              ; preds = %646
-  %650 = load i64, ptr @LogstreamResult.0, align 8
-  %651 = lshr i64 %650, 32
-  %652 = trunc i64 %651 to i32
-  %653 = trunc i64 %650 to i32
-  %654 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 50, ptr noundef nonnull @.str.35, i32 noundef %652, i32 noundef %653) #15
-  %655 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #18
-  call void @set_ps_display_with_len(ptr noundef nonnull %6, i64 noundef %655) #15
-  br label %656
+648:                                              ; preds = %645
+  %649 = load i64, ptr @LogstreamResult.0, align 8
+  %650 = lshr i64 %649, 32
+  %651 = trunc nuw i64 %650 to i32
+  %652 = trunc i64 %649 to i32
+  %653 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 50, ptr noundef nonnull @.str.35, i32 noundef %651, i32 noundef %652) #15
+  %654 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #18
+  call void @set_ps_display_with_len(ptr noundef nonnull %6, i64 noundef %654) #15
+  br label %655
 
-656:                                              ; preds = %649, %646
+655:                                              ; preds = %648, %645
   call fastcc void @XLogWalRcvSendReply(i1 noundef zeroext false, i1 noundef zeroext false)
   call fastcc void @XLogWalRcvSendHSFeedback(i1 noundef zeroext false)
   br label %XLogWalRcvFlush.exit126
 
-XLogWalRcvFlush.exit126:                          ; preds = %619, %656
+XLogWalRcvFlush.exit126:                          ; preds = %618, %655
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %6)
-  %657 = load i32, ptr @recvFileTLI, align 4
-  %658 = load i64, ptr @recvSegNo, align 8
-  %659 = load i32, ptr @wal_segment_size, align 4
-  %660 = sext i32 %659 to i64
-  %661 = udiv i64 4294967296, %660
-  %662 = udiv i64 %658, %661
-  %663 = trunc i64 %662 to i32
-  %664 = urem i64 %658, %661
-  %665 = trunc i64 %664 to i32
-  %666 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %23, i64 noundef 64, ptr noundef nonnull @.str.22, i32 noundef %657, i32 noundef %663, i32 noundef %665) #15
-  %667 = load i32, ptr @recvFile, align 4
-  %668 = call i32 @close(i32 noundef %667) #15
-  %.not108 = icmp eq i32 %668, 0
-  br i1 %.not108, label %673, label %669
+  %656 = load i32, ptr @recvFileTLI, align 4
+  %657 = load i64, ptr @recvSegNo, align 8
+  %658 = load i32, ptr @wal_segment_size, align 4
+  %659 = sext i32 %658 to i64
+  %660 = udiv i64 4294967296, %659
+  %661 = udiv i64 %657, %660
+  %662 = trunc i64 %661 to i32
+  %663 = urem i64 %657, %660
+  %664 = trunc nuw i64 %663 to i32
+  %665 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %23, i64 noundef 64, ptr noundef nonnull @.str.22, i32 noundef %656, i32 noundef %662, i32 noundef %664) #15
+  %666 = load i32, ptr @recvFile, align 4
+  %667 = call i32 @close(i32 noundef %666) #15
+  %.not108 = icmp eq i32 %667, 0
+  br i1 %.not108, label %672, label %668
 
-669:                                              ; preds = %XLogWalRcvFlush.exit126
-  %670 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #16
-  call void @llvm.assume(i1 %670)
-  %671 = call i32 @errcode_for_file_access() #15
-  %672 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef nonnull %23) #15
+668:                                              ; preds = %XLogWalRcvFlush.exit126
+  %669 = call zeroext i1 @errstart_cold(i32 noundef 23, ptr noundef null) #16
+  call void @llvm.assume(i1 %669)
+  %670 = call i32 @errcode_for_file_access() #15
+  %671 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef nonnull %23) #15
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 640, ptr noundef nonnull @__func__.WalReceiverMain) #15
   unreachable
 
-673:                                              ; preds = %XLogWalRcvFlush.exit126
-  %674 = load i32, ptr @XLogArchiveMode, align 4
-  %.not109 = icmp eq i32 %674, 2
-  br i1 %.not109, label %676, label %675
+672:                                              ; preds = %XLogWalRcvFlush.exit126
+  %673 = load i32, ptr @XLogArchiveMode, align 4
+  %.not109 = icmp eq i32 %673, 2
+  br i1 %.not109, label %675, label %674
 
-675:                                              ; preds = %673
+674:                                              ; preds = %672
   call void @XLogArchiveForceDone(ptr noundef nonnull %23) #15
-  br label %677
+  br label %676
 
-676:                                              ; preds = %673
+675:                                              ; preds = %672
   call void @XLogArchiveNotify(ptr noundef nonnull %23) #15
-  br label %677
+  br label %676
 
-677:                                              ; preds = %675, %676, %616
+676:                                              ; preds = %674, %675, %615
   store i32 -1, ptr @recvFile, align 4
-  %678 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #15
-  br i1 %678, label %679, label %681
+  %677 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #15
+  br i1 %677, label %678, label %680
 
-679:                                              ; preds = %677
-  %680 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20) #15
+678:                                              ; preds = %676
+  %679 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.20) #15
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 653, ptr noundef nonnull @__func__.WalReceiverMain) #15
-  br label %681
+  br label %680
 
-681:                                              ; preds = %677, %679
+680:                                              ; preds = %676, %678
   call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %5)
-  %682 = load ptr, ptr @WalRcv, align 8
-  %683 = getelementptr inbounds i8, ptr %682, i64 2240
-  %684 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %683, i8 1, ptr nonnull elementtype(i8) %683) #15, !srcloc !5
-  %.not.i127 = icmp eq i8 %684, 0
-  br i1 %.not.i127, label %687, label %685
+  %681 = load ptr, ptr @WalRcv, align 8
+  %682 = getelementptr inbounds i8, ptr %681, i64 2240
+  %683 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %682, i8 1, ptr nonnull elementtype(i8) %682) #15, !srcloc !5
+  %.not.i127 = icmp eq i8 %683, 0
+  br i1 %.not.i127, label %686, label %684
 
-685:                                              ; preds = %681
-  %686 = call i32 @s_lock(ptr noundef nonnull %683, ptr noundef nonnull @.str.1, i32 noundef 668, ptr noundef nonnull @__func__.WalRcvWaitForStartPosition) #15
-  br label %687
+684:                                              ; preds = %680
+  %685 = call i32 @s_lock(ptr noundef nonnull %682, ptr noundef nonnull @.str.1, i32 noundef 668, ptr noundef nonnull @__func__.WalRcvWaitForStartPosition) #15
+  br label %686
 
-687:                                              ; preds = %685, %681
-  %688 = getelementptr inbounds i8, ptr %682, i64 4
-  %689 = load i32, ptr %688, align 4
-  %.not24.i = icmp eq i32 %689, 2
-  br i1 %.not24.i, label %696, label %690
+686:                                              ; preds = %684, %680
+  %687 = getelementptr inbounds i8, ptr %681, i64 4
+  %688 = load i32, ptr %687, align 4
+  %.not24.i = icmp eq i32 %688, 2
+  br i1 %.not24.i, label %695, label %689
 
-690:                                              ; preds = %687
+689:                                              ; preds = %686
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !18
-  store i8 0, ptr %683, align 8
-  %691 = icmp eq i32 %689, 5
-  br i1 %691, label %692, label %693
+  store i8 0, ptr %682, align 8
+  %690 = icmp eq i32 %688, 5
+  br i1 %690, label %691, label %692
 
-692:                                              ; preds = %690
+691:                                              ; preds = %689
   call void @proc_exit(i32 noundef 0) #17
   unreachable
 
-693:                                              ; preds = %690
-  %694 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #16
-  call void @llvm.assume(i1 %694)
-  %695 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.23) #15
+692:                                              ; preds = %689
+  %693 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #16
+  call void @llvm.assume(i1 %693)
+  %694 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.23) #15
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 676, ptr noundef nonnull @__func__.WalRcvWaitForStartPosition) #15
   unreachable
 
-696:                                              ; preds = %687
-  store i32 3, ptr %688, align 4
-  %697 = getelementptr inbounds i8, ptr %682, i64 32
-  store i64 0, ptr %697, align 8
-  %698 = getelementptr inbounds i8, ptr %682, i64 40
-  store i32 0, ptr %698, align 8
+695:                                              ; preds = %686
+  store i32 3, ptr %687, align 4
+  %696 = getelementptr inbounds i8, ptr %681, i64 32
+  store i64 0, ptr %696, align 8
+  %697 = getelementptr inbounds i8, ptr %681, i64 40
+  store i32 0, ptr %697, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !19
-  store i8 0, ptr %683, align 8
+  store i8 0, ptr %682, align 8
   call void @set_ps_display_with_len(ptr noundef nonnull @.str.24, i64 noundef 4) #15
   call void @WakeupRecovery() #15
-  br label %699
+  br label %698
 
-699:                                              ; preds = %720, %696
-  %700 = load ptr, ptr @MyLatch, align 8
-  call void @ResetLatch(ptr noundef %700) #15
-  %701 = load volatile i32, ptr @InterruptPending, align 4
-  %.not.i.i128 = icmp eq i32 %701, 0
-  br i1 %.not.i.i128, label %703, label %702
+698:                                              ; preds = %719, %695
+  %699 = load ptr, ptr @MyLatch, align 8
+  call void @ResetLatch(ptr noundef %699) #15
+  %700 = load volatile i32, ptr @InterruptPending, align 4
+  %.not.i.i128 = icmp eq i32 %700, 0
+  br i1 %.not.i.i128, label %702, label %701
 
-702:                                              ; preds = %699
+701:                                              ; preds = %698
   call void @ProcessInterrupts() #15
-  br label %703
+  br label %702
 
-703:                                              ; preds = %702, %699
-  %704 = load volatile i32, ptr @ShutdownRequestPending, align 4
-  %.not1.i.i = icmp eq i32 %704, 0
-  br i1 %.not1.i.i, label %ProcessWalRcvInterrupts.exit.i, label %705
+702:                                              ; preds = %701, %698
+  %703 = load volatile i32, ptr @ShutdownRequestPending, align 4
+  %.not1.i.i = icmp eq i32 %703, 0
+  br i1 %.not1.i.i, label %ProcessWalRcvInterrupts.exit.i, label %704
 
-705:                                              ; preds = %703
-  %706 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #16
-  call void @llvm.assume(i1 %706)
-  %707 = call i32 @errcode(i32 noundef 16908741) #15
-  %708 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #15
+704:                                              ; preds = %702
+  %705 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #16
+  call void @llvm.assume(i1 %705)
+  %706 = call i32 @errcode(i32 noundef 16908741) #15
+  %707 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str) #15
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 179, ptr noundef nonnull @__func__.ProcessWalRcvInterrupts) #15
   unreachable
 
-ProcessWalRcvInterrupts.exit.i:                   ; preds = %703
-  %709 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %683, i8 1, ptr nonnull elementtype(i8) %683) #15, !srcloc !5
-  %.not25.i = icmp eq i8 %709, 0
-  br i1 %.not25.i, label %712, label %710
+ProcessWalRcvInterrupts.exit.i:                   ; preds = %702
+  %708 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %682, i8 1, ptr nonnull elementtype(i8) %682) #15, !srcloc !5
+  %.not25.i = icmp eq i8 %708, 0
+  br i1 %.not25.i, label %711, label %709
 
-710:                                              ; preds = %ProcessWalRcvInterrupts.exit.i
-  %711 = call i32 @s_lock(ptr noundef nonnull %683, ptr noundef nonnull @.str.1, i32 noundef 696, ptr noundef nonnull @__func__.WalRcvWaitForStartPosition) #15
-  br label %712
+709:                                              ; preds = %ProcessWalRcvInterrupts.exit.i
+  %710 = call i32 @s_lock(ptr noundef nonnull %682, ptr noundef nonnull @.str.1, i32 noundef 696, ptr noundef nonnull @__func__.WalRcvWaitForStartPosition) #15
+  br label %711
 
-712:                                              ; preds = %710, %ProcessWalRcvInterrupts.exit.i
-  %713 = load i32, ptr %688, align 4
-  switch i32 %713, label %720 [
-    i32 4, label %714
-    i32 5, label %719
+711:                                              ; preds = %709, %ProcessWalRcvInterrupts.exit.i
+  %712 = load i32, ptr %687, align 4
+  switch i32 %712, label %719 [
+    i32 4, label %713
+    i32 5, label %718
   ]
 
-714:                                              ; preds = %712
-  %715 = load i64, ptr %697, align 8
-  %716 = load i32, ptr %698, align 8
-  store i32 %716, ptr %14, align 4
-  store i32 2, ptr %688, align 4
+713:                                              ; preds = %711
+  %714 = load i64, ptr %696, align 8
+  %715 = load i32, ptr %697, align 8
+  store i32 %715, ptr %14, align 4
+  store i32 2, ptr %687, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !20
-  store i8 0, ptr %683, align 8
-  %717 = load i8, ptr @update_process_title, align 1
-  %718 = trunc i8 %717 to i1
-  br i1 %718, label %723, label %WalRcvWaitForStartPosition.exit
+  store i8 0, ptr %682, align 8
+  %716 = load i8, ptr @update_process_title, align 1
+  %717 = trunc i8 %716 to i1
+  br i1 %717, label %722, label %WalRcvWaitForStartPosition.exit
 
-719:                                              ; preds = %712
+718:                                              ; preds = %711
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !21
-  store i8 0, ptr %683, align 8
+  store i8 0, ptr %682, align 8
   call void @exit(i32 noundef 1) #17
   unreachable
 
-720:                                              ; preds = %712
+719:                                              ; preds = %711
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !22
-  store i8 0, ptr %683, align 8
-  %721 = load ptr, ptr @MyLatch, align 8
-  %722 = call i32 @WaitLatch(ptr noundef %721, i32 noundef 33, i64 noundef 0, i32 noundef 134217781) #15
-  br label %699
+  store i8 0, ptr %682, align 8
+  %720 = load ptr, ptr @MyLatch, align 8
+  %721 = call i32 @WaitLatch(ptr noundef %720, i32 noundef 33, i64 noundef 0, i32 noundef 134217781) #15
+  br label %698
 
-723:                                              ; preds = %714
-  %724 = lshr i64 %715, 32
-  %725 = trunc i64 %724 to i32
-  %726 = trunc i64 %715 to i32
-  %727 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 50, ptr noundef nonnull @.str.25, i32 noundef %725, i32 noundef %726) #15
-  %728 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #18
-  call void @set_ps_display_with_len(ptr noundef nonnull %5, i64 noundef %728) #15
+722:                                              ; preds = %713
+  %723 = lshr i64 %714, 32
+  %724 = trunc nuw i64 %723 to i32
+  %725 = trunc i64 %714 to i32
+  %726 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %5, i64 noundef 50, ptr noundef nonnull @.str.25, i32 noundef %724, i32 noundef %725) #15
+  %727 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #18
+  call void @set_ps_display_with_len(ptr noundef nonnull %5, i64 noundef %727) #15
   br label %WalRcvWaitForStartPosition.exit
 
-WalRcvWaitForStartPosition.exit:                  ; preds = %714, %723
+WalRcvWaitForStartPosition.exit:                  ; preds = %713, %722
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %5)
-  %729 = load ptr, ptr @WalReceiverFunctions, align 8
-  %730 = getelementptr inbounds i8, ptr %729, i64 32
-  %731 = load ptr, ptr %730, align 8
-  %732 = load ptr, ptr @wrconn, align 8
-  %733 = call ptr %731(ptr noundef %732, ptr noundef nonnull %15) #15
-  %734 = call i64 @GetSystemIdentifier() #15
-  %735 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %19, i64 noundef 32, ptr noundef nonnull @.str.7, i64 noundef %734) #15
-  %736 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %733, ptr noundef nonnull dereferenceable(1) %19) #18
-  %.not98 = icmp eq i32 %736, 0
+  %728 = load ptr, ptr @WalReceiverFunctions, align 8
+  %729 = getelementptr inbounds i8, ptr %728, i64 32
+  %730 = load ptr, ptr %729, align 8
+  %731 = load ptr, ptr @wrconn, align 8
+  %732 = call ptr %730(ptr noundef %731, ptr noundef nonnull %15) #15
+  %733 = call i64 @GetSystemIdentifier() #15
+  %734 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %19, i64 noundef 32, ptr noundef nonnull @.str.7, i64 noundef %733) #15
+  %735 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %732, ptr noundef nonnull dereferenceable(1) %19) #18
+  %.not98 = icmp eq i32 %735, 0
   br i1 %.not98, label %138, label %._crit_edge198
 }
 
@@ -1975,14 +1974,14 @@ WalRcvComputeNextWakeup.exit:                     ; preds = %.WalRcvComputeNextW
 67:                                               ; preds = %WalRcvComputeNextWakeup.exit
   %68 = load i64, ptr @XLogWalRcvSendReply.writePtr, align 8
   %69 = lshr i64 %68, 32
-  %70 = trunc i64 %69 to i32
+  %70 = trunc nuw i64 %69 to i32
   %71 = trunc i64 %68 to i32
   %72 = load i64, ptr @XLogWalRcvSendReply.flushPtr, align 8
   %73 = lshr i64 %72, 32
-  %74 = trunc i64 %73 to i32
+  %74 = trunc nuw i64 %73 to i32
   %75 = trunc i64 %72 to i32
   %76 = lshr i64 %21, 32
-  %77 = trunc i64 %76 to i32
+  %77 = trunc nuw i64 %76 to i32
   %78 = trunc i64 %21 to i32
   %79 = select i1 %1, ptr @.str.37, ptr @.str.38
   %80 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.36, i32 noundef %70, i32 noundef %71, i32 noundef %74, i32 noundef %75, i32 noundef %77, i32 noundef %78, ptr noundef nonnull %79) #15
@@ -2059,7 +2058,7 @@ WalRcvComputeNextWakeup.exit:                     ; preds = %10
   %28 = call i64 @ReadNextFullTransactionId() #15
   %29 = trunc i64 %28 to i32
   %30 = lshr i64 %28, 32
-  %31 = trunc i64 %30 to i32
+  %31 = trunc nuw i64 %30 to i32
   %32 = load i32, ptr %2, align 4
   %33 = icmp ugt i32 %32, %29
   %34 = add i32 %31, -1
@@ -2225,7 +2224,7 @@ define internal fastcc void @XLogWalRcvFlush(i1 noundef zeroext %0, i32 noundef 
 33:                                               ; preds = %30
   %34 = load i64, ptr @LogstreamResult.0, align 8
   %35 = lshr i64 %34, 32
-  %36 = trunc i64 %35 to i32
+  %36 = trunc nuw i64 %35 to i32
   %37 = trunc i64 %34 to i32
   %38 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %3, i64 noundef 50, ptr noundef nonnull @.str.35, i32 noundef %36, i32 noundef %37) #15
   %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #18
@@ -2257,7 +2256,7 @@ define internal fastcc void @XLogFileName(ptr noundef %0, i32 noundef %1, i64 no
   %7 = udiv i64 %2, %6
   %8 = trunc i64 %7 to i32
   %9 = urem i64 %2, %6
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw i64 %9 to i32
   %11 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %0, i64 noundef 64, ptr noundef nonnull @.str.22, i32 noundef %1, i32 noundef %8, i32 noundef %10) #15
   ret void
 }

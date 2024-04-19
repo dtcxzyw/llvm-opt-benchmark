@@ -60,41 +60,40 @@ define dso_local ptr @pglz_compress_datum(ptr noundef %0) local_unnamed_addr #0 
   %25 = load ptr, ptr @PGLZ_strategy_default, align 8
   %26 = load i32, ptr %25, align 4
   %27 = icmp slt i32 %24, %26
-  br i1 %27, label %46, label %28
+  br i1 %27, label %45, label %28
 
 28:                                               ; preds = %23
   %29 = getelementptr inbounds i8, ptr %25, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = icmp sgt i32 %24, %30
-  br i1 %31, label %46, label %32
+  br i1 %31, label %45, label %32
 
 32:                                               ; preds = %28
-  %33 = add nsw i32 %24, 4
-  %34 = zext nneg i32 %33 to i64
-  %35 = add nuw nsw i64 %34, 8
-  %36 = tail call ptr @palloc(i64 noundef %35) #7
-  %37 = load i8, ptr %0, align 1
-  %38 = and i8 %37, 1
-  %.not24 = icmp eq i8 %38, 0
+  %33 = sext i32 %24 to i64
+  %34 = add nsw i64 %33, 12
+  %35 = tail call ptr @palloc(i64 noundef %34) #7
+  %36 = load i8, ptr %0, align 1
+  %37 = and i8 %36, 1
+  %.not24 = icmp eq i8 %37, 0
   %.v = select i1 %.not24, i64 4, i64 1
-  %39 = getelementptr inbounds i8, ptr %0, i64 %.v
-  %40 = getelementptr i8, ptr %36, i64 8
-  %41 = tail call i32 @pglz_compress(ptr noundef nonnull %39, i32 noundef %24, ptr noundef %40, ptr noundef null) #7
-  %42 = icmp slt i32 %41, 0
-  br i1 %42, label %43, label %44
+  %38 = getelementptr inbounds i8, ptr %0, i64 %.v
+  %39 = getelementptr i8, ptr %35, i64 8
+  %40 = tail call i32 @pglz_compress(ptr noundef nonnull %38, i32 noundef %24, ptr noundef %39, ptr noundef null) #7
+  %41 = icmp slt i32 %40, 0
+  br i1 %41, label %42, label %43
+
+42:                                               ; preds = %32
+  tail call void @pfree(ptr noundef %35) #7
+  br label %45
 
 43:                                               ; preds = %32
-  tail call void @pfree(ptr noundef %36) #7
-  br label %46
+  %narrow = shl i32 %40, 2
+  %44 = add i32 %narrow, 34
+  store i32 %44, ptr %35, align 4
+  br label %45
 
-44:                                               ; preds = %32
-  %narrow = shl i32 %41, 2
-  %45 = add i32 %narrow, 34
-  store i32 %45, ptr %36, align 4
-  br label %46
-
-46:                                               ; preds = %23, %28, %44, %43
-  %.0 = phi ptr [ null, %43 ], [ %36, %44 ], [ null, %28 ], [ null, %23 ]
+45:                                               ; preds = %23, %28, %43, %42
+  %.0 = phi ptr [ null, %42 ], [ %35, %43 ], [ null, %28 ], [ null, %23 ]
   ret ptr %.0
 }
 
