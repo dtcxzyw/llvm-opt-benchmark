@@ -18722,9 +18722,9 @@ _ZN15tree_sitter_cli8generate5rules8TokenSet8is_empty17h025bd69e9bbdcce1E.exit.t
   %.sink1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %5515, %5504 ], [ %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %5500 ]
   %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %5514, %5504 ], [ %5503, %5500 ]
   %5516 = and i64 %.sink.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.sink1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %.0.in.i.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %5516, 0
+  %.0.in.i.i.not.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %5516, 0
   %5517 = add i64 %.sroa.12.1.i1093, 1
-  br i1 %.0.in.i.i.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader.i, label %"_ZN4core6option15Option$LT$T$GT$7or_else17haeadd6bb0cee2562E.exit.thread196.i"
+  br i1 %.0.in.i.i.not.not.i.i.i.i.i.i.i.i.i.i.i.i.i, label %.preheader.i, label %"_ZN4core6option15Option$LT$T$GT$7or_else17haeadd6bb0cee2562E.exit.thread196.i"
 
 .cont139.i:                                       ; preds = %.preheader.i, %5492
   %.sroa.12.2.i = phi i64 [ %.sroa.12.0.i, %5492 ], [ %.sroa.12.1.i1093, %.preheader.i ]
@@ -18769,9 +18769,9 @@ _ZN15tree_sitter_cli8generate5rules8TokenSet8is_empty17h025bd69e9bbdcce1E.exit.t
   %.sink1.i.i.i.i.i.i.i.i5.i.i.i.i.i.i.i = phi i64 [ %5537, %5526 ], [ %.val.i.i.i.i.i.i.i3.i.i.i.i.i.i.i, %5522 ]
   %.sink.i.i.i.i.i.i.i.i6.i.i.i.i.i.i.i = phi i64 [ %5536, %5526 ], [ %5525, %5522 ]
   %5538 = and i64 %.sink.i.i.i.i.i.i.i.i6.i.i.i.i.i.i.i, %.sink1.i.i.i.i.i.i.i.i5.i.i.i.i.i.i.i
-  %.0.in.i.i.not.i.i.i.i.i.i7.i.i.i.i.i.i.i = icmp eq i64 %5538, 0
+  %.0.in.i.i.not.not.i.i.i.i.i.i7.i.i.i.i.i.i.i = icmp eq i64 %5538, 0
   %5539 = add i64 %.sroa.17.1.i, 1
-  br i1 %.0.in.i.i.not.i.i.i.i.i.i7.i.i.i.i.i.i.i, label %.cont131.i, label %"_ZN4core6option15Option$LT$T$GT$7or_else17haeadd6bb0cee2562E.exit.thread196.i"
+  br i1 %.0.in.i.i.not.not.i.i.i.i.i.i7.i.i.i.i.i.i.i, label %.cont131.i, label %"_ZN4core6option15Option$LT$T$GT$7or_else17haeadd6bb0cee2562E.exit.thread196.i"
 
 .cont.i1080:                                      ; preds = %.cont131.i, %.cont139.i, %5491
   %.sroa.17.4.i = phi i64 [ %.sroa.17.0.i, %5491 ], [ %.sroa.17.0.i, %.cont139.i ], [ %.sroa.17.1.i, %.cont131.i ]

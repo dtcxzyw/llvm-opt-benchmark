@@ -263,7 +263,7 @@ if.then59:                                        ; preds = %if.end56
   br label %end
 
 if.end61:                                         ; preds = %if.end56
-  switch i8 %key_type.0, label %default.unreachable149 [
+  switch i8 %key_type.0, label %default.unreachable152 [
     i8 1, label %sw.bb63
     i8 2, label %sw.bb65
     i8 3, label %sw.bb67
@@ -290,7 +290,7 @@ if.then70:                                        ; preds = %sw.bb67
   call void @X509_free(ptr noundef nonnull %call68) #2
   br label %sw.epilog73
 
-default.unreachable149:                           ; preds = %if.end117, %if.end61
+default.unreachable152:                           ; preds = %if.end117, %if.end61
   unreachable
 
 sw.epilog73:                                      ; preds = %if.then70, %sw.bb65, %sw.bb63
@@ -333,19 +333,19 @@ if.end100:                                        ; preds = %if.end87
 for.cond.preheader:                               ; preds = %if.end100
   %div66 = lshr i64 %conv101, 1
   %invariant.gep = getelementptr i8, ptr %call90, i64 %conv101
-  %cmp104109.not = icmp ult i32 %call95, 2
-  br i1 %cmp104109.not, label %if.end112, label %for.body
+  %cmp104112.not = icmp ult i32 %call95, 2
+  br i1 %cmp104112.not, label %if.end112, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %i.0110 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
-  %arrayidx = getelementptr inbounds i8, ptr %call90, i64 %i.0110
+  %i.0113 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
+  %arrayidx = getelementptr inbounds i8, ptr %call90, i64 %i.0113
   %7 = load i8, ptr %arrayidx, align 1
-  %8 = xor i64 %i.0110, -1
+  %8 = xor i64 %i.0113, -1
   %gep = getelementptr i8, ptr %invariant.gep, i64 %8
   %9 = load i8, ptr %gep, align 1
   store i8 %9, ptr %arrayidx, align 1
   store i8 %7, ptr %gep, align 1
-  %inc = add nuw nsw i64 %i.0110, 1
+  %inc = add nuw nsw i64 %i.0113, 1
   %exitcond.not = icmp eq i64 %inc, %div66
   br i1 %exitcond.not, label %if.end112, label %for.body, !llvm.loop !7
 
@@ -355,7 +355,7 @@ if.end112:                                        ; preds = %for.body, %for.cond
   br i1 %cmp114, label %end, label %if.end117
 
 if.end117:                                        ; preds = %if.end112
-  switch i8 %rsa_mode.0, label %default.unreachable149 [
+  switch i8 %rsa_mode.0, label %default.unreachable152 [
     i8 2, label %sw.bb119
     i8 1, label %sw.bb131
     i8 3, label %sw.bb146
@@ -375,7 +375,8 @@ land.lhs.true123:                                 ; preds = %sw.bb119
 
 land.rhs:                                         ; preds = %land.lhs.true123
   %call128 = call i32 @EVP_PKEY_verify_recover(ptr noundef nonnull %call113, ptr noundef %call92, ptr noundef nonnull %rsa_outlen, ptr noundef %call90, i64 noundef %conv101) #2
-  br label %sw.epilog176
+  %cmp129 = icmp sgt i32 %call128, 0
+  br i1 %cmp129, label %if.end180, label %if.then178
 
 sw.bb131:                                         ; preds = %if.end117
   %call132 = call i32 @EVP_PKEY_sign_init(ptr noundef nonnull %call113) #2
@@ -390,7 +391,8 @@ land.lhs.true135:                                 ; preds = %sw.bb131
 
 land.rhs140:                                      ; preds = %land.lhs.true135
   %call141 = call i32 @EVP_PKEY_sign(ptr noundef nonnull %call113, ptr noundef %call92, ptr noundef nonnull %rsa_outlen, ptr noundef %call90, i64 noundef %conv101) #2
-  br label %sw.epilog176
+  %cmp142 = icmp sgt i32 %call141, 0
+  br i1 %cmp142, label %if.end180, label %if.then178
 
 sw.bb146:                                         ; preds = %if.end117
   %call147 = call i32 @EVP_PKEY_encrypt_init(ptr noundef nonnull %call113) #2
@@ -405,7 +407,8 @@ land.lhs.true150:                                 ; preds = %sw.bb146
 
 land.rhs155:                                      ; preds = %land.lhs.true150
   %call156 = call i32 @EVP_PKEY_encrypt(ptr noundef nonnull %call113, ptr noundef %call92, ptr noundef nonnull %rsa_outlen, ptr noundef %call90, i64 noundef %conv101) #2
-  br label %sw.epilog176
+  %cmp157 = icmp sgt i32 %call156, 0
+  br i1 %cmp157, label %if.end180, label %if.then178
 
 sw.bb161:                                         ; preds = %if.end117
   %call162 = call i32 @EVP_PKEY_decrypt_init(ptr noundef nonnull %call113) #2
@@ -420,21 +423,17 @@ land.lhs.true165:                                 ; preds = %sw.bb161
 
 land.rhs170:                                      ; preds = %land.lhs.true165
   %call171 = call i32 @EVP_PKEY_decrypt(ptr noundef nonnull %call113, ptr noundef %call92, ptr noundef nonnull %rsa_outlen, ptr noundef %call90, i64 noundef %conv101) #2
-  br label %sw.epilog176
+  %cmp172 = icmp sgt i32 %call171, 0
+  br i1 %cmp172, label %if.end180, label %if.then178
 
-sw.epilog176:                                     ; preds = %land.rhs170, %land.rhs155, %land.rhs140, %land.rhs
-  %rv.0.in.in = phi i32 [ %call128, %land.rhs ], [ %call141, %land.rhs140 ], [ %call156, %land.rhs155 ], [ %call171, %land.rhs170 ]
-  %rv.0.in = icmp slt i32 %rv.0.in.in, 1
-  br i1 %rv.0.in, label %if.then178, label %if.end180
-
-if.then178:                                       ; preds = %sw.bb161, %land.lhs.true165, %sw.bb146, %land.lhs.true150, %sw.bb131, %land.lhs.true135, %sw.bb119, %land.lhs.true123, %sw.epilog176
+if.then178:                                       ; preds = %land.lhs.true123, %sw.bb119, %land.rhs, %land.lhs.true135, %sw.bb131, %land.rhs140, %land.lhs.true150, %sw.bb146, %land.rhs155, %land.lhs.true165, %sw.bb161, %land.rhs170
   %10 = load ptr, ptr @bio_err, align 8
   %call179 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %10, ptr noundef nonnull @.str.64) #2
   %11 = load ptr, ptr @bio_err, align 8
   call void @ERR_print_errors(ptr noundef %11) #2
   br label %end
 
-if.end180:                                        ; preds = %sw.epilog176
+if.end180:                                        ; preds = %land.rhs170, %land.rhs155, %land.rhs140, %land.rhs
   %tobool181.not = icmp eq i32 %asn1parse.0, 0
   br i1 %tobool181.not, label %if.else, label %if.then182
 

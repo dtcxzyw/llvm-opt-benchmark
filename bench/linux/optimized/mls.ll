@@ -22,10 +22,10 @@ define dso_local i32 @mls_compute_context_len(ptr nocapture noundef readonly %0,
   %11 = getelementptr i8, ptr %1, i64 48
   br label %12
 
-12:                                               ; preds = %126, %5
-  %13 = phi i1 [ true, %5 ], [ false, %126 ]
-  %14 = phi i64 [ 0, %5 ], [ 1, %126 ]
-  %15 = phi i32 [ 1, %5 ], [ %130, %126 ]
+12:                                               ; preds = %124, %5
+  %13 = phi i1 [ true, %5 ], [ false, %124 ]
+  %14 = phi i64 [ 0, %5 ], [ 1, %124 ]
+  %15 = phi i32 [ 1, %5 ], [ %125, %124 ]
   %16 = getelementptr [2 x %struct.mls_level], ptr %6, i64 0, i64 %14
   %17 = load i32, ptr %16, align 8
   %18 = add i32 %17, -1
@@ -175,24 +175,20 @@ define dso_local i32 @mls_compute_context_len(ptr nocapture noundef readonly %0,
   %119 = load i32, ptr %6, align 8
   %120 = load i32, ptr %9, align 8
   %121 = icmp eq i32 %119, %120
-  br i1 %121, label %122, label %126
+  br i1 %121, label %122, label %124
 
 122:                                              ; preds = %118
   %123 = tail call i32 @ebitmap_cmp(ptr noundef %10, ptr noundef %11) #10
-  %124 = icmp ne i32 %123, 0
-  %125 = zext i1 %124 to i32
-  br label %126
+  %.not = icmp eq i32 %123, 0
+  br i1 %.not, label %124, label %.thread9
 
-126:                                              ; preds = %118, %122
-  %127 = phi i32 [ 0, %118 ], [ %125, %122 ]
-  %128 = icmp eq i32 %127, 0
-  %129 = xor i32 %127, 1
-  %130 = add i32 %129, %117
-  br i1 %128, label %12, label %.thread9, !llvm.loop !10
+124:                                              ; preds = %122, %118
+  %125 = add i32 %117, 1
+  br label %12, !llvm.loop !10
 
-.thread9:                                         ; preds = %.thread, %126, %2
-  %131 = phi i32 [ 0, %2 ], [ %117, %.thread ], [ %130, %126 ]
-  ret i32 %131
+.thread9:                                         ; preds = %122, %.thread, %2
+  %126 = phi i32 [ 0, %2 ], [ %117, %.thread ], [ %117, %122 ]
+  ret i32 %126
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -208,7 +204,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 define dso_local void @mls_sid_to_context(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 16 {
   %4 = load i32, ptr %0, align 8
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %136, label %6
+  br i1 %5, label %137, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %2, align 8
@@ -221,10 +217,10 @@ define dso_local void @mls_sid_to_context(ptr nocapture noundef readonly %0, ptr
   %13 = getelementptr i8, ptr %1, i64 48
   br label %14
 
-14:                                               ; preds = %.thread11, %6
-  %15 = phi i1 [ true, %6 ], [ false, %.thread11 ]
-  %16 = phi i64 [ 0, %6 ], [ 1, %.thread11 ]
-  %.pn = phi ptr [ %7, %6 ], [ %129, %.thread11 ]
+14:                                               ; preds = %136, %6
+  %15 = phi i1 [ true, %6 ], [ false, %136 ]
+  %16 = phi i64 [ 0, %6 ], [ 1, %136 ]
+  %.pn = phi ptr [ %7, %6 ], [ %129, %136 ]
   %17 = getelementptr i8, ptr %.pn, i64 1
   %18 = getelementptr [2 x %struct.mls_level], ptr %8, i64 0, i64 %16
   %19 = load i32, ptr %18, align 8
@@ -387,22 +383,22 @@ define dso_local void @mls_sid_to_context(ptr nocapture noundef readonly %0, ptr
   %131 = load i32, ptr %8, align 8
   %132 = load i32, ptr %11, align 8
   %133 = icmp eq i32 %131, %132
-  br i1 %133, label %134, label %.thread11
+  br i1 %133, label %134, label %136
 
 134:                                              ; preds = %130
   %135 = tail call i32 @ebitmap_cmp(ptr noundef %12, ptr noundef %13) #10
   %.not = icmp eq i32 %135, 0
-  br i1 %.not, label %.thread11, label %.thread12
+  br i1 %.not, label %136, label %.thread12
 
-.thread11:                                        ; preds = %130, %134
+136:                                              ; preds = %134, %130
   store i8 45, ptr %129, align 1
   br label %14, !llvm.loop !12
 
 .thread12:                                        ; preds = %.thread, %134
   store ptr %129, ptr %2, align 8
-  br label %136
+  br label %137
 
-136:                                              ; preds = %.thread12, %3
+137:                                              ; preds = %.thread12, %3
   ret void
 }
 

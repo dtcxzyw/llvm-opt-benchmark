@@ -3527,23 +3527,23 @@ land.lhs.true.i:                                  ; preds = %land.rhs
   %arrayidx7.i = getelementptr inbounds i8, ptr %tws.addr.026, i64 33
   %3 = load i8, ptr %arrayidx7.i, align 1
   %cmp9.i = icmp eq i8 %2, %3
-  br i1 %cmp9.i, label %matches_tree_write_stack.exit, label %while.end
+  br i1 %cmp9.i, label %land.rhs.i, label %while.end
 
-matches_tree_write_stack.exit:                    ; preds = %land.lhs.true.i
+land.rhs.i:                                       ; preds = %land.lhs.true.i
   %arrayidx11.i = getelementptr inbounds i8, ptr %add.ptr, i64 2
   %4 = load i8, ptr %arrayidx11.i, align 1
-  %cmp13.i.not = icmp eq i8 %4, 47
-  br i1 %cmp13.i.not, label %while.body, label %while.end
+  %cmp13.i = icmp eq i8 %4, 47
+  br i1 %cmp13.i, label %while.body, label %while.end
 
-while.body:                                       ; preds = %matches_tree_write_stack.exit
+while.body:                                       ; preds = %land.rhs.i
   %inc = add i32 %n.027, 1
   %5 = load ptr, ptr %tws.addr.026, align 8
   %tobool.not = icmp eq ptr %5, null
   br i1 %tobool.not, label %while.end, label %land.lhs.true, !llvm.loop !24
 
-while.end:                                        ; preds = %matches_tree_write_stack.exit, %while.body, %land.lhs.true, %land.lhs.true.i, %land.rhs, %entry
-  %tws.addr.0.lcssa = phi ptr [ null, %entry ], [ %tws.addr.026, %land.rhs ], [ %tws.addr.026, %land.lhs.true.i ], [ %tws.addr.026, %land.lhs.true ], [ null, %while.body ], [ %tws.addr.026, %matches_tree_write_stack.exit ]
-  %n.0.lcssa = phi i32 [ 0, %entry ], [ %n.027, %land.rhs ], [ %n.027, %land.lhs.true.i ], [ %n.027, %land.lhs.true ], [ %inc, %while.body ], [ %n.027, %matches_tree_write_stack.exit ]
+while.end:                                        ; preds = %while.body, %land.lhs.true, %land.lhs.true.i, %land.rhs, %land.rhs.i, %entry
+  %tws.addr.0.lcssa = phi ptr [ null, %entry ], [ %tws.addr.026, %land.rhs.i ], [ %tws.addr.026, %land.rhs ], [ %tws.addr.026, %land.lhs.true.i ], [ %tws.addr.026, %land.lhs.true ], [ null, %while.body ]
+  %n.0.lcssa = phi i32 [ 0, %entry ], [ %n.027, %land.rhs.i ], [ %n.027, %land.rhs ], [ %n.027, %land.lhs.true.i ], [ %n.027, %land.lhs.true ], [ %inc, %while.body ]
   %call5 = tail call fastcc i32 @tree_write_stack_finish_subtree(ptr noundef %tws.addr.0.lcssa)
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %while.cond7.preheader, label %return

@@ -90,17 +90,17 @@ define ptr @mca_coll_han_algorithm_id_to_fn(i32 noundef %0, i32 noundef %1) loca
   %5 = tail call zeroext i1 @mca_coll_han_is_coll_dynamic_implemented(i32 noundef %0) #7
   %6 = icmp sgt i32 %1, -1
   %or.cond.not.i = and i1 %6, %5
-  br i1 %or.cond.not.i, label %mca_coll_han_algorithm_id_is_valid.exit, label %mca_coll_han_algorithm_id_is_valid.exit.thread
+  br i1 %or.cond.not.i, label %7, label %mca_coll_han_algorithm_id_is_valid.exit.thread
 
-mca_coll_han_algorithm_id_is_valid.exit:          ; preds = %4
-  %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 29, i64 %7
-  %9 = load i32, ptr %8, align 4
-  %.not8 = icmp slt i32 %9, %1
-  br i1 %.not8, label %mca_coll_han_algorithm_id_is_valid.exit.thread, label %10
+7:                                                ; preds = %4
+  %8 = sext i32 %0 to i64
+  %9 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 29, i64 %8
+  %10 = load i32, ptr %9, align 4
+  %.not = icmp slt i32 %10, %1
+  br i1 %.not, label %mca_coll_han_algorithm_id_is_valid.exit.thread, label %mca_coll_han_algorithm_id_is_valid.exit
 
-10:                                               ; preds = %mca_coll_han_algorithm_id_is_valid.exit
-  %11 = getelementptr inbounds [22 x ptr], ptr @mca_coll_han_available_algorithms, i64 0, i64 %7
+mca_coll_han_algorithm_id_is_valid.exit:          ; preds = %7
+  %11 = getelementptr inbounds [22 x ptr], ptr @mca_coll_han_available_algorithms, i64 0, i64 %8
   %12 = load ptr, ptr %11, align 8
   %13 = zext nneg i32 %1 to i64
   %14 = getelementptr %struct.mca_coll_han_algorithm_value_s, ptr %12, i64 %13
@@ -108,8 +108,8 @@ mca_coll_han_algorithm_id_is_valid.exit:          ; preds = %4
   %16 = load ptr, ptr %15, align 8
   br label %mca_coll_han_algorithm_id_is_valid.exit.thread
 
-mca_coll_han_algorithm_id_is_valid.exit.thread:   ; preds = %4, %2, %mca_coll_han_algorithm_id_is_valid.exit, %10
-  %.0 = phi ptr [ %16, %10 ], [ null, %mca_coll_han_algorithm_id_is_valid.exit ], [ null, %2 ], [ null, %4 ]
+mca_coll_han_algorithm_id_is_valid.exit.thread:   ; preds = %4, %7, %2, %mca_coll_han_algorithm_id_is_valid.exit
+  %.0 = phi ptr [ %16, %mca_coll_han_algorithm_id_is_valid.exit ], [ null, %2 ], [ null, %7 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -118,21 +118,21 @@ define ptr @mca_coll_han_algorithm_id_to_name(i32 noundef %0, i32 noundef %1) lo
   %3 = tail call zeroext i1 @mca_coll_han_is_coll_dynamic_implemented(i32 noundef %0) #7
   %4 = icmp sgt i32 %1, -1
   %or.cond.not.i = and i1 %4, %3
-  br i1 %or.cond.not.i, label %mca_coll_han_algorithm_id_is_valid.exit, label %mca_coll_han_algorithm_id_is_valid.exit.thread
+  br i1 %or.cond.not.i, label %5, label %mca_coll_han_algorithm_id_is_valid.exit.thread
 
-mca_coll_han_algorithm_id_is_valid.exit:          ; preds = %2
-  %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 29, i64 %5
-  %7 = load i32, ptr %6, align 4
-  %.not8 = icmp slt i32 %7, %1
-  br i1 %.not8, label %mca_coll_han_algorithm_id_is_valid.exit.thread, label %8
+5:                                                ; preds = %2
+  %6 = sext i32 %0 to i64
+  %7 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 29, i64 %6
+  %8 = load i32, ptr %7, align 4
+  %.not = icmp slt i32 %8, %1
+  br i1 %.not, label %mca_coll_han_algorithm_id_is_valid.exit.thread, label %mca_coll_han_algorithm_id_is_valid.exit
 
-8:                                                ; preds = %mca_coll_han_algorithm_id_is_valid.exit
+mca_coll_han_algorithm_id_is_valid.exit:          ; preds = %5
   %9 = icmp eq i32 %1, 0
   br i1 %9, label %mca_coll_han_algorithm_id_is_valid.exit.thread, label %10
 
-10:                                               ; preds = %8
-  %11 = getelementptr inbounds [22 x ptr], ptr @mca_coll_han_available_algorithms, i64 0, i64 %5
+10:                                               ; preds = %mca_coll_han_algorithm_id_is_valid.exit
+  %11 = getelementptr inbounds [22 x ptr], ptr @mca_coll_han_available_algorithms, i64 0, i64 %6
   %12 = load ptr, ptr %11, align 8
   %13 = zext nneg i32 %1 to i64
   %14 = getelementptr %struct.mca_coll_han_algorithm_value_s, ptr %12, i64 %13
@@ -140,8 +140,8 @@ mca_coll_han_algorithm_id_is_valid.exit:          ; preds = %2
   %16 = load ptr, ptr %15, align 8
   br label %mca_coll_han_algorithm_id_is_valid.exit.thread
 
-mca_coll_han_algorithm_id_is_valid.exit.thread:   ; preds = %2, %8, %mca_coll_han_algorithm_id_is_valid.exit, %10
-  %.0 = phi ptr [ %16, %10 ], [ null, %mca_coll_han_algorithm_id_is_valid.exit ], [ @.str, %8 ], [ null, %2 ]
+mca_coll_han_algorithm_id_is_valid.exit.thread:   ; preds = %2, %5, %mca_coll_han_algorithm_id_is_valid.exit, %10
+  %.0 = phi ptr [ %16, %10 ], [ @.str, %mca_coll_han_algorithm_id_is_valid.exit ], [ null, %5 ], [ null, %2 ]
   ret ptr %.0
 }
 
@@ -181,7 +181,7 @@ define i32 @mca_coll_han_algorithm_name_to_id(i32 noundef %0, ptr nocapture noun
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !4
 
 .loopexit.loopexit.split.loop.exit17:             ; preds = %.lr.ph
-  %21 = trunc i64 %indvars.iv to i32
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %18, %.loopexit.loopexit.split.loop.exit17, %10, %5, %2
@@ -218,14 +218,14 @@ mca_han_algorithm_count.exit.thread:              ; preds = %1
   br i1 %.not4.i, label %mca_han_algorithm_count.exit, label %.preheader.i, !llvm.loop !6
 
 mca_han_algorithm_count.exit:                     ; preds = %.preheader.i
-  %7 = trunc i64 %indvars.iv.i to i32
+  %7 = trunc nuw nsw i64 %indvars.iv.i to i32
   %8 = getelementptr inbounds %struct.mca_coll_han_component_t, ptr @mca_coll_han_component, i64 0, i32 29, i64 %indvars.iv
   store i32 %7, ptr %8, align 4
   %9 = icmp eq i32 %7, 0
   br i1 %9, label %mca_han_algorithm_enumerator_create.exit.thread, label %10
 
 10:                                               ; preds = %mca_han_algorithm_count.exit
-  %11 = trunc i64 %indvars.iv to i32
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   %12 = tail call zeroext i1 @mca_coll_han_is_coll_dynamic_implemented(i32 noundef %11) #7
   br i1 %12, label %13, label %mca_han_algorithm_enumerator_create.exit.thread
 
@@ -272,7 +272,7 @@ mca_han_algorithm_count.exit.i:                   ; preds = %.preheader.i.i
   %indvars.iv.i10 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i11, %.lr.ph.i ]
   %indvars.iv.next.i11 = add nuw nsw i64 %indvars.iv.i10, 1
   %27 = getelementptr inbounds %struct.mca_base_var_enum_value_t, ptr %22, i64 %indvars.iv.next.i11
-  %28 = trunc i64 %indvars.iv.next.i11 to i32
+  %28 = trunc nuw nsw i64 %indvars.iv.next.i11 to i32
   store i32 %28, ptr %27, align 8
   %29 = getelementptr inbounds %struct.mca_coll_han_algorithm_value_s, ptr %15, i64 %indvars.iv.i10
   %30 = load ptr, ptr %29, align 8

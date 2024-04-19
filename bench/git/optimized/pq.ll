@@ -231,11 +231,11 @@ if.then:                                          ; preds = %entry
   %mul4 = mul i64 %add, 104
   %call = tail call ptr @reftable_realloc(ptr noundef %.pre, i64 noundef %mul4) #8
   store ptr %call, ptr %pq, align 8
-  %.pre24 = load i64, ptr %len, align 8
+  %.pre30 = load i64, ptr %len, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %2 = phi i64 [ %.pre24, %if.then ], [ %0, %entry ]
+  %2 = phi i64 [ %.pre30, %if.then ], [ %0, %entry ]
   %3 = phi ptr [ %call, %if.then ], [ %.pre, %entry ]
   %inc = add i64 %2, 1
   store i64 %inc, ptr %len, align 8
@@ -244,17 +244,17 @@ if.end:                                           ; preds = %if.then, %entry
   %4 = load i64, ptr %len, align 8
   %5 = trunc i64 %4 to i32
   %conv = add i32 %5, -1
-  %cmp922 = icmp sgt i32 %conv, 0
-  br i1 %cmp922, label %while.body, label %while.end
+  %cmp928 = icmp sgt i32 %conv, 0
+  br i1 %cmp928, label %while.body, label %while.end
 
 while.body:                                       ; preds = %if.end, %do.body
-  %i.023 = phi i32 [ %div21, %do.body ], [ %conv, %if.end ]
-  %sub11 = add nsw i32 %i.023, -1
+  %i.029 = phi i32 [ %div21, %do.body ], [ %conv, %if.end ]
+  %sub11 = add nsw i32 %i.029, -1
   %div21 = lshr i32 %sub11, 1
   %6 = load ptr, ptr %pq, align 8
   %idxprom = zext nneg i32 %div21 to i64
   %arrayidx13 = getelementptr inbounds %struct.pq_entry, ptr %6, i64 %idxprom
-  %idxprom15 = zext nneg i32 %i.023 to i64
+  %idxprom15 = zext nneg i32 %i.029 to i64
   %arrayidx16 = getelementptr inbounds %struct.pq_entry, ptr %6, i64 %idxprom15
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ak.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %bk.i)
@@ -268,27 +268,23 @@ while.body:                                       ; preds = %if.end, %do.body
   call void @strbuf_release(ptr noundef nonnull %ak.i) #8
   call void @strbuf_release(ptr noundef nonnull %bk.i) #8
   %cmp2.i = icmp eq i32 %call.i, 0
-  br i1 %cmp2.i, label %if.then.i, label %if.end.i
+  br i1 %cmp2.i, label %if.then.i, label %pq_less.exit
 
 if.then.i:                                        ; preds = %while.body
   %7 = load i32, ptr %arrayidx13, align 8
   %8 = load i32, ptr %arrayidx16, align 8
   %cmp4.i = icmp sgt i32 %7, %8
-  %conv.i = zext i1 %cmp4.i to i32
-  br label %pq_less.exit
-
-if.end.i:                                         ; preds = %while.body
-  %call.lobit.i = lshr i32 %call.i, 31
-  br label %pq_less.exit
-
-pq_less.exit:                                     ; preds = %if.then.i, %if.end.i
-  %retval.0.i = phi i32 [ %conv.i, %if.then.i ], [ %call.lobit.i, %if.end.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ak.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %bk.i)
-  %tobool.not = icmp eq i32 %retval.0.i, 0
+  br i1 %cmp4.i, label %while.end, label %do.body
+
+pq_less.exit:                                     ; preds = %while.body
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ak.i)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %bk.i)
+  %tobool.not = icmp sgt i32 %call.i, -1
   br i1 %tobool.not, label %do.body, label %while.end
 
-do.body:                                          ; preds = %pq_less.exit
+do.body:                                          ; preds = %if.then.i, %pq_less.exit
   %9 = load ptr, ptr %pq, align 8
   %arrayidx22 = getelementptr inbounds %struct.pq_entry, ptr %9, i64 %idxprom
   %arrayidx25 = getelementptr inbounds %struct.pq_entry, ptr %9, i64 %idxprom15
@@ -298,7 +294,7 @@ do.body:                                          ; preds = %pq_less.exit
   %cmp9.not = icmp ult i32 %sub11, 2
   br i1 %cmp9.not, label %while.end, label %while.body, !llvm.loop !7
 
-while.end:                                        ; preds = %do.body, %pq_less.exit, %if.end
+while.end:                                        ; preds = %do.body, %pq_less.exit, %if.then.i, %if.end
   ret void
 }
 
@@ -317,7 +313,7 @@ for.body:                                         ; preds = %entry, %for.body
   %1 = load ptr, ptr %pq, align 8
   %rec = getelementptr inbounds %struct.pq_entry, ptr %1, i64 %indvars.iv, i32 1
   tail call void @reftable_record_release(ptr noundef nonnull %rec) #8
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %2 = load i64, ptr %len, align 8
   %cmp = icmp ugt i64 %2, %indvars.iv.next
   br i1 %cmp, label %for.body, label %do.body, !llvm.loop !8

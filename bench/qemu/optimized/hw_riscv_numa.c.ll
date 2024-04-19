@@ -206,8 +206,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 for.end.i:                                        ; preds = %for.body.i
   %cmp14.i = icmp uge i32 %first_hartid.1.i, %3
   %cmp = icmp slt i32 %first_hartid.1.i, 0
-  %or.cond70 = or i1 %cmp14.i, %cmp
-  br i1 %or.cond70, label %return, label %for.body.i21
+  %or.cond62 = or i1 %cmp14.i, %cmp
+  br i1 %or.cond62, label %return, label %for.body.i21
 
 for.body.i21:                                     ; preds = %for.end.i, %for.body.i21
   %last_hartid.014.i = phi i32 [ %last_hartid.1.i, %for.body.i21 ], [ -1, %for.end.i ]
@@ -305,12 +305,12 @@ for.body.i22:                                     ; preds = %for.end.i, %for.bod
 for.end.i29:                                      ; preds = %for.body.i22
   %cmp14.i30 = icmp uge i32 %last_hartid.1.i, %2
   %cmp6 = icmp slt i32 %last_hartid.1.i, 0
-  %or.cond76 = or i1 %cmp14.i30, %cmp6
-  br i1 %or.cond76, label %return, label %for.cond.preheader
+  %or.cond65 = or i1 %cmp14.i30, %cmp6
+  br i1 %or.cond65, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %for.end.i29
-  %cmp9.not73 = icmp sgt i32 %first_hartid.1.i, %last_hartid.1.i
-  br i1 %cmp9.not73, label %return, label %for.body.lr.ph
+  %cmp9.not62 = icmp sgt i32 %first_hartid.1.i, %last_hartid.1.i
+  br i1 %cmp9.not62, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %possible_cpus = getelementptr inbounds i8, ptr %ms, i64 280
@@ -320,18 +320,18 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 for.body:                                         ; preds = %for.body, %for.body.lr.ph
-  %i.074 = phi i32 [ %first_hartid.1.i, %for.body.lr.ph ], [ %inc, %for.body ]
-  %idxprom = sext i32 %i.074 to i64
+  %i.063 = phi i32 [ %first_hartid.1.i, %for.body.lr.ph ], [ %inc, %for.body ]
+  %idxprom = sext i32 %i.063 to i64
   %node_id = getelementptr [0 x %struct.CPUArchId], ptr %cpus, i64 0, i64 %idxprom, i32 2, i32 1
   %9 = load i64, ptr %node_id, align 8
   %cmp10.not = icmp eq i64 %9, %conv
-  %inc = add i32 %i.074, 1
+  %inc = add i32 %i.063, 1
   %cmp9.not = icmp sle i32 %inc, %last_hartid.1.i
-  %or.cond77.not = select i1 %cmp10.not, i1 %cmp9.not, i1 false
-  br i1 %or.cond77.not, label %for.body, label %return, !llvm.loop !8
+  %or.cond66.not = select i1 %cmp10.not, i1 %cmp9.not, i1 false
+  br i1 %or.cond66.not, label %for.body, label %return, !llvm.loop !8
 
-return:                                           ; preds = %for.body, %for.cond.preheader, %for.cond.preheader.i, %for.end.i29, %for.end.i, %if.then
-  %retval.0 = phi i1 [ %tobool.not, %if.then ], [ false, %for.end.i ], [ false, %for.end.i29 ], [ false, %for.cond.preheader.i ], [ true, %for.cond.preheader ], [ %cmp10.not, %for.body ]
+return:                                           ; preds = %for.body, %for.cond.preheader, %for.end.i29, %for.cond.preheader.i, %for.end.i, %if.then
+  %retval.0 = phi i1 [ %tobool.not, %if.then ], [ false, %for.end.i ], [ false, %for.cond.preheader.i ], [ false, %for.end.i29 ], [ true, %for.cond.preheader ], [ %cmp10.not, %for.body ]
   ret i1 %retval.0
 }
 
@@ -501,7 +501,7 @@ riscv_socket_count.exit32.split:                  ; preds = %riscv_socket_count.
 for.cond9.preheader:                              ; preds = %riscv_socket_count.exit32.split, %for.inc33.split
   %6 = phi i32 [ %16, %for.inc33.split ], [ %5, %riscv_socket_count.exit32.split ]
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %for.inc33.split ], [ 0, %riscv_socket_count.exit32.split ]
-  %7 = trunc i64 %indvars.iv63 to i32
+  %7 = trunc nuw nsw i64 %indvars.iv63 to i32
   %8 = tail call i32 @llvm.bswap.i32(i32 %7)
   %spec.select.i4253 = tail call i32 @llvm.umax.i32(i32 %6, i32 1)
   %cmp115254 = icmp sgt i32 %spec.select.i4253, 0
@@ -516,7 +516,7 @@ numa_enabled.exit.i47:                            ; preds = %for.cond9.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %numa_enabled.exit.i47 ], [ 0, %for.cond9.preheader ]
   %spec.select.i48 = tail call i32 @llvm.umax.i32(i32 %9, i32 1)
   %mul15 = mul i32 %spec.select.i48, %7
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   %add = add i32 %mul15, %10
   %mul16 = mul i32 %add, 3
   %idxprom = sext i32 %mul16 to i64

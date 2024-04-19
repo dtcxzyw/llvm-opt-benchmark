@@ -708,15 +708,15 @@ entry:
   %engine.i = getelementptr inbounds i8, ptr %rsa, i64 32
   %0 = load ptr, ptr %engine.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %ossl_rsa_is_foreign.exit, label %return
+  br i1 %cmp.not.i, label %lor.lhs.false.i, label %return
 
-ossl_rsa_is_foreign.exit:                         ; preds = %entry
+lor.lhs.false.i:                                  ; preds = %entry
   %call.i = tail call ptr @RSA_get_method(ptr noundef nonnull %rsa) #4
   %call1.i = tail call ptr @RSA_PKCS1_OpenSSL() #4
   %cmp2.not.i.not = icmp eq ptr %call.i, %call1.i
   br i1 %cmp2.not.i.not, label %if.end, label %return
 
-if.end:                                           ; preds = %ossl_rsa_is_foreign.exit
+if.end:                                           ; preds = %lor.lhs.false.i
   %libctx = getelementptr inbounds i8, ptr %rsa, i64 8
   %1 = load ptr, ptr %libctx, align 8
   %call1 = tail call ptr @ossl_rsa_new_with_ctx(ptr noundef %1) #4
@@ -852,17 +852,17 @@ if.end50:                                         ; preds = %if.end16
   br label %if.end94
 
 land.lhs.true:                                    ; preds = %land.lhs.true.i98, %if.end44
-  %version147 = getelementptr inbounds i8, ptr %rsa, i64 16
-  %12 = load i32, ptr %version147, align 8
-  %version51148 = getelementptr inbounds i8, ptr %call1, i64 16
-  store i32 %12, ptr %version51148, align 8
-  %flags149 = getelementptr inbounds i8, ptr %rsa, i64 164
-  %13 = load i32, ptr %flags149, align 4
-  %flags52150 = getelementptr inbounds i8, ptr %call1, i64 164
-  store i32 %13, ptr %flags52150, align 4
-  %pss_params151 = getelementptr inbounds i8, ptr %call1, i64 104
-  %pss_params53152 = getelementptr inbounds i8, ptr %rsa, i64 104
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %pss_params151, ptr noundef nonnull align 8 dereferenceable(20) %pss_params53152, i64 20, i1 false)
+  %version148 = getelementptr inbounds i8, ptr %rsa, i64 16
+  %12 = load i32, ptr %version148, align 8
+  %version51149 = getelementptr inbounds i8, ptr %call1, i64 16
+  store i32 %12, ptr %version51149, align 8
+  %flags150 = getelementptr inbounds i8, ptr %rsa, i64 164
+  %13 = load i32, ptr %flags150, align 4
+  %flags52151 = getelementptr inbounds i8, ptr %call1, i64 164
+  store i32 %13, ptr %flags52151, align 4
+  %pss_params152 = getelementptr inbounds i8, ptr %call1, i64 104
+  %pss_params53153 = getelementptr inbounds i8, ptr %rsa, i64 104
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %pss_params152, ptr noundef nonnull align 8 dereferenceable(20) %pss_params53153, i64 20, i1 false)
   %prime_infos = getelementptr inbounds i8, ptr %rsa, i64 136
   %14 = load ptr, ptr %prime_infos, align 8
   %call.i104 = tail call i32 @OPENSSL_sk_num(ptr noundef %14) #4
@@ -877,7 +877,7 @@ if.then58:                                        ; preds = %land.lhs.true
   br i1 %cmp62, label %err, label %for.body
 
 for.body:                                         ; preds = %if.then58, %for.inc
-  %i.0160 = phi i32 [ %inc, %for.inc ], [ 0, %if.then58 ]
+  %i.0161 = phi i32 [ %inc, %for.inc ], [ 0, %if.then58 ]
   %call66 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 40, ptr noundef nonnull @.str.8, i32 noundef 392) #4
   %cmp67 = icmp eq ptr %call66, null
   br i1 %cmp67, label %err, label %if.end69
@@ -886,7 +886,7 @@ if.end69:                                         ; preds = %for.body
   %15 = load ptr, ptr %prime_infos60, align 8
   %call.i106 = tail call i32 @OPENSSL_sk_push(ptr noundef %15, ptr noundef nonnull %call66) #4
   %16 = load ptr, ptr %prime_infos, align 8
-  %call.i107 = tail call ptr @OPENSSL_sk_value(ptr noundef %16, i32 noundef %i.0160) #4
+  %call.i107 = tail call ptr @OPENSSL_sk_value(ptr noundef %16, i32 noundef %i.0161) #4
   %17 = load ptr, ptr %call.i107, align 8
   %cmp.not.i108 = icmp eq ptr %17, null
   br i1 %cmp.not.i108, label %if.end78, label %land.lhs.true.i109
@@ -924,7 +924,7 @@ land.lhs.true.i123:                               ; preds = %if.end84
   br i1 %cmp1.i125, label %err, label %for.inc
 
 for.inc:                                          ; preds = %land.lhs.true.i123, %if.end84
-  %inc = add nuw nsw i32 %i.0160, 1
+  %inc = add nuw nsw i32 %i.0161, 1
   %exitcond.not = icmp eq i32 %inc, %call.i104
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
@@ -977,8 +977,8 @@ err:                                              ; preds = %land.lhs.true.i123,
   tail call void @RSA_free(ptr noundef nonnull %call1) #4
   br label %return
 
-return:                                           ; preds = %entry, %if.end117, %if.end, %ossl_rsa_is_foreign.exit, %err
-  %retval.0 = phi ptr [ null, %err ], [ null, %ossl_rsa_is_foreign.exit ], [ null, %if.end ], [ %call1, %if.end117 ], [ null, %entry ]
+return:                                           ; preds = %lor.lhs.false.i, %entry, %if.end117, %if.end, %err
+  %retval.0 = phi ptr [ null, %err ], [ null, %if.end ], [ %call1, %if.end117 ], [ null, %entry ], [ null, %lor.lhs.false.i ]
   ret ptr %retval.0
 }
 

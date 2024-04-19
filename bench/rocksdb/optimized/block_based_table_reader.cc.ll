@@ -24831,31 +24831,22 @@ if.then.i:                                        ; preds = %_ZNK7rocksdb21UserC
   %add.ptr11.i = getelementptr inbounds i8, ptr %19, i64 %20
   %add.ptr12.i = getelementptr inbounds i8, ptr %add.ptr11.i, i64 -8
   %result.0.copyload.i13.i = load i64, ptr %add.ptr12.i, align 1
-  %cmp14.i = icmp ugt i64 %result.0.copyload.i.i, %result.0.copyload.i13.i
-  br i1 %cmp14.i, label %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit.thread, label %if.else.i
-
-_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit.thread: ; preds = %if.then.i
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
-  br label %if.end
-
-if.else.i:                                        ; preds = %if.then.i
   %cmp16.i = icmp ult i64 %result.0.copyload.i.i, %result.0.copyload.i13.i
-  %spec.select.i = zext i1 %cmp16.i to i32
-  br label %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit
-
-_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit: ; preds = %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i, %if.else.i
-  %r.0.i = phi i32 [ %call.i.i, %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i ], [ %spec.select.i, %if.else.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
-  %cmp = icmp sgt i32 %r.0.i, 0
+  br i1 %cmp16.i, label %if.then, label %if.end
+
+_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit: ; preds = %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  %cmp = icmp sgt i32 %call.i.i, 0
   br i1 %cmp, label %if.then, label %if.end
 
-if.then:                                          ; preds = %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit
+if.then:                                          ; preds = %if.then.i, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit
   call void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 noundef zeroext 4, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %begin, ptr noundef nonnull align 8 dereferenceable(16) %end, i8 noundef zeroext 0)
   br label %return
 
-if.end:                                           ; preds = %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit.thread, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit, %entry
+if.end:                                           ; preds = %if.then.i, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit, %entry
   store <4 x i8> <i8 9, i8 0, i8 0, i8 14>, ptr %lookup_context, align 8
   %block_size.i = getelementptr inbounds i8, ptr %lookup_context, i64 8
   store i64 0, ptr %block_size.i, align 8
@@ -25131,9 +25122,9 @@ if.then.i55:                                      ; preds = %call.i.i52.noexc
   %cmp14.i62 = icmp ule i64 %result.0.copyload.i.i58, %result.0.copyload.i13.i61
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i39)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i40)
-  %brmerge.not224 = select i1 %cmp14.i62, i1 %prefetching_boundary_page.0, i1 false
-  %prefetching_boundary_page.0.mux223 = select i1 %cmp14.i62, i1 true, i1 %prefetching_boundary_page.0
-  br i1 %brmerge.not224, label %for.end, label %if.end71
+  %brmerge.not229 = select i1 %cmp14.i62, i1 %prefetching_boundary_page.0, i1 false
+  %prefetching_boundary_page.0.mux228 = select i1 %cmp14.i62, i1 true, i1 %prefetching_boundary_page.0
+  br i1 %brmerge.not229, label %for.end, label %if.end71
 
 invoke.cont50:                                    ; preds = %call.i.i52.noexc
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i39)
@@ -25190,12 +25181,12 @@ if.end.i:                                         ; preds = %_ZTWN7rocksdb12perf
 
 invoke.cont63:                                    ; preds = %if.end.i
   %cmp65 = icmp sgt i32 %call.i79, -1
-  %brmerge207.not = select i1 %cmp65, i1 %prefetching_boundary_page.0, i1 false
-  %prefetching_boundary_page.0.mux208 = select i1 %cmp65, i1 true, i1 %prefetching_boundary_page.0
-  br i1 %brmerge207.not, label %for.end, label %if.end71
+  %brmerge212.not = select i1 %cmp65, i1 %prefetching_boundary_page.0, i1 false
+  %prefetching_boundary_page.0.mux213 = select i1 %cmp65, i1 true, i1 %prefetching_boundary_page.0
+  br i1 %brmerge212.not, label %for.end, label %if.end71
 
 if.end71:                                         ; preds = %if.then.i55, %invoke.cont63, %invoke.cont50, %invoke.cont38
-  %prefetching_boundary_page.1 = phi i1 [ %prefetching_boundary_page.0.mux208, %invoke.cont63 ], [ %prefetching_boundary_page.0, %invoke.cont38 ], [ %prefetching_boundary_page.0.mux, %invoke.cont50 ], [ %prefetching_boundary_page.0.mux223, %if.then.i55 ]
+  %prefetching_boundary_page.1 = phi i1 [ %prefetching_boundary_page.0.mux213, %invoke.cont63 ], [ %prefetching_boundary_page.0, %invoke.cont38 ], [ %prefetching_boundary_page.0.mux, %invoke.cont50 ], [ %prefetching_boundary_page.0.mux228, %if.then.i55 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %biter, i8 0, i64 320, i1 false)
   invoke void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %39)
           to label %invoke.cont72 unwind label %lpad14.loopexit
@@ -25238,8 +25229,8 @@ invoke.cont76:                                    ; preds = %invoke.cont72
 
 invoke.cont81.thread:                             ; preds = %invoke.cont76
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i152)
-  %cmp.i102203 = icmp eq i8 %66, 0
-  br i1 %cmp.i102203, label %for.inc.critedge, label %if.then84
+  %cmp.i102207 = icmp eq i8 %66, 0
+  br i1 %cmp.i102207, label %for.inc.critedge, label %if.then84
 
 cond.false.i:                                     ; preds = %invoke.cont76
   invoke void @_ZN7rocksdb6Status9CopyStateEPKc(ptr nonnull sret(%"class.std::unique_ptr") align 8 %ref.tmp.i152, ptr noundef nonnull %67)

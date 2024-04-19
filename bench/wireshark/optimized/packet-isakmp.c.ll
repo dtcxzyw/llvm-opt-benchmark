@@ -8592,34 +8592,34 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %44 = getelementptr inbounds i8, ptr %0, i64 88
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %prepare_decrypt_params.exit.thread, label %prepare_decrypt_params.exit
+  br i1 %46, label %prepare_decrypt_params.exit.thread, label %47
 
-prepare_decrypt_params.exit:                      ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %0, i64 104
-  %48 = load i32, ptr %47, align 8
-  %.not15 = icmp eq i32 %48, 0
-  br i1 %.not15, label %prepare_decrypt_params.exit.thread, label %49
+47:                                               ; preds = %43
+  %48 = getelementptr inbounds i8, ptr %0, i64 104
+  %49 = load i32, ptr %48, align 8
+  %.not16 = icmp eq i32 %49, 0
+  br i1 %.not16, label %prepare_decrypt_params.exit.thread, label %prepare_decrypt_params.exit
 
-49:                                               ; preds = %prepare_decrypt_params.exit
+prepare_decrypt_params.exit:                      ; preds = %47
   %50 = getelementptr inbounds i8, ptr %0, i64 80
   %51 = load ptr, ptr %50, align 8
   %52 = zext i32 %45 to i64
   %53 = getelementptr inbounds i8, ptr %0, i64 96
   %54 = load ptr, ptr %53, align 8
-  %55 = zext i32 %48 to i64
+  %55 = zext i32 %49 to i64
   %56 = load i32, ptr %24, align 8
   %57 = tail call fastcc ptr @generate_iv(ptr noundef %51, i64 noundef %52, ptr noundef %54, i64 noundef %55, i32 noundef %56, i64 noundef %41)
   %.not.i = icmp eq ptr %57, null
   br i1 %.not.i, label %prepare_decrypt_params.exit.thread, label %prepare_phase1_iv.exit
 
-prepare_phase1_iv.exit:                           ; preds = %49
+prepare_phase1_iv.exit:                           ; preds = %prepare_decrypt_params.exit
   %58 = getelementptr inbounds i8, ptr %0, i64 368
   %59 = load ptr, ptr %58, align 8
   %60 = tail call i32 @g_hash_table_insert(ptr noundef %59, ptr noundef null, ptr noundef nonnull %57) #17
   br label %prepare_decrypt_params.exit.thread
 
-prepare_decrypt_params.exit.thread:               ; preds = %ikev1_find_gcry_md_algo.exit.thread.i, %43, %25, %39, %switch.lookup, %prepare_phase1_iv.exit, %49, %prepare_decrypt_params.exit
-  %61 = phi i32 [ 2, %prepare_decrypt_params.exit ], [ 1, %prepare_phase1_iv.exit ], [ 2, %49 ], [ 2, %switch.lookup ], [ 2, %39 ], [ 2, %25 ], [ 2, %43 ], [ 2, %ikev1_find_gcry_md_algo.exit.thread.i ]
+prepare_decrypt_params.exit.thread:               ; preds = %ikev1_find_gcry_md_algo.exit.thread.i, %47, %43, %25, %39, %switch.lookup, %prepare_phase1_iv.exit, %prepare_decrypt_params.exit
+  %61 = phi i32 [ 1, %prepare_phase1_iv.exit ], [ 2, %prepare_decrypt_params.exit ], [ 2, %switch.lookup ], [ 2, %39 ], [ 2, %25 ], [ 2, %43 ], [ 2, %47 ], [ 2, %ikev1_find_gcry_md_algo.exit.thread.i ]
   store i32 %61, ptr %3, align 8
   br label %62
 

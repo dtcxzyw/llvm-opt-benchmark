@@ -747,17 +747,17 @@ if.then12:                                        ; preds = %if.end9
   %3 = load i32, ptr %type.i, align 8
   %4 = load i32, ptr %2, align 8
   %cmp.i13 = icmp eq i32 %3, %4
-  br i1 %cmp.i13, label %ecx_match_params.exit, label %return
+  br i1 %cmp.i13, label %land.rhs.i, label %return
 
-ecx_match_params.exit:                            ; preds = %if.then12
+land.rhs.i:                                       ; preds = %if.then12
   %keylen.i = getelementptr inbounds i8, ptr %vauth, i64 88
   %5 = load i64, ptr %keylen.i, align 8
   %keylen2.i = getelementptr inbounds i8, ptr %vecx, i64 88
   %6 = load i64, ptr %keylen2.i, align 8
-  %cmp3.i14.not = icmp eq i64 %5, %6
-  br i1 %cmp3.i14.not, label %lor.lhs.false, label %return
+  %cmp3.i14 = icmp eq i64 %5, %6
+  br i1 %cmp3.i14, label %lor.lhs.false, label %return
 
-lor.lhs.false:                                    ; preds = %ecx_match_params.exit
+lor.lhs.false:                                    ; preds = %land.rhs.i
   %cmp15 = icmp eq i32 %operation, 4096
   %7 = getelementptr i8, ptr %vauth, i64 80
   %vauth.val = load ptr, ptr %7, align 8
@@ -784,8 +784,8 @@ if.end24:                                         ; preds = %sender_authkey_set.
   %call25 = tail call i32 @ecxkem_set_ctx_params(ptr noundef nonnull %vecxctx, ptr noundef %params), !range !4
   br label %return
 
-return:                                           ; preds = %if.then.i20, %if.then12, %if.end.i, %if.then.i, %ecx_match_params.exit, %lor.lhs.false, %if.end, %entry, %if.end24
-  %retval.0 = phi i32 [ %call25, %if.end24 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %lor.lhs.false ], [ 0, %ecx_match_params.exit ], [ 0, %if.end.i ], [ -2, %if.then.i ], [ 0, %if.then12 ], [ 0, %if.then.i20 ]
+return:                                           ; preds = %if.then.i20, %land.rhs.i, %if.then12, %if.end.i, %if.then.i, %lor.lhs.false, %if.end, %entry, %if.end24
+  %retval.0 = phi i32 [ %call25, %if.end24 ], [ 0, %entry ], [ 0, %if.end ], [ 0, %lor.lhs.false ], [ 0, %if.end.i ], [ -2, %if.then.i ], [ 0, %if.then12 ], [ 0, %land.rhs.i ], [ 0, %if.then.i20 ]
   ret i32 %retval.0
 }
 

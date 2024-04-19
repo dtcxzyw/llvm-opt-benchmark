@@ -818,25 +818,28 @@ if.end12:                                         ; preds = %if.then11, %if.end8
   %3 = load i32, ptr %sfd.i, align 4
   %call4.i = call i64 @sendmsg(i32 noundef %3, ptr noundef nonnull %msg.i, i32 noundef 0) #14
   %cmp5.i = icmp slt i64 %call4.i, 0
-  br i1 %cmp5.i, label %afalg_start_cipher_sk.exit.thread, label %afalg_start_cipher_sk.exit
+  br i1 %cmp5.i, label %do.body.i, label %if.end.i
 
-afalg_start_cipher_sk.exit.thread:                ; preds = %if.end12
+do.body.i:                                        ; preds = %if.end12
   %4 = load ptr, ptr @stderr, align 8
   %call6.i = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.1, i32 noundef 561) #16
   call void @perror(ptr noundef null) #16
+  br label %afalg_start_cipher_sk.exit.thread
+
+if.end.i:                                         ; preds = %if.end12
+  %cmp7.not.i = icmp eq i64 %call4.i, %inl
+  br i1 %cmp7.not.i, label %if.end18, label %afalg_start_cipher_sk.exit.thread
+
+afalg_start_cipher_sk.exit.thread:                ; preds = %do.body.i, %if.end.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %msg.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %iov.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %cbuf.i)
   br label %return
 
-afalg_start_cipher_sk.exit:                       ; preds = %if.end12
-  %cmp7.not.i.not = icmp eq i64 %call4.i, %inl
+if.end18:                                         ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %msg.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %iov.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %cbuf.i)
-  br i1 %cmp7.not.i.not, label %if.end18, label %return
-
-if.end18:                                         ; preds = %afalg_start_cipher_sk.exit
   %aio = getelementptr inbounds i8, ptr %call, i64 16
   %5 = load i32, ptr %sfd.i, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %cb.i)
@@ -1115,8 +1118,8 @@ if.else:                                          ; preds = %if.end22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %call28, ptr noundef nonnull align 16 dereferenceable(16) %nxtiv, i64 16, i1 false)
   br label %return
 
-return:                                           ; preds = %afalg_fin_cipher_aio.exit.thread, %afalg_start_cipher_sk.exit.thread, %if.then24, %if.else, %afalg_start_cipher_sk.exit, %if.end, %lor.lhs.false5, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %lor.lhs.false5 ], [ 0, %if.end ], [ 0, %afalg_start_cipher_sk.exit ], [ 1, %if.else ], [ 1, %if.then24 ], [ 0, %afalg_start_cipher_sk.exit.thread ], [ 0, %afalg_fin_cipher_aio.exit.thread ]
+return:                                           ; preds = %afalg_fin_cipher_aio.exit.thread, %afalg_start_cipher_sk.exit.thread, %if.then24, %if.else, %if.end, %lor.lhs.false5, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %lor.lhs.false5 ], [ 0, %if.end ], [ 1, %if.else ], [ 1, %if.then24 ], [ 0, %afalg_start_cipher_sk.exit.thread ], [ 0, %afalg_fin_cipher_aio.exit.thread ]
   ret i32 %retval.0
 }
 

@@ -2063,26 +2063,21 @@ _Py_XNewRef.exit:                                 ; preds = %_Py_NewRef.exit19, 
   %kwargs24 = getelementptr inbounds i8, ptr %call5, i64 24
   store ptr %kwargs, ptr %kwargs24, align 8
   %tobool25.not = icmp eq i32 %joinable, 0
-  br i1 %tobool25.not, label %if.else, label %if.then26
-
-if.then26:                                        ; preds = %_Py_XNewRef.exit
-  %call27 = tail call i32 @PyThread_start_joinable_thread(ptr noundef nonnull @thread_run, ptr noundef nonnull %call5, ptr noundef %ident, ptr noundef %handle) #8
-  br label %if.end30
+  br i1 %tobool25.not, label %if.else, label %if.end30
 
 if.else:                                          ; preds = %_Py_XNewRef.exit
   store i64 0, ptr %handle, align 8
   %call28 = tail call i64 @PyThread_start_new_thread(ptr noundef nonnull @thread_run, ptr noundef nonnull %call5) #8
   store i64 %call28, ptr %ident, align 8
   %cmp29 = icmp eq i64 %call28, -1
-  %conv = zext i1 %cmp29 to i32
-  br label %if.end30
+  br i1 %cmp29, label %if.then32, label %return
 
-if.end30:                                         ; preds = %if.else, %if.then26
-  %err.0 = phi i32 [ %call27, %if.then26 ], [ %conv, %if.else ]
-  %tobool31.not = icmp eq i32 %err.0, 0
+if.end30:                                         ; preds = %_Py_XNewRef.exit
+  %call27 = tail call i32 @PyThread_start_joinable_thread(ptr noundef nonnull @thread_run, ptr noundef nonnull %call5, ptr noundef %ident, ptr noundef %handle) #8
+  %tobool31.not = icmp eq i32 %call27, 0
   br i1 %tobool31.not, label %return, label %if.then32
 
-if.then32:                                        ; preds = %if.end30
+if.then32:                                        ; preds = %if.else, %if.end30
   %9 = load ptr, ptr @PyExc_RuntimeError, align 8
   tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.24) #8
   %10 = load ptr, ptr %call5, align 8
@@ -2145,8 +2140,8 @@ thread_bootstate_free.exit:                       ; preds = %Py_DECREF.exit.i, %
   tail call void @PyMem_RawFree(ptr noundef nonnull %call5) #8
   br label %return
 
-return:                                           ; preds = %if.end30, %if.then12, %if.then15, %thread_bootstate_free.exit, %if.then6, %if.then3, %if.then
-  %retval.0 = phi i32 [ -1, %if.then3 ], [ -1, %if.then6 ], [ -1, %thread_bootstate_free.exit ], [ -1, %if.then ], [ -1, %if.then15 ], [ -1, %if.then12 ], [ 0, %if.end30 ]
+return:                                           ; preds = %if.else, %if.end30, %if.then12, %if.then15, %thread_bootstate_free.exit, %if.then6, %if.then3, %if.then
+  %retval.0 = phi i32 [ -1, %if.then3 ], [ -1, %if.then6 ], [ -1, %thread_bootstate_free.exit ], [ -1, %if.then ], [ -1, %if.then15 ], [ -1, %if.then12 ], [ 0, %if.end30 ], [ 0, %if.else ]
   ret i32 %retval.0
 }
 

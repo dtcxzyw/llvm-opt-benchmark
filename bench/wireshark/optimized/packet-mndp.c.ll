@@ -108,19 +108,19 @@ define internal i32 @dissect_mndp_static(ptr noundef %0, ptr noundef %1, ptr nou
 7:                                                ; preds = %4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #3
   %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %test_mndp.exit, label %test_mndp.exit.thread
+  br i1 %.not.i, label %9, label %test_mndp.exit.thread
 
-test_mndp.exit:                                   ; preds = %7
-  %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #3
-  %.not3.i.not = icmp eq i8 %9, 0
-  br i1 %.not3.i.not, label %10, label %test_mndp.exit.thread
+9:                                                ; preds = %7
+  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #3
+  %.not3.i = icmp eq i8 %10, 0
+  br i1 %.not3.i, label %test_mndp.exit, label %test_mndp.exit.thread
 
-10:                                               ; preds = %test_mndp.exit
+test_mndp.exit:                                   ; preds = %9
   %11 = tail call fastcc i32 @dissect_mndp(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %test_mndp.exit.thread
 
-test_mndp.exit.thread:                            ; preds = %4, %7, %test_mndp.exit, %10
-  %.0 = phi i32 [ %11, %10 ], [ 0, %test_mndp.exit ], [ 0, %7 ], [ 0, %4 ]
+test_mndp.exit.thread:                            ; preds = %9, %4, %7, %test_mndp.exit
+  %.0 = phi i32 [ %11, %test_mndp.exit ], [ 0, %7 ], [ 0, %4 ], [ 0, %9 ]
   ret i32 %.0
 }
 
@@ -146,19 +146,19 @@ define internal noundef i32 @dissect_mndp_heur(ptr noundef %0, ptr noundef %1, p
 7:                                                ; preds = %4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #3
   %.not.i = icmp eq i8 %8, 0
-  br i1 %.not.i, label %test_mndp.exit, label %test_mndp.exit.thread
+  br i1 %.not.i, label %9, label %test_mndp.exit.thread
 
-test_mndp.exit:                                   ; preds = %7
-  %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #3
-  %.not3.i.not = icmp eq i8 %9, 0
-  br i1 %.not3.i.not, label %10, label %test_mndp.exit.thread
+9:                                                ; preds = %7
+  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #3
+  %.not3.i = icmp eq i8 %10, 0
+  br i1 %.not3.i, label %test_mndp.exit, label %test_mndp.exit.thread
 
-10:                                               ; preds = %test_mndp.exit
+test_mndp.exit:                                   ; preds = %9
   %11 = tail call fastcc i32 @dissect_mndp(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %test_mndp.exit.thread
 
-test_mndp.exit.thread:                            ; preds = %4, %7, %test_mndp.exit, %10
-  %.0 = phi i32 [ 1, %10 ], [ 0, %test_mndp.exit ], [ 0, %7 ], [ 0, %4 ]
+test_mndp.exit.thread:                            ; preds = %9, %4, %7, %test_mndp.exit
+  %.0 = phi i32 [ 1, %test_mndp.exit ], [ 0, %7 ], [ 0, %4 ], [ 0, %9 ]
   ret i32 %.0
 }
 

@@ -489,15 +489,15 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge.thread, %
   %.val.i88 = load i64, ptr %65, align 8
   %66 = and i64 %.val.i88, 7
   %.not.i89 = icmp eq i64 %66, 2
-  br i1 %.not.i89, label %Saig_ObjIsLo.exit92, label %Saig_ObjIsLo.exit92.thread
+  br i1 %.not.i89, label %67, label %Saig_ObjIsLo.exit92.thread
 
-Saig_ObjIsLo.exit92:                              ; preds = %59
+67:                                               ; preds = %59
   %.val3.i90 = load i32, ptr %64, align 8
   %.val4.i91 = load i32, ptr %57, align 4
   %.not104 = icmp slt i32 %.val3.i90, %.val4.i91
-  br i1 %.not104, label %Saig_ObjIsLo.exit92.thread, label %67
+  br i1 %.not104, label %Saig_ObjIsLo.exit92.thread, label %Saig_ObjIsLo.exit92
 
-67:                                               ; preds = %Saig_ObjIsLo.exit92
+Saig_ObjIsLo.exit92:                              ; preds = %67
   %68 = load ptr, ptr %6, align 8
   %.val6.i = load i32, ptr %58, align 8
   %69 = add nsw i32 %.val6.i, %.val3.i90
@@ -514,7 +514,7 @@ Saig_ObjIsLo.exit92:                              ; preds = %59
   %.not64 = icmp eq i64 %77, 0
   br i1 %.not64, label %Saig_ObjIsLo.exit92.thread, label %78
 
-78:                                               ; preds = %67
+78:                                               ; preds = %Saig_ObjIsLo.exit92
   %79 = and i64 %76, -2
   %80 = inttoptr i64 %79 to ptr
   %81 = getelementptr i8, ptr %80, i64 24
@@ -606,8 +606,8 @@ Vec_PtrFree.exit99:                               ; preds = %108, %110
   tail call void @free(ptr noundef nonnull %86) #17
   br label %Saig_ObjIsLo.exit92.thread
 
-Saig_ObjIsLo.exit92.thread:                       ; preds = %59, %67, %78, %Saig_ObjIsLo.exit92, %Vec_PtrFree.exit99
-  %.159 = phi ptr [ %86, %Vec_PtrFree.exit99 ], [ %.058117, %78 ], [ %.058117, %67 ], [ %.058117, %Saig_ObjIsLo.exit92 ], [ %.058117, %59 ]
+Saig_ObjIsLo.exit92.thread:                       ; preds = %67, %59, %Saig_ObjIsLo.exit92, %78, %Vec_PtrFree.exit99
+  %.159 = phi ptr [ %86, %Vec_PtrFree.exit99 ], [ %.058117, %78 ], [ %.058117, %Saig_ObjIsLo.exit92 ], [ %.058117, %59 ], [ %.058117, %67 ]
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %exitcond136.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count135
   br i1 %exitcond136.not, label %.critedge2.loopexit, label %59, !llvm.loop !10
@@ -715,7 +715,7 @@ define internal fastcc void @Vec_PtrRemove(ptr nocapture noundef %0, ptr noundef
 
 7:                                                ; preds = %10, %2
   %indvars.iv = phi i64 [ %11, %10 ], [ %6, %2 ]
-  %8 = trunc i64 %indvars.iv to i32
+  %8 = trunc nuw i64 %indvars.iv to i32
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %10, label %16
 
@@ -2024,7 +2024,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %7, %1
 14:                                               ; preds = %14, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %14 ]
   %15 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv.i
-  %16 = trunc i64 %indvars.iv.i to i32
+  %16 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %16, ptr %15, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2047,7 +2047,7 @@ Vec_IntRemove.exit.thread:                        ; preds = %20
   br label %35
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i9
-  %22 = trunc i64 %indvars.iv.i11 to i32
+  %22 = trunc nuw nsw i64 %indvars.iv.i11 to i32
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %Vec_IntAlloc.exit.i, %._crit_edge.loopexit.i
@@ -2073,9 +2073,9 @@ Vec_IntRemove.exit.thread:                        ; preds = %20
   %30 = getelementptr inbounds i32, ptr %11, i64 %29
   store i32 %28, ptr %30, align 4
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
-  %31 = trunc i64 %indvars.iv.next35.i to i32
+  %31 = trunc nuw i64 %indvars.iv.next35.i to i32
   %32 = icmp sgt i32 %.val, %31
-  %33 = trunc i64 %indvars.iv34.i to i32
+  %33 = trunc nuw i64 %indvars.iv34.i to i32
   br i1 %32, label %26, label %._crit_edge30.i, !llvm.loop !31
 
 ._crit_edge30.i:                                  ; preds = %26, %.preheader.i

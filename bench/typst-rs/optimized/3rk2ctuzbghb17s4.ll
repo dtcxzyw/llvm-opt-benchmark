@@ -166910,7 +166910,7 @@ define void @_ZN5typst11foundations5bytes5Bytes5slice17hb2e1823d52547d7aE(ptr no
 ..thread.thread_crit_edge.i.i:                    ; preds = %7
   %.sroa.5.0.in.i.i.i.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.val43, i64 48
   %.sroa.5.0.i.i.i.pre.i.i = load i64, ptr %.sroa.5.0.in.i.i.i.phi.trans.insert.i.i, align 8
-  br label %_ZN5typst11foundations5bytes5Bytes10locate_opt17h4afc2c7f34fdd395E.exit.i
+  br label %.thread.thread.i.i
 
 13:                                               ; preds = %7
   %14 = icmp ne ptr %.val43, null
@@ -166922,20 +166922,20 @@ define void @_ZN5typst11foundations5bytes5Bytes5slice17hb2e1823d52547d7aE(ptr no
   %17 = extractvalue { i64, i1 } %15, 0
   %18 = icmp slt i64 %17, 0
   %or.cond.not.i.i = or i1 %16, %18
-  br i1 %or.cond.not.i.i, label %26, label %_ZN5typst11foundations5bytes5Bytes10locate_opt17h4afc2c7f34fdd395E.exit.i
+  br i1 %or.cond.not.i.i, label %26, label %.thread.thread.i.i
 
-_ZN5typst11foundations5bytes5Bytes10locate_opt17h4afc2c7f34fdd395E.exit.i: ; preds = %13, %..thread.thread_crit_edge.i.i
+.thread.thread.i.i:                               ; preds = %13, %..thread.thread_crit_edge.i.i
   %.sroa.5.0.i = phi i64 [ %.sroa.5.0.i.i.i.pre.i.i, %..thread.thread_crit_edge.i.i ], [ %.sroa.5.0.i.i.i.i, %13 ]
   %.sroa.4.0.ph14.i.i = phi i64 [ %2, %..thread.thread_crit_edge.i.i ], [ %17, %13 ]
   %.not.i.i.not.i = icmp ult i64 %.sroa.5.0.i, %.sroa.4.0.ph14.i.i
   br i1 %.not.i.i.not.i, label %26, label %19
 
-19:                                               ; preds = %_ZN5typst11foundations5bytes5Bytes10locate_opt17h4afc2c7f34fdd395E.exit.i
-  %switch3875 = icmp eq i64 %5, 0
-  %.sroa.7.0 = select i1 %switch3875, i64 %.sroa.5.0.i, i64 %11
+19:                                               ; preds = %.thread.thread.i.i
+  %switch3874 = icmp eq i64 %5, 0
+  %.sroa.7.0 = select i1 %switch3874, i64 %.sroa.5.0.i, i64 %11
   %spec.select = select i1 %.not.not, i64 %4, i64 %.sroa.7.0
   %20 = icmp sgt i64 %spec.select, -1
-  br i1 %20, label %_ZN5typst11foundations5bytes5Bytes10locate_opt17h4afc2c7f34fdd395E.exit.i47, label %21
+  br i1 %20, label %.thread.thread.i.i47, label %21
 
 21:                                               ; preds = %19
   %22 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %.sroa.5.0.i, i64 %spec.select)
@@ -166943,15 +166943,15 @@ _ZN5typst11foundations5bytes5Bytes10locate_opt17h4afc2c7f34fdd395E.exit.i: ; pre
   %24 = extractvalue { i64, i1 } %22, 0
   %25 = icmp slt i64 %24, 0
   %or.cond.not.i.i46 = or i1 %23, %25
-  br i1 %or.cond.not.i.i46, label %50, label %_ZN5typst11foundations5bytes5Bytes10locate_opt17h4afc2c7f34fdd395E.exit.i47
+  br i1 %or.cond.not.i.i46, label %50, label %.thread.thread.i.i47
 
-_ZN5typst11foundations5bytes5Bytes10locate_opt17h4afc2c7f34fdd395E.exit.i47: ; preds = %19, %21
+.thread.thread.i.i47:                             ; preds = %19, %21
   %.sroa.4.0.ph14.i.i49 = phi i64 [ %24, %21 ], [ %spec.select, %19 ]
   %.not.i.i.not.i50 = icmp ult i64 %.sroa.5.0.i, %.sroa.4.0.ph14.i.i49
   br i1 %.not.i.i.not.i50, label %50, label %29
 
-26:                                               ; preds = %_ZN5typst11foundations5bytes5Bytes10locate_opt17h4afc2c7f34fdd395E.exit.i, %13
-  %.sroa.5.0.i.i.i = phi i64 [ %.sroa.5.0.i.i.i.i, %13 ], [ %.sroa.5.0.i, %_ZN5typst11foundations5bytes5Bytes10locate_opt17h4afc2c7f34fdd395E.exit.i ]
+26:                                               ; preds = %.thread.thread.i.i, %13
+  %.sroa.5.0.i.i.i = phi i64 [ %.sroa.5.0.i, %.thread.thread.i.i ], [ %.sroa.5.0.i.i.i.i, %13 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !42417
   call fastcc void @_ZN5typst11foundations5bytes13out_of_bounds17h9cc42dd694266ebeE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %10, i64 noundef %2, i64 noundef %.sroa.5.0.i.i.i), !noalias !42417
   %27 = getelementptr inbounds i8, ptr %0, i64 8
@@ -166960,7 +166960,7 @@ _ZN5typst11foundations5bytes5Bytes10locate_opt17h4afc2c7f34fdd395E.exit.i47: ; p
   store <2 x i64> %28, ptr %27, align 8
   br label %53
 
-29:                                               ; preds = %_ZN5typst11foundations5bytes5Bytes10locate_opt17h4afc2c7f34fdd395E.exit.i47
+29:                                               ; preds = %.thread.thread.i.i47
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %.sroa.4.0.ph14.i.i49, i64 %.sroa.4.0.ph14.i.i)
   %30 = icmp ugt i64 %.sroa.4.0.ph14.i.i, %.sroa.5.0.i
   br i1 %30, label %31, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbe5520874da2d7a7E.exit"
@@ -167026,7 +167026,7 @@ _ZN5typst11foundations5bytes5Bytes10locate_opt17h4afc2c7f34fdd395E.exit.i47: ; p
   store ptr %41, ptr %49, align 8
   br label %53
 
-50:                                               ; preds = %_ZN5typst11foundations5bytes5Bytes10locate_opt17h4afc2c7f34fdd395E.exit.i47, %21
+50:                                               ; preds = %.thread.thread.i.i47, %21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !42432
   call fastcc void @_ZN5typst11foundations5bytes13out_of_bounds17h9cc42dd694266ebeE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %9, i64 noundef %spec.select, i64 noundef %.sroa.5.0.i), !noalias !42432
   %51 = getelementptr inbounds i8, ptr %0, i64 8

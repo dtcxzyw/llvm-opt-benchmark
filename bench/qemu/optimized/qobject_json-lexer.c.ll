@@ -78,26 +78,24 @@ if.end:                                           ; preds = %if.then, %entry
 
 while.cond:                                       ; preds = %sw.epilog, %if.end
   %char_consumed.0 = phi i32 [ 0, %if.end ], [ %frombool7.i, %sw.epilog ]
-  br i1 %flush, label %cond.true, label %cond.false
+  br i1 %flush, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %while.cond
   %2 = load i32, ptr %state, align 4
   %3 = load i32, ptr %lexer, align 8
-  %cmp5 = icmp ne i32 %2, %3
-  %conv6 = zext i1 %cmp5 to i32
-  br label %cond.end
+  %cmp5.not = icmp eq i32 %2, %3
+  br i1 %cmp5.not, label %while.end, label %while.body
 
-cond.false:                                       ; preds = %while.cond
-  %lnot.ext = xor i32 %char_consumed.0, 1
-  br label %cond.end
+cond.end:                                         ; preds = %while.cond
+  %tobool8.not.not = icmp eq i32 %char_consumed.0, 0
+  br i1 %tobool8.not.not, label %cond.end.while.body_crit_edge, label %while.end
 
-cond.end:                                         ; preds = %cond.false, %cond.true
-  %cond = phi i32 [ %conv6, %cond.true ], [ %lnot.ext, %cond.false ]
-  %tobool8.not = icmp eq i32 %cond, 0
-  br i1 %tobool8.not, label %while.end, label %while.body
+cond.end.while.body_crit_edge:                    ; preds = %cond.end
+  %lexer.val.pre = load i32, ptr %state, align 4
+  br label %while.body
 
-while.body:                                       ; preds = %cond.end
-  %lexer.val = load i32, ptr %state, align 4
+while.body:                                       ; preds = %cond.end.while.body_crit_edge, %cond.true
+  %lexer.val = phi i32 [ %lexer.val.pre, %cond.end.while.body_crit_edge ], [ %2, %cond.true ]
   %cmp.i = icmp ult i32 %lexer.val, 18
   br i1 %cmp.i, label %next_state.exit, label %if.else.i
 
@@ -196,7 +194,7 @@ sw.epilog:                                        ; preds = %if.end17, %sw.bb29,
   store i32 %new_state.1, ptr %state, align 4
   br label %while.cond, !llvm.loop !7
 
-while.end:                                        ; preds = %cond.end
+while.end:                                        ; preds = %cond.true, %cond.end
   %22 = load ptr, ptr %token, align 8
   %len = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load i64, ptr %len, align 8

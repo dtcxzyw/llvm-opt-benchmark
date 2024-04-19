@@ -478,9 +478,9 @@ sw.bb7:                                           ; preds = %if.then1
   %tbuf.i = getelementptr inbounds i8, ptr %vprsactx, i64 184
   %4 = load ptr, ptr %tbuf.i, align 8
   %cmp.not.i = icmp eq ptr %4, null
-  br i1 %cmp.not.i, label %setup_tbuf.exit, label %if.end11
+  br i1 %cmp.not.i, label %if.end.i, label %if.end11
 
-setup_tbuf.exit:                                  ; preds = %sw.bb7
+if.end.i:                                         ; preds = %sw.bb7
   %rsa.i = getelementptr inbounds i8, ptr %vprsactx, i64 16
   %5 = load ptr, ptr %rsa.i, align 8
   %call.i = tail call i32 @RSA_size(ptr noundef %5) #11
@@ -490,8 +490,8 @@ setup_tbuf.exit:                                  ; preds = %sw.bb7
   %cmp3.i.not = icmp eq ptr %call1.i, null
   br i1 %cmp3.i.not, label %return, label %if.end11
 
-if.end11:                                         ; preds = %sw.bb7, %setup_tbuf.exit
-  %6 = phi ptr [ %4, %sw.bb7 ], [ %call1.i, %setup_tbuf.exit ]
+if.end11:                                         ; preds = %if.end.i, %sw.bb7
+  %6 = phi ptr [ %call1.i, %if.end.i ], [ %4, %sw.bb7 ]
   %call12 = call i32 @rsa_verify_recover(ptr noundef nonnull %vprsactx, ptr noundef nonnull %6, ptr noundef nonnull %rslen, i64 noundef 0, ptr noundef %sig, i64 noundef %siglen), !range !4
   %cmp13.not.not = icmp eq i32 %call12, 0
   br i1 %cmp13.not.not, label %return, label %if.end11.if.end58_crit_edge
@@ -516,9 +516,9 @@ if.end22:                                         ; preds = %rsa_get_md_size.exi
   %tbuf.i39 = getelementptr inbounds i8, ptr %vprsactx, i64 184
   %7 = load ptr, ptr %tbuf.i39, align 8
   %cmp.not.i40 = icmp eq ptr %7, null
-  br i1 %cmp.not.i40, label %setup_tbuf.exit49, label %if.end26
+  br i1 %cmp.not.i40, label %if.end.i42, label %if.end26
 
-setup_tbuf.exit49:                                ; preds = %if.end22
+if.end.i42:                                       ; preds = %if.end22
   %rsa.i43 = getelementptr inbounds i8, ptr %vprsactx, i64 16
   %8 = load ptr, ptr %rsa.i43, align 8
   %call.i44 = tail call i32 @RSA_size(ptr noundef %8) #11
@@ -528,8 +528,8 @@ setup_tbuf.exit49:                                ; preds = %if.end22
   %cmp3.i47.not = icmp eq ptr %call1.i46, null
   br i1 %cmp3.i47.not, label %return, label %if.end26
 
-if.end26:                                         ; preds = %if.end22, %setup_tbuf.exit49
-  %9 = phi ptr [ %7, %if.end22 ], [ %call1.i46, %setup_tbuf.exit49 ]
+if.end26:                                         ; preds = %if.end.i42, %if.end22
+  %9 = phi ptr [ %call1.i46, %if.end.i42 ], [ %7, %if.end22 ]
   %conv27 = trunc i64 %siglen to i32
   %rsa29 = getelementptr inbounds i8, ptr %vprsactx, i64 16
   %10 = load ptr, ptr %rsa29, align 8
@@ -571,9 +571,9 @@ if.else:                                          ; preds = %if.end
   %tbuf.i50 = getelementptr inbounds i8, ptr %vprsactx, i64 184
   %16 = load ptr, ptr %tbuf.i50, align 8
   %cmp.not.i51 = icmp eq ptr %16, null
-  br i1 %cmp.not.i51, label %setup_tbuf.exit60, label %if.end47
+  br i1 %cmp.not.i51, label %if.end.i53, label %if.end47
 
-setup_tbuf.exit60:                                ; preds = %if.else
+if.end.i53:                                       ; preds = %if.else
   %rsa.i54 = getelementptr inbounds i8, ptr %vprsactx, i64 16
   %17 = load ptr, ptr %rsa.i54, align 8
   %call.i55 = tail call i32 @RSA_size(ptr noundef %17) #11
@@ -583,8 +583,8 @@ setup_tbuf.exit60:                                ; preds = %if.else
   %cmp3.i58.not = icmp eq ptr %call1.i57, null
   br i1 %cmp3.i58.not, label %return, label %if.end47
 
-if.end47:                                         ; preds = %if.else, %setup_tbuf.exit60
-  %18 = phi ptr [ %16, %if.else ], [ %call1.i57, %setup_tbuf.exit60 ]
+if.end47:                                         ; preds = %if.end.i53, %if.else
+  %18 = phi ptr [ %call1.i57, %if.end.i53 ], [ %16, %if.else ]
   %conv48 = trunc i64 %siglen to i32
   %rsa50 = getelementptr inbounds i8, ptr %vprsactx, i64 16
   %19 = load ptr, ptr %rsa50, align 8
@@ -617,8 +617,8 @@ lor.lhs.false:                                    ; preds = %if.end58
   %spec.select = zext i1 %tobool63.not to i32
   br label %return
 
-return:                                           ; preds = %lor.lhs.false, %if.end58, %setup_tbuf.exit60, %if.end34, %setup_tbuf.exit49, %if.end11, %setup_tbuf.exit, %sw.bb, %entry, %if.then55, %sw.default, %if.then41, %if.then33, %if.then21, %if.then5
-  %retval.0 = phi i32 [ 0, %sw.default ], [ 0, %if.then21 ], [ 0, %if.then33 ], [ 0, %if.then41 ], [ 0, %if.then5 ], [ 0, %if.then55 ], [ 0, %entry ], [ 1, %sw.bb ], [ 0, %setup_tbuf.exit ], [ 0, %if.end11 ], [ 0, %setup_tbuf.exit49 ], [ 1, %if.end34 ], [ 0, %setup_tbuf.exit60 ], [ 0, %if.end58 ], [ %spec.select, %lor.lhs.false ]
+return:                                           ; preds = %if.end.i53, %if.end.i42, %if.end.i, %lor.lhs.false, %if.end58, %if.end34, %if.end11, %sw.bb, %entry, %if.then55, %sw.default, %if.then41, %if.then33, %if.then21, %if.then5
+  %retval.0 = phi i32 [ 0, %sw.default ], [ 0, %if.then21 ], [ 0, %if.then33 ], [ 0, %if.then41 ], [ 0, %if.then5 ], [ 0, %if.then55 ], [ 0, %entry ], [ 1, %sw.bb ], [ 0, %if.end11 ], [ 1, %if.end34 ], [ 0, %if.end58 ], [ %spec.select, %lor.lhs.false ], [ 0, %if.end.i ], [ 0, %if.end.i42 ], [ 0, %if.end.i53 ]
   ret i32 %retval.0
 }
 
@@ -676,9 +676,9 @@ sw.bb:                                            ; preds = %if.then6
   %tbuf.i = getelementptr inbounds i8, ptr %vprsactx, i64 184
   %3 = load ptr, ptr %tbuf.i, align 8
   %cmp.not.i = icmp eq ptr %3, null
-  br i1 %cmp.not.i, label %setup_tbuf.exit, label %if.end10
+  br i1 %cmp.not.i, label %if.end.i, label %if.end10
 
-setup_tbuf.exit:                                  ; preds = %sw.bb
+if.end.i:                                         ; preds = %sw.bb
   %rsa.i = getelementptr inbounds i8, ptr %vprsactx, i64 16
   %4 = load ptr, ptr %rsa.i, align 8
   %call.i = tail call i32 @RSA_size(ptr noundef %4) #11
@@ -688,8 +688,8 @@ setup_tbuf.exit:                                  ; preds = %sw.bb
   %cmp3.i.not = icmp eq ptr %call1.i, null
   br i1 %cmp3.i.not, label %return, label %if.end10
 
-if.end10:                                         ; preds = %sw.bb, %setup_tbuf.exit
-  %5 = phi ptr [ %3, %sw.bb ], [ %call1.i, %setup_tbuf.exit ]
+if.end10:                                         ; preds = %if.end.i, %sw.bb
+  %5 = phi ptr [ %call1.i, %if.end.i ], [ %3, %sw.bb ]
   %conv11 = trunc i64 %siglen to i32
   %rsa12 = getelementptr inbounds i8, ptr %vprsactx, i64 16
   %6 = load ptr, ptr %rsa12, align 8
@@ -804,8 +804,8 @@ if.end63:                                         ; preds = %if.else, %if.end53,
   store i64 %conv64, ptr %routlen, align 8
   br label %return
 
-return:                                           ; preds = %setup_tbuf.exit, %entry, %if.end63, %if.then61, %sw.default, %if.then52, %if.then41, %if.then29, %if.then23, %if.then16, %if.then1
-  %retval.0 = phi i32 [ 1, %if.then1 ], [ 0, %sw.default ], [ 0, %if.then52 ], [ 1, %if.end63 ], [ 0, %if.then16 ], [ 0, %if.then23 ], [ 0, %if.then29 ], [ 0, %if.then41 ], [ 0, %if.then61 ], [ 0, %entry ], [ 0, %setup_tbuf.exit ]
+return:                                           ; preds = %if.end.i, %entry, %if.end63, %if.then61, %sw.default, %if.then52, %if.then41, %if.then29, %if.then23, %if.then16, %if.then1
+  %retval.0 = phi i32 [ 1, %if.then1 ], [ 0, %sw.default ], [ 0, %if.then52 ], [ 1, %if.end63 ], [ 0, %if.then16 ], [ 0, %if.then23 ], [ 0, %if.then29 ], [ 0, %if.then41 ], [ 0, %if.then61 ], [ 0, %entry ], [ 0, %if.end.i ]
   ret i32 %retval.0
 }
 

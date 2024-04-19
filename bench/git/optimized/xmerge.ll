@@ -2554,7 +2554,7 @@ land.lhs.true.i:                                  ; preds = %if.end15.i
 
 if.then30.i:                                      ; preds = %land.lhs.true.i
   %cmp31.i = icmp sgt i64 %9, 1
-  br i1 %cmp31.i, label %is_eol_crlf.exit, label %if.end16
+  br i1 %cmp31.i, label %return.sink.split.i, label %if.end16
 
 if.end45.i:                                       ; preds = %land.lhs.true.i, %if.end15.i
   %tobool46.not.i = icmp eq i32 %cond, 0
@@ -2574,16 +2574,16 @@ return.sink.split.sink.split.i:                   ; preds = %if.end48.i, %if.the
   %ptr.i = getelementptr inbounds i8, ptr %.sink25.i, i64 8
   %15 = load ptr, ptr %ptr.i, align 8
   %16 = getelementptr i8, ptr %15, i64 %.sink24.i
-  br label %is_eol_crlf.exit
+  br label %return.sink.split.i
 
-is_eol_crlf.exit:                                 ; preds = %if.then30.i, %return.sink.split.sink.split.i
+return.sink.split.i:                              ; preds = %return.sink.split.sink.split.i, %if.then30.i
   %.sink.i = phi ptr [ %11, %if.then30.i ], [ %16, %return.sink.split.sink.split.i ]
   %arrayidx63.i = getelementptr i8, ptr %.sink.i, i64 -2
   %17 = load i8, ptr %arrayidx63.i, align 1
-  %cmp65.i.not = icmp eq i8 %17, 13
-  br i1 %cmp65.i.not, label %if.then, label %if.end16
+  %cmp65.i = icmp eq i8 %17, 13
+  br i1 %cmp65.i, label %if.then, label %if.end16
 
-if.then:                                          ; preds = %if.end45.i, %if.end.i, %is_eol_crlf.exit
+if.then:                                          ; preds = %return.sink.split.i, %if.end45.i, %if.end.i
   %i2 = getelementptr inbounds i8, ptr %m, i64 24
   %18 = load i64, ptr %i2, align 8
   %tobool4.not = icmp eq i64 %18, 0
@@ -2632,7 +2632,7 @@ land.lhs.true.i20:                                ; preds = %if.end15.i15
 
 if.then30.i39:                                    ; preds = %land.lhs.true.i20
   %cmp31.i40 = icmp sgt i64 %27, 1
-  br i1 %cmp31.i40, label %is_eol_crlf.exit46, label %if.end16
+  br i1 %cmp31.i40, label %return.sink.split.i35, label %if.end16
 
 if.end45.i24:                                     ; preds = %land.lhs.true.i20, %if.end15.i15
   %tobool46.not.i25 = icmp eq i32 %cond10, 0
@@ -2652,16 +2652,16 @@ return.sink.split.sink.split.i31:                 ; preds = %if.end48.i26, %if.t
   %ptr.i34 = getelementptr inbounds i8, ptr %.sink25.i32, i64 8
   %33 = load ptr, ptr %ptr.i34, align 8
   %34 = getelementptr i8, ptr %33, i64 %.sink24.i33
-  br label %is_eol_crlf.exit46
+  br label %return.sink.split.i35
 
-is_eol_crlf.exit46:                               ; preds = %if.then30.i39, %return.sink.split.sink.split.i31
+return.sink.split.i35:                            ; preds = %return.sink.split.sink.split.i31, %if.then30.i39
   %.sink.i36 = phi ptr [ %29, %if.then30.i39 ], [ %34, %return.sink.split.sink.split.i31 ]
   %arrayidx63.i37 = getelementptr i8, ptr %.sink.i36, i64 -2
   %35 = load i8, ptr %arrayidx63.i37, align 1
-  %cmp65.i38.not = icmp eq i8 %35, 13
-  br i1 %cmp65.i38.not, label %if.then14, label %if.end16
+  %cmp65.i38 = icmp eq i8 %35, 13
+  br i1 %cmp65.i38, label %if.then14, label %if.end16
 
-if.then14:                                        ; preds = %if.end45.i24, %if.end.i13, %is_eol_crlf.exit46
+if.then14:                                        ; preds = %return.sink.split.i35, %if.end45.i24, %if.end.i13
   %nrec.i47 = getelementptr inbounds i8, ptr %xe1, i64 56
   %36 = load i64, ptr %nrec.i47, align 8
   %cmp.i49 = icmp sgt i64 %36, 1
@@ -2716,8 +2716,8 @@ return.sink.split.i64:                            ; preds = %return.sink.split.s
   %49 = zext i1 %cmp65.i67 to i32
   br label %if.end16
 
-if.end16:                                         ; preds = %if.end48.i26, %if.then30.i39, %if.then.i41, %if.end48.i, %if.then30.i, %if.then.i, %return.sink.split.i64, %if.then30.i62, %if.end.i50, %if.then.i68, %land.lhs.true.i56, %if.end15.i52, %is_eol_crlf.exit, %is_eol_crlf.exit46
-  %needs_cr.1 = phi i32 [ 0, %is_eol_crlf.exit46 ], [ 0, %is_eol_crlf.exit ], [ 0, %if.then.i68 ], [ -1, %if.end.i50 ], [ 0, %if.then30.i62 ], [ %49, %return.sink.split.i64 ], [ -1, %land.lhs.true.i56 ], [ -1, %if.end15.i52 ], [ 0, %if.then.i ], [ 0, %if.then30.i ], [ 0, %if.end48.i ], [ 0, %if.then.i41 ], [ 0, %if.then30.i39 ], [ 0, %if.end48.i26 ]
+if.end16:                                         ; preds = %return.sink.split.i35, %if.end48.i26, %if.then30.i39, %if.then.i41, %return.sink.split.i, %if.end48.i, %if.then30.i, %if.then.i, %return.sink.split.i64, %if.then30.i62, %if.end.i50, %if.then.i68, %land.lhs.true.i56, %if.end15.i52
+  %needs_cr.1 = phi i32 [ 0, %if.then.i68 ], [ -1, %if.end.i50 ], [ 0, %if.then30.i62 ], [ %49, %return.sink.split.i64 ], [ -1, %land.lhs.true.i56 ], [ -1, %if.end15.i52 ], [ 0, %if.then.i ], [ 0, %if.then30.i ], [ 0, %if.end48.i ], [ 0, %return.sink.split.i ], [ 0, %if.then.i41 ], [ 0, %if.then30.i39 ], [ 0, %if.end48.i26 ], [ 0, %return.sink.split.i35 ]
   %cond21 = tail call i32 @llvm.smax.i32(i32 %needs_cr.1, i32 0)
   ret i32 %cond21
 }

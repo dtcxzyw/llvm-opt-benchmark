@@ -82,13 +82,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.63 = private unnamed_addr constant [41 x i8] c"X509_STORE_CTX_set_purpose(ctx, purpose)\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @test_get_options() local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @test_get_options() local_unnamed_addr #0 {
 entry:
   ret ptr @test_get_options.options
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #1 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @test_skip_common_options() #3
   %tobool.not = icmp eq i32 %call, 0
@@ -486,27 +486,24 @@ entry:
 
 if.then:                                          ; preds = %entry
   %tobool.not = icmp eq i32 %use_trusted, 0
+  %tobool13.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %if.end, label %if.then5
 
 if.then5:                                         ; preds = %if.then
-  %tobool6.not = icmp eq i32 %call4, 0
-  br i1 %tobool6.not, label %land.end27.critedge, label %land.rhs
+  br i1 %tobool13.not, label %land.end27.critedge, label %land.rhs
 
 land.rhs:                                         ; preds = %if.then5
   %call9 = tail call i32 @OPENSSL_sk_push(ptr noundef %call1, ptr noundef nonnull %call) #3
   %cmp10 = icmp ne i32 %call9, 0
   %conv = zext i1 %cmp10 to i32
   %call11 = tail call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 192, ptr noundef nonnull @.str.45, i32 noundef %conv) #3
-  %tobool12 = icmp ne i32 %call11, 0
-  %0 = zext i1 %tobool12 to i32
-  br label %if.end
+  %tobool12.not = icmp eq i32 %call11, 0
+  br i1 %tobool12.not, label %land.end27.critedge, label %land.rhs14
 
-if.end:                                           ; preds = %land.rhs, %if.then
-  %ret.0 = phi i32 [ %call4, %if.then ], [ %0, %land.rhs ]
-  %tobool13.not = icmp eq i32 %ret.0, 0
+if.end:                                           ; preds = %if.then
   br i1 %tobool13.not, label %land.end27.critedge, label %land.rhs14
 
-land.rhs14:                                       ; preds = %if.end
+land.rhs14:                                       ; preds = %land.rhs, %if.end
   %call15 = tail call i32 @X509_STORE_CTX_init(ptr noundef %call2, ptr noundef null, ptr noundef nonnull %call, ptr noundef null) #3
   %cmp16 = icmp ne i32 %call15, 0
   %conv17 = zext i1 %cmp16 to i32
@@ -519,15 +516,15 @@ land.rhs23:                                       ; preds = %land.rhs14
   %call24 = tail call i32 @X509_verify_cert(ptr noundef %call2) #3
   %call25 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 195, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.44, i32 noundef %call24, i32 noundef %expected) #3
   %tobool26 = icmp ne i32 %call25, 0
-  %1 = zext i1 %tobool26 to i32
+  %0 = zext i1 %tobool26 to i32
   br label %if.end29
 
-land.end27.critedge:                              ; preds = %if.then5, %if.end
+land.end27.critedge:                              ; preds = %land.rhs, %if.then5, %if.end
   tail call void @X509_STORE_CTX_set0_trusted_stack(ptr noundef %call2, ptr noundef %call1) #3
   br label %if.end29
 
 if.end29:                                         ; preds = %land.rhs14, %land.rhs23, %land.end27.critedge, %entry
-  %ret.1 = phi i32 [ %call4, %entry ], [ 0, %land.rhs14 ], [ %1, %land.rhs23 ], [ 0, %land.end27.critedge ]
+  %ret.1 = phi i32 [ %call4, %entry ], [ 0, %land.rhs14 ], [ %0, %land.rhs23 ], [ 0, %land.end27.critedge ]
   tail call void @X509_STORE_CTX_free(ptr noundef %call2) #3
   tail call void @OPENSSL_sk_free(ptr noundef %call1) #3
   tail call void @X509_free(ptr noundef %call) #3

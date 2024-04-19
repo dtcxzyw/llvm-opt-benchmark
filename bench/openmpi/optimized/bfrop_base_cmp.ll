@@ -1845,14 +1845,14 @@ define internal fastcc i32 @cmp_geometry(ptr nocapture noundef readonly %0, ptr 
   br i1 %45, label %cmp_coord.exit.thread, label %.preheader
 
 46:                                               ; preds = %cmp_coord.exit
-  %47 = add nuw i64 %.058, 1
+  %47 = add nuw i64 %.059, 1
   %exitcond.not = icmp eq i64 %47, %38
   br i1 %exitcond.not, label %cmp_coord.exit.thread, label %.preheader, !llvm.loop !27
 
 .preheader:                                       ; preds = %44, %46
-  %.058 = phi i64 [ %47, %46 ], [ 0, %44 ]
-  %48 = getelementptr inbounds %struct.pmix_coord, ptr %29, i64 %.058
-  %49 = getelementptr inbounds %struct.pmix_coord, ptr %32, i64 %.058
+  %.059 = phi i64 [ %47, %46 ], [ 0, %44 ]
+  %48 = getelementptr inbounds %struct.pmix_coord, ptr %29, i64 %.059
+  %49 = getelementptr inbounds %struct.pmix_coord, ptr %32, i64 %.059
   %50 = load i8, ptr %48, align 8
   %51 = load i8, ptr %49, align 8
   %.not.i = icmp eq i8 %50, %51
@@ -1887,8 +1887,8 @@ cmp_coord.exit:                                   ; preds = %.thread.i
   %.not14.i.not = icmp eq i32 %65, 0
   br i1 %.not14.i.not, label %46, label %cmp_coord.exit.thread
 
-cmp_coord.exit.thread:                            ; preds = %.thread.i, %59, %58, %.preheader, %46, %cmp_coord.exit, %34, %44, %42, %36, %35, %26, %25, %22, %21, %15, %14, %11, %10, %2
-  %.036 = phi i32 [ 4, %2 ], [ 1, %10 ], [ 2, %11 ], [ 1, %14 ], [ 2, %15 ], [ 1, %21 ], [ 2, %22 ], [ 1, %25 ], [ 2, %26 ], [ 1, %35 ], [ 1, %36 ], [ 2, %42 ], [ 0, %44 ], [ %spec.select, %34 ], [ 4, %.preheader ], [ 2, %58 ], [ 1, %59 ], [ 2, %.thread.i ], [ 0, %46 ], [ 1, %cmp_coord.exit ]
+cmp_coord.exit.thread:                            ; preds = %cmp_coord.exit, %.thread.i, %59, %58, %.preheader, %46, %34, %44, %42, %36, %35, %26, %25, %22, %21, %15, %14, %11, %10, %2
+  %.036 = phi i32 [ 4, %2 ], [ 1, %10 ], [ 2, %11 ], [ 1, %14 ], [ 2, %15 ], [ 1, %21 ], [ 2, %22 ], [ 1, %25 ], [ 2, %26 ], [ 1, %35 ], [ 1, %36 ], [ 2, %42 ], [ 0, %44 ], [ %spec.select, %34 ], [ 1, %cmp_coord.exit ], [ 4, %.preheader ], [ 2, %58 ], [ 1, %59 ], [ 2, %.thread.i ], [ 0, %46 ]
   ret i32 %.036
 }
 

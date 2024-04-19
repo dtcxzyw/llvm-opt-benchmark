@@ -3261,23 +3261,23 @@ lor.lhs.false.i.i:                                ; preds = %if.else9.i
   %cmp1.i14.i = icmp eq i32 %conv.i, 404
   %cmp2.i.i = icmp eq i32 %7, 22
   %or.cond.i15.i = and i1 %cmp2.i.i, %cmp1.i14.i
-  br i1 %or.cond.i15.i, label %return, label %missing__target.exit.i
+  br i1 %or.cond.i15.i, label %return, label %lor.rhs.i.i
 
-missing__target.exit.i:                           ; preds = %lor.lhs.false.i.i
-  %cmp3.i.i = icmp ne i32 %conv.i, 550
-  %cmp4.i.i = icmp ne i32 %7, 19
-  %.not.i = or i1 %cmp4.i.i, %cmp3.i.i
-  br i1 %.not.i, label %if.else13.i, label %return
+lor.rhs.i.i:                                      ; preds = %lor.lhs.false.i.i
+  %cmp3.i.i = icmp eq i32 %conv.i, 550
+  %cmp4.i.i = icmp eq i32 %7, 19
+  %9 = and i1 %cmp4.i.i, %cmp3.i.i
+  br i1 %9, label %return, label %if.else13.i
 
-if.else13.i:                                      ; preds = %missing__target.exit.i
+if.else13.i:                                      ; preds = %lor.rhs.i.i
   %cmp15.i = icmp eq i64 %8, 401
   br i1 %cmp15.i, label %if.then17.i, label %if.else26.i
 
 if.then17.i:                                      ; preds = %if.else13.i
-  %9 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @http_auth, i64 0, i32 3), align 8
-  %tobool18.i = icmp ne ptr %9, null
-  %10 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @http_auth, i64 0, i32 4), align 8
-  %tobool19.i = icmp ne ptr %10, null
+  %10 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @http_auth, i64 0, i32 3), align 8
+  %tobool18.i = icmp ne ptr %10, null
+  %11 = load ptr, ptr getelementptr inbounds (%struct.credential, ptr @http_auth, i64 0, i32 4), align 8
+  %tobool19.i = icmp ne ptr %11, null
   %or.cond.i6 = select i1 %tobool18.i, i1 %tobool19.i, i1 false
   br i1 %or.cond.i6, label %if.then20.i, label %if.else21.i
 
@@ -3286,24 +3286,24 @@ if.then20.i:                                      ; preds = %if.then17.i
   br label %return
 
 if.else21.i:                                      ; preds = %if.then17.i
-  %11 = load i64, ptr @http_auth_methods, align 8
-  %and.i = and i64 %11, -5
+  %12 = load i64, ptr @http_auth_methods, align 8
+  %and.i = and i64 %12, -5
   store i64 %and.i, ptr @http_auth_methods, align 8
   %auth_avail.i = getelementptr inbounds i8, ptr %results, i64 16
-  %12 = load i64, ptr %auth_avail.i, align 8
-  %tobool22.not.i = icmp eq i64 %12, 0
+  %13 = load i64, ptr %auth_avail.i, align 8
+  %tobool22.not.i = icmp eq i64 %13, 0
   br i1 %tobool22.not.i, label %return, label %if.then23.i
 
 if.then23.i:                                      ; preds = %if.else21.i
-  %and25.i = and i64 %12, %and.i
+  %and25.i = and i64 %13, %and.i
   store i64 %and25.i, ptr @http_auth_methods, align 8
   store i1 true, ptr @http_auth_methods_restricted, align 4
   br label %return
 
 if.else26.i:                                      ; preds = %if.else13.i
   %http_connectcode.i = getelementptr inbounds i8, ptr %results, i64 24
-  %13 = load i64, ptr %http_connectcode.i, align 8
-  %cmp27.i = icmp eq i64 %13, 407
+  %14 = load i64, ptr %http_connectcode.i, align 8
+  %cmp27.i = icmp eq i64 %14, 407
   br i1 %cmp27.i, label %if.then29.i, label %if.end30.i
 
 if.then29.i:                                      ; preds = %if.else26.i
@@ -3311,18 +3311,18 @@ if.then29.i:                                      ; preds = %if.else26.i
   br label %if.end30.i
 
 if.end30.i:                                       ; preds = %if.then29.i, %if.else26.i
-  %14 = load i8, ptr @curl_errorstr, align 16
-  %tobool31.not.i = icmp eq i8 %14, 0
+  %15 = load i8, ptr @curl_errorstr, align 16
+  %tobool31.not.i = icmp eq i8 %15, 0
   br i1 %tobool31.not.i, label %if.then32.i, label %return
 
 if.then32.i:                                      ; preds = %if.end30.i
-  %15 = load i32, ptr %results, align 8
-  %call34.i = call ptr @curl_easy_strerror(i32 noundef %15) #21
+  %16 = load i32, ptr %results, align 8
+  %call34.i = call ptr @curl_easy_strerror(i32 noundef %16) #21
   %call35.i = call i64 @gitstrlcpy(ptr noundef nonnull @curl_errorstr, ptr noundef %call34.i, i64 noundef 256) #21
   br label %return
 
-return:                                           ; preds = %if.then32.i, %if.end30.i, %if.then23.i, %if.else21.i, %if.then20.i, %missing__target.exit.i, %lor.lhs.false.i.i, %if.else9.i, %if.then4.i, %if.then.i5, %normalize_curl_result.exit.i, %if.then
-  %retval.0 = phi i32 [ 3, %if.then ], [ 0, %if.then.i5 ], [ 5, %if.then4.i ], [ 5, %if.then20.i ], [ 6, %normalize_curl_result.exit.i ], [ 1, %missing__target.exit.i ], [ 4, %if.then23.i ], [ 4, %if.else21.i ], [ 2, %if.then32.i ], [ 2, %if.end30.i ], [ 1, %if.else9.i ], [ 1, %lor.lhs.false.i.i ]
+return:                                           ; preds = %if.then32.i, %if.end30.i, %if.then23.i, %if.else21.i, %if.then20.i, %lor.rhs.i.i, %lor.lhs.false.i.i, %if.else9.i, %if.then4.i, %if.then.i5, %normalize_curl_result.exit.i, %if.then
+  %retval.0 = phi i32 [ 3, %if.then ], [ 0, %if.then.i5 ], [ 5, %if.then4.i ], [ 5, %if.then20.i ], [ 6, %normalize_curl_result.exit.i ], [ 4, %if.then23.i ], [ 4, %if.else21.i ], [ 2, %if.then32.i ], [ 2, %if.end30.i ], [ 1, %if.else9.i ], [ 1, %lor.lhs.false.i.i ], [ 1, %lor.rhs.i.i ]
   ret i32 %retval.0
 }
 
@@ -6176,8 +6176,8 @@ do.body.i18:                                      ; preds = %land.rhs.i25, %if.e
   %buf.addr.0.i21 = phi ptr [ %ptr, %if.end20 ], [ %incdec.ptr.i27, %land.rhs.i25 ]
   %prefix.addr.0.i20.ptr = getelementptr inbounds i8, ptr @.str.178, i64 %prefix.addr.0.i20.idx
   %18 = load i8, ptr %prefix.addr.0.i20.ptr, align 1
-  %exitcond52 = icmp eq i64 %prefix.addr.0.i20.idx, 5
-  br i1 %exitcond52, label %if.then26, label %do.cond.i23
+  %exitcond49 = icmp eq i64 %prefix.addr.0.i20.idx, 5
+  br i1 %exitcond49, label %if.then26, label %do.cond.i23
 
 do.cond.i23:                                      ; preds = %do.body.i18
   %cmp.not.i24 = icmp eq i64 %len.addr.0.i19, 0

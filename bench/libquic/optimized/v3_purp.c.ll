@@ -197,9 +197,9 @@ if.else:                                          ; preds = %lor.lhs.false
   br label %if.end29
 
 if.end29:                                         ; preds = %if.end14, %if.then20, %if.else
-  %.sink98 = phi i64 [ 0, %if.then20 ], [ %call24, %if.else ], [ -1, %if.end14 ]
+  %.sink99 = phi i64 [ 0, %if.then20 ], [ %call24, %if.else ], [ -1, %if.end14 ]
   %ex_pathlen = getelementptr inbounds i8, ptr %x, i64 48
-  store i64 %.sink98, ptr %ex_pathlen, align 8
+  store i64 %.sink99, ptr %ex_pathlen, align 8
   tail call void @BASIC_CONSTRAINTS_free(ptr noundef nonnull %call7) #10
   %10 = load i64, ptr %ex_flags, align 8
   %or31 = or i64 %10, 1
@@ -306,13 +306,13 @@ if.then83:                                        ; preds = %if.end80
   %23 = load i64, ptr %ex_flags, align 8
   %or85 = or i64 %23, 4
   store i64 %or85, ptr %ex_flags, align 8
-  %call8691 = tail call i64 @sk_num(ptr noundef nonnull %call81) #10
-  %cmp8792.not = icmp eq i64 %call8691, 0
-  br i1 %cmp8792.not, label %for.end, label %for.body
+  %call8692 = tail call i64 @sk_num(ptr noundef nonnull %call81) #10
+  %cmp8793.not = icmp eq i64 %call8692, 0
+  br i1 %cmp8793.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.then83, %for.inc
-  %i.093 = phi i64 [ %inc, %for.inc ], [ 0, %if.then83 ]
-  %call89 = tail call ptr @sk_value(ptr noundef nonnull %call81, i64 noundef %i.093) #10
+  %i.094 = phi i64 [ %inc, %for.inc ], [ 0, %if.then83 ]
+  %call89 = tail call ptr @sk_value(ptr noundef nonnull %call81, i64 noundef %i.094) #10
   %call90 = tail call i32 @OBJ_obj2nid(ptr noundef %call89) #10
   switch i32 %call90, label %for.inc [
     i32 129, label %for.inc.sink.split
@@ -352,14 +352,14 @@ sw.bb114:                                         ; preds = %for.body
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %for.body, %sw.bb114, %sw.bb111, %sw.bb108, %sw.bb105, %sw.bb102, %sw.bb99, %sw.bb96, %sw.bb93
-  %.sink100 = phi i64 [ 2, %sw.bb93 ], [ 4, %sw.bb96 ], [ 8, %sw.bb99 ], [ 16, %sw.bb102 ], [ 32, %sw.bb105 ], [ 64, %sw.bb108 ], [ 128, %sw.bb111 ], [ 256, %sw.bb114 ], [ 1, %for.body ]
+  %.sink101 = phi i64 [ 2, %sw.bb93 ], [ 4, %sw.bb96 ], [ 8, %sw.bb99 ], [ 16, %sw.bb102 ], [ 32, %sw.bb105 ], [ 64, %sw.bb108 ], [ 128, %sw.bb111 ], [ 256, %sw.bb114 ], [ 1, %for.body ]
   %24 = load i64, ptr %ex_xkusage, align 8
-  %or92 = or i64 %24, %.sink100
+  %or92 = or i64 %24, %.sink101
   store i64 %or92, ptr %ex_xkusage, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %for.body
-  %inc = add nuw i64 %i.093, 1
+  %inc = add nuw i64 %i.094, 1
   %call86 = tail call i64 @sk_num(ptr noundef nonnull %call81) #10
   %cmp87 = icmp ult i64 %inc, %call86
   br i1 %cmp87, label %for.body, label %for.end, !llvm.loop !7
@@ -570,9 +570,9 @@ setup_dp.exit.i:                                  ; preds = %if.end36.i.i, %lor.
 
 setup_crldp.exit:                                 ; preds = %setup_dp.exit.i, %if.end169
   store i32 0, ptr %j, align 4
-  %call17194 = call i32 @X509_get_ext_count(ptr noundef nonnull %x) #10
-  %cmp17295 = icmp sgt i32 %call17194, 0
-  br i1 %cmp17295, label %for.body174, label %for.end196
+  %call17195 = call i32 @X509_get_ext_count(ptr noundef nonnull %x) #10
+  %cmp17296 = icmp sgt i32 %call17195, 0
+  br i1 %cmp17296, label %for.body174, label %for.end196
 
 for.body174:                                      ; preds = %setup_crldp.exit, %for.inc194
   %53 = load i32, ptr %j, align 4
@@ -599,19 +599,19 @@ if.end187:                                        ; preds = %if.end183
   %call1.i = call i32 @OBJ_obj2nid(ptr noundef %call.i85) #10
   store i32 %call1.i, ptr %ex_nid.i, align 4
   %cmp.i86 = icmp eq i32 %call1.i, 0
-  br i1 %cmp.i86, label %X509_supported_extension.exit.thread, label %X509_supported_extension.exit
+  br i1 %cmp.i86, label %if.then190, label %if.end.i
 
-X509_supported_extension.exit.thread:             ; preds = %if.end187
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ex_nid.i)
-  br label %if.then190
-
-X509_supported_extension.exit:                    ; preds = %if.end187
+if.end.i:                                         ; preds = %if.end187
   %call2.i87 = call ptr @bsearch(ptr noundef nonnull %ex_nid.i, ptr noundef nonnull @X509_supported_extension.supported_nids, i64 noundef 11, i64 noundef 4, ptr noundef nonnull @nid_cmp) #10
   %cmp3.not.i.not = icmp eq ptr %call2.i87, null
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ex_nid.i)
-  br i1 %cmp3.not.i.not, label %if.then190, label %for.inc194
+  br i1 %cmp3.not.i.not, label %if.then190, label %X509_supported_extension.exit
 
-if.then190:                                       ; preds = %X509_supported_extension.exit, %X509_supported_extension.exit.thread
+X509_supported_extension.exit:                    ; preds = %if.end.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ex_nid.i)
+  br label %for.inc194
+
+if.then190:                                       ; preds = %if.end187, %if.end.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ex_nid.i)
   %55 = load i64, ptr %ex_flags, align 8
   %or192 = or i64 %55, 512
   store i64 %or192, ptr %ex_flags, align 8

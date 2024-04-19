@@ -108,14 +108,14 @@ define internal i32 @dissect_miop(ptr noundef %0, ptr noundef %1, ptr noundef %2
   tail call void @wmem_strbuf_append(ptr noundef %7, ptr noundef nonnull @.str.36) #2
   %8 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   %9 = icmp ult i32 %8, 16
-  br i1 %9, label %dissect_miop_heur_check.exit.thread, label %dissect_miop_heur_check.exit
+  br i1 %9, label %dissect_miop_heur_check.exit.thread, label %10
 
-dissect_miop_heur_check.exit:                     ; preds = %4
-  %10 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
-  %.not.i.not = icmp eq i32 %10, 1296650064
-  br i1 %.not.i.not, label %11, label %dissect_miop_heur_check.exit.thread
+10:                                               ; preds = %4
+  %11 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
+  %.not.i = icmp eq i32 %11, 1296650064
+  br i1 %.not.i, label %dissect_miop_heur_check.exit, label %dissect_miop_heur_check.exit.thread
 
-11:                                               ; preds = %dissect_miop_heur_check.exit
+dissect_miop_heur_check.exit:                     ; preds = %10
   %12 = getelementptr inbounds i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.29) #2
@@ -128,7 +128,7 @@ dissect_miop_heur_check.exit:                     ; preds = %4
   %.not113 = icmp eq i8 %15, 16
   br i1 %.not113, label %26, label %19
 
-19:                                               ; preds = %11
+19:                                               ; preds = %dissect_miop_heur_check.exit
   %20 = load ptr, ptr %12, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.37, i32 noundef %17, i32 noundef %18) #2
   %21 = load i32, ptr @proto_miop, align 4
@@ -138,7 +138,7 @@ dissect_miop_heur_check.exit:                     ; preds = %4
   %25 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %24, ptr noundef nonnull %1, ptr noundef nonnull @ei_miop_version_not_supported, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.38, i32 noundef %17, i32 noundef %18) #2
   br label %dissect_miop_heur_check.exit.thread
 
-26:                                               ; preds = %11
+26:                                               ; preds = %dissect_miop_heur_check.exit
   %27 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #2
   %28 = zext i8 %27 to i32
   %29 = and i32 %28, 1
@@ -236,8 +236,8 @@ dissect_miop_heur_check.exit:                     ; preds = %4
   %85 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   br label %dissect_miop_heur_check.exit.thread
 
-dissect_miop_heur_check.exit.thread:              ; preds = %4, %dissect_miop_heur_check.exit, %84, %74, %19
-  %.0 = phi i32 [ 5, %19 ], [ 16, %74 ], [ %85, %84 ], [ 0, %dissect_miop_heur_check.exit ], [ 0, %4 ]
+dissect_miop_heur_check.exit.thread:              ; preds = %10, %4, %84, %74, %19
+  %.0 = phi i32 [ 5, %19 ], [ 16, %74 ], [ %85, %84 ], [ 0, %4 ], [ 0, %10 ]
   ret i32 %.0
 }
 
@@ -258,19 +258,19 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 define internal noundef i32 @dissect_miop_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   %6 = icmp ult i32 %5, 16
-  br i1 %6, label %dissect_miop_heur_check.exit.thread, label %dissect_miop_heur_check.exit
+  br i1 %6, label %dissect_miop_heur_check.exit.thread, label %7
 
-dissect_miop_heur_check.exit:                     ; preds = %4
-  %7 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
-  %.not.i.not = icmp eq i32 %7, 1296650064
-  br i1 %.not.i.not, label %8, label %dissect_miop_heur_check.exit.thread
+7:                                                ; preds = %4
+  %8 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
+  %.not.i = icmp eq i32 %8, 1296650064
+  br i1 %.not.i, label %dissect_miop_heur_check.exit, label %dissect_miop_heur_check.exit.thread
 
-8:                                                ; preds = %dissect_miop_heur_check.exit
+dissect_miop_heur_check.exit:                     ; preds = %7
   %9 = tail call i32 @dissect_miop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   br label %dissect_miop_heur_check.exit.thread
 
-dissect_miop_heur_check.exit.thread:              ; preds = %4, %dissect_miop_heur_check.exit, %8
-  %.0 = phi i32 [ 1, %8 ], [ 0, %dissect_miop_heur_check.exit ], [ 0, %4 ]
+dissect_miop_heur_check.exit.thread:              ; preds = %7, %4, %dissect_miop_heur_check.exit
+  %.0 = phi i32 [ 1, %dissect_miop_heur_check.exit ], [ 0, %4 ], [ 0, %7 ]
   ret i32 %.0
 }
 

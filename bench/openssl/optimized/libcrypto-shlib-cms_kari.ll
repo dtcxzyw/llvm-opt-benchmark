@@ -901,8 +901,7 @@ if.then.i:                                        ; preds = %if.end
   %call3.i = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %.val) #5
   %call4.i = tail call i32 @EVP_CIPHER_get_mode(ptr noundef %call3.i) #5
   %cmp5.not.i = icmp eq i32 %call4.i, 65538
-  %..i = zext i1 %cmp5.not.i to i32
-  br label %cms_wrap_init.exit
+  br i1 %cmp5.not.i, label %cms_wrap_init.exit.thread20, label %cms_wrap_init.exit.thread
 
 if.end7.i:                                        ; preds = %if.end
   %cmp8.i = icmp eq ptr %3, null
@@ -956,24 +955,24 @@ enc.i:                                            ; preds = %if.else34.i, %if.el
   %call42.i = call ptr @ossl_cms_ctx_get0_propq(ptr noundef %.val16) #5
   %call43.i = call ptr @EVP_CIPHER_fetch(ptr noundef %call41.i, ptr noundef %kekcipher_name.0.i, ptr noundef %call42.i) #5
   %cmp44.i = icmp eq ptr %call43.i, null
-  br i1 %cmp44.i, label %cms_wrap_init.exit.thread, label %if.end46.i
+  br i1 %cmp44.i, label %cms_wrap_init.exit.thread, label %cms_wrap_init.exit
 
-if.end46.i:                                       ; preds = %enc.i
-  %call47.i = call i32 @EVP_EncryptInit_ex(ptr noundef %.val, ptr noundef nonnull %call43.i, ptr noundef null, ptr noundef null, ptr noundef null) #5
-  call void @EVP_CIPHER_free(ptr noundef nonnull %call43.i) #5
-  br label %cms_wrap_init.exit
+cms_wrap_init.exit.thread20:                      ; preds = %if.then.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %kekcipher.i)
+  br label %if.end3
 
-cms_wrap_init.exit.thread:                        ; preds = %if.end7.i, %if.then14.i, %if.then21.i, %enc.i
+cms_wrap_init.exit.thread:                        ; preds = %if.then.i, %if.end7.i, %if.then14.i, %if.then21.i, %enc.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %kekcipher.i)
   br label %return
 
-cms_wrap_init.exit:                               ; preds = %if.then.i, %if.end46.i
-  %retval.0.i = phi i32 [ %call47.i, %if.end46.i ], [ %..i, %if.then.i ]
+cms_wrap_init.exit:                               ; preds = %enc.i
+  %call47.i = call i32 @EVP_EncryptInit_ex(ptr noundef %.val, ptr noundef nonnull %call43.i, ptr noundef null, ptr noundef null, ptr noundef null) #5
+  call void @EVP_CIPHER_free(ptr noundef nonnull %call43.i) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %kekcipher.i)
-  %tobool.not = icmp eq i32 %retval.0.i, 0
+  %tobool.not = icmp eq i32 %call47.i, 0
   br i1 %tobool.not, label %return, label %if.end3
 
-if.end3:                                          ; preds = %cms_wrap_init.exit
+if.end3:                                          ; preds = %cms_wrap_init.exit.thread20, %cms_wrap_init.exit
   %originator = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %originator, align 8
   %9 = load i32, ptr %8, align 8
@@ -996,9 +995,9 @@ if.end16:                                         ; preds = %if.then6, %if.end3
 
 for.cond.preheader:                               ; preds = %if.end16
   %key = getelementptr inbounds i8, ptr %call, i64 32
-  %call2219 = call i32 @OPENSSL_sk_num(ptr noundef %2) #5
-  %cmp2320 = icmp sgt i32 %call2219, 0
-  br i1 %cmp2320, label %for.body.lr.ph, label %return
+  %call2223 = call i32 @OPENSSL_sk_num(ptr noundef %2) #5
+  %cmp2324 = icmp sgt i32 %call2223, 0
+  br i1 %cmp2324, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %pctx = getelementptr inbounds i8, ptr %1, i64 40
@@ -1006,8 +1005,8 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end33
-  %i.021 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end33 ]
-  %call25 = call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %i.021) #5
+  %i.025 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end33 ]
+  %call25 = call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %i.025) #5
   %10 = load ptr, ptr %pctx, align 8
   %pkey = getelementptr inbounds i8, ptr %call25, i64 16
   %11 = load ptr, ptr %pkey, align 8
@@ -1029,7 +1028,7 @@ if.end33:                                         ; preds = %if.end29
   %16 = load i64, ptr %enckeylen, align 8
   %conv = trunc i64 %16 to i32
   call void @ASN1_STRING_set0(ptr noundef %14, ptr noundef %15, i32 noundef %conv) #5
-  %inc = add nuw nsw i32 %i.021, 1
+  %inc = add nuw nsw i32 %i.025, 1
   %call22 = call i32 @OPENSSL_sk_num(ptr noundef %2) #5
   %cmp23 = icmp slt i32 %inc, %call22
   br i1 %cmp23, label %for.body, label %return, !llvm.loop !5

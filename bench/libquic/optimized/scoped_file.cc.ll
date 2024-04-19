@@ -32,12 +32,12 @@ entry:
 
 land.lhs.true:                                    ; preds = %entry
   %0 = load i32, ptr %call1, align 4
-  %cmp2 = icmp ne i32 %0, 4
-  %spec.select = sext i1 %cmp2 to i32
+  %cmp2.not = icmp ne i32 %0, 4
+  %spec.select = sext i1 %cmp2.not to i32
   br label %do.end
 
-do.end:                                           ; preds = %entry, %land.lhs.true
-  %eintr_wrapper_result.0 = phi i32 [ %spec.select, %land.lhs.true ], [ %call, %entry ]
+do.end:                                           ; preds = %land.lhs.true, %entry
+  %eintr_wrapper_result.0 = phi i32 [ %call, %entry ], [ %spec.select, %land.lhs.true ]
   %1 = load i32, ptr %call1, align 4
   store i32 %1, ptr %close_errno, align 4
   call void @_ZN4base5debug5AliasEPKv(ptr noundef nonnull %close_errno)

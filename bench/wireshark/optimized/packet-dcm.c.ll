@@ -6976,22 +6976,22 @@ define internal i32 @dissect_dcm_heuristic(ptr noundef %0, ptr noundef %1, ptr n
   %14 = icmp eq i8 %11, 1
   %15 = icmp eq i16 %13, 1
   %or.cond.i = select i1 %14, i1 %15, i1 false
-  br i1 %or.cond.i, label %test_dcm.exit, label %test_dcm.exit.thread
+  br i1 %or.cond.i, label %16, label %test_dcm.exit.thread
 
-test_dcm.exit:                                    ; preds = %10
-  %16 = tail call i32 @tvb_reported_length(ptr noundef %0) #10
-  %17 = add i32 %12, 6
-  %.not6 = icmp ugt i32 %16, %17
-  br i1 %.not6, label %test_dcm.exit.thread, label %18
+16:                                               ; preds = %10
+  %17 = tail call i32 @tvb_reported_length(ptr noundef %0) #10
+  %18 = add i32 %12, 6
+  %.not = icmp ugt i32 %17, %18
+  br i1 %.not, label %test_dcm.exit.thread, label %test_dcm.exit
 
-18:                                               ; preds = %test_dcm.exit
+test_dcm.exit:                                    ; preds = %16
   %19 = tail call fastcc i32 @dissect_dcm_main(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   %20 = icmp ne i32 %19, 0
   %. = zext i1 %20 to i32
   br label %test_dcm.exit.thread
 
-test_dcm.exit.thread:                             ; preds = %10, %7, %4, %18, %test_dcm.exit
-  %.0 = phi i32 [ 0, %test_dcm.exit ], [ %., %18 ], [ 0, %4 ], [ 0, %7 ], [ 0, %10 ]
+test_dcm.exit.thread:                             ; preds = %16, %10, %7, %4, %test_dcm.exit
+  %.0 = phi i32 [ %., %test_dcm.exit ], [ 0, %4 ], [ 0, %7 ], [ 0, %10 ], [ 0, %16 ]
   ret i32 %.0
 }
 
@@ -8721,7 +8721,7 @@ dcm_tag_is_open.exit353:                          ; preds = %44
 
 67:                                               ; preds = %63
   %68 = and i32 %55, 65280
-  %trunc.i = trunc i32 %68 to i16
+  %trunc.i = trunc nuw i32 %68 to i16
   switch i16 %trunc.i, label %76 [
     i16 20480, label %69
     i16 24576, label %69

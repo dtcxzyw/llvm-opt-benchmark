@@ -21566,11 +21566,11 @@ define hidden { i64, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedItera
   %.sroa.3.sroa.8.0..8.val.sroa_idx.i = getelementptr inbounds i8, ptr %.val, i64 24
   br label %8
 
-8:                                                ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h02339972496453b9E.exit", %3
-  %9 = phi i64 [ %.promoted, %3 ], [ %12, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h02339972496453b9E.exit" ]
-  %.0 = phi i64 [ %1, %3 ], [ %20, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h02339972496453b9E.exit" ]
+8:                                                ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcf73018b89613902E.exit.i.i.i.i, %3
+  %9 = phi i64 [ %.promoted, %3 ], [ %12, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcf73018b89613902E.exit.i.i.i.i ]
+  %.0 = phi i64 [ %1, %3 ], [ %20, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcf73018b89613902E.exit.i.i.i.i ]
   %10 = icmp ult i64 %5, %9
-  br i1 %10, label %11, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h02339972496453b9E.exit.thread"
+  br i1 %10, label %11, label %select.unfold
 
 11:                                               ; preds = %8
   %12 = add i64 %9, -1
@@ -21592,7 +21592,7 @@ define hidden { i64, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedItera
   store i64 %12, ptr %.sroa.3.sroa.7.0..8.val.sroa_idx.i, align 8, !alias.scope !2233
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.3.sroa.8.0..8.val.sroa_idx.i, i8 0, i64 24, i1 false)
   %.not.i.i.i.i.i = icmp eq i64 %.0, 0
-  br i1 %.not.i.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h02339972496453b9E.exit.thread", label %.lr.ph.i.i.i.i.i.preheader
+  br i1 %.not.i.i.i.i.i, label %select.unfold, label %.lr.ph.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %"_ZN5image5utils13expand_packed28_$u7b$$u7b$closure$u7d$$u7d$17h8f06c05eeaacf4d3E.exit.i"
   %zext = zext nneg i8 %16 to i64
@@ -21601,22 +21601,22 @@ define hidden { i64, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedItera
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %18
   %.sroa.01.013.i.i.i.i.i = phi i64 [ %19, %18 ], [ 0, %.lr.ph.i.i.i.i.i.preheader ]
   %17 = icmp ult i64 %.sroa.01.013.i.i.i.i.i, %zext
-  br i1 %17, label %18, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h02339972496453b9E.exit"
+  br i1 %17, label %18, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcf73018b89613902E.exit.i.i.i.i
 
 18:                                               ; preds = %.lr.ph.i.i.i.i.i
   %19 = add nuw nsw i64 %.sroa.01.013.i.i.i.i.i, 1
   %indvars.i = trunc i64 %19 to i8
   store i8 %indvars.i, ptr %.sroa.3.sroa.4.0..8.val.sroa_idx.i, align 1, !alias.scope !2237, !noalias !2254
   %exitcond.not.i.i.i.i.i = icmp eq i64 %19, %.0
-  br i1 %exitcond.not.i.i.i.i.i, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h02339972496453b9E.exit.thread", label %.lr.ph.i.i.i.i.i
+  br i1 %exitcond.not.i.i.i.i.i, label %select.unfold, label %.lr.ph.i.i.i.i.i
 
-"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h02339972496453b9E.exit": ; preds = %.lr.ph.i.i.i.i.i
+_ZN4core4iter6traits8iterator8Iterator10advance_by17hcf73018b89613902E.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %20 = sub i64 %.0, %.sroa.01.013.i.i.i.i.i
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h02339972496453b9E.exit.thread", label %8
+  br i1 %21, label %select.unfold, label %8
 
-"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h02339972496453b9E.exit.thread": ; preds = %8, %"_ZN5image5utils13expand_packed28_$u7b$$u7b$closure$u7d$$u7d$17h8f06c05eeaacf4d3E.exit.i", %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h02339972496453b9E.exit", %18
-  %.sroa.0.0 = phi i64 [ 1, %18 ], [ 0, %8 ], [ 1, %"_ZN5image5utils13expand_packed28_$u7b$$u7b$closure$u7d$$u7d$17h8f06c05eeaacf4d3E.exit.i" ], [ 1, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h02339972496453b9E.exit" ]
+select.unfold:                                    ; preds = %8, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcf73018b89613902E.exit.i.i.i.i, %"_ZN5image5utils13expand_packed28_$u7b$$u7b$closure$u7d$$u7d$17h8f06c05eeaacf4d3E.exit.i", %18
+  %.sroa.0.0 = phi i64 [ 1, %18 ], [ 0, %8 ], [ 1, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcf73018b89613902E.exit.i.i.i.i ], [ 1, %"_ZN5image5utils13expand_packed28_$u7b$$u7b$closure$u7d$$u7d$17h8f06c05eeaacf4d3E.exit.i" ]
   %22 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %23 = insertvalue { i64, i64 } %22, i64 %.0, 1
   ret { i64, i64 } %23
@@ -33839,9 +33839,9 @@ define hidden { i64, i64 } @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u
   %.sroa.3.sroa.8.0..8.val.sroa_idx.i.i = getelementptr inbounds i8, ptr %.val.i, i64 24
   br label %8
 
-8:                                                ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h02339972496453b9E.exit.i", %3
-  %9 = phi i64 [ %.promoted.i, %3 ], [ %12, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h02339972496453b9E.exit.i" ]
-  %.0.i = phi i64 [ %1, %3 ], [ %20, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h02339972496453b9E.exit.i" ]
+8:                                                ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcf73018b89613902E.exit.i.i.i.i.i, %3
+  %9 = phi i64 [ %.promoted.i, %3 ], [ %12, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcf73018b89613902E.exit.i.i.i.i.i ]
+  %.0.i = phi i64 [ %1, %3 ], [ %20, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcf73018b89613902E.exit.i.i.i.i.i ]
   %10 = icmp ult i64 %5, %9
   br i1 %10, label %11, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h758d893f2e813e6dE.llvm.15361875792781664197.exit
 
@@ -33874,7 +33874,7 @@ define hidden { i64, i64 } @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u
 .lr.ph.i.i.i.i.i.i:                               ; preds = %18, %.lr.ph.i.i.i.i.i.preheader.i
   %.sroa.01.013.i.i.i.i.i.i = phi i64 [ %19, %18 ], [ 0, %.lr.ph.i.i.i.i.i.preheader.i ]
   %17 = icmp ult i64 %.sroa.01.013.i.i.i.i.i.i, %zext.i
-  br i1 %17, label %18, label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h02339972496453b9E.exit.i"
+  br i1 %17, label %18, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcf73018b89613902E.exit.i.i.i.i.i
 
 18:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %19 = add nuw nsw i64 %.sroa.01.013.i.i.i.i.i.i, 1
@@ -33883,13 +33883,13 @@ define hidden { i64, i64 } @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %19, %.0.i
   br i1 %exitcond.not.i.i.i.i.i.i, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h758d893f2e813e6dE.llvm.15361875792781664197.exit, label %.lr.ph.i.i.i.i.i.i
 
-"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h02339972496453b9E.exit.i": ; preds = %.lr.ph.i.i.i.i.i.i
+_ZN4core4iter6traits8iterator8Iterator10advance_by17hcf73018b89613902E.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
   %20 = sub i64 %.0.i, %.sroa.01.013.i.i.i.i.i.i
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h758d893f2e813e6dE.llvm.15361875792781664197.exit, label %8
 
-_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h758d893f2e813e6dE.llvm.15361875792781664197.exit: ; preds = %8, %"_ZN5image5utils13expand_packed28_$u7b$$u7b$closure$u7d$$u7d$17h8f06c05eeaacf4d3E.exit.i.i", %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h02339972496453b9E.exit.i", %18
-  %.sroa.0.0.i = phi i64 [ 1, %18 ], [ 0, %8 ], [ 1, %"_ZN5image5utils13expand_packed28_$u7b$$u7b$closure$u7d$$u7d$17h8f06c05eeaacf4d3E.exit.i.i" ], [ 1, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h02339972496453b9E.exit.i" ]
+_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h758d893f2e813e6dE.llvm.15361875792781664197.exit: ; preds = %8, %"_ZN5image5utils13expand_packed28_$u7b$$u7b$closure$u7d$$u7d$17h8f06c05eeaacf4d3E.exit.i.i", %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcf73018b89613902E.exit.i.i.i.i.i, %18
+  %.sroa.0.0.i = phi i64 [ 1, %18 ], [ 0, %8 ], [ 1, %"_ZN5image5utils13expand_packed28_$u7b$$u7b$closure$u7d$$u7d$17h8f06c05eeaacf4d3E.exit.i.i" ], [ 1, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcf73018b89613902E.exit.i.i.i.i.i ]
   %22 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %23 = insertvalue { i64, i64 } %22, i64 %.0.i, 1
   ret { i64, i64 } %23

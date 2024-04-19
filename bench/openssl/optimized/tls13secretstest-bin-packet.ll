@@ -1002,15 +1002,15 @@ lor.lhs.false:                                    ; preds = %land.lhs.true60
   br i1 %cmp64, label %while.end.thread, label %if.end79
 
 if.then65:                                        ; preds = %land.lhs.true60
-  %cmp66.not102 = icmp ult i64 %sub1, 256
-  br i1 %cmp66.not102, label %while.end.thread, label %while.body
+  %cmp66.not99 = icmp ult i64 %sub1, 256
+  br i1 %cmp66.not99, label %while.end.thread, label %while.body
 
 while.body:                                       ; preds = %if.then65, %while.body
-  %numlenbytes.0104 = phi i64 [ %inc, %while.body ], [ 1, %if.then65 ]
-  %tmplen.0103 = phi i64 [ %shr, %while.body ], [ %sub1, %if.then65 ]
-  %shr = lshr i64 %tmplen.0103, 8
-  %inc = add nuw nsw i64 %numlenbytes.0104, 1
-  %cmp66.not = icmp ult i64 %tmplen.0103, 65536
+  %numlenbytes.0101 = phi i64 [ %inc, %while.body ], [ 1, %if.then65 ]
+  %tmplen.0100 = phi i64 [ %shr, %while.body ], [ %sub1, %if.then65 ]
+  %shr = lshr i64 %tmplen.0100, 8
+  %inc = add nuw nsw i64 %numlenbytes.0101, 1
+  %cmp66.not = icmp ult i64 %tmplen.0100, 65536
   br i1 %cmp66.not, label %while.end, label %while.body, !llvm.loop !9
 
 while.end.thread:                                 ; preds = %if.then65, %lor.lhs.false
@@ -1019,30 +1019,26 @@ while.end.thread:                                 ; preds = %if.then65, %lor.lhs
 
 while.end:                                        ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %data.i)
-  %cmp.i48 = icmp ult i64 %numlenbytes.0104, 8
+  %cmp.i48 = icmp ult i64 %numlenbytes.0101, 8
   br i1 %cmp.i48, label %lor.lhs.false.i, label %WPACKET_put_bytes__.exit.thread
 
 lor.lhs.false.i:                                  ; preds = %while.end.thread, %while.end
-  %numlenbytes.0.lcssa108 = phi i64 [ 1, %while.end.thread ], [ %inc, %while.end ]
-  %call.i = call i32 @WPACKET_allocate_bytes(ptr noundef %pkt, i64 noundef %numlenbytes.0.lcssa108, ptr noundef nonnull %data.i), !range !5
+  %numlenbytes.0.lcssa105 = phi i64 [ 1, %while.end.thread ], [ %inc, %while.end ]
+  %call.i = call i32 @WPACKET_allocate_bytes(ptr noundef %pkt, i64 noundef %numlenbytes.0.lcssa105, ptr noundef nonnull %data.i), !range !5
   %tobool5.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool5.not.i, label %WPACKET_put_bytes__.exit.thread, label %lor.lhs.false6.i
 
 lor.lhs.false6.i:                                 ; preds = %lor.lhs.false.i
   %16 = load ptr, ptr %data.i, align 8
   %cmp.i.i50 = icmp eq ptr %16, null
-  br i1 %cmp.i.i50, label %WPACKET_put_bytes__.exit.thread90, label %for.body.preheader.i.i
-
-WPACKET_put_bytes__.exit.thread90:                ; preds = %lor.lhs.false6.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i)
-  br label %if.end70
+  br i1 %cmp.i.i50, label %if.end70, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %lor.lhs.false6.i
-  %17 = getelementptr i8, ptr %16, i64 %numlenbytes.0.lcssa108
+  %17 = getelementptr i8, ptr %16, i64 %numlenbytes.0.lcssa105
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
-  %len.addr.011.i.i = phi i64 [ %dec.i.i, %for.body.i.i ], [ %numlenbytes.0.lcssa108, %for.body.preheader.i.i ]
+  %len.addr.011.i.i = phi i64 [ %dec.i.i, %for.body.i.i ], [ %numlenbytes.0.lcssa105, %for.body.preheader.i.i ]
   %value.addr.010.i.i = phi i64 [ %shr.i.i, %for.body.i.i ], [ %sub1, %for.body.preheader.i.i ]
   %.pn9.i.i = phi ptr [ %data.addr.0.i.i, %for.body.i.i ], [ %17, %for.body.preheader.i.i ]
   %data.addr.0.i.i = getelementptr inbounds i8, ptr %.pn9.i.i, i64 -1
@@ -1051,18 +1047,18 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %shr.i.i = lshr i64 %value.addr.010.i.i, 8
   %dec.i.i = add nsw i64 %len.addr.011.i.i, -1
   %cmp1.not.i.i = icmp eq i64 %dec.i.i, 0
-  br i1 %cmp1.not.i.i, label %WPACKET_put_bytes__.exit, label %for.body.i.i, !llvm.loop !8
+  br i1 %cmp1.not.i.i, label %put_value.exit.i, label %for.body.i.i, !llvm.loop !8
 
-WPACKET_put_bytes__.exit.thread:                  ; preds = %lor.lhs.false.i, %while.end
+put_value.exit.i:                                 ; preds = %for.body.i.i
+  %cmp2.not.i.not.i = icmp ult i64 %value.addr.010.i.i, 256
+  br i1 %cmp2.not.i.not.i, label %if.end70, label %WPACKET_put_bytes__.exit.thread
+
+WPACKET_put_bytes__.exit.thread:                  ; preds = %lor.lhs.false.i, %while.end, %put_value.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i)
   br label %return
 
-WPACKET_put_bytes__.exit:                         ; preds = %for.body.i.i
-  %cmp2.not.i.not.i.not = icmp ult i64 %value.addr.010.i.i, 256
+if.end70:                                         ; preds = %put_value.exit.i, %lor.lhs.false6.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %data.i)
-  br i1 %cmp2.not.i.not.i.not, label %if.end70, label %return
-
-if.end70:                                         ; preds = %WPACKET_put_bytes__.exit.thread90, %WPACKET_put_bytes__.exit
   %cmp71 = icmp ugt i64 %sub1, 127
   br i1 %cmp71, label %if.then72, label %if.end79
 
@@ -1149,12 +1145,12 @@ lor.lhs.false6.i56:                               ; preds = %cond.false.i.i.i, %
   br i1 %cmp.i.i57, label %if.end79, label %if.end.i.i58
 
 if.end.i.i58:                                     ; preds = %lor.lhs.false6.i56
-  %31 = trunc nuw i64 %numlenbytes.0.lcssa108 to i8
+  %31 = trunc nuw i64 %numlenbytes.0.lcssa105 to i8
   %32 = or disjoint i8 %31, -128
   store i8 %32, ptr %data.i52.0, align 1
   br label %if.end79
 
-if.end79:                                         ; preds = %if.end.i.i58, %lor.lhs.false6.i56, %cond.false, %put_quic_value.exit, %if.else56, %land.lhs.true58, %lor.lhs.false, %if.end70, %cond.end34, %put_value.exit
+if.end79:                                         ; preds = %if.end.i.i58, %cond.false, %lor.lhs.false6.i56, %put_quic_value.exit, %if.else56, %land.lhs.true58, %lor.lhs.false, %if.end70, %cond.end34, %put_value.exit
   %tobool80.not = icmp eq i32 %doclose, 0
   br i1 %tobool80.not, label %return, label %if.then81
 
@@ -1165,8 +1161,8 @@ if.then81:                                        ; preds = %if.end79
   call void @CRYPTO_free(ptr noundef nonnull %sub, ptr noundef nonnull @.str, i32 noundef 313) #12
   br label %return
 
-return:                                           ; preds = %if.then72, %if.end.i.i77, %if.then15.i.i, %ossl_quic_vlint_encode_len.exit.i, %WPACKET_put_bytes__.exit.thread, %if.end79, %if.then81, %WPACKET_put_bytes__.exit, %put_value.exit, %if.then7, %land.lhs.true
-  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %if.then7 ], [ 0, %put_value.exit ], [ 0, %WPACKET_put_bytes__.exit ], [ 1, %if.then81 ], [ 1, %if.end79 ], [ 0, %WPACKET_put_bytes__.exit.thread ], [ 0, %ossl_quic_vlint_encode_len.exit.i ], [ 0, %if.then15.i.i ], [ 0, %if.end.i.i77 ], [ 0, %if.then72 ]
+return:                                           ; preds = %if.then15.i.i, %if.end.i.i77, %if.then72, %ossl_quic_vlint_encode_len.exit.i, %WPACKET_put_bytes__.exit.thread, %if.end79, %if.then81, %put_value.exit, %if.then7, %land.lhs.true
+  %retval.0 = phi i32 [ 0, %land.lhs.true ], [ 0, %if.then7 ], [ 0, %put_value.exit ], [ 1, %if.then81 ], [ 1, %if.end79 ], [ 0, %WPACKET_put_bytes__.exit.thread ], [ 0, %ossl_quic_vlint_encode_len.exit.i ], [ 0, %if.then72 ], [ 0, %if.end.i.i77 ], [ 0, %if.then15.i.i ]
   ret i32 %retval.0
 }
 

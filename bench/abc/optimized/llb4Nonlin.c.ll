@@ -4159,8 +4159,8 @@ define void @Llb_MnxCheckNextStateVars(ptr nocapture noundef readonly %0) local_
 
 11:                                               ; preds = %.lr.ph, %Saig_ObjIsLo.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Saig_ObjIsLo.exit.thread ]
-  %.026 = phi i32 [ 0, %.lr.ph ], [ %.1, %Saig_ObjIsLo.exit.thread ]
-  %.01325 = phi i32 [ 0, %.lr.ph ], [ %.114, %Saig_ObjIsLo.exit.thread ]
+  %.025 = phi i32 [ 0, %.lr.ph ], [ %.1, %Saig_ObjIsLo.exit.thread ]
+  %.01324 = phi i32 [ 0, %.lr.ph ], [ %.114, %Saig_ObjIsLo.exit.thread ]
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv
   %12 = load ptr, ptr %gep, align 8
   %13 = getelementptr i8, ptr %12, i64 8
@@ -4172,30 +4172,30 @@ define void @Llb_MnxCheckNextStateVars(ptr nocapture noundef readonly %0) local_
   %.val3.i = load i64, ptr %17, align 8
   %18 = and i64 %.val3.i, 7
   %.not.i = icmp eq i64 %18, 2
-  br i1 %.not.i, label %Saig_ObjIsLo.exit, label %Saig_ObjIsLo.exit.thread
+  br i1 %.not.i, label %19, label %Saig_ObjIsLo.exit.thread
 
-Saig_ObjIsLo.exit:                                ; preds = %11
+19:                                               ; preds = %11
   %.val4.i = load i32, ptr %16, align 8
   %.val.i = load i32, ptr %9, align 4
-  %.not23 = icmp slt i32 %.val4.i, %.val.i
-  br i1 %.not23, label %Saig_ObjIsLo.exit.thread, label %19
+  %.not = icmp slt i32 %.val4.i, %.val.i
+  br i1 %.not, label %Saig_ObjIsLo.exit.thread, label %Saig_ObjIsLo.exit
 
-19:                                               ; preds = %Saig_ObjIsLo.exit
+Saig_ObjIsLo.exit:                                ; preds = %19
   %20 = and i64 %14, 1
   %.not16 = icmp eq i64 %20, 0
   br i1 %.not16, label %23, label %21
 
-21:                                               ; preds = %19
-  %22 = add nsw i32 %.01325, 1
+21:                                               ; preds = %Saig_ObjIsLo.exit
+  %22 = add nsw i32 %.01324, 1
   br label %Saig_ObjIsLo.exit.thread
 
-23:                                               ; preds = %19
-  %24 = add nsw i32 %.026, 1
+23:                                               ; preds = %Saig_ObjIsLo.exit
+  %24 = add nsw i32 %.025, 1
   br label %Saig_ObjIsLo.exit.thread
 
-Saig_ObjIsLo.exit.thread:                         ; preds = %11, %Saig_ObjIsLo.exit, %23, %21
-  %.114 = phi i32 [ %22, %21 ], [ %.01325, %23 ], [ %.01325, %Saig_ObjIsLo.exit ], [ %.01325, %11 ]
-  %.1 = phi i32 [ %.026, %21 ], [ %24, %23 ], [ %.026, %Saig_ObjIsLo.exit ], [ %.026, %11 ]
+Saig_ObjIsLo.exit.thread:                         ; preds = %19, %11, %23, %21
+  %.114 = phi i32 [ %22, %21 ], [ %.01324, %23 ], [ %.01324, %11 ], [ %.01324, %19 ]
+  %.1 = phi i32 [ %.025, %21 ], [ %24, %23 ], [ %.025, %11 ], [ %.025, %19 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %11, !llvm.loop !42

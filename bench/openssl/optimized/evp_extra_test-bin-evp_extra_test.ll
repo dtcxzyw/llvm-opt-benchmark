@@ -6191,16 +6191,16 @@ if.end25:                                         ; preds = %land.lhs.true, %if.
   %ivlen.i = getelementptr inbounds i8, ptr %arrayidx, i64 48
   %5 = load i64, ptr %ivlen.i, align 16
   %cmp.not.i = icmp eq i64 %5, 0
-  br i1 %cmp.not.i, label %evp_init_seq_set_iv.exit, label %if.then.i
+  br i1 %cmp.not.i, label %if.end4.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end25
   %conv.i = trunc i64 %5 to i32
   %call.i = tail call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %call, i32 noundef 9, i32 noundef %conv.i, ptr noundef null) #8
   %call2.i = tail call i32 @test_int_gt(ptr noundef nonnull @.str.16, i32 noundef 3886, ptr noundef nonnull @.str.592, ptr noundef nonnull @.str.99, i32 noundef %call.i, i32 noundef 0) #8
   %tobool.not.i = icmp eq i32 %call2.i, 0
-  br i1 %tobool.not.i, label %if.then113, label %evp_init_seq_set_iv.exit
+  br i1 %tobool.not.i, label %if.then113, label %if.end4.i
 
-evp_init_seq_set_iv.exit:                         ; preds = %if.end25, %if.then.i
+if.end4.i:                                        ; preds = %if.then.i, %if.end25
   %iv.i = getelementptr inbounds i8, ptr %arrayidx, i64 16
   %6 = load ptr, ptr %iv.i, align 16
   %call5.i = tail call i32 @EVP_CipherInit_ex(ptr noundef nonnull %call, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %6, i32 noundef -1) #8
@@ -6210,7 +6210,7 @@ evp_init_seq_set_iv.exit:                         ; preds = %if.end25, %if.then.
   %tobool9.not.i.not = icmp eq i32 %call8.i, 0
   br i1 %tobool9.not.i.not, label %if.then113, label %if.end29
 
-if.end29:                                         ; preds = %evp_init_seq_set_iv.exit
+if.end29:                                         ; preds = %if.end4.i
   br i1 %tobool18.not, label %land.lhs.true33, label %if.end41
 
 land.lhs.true33:                                  ; preds = %if.end29
@@ -6306,18 +6306,18 @@ if.end102:                                        ; preds = %if.then95
   %tobool107.not = icmp eq i32 %call106, 0
   br i1 %tobool107.not, label %if.then113, label %if.end114
 
-if.then113:                                       ; preds = %if.then.i, %entry, %if.end, %if.end4, %if.end10, %land.lhs.true, %evp_init_seq_set_iv.exit, %land.lhs.true33, %if.end41, %if.end48, %if.then64, %if.end73, %if.end81, %if.then95, %if.end102
-  %type.0.ph = phi ptr [ %call1, %if.end102 ], [ %call1, %if.then95 ], [ %call1, %if.end81 ], [ %call1, %if.end73 ], [ %call1, %if.then64 ], [ %call1, %if.end48 ], [ %call1, %if.end41 ], [ %call1, %land.lhs.true33 ], [ %call1, %evp_init_seq_set_iv.exit ], [ %call1, %land.lhs.true ], [ %call1, %if.end10 ], [ %call1, %if.end4 ], [ %call1, %if.end ], [ null, %entry ], [ %call1, %if.then.i ]
-  %errmsg.0.ph = phi ptr [ @.str.589, %if.end102 ], [ @.str.586, %if.then95 ], [ @.str.584, %if.end81 ], [ @.str.581, %if.end73 ], [ @.str.579, %if.then64 ], [ @.str.577, %if.end48 ], [ @.str.575, %if.end41 ], [ @.str.573, %land.lhs.true33 ], [ @.str.572, %evp_init_seq_set_iv.exit ], [ @.str.571, %land.lhs.true ], [ @.str.569, %if.end10 ], [ @.str.567, %if.end4 ], [ @.str.565, %if.end ], [ @.str.563, %entry ], [ @.str.572, %if.then.i ]
+if.then113:                                       ; preds = %if.end4.i, %if.then.i, %entry, %if.end, %if.end4, %if.end10, %land.lhs.true, %land.lhs.true33, %if.end41, %if.end48, %if.then64, %if.end73, %if.end81, %if.then95, %if.end102
+  %type.0.ph = phi ptr [ %call1, %if.end102 ], [ %call1, %if.then95 ], [ %call1, %if.end81 ], [ %call1, %if.end73 ], [ %call1, %if.then64 ], [ %call1, %if.end48 ], [ %call1, %if.end41 ], [ %call1, %land.lhs.true33 ], [ %call1, %land.lhs.true ], [ %call1, %if.end10 ], [ %call1, %if.end4 ], [ %call1, %if.end ], [ null, %entry ], [ %call1, %if.then.i ], [ %call1, %if.end4.i ]
+  %errmsg.0.ph = phi ptr [ @.str.589, %if.end102 ], [ @.str.586, %if.then95 ], [ @.str.584, %if.end81 ], [ @.str.581, %if.end73 ], [ @.str.579, %if.then64 ], [ @.str.577, %if.end48 ], [ @.str.575, %if.end41 ], [ @.str.573, %land.lhs.true33 ], [ @.str.571, %land.lhs.true ], [ @.str.569, %if.end10 ], [ @.str.567, %if.end4 ], [ @.str.565, %if.end ], [ @.str.563, %entry ], [ @.str.572, %if.then.i ], [ @.str.572, %if.end4.i ]
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.16, i32 noundef 3979, ptr noundef nonnull @.str.590, i32 noundef %idx, ptr noundef nonnull %errmsg.0.ph) #8
   br label %if.end114
 
 if.end114:                                        ; preds = %if.end102, %land.lhs.true91, %if.end87, %if.then113
-  %testresult.044 = phi i32 [ 0, %if.then113 ], [ 1, %if.end87 ], [ 1, %land.lhs.true91 ], [ 1, %if.end102 ]
-  %type.042 = phi ptr [ %type.0.ph, %if.then113 ], [ %call1, %if.end87 ], [ %call1, %land.lhs.true91 ], [ %call1, %if.end102 ]
+  %testresult.045 = phi i32 [ 0, %if.then113 ], [ 1, %if.end87 ], [ 1, %land.lhs.true91 ], [ 1, %if.end102 ]
+  %type.043 = phi ptr [ %type.0.ph, %if.then113 ], [ %call1, %if.end87 ], [ %call1, %land.lhs.true91 ], [ %call1, %if.end102 ]
   call void @EVP_CIPHER_CTX_free(ptr noundef %call) #8
-  call void @EVP_CIPHER_free(ptr noundef %type.042) #8
-  ret i32 %testresult.044
+  call void @EVP_CIPHER_free(ptr noundef %type.043) #8
+  ret i32 %testresult.045
 }
 
 ; Function Attrs: nounwind uwtable
@@ -8191,7 +8191,7 @@ lor.lhs.false43.i:                                ; preds = %if.end33.i
 
 lor.lhs.false48.i:                                ; preds = %lor.lhs.false43.i
   %call50.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.16, i32 noundef 5224, ptr noundef nonnull @.str.739, ptr noundef nonnull @.str.740, ptr noundef nonnull %outtag.i, i64 noundef 16, ptr noundef nonnull @test_aes_gcm_ivlen_change_cve_2023_5363.gcm_tag, i64 noundef 16) #8
-  %tobool51.not.i.not = icmp eq i32 %call50.i, 0
+  %tobool51.not.i.not.not = icmp eq i32 %call50.i, 0
   call void @EVP_CIPHER_free(ptr noundef %call2.i) #8
   call void @EVP_CIPHER_CTX_free(ptr noundef %call.i) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %gcm_ivlen.addr.i)
@@ -8202,7 +8202,7 @@ lor.lhs.false48.i:                                ; preds = %lor.lhs.false43.i
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %params.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp35.i)
-  br i1 %tobool51.not.i.not, label %land.end, label %land.rhs
+  br i1 %tobool51.not.i.not.not, label %land.end, label %land.rhs
 
 land.rhs:                                         ; preds = %lor.lhs.false48.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %gcm_ivlen.addr.i1)
@@ -8372,7 +8372,7 @@ if.end24.i:                                       ; preds = %lor.lhs.false16.i
   %2 = load i32, ptr %outlen.i, align 4
   %conv26.i = sext i32 %2 to i64
   %call27.i = call i32 @test_mem_eq(ptr noundef nonnull @.str.16, i32 noundef 5353, ptr noundef nonnull @.str.583, ptr noundef nonnull @.str.749, ptr noundef nonnull %outbuf.i, i64 noundef %conv26.i, ptr noundef nonnull @test_aes_rc4_keylen_change_cve_2023_5363.rc4_ct, i64 noundef 16) #8
-  %tobool28.not.i.not = icmp eq i32 %call27.i, 0
+  %tobool28.not.i.not.not = icmp eq i32 %call27.i, 0
   call void @EVP_CIPHER_free(ptr noundef %call2.i) #8
   call void @EVP_CIPHER_CTX_free(ptr noundef %call.i) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rc4_key_s.addr.i)
@@ -8381,7 +8381,7 @@ if.end24.i:                                       ; preds = %lor.lhs.false16.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %outbuf.i)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %params.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i)
-  br i1 %tobool28.not.i.not, label %return, label %land.rhs
+  br i1 %tobool28.not.i.not.not, label %return, label %land.rhs
 
 land.rhs:                                         ; preds = %if.end24.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %rc4_key_s.addr.i1)

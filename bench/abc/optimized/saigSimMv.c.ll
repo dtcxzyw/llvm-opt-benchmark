@@ -101,15 +101,15 @@ Vec_PtrAlloc.exit..critedge_crit_edge:            ; preds = %Vec_PtrAlloc.exit
   br i1 %or.cond, label %41, label %86
 
 41:                                               ; preds = %28
-  br i1 %39, label %Saig_ObjIsLo.exit, label %Saig_ObjIsLo.exit.thread
+  br i1 %39, label %42, label %Saig_ObjIsLo.exit.thread
 
-Saig_ObjIsLo.exit:                                ; preds = %41
+42:                                               ; preds = %41
   %.val3.i = load i32, ptr %26, align 8
   %.val4.i = load i32, ptr %19, align 4
   %.not52 = icmp slt i32 %.val3.i, %.val4.i
-  br i1 %.not52, label %Saig_ObjIsLo.exit.thread, label %42
+  br i1 %.not52, label %Saig_ObjIsLo.exit.thread, label %Saig_ObjIsLo.exit
 
-42:                                               ; preds = %Saig_ObjIsLo.exit
+Saig_ObjIsLo.exit:                                ; preds = %42
   %43 = load ptr, ptr %20, align 8
   %.val6.i = load i32, ptr %21, align 8
   %44 = add nsw i32 %.val6.i, %.val3.i
@@ -132,12 +132,12 @@ Saig_ObjIsLo.exit:                                ; preds = %41
   %58 = icmp eq i32 %56, %57
   br i1 %58, label %59, label %.Vec_PtrGrow.exit11_crit_edge.i
 
-.Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %42
+.Vec_PtrGrow.exit11_crit_edge.i:                  ; preds = %Saig_ObjIsLo.exit
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %54, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_PtrPush.exit
 
-59:                                               ; preds = %42
+59:                                               ; preds = %Saig_ObjIsLo.exit
   %60 = icmp slt i32 %56, 16
   br i1 %60, label %61, label %69
 
@@ -245,8 +245,8 @@ Aig_ObjFaninId1.exit:                             ; preds = %99, %101
   store i32 %110, ptr %111, align 4
   br label %Saig_ObjIsLo.exit.thread
 
-Saig_ObjIsLo.exit.thread:                         ; preds = %41, %Aig_ObjFaninId1.exit, %22, %Aig_ObjFaninId0.exit, %Saig_ObjIsLo.exit, %Vec_PtrPush.exit
-  %112 = phi ptr [ %23, %41 ], [ %23, %Aig_ObjFaninId1.exit ], [ %23, %22 ], [ %23, %Aig_ObjFaninId0.exit ], [ %23, %Saig_ObjIsLo.exit ], [ %.pre, %Vec_PtrPush.exit ]
+Saig_ObjIsLo.exit.thread:                         ; preds = %42, %41, %Aig_ObjFaninId1.exit, %22, %Aig_ObjFaninId0.exit, %Vec_PtrPush.exit
+  %112 = phi ptr [ %23, %42 ], [ %23, %41 ], [ %23, %Aig_ObjFaninId1.exit ], [ %23, %22 ], [ %23, %Aig_ObjFaninId0.exit ], [ %.pre, %Vec_PtrPush.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %113 = getelementptr i8, ptr %112, i64 4
   %.val36 = load i32, ptr %113, align 4
@@ -1397,7 +1397,7 @@ define void @Saig_MvManPostProcess(ptr nocapture noundef readonly %0, i32 nounde
   br i1 %.not77.us, label %58, label %.critedge6.us
 
 .critedge6.us:                                    ; preds = %46
-  %55 = trunc i64 %indvars.iv145 to i32
+  %55 = trunc nuw nsw i64 %indvars.iv145 to i32
   %56 = icmp eq i32 %.val79, %55
   br i1 %56, label %.split.us.loopexit, label %57
 
@@ -1416,7 +1416,7 @@ define void @Saig_MvManPostProcess(ptr nocapture noundef readonly %0, i32 nounde
   br i1 %59, label %.split.us, label %.critedge4.thread
 
 .split.us.loopexit:                               ; preds = %.critedge6.us, %58
-  %60 = trunc i64 %indvars.iv150 to i32
+  %60 = trunc nuw nsw i64 %indvars.iv150 to i32
   br label %.split.us
 
 .split.us:                                        ; preds = %.split.us.loopexit, %.lr.ph117.split
@@ -1494,7 +1494,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %88, ptr %4, align 4
   %89 = sext i32 %.val86 to i64
   %90 = getelementptr inbounds i32, ptr %87, i64 %89
-  %91 = trunc i64 %indvars.iv155 to i32
+  %91 = trunc nuw nsw i64 %indvars.iv155 to i32
   store i32 %91, ptr %90, align 4
   %92 = load i32, ptr %8, align 4
   %93 = load i32, ptr %7, align 8
@@ -1871,7 +1871,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond.not, label %.critedge4._crit_edge, label %56, !llvm.loop !25
 
 .critedge2.loopexit:                              ; preds = %56
-  %60 = trunc i64 %indvars.iv89 to i32
+  %60 = trunc nsw i64 %indvars.iv89 to i32
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %.preheader68
@@ -1901,7 +1901,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond95.not, label %.critedge4._crit_edge, label %64, !llvm.loop !26
 
 .critedge4.loopexit:                              ; preds = %64
-  %68 = trunc i64 %indvars.iv92 to i32
+  %68 = trunc nsw i64 %indvars.iv92 to i32
   br label %.critedge4
 
 .critedge4:                                       ; preds = %.critedge4.loopexit, %.preheader67
@@ -2161,7 +2161,7 @@ Vec_IntGrow.exit.i38:                             ; preds = %68, %66
   store i32 %82, ptr %.sink57, align 4
   %83 = sext i32 %.sink58 to i64
   %84 = getelementptr inbounds i32, ptr %.sink, i64 %83
-  %85 = trunc i64 %indvars.iv47 to i32
+  %85 = trunc nuw nsw i64 %indvars.iv47 to i32
   store i32 %85, ptr %84, align 4
   br label %.critedge.thread
 
@@ -2708,7 +2708,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2, %.crite
   %.val72 = phi i32 [ %.val72.pre, %.critedge8 ], [ %.val72138, %85 ], [ %.val72138, %95 ]
   %.2 = phi i32 [ %116, %.critedge8 ], [ %.1107, %85 ], [ %.1107, %95 ]
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
-  %117 = trunc i64 %indvars.iv.next131 to i32
+  %117 = trunc nuw i64 %indvars.iv.next131 to i32
   %118 = icmp sgt i32 %.val72, %117
   br i1 %118, label %85, label %.critedge6, !llvm.loop !38
 

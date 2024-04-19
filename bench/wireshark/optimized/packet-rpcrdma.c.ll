@@ -1267,7 +1267,7 @@ declare ptr @wmem_file_scope() local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @end_reassembly(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %is_reassembly_done.exit.thread12, label %4
+  br i1 %.not, label %is_reassembly_done.exit, label %4
 
 4:                                                ; preds = %3
   %5 = getelementptr i8, ptr %1, i64 16
@@ -1303,31 +1303,31 @@ define internal fastcc ptr @end_reassembly(i32 noundef %0, ptr noundef readonly 
   br i1 %.not31.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %15
-  %21 = icmp eq i32 %17, 0
-  %.not15 = icmp ult i32 %19, %18
-  %or.cond = select i1 %21, i1 %.not15, i1 false
-  br i1 %or.cond, label %set_fragment_head.exit, label %is_reassembly_done.exit.thread12
+  %21 = icmp ne i32 %17, 0
+  %22 = icmp uge i32 %19, %18
+  %or.cond = select i1 %21, i1 true, i1 %22
+  br i1 %or.cond, label %is_reassembly_done.exit, label %set_fragment_head.exit
 
-is_reassembly_done.exit.thread12:                 ; preds = %._crit_edge.i, %3
-  %22 = tail call ptr @fragment_end_seq_next(ptr noundef nonnull @rpcordma_reassembly_table, ptr noundef %2, i32 noundef %0, ptr noundef null) #9
-  %.not.i9 = icmp eq ptr %22, null
-  br i1 %.not.i9, label %set_fragment_head.exit, label %23
+is_reassembly_done.exit:                          ; preds = %._crit_edge.i, %3
+  %23 = tail call ptr @fragment_end_seq_next(ptr noundef nonnull @rpcordma_reassembly_table, ptr noundef %2, i32 noundef %0, ptr noundef null) #9
+  %.not.i9 = icmp eq ptr %23, null
+  br i1 %.not.i9, label %set_fragment_head.exit, label %24
 
-23:                                               ; preds = %is_reassembly_done.exit.thread12
-  %24 = tail call ptr @wmem_file_scope() #9
-  %25 = load i32, ptr @proto_rpcordma, align 4
-  %26 = tail call ptr @p_get_proto_data(ptr noundef %24, ptr noundef %2, i32 noundef %25, i32 noundef 1) #9
-  %.not5.i = icmp eq ptr %26, %22
-  br i1 %.not5.i, label %set_fragment_head.exit, label %27
+24:                                               ; preds = %is_reassembly_done.exit
+  %25 = tail call ptr @wmem_file_scope() #9
+  %26 = load i32, ptr @proto_rpcordma, align 4
+  %27 = tail call ptr @p_get_proto_data(ptr noundef %25, ptr noundef %2, i32 noundef %26, i32 noundef 1) #9
+  %.not5.i = icmp eq ptr %27, %23
+  br i1 %.not5.i, label %set_fragment_head.exit, label %28
 
-27:                                               ; preds = %23
-  %28 = tail call ptr @wmem_file_scope() #9
-  %29 = load i32, ptr @proto_rpcordma, align 4
-  tail call void @p_add_proto_data(ptr noundef %28, ptr noundef %2, i32 noundef %29, i32 noundef 1, ptr noundef nonnull %22) #9
+28:                                               ; preds = %24
+  %29 = tail call ptr @wmem_file_scope() #9
+  %30 = load i32, ptr @proto_rpcordma, align 4
+  tail call void @p_add_proto_data(ptr noundef %29, ptr noundef %2, i32 noundef %30, i32 noundef 1, ptr noundef nonnull %23) #9
   br label %set_fragment_head.exit
 
-set_fragment_head.exit:                           ; preds = %.lr.ph.i, %._crit_edge.i, %7, %4, %27, %23, %is_reassembly_done.exit.thread12
-  %.0 = phi ptr [ null, %is_reassembly_done.exit.thread12 ], [ %22, %23 ], [ %22, %27 ], [ null, %4 ], [ null, %7 ], [ null, %._crit_edge.i ], [ null, %.lr.ph.i ]
+set_fragment_head.exit:                           ; preds = %.lr.ph.i, %._crit_edge.i, %7, %4, %28, %24, %is_reassembly_done.exit
+  %.0 = phi ptr [ null, %is_reassembly_done.exit ], [ %23, %24 ], [ %23, %28 ], [ null, %4 ], [ null, %7 ], [ null, %._crit_edge.i ], [ null, %.lr.ph.i ]
   ret ptr %.0
 }
 

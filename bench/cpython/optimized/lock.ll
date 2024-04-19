@@ -480,29 +480,29 @@ while.cond:                                       ; preds = %PyEvent_WaitTimed.e
 
 for.cond.i:                                       ; preds = %if.then6.i, %while.cond
   %0 = load atomic i8, ptr %evt seq_cst, align 1
-  switch i8 %0, label %PyEvent_WaitTimed.exit [
-    i8 1, label %PyEvent_WaitTimed.exit.thread
+  switch i8 %0, label %if.end11.i [
+    i8 1, label %while.end
     i8 0, label %if.then6.i
   ]
-
-PyEvent_WaitTimed.exit.thread:                    ; preds = %for.cond.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %expected.i)
-  br label %while.end
 
 if.then6.i:                                       ; preds = %for.cond.i
   %1 = cmpxchg ptr %evt, i8 0, i8 2 seq_cst seq_cst, align 1
   %2 = extractvalue { i8, i1 } %1, 1
-  br i1 %2, label %PyEvent_WaitTimed.exit, label %for.cond.i
+  br i1 %2, label %if.end11.i, label %for.cond.i
 
-PyEvent_WaitTimed.exit:                           ; preds = %for.cond.i, %if.then6.i
+if.end11.i:                                       ; preds = %if.then6.i, %for.cond.i
   store i8 2, ptr %expected.i, align 1
   %call13.i = call i32 @_PyParkingLot_Park(ptr noundef nonnull %evt, ptr noundef nonnull %expected.i, i64 noundef 1, i64 noundef -1, ptr noundef null, i32 noundef 1) #5
   %3 = load atomic i8, ptr %evt seq_cst, align 1
-  %cmp17.i.not = icmp eq i8 %3, 1
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %expected.i)
-  br i1 %cmp17.i.not, label %while.end, label %while.cond, !llvm.loop !6
+  %cmp17.i = icmp eq i8 %3, 1
+  br i1 %cmp17.i, label %while.end, label %PyEvent_WaitTimed.exit
 
-while.end:                                        ; preds = %PyEvent_WaitTimed.exit, %PyEvent_WaitTimed.exit.thread
+PyEvent_WaitTimed.exit:                           ; preds = %if.end11.i
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %expected.i)
+  br label %while.cond, !llvm.loop !6
+
+while.end:                                        ; preds = %if.end11.i, %for.cond.i
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %expected.i)
   ret void
 }
 

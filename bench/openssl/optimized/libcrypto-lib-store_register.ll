@@ -265,16 +265,16 @@ if.end40:                                         ; preds = %if.end35
 if.end44:                                         ; preds = %if.end40
   %16 = load ptr, ptr @loader_register, align 8
   %cmp.i = icmp eq ptr %16, null
-  br i1 %cmp.i, label %ossl_store_register_init.exit, label %land.lhs.true
+  br i1 %cmp.i, label %if.then.i, label %land.lhs.true
 
-ossl_store_register_init.exit:                    ; preds = %if.end44
+if.then.i:                                        ; preds = %if.end44
   %call.i.i = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @store_loader_hash, ptr noundef nonnull @store_loader_cmp) #7
   store ptr %call.i.i, ptr @loader_register, align 8
   %.not = icmp eq ptr %call.i.i, null
   br i1 %.not, label %if.end55, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %if.end44, %ossl_store_register_init.exit
-  %17 = phi ptr [ %16, %if.end44 ], [ %call.i.i, %ossl_store_register_init.exit ]
+land.lhs.true:                                    ; preds = %if.then.i, %if.end44
+  %17 = phi ptr [ %call.i.i, %if.then.i ], [ %16, %if.end44 ]
   %call.i = tail call ptr @OPENSSL_LH_insert(ptr noundef nonnull %17, ptr noundef nonnull %loader) #7
   %cmp48.not = icmp eq ptr %call.i, null
   br i1 %cmp48.not, label %lor.lhs.false50, label %if.then54
@@ -288,8 +288,8 @@ lor.lhs.false50:                                  ; preds = %land.lhs.true
 if.then54:                                        ; preds = %lor.lhs.false50, %land.lhs.true
   br label %if.end55
 
-if.end55:                                         ; preds = %if.then54, %lor.lhs.false50, %ossl_store_register_init.exit
-  %ok.0 = phi i32 [ 1, %if.then54 ], [ 0, %lor.lhs.false50 ], [ 0, %ossl_store_register_init.exit ]
+if.end55:                                         ; preds = %if.then.i, %if.then54, %lor.lhs.false50
+  %ok.0 = phi i32 [ 1, %if.then54 ], [ 0, %lor.lhs.false50 ], [ 0, %if.then.i ]
   %19 = load ptr, ptr @registry_lock, align 8
   %call56 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %19) #7
   br label %return
@@ -360,22 +360,22 @@ if.end:                                           ; preds = %entry
 if.end6:                                          ; preds = %if.end
   %2 = load ptr, ptr @loader_register, align 8
   %cmp.i = icmp eq ptr %2, null
-  br i1 %cmp.i, label %ossl_store_register_init.exit, label %if.else
+  br i1 %cmp.i, label %if.then.i, label %if.else
 
-ossl_store_register_init.exit:                    ; preds = %if.end6
+if.then.i:                                        ; preds = %if.end6
   %call.i.i = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @store_loader_hash, ptr noundef nonnull @store_loader_cmp) #7
   store ptr %call.i.i, ptr @loader_register, align 8
   %.not = icmp eq ptr %call.i.i, null
   br i1 %.not, label %if.then9, label %if.else
 
-if.then9:                                         ; preds = %ossl_store_register_init.exit
+if.then9:                                         ; preds = %if.then.i
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 234, ptr noundef nonnull @__func__.ossl_store_get0_loader_int) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 44, i32 noundef 786691, ptr noundef null) #7
   br label %if.end13
 
-if.else:                                          ; preds = %if.end6, %ossl_store_register_init.exit
-  %3 = phi ptr [ %2, %if.end6 ], [ %call.i.i, %ossl_store_register_init.exit ]
+if.else:                                          ; preds = %if.then.i, %if.end6
+  %3 = phi ptr [ %call.i.i, %if.then.i ], [ %2, %if.end6 ]
   %call.i = call ptr @OPENSSL_LH_retrieve(ptr noundef nonnull %3, ptr noundef nonnull %template) #7
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %if.then11, label %if.end13
@@ -430,22 +430,22 @@ if.end:                                           ; preds = %entry
 if.end6:                                          ; preds = %if.end
   %2 = load ptr, ptr @loader_register, align 8
   %cmp.i = icmp eq ptr %2, null
-  br i1 %cmp.i, label %ossl_store_register_init.exit, label %if.else
+  br i1 %cmp.i, label %if.then.i, label %if.else
 
-ossl_store_register_init.exit:                    ; preds = %if.end6
+if.then.i:                                        ; preds = %if.end6
   %call.i.i = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @store_loader_hash, ptr noundef nonnull @store_loader_cmp) #7
   store ptr %call.i.i, ptr @loader_register, align 8
   %.not = icmp eq ptr %call.i.i, null
   br i1 %.not, label %if.then9, label %if.else
 
-if.then9:                                         ; preds = %ossl_store_register_init.exit
+if.then9:                                         ; preds = %if.then.i
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 265, ptr noundef nonnull @__func__.ossl_store_unregister_loader_int) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 44, i32 noundef 786691, ptr noundef null) #7
   br label %if.end13
 
-if.else:                                          ; preds = %if.end6, %ossl_store_register_init.exit
-  %3 = phi ptr [ %2, %if.end6 ], [ %call.i.i, %ossl_store_register_init.exit ]
+if.else:                                          ; preds = %if.then.i, %if.end6
+  %3 = phi ptr [ %call.i.i, %if.then.i ], [ %2, %if.end6 ]
   %call.i = call ptr @OPENSSL_LH_delete(ptr noundef nonnull %3, ptr noundef nonnull %template) #7
   %cmp = icmp eq ptr %call.i, null
   br i1 %cmp, label %if.then11, label %if.end13
@@ -493,20 +493,20 @@ define noundef i32 @OSSL_STORE_do_all_loaders(ptr noundef %do_function, ptr noun
 entry:
   %0 = load ptr, ptr @loader_register, align 8
   %cmp.i = icmp eq ptr %0, null
-  br i1 %cmp.i, label %ossl_store_register_init.exit, label %if.then
+  br i1 %cmp.i, label %if.then.i, label %if.then
 
-ossl_store_register_init.exit:                    ; preds = %entry
+if.then.i:                                        ; preds = %entry
   %call.i.i = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @store_loader_hash, ptr noundef nonnull @store_loader_cmp) #7
   store ptr %call.i.i, ptr @loader_register, align 8
   %.not = icmp eq ptr %call.i.i, null
   br i1 %.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %entry, %ossl_store_register_init.exit
-  %1 = phi ptr [ %0, %entry ], [ %call.i.i, %ossl_store_register_init.exit ]
+if.then:                                          ; preds = %if.then.i, %entry
+  %1 = phi ptr [ %call.i.i, %if.then.i ], [ %0, %entry ]
   tail call void @OPENSSL_LH_doall_arg(ptr noundef nonnull %1, ptr noundef %do_function, ptr noundef %do_arg) #7
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %ossl_store_register_init.exit
+if.end:                                           ; preds = %if.then.i, %if.then
   ret i32 1
 }
 

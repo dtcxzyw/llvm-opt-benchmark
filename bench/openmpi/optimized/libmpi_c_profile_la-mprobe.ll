@@ -64,20 +64,20 @@ define noundef i32 @PMPI_Mprobe(i32 noundef %0, i32 noundef %1, ptr noundef %2, 
   %17 = icmp eq ptr %2, null
   %18 = icmp eq ptr %2, @ompi_mpi_comm_null
   %or.cond.i = or i1 %17, %18
-  br i1 %or.cond.i, label %ompi_errcode_get_mpi_code.exit, label %ompi_comm_invalid.exit
+  br i1 %or.cond.i, label %ompi_errcode_get_mpi_code.exit, label %19
 
-ompi_comm_invalid.exit:                           ; preds = %16
-  %19 = getelementptr inbounds i8, ptr %2, i64 224
-  %20 = load i32, ptr %19, align 8
-  %21 = and i32 %20, 48
-  %or.cond7.i.not = icmp eq i32 %21, 0
-  br i1 %or.cond7.i.not, label %22, label %ompi_errcode_get_mpi_code.exit
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds i8, ptr %2, i64 224
+  %21 = load i32, ptr %20, align 8
+  %22 = and i32 %21, 48
+  %or.cond7.i.not = icmp eq i32 %22, 0
+  br i1 %or.cond7.i.not, label %ompi_comm_invalid.exit, label %ompi_errcode_get_mpi_code.exit
 
-22:                                               ; preds = %ompi_comm_invalid.exit
+ompi_comm_invalid.exit:                           ; preds = %19
   %or.cond3 = icmp ult i32 %0, -2
   br i1 %or.cond3, label %23, label %29
 
-23:                                               ; preds = %22
+23:                                               ; preds = %ompi_comm_invalid.exit
   %24 = icmp slt i32 %0, 0
   br i1 %24, label %ompi_errcode_get_mpi_code.exit, label %ompi_comm_peer_invalid.exit
 
@@ -89,12 +89,12 @@ ompi_comm_peer_invalid.exit:                      ; preds = %23
   %.not.i.not = icmp sgt i32 %28, %0
   br i1 %.not.i.not, label %29, label %ompi_errcode_get_mpi_code.exit
 
-29:                                               ; preds = %ompi_comm_peer_invalid.exit, %22
+29:                                               ; preds = %ompi_comm_peer_invalid.exit, %ompi_comm_invalid.exit
   %30 = icmp eq ptr %3, null
   br i1 %30, label %ompi_errcode_get_mpi_code.exit, label %36
 
-ompi_errcode_get_mpi_code.exit:                   ; preds = %ompi_comm_peer_invalid.exit, %ompi_comm_invalid.exit, %13, %16, %23, %29
-  %.084.ph = phi i32 [ 6, %ompi_comm_peer_invalid.exit ], [ 5, %ompi_comm_invalid.exit ], [ 4, %13 ], [ 5, %16 ], [ 6, %23 ], [ 7, %29 ]
+ompi_errcode_get_mpi_code.exit:                   ; preds = %ompi_comm_peer_invalid.exit, %16, %13, %19, %23, %29
+  %.084.ph = phi i32 [ 6, %ompi_comm_peer_invalid.exit ], [ 5, %16 ], [ 4, %13 ], [ 5, %19 ], [ 6, %23 ], [ 7, %29 ]
   %31 = getelementptr inbounds i8, ptr %2, i64 296
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %2, i64 304

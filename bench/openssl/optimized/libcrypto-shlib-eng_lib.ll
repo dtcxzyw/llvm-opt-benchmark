@@ -192,15 +192,15 @@ define noundef i32 @engine_cleanup_add_first(ptr noundef %cb) local_unnamed_addr
 entry:
   %0 = load ptr, ptr @cleanup_stack, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i, label %int_cleanup_check.exit, label %if.end
+  br i1 %tobool.not.i, label %if.end.i, label %if.end
 
-int_cleanup_check.exit:                           ; preds = %entry
+if.end.i:                                         ; preds = %entry
   %call.i.i = tail call ptr @OPENSSL_sk_new_null() #6
   store ptr %call.i.i, ptr @cleanup_stack, align 8
   %tobool4.not.i.not = icmp eq ptr %call.i.i, null
   br i1 %tobool4.not.i.not, label %return, label %if.end
 
-if.end:                                           ; preds = %entry, %int_cleanup_check.exit
+if.end:                                           ; preds = %if.end.i, %entry
   %call.i = tail call noalias ptr @CRYPTO_malloc(i64 noundef 8, ptr noundef nonnull @.str, i32 noundef 132) #6
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %return, label %if.then2
@@ -216,8 +216,8 @@ if.end6:                                          ; preds = %if.then2
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i32 noundef 148) #6
   br label %return
 
-return:                                           ; preds = %if.end, %if.end6, %if.then2, %int_cleanup_check.exit
-  %retval.0 = phi i32 [ 0, %int_cleanup_check.exit ], [ 1, %if.then2 ], [ 0, %if.end6 ], [ 0, %if.end ]
+return:                                           ; preds = %if.end, %if.end.i, %if.end6, %if.then2
+  %retval.0 = phi i32 [ 1, %if.then2 ], [ 0, %if.end6 ], [ 0, %if.end.i ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 
@@ -226,15 +226,15 @@ define noundef i32 @engine_cleanup_add_last(ptr noundef %cb) local_unnamed_addr 
 entry:
   %0 = load ptr, ptr @cleanup_stack, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i, label %int_cleanup_check.exit, label %if.end
+  br i1 %tobool.not.i, label %if.end.i, label %if.end
 
-int_cleanup_check.exit:                           ; preds = %entry
+if.end.i:                                         ; preds = %entry
   %call.i.i = tail call ptr @OPENSSL_sk_new_null() #6
   store ptr %call.i.i, ptr @cleanup_stack, align 8
   %tobool4.not.i.not = icmp eq ptr %call.i.i, null
   br i1 %tobool4.not.i.not, label %return, label %if.end
 
-if.end:                                           ; preds = %entry, %int_cleanup_check.exit
+if.end:                                           ; preds = %if.end.i, %entry
   %call.i = tail call noalias ptr @CRYPTO_malloc(i64 noundef 8, ptr noundef nonnull @.str, i32 noundef 132) #6
   %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %return, label %if.then2
@@ -250,8 +250,8 @@ if.end6:                                          ; preds = %if.then2
   tail call void @CRYPTO_free(ptr noundef nonnull %call.i, ptr noundef nonnull @.str, i32 noundef 163) #6
   br label %return
 
-return:                                           ; preds = %if.end, %if.end6, %if.then2, %int_cleanup_check.exit
-  %retval.0 = phi i32 [ 0, %int_cleanup_check.exit ], [ 1, %if.then2 ], [ 0, %if.end6 ], [ 0, %if.end ]
+return:                                           ; preds = %if.end, %if.end.i, %if.end6, %if.then2
+  %retval.0 = phi i32 [ 1, %if.then2 ], [ 0, %if.end6 ], [ 0, %if.end.i ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 

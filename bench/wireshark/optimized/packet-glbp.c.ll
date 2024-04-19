@@ -212,17 +212,17 @@ define internal noundef i32 @dissect_glbp_static(ptr noundef %0, ptr noundef %1,
   %10 = icmp ne i8 %9, 1
   %11 = icmp ugt i8 %8, 4
   %or.cond.i = select i1 %10, i1 true, i1 %11
-  br i1 %or.cond.i, label %dissect_glbp.exit, label %test_glbp.exit
+  br i1 %or.cond.i, label %dissect_glbp.exit, label %12
 
-test_glbp.exit:                                   ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %1, i64 284
-  %13 = load i32, ptr %12, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 288
-  %15 = load i32, ptr %14, align 8
-  %.not.i.not = icmp eq i32 %13, %15
-  br i1 %.not.i.not, label %16, label %dissect_glbp.exit
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds i8, ptr %1, i64 284
+  %14 = load i32, ptr %13, align 4
+  %15 = getelementptr inbounds i8, ptr %1, i64 288
+  %16 = load i32, ptr %15, align 8
+  %.not.i = icmp eq i32 %14, %16
+  br i1 %.not.i, label %test_glbp.exit, label %dissect_glbp.exit
 
-16:                                               ; preds = %test_glbp.exit
+test_glbp.exit:                                   ; preds = %12
   %17 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #3
   %18 = getelementptr inbounds i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
@@ -248,8 +248,8 @@ test_glbp.exit:                                   ; preds = %7
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %.lr.ph.i, label %dissect_glbp.exit
 
-.lr.ph.i:                                         ; preds = %16, %182
-  %.08597.i = phi i32 [ %spec.select.i7, %182 ], [ 12, %16 ]
+.lr.ph.i:                                         ; preds = %test_glbp.exit, %182
+  %.08597.i = phi i32 [ %spec.select.i7, %182 ], [ 12, %test_glbp.exit ]
   %38 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.08597.i) #3
   %39 = add i32 %.08597.i, 1
   %40 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %39) #3
@@ -471,8 +471,8 @@ dissect_glbp_auth.exit.i:                         ; preds = %171, %163, %159, %1
   %185 = icmp sgt i32 %184, 0
   br i1 %185, label %.lr.ph.i, label %dissect_glbp.exit, !llvm.loop !4
 
-dissect_glbp.exit:                                ; preds = %182, %7, %4, %180, %42, %16, %test_glbp.exit
-  %.0 = phi i32 [ 0, %test_glbp.exit ], [ %.08597.i, %42 ], [ %59, %180 ], [ 12, %16 ], [ 0, %4 ], [ 0, %7 ], [ %spec.select.i7, %182 ]
+dissect_glbp.exit:                                ; preds = %182, %12, %7, %4, %180, %42, %test_glbp.exit
+  %.0 = phi i32 [ %.08597.i, %42 ], [ %59, %180 ], [ 12, %test_glbp.exit ], [ 0, %4 ], [ 0, %7 ], [ 0, %12 ], [ %spec.select.i7, %182 ]
   ret i32 %.0
 }
 

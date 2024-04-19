@@ -504,21 +504,21 @@ if.end6:                                          ; preds = %if.end
   %3 = load ptr, ptr %e, align 8
   %call.i = tail call i32 @BN_is_odd(ptr noundef %3) #2
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %if.then10, label %ossl_rsa_check_public_exponent.exit
+  br i1 %tobool.not.i, label %if.then10, label %land.rhs.i
 
-ossl_rsa_check_public_exponent.exit:              ; preds = %if.end6
+land.rhs.i:                                       ; preds = %if.end6
   %call1.i = tail call ptr @BN_value_one() #2
   %call2.i = tail call i32 @BN_cmp(ptr noundef %3, ptr noundef %call1.i) #2
-  %cmp.i = icmp slt i32 %call2.i, 1
-  br i1 %cmp.i, label %if.then10, label %if.end11
+  %cmp.i = icmp sgt i32 %call2.i, 0
+  br i1 %cmp.i, label %if.end11, label %if.then10
 
-if.then10:                                        ; preds = %if.end6, %ossl_rsa_check_public_exponent.exit
+if.then10:                                        ; preds = %if.end6, %land.rhs.i
   tail call void @ERR_new() #2
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 308, ptr noundef nonnull @__func__.ossl_rsa_sp800_56b_check_public) #2
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 178, ptr noundef null) #2
   br label %return
 
-if.end11:                                         ; preds = %ossl_rsa_check_public_exponent.exit
+if.end11:                                         ; preds = %land.rhs.i
   %libctx = getelementptr inbounds i8, ptr %rsa, i64 8
   %4 = load ptr, ptr %libctx, align 8
   %call12 = tail call ptr @BN_CTX_new_ex(ptr noundef %4) #2
@@ -693,21 +693,21 @@ if.end17:                                         ; preds = %if.then11, %if.end9
   %6 = load ptr, ptr %e, align 8
   %call.i = tail call i32 @BN_is_odd(ptr noundef %6) #2
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %if.then21, label %ossl_rsa_check_public_exponent.exit
+  br i1 %tobool.not.i, label %if.then21, label %land.rhs.i
 
-ossl_rsa_check_public_exponent.exit:              ; preds = %if.end17
+land.rhs.i:                                       ; preds = %if.end17
   %call1.i = tail call ptr @BN_value_one() #2
   %call2.i = tail call i32 @BN_cmp(ptr noundef %6, ptr noundef %call1.i) #2
-  %cmp.i = icmp slt i32 %call2.i, 1
-  br i1 %cmp.i, label %if.then21, label %if.end22
+  %cmp.i = icmp sgt i32 %call2.i, 0
+  br i1 %cmp.i, label %if.end22, label %if.then21
 
-if.then21:                                        ; preds = %if.end17, %ossl_rsa_check_public_exponent.exit
+if.then21:                                        ; preds = %if.end17, %land.rhs.i
   tail call void @ERR_new() #2
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 398, ptr noundef nonnull @__func__.ossl_rsa_sp800_56b_check_keypair) #2
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 178, ptr noundef null) #2
   br label %return
 
-if.end22:                                         ; preds = %ossl_rsa_check_public_exponent.exit
+if.end22:                                         ; preds = %land.rhs.i
   %7 = load ptr, ptr %n, align 8
   %call24 = tail call i32 @BN_num_bits(ptr noundef %7) #2
   %cmp25.not = icmp eq i32 %call24, %nbits

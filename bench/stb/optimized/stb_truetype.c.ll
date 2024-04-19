@@ -16313,8 +16313,8 @@ if.end6:                                          ; preds = %if.else, %if.then5,
   store float %x, ptr %orig, align 4
   %arrayidx7 = getelementptr inbounds i8, ptr %orig, i64 4
   store float %y.addr.0, ptr %arrayidx7, align 4
-  %cmp8147 = icmp sgt i32 %nverts, 0
-  br i1 %cmp8147, label %for.body.lr.ph, label %for.end
+  %cmp8148 = icmp sgt i32 %nverts, 0
+  br i1 %cmp8148, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end6
   %arrayidx278 = getelementptr inbounds i8, ptr %hits, i64 4
@@ -16325,7 +16325,7 @@ for.body.lr.ph:                                   ; preds = %if.end6
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %winding.0148 = phi i32 [ 0, %for.body.lr.ph ], [ %winding.3, %for.inc ]
+  %winding.0149 = phi i32 [ 0, %for.body.lr.ph ], [ %winding.3, %for.inc ]
   %arrayidx10 = getelementptr inbounds %struct.stbtt_vertex, ptr %verts, i64 %indvars.iv
   %type = getelementptr inbounds i8, ptr %arrayidx10, i64 12
   %0 = load i8, ptr %type, align 2
@@ -16379,7 +16379,7 @@ if.then57:                                        ; preds = %land.lhs.true47
 
 if.then67:                                        ; preds = %if.then57
   %cond70 = select i1 %cmp33, i32 1, i32 -1
-  %add71 = add nsw i32 %cond70, %winding.0148
+  %add71 = add nsw i32 %cond70, %winding.0149
   br label %for.inc
 
 if.then81:                                        ; preds = %for.body
@@ -16398,12 +16398,12 @@ if.then81:                                        ; preds = %for.body
   %14 = extractelement <2 x i16> %8, i64 1
   %15 = extractelement <2 x i16> %9, i64 1
   %cond133124 = tail call i16 @llvm.smin.i16(i16 %14, i16 %15)
-  %cond145143 = tail call i16 @llvm.smin.i16(i16 %7, i16 %cond133124)
+  %cond145146 = tail call i16 @llvm.smin.i16(i16 %7, i16 %cond133124)
   %cond151125 = tail call i16 @llvm.smax.i16(i16 %14, i16 %15)
-  %cond163144 = tail call i16 @llvm.smax.i16(i16 %7, i16 %cond151125)
-  %conv164 = sitofp i16 %cond145143 to float
+  %cond163147 = tail call i16 @llvm.smax.i16(i16 %7, i16 %cond151125)
+  %conv164 = sitofp i16 %cond145146 to float
   %cmp165 = fcmp ogt float %y.addr.0, %conv164
-  %conv168 = sitofp i16 %cond163144 to float
+  %conv168 = sitofp i16 %cond163147 to float
   %cmp169 = fcmp olt float %y.addr.0, %conv168
   %or.cond128 = and i1 %cmp165, %cmp169
   %conv172 = sitofp i16 %. to float
@@ -16420,20 +16420,20 @@ if.then175:                                       ; preds = %if.then81
   store <2 x float> %18, ptr %q2, align 8
   %19 = extractelement <2 x float> %16, i64 0
   %20 = extractelement <2 x float> %17, i64 0
-  %cmp.i = fcmp une float %19, %20
+  %cmp.i = fcmp oeq float %19, %20
   %21 = extractelement <2 x float> %16, i64 1
   %22 = extractelement <2 x float> %17, i64 1
-  %cmp4.i = fcmp une float %21, %22
-  %or.cond145 = or i1 %cmp.i, %cmp4.i
-  br i1 %or.cond145, label %lor.lhs.false, label %if.then194
+  %cmp4.i = fcmp oeq float %21, %22
+  %or.cond144 = and i1 %cmp.i, %cmp4.i
+  br i1 %or.cond144, label %if.then194, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then175
   %23 = extractelement <2 x float> %18, i64 0
-  %cmp.i130 = fcmp une float %20, %23
+  %cmp.i130 = fcmp oeq float %20, %23
   %24 = extractelement <2 x float> %18, i64 1
-  %cmp4.i135 = fcmp une float %22, %24
-  %or.cond146 = or i1 %cmp.i130, %cmp4.i135
-  br i1 %or.cond146, label %if.else261, label %if.then194
+  %cmp4.i135 = fcmp oeq float %22, %24
+  %or.cond145 = and i1 %cmp.i130, %cmp4.i135
+  br i1 %or.cond145, label %if.then194, label %if.else261
 
 if.then194:                                       ; preds = %lor.lhs.false, %if.then175
   %conv199 = sext i16 %13 to i32
@@ -16470,7 +16470,7 @@ if.then242:                                       ; preds = %land.lhs.true232
 
 if.then254:                                       ; preds = %if.then242
   %cond257 = select i1 %cmp213, i32 1, i32 -1
-  %add258 = add nsw i32 %cond257, %winding.0148
+  %add258 = add nsw i32 %cond257, %winding.0149
   br label %for.inc
 
 if.else261:                                       ; preds = %lor.lhs.false
@@ -16483,7 +16483,7 @@ if.else261:                                       ; preds = %lor.lhs.false
   %cmp279 = fcmp olt float %27, 0.000000e+00
   %cond281 = select i1 %cmp279, i32 -1, i32 1
   %add282 = select i1 %or.cond, i32 %cond281, i32 0
-  %winding.2 = add nsw i32 %add282, %winding.0148
+  %winding.2 = add nsw i32 %add282, %winding.0149
   %cmp285 = icmp ugt i32 %call268, 1
   %28 = load float, ptr %arrayidx288, align 8
   %cmp290 = fcmp olt float %28, 0.000000e+00
@@ -16498,7 +16498,7 @@ if.then292:                                       ; preds = %if.else261
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.then57, %if.then67, %land.lhs.true47, %land.lhs.true, %if.then14, %if.then242, %if.then254, %land.lhs.true232, %land.lhs.true222, %if.then194, %if.then292, %if.else261, %if.then81
-  %winding.3 = phi i32 [ %add258, %if.then254 ], [ %winding.0148, %if.then242 ], [ %winding.0148, %land.lhs.true232 ], [ %winding.0148, %land.lhs.true222 ], [ %winding.0148, %if.then194 ], [ %add298, %if.then292 ], [ %winding.2, %if.else261 ], [ %winding.0148, %if.then81 ], [ %winding.0148, %if.then14 ], [ %winding.0148, %land.lhs.true ], [ %winding.0148, %land.lhs.true47 ], [ %winding.0148, %if.then57 ], [ %add71, %if.then67 ], [ %winding.0148, %for.body ]
+  %winding.3 = phi i32 [ %add258, %if.then254 ], [ %winding.0149, %if.then242 ], [ %winding.0149, %land.lhs.true232 ], [ %winding.0149, %land.lhs.true222 ], [ %winding.0149, %if.then194 ], [ %add298, %if.then292 ], [ %winding.2, %if.else261 ], [ %winding.0149, %if.then81 ], [ %winding.0149, %if.then14 ], [ %winding.0149, %land.lhs.true ], [ %winding.0149, %land.lhs.true47 ], [ %winding.0149, %if.then57 ], [ %add71, %if.then67 ], [ %winding.0149, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !83

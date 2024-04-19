@@ -1194,8 +1194,8 @@ if.end12.i:                                       ; preds = %if.end.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %tmp.i, ptr noundef nonnull align 16 dereferenceable(24) %_swap_buffer.i, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %_swap_buffer.i)
   %22 = load i64, ptr %len.i.i, align 8
-  %tobool13.not.i46 = icmp eq i64 %22, 0
-  br i1 %tobool13.not.i46, label %while.end.i, label %land.rhs.i
+  %tobool13.not.i47 = icmp eq i64 %22, 0
+  br i1 %tobool13.not.i47, label %while.end.i, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %if.end12.i, %strbuf_setlen.exit
   %23 = phi i64 [ %27, %strbuf_setlen.exit ], [ %22, %if.end12.i ]
@@ -1280,22 +1280,22 @@ if.end14.i:                                       ; preds = %if.then6.i, %if.end
   %38 = load ptr, ptr %buf.i39, align 8
   %call16.i = call i32 @fspatheq(ptr noundef %38, ptr noundef %11) #25
   %tobool17.not.i = icmp eq i32 %call16.i, 0
-  br i1 %tobool17.not.i, label %alt_odb_usable.exit, label %alt_odb_usable.exit.thread
+  br i1 %tobool17.not.i, label %if.end19.i, label %alt_odb_usable.exit.thread
 
-alt_odb_usable.exit.thread:                       ; preds = %_.exit.i, %if.end14.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %r.i)
-  br label %link_alt_odb_entry.exit
-
-alt_odb_usable.exit:                              ; preds = %if.end14.i
+if.end19.i:                                       ; preds = %if.end14.i
   %39 = load ptr, ptr %odb_by_path.i16, align 8
   %40 = load ptr, ptr %buf.i39, align 8
   %call22.i = call fastcc i32 @kh_put_odb_path_map(ptr noundef %39, ptr noundef %40, ptr noundef nonnull %r.i)
   %41 = load i32, ptr %r.i, align 4
   %cmp.i18.not = icmp eq i32 %41, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %r.i)
-  br i1 %cmp.i18.not, label %link_alt_odb_entry.exit, label %if.end22.i
+  br i1 %cmp.i18.not, label %alt_odb_usable.exit.thread, label %if.end22.i
 
-if.end22.i:                                       ; preds = %alt_odb_usable.exit
+alt_odb_usable.exit.thread:                       ; preds = %if.end19.i, %_.exit.i, %if.end14.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %r.i)
+  br label %link_alt_odb_entry.exit
+
+if.end22.i:                                       ; preds = %if.end19.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %r.i)
   %call23.i = call ptr @xcalloc(i64 noundef 1, i64 noundef 64) #25
   %call24.i = call ptr @strbuf_detach(ptr noundef nonnull %pathbuf.i, ptr noundef null) #25
   %path.i = getelementptr inbounds i8, ptr %call23.i, i64 56
@@ -1320,7 +1320,7 @@ if.end22.i:                                       ; preds = %alt_odb_usable.exit
   call fastcc void @read_info_alternates(ptr noundef nonnull %r, ptr noundef %48, i32 noundef %add.i)
   br label %link_alt_odb_entry.exit
 
-link_alt_odb_entry.exit:                          ; preds = %alt_odb_usable.exit.thread, %_.exit36, %alt_odb_usable.exit, %if.end22.i
+link_alt_odb_entry.exit:                          ; preds = %alt_odb_usable.exit.thread, %_.exit36, %if.end22.i
   call void @strbuf_release(ptr noundef nonnull %tmp.i) #25
   call void @strbuf_release(ptr noundef nonnull %pathbuf.i) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %pathbuf.i)
@@ -3583,17 +3583,17 @@ obj_read_lock.exit.i.i:                           ; preds = %if.then.i.i.i, %if.
   %call.i.i = call fastcc i32 @do_oid_object_info_extended(ptr noundef %6, ptr noundef %oid, ptr noundef null, i32 noundef 24), !range !22
   %10 = load i32, ptr @obj_read_use_lock, align 4
   %tobool.not.i1.i.i = icmp eq i32 %10, 0
-  br i1 %tobool.not.i1.i.i, label %repo_has_object_file_with_flags.exit, label %if.then.i2.i.i
+  br i1 %tobool.not.i1.i.i, label %oid_object_info_extended.exit.i, label %if.then.i2.i.i
 
 if.then.i2.i.i:                                   ; preds = %obj_read_lock.exit.i.i
   %call.i3.i.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull @obj_read_mutex) #25
-  br label %repo_has_object_file_with_flags.exit
+  br label %oid_object_info_extended.exit.i
 
-repo_has_object_file_with_flags.exit:             ; preds = %obj_read_lock.exit.i.i, %if.then.i2.i.i
-  %cmp.i = icmp slt i32 %call.i.i, 0
-  br i1 %cmp.i, label %lor.lhs.false, label %return
+oid_object_info_extended.exit.i:                  ; preds = %if.then.i2.i.i, %obj_read_lock.exit.i.i
+  %cmp.i = icmp sgt i32 %call.i.i, -1
+  br i1 %cmp.i, label %return, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %entry, %repo_has_object_file_with_flags.exit
+lor.lhs.false:                                    ; preds = %oid_object_info_extended.exit.i, %entry
   %call1 = call fastcc ptr @find_cached_object(ptr noundef %oid)
   %tobool2.not = icmp eq ptr %call1, null
   br i1 %tobool2.not, label %do.body, label %return
@@ -3629,11 +3629,11 @@ st_mult.exit:                                     ; preds = %if.then3
   %mul.i = mul nuw nsw i64 %conv, 56
   %call14 = call ptr @xrealloc(ptr noundef %14, i64 noundef %mul.i) #25
   store ptr %call14, ptr @cached_objects, align 8
-  %.pre16 = load i32, ptr @cached_object_nr, align 4
+  %.pre17 = load i32, ptr @cached_object_nr, align 4
   br label %do.end
 
 do.end:                                           ; preds = %do.body.do.end_crit_edge, %st_mult.exit
-  %15 = phi i32 [ %11, %do.body.do.end_crit_edge ], [ %.pre16, %st_mult.exit ]
+  %15 = phi i32 [ %11, %do.body.do.end_crit_edge ], [ %.pre17, %st_mult.exit ]
   %16 = phi ptr [ %.pre, %do.body.do.end_crit_edge ], [ %call14, %st_mult.exit ]
   %inc = add nsw i32 %15, 1
   store i32 %inc, ptr @cached_object_nr, align 4
@@ -3654,7 +3654,7 @@ do.end:                                           ; preds = %do.body.do.end_crit
   store i32 %17, ptr %algo3.i, align 4
   br label %return
 
-return:                                           ; preds = %repo_has_object_file_with_flags.exit, %lor.lhs.false, %do.end
+return:                                           ; preds = %oid_object_info_extended.exit.i, %lor.lhs.false, %do.end
   ret i32 0
 }
 

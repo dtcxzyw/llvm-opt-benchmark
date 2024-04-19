@@ -1261,14 +1261,14 @@ if.end.i.i:                                       ; preds = %if.end36
   call void @load_command_list(ptr noundef nonnull @.str.4, ptr noundef nonnull @main_cmds, ptr noundef nonnull @other_cmds) #14
   %call1.i.i = call i32 @is_in_cmdlist(ptr noundef nonnull @main_cmds, ptr noundef %21) #14
   %tobool2.not.i.i = icmp eq i32 %call1.i.i, 0
-  br i1 %tobool2.not.i.i, label %is_git_command.exit.i, label %check_git_cmd.exit
+  br i1 %tobool2.not.i.i, label %lor.rhs.i.i, label %check_git_cmd.exit
 
-is_git_command.exit.i:                            ; preds = %if.end.i.i
+lor.rhs.i.i:                                      ; preds = %if.end.i.i
   %call3.i.i = call i32 @is_in_cmdlist(ptr noundef nonnull @other_cmds, ptr noundef %21) #14
   %tobool4.i.not.i = icmp eq i32 %call3.i.i, 0
   br i1 %tobool4.i.not.i, label %if.end.i137, label %check_git_cmd.exit
 
-if.end.i137:                                      ; preds = %is_git_command.exit.i
+if.end.i137:                                      ; preds = %lor.rhs.i.i
   %call1.i138 = call ptr @alias_lookup(ptr noundef %21) #14
   %tobool2.not.i139 = icmp eq ptr %call1.i138, null
   %22 = load i32, ptr @exclude_guides, align 4
@@ -1328,8 +1328,8 @@ if.then22.i:                                      ; preds = %if.end20.i
   %call23.i = call ptr @help_unknown_cmd(ptr noundef %21) #14
   br label %check_git_cmd.exit
 
-check_git_cmd.exit:                               ; preds = %if.end36, %if.end.i.i, %is_git_command.exit.i, %if.end20.i, %if.then22.i
-  %retval.0.i136 = phi ptr [ %call23.i, %if.then22.i ], [ %21, %is_git_command.exit.i ], [ %21, %if.end20.i ], [ %21, %if.end36 ], [ %21, %if.end.i.i ]
+check_git_cmd.exit:                               ; preds = %if.end36, %if.end.i.i, %lor.rhs.i.i, %if.end20.i, %if.then22.i
+  %retval.0.i136 = phi ptr [ %call23.i, %if.then22.i ], [ %21, %if.end20.i ], [ %21, %if.end36 ], [ %21, %if.end.i.i ], [ %21, %lor.rhs.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %argv.i)
   store ptr %retval.0.i136, ptr %argv, align 8
   %tobool.not.i143 = icmp eq ptr %retval.0.i136, null
@@ -1350,18 +1350,18 @@ if.end.i.i151:                                    ; preds = %if.else3.i
   call void @load_command_list(ptr noundef nonnull @.str.4, ptr noundef nonnull @main_cmds, ptr noundef nonnull @other_cmds) #14
   %call1.i.i152 = call i32 @is_in_cmdlist(ptr noundef nonnull @main_cmds, ptr noundef nonnull %retval.0.i136179) #14
   %tobool2.not.i.i153 = icmp eq i32 %call1.i.i152, 0
-  br i1 %tobool2.not.i.i153, label %is_git_command.exit.i154, label %if.then6.i149
+  br i1 %tobool2.not.i.i153, label %lor.rhs.i.i154, label %if.then6.i149
 
-is_git_command.exit.i154:                         ; preds = %if.end.i.i151
+lor.rhs.i.i154:                                   ; preds = %if.end.i.i151
   %call3.i.i155 = call i32 @is_in_cmdlist(ptr noundef nonnull @other_cmds, ptr noundef nonnull %retval.0.i136179) #14
   %tobool4.i.not.i156 = icmp eq i32 %call3.i.i155, 0
   br i1 %tobool4.i.not.i156, label %if.else8.i, label %if.then6.i149
 
-if.then6.i149:                                    ; preds = %is_git_command.exit.i154, %if.end.i.i151, %if.else3.i
+if.then6.i149:                                    ; preds = %lor.rhs.i.i154, %if.end.i.i151, %if.else3.i
   %call7.i150 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.736, ptr noundef nonnull %retval.0.i136179) #14
   br label %cmd_to_page.exit
 
-if.else8.i:                                       ; preds = %is_git_command.exit.i154
+if.else8.i:                                       ; preds = %lor.rhs.i.i154
   %call9.i157 = call i32 @strcmp(ptr noundef nonnull dereferenceable(7) @.str.737, ptr noundef nonnull dereferenceable(1) %retval.0.i136179) #16
   %tobool10.not.i = icmp eq i32 %call9.i157, 0
   br i1 %tobool10.not.i, label %if.then11.i, label %if.else13.i
@@ -1744,7 +1744,7 @@ if.end63:                                         ; preds = %if.else53, %if.else
   br label %for.inc66
 
 for.inc66:                                        ; preds = %if.end63, %if.then44, %sw.bb
-  %indvars.iv.next = add nuw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i64, ptr %nr, align 8
   %cmp = icmp ugt i64 %21, %indvars.iv.next
   br i1 %cmp, label %for.body31, label %for.end68, !llvm.loop !10
@@ -1939,14 +1939,14 @@ if.end8.i:                                        ; preds = %if.then3.i
 lor.lhs.false.i.i.i:                              ; preds = %if.end8.i
   %call1.i.i.i = call i32 @strncasecmp(ptr noundef nonnull @.str.728, ptr noundef nonnull %1, i64 noundef %3) #16
   %tobool2.not.i.i.i = icmp eq i32 %call1.i.i.i, 0
-  br i1 %tobool2.not.i.i.i, label %if.then.i.i25, label %supported_man_viewer.exit.i.i
+  br i1 %tobool2.not.i.i.i, label %if.then.i.i25, label %lor.rhs.i.i.i
 
-supported_man_viewer.exit.i.i:                    ; preds = %lor.lhs.false.i.i.i
+lor.rhs.i.i.i:                                    ; preds = %lor.lhs.false.i.i.i
   %call3.i.i.i = call i32 @strncasecmp(ptr noundef nonnull @.str.729, ptr noundef nonnull %1, i64 noundef %3) #16
-  %tobool4.not.i.not.i.i = icmp eq i32 %call3.i.i.i, 0
-  br i1 %tobool4.not.i.not.i.i, label %if.then.i.i25, label %if.else.i.i
+  %tobool4.not.i.i.i = icmp eq i32 %call3.i.i.i, 0
+  br i1 %tobool4.not.i.i.i, label %if.then.i.i25, label %if.else.i.i
 
-if.then.i.i25:                                    ; preds = %supported_man_viewer.exit.i.i, %lor.lhs.false.i.i.i, %if.end8.i
+if.then.i.i25:                                    ; preds = %lor.rhs.i.i.i, %lor.lhs.false.i.i.i, %if.end8.i
   %cmp.i.i.i.i = icmp ugt i64 %3, -17
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %st_add.exit.i.i.i
 
@@ -1975,7 +1975,7 @@ do_add_man_viewer_info.exit.i.i:                  ; preds = %st_add.exit.i.i.i
   store ptr %call2.i.i.i, ptr @man_viewer_info_list, align 8
   br label %add_man_viewer_info.exit
 
-if.else.i.i:                                      ; preds = %supported_man_viewer.exit.i.i
+if.else.i.i:                                      ; preds = %lor.rhs.i.i.i
   %5 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i.i.i = icmp eq i32 %5, 0
   br i1 %tobool1.not.i.i.i, label %_.exit.i.i, label %if.end3.i.i.i
@@ -2011,14 +2011,14 @@ if.end18.i:                                       ; preds = %if.then13.i
 lor.lhs.false.i.i8.i:                             ; preds = %if.end18.i
   %call1.i.i9.i = call i32 @strncasecmp(ptr noundef nonnull @.str.728, ptr noundef nonnull %1, i64 noundef %6) #16
   %tobool2.not.i.i10.i = icmp eq i32 %call1.i.i9.i, 0
-  br i1 %tobool2.not.i.i10.i, label %if.then.i26.i, label %supported_man_viewer.exit.i11.i
+  br i1 %tobool2.not.i.i10.i, label %if.then.i26.i, label %lor.rhs.i.i11.i
 
-supported_man_viewer.exit.i11.i:                  ; preds = %lor.lhs.false.i.i8.i
+lor.rhs.i.i11.i:                                  ; preds = %lor.lhs.false.i.i8.i
   %call3.i.i12.i = call i32 @strncasecmp(ptr noundef nonnull @.str.729, ptr noundef nonnull %1, i64 noundef %6) #16
-  %tobool4.not.i.not.i13.i = icmp eq i32 %call3.i.i12.i, 0
-  br i1 %tobool4.not.i.not.i13.i, label %if.then.i26.i, label %if.else.i14.i
+  %tobool4.not.i.i13.i = icmp eq i32 %call3.i.i12.i, 0
+  br i1 %tobool4.not.i.i13.i, label %if.then.i26.i, label %if.else.i14.i
 
-if.then.i26.i:                                    ; preds = %supported_man_viewer.exit.i11.i, %lor.lhs.false.i.i8.i, %if.end18.i
+if.then.i26.i:                                    ; preds = %lor.rhs.i.i11.i, %lor.lhs.false.i.i8.i, %if.end18.i
   %7 = load i32, ptr @git_gettext_enabled, align 4
   %tobool1.not.i.i27.i = icmp eq i32 %7, 0
   br i1 %tobool1.not.i.i27.i, label %_.exit.i30.i, label %if.end3.i.i28.i
@@ -2032,7 +2032,7 @@ _.exit.i30.i:                                     ; preds = %if.end3.i.i28.i, %i
   call void (ptr, ...) @warning(ptr noundef %retval.0.i.i31.i, ptr noundef nonnull %1) #14
   br label %add_man_viewer_info.exit
 
-if.else.i14.i:                                    ; preds = %supported_man_viewer.exit.i11.i
+if.else.i14.i:                                    ; preds = %lor.rhs.i.i11.i
   %cmp.i.i.i15.i = icmp ugt i64 %6, -17
   br i1 %cmp.i.i.i15.i, label %if.then.i.i.i25.i, label %st_add.exit.i.i16.i
 

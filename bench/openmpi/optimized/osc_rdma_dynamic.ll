@@ -690,14 +690,14 @@ define internal fastcc void @ompi_osc_rdma_lock_acquire_exclusive(ptr noundef %0
   %10 = getelementptr i8, ptr %0, i64 1080
   br label %11
 
-11:                                               ; preds = %123, %2
+11:                                               ; preds = %119, %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %12 = load i64, ptr %4, align 8
   %13 = add i64 %12, 304
   %14 = load volatile i32, ptr %5, align 4
   %15 = and i32 %14, 4
   %.not18.i = icmp eq i32 %15, 0
-  br i1 %.not18.i, label %16, label %116
+  br i1 %.not18.i, label %16, label %114
 
 16:                                               ; preds = %11
   store i64 -1, ptr %3, align 8
@@ -913,31 +913,35 @@ ompi_osc_rdma_btl_cswap.exit.i:                   ; preds = %opal_obj_run_destru
 
 112:                                              ; preds = %ompi_osc_rdma_btl_cswap.exit.i
   %113 = load i64, ptr %3, align 8
-  %114 = icmp ne i64 %113, 0
-  %115 = zext i1 %114 to i32
-  br label %ompi_osc_rdma_lock_try_acquire_exclusive.exit
+  %.not = icmp eq i64 %113, 0
+  br i1 %.not, label %ompi_osc_rdma_lock_try_acquire_exclusive.exit.thread7, label %ompi_osc_rdma_lock_try_acquire_exclusive.exit.thread
 
-116:                                              ; preds = %11
-  %117 = inttoptr i64 %13 to ptr
+114:                                              ; preds = %11
+  %115 = inttoptr i64 %13 to ptr
   fence seq_cst
-  %118 = cmpxchg volatile ptr %117, i64 0, i64 -9223372036854775808 acquire monotonic, align 8
-  %119 = extractvalue { i64, i1 } %118, 1
+  %116 = cmpxchg volatile ptr %115, i64 0, i64 -9223372036854775808 acquire monotonic, align 8
+  %117 = extractvalue { i64, i1 } %116, 1
   fence seq_cst
-  %120 = xor i1 %119, true
-  %121 = zext i1 %120 to i32
-  br label %ompi_osc_rdma_lock_try_acquire_exclusive.exit
+  br i1 %117, label %ompi_osc_rdma_lock_try_acquire_exclusive.exit.thread7, label %ompi_osc_rdma_lock_try_acquire_exclusive.exit.thread
 
-ompi_osc_rdma_lock_try_acquire_exclusive.exit:    ; preds = %ompi_osc_rdma_btl_cswap.exit.i, %112, %116
-  %.0.i = phi i32 [ %121, %116 ], [ %115, %112 ], [ %.4.i.i, %ompi_osc_rdma_btl_cswap.exit.i ]
+ompi_osc_rdma_lock_try_acquire_exclusive.exit.thread: ; preds = %114, %112
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %122 = icmp eq i32 %.0.i, 1
-  br i1 %122, label %123, label %125
+  br label %119
 
-123:                                              ; preds = %ompi_osc_rdma_lock_try_acquire_exclusive.exit
-  %124 = call i32 @opal_progress() #9
+ompi_osc_rdma_lock_try_acquire_exclusive.exit.thread7: ; preds = %114, %112
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  br label %.loopexit
+
+ompi_osc_rdma_lock_try_acquire_exclusive.exit:    ; preds = %ompi_osc_rdma_btl_cswap.exit.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
+  %118 = icmp eq i32 %.4.i.i, 1
+  br i1 %118, label %119, label %.loopexit
+
+119:                                              ; preds = %ompi_osc_rdma_lock_try_acquire_exclusive.exit.thread, %ompi_osc_rdma_lock_try_acquire_exclusive.exit
+  %120 = call i32 @opal_progress() #9
   br label %11, !llvm.loop !11
 
-125:                                              ; preds = %ompi_osc_rdma_lock_try_acquire_exclusive.exit
+.loopexit:                                        ; preds = %ompi_osc_rdma_lock_try_acquire_exclusive.exit, %ompi_osc_rdma_lock_try_acquire_exclusive.exit.thread7
   ret void
 }
 

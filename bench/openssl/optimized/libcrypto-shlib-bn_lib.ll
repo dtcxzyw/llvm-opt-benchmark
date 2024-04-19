@@ -2200,12 +2200,15 @@ land.lhs.true.i:                                  ; preds = %entry
   %1 = load ptr, ptr %a, align 8
   %2 = load i64, ptr %1, align 8
   %cmp1.i = icmp eq i64 %2, %w
-  br i1 %cmp1.i, label %land.rhs, label %lor.rhs.i
+  br i1 %cmp1.i, label %land.rhs, label %BN_abs_is_word.exit.thread
 
-lor.rhs.i:                                        ; preds = %land.lhs.true.i, %entry
+lor.rhs.i:                                        ; preds = %entry
   %cmp2.i = icmp eq i64 %w, 0
-  %cmp4.i.not = icmp eq i32 %0, 0
-  %spec.select = and i1 %cmp2.i, %cmp4.i.not
+  %cmp4.i = icmp eq i32 %0, 0
+  %or.cond = and i1 %cmp2.i, %cmp4.i
+  br i1 %or.cond, label %land.end, label %BN_abs_is_word.exit.thread
+
+BN_abs_is_word.exit.thread:                       ; preds = %land.lhs.true.i, %lor.rhs.i
   br label %land.end
 
 land.rhs:                                         ; preds = %land.lhs.true.i
@@ -2216,11 +2219,11 @@ lor.rhs:                                          ; preds = %land.rhs
   %neg = getelementptr inbounds i8, ptr %a, i64 16
   %3 = load i32, ptr %neg, align 8
   %tobool2.not = icmp eq i32 %3, 0
+  %4 = zext i1 %tobool2.not to i32
   br label %land.end
 
-land.end:                                         ; preds = %lor.rhs.i, %land.rhs, %lor.rhs
-  %land.ext.shrunk = phi i1 [ true, %land.rhs ], [ %tobool2.not, %lor.rhs ], [ %spec.select, %lor.rhs.i ]
-  %land.ext = zext i1 %land.ext.shrunk to i32
+land.end:                                         ; preds = %lor.rhs.i, %BN_abs_is_word.exit.thread, %land.rhs, %lor.rhs
+  %land.ext = phi i32 [ 1, %land.rhs ], [ %4, %lor.rhs ], [ 0, %BN_abs_is_word.exit.thread ], [ 1, %lor.rhs.i ]
   ret i32 %land.ext
 }
 

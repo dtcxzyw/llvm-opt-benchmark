@@ -1160,9 +1160,9 @@ if.then11:                                        ; preds = %if.end10
 if.else:                                          ; preds = %if.end10
   %call1.i = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 264, ptr noundef nonnull @.str.47, i32 noundef %conv) #6
   %tobool.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool.not.i, label %err, label %check_p12_mac.exit
+  br i1 %tobool.not.i, label %err, label %land.rhs.i
 
-check_p12_mac.exit:                               ; preds = %if.else
+land.rhs.i:                                       ; preds = %if.else
   %pass.i = getelementptr inbounds i8, ptr %mac, i64 8
   %5 = load ptr, ptr %pass.i, align 8
   %call3.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #7
@@ -1174,11 +1174,11 @@ check_p12_mac.exit:                               ; preds = %if.else
   %tobool9.i.not = icmp eq i32 %call8.i, 0
   br i1 %tobool9.i.not, label %err, label %if.end22
 
-if.end22:                                         ; preds = %check_p12_mac.exit, %if.then11
+if.end22:                                         ; preds = %land.rhs.i, %if.then11
   %6 = load ptr, ptr %p12, align 8
   br label %return
 
-err:                                              ; preds = %if.else, %check_p12_mac.exit, %if.then11, %if.end4, %if.then
+err:                                              ; preds = %land.rhs.i, %if.else, %if.then11, %if.end4, %if.then
   %7 = load ptr, ptr %p12, align 8
   call void @PKCS12_free(ptr noundef %7) #6
   br label %return
@@ -1304,9 +1304,9 @@ if.then7:                                         ; preds = %if.end5
 if.else:                                          ; preds = %if.end5
   %call1.i = tail call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 264, ptr noundef nonnull @.str.47, i32 noundef %conv) #6
   %tobool.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool.not.i, label %err, label %check_p12_mac.exit
+  br i1 %tobool.not.i, label %err, label %land.rhs.i
 
-check_p12_mac.exit:                               ; preds = %if.else
+land.rhs.i:                                       ; preds = %if.else
   %pass.i = getelementptr inbounds i8, ptr %mac, i64 8
   %0 = load ptr, ptr %pass.i, align 8
   %call3.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
@@ -1318,13 +1318,13 @@ check_p12_mac.exit:                               ; preds = %if.else
   %tobool9.i.not = icmp eq i32 %call8.i, 0
   br i1 %tobool9.i.not, label %err, label %return
 
-err:                                              ; preds = %if.else, %check_p12_mac.exit, %if.then7, %if.end, %entry
-  %p12.0 = phi ptr [ null, %entry ], [ %call1, %if.then7 ], [ %call1, %check_p12_mac.exit ], [ %call1, %if.end ], [ %call1, %if.else ]
+err:                                              ; preds = %land.rhs.i, %if.else, %if.then7, %if.end, %entry
+  %p12.0 = phi ptr [ null, %entry ], [ %call1, %if.then7 ], [ %call1, %if.end ], [ %call1, %if.else ], [ %call1, %land.rhs.i ]
   tail call void @PKCS12_free(ptr noundef %p12.0) #6
   br label %return
 
-return:                                           ; preds = %if.then7, %check_p12_mac.exit, %err
-  %retval.0 = phi ptr [ null, %err ], [ %call1, %check_p12_mac.exit ], [ %call1, %if.then7 ]
+return:                                           ; preds = %land.rhs.i, %if.then7, %err
+  %retval.0 = phi ptr [ null, %err ], [ %call1, %if.then7 ], [ %call1, %land.rhs.i ]
   ret ptr %retval.0
 }
 

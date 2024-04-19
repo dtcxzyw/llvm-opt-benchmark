@@ -669,7 +669,7 @@ entry:
   %tobool9.not.i.i = icmp eq i32 %and8.i.i, 0
   %and15.i.i = and i32 %flags, 4
   %tobool16.not.i.i = icmp eq i32 %and15.i.i, 0
-  %tobool23.not.i.not.i = icmp eq i32 %flags, 1
+  %tobool23.not.i.i = icmp eq i32 %flags, 1
   %algo.i.i29 = getelementptr inbounds i8, ptr %old_oid.i, i64 32
   br label %while.body
 
@@ -860,22 +860,25 @@ if.end.i.i.i13:                                   ; preds = %if.end.i.i
 oideq.exit.i:                                     ; preds = %if.end.i.i.i13, %if.then.i.i.i
   %retval.0.in.in.i.i.i = phi i32 [ %bcmp3.i.i.i, %if.then.i.i.i ], [ %bcmp.i.i.i, %if.end.i.i.i13 ]
   %retval.0.in.i.i.not.i = icmp eq i32 %retval.0.in.in.i.i.i, 0
-  br i1 %retval.0.in.i.i.not.i, label %process_dummy_ref.exit, label %process_dummy_ref.exit.thread
+  br i1 %retval.0.in.i.i.not.i, label %land.rhs.i, label %process_dummy_ref.exit.thread
 
-process_dummy_ref.exit.thread:                    ; preds = %process_capabilities.exit, %if.end.i11, %oideq.exit.i
+land.rhs.i:                                       ; preds = %oideq.exit.i
+  %call8.i14 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %incdec.ptr.i, ptr noundef nonnull dereferenceable(16) @.str.51) #25
+  %tobool9.not.i = icmp eq i32 %call8.i14, 0
+  br i1 %tobool9.not.i, label %process_dummy_ref.exit, label %process_dummy_ref.exit.thread
+
+process_dummy_ref.exit.thread:                    ; preds = %process_capabilities.exit, %if.end.i11, %oideq.exit.i, %land.rhs.i
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oid.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %name.i)
   br label %sw.bb7
 
-process_dummy_ref.exit:                           ; preds = %oideq.exit.i
-  %call8.i14 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %incdec.ptr.i, ptr noundef nonnull dereferenceable(16) @.str.51) #25
-  %tobool9.not.i.not = icmp eq i32 %call8.i14, 0
+process_dummy_ref.exit:                           ; preds = %land.rhs.i
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %oid.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %name.i)
-  br i1 %tobool9.not.i.not, label %sw.epilog19, label %sw.bb7
+  br label %sw.epilog19
 
-sw.bb7:                                           ; preds = %process_dummy_ref.exit.thread, %process_dummy_ref.exit, %sw.epilog
-  %len.3 = phi i32 [ %len.1, %sw.epilog ], [ %len.2, %process_dummy_ref.exit ], [ %len.2, %process_dummy_ref.exit.thread ]
+sw.bb7:                                           ; preds = %process_dummy_ref.exit.thread, %sw.epilog
+  %len.3 = phi i32 [ %len.1, %sw.epilog ], [ %len.2, %process_dummy_ref.exit.thread ]
   %reader.val = load ptr, ptr %line1.i, align 8
   %reader.val8 = load ptr, ptr %hash_algo12.i, align 8
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %old_oid.i)
@@ -953,17 +956,17 @@ land.lhs.true10.i.i:                              ; preds = %if.end7.i.i
   br i1 %tobool12.not.i.i, label %if.end14.i.i, label %if.then16.i
 
 if.end14.i.i:                                     ; preds = %land.lhs.true10.i.i, %if.end7.i.i
-  br i1 %tobool16.not.i.i, label %check_ref.exit.i, label %land.lhs.true17.i.i
+  br i1 %tobool16.not.i.i, label %if.end21.i.i, label %land.lhs.true17.i.i
 
 land.lhs.true17.i.i:                              ; preds = %if.end14.i.i
   %call18.i.i = call i32 @starts_with(ptr noundef %scevgep.i.i, ptr noundef nonnull @.str.46) #23
   %tobool19.not.i.i = icmp eq i32 %call18.i.i, 0
   br i1 %tobool19.not.i.i, label %if.end21.i, label %if.then16.i
 
-check_ref.exit.i:                                 ; preds = %if.end14.i.i
-  br i1 %tobool23.not.i.not.i, label %if.then16.i, label %if.end21.i
+if.end21.i.i:                                     ; preds = %if.end14.i.i
+  br i1 %tobool23.not.i.i, label %if.then16.i, label %if.end21.i
 
-if.then16.i:                                      ; preds = %check_ref.exit.i, %land.lhs.true17.i.i, %land.lhs.true10.i.i, %if.else13.i
+if.then16.i:                                      ; preds = %if.end21.i.i, %land.lhs.true17.i.i, %land.lhs.true10.i.i, %if.else13.i
   %24 = load ptr, ptr %name.i15, align 8
   %call17.i = call ptr @alloc_ref(ptr noundef %24) #23
   %old_oid18.i = getelementptr inbounds i8, ptr %call17.i, i64 8
@@ -974,8 +977,8 @@ if.then16.i:                                      ; preds = %check_ref.exit.i, %
   store ptr %call17.i, ptr %list.addr.094, align 8
   br label %if.end21.i
 
-if.end21.i:                                       ; preds = %do.cond.i.i.i, %if.then16.i, %check_ref.exit.i, %land.lhs.true17.i.i, %land.lhs.true.i.i, %if.then8.i
-  %list.addr.1 = phi ptr [ %call17.i, %if.then16.i ], [ %list.addr.094, %check_ref.exit.i ], [ %list.addr.094, %land.lhs.true17.i.i ], [ %list.addr.094, %land.lhs.true.i.i ], [ %list.addr.094, %if.then8.i ], [ %list.addr.094, %do.cond.i.i.i ]
+if.end21.i:                                       ; preds = %do.cond.i.i.i, %if.then16.i, %if.end21.i.i, %land.lhs.true17.i.i, %land.lhs.true.i.i, %if.then8.i
+  %list.addr.1 = phi ptr [ %call17.i, %if.then16.i ], [ %list.addr.094, %if.end21.i.i ], [ %list.addr.094, %land.lhs.true17.i.i ], [ %list.addr.094, %land.lhs.true.i.i ], [ %list.addr.094, %if.then8.i ], [ %list.addr.094, %do.cond.i.i.i ]
   %call.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %reader.val) #25
   %conv.i.i = sext i32 %len.3 to i64
   %cmp.not.i.i = icmp eq i64 %call.i.i, %conv.i.i
@@ -2638,14 +2641,14 @@ if.end9.i:                                        ; preds = %lor.lhs.false.i43
   tail call void @git_config(ptr noundef nonnull @git_proxy_command_options, ptr noundef %call64.i) #23
   %5 = load ptr, ptr @git_proxy_command, align 8
   %tobool.not.i.i45 = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i45, label %if.else14.i, label %git_use_proxy.exit.i
+  br i1 %tobool.not.i.i45, label %if.else14.i, label %land.rhs.i.i
 
-git_use_proxy.exit.i:                             ; preds = %if.end9.i
+land.rhs.i.i:                                     ; preds = %if.end9.i
   %6 = load i8, ptr %5, align 1
   %tobool1.i.not.i = icmp eq i8 %6, 0
   br i1 %tobool1.i.not.i, label %if.else14.i, label %if.then12.i
 
-if.then12.i:                                      ; preds = %git_use_proxy.exit.i
+if.then12.i:                                      ; preds = %land.rhs.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %port.i.i)
   store ptr @.str.84, ptr %port.i.i, align 8
   call fastcc void @get_host_and_port(ptr %call64.i, ptr noundef nonnull %port.i.i)
@@ -2699,7 +2702,7 @@ git_proxy_connect.exit.i:                         ; preds = %if.end6.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %port.i.i)
   br label %if.end16.i
 
-if.else14.i:                                      ; preds = %git_use_proxy.exit.i, %if.end9.i
+if.else14.i:                                      ; preds = %land.rhs.i.i, %if.end9.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %error_message.i.i.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %port.i.i.i)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %hints.i.i.i)

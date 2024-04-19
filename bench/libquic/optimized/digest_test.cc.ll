@@ -93,8 +93,8 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %i.048 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
-  %arrayidx = getelementptr inbounds [28 x %struct.TestVector], ptr @_ZL12kTestVectors, i64 0, i64 %i.048
+  %i.049 = phi i64 [ 0, %entry ], [ %inc, %for.inc ]
+  %arrayidx = getelementptr inbounds [28 x %struct.TestVector], ptr @_ZL12kTestVectors, i64 0, i64 %i.049
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ctx.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %digest.i)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %digest_len.i)
@@ -319,8 +319,8 @@ if.then68.i:                                      ; preds = %invoke.cont65.i
   br label %cleanup.i
 
 for.inc74.i:                                      ; preds = %for.cond60.i, %for.body58.i
-  %exitcond54.not = icmp eq i64 %i54.070.i, %28
-  br i1 %exitcond54.not, label %for.end76.i, label %for.body58.ithread-pre-split, !llvm.loop !11
+  %exitcond55.not = icmp eq i64 %i54.070.i, %28
+  br i1 %exitcond55.not, label %for.end76.i, label %for.body58.ithread-pre-split, !llvm.loop !11
 
 for.end76.i:                                      ; preds = %for.inc74.i, %for.body58.lr.ph.i, %for.cond55.preheader.i
   %call81.i = invoke i32 @EVP_DigestFinal_ex(ptr noundef nonnull %ctx.i, ptr noundef nonnull %digest.i, ptr noundef nonnull %digest_len.i)
@@ -560,14 +560,14 @@ _ZL10TestDigestPK10TestVector.exit:               ; preds = %cleanup.i
 
 if.then:                                          ; preds = %_ZL10TestDigestPK10TestVector.exit
   %73 = load ptr, ptr @stderr, align 8
-  %conv = trunc nuw nsw i64 %i.048 to i32
+  %conv = trunc nuw nsw i64 %i.049 to i32
   %call1 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str, i32 noundef %conv) #7
   br label %return
 
 for.inc:                                          ; preds = %_ZL10TestDigestPK10TestVector.exit
-  %inc = add nuw nsw i64 %i.048, 1
-  %exitcond55.not = icmp eq i64 %inc, 28
-  br i1 %exitcond55.not, label %for.end, label %for.body, !llvm.loop !13
+  %inc = add nuw nsw i64 %i.049, 1
+  %exitcond56.not = icmp eq i64 %inc, 28
+  br i1 %exitcond56.not, label %for.end, label %for.body, !llvm.loop !13
 
 for.end:                                          ; preds = %for.inc
   %call.i = call ptr @EVP_get_digestbyname(ptr noundef nonnull @.str.54)
@@ -577,19 +577,19 @@ for.end:                                          ; preds = %for.inc
 lor.lhs.false.i:                                  ; preds = %for.end
   %call1.i = call ptr @EVP_get_digestbyname(ptr noundef nonnull @.str.55)
   %cmp2.i = icmp eq ptr %call1.i, null
-  br i1 %cmp2.i, label %return, label %_ZL11TestGettersv.exit
+  br i1 %cmp2.i, label %return, label %lor.lhs.false3.i
 
-_ZL11TestGettersv.exit:                           ; preds = %lor.lhs.false.i
+lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i
   %call4.i5 = call ptr @EVP_get_digestbyname(ptr noundef nonnull @.str.56)
-  %cmp5.not.i.not = icmp eq ptr %call4.i5, null
-  br i1 %cmp5.not.i.not, label %if.end5, label %return
+  %cmp5.not.i = icmp eq ptr %call4.i5, null
+  br i1 %cmp5.not.i, label %if.end5, label %return
 
-if.end5:                                          ; preds = %_ZL11TestGettersv.exit
+if.end5:                                          ; preds = %lor.lhs.false3.i
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %return
 
-return:                                           ; preds = %for.end, %lor.lhs.false.i, %_ZL11TestGettersv.exit, %if.end5, %if.then
-  %retval.0 = phi i32 [ 1, %if.then ], [ 0, %if.end5 ], [ 1, %_ZL11TestGettersv.exit ], [ 1, %lor.lhs.false.i ], [ 1, %for.end ]
+return:                                           ; preds = %lor.lhs.false3.i, %for.end, %lor.lhs.false.i, %if.end5, %if.then
+  %retval.0 = phi i32 [ 1, %if.then ], [ 0, %if.end5 ], [ 1, %lor.lhs.false.i ], [ 1, %for.end ], [ 1, %lor.lhs.false3.i ]
   ret i32 %retval.0
 }
 

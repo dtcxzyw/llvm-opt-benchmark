@@ -147,14 +147,14 @@ define internal i32 @dissect_esio(ptr noundef %0, ptr noundef %1, ptr noundef %2
 14:                                               ; preds = %11
   %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 6) #2
   %.not7.i = icmp eq i8 %15, 0
-  br i1 %.not7.i, label %is_esio_pdu.exit, label %is_esio_pdu.exit.thread
+  br i1 %.not7.i, label %16, label %is_esio_pdu.exit.thread
 
-is_esio_pdu.exit:                                 ; preds = %14
-  %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 7) #2
-  %.not8.i.not = icmp eq i8 %16, 0
-  br i1 %.not8.i.not, label %17, label %is_esio_pdu.exit.thread
+16:                                               ; preds = %14
+  %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 7) #2
+  %.not8.i = icmp eq i8 %17, 0
+  br i1 %.not8.i, label %is_esio_pdu.exit, label %is_esio_pdu.exit.thread
 
-17:                                               ; preds = %is_esio_pdu.exit
+is_esio_pdu.exit:                                 ; preds = %16
   %18 = getelementptr inbounds i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @col_set_str(ptr noundef %19, i32 noundef 34, ptr noundef nonnull @.str.39) #2
@@ -166,7 +166,7 @@ is_esio_pdu.exit:                                 ; preds = %14
     i8 2, label %30
   ]
 
-22:                                               ; preds = %17
+22:                                               ; preds = %is_esio_pdu.exit
   %23 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16) #2
   %24 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 20) #2
   %25 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 26) #2
@@ -180,13 +180,13 @@ is_esio_pdu.exit:                                 ; preds = %14
   tail call void @col_append_str(ptr noundef %29, i32 noundef 25, ptr noundef nonnull @.str.47) #2
   br label %35
 
-30:                                               ; preds = %17
+30:                                               ; preds = %is_esio_pdu.exit
   %31 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16) #2
   %32 = load ptr, ptr %18, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %32, i32 noundef 25, ptr noundef nonnull @.str.48, i32 noundef %31) #2
   br label %35
 
-33:                                               ; preds = %17
+33:                                               ; preds = %is_esio_pdu.exit
   %34 = load ptr, ptr %18, align 8
   tail call void @col_set_str(ptr noundef %34, i32 noundef 25, ptr noundef nonnull @.str.49) #2
   br label %35
@@ -207,14 +207,14 @@ is_esio_pdu.exit:                                 ; preds = %14
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %47, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef 0) #2
   %49 = load i32, ptr @hf_esio_transaction_id, align 4
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %49, ptr noundef %0, i32 noundef 10, i32 noundef 2, i32 noundef 0) #2
-  switch i16 %42, label %.loopexit137 [
+  switch i16 %42, label %.loopexit138 [
     i16 1, label %51
     i16 2, label %82
   ]
 
 51:                                               ; preds = %35
   %.not134 = icmp eq ptr %2, null
-  br i1 %.not134, label %.loopexit137, label %52
+  br i1 %.not134, label %.loopexit138, label %52
 
 52:                                               ; preds = %51
   %53 = load i32, ptr @ett_esio_transfer_header, align 4
@@ -229,9 +229,9 @@ is_esio_pdu.exit:                                 ; preds = %14
   %62 = load i32, ptr @hf_esio_data_flags, align 4
   %63 = tail call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %62, ptr noundef %0, i32 noundef 21, i32 noundef 1, i32 noundef 0) #2
   %.not = icmp eq i8 %59, 0
-  br i1 %.not, label %.loopexit137, label %.lr.ph141
+  br i1 %.not, label %.loopexit138, label %.lr.ph142
 
-.lr.ph141:                                        ; preds = %52
+.lr.ph142:                                        ; preds = %52
   %64 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 26) #2
   %65 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 30) #2
   %66 = zext i16 %65 to i32
@@ -246,20 +246,20 @@ is_esio_pdu.exit:                                 ; preds = %14
   %75 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %74, ptr noundef %0, i32 noundef 30, i32 noundef 2, i32 noundef 0) #2
   %76 = load i32, ptr @ett_esio_data, align 4
   %77 = tail call ptr @proto_tree_add_subtree(ptr noundef %69, ptr noundef %0, i32 noundef 32, i32 noundef %66, i32 noundef %76, ptr noundef null, ptr noundef nonnull @.str.53) #2
-  %.not142 = icmp eq i16 %65, 0
-  br i1 %.not142, label %.loopexit137, label %.lr.ph.preheader
+  %.not143 = icmp eq i16 %65, 0
+  br i1 %.not143, label %.loopexit138, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.lr.ph141
+.lr.ph.preheader:                                 ; preds = %.lr.ph142
   %78 = add nuw nsw i32 %66, 31
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.1131138 = phi i32 [ %81, %.lr.ph ], [ 32, %.lr.ph.preheader ]
+  %.1131139 = phi i32 [ %81, %.lr.ph ], [ 32, %.lr.ph.preheader ]
   %79 = load i32, ptr @hf_esio_data, align 4
-  %80 = tail call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %79, ptr noundef %0, i32 noundef %.1131138, i32 noundef 1, i32 noundef 0) #2
-  %81 = add nuw nsw i32 %.1131138, 1
-  %exitcond.not = icmp eq i32 %.1131138, %78
-  br i1 %exitcond.not, label %.loopexit137, label %.lr.ph, !llvm.loop !4
+  %80 = tail call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %79, ptr noundef %0, i32 noundef %.1131139, i32 noundef 1, i32 noundef 0) #2
+  %81 = add nuw nsw i32 %.1131139, 1
+  %exitcond.not = icmp eq i32 %.1131139, %78
+  br i1 %exitcond.not, label %.loopexit138, label %.lr.ph, !llvm.loop !4
 
 82:                                               ; preds = %35
   %.not132 = icmp eq ptr %2, null
@@ -286,18 +286,18 @@ is_esio_pdu.exit:                                 ; preds = %14
   %.0 = phi ptr [ %93, %83 ], [ null, %82 ]
   %99 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 21) #2
   %.not133 = icmp eq i8 %99, 0
-  br i1 %.not133, label %.loopexit137, label %100
+  br i1 %.not133, label %.loopexit138, label %100
 
 100:                                              ; preds = %98
   %101 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.0, ptr noundef nonnull @ei_esio_telegram_lost) #2
-  br label %.loopexit137
+  br label %.loopexit138
 
-.loopexit137:                                     ; preds = %.lr.ph, %.lr.ph141, %52, %35, %98, %100, %51
+.loopexit138:                                     ; preds = %.lr.ph, %.lr.ph142, %52, %35, %98, %100, %51
   %102 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   br label %is_esio_pdu.exit.thread
 
-is_esio_pdu.exit.thread:                          ; preds = %14, %11, %9, %7, %4, %is_esio_pdu.exit, %.loopexit137
-  %.0128 = phi i32 [ %102, %.loopexit137 ], [ 0, %is_esio_pdu.exit ], [ 0, %4 ], [ 0, %7 ], [ 0, %9 ], [ 0, %11 ], [ 0, %14 ]
+is_esio_pdu.exit.thread:                          ; preds = %16, %14, %11, %9, %7, %4, %.loopexit138
+  %.0128 = phi i32 [ %102, %.loopexit138 ], [ 0, %4 ], [ 0, %7 ], [ 0, %9 ], [ 0, %11 ], [ 0, %14 ], [ 0, %16 ]
   ret i32 %.0128
 }
 

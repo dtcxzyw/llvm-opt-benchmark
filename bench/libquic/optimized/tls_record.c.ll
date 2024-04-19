@@ -92,9 +92,9 @@ land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
   %6 = load i32, ptr %mode.i, align 4
   %7 = and i32 %6, 256
   %cmp5.not.i = icmp eq i32 %7, 0
-  br i1 %cmp5.not.i, label %return, label %ssl_needs_record_splitting.exit
+  br i1 %cmp5.not.i, label %return, label %land.rhs.i
 
-ssl_needs_record_splitting.exit:                  ; preds = %land.lhs.true3.i
+land.rhs.i:                                       ; preds = %land.lhs.true3.i
   %8 = load ptr, ptr %s31, align 8
   %aead_write_ctx8.i = getelementptr inbounds i8, ptr %8, i64 272
   %9 = load ptr, ptr %aead_write_ctx8.i, align 8
@@ -103,7 +103,7 @@ ssl_needs_record_splitting.exit:                  ; preds = %land.lhs.true3.i
   %tobool.i.not = icmp eq i32 %call9.i, 0
   br i1 %tobool.i.not, label %return, label %if.then7
 
-if.then7:                                         ; preds = %ssl_needs_record_splitting.exit
+if.then7:                                         ; preds = %land.rhs.i
   %add8 = add i64 %call3, 10
   %11 = load ptr, ptr %s31, align 8
   %aead_write_ctx10 = getelementptr inbounds i8, ptr %11, i64 272
@@ -113,8 +113,8 @@ if.then7:                                         ; preds = %ssl_needs_record_sp
   %add12 = add i64 %add8, %call11
   br label %return
 
-return:                                           ; preds = %if.else, %land.lhs.true.i, %land.lhs.true3.i, %ssl_needs_record_splitting.exit, %if.then7, %if.then
-  %retval.0 = phi i64 [ %add, %if.then ], [ %add12, %if.then7 ], [ %add4, %ssl_needs_record_splitting.exit ], [ %add4, %land.lhs.true3.i ], [ %add4, %land.lhs.true.i ], [ %add4, %if.else ]
+return:                                           ; preds = %land.rhs.i, %if.else, %land.lhs.true.i, %land.lhs.true3.i, %if.then7, %if.then
+  %retval.0 = phi i64 [ %add, %if.then ], [ %add12, %if.then7 ], [ %add4, %land.lhs.true3.i ], [ %add4, %land.lhs.true.i ], [ %add4, %if.else ], [ %add4, %land.rhs.i ]
   ret i64 %retval.0
 }
 
@@ -388,9 +388,9 @@ land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
   %2 = load i32, ptr %mode.i, align 4
   %3 = and i32 %2, 256
   %cmp5.not.i = icmp eq i32 %3, 0
-  br i1 %cmp5.not.i, label %if.end28, label %ssl_needs_record_splitting.exit
+  br i1 %cmp5.not.i, label %if.end28, label %land.rhs.i
 
-ssl_needs_record_splitting.exit:                  ; preds = %land.lhs.true3.i
+land.rhs.i:                                       ; preds = %land.lhs.true3.i
   %4 = load ptr, ptr %s3.i, align 8
   %aead_write_ctx8.i = getelementptr inbounds i8, ptr %4, i64 272
   %5 = load ptr, ptr %aead_write_ctx8.i, align 8
@@ -399,7 +399,7 @@ ssl_needs_record_splitting.exit:                  ; preds = %land.lhs.true3.i
   %tobool.i.not = icmp eq i32 %call9.i, 0
   br i1 %tobool.i.not, label %if.end28, label %if.then
 
-if.then:                                          ; preds = %ssl_needs_record_splitting.exit
+if.then:                                          ; preds = %land.rhs.i
   %add.ptr = getelementptr inbounds i8, ptr %in, i64 1
   %cmp5.not = icmp ule ptr %add.ptr, %out
   %add.ptr8 = getelementptr inbounds i8, ptr %in, i64 %in_len
@@ -431,12 +431,12 @@ if.end26:                                         ; preds = %if.end
   %sub = sub i64 %max_out, %7
   br label %if.end28
 
-if.end28:                                         ; preds = %land.lhs.true4, %land.lhs.true.i, %land.lhs.true3.i, %if.end26, %ssl_needs_record_splitting.exit, %entry
-  %8 = phi i64 [ %7, %if.end26 ], [ 0, %ssl_needs_record_splitting.exit ], [ 0, %entry ], [ 0, %land.lhs.true3.i ], [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true4 ]
-  %out.addr.0 = phi ptr [ %add.ptr27, %if.end26 ], [ %out, %ssl_needs_record_splitting.exit ], [ %out, %entry ], [ %out, %land.lhs.true3.i ], [ %out, %land.lhs.true.i ], [ %out, %land.lhs.true4 ]
-  %max_out.addr.0 = phi i64 [ %sub, %if.end26 ], [ %max_out, %ssl_needs_record_splitting.exit ], [ %max_out, %entry ], [ %max_out, %land.lhs.true3.i ], [ %max_out, %land.lhs.true.i ], [ %max_out, %land.lhs.true4 ]
-  %in.addr.0 = phi ptr [ %add.ptr, %if.end26 ], [ %in, %ssl_needs_record_splitting.exit ], [ %in, %entry ], [ %in, %land.lhs.true3.i ], [ %in, %land.lhs.true.i ], [ %in, %land.lhs.true4 ]
-  %in_len.addr.0 = phi i64 [ %dec, %if.end26 ], [ %in_len, %ssl_needs_record_splitting.exit ], [ %in_len, %entry ], [ %in_len, %land.lhs.true3.i ], [ %in_len, %land.lhs.true.i ], [ %in_len, %land.lhs.true4 ]
+if.end28:                                         ; preds = %land.rhs.i, %land.lhs.true4, %land.lhs.true.i, %land.lhs.true3.i, %if.end26, %entry
+  %8 = phi i64 [ %7, %if.end26 ], [ 0, %entry ], [ 0, %land.lhs.true3.i ], [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true4 ], [ 0, %land.rhs.i ]
+  %out.addr.0 = phi ptr [ %add.ptr27, %if.end26 ], [ %out, %entry ], [ %out, %land.lhs.true3.i ], [ %out, %land.lhs.true.i ], [ %out, %land.lhs.true4 ], [ %out, %land.rhs.i ]
+  %max_out.addr.0 = phi i64 [ %sub, %if.end26 ], [ %max_out, %entry ], [ %max_out, %land.lhs.true3.i ], [ %max_out, %land.lhs.true.i ], [ %max_out, %land.lhs.true4 ], [ %max_out, %land.rhs.i ]
+  %in.addr.0 = phi ptr [ %add.ptr, %if.end26 ], [ %in, %entry ], [ %in, %land.lhs.true3.i ], [ %in, %land.lhs.true.i ], [ %in, %land.lhs.true4 ], [ %in, %land.rhs.i ]
+  %in_len.addr.0 = phi i64 [ %dec, %if.end26 ], [ %in_len, %entry ], [ %in_len, %land.lhs.true3.i ], [ %in_len, %land.lhs.true.i ], [ %in_len, %land.lhs.true4 ], [ %in_len, %land.rhs.i ]
   %call29 = tail call fastcc i32 @do_seal_record(ptr noundef %ssl, ptr noundef %out.addr.0, ptr noundef %out_len, i64 noundef %max_out.addr.0, i8 noundef zeroext %type, ptr noundef %in.addr.0, i64 noundef %in_len.addr.0), !range !9
   %tobool30.not = icmp eq i32 %call29, 0
   br i1 %tobool30.not, label %return, label %if.end32

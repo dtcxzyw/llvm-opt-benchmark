@@ -3268,24 +3268,24 @@ define internal i32 @p_isasclet(ptr nocapture noundef readonly %0) #0 {
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 1
-  br i1 %6, label %p_isascii.exit, label %p_isascii.exit.thread
+  br i1 %6, label %7, label %p_isascii.exit.thread
 
-p_isascii.exit:                                   ; preds = %1
-  %7 = load ptr, ptr %0, align 8
-  %8 = load i32, ptr %3, align 8
-  %9 = sext i32 %8 to i64
-  %10 = getelementptr i8, ptr %7, i64 %9
-  %11 = load i8, ptr %10, align 1
-  %12 = icmp slt i8 %11, 0
-  br i1 %12, label %p_isascii.exit.thread, label %13
+7:                                                ; preds = %1
+  %8 = load ptr, ptr %0, align 8
+  %9 = load i32, ptr %3, align 8
+  %10 = sext i32 %9 to i64
+  %11 = getelementptr i8, ptr %8, i64 %10
+  %12 = load i8, ptr %11, align 1
+  %13 = icmp sgt i8 %12, -1
+  br i1 %13, label %p_isascii.exit, label %p_isascii.exit.thread
 
-13:                                               ; preds = %p_isascii.exit
+p_isascii.exit:                                   ; preds = %7
   %14 = getelementptr inbounds i8, ptr %0, i64 32
   %15 = load i8, ptr %14, align 8
   %16 = trunc i8 %15 to i1
   br i1 %16, label %17, label %44
 
-17:                                               ; preds = %13
+17:                                               ; preds = %p_isascii.exit
   %18 = getelementptr inbounds i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %19, null
@@ -3321,10 +3321,10 @@ p_isascii.exit:                                   ; preds = %1
   %43 = tail call i32 @iswalpha(i32 noundef %42) #16
   br label %p_isalpha.exit
 
-44:                                               ; preds = %13
+44:                                               ; preds = %p_isascii.exit
   %45 = tail call ptr @__ctype_b_loc() #17
   %46 = load ptr, ptr %45, align 8
-  %47 = zext nneg i8 %11 to i64
+  %47 = zext nneg i8 %12 to i64
   %48 = getelementptr i16, ptr %46, i64 %47
   %49 = load i16, ptr %48, align 2
   %50 = and i16 %49, 1024
@@ -3337,8 +3337,8 @@ p_isalpha.exit:                                   ; preds = %20, %27, %35, %44
   %53 = zext i1 %52 to i32
   br label %p_isascii.exit.thread
 
-p_isascii.exit.thread:                            ; preds = %1, %p_isalpha.exit, %p_isascii.exit
-  %54 = phi i32 [ 0, %p_isascii.exit ], [ %53, %p_isalpha.exit ], [ 0, %1 ]
+p_isascii.exit.thread:                            ; preds = %7, %1, %p_isalpha.exit
+  %54 = phi i32 [ %53, %p_isalpha.exit ], [ 0, %1 ], [ 0, %7 ]
   ret i32 %54
 }
 

@@ -680,7 +680,7 @@ if.end3.i:                                        ; preds = %if.end.i
 land.rhs.i12.i:                                   ; preds = %if.end3.i, %for.inc.i14.i
   %sfp.val46.i13.i = phi ptr [ %incdec.ptr.i15.i, %for.inc.i14.i ], [ %incdec.ptr.i, %if.end3.i ]
   %3 = load i8, ptr %sfp.val46.i13.i, align 1
-  switch i8 %3, label %parser_next_key_or_item.exit [
+  switch i8 %3, label %parser_discard_ows.exit17.i [
     i8 32, label %for.inc.i14.i
     i8 9, label %for.inc.i14.i
   ]
@@ -691,9 +691,9 @@ for.inc.i14.i:                                    ; preds = %land.rhs.i12.i, %la
   %cmp.i.not.i16.i = icmp eq ptr %incdec.ptr.i15.i, %sfp.val3.i.i
   br i1 %cmp.i.not.i16.i, label %return, label %land.rhs.i12.i, !llvm.loop !9
 
-parser_next_key_or_item.exit:                     ; preds = %land.rhs.i12.i
-  %cmp.i18.not.i.not = icmp eq ptr %sfp.val46.i13.i, %sfp.val3.i.i
-  br i1 %cmp.i18.not.i.not, label %return, label %sw.epilog
+parser_discard_ows.exit17.i:                      ; preds = %land.rhs.i12.i
+  %cmp.i18.not.i = icmp eq ptr %sfp.val46.i13.i, %sfp.val3.i.i
+  br i1 %cmp.i18.not.i, label %return, label %sw.epilog
 
 sw.bb11:                                          ; preds = %entry
   %4 = getelementptr i8, ptr %sfp, i64 8
@@ -722,7 +722,7 @@ sw.default:                                       ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 888, ptr noundef nonnull @__PRETTY_FUNCTION__.sf_parser_dict) #7
   unreachable
 
-sw.epilog:                                        ; preds = %parser_discard_sp.exit, %parser_next_key_or_item.exit
+sw.epilog:                                        ; preds = %parser_discard_ows.exit17.i, %parser_discard_sp.exit
   %call15 = tail call fastcc i32 @parser_key(ptr noundef nonnull %sfp, ptr noundef %dest_key), !range !6
   %cmp16.not = icmp eq i32 %call15, 0
   br i1 %cmp16.not, label %if.end18, label %return
@@ -789,8 +789,8 @@ return.sink.split.i:                              ; preds = %if.end23.i, %if.end
   store i32 %.sink.i, ptr %state, align 8
   br label %return
 
-return:                                           ; preds = %for.inc.i, %for.cond.i, %for.cond.i16, %for.inc.i.i, %for.inc.i14.i, %sw.bb11, %if.end3.i, %sw.bb6, %if.end.i, %parser_discard_ows.exit.i, %return.sink.split.i, %if.end23.i, %if.end4.i, %sw.epilog, %parser_discard_sp.exit, %parser_next_key_or_item.exit
-  %retval.0 = phi i32 [ -1, %parser_next_key_or_item.exit ], [ -2, %parser_discard_sp.exit ], [ -1, %sw.epilog ], [ -1, %if.end4.i ], [ %call24.i, %if.end23.i ], [ 0, %return.sink.split.i ], [ -2, %sw.bb6 ], [ -1, %if.end.i ], [ -2, %parser_discard_ows.exit.i ], [ -1, %if.end3.i ], [ -2, %sw.bb11 ], [ -1, %for.inc.i14.i ], [ -2, %for.inc.i.i ], [ %call.i17, %for.cond.i16 ], [ %call.i, %for.cond.i ], [ -2, %for.inc.i ]
+return:                                           ; preds = %for.inc.i, %for.cond.i, %for.cond.i16, %for.inc.i.i, %for.inc.i14.i, %sw.bb11, %if.end3.i, %parser_discard_ows.exit17.i, %sw.bb6, %if.end.i, %parser_discard_ows.exit.i, %return.sink.split.i, %if.end23.i, %if.end4.i, %sw.epilog, %parser_discard_sp.exit
+  %retval.0 = phi i32 [ -2, %parser_discard_sp.exit ], [ -1, %sw.epilog ], [ -1, %if.end4.i ], [ %call24.i, %if.end23.i ], [ 0, %return.sink.split.i ], [ -2, %sw.bb6 ], [ -1, %if.end.i ], [ -2, %parser_discard_ows.exit.i ], [ -1, %parser_discard_ows.exit17.i ], [ -1, %if.end3.i ], [ -2, %sw.bb11 ], [ -1, %for.inc.i14.i ], [ -2, %for.inc.i.i ], [ %call.i17, %for.cond.i16 ], [ %call.i, %for.cond.i ], [ -2, %for.inc.i ]
   ret i32 %retval.0
 }
 
@@ -871,7 +871,7 @@ if.end3.i:                                        ; preds = %if.end.i
 land.rhs.i12.i:                                   ; preds = %if.end3.i, %for.inc.i14.i
   %sfp.val46.i13.i = phi ptr [ %incdec.ptr.i15.i, %for.inc.i14.i ], [ %incdec.ptr.i, %if.end3.i ]
   %3 = load i8, ptr %sfp.val46.i13.i, align 1
-  switch i8 %3, label %parser_next_key_or_item.exit [
+  switch i8 %3, label %parser_discard_ows.exit17.i [
     i8 32, label %for.inc.i14.i
     i8 9, label %for.inc.i14.i
   ]
@@ -882,9 +882,9 @@ for.inc.i14.i:                                    ; preds = %land.rhs.i12.i, %la
   %cmp.i.not.i16.i = icmp eq ptr %incdec.ptr.i15.i, %sfp.val3.i.i
   br i1 %cmp.i.not.i16.i, label %return, label %land.rhs.i12.i, !llvm.loop !9
 
-parser_next_key_or_item.exit:                     ; preds = %land.rhs.i12.i
-  %cmp.i18.not.i.not = icmp eq ptr %sfp.val46.i13.i, %sfp.val3.i.i
-  br i1 %cmp.i18.not.i.not, label %return, label %sw.epilog
+parser_discard_ows.exit17.i:                      ; preds = %land.rhs.i12.i
+  %cmp.i18.not.i = icmp eq ptr %sfp.val46.i13.i, %sfp.val3.i.i
+  br i1 %cmp.i18.not.i, label %return, label %sw.epilog
 
 sw.bb11:                                          ; preds = %entry
   %4 = getelementptr i8, ptr %sfp, i64 8
@@ -917,9 +917,9 @@ sw.default:                                       ; preds = %entry
   tail call void @__assert_fail(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 934, ptr noundef nonnull @__PRETTY_FUNCTION__.sf_parser_list) #7
   unreachable
 
-sw.epilog:                                        ; preds = %parser_discard_sp.exit.sw.epilog_crit_edge, %parser_next_key_or_item.exit
-  %6 = phi i8 [ %.pre, %parser_discard_sp.exit.sw.epilog_crit_edge ], [ %3, %parser_next_key_or_item.exit ]
-  %7 = phi ptr [ %sfp.val46.i, %parser_discard_sp.exit.sw.epilog_crit_edge ], [ %sfp.val46.i13.i, %parser_next_key_or_item.exit ]
+sw.epilog:                                        ; preds = %parser_discard_sp.exit.sw.epilog_crit_edge, %parser_discard_ows.exit17.i
+  %6 = phi i8 [ %3, %parser_discard_ows.exit17.i ], [ %.pre, %parser_discard_sp.exit.sw.epilog_crit_edge ]
+  %7 = phi ptr [ %sfp.val46.i13.i, %parser_discard_ows.exit17.i ], [ %sfp.val46.i, %parser_discard_sp.exit.sw.epilog_crit_edge ]
   %cmp15 = icmp eq i8 %6, 40
   br i1 %cmp15, label %if.then17, label %if.end23
 
@@ -931,11 +931,11 @@ if.then19:                                        ; preds = %if.then17
   store i32 6, ptr %dest, align 8
   %flags = getelementptr inbounds i8, ptr %dest, i64 4
   store i32 0, ptr %flags, align 4
-  %.pre57 = load ptr, ptr %sfp, align 8
+  %.pre54 = load ptr, ptr %sfp, align 8
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then19, %if.then17
-  %8 = phi ptr [ %.pre57, %if.then19 ], [ %7, %if.then17 ]
+  %8 = phi ptr [ %.pre54, %if.then19 ], [ %7, %if.then17 ]
   %incdec.ptr = getelementptr inbounds i8, ptr %8, i64 1
   store ptr %incdec.ptr, ptr %sfp, align 8
   br label %return.sink.split
@@ -950,8 +950,8 @@ return.sink.split:                                ; preds = %if.end23, %if.end20
   store i32 %.sink, ptr %state, align 8
   br label %return
 
-return:                                           ; preds = %for.inc.i, %for.cond.i, %for.cond.i22, %for.inc.i.i, %for.inc.i14.i, %return.sink.split, %sw.bb11, %if.end3.i, %sw.bb6, %if.end.i, %parser_discard_ows.exit.i, %if.end23, %parser_discard_sp.exit, %parser_next_key_or_item.exit
-  %retval.0 = phi i32 [ -1, %parser_next_key_or_item.exit ], [ -2, %parser_discard_sp.exit ], [ %call24, %if.end23 ], [ -2, %sw.bb6 ], [ -1, %if.end.i ], [ -2, %parser_discard_ows.exit.i ], [ -1, %if.end3.i ], [ -2, %sw.bb11 ], [ 0, %return.sink.split ], [ -1, %for.inc.i14.i ], [ -2, %for.inc.i.i ], [ %call.i23, %for.cond.i22 ], [ %call.i, %for.cond.i ], [ -2, %for.inc.i ]
+return:                                           ; preds = %for.inc.i, %for.cond.i, %for.cond.i22, %for.inc.i.i, %for.inc.i14.i, %return.sink.split, %sw.bb11, %if.end3.i, %parser_discard_ows.exit17.i, %sw.bb6, %if.end.i, %parser_discard_ows.exit.i, %if.end23, %parser_discard_sp.exit
+  %retval.0 = phi i32 [ -2, %parser_discard_sp.exit ], [ %call24, %if.end23 ], [ -2, %sw.bb6 ], [ -1, %if.end.i ], [ -2, %parser_discard_ows.exit.i ], [ -1, %parser_discard_ows.exit17.i ], [ -1, %if.end3.i ], [ -2, %sw.bb11 ], [ 0, %return.sink.split ], [ -1, %for.inc.i14.i ], [ -2, %for.inc.i.i ], [ %call.i23, %for.cond.i22 ], [ %call.i, %for.cond.i ], [ -2, %for.inc.i ]
   ret i32 %retval.0
 }
 
@@ -1262,7 +1262,7 @@ if.end44:                                         ; preds = %if.end34
   br label %fin.sink.split
 
 if.end52:                                         ; preds = %for.body11
-  %6 = trunc i64 %i.043 to i32
+  %6 = trunc nuw i64 %i.043 to i32
   %7 = mul nsw i32 %6, -6
   %sh_prom = add nsw i32 %7, 24
   %shl = shl i32 %4, %sh_prom

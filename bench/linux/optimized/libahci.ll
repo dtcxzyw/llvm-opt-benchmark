@@ -360,7 +360,7 @@ define internal noundef i32 @ahci_qc_prep(ptr noundef %0) #0 align 16 {
   %51 = getelementptr %struct.ahci_sg, ptr %36, i64 %44
   store i32 %50, ptr %51, align 4
   %52 = lshr i64 %47, 32
-  %53 = trunc i64 %52 to i32
+  %53 = trunc nuw i64 %52 to i32
   %54 = getelementptr inbounds i8, ptr %51, i64 4
   store i32 %53, ptr %54, align 4
   %55 = add i32 %49, -1
@@ -413,7 +413,7 @@ define internal noundef i32 @ahci_qc_prep(ptr noundef %0) #0 align 16 {
   %95 = getelementptr %struct.ahci_cmd_hdr, ptr %94, i64 %89, i32 2
   store i32 %93, ptr %95, align 4
   %96 = lshr i64 %86, 32
-  %97 = trunc i64 %96 to i32
+  %97 = trunc nuw i64 %96 to i32
   %98 = load ptr, ptr %87, align 8
   %99 = getelementptr %struct.ahci_cmd_hdr, ptr %98, i64 %89, i32 3
   store i32 %97, ptr %99, align 4
@@ -1724,7 +1724,7 @@ define dso_local noundef i32 @ahci_port_resume(ptr noundef %0) #0 align 16 {
   %45 = getelementptr inbounds i8, ptr %33, i64 16
   %46 = load i64, ptr %45, align 8
   %47 = lshr i64 %46, 32
-  %48 = trunc i64 %47 to i32
+  %48 = trunc nuw i64 %47 to i32
   %49 = getelementptr i8, ptr %40, i64 4
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %48, ptr elementtype(i32) %49) #12, !srcloc !10
   br label %50
@@ -1742,7 +1742,7 @@ define dso_local noundef i32 @ahci_port_resume(ptr noundef %0) #0 align 16 {
   %57 = getelementptr inbounds i8, ptr %33, i64 48
   %58 = load i64, ptr %57, align 8
   %59 = lshr i64 %58, 32
-  %60 = trunc i64 %59 to i32
+  %60 = trunc nuw i64 %59 to i32
   %61 = getelementptr i8, ptr %40, i64 12
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %60, ptr elementtype(i32) %61) #12, !srcloc !10
   br label %62
@@ -2921,7 +2921,7 @@ define dso_local void @ahci_save_initial_config(ptr noundef %0, ptr nocapture no
   store i32 %96, ptr %217, align 4
   %218 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %25, ptr %218, align 8
-  %219 = trunc i64 %185 to i32
+  %219 = trunc nuw i64 %185 to i32
   %220 = getelementptr inbounds i8, ptr %1, i64 28
   store i32 %219, ptr %220, align 4
   %221 = getelementptr inbounds i8, ptr %1, i64 280
@@ -3173,7 +3173,7 @@ define dso_local void @ahci_start_fis_rx(ptr nocapture noundef readonly %0) #0 a
   %20 = getelementptr inbounds i8, ptr %15, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = lshr i64 %21, 32
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw i64 %22 to i32
   %24 = getelementptr i8, ptr %13, i64 4
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %23, ptr elementtype(i32) %24) #12, !srcloc !10
   br label %25
@@ -3191,7 +3191,7 @@ define dso_local void @ahci_start_fis_rx(ptr nocapture noundef readonly %0) #0 a
   %32 = getelementptr inbounds i8, ptr %15, i64 48
   %33 = load i64, ptr %32, align 8
   %34 = lshr i64 %33, 32
-  %35 = trunc i64 %34 to i32
+  %35 = trunc nuw i64 %34 to i32
   %36 = getelementptr i8, ptr %13, i64 12
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %35, ptr elementtype(i32) %36) #12, !srcloc !10
   br label %37
@@ -3551,7 +3551,7 @@ define dso_local i32 @ahci_dev_classify(ptr noundef %0) #0 align 16 {
   %15 = getelementptr i8, ptr %14, i64 36
   %16 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %15) #12, !srcloc !11
   %17 = lshr i32 %16, 24
-  %18 = trunc i32 %17 to i8
+  %18 = trunc nuw i32 %17 to i8
   %19 = getelementptr inbounds i8, ptr %2, i64 19
   store i8 %18, ptr %19, align 1
   %20 = lshr i32 %16, 16
@@ -3596,7 +3596,7 @@ define dso_local void @ahci_fill_cmd_slot(ptr nocapture noundef readonly %0, i32
   %17 = getelementptr %struct.ahci_cmd_hdr, ptr %16, i64 %11, i32 2
   store i32 %15, ptr %17, align 4
   %18 = lshr i64 %8, 32
-  %19 = trunc i64 %18 to i32
+  %19 = trunc nuw i64 %18 to i32
   %20 = load ptr, ptr %9, align 8
   %21 = getelementptr %struct.ahci_cmd_hdr, ptr %20, i64 %11, i32 3
   store i32 %19, ptr %21, align 4
@@ -3906,7 +3906,7 @@ ahci_disable_fbs.exit:                            ; preds = %125, %109, %107, %8
   %173 = getelementptr i8, ptr %172, i64 8
   store i32 %171, ptr %173, align 4
   %174 = lshr i64 %166, 32
-  %175 = trunc i64 %174 to i32
+  %175 = trunc nuw i64 %174 to i32
   %176 = load ptr, ptr %167, align 8
   %177 = getelementptr i8, ptr %176, i64 12
   store i32 %175, ptr %177, align 4
@@ -4031,7 +4031,7 @@ ahci_exec_polled_cmd.exit:                        ; preds = %198, %218, %222, %2
   %261 = getelementptr i8, ptr %260, i64 8
   store i32 %259, ptr %261, align 4
   %262 = lshr i64 %254, 32
-  %263 = trunc i64 %262 to i32
+  %263 = trunc nuw i64 %262 to i32
   %264 = load ptr, ptr %255, align 8
   %265 = getelementptr i8, ptr %264, i64 12
   store i32 %263, ptr %265, align 4
@@ -4115,7 +4115,7 @@ ahci_exec_polled_cmd.exit:                        ; preds = %198, %218, %222, %2
   %317 = getelementptr i8, ptr %316, i64 36
   %318 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %317) #12, !srcloc !11
   %319 = lshr i32 %318, 24
-  %320 = trunc i32 %319 to i8
+  %320 = trunc nuw i32 %319 to i8
   %321 = getelementptr inbounds i8, ptr %6, i64 19
   store i8 %320, ptr %321, align 1
   %322 = lshr i32 %318, 16
@@ -4370,7 +4370,7 @@ define dso_local i32 @ahci_do_hardreset(ptr noundef %0, ptr nocapture noundef wr
   %75 = getelementptr i8, ptr %74, i64 36
   %76 = call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %75) #12, !srcloc !11
   %77 = lshr i32 %76, 24
-  %78 = trunc i32 %77 to i8
+  %78 = trunc nuw i32 %77 to i8
   %79 = getelementptr inbounds i8, ptr %5, i64 19
   store i8 %78, ptr %79, align 1
   %80 = lshr i32 %76, 16
@@ -4931,7 +4931,7 @@ define internal i64 @ahci_read_em_buffer(ptr nocapture noundef readonly %0, ptr 
   %73 = getelementptr i8, ptr %2, i64 %72
   store i8 %70, ptr %73, align 1
   %74 = lshr i32 %61, 24
-  %75 = trunc i32 %74 to i8
+  %75 = trunc nuw i32 %74 to i8
   %76 = or disjoint i32 %59, 3
   %77 = sext i32 %76 to i64
   %78 = getelementptr i8, ptr %2, i64 %77
@@ -5467,9 +5467,9 @@ define internal fastcc void @ahci_error_intr(ptr noundef %0, i32 noundef %1) unn
   %49 = icmp eq ptr %48, null
   br i1 %49, label %.thread, label %.preheader5, !llvm.loop !39
 
-.thread:                                          ; preds = %.preheader5, %47, %44, %37, %32, %28, %14
-  %50 = phi ptr [ %36, %32 ], [ null, %28 ], [ null, %14 ], [ null, %37 ], [ %40, %.preheader5 ], [ %40, %44 ], [ null, %47 ]
-  %51 = phi i1 [ true, %32 ], [ false, %28 ], [ false, %14 ], [ false, %37 ], [ false, %44 ], [ false, %47 ], [ false, %.preheader5 ]
+.thread:                                          ; preds = %44, %.preheader5, %47, %37, %32, %28, %14
+  %50 = phi ptr [ %36, %32 ], [ null, %28 ], [ null, %14 ], [ null, %37 ], [ %40, %44 ], [ %40, %.preheader5 ], [ null, %47 ]
+  %51 = phi i1 [ true, %32 ], [ false, %28 ], [ false, %14 ], [ false, %37 ], [ false, %47 ], [ false, %.preheader5 ], [ false, %44 ]
   %52 = icmp eq ptr %50, null
   %53 = select i1 %52, ptr %9, ptr %50
   %54 = getelementptr inbounds i8, ptr %53, i64 744
@@ -5849,7 +5849,7 @@ define internal void @ahci_sw_activity_blink(ptr noundef %0) #0 align 16 {
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 464
   %43 = load ptr, ptr %42, align 8
-  %44 = trunc i64 %38 to i32
+  %44 = trunc nuw i64 %38 to i32
   %45 = tail call i64 %43(ptr noundef %4, i32 noundef %44, i64 noundef 4) #12
   ret void
 }

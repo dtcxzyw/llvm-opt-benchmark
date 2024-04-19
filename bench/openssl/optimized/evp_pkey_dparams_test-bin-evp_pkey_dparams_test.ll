@@ -136,16 +136,16 @@ if.end:                                           ; preds = %entry
   %call10 = tail call ptr @BIO_new_mem_buf(ptr noundef %2, i32 noundef %conv) #2
   %call11 = tail call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 285, ptr noundef nonnull @.str.3, ptr noundef %call10) #2
   %tobool.not = icmp eq i32 %call11, 0
-  br i1 %tobool.not, label %for.end, label %land.end
+  br i1 %tobool.not, label %for.end, label %land.rhs
 
-land.end:                                         ; preds = %if.end
+land.rhs:                                         ; preds = %if.end
   %call12 = call ptr @d2i_KeyParams_bio(i32 noundef %0, ptr noundef nonnull %in_key, ptr noundef %call10) #2
   %call13 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 287, ptr noundef nonnull @.str.4, ptr noundef %call12) #2
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %for.end, label %land.rhs18
 
-land.rhs18:                                       ; preds = %land.end, %for.inc
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %land.end ]
+land.rhs18:                                       ; preds = %land.rhs, %for.inc
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %land.rhs ]
   %arrayidx20 = getelementptr inbounds %struct.pubkey, ptr %keys4, i64 %indvars.iv
   %key_bin21 = getelementptr inbounds i8, ptr %arrayidx20, i64 8
   %4 = load ptr, ptr %key_bin21, align 8
@@ -181,7 +181,7 @@ if.end57:                                         ; preds = %land.rhs45, %if.the
   br i1 %ret.1.in, label %for.inc, label %for.inc.thread
 
 for.inc.thread:                                   ; preds = %if.end57
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.2, i32 noundef 306, ptr noundef nonnull @.str.13, i32 noundef %10) #2
   br label %for.end
 
@@ -191,8 +191,8 @@ for.inc:                                          ; preds = %if.end57
   %or.cond = and i1 %ret.1.in, %cmp16
   br i1 %or.cond, label %land.rhs18, label %for.end, !llvm.loop !5
 
-for.end:                                          ; preds = %land.rhs18, %for.inc, %if.end, %for.inc.thread, %land.end
-  %ret.0.lcssa = phi i32 [ 0, %land.end ], [ 0, %for.inc.thread ], [ 0, %if.end ], [ 1, %for.inc ], [ 1, %land.rhs18 ]
+for.end:                                          ; preds = %land.rhs18, %for.inc, %land.rhs, %if.end, %for.inc.thread
+  %ret.0.lcssa = phi i32 [ 0, %for.inc.thread ], [ 0, %if.end ], [ 0, %land.rhs ], [ 1, %for.inc ], [ 1, %land.rhs18 ]
   %call61 = call i32 @BIO_free(ptr noundef %call10) #2
   %11 = load ptr, ptr %in_key, align 8
   call void @EVP_PKEY_free(ptr noundef %11) #2

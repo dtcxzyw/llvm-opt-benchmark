@@ -252,15 +252,15 @@ if.end10.i:                                       ; preds = %if.end5.i
 if.end14.i:                                       ; preds = %if.end10.i, %if.end5.i
   %5 = load ptr, ptr %md_ctx.i, align 8
   %cmp15.i = icmp eq ptr %5, null
-  br i1 %cmp15.i, label %hmac_ctx_alloc_mds.exit, label %return
+  br i1 %cmp15.i, label %if.then16.i, label %return
 
-hmac_ctx_alloc_mds.exit:                          ; preds = %if.end14.i
+if.then16.i:                                      ; preds = %if.end14.i
   %call17.i = tail call ptr @EVP_MD_CTX_new() #6
   store ptr %call17.i, ptr %md_ctx.i, align 8
   %.not = icmp eq ptr %call17.i, null
   br i1 %.not, label %if.then, label %return
 
-if.then:                                          ; preds = %if.end10.i, %if.end.i, %hmac_ctx_alloc_mds.exit
+if.then:                                          ; preds = %if.end.i, %if.end10.i, %if.then16.i
   %6 = load ptr, ptr %i_ctx.i, align 8
   %call.i8 = tail call i32 @EVP_MD_CTX_reset(ptr noundef %6) #6
   %7 = load ptr, ptr %o_ctx.i, align 8
@@ -270,8 +270,8 @@ if.then:                                          ; preds = %if.end10.i, %if.end
   store ptr null, ptr %ctx, align 8
   br label %return
 
-return:                                           ; preds = %if.end14.i, %hmac_ctx_alloc_mds.exit, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 1, %hmac_ctx_alloc_mds.exit ], [ 1, %if.end14.i ]
+return:                                           ; preds = %if.then16.i, %if.end14.i, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 1, %if.end14.i ], [ 1, %if.then16.i ]
   ret i32 %retval.0
 }
 
@@ -451,15 +451,15 @@ if.end14.i:                                       ; preds = %if.end10.i, %if.end
   %md_ctx.i = getelementptr inbounds i8, ptr %dctx, i64 8
   %2 = load ptr, ptr %md_ctx.i, align 8
   %cmp15.i = icmp eq ptr %2, null
-  br i1 %cmp15.i, label %hmac_ctx_alloc_mds.exit, label %if.end
+  br i1 %cmp15.i, label %if.then16.i, label %if.end
 
-hmac_ctx_alloc_mds.exit:                          ; preds = %if.end14.i
+if.then16.i:                                      ; preds = %if.end14.i
   %call17.i = tail call ptr @EVP_MD_CTX_new() #6
   store ptr %call17.i, ptr %md_ctx.i, align 8
   %.not = icmp eq ptr %call17.i, null
   br i1 %.not, label %err, label %if.end
 
-if.end:                                           ; preds = %if.end14.i, %hmac_ctx_alloc_mds.exit
+if.end:                                           ; preds = %if.then16.i, %if.end14.i
   %3 = load ptr, ptr %i_ctx.i, align 8
   %i_ctx1 = getelementptr inbounds i8, ptr %sctx, i64 16
   %4 = load ptr, ptr %i_ctx1, align 8
@@ -487,7 +487,7 @@ if.end15:                                         ; preds = %if.end10
   %9 = load ptr, ptr %sctx, align 8
   br label %return
 
-err:                                              ; preds = %if.end10.i, %if.end.i, %if.end10, %if.end5, %if.end, %hmac_ctx_alloc_mds.exit
+err:                                              ; preds = %if.then16.i, %if.end10.i, %if.end.i, %if.end10, %if.end5, %if.end
   %10 = load ptr, ptr %i_ctx.i, align 8
   %call.i10 = tail call i32 @EVP_MD_CTX_reset(ptr noundef %10) #6
   %o_ctx.i11 = getelementptr inbounds i8, ptr %dctx, i64 24

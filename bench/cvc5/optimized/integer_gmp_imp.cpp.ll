@@ -1834,8 +1834,8 @@ define hidden noundef i32 @_ZNK4cvc58internal7Integer6isPow2Ev(ptr noundef nonnu
 entry:
   %_mp_size.i.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load i32, ptr %_mp_size.i.i.i, align 4
-  %or.cond = icmp slt i32 %0, 1
-  br i1 %or.cond, label %return, label %if.end
+  %or.cond = icmp sgt i32 %0, 0
+  br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
   %call4 = tail call i64 @__gmpz_popcount(ptr noundef nonnull %this) #13

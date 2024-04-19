@@ -518,27 +518,27 @@ invoke.cont37.thread:                             ; preds = %if.then.i
 
 if.else.i:                                        ; preds = %if.then.i
   %cmp16.i = icmp ult i64 %result.0.copyload.i.i, %result.0.copyload.i13.i
-  %spec.select.i = zext i1 %cmp16.i to i32
-  br label %invoke.cont37
-
-invoke.cont37:                                    ; preds = %if.else.i, %call.i.i.noexc
-  %r.0.i = phi i32 [ %call.i.i13, %call.i.i.noexc ], [ %spec.select.i, %if.else.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
-  %cmp39 = icmp sgt i32 %r.0.i, 0
+  br i1 %cmp16.i, label %if.end74, label %if.end41
+
+invoke.cont37:                                    ; preds = %call.i.i.noexc
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  %cmp39 = icmp sgt i32 %call.i.i13, 0
   br i1 %cmp39, label %if.end74, label %if.end41
 
 lpad4.loopexit:                                   ; preds = %for.cond, %for.body, %invoke.cont16, %land.rhs, %if.end41, %if.then47, %if.else, %for.inc, %23, %25, %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i, %invoke.cont58
-  %lpad.loopexit140 = landingpad { ptr, i32 }
+  %lpad.loopexit147 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup164
 
 lpad4.loopexit.split-lp:                          ; preds = %if.end
-  %lpad.loopexit.split-lp141 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp148 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup164
 
-if.end41:                                         ; preds = %invoke.cont37.thread, %invoke.cont24, %invoke.cont37
+if.end41:                                         ; preds = %if.else.i, %invoke.cont37.thread, %invoke.cont24, %invoke.cont37
   %29 = load ptr, ptr %unfragmented_tombstones, align 8
   %vtable43 = load ptr, ptr %29, align 8
   %vfn44 = getelementptr inbounds i8, ptr %vtable43, i64 152
@@ -626,7 +626,7 @@ _ZNKSt14default_deleteIN7rocksdb20InternalIteratorBaseINS0_5SliceEEEEclEPS3_.exi
   call void %45(ptr noundef nonnull align 8 dereferenceable(40) %44) #18
   br label %ehcleanup164
 
-if.end74:                                         ; preds = %invoke.cont37
+if.end74:                                         ; preds = %invoke.cont37, %if.else.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %keys, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %values, i8 0, i64 24, i1 false)
   %46 = load i64, ptr %num_unfragmented_tombstones_, align 8
@@ -646,7 +646,7 @@ if.end.i:                                         ; preds = %if.end74
   br i1 %cmp3.i.not, label %if.end.i29.thread, label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i
 
 if.end.i29.thread:                                ; preds = %if.end.i
-  %_M_end_of_storage.i.i30143 = getelementptr inbounds i8, ptr %values, i64 16
+  %_M_end_of_storage.i.i30150 = getelementptr inbounds i8, ptr %values, i64 16
   br label %invoke.cont79
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i: ; preds = %if.end.i
@@ -674,7 +674,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   br label %invoke.cont79
 
 invoke.cont79:                                    ; preds = %if.end.i29.thread, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i53
-  %_M_end_of_storage.i.i30144 = phi ptr [ %_M_end_of_storage.i.i30143, %if.end.i29.thread ], [ %_M_end_of_storage.i.i30, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i53 ]
+  %_M_end_of_storage.i.i30151 = phi ptr [ %_M_end_of_storage.i.i30150, %if.end.i29.thread ], [ %_M_end_of_storage.i.i30, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i53 ]
   store i64 0, ptr %total_tombstone_payload_bytes_, align 8
   %47 = load ptr, ptr %unfragmented_tombstones, align 8
   %vtable82 = load ptr, ptr %47, align 8
@@ -794,7 +794,7 @@ invoke.cont145:                                   ; preds = %invoke.cont136
   %74 = extractvalue { ptr, i64 } %call146, 1
   store i64 %74, ptr %ref.tmp140, align 8
   %75 = load ptr, ptr %_M_finish.i72, align 8
-  %76 = load ptr, ptr %_M_end_of_storage.i.i30144, align 8
+  %76 = load ptr, ptr %_M_end_of_storage.i.i30151, align 8
   %cmp.not.i74 = icmp eq ptr %75, %76
   br i1 %cmp.not.i74, label %if.else.i81, label %if.then.i75
 
@@ -974,7 +974,7 @@ ehcleanup:                                        ; preds = %lpad76.loopexit, %l
   br label %ehcleanup164
 
 ehcleanup164:                                     ; preds = %_ZNKSt14default_deleteIN7rocksdb20InternalIteratorBaseINS0_5SliceEEEEclEPS3_.exit.i18, %lpad72, %lpad4.loopexit, %lpad4.loopexit.split-lp, %ehcleanup
-  %.pn7 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %lpad.loopexit140, %lpad4.loopexit ], [ %lpad.loopexit.split-lp141, %lpad4.loopexit.split-lp ], [ %43, %lpad72 ], [ %43, %_ZNKSt14default_deleteIN7rocksdb20InternalIteratorBaseINS0_5SliceEEEEclEPS3_.exit.i18 ]
+  %.pn7 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %lpad.loopexit147, %lpad4.loopexit ], [ %lpad.loopexit.split-lp148, %lpad4.loopexit.split-lp ], [ %43, %lpad72 ], [ %43, %_ZNKSt14default_deleteIN7rocksdb20InternalIteratorBaseINS0_5SliceEEEEclEPS3_.exit.i18 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pinned_last_start_key) #18
   call void @_ZN7rocksdb22PinnedIteratorsManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %pinned_iters_mgr_) #18
   br label %ehcleanup166

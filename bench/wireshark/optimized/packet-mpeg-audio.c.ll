@@ -540,12 +540,12 @@ define internal noundef i32 @dissect_mpeg_audio_heur(ptr noundef %0, ptr noundef
 7:                                                ; preds = %4
   %8 = tail call i32 @tvb_strneql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.217, i64 noundef 3) #3
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %test_mpeg_audio.exit.thread8, label %10
+  br i1 %9, label %select.unfold, label %10
 
 10:                                               ; preds = %7
   %11 = tail call i32 @tvb_strneql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.218, i64 noundef 3) #3
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %test_mpeg_audio.exit.thread8, label %13
+  br i1 %12, label %select.unfold, label %13
 
 13:                                               ; preds = %10
   %14 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 0, i32 noundef 0) #3
@@ -566,28 +566,24 @@ define internal noundef i32 @dissect_mpeg_audio_heur(ptr noundef %0, ptr noundef
 22:                                               ; preds = %19
   %23 = call i32 @mpa_bitrate(ptr noundef nonnull %5) #3
   %.not21.i = icmp eq i32 %23, 0
-  br i1 %.not21.i, label %test_mpeg_audio.exit.thread, label %test_mpeg_audio.exit
+  br i1 %.not21.i, label %test_mpeg_audio.exit.thread, label %24
 
-test_mpeg_audio.exit.thread:                      ; preds = %4, %22, %19, %16, %13
+24:                                               ; preds = %22
+  %25 = call i32 @mpa_frequency(ptr noundef nonnull %5) #3
+  %.not = icmp eq i32 %25, 0
+  br i1 %.not, label %test_mpeg_audio.exit.thread, label %select.unfold
+
+test_mpeg_audio.exit.thread:                      ; preds = %4, %22, %19, %16, %13, %24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %27
 
-test_mpeg_audio.exit.thread8:                     ; preds = %7, %10
+select.unfold:                                    ; preds = %24, %10, %7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %25
-
-test_mpeg_audio.exit:                             ; preds = %22
-  %24 = call i32 @mpa_frequency(ptr noundef nonnull %5) #3
-  %.not11 = icmp eq i32 %24, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br i1 %.not11, label %27, label %25
-
-25:                                               ; preds = %test_mpeg_audio.exit.thread8, %test_mpeg_audio.exit
   %26 = call i32 @dissect_mpeg_audio(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   br label %27
 
-27:                                               ; preds = %test_mpeg_audio.exit.thread, %test_mpeg_audio.exit, %25
-  %.0 = phi i32 [ 1, %25 ], [ 0, %test_mpeg_audio.exit ], [ 0, %test_mpeg_audio.exit.thread ]
+27:                                               ; preds = %test_mpeg_audio.exit.thread, %select.unfold
+  %.0 = phi i32 [ 1, %select.unfold ], [ 0, %test_mpeg_audio.exit.thread ]
   ret i32 %.0
 }
 

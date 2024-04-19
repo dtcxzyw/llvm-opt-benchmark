@@ -212,7 +212,7 @@ if.then8.i:                                       ; preds = %if.end5.i
   br label %return
 
 if.end9.i:                                        ; preds = %if.end5.i
-  %conv10.i = trunc i64 %inlen to i32
+  %conv10.i = trunc nsw i64 %inlen to i32
   %2 = load ptr, ptr %rsa.i, align 8
   %call12.i = tail call i32 @RSA_private_decrypt(i32 noundef %conv10.i, ptr noundef %in, ptr noundef nonnull %out, ptr noundef %2, i32 noundef 3) #4
   %cmp13.i = icmp sgt i32 %call12.i, 0
@@ -301,20 +301,20 @@ if.end8:                                          ; preds = %if.then5
   %data = getelementptr inbounds i8, ptr %call, i64 16
   %1 = load ptr, ptr %data, align 8
   %cmp.i.i = icmp eq ptr %1, null
-  br i1 %cmp.i.i, label %return, label %rsakem_opname2id.exit
+  br i1 %cmp.i.i, label %return, label %for.body.i.i
 
-rsakem_opname2id.exit:                            ; preds = %if.end8
+for.body.i.i:                                     ; preds = %if.end8
   %call.i.i = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull @.str.2, ptr noundef nonnull %1) #4
   %cmp2.i.i.not = icmp eq i32 %call.i.i, 0
   br i1 %cmp2.i.i.not, label %if.end12, label %return
 
-if.end12:                                         ; preds = %rsakem_opname2id.exit
+if.end12:                                         ; preds = %for.body.i.i
   %op13 = getelementptr inbounds i8, ptr %vprsactx, i64 16
   store i32 0, ptr %op13, align 8
   br label %return
 
-return:                                           ; preds = %if.end8, %if.end3, %if.end12, %rsakem_opname2id.exit, %if.then5, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 1, %if.end ], [ 0, %if.then5 ], [ 0, %rsakem_opname2id.exit ], [ 1, %if.end12 ], [ 1, %if.end3 ], [ 0, %if.end8 ]
+return:                                           ; preds = %for.body.i.i, %if.end8, %if.end3, %if.end12, %if.then5, %if.end, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 1, %if.end ], [ 0, %if.then5 ], [ 1, %if.end12 ], [ 1, %if.end3 ], [ 0, %if.end8 ], [ 0, %for.body.i.i ]
   ret i32 %retval.0
 }
 
@@ -370,20 +370,20 @@ if.end8.i:                                        ; preds = %if.then5.i
   %data.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %3 = load ptr, ptr %data.i, align 8
   %cmp.i.i.i = icmp eq ptr %3, null
-  br i1 %cmp.i.i.i, label %return, label %rsakem_opname2id.exit.i
+  br i1 %cmp.i.i.i, label %return, label %for.body.i.i.i
 
-rsakem_opname2id.exit.i:                          ; preds = %if.end8.i
+for.body.i.i.i:                                   ; preds = %if.end8.i
   %call.i.i.i = tail call i32 @OPENSSL_strcasecmp(ptr noundef nonnull @.str.2, ptr noundef nonnull %3) #4
   %cmp2.i.i.not.i = icmp eq i32 %call.i.i.i, 0
   br i1 %cmp2.i.i.not.i, label %if.end12.i, label %return
 
-if.end12.i:                                       ; preds = %rsakem_opname2id.exit.i
+if.end12.i:                                       ; preds = %for.body.i.i.i
   %op13.i = getelementptr inbounds i8, ptr %vprsactx, i64 16
   store i32 0, ptr %op13.i, align 8
   br label %return
 
-return:                                           ; preds = %if.end12.i, %rsakem_opname2id.exit.i, %if.end8.i, %if.then5.i, %if.end3.i, %if.end.i, %if.end3, %if.end, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end3 ], [ 1, %if.end.i ], [ 0, %if.then5.i ], [ 0, %rsakem_opname2id.exit.i ], [ 1, %if.end12.i ], [ 1, %if.end3.i ], [ 0, %if.end8.i ]
+return:                                           ; preds = %if.end12.i, %for.body.i.i.i, %if.end8.i, %if.then5.i, %if.end3.i, %if.end.i, %if.end3, %if.end, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %if.end ], [ 0, %if.end3 ], [ 1, %if.end.i ], [ 0, %if.then5.i ], [ 1, %if.end12.i ], [ 1, %if.end3.i ], [ 0, %if.end8.i ], [ 0, %for.body.i.i.i ]
   ret i32 %retval.0
 }
 

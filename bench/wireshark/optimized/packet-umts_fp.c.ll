@@ -8446,24 +8446,24 @@ define internal fastcc noundef i32 @heur_dissect_fp_unknown_format(ptr noundef %
 52:                                               ; preds = %49
   %53 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
   %54 = icmp ugt i32 %50, %53
-  br i1 %54, label %check_control_frame_crc_for_heur.exit.thread, label %check_control_frame_crc_for_heur.exit
+  br i1 %54, label %check_control_frame_crc_for_heur.exit.thread, label %55
 
-check_control_frame_crc_for_heur.exit:            ; preds = %52
-  %55 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #8
-  %56 = tail call ptr @wmem_packet_scope() #8
-  %57 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
-  %58 = zext i32 %57 to i64
-  %59 = tail call ptr @tvb_memdup(ptr noundef %56, ptr noundef %0, i32 noundef 0, i64 noundef %58) #8
-  %60 = load i8, ptr %59, align 1
-  %61 = and i8 %60, 1
-  store i8 %61, ptr %59, align 1
-  %62 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
-  %63 = tail call zeroext i8 @crc7update(i8 noundef zeroext 0, ptr noundef nonnull %59, i32 noundef %62) #8
-  %.unshifted.i = xor i8 %63, %55
-  %64 = icmp ugt i8 %.unshifted.i, 1
-  br i1 %64, label %check_control_frame_crc_for_heur.exit.thread, label %65
+55:                                               ; preds = %52
+  %56 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #8
+  %57 = tail call ptr @wmem_packet_scope() #8
+  %58 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
+  %59 = zext i32 %58 to i64
+  %60 = tail call ptr @tvb_memdup(ptr noundef %57, ptr noundef %0, i32 noundef 0, i64 noundef %59) #8
+  %61 = load i8, ptr %60, align 1
+  %62 = and i8 %61, 1
+  store i8 %62, ptr %60, align 1
+  %63 = tail call i32 @tvb_reported_length(ptr noundef %0) #8
+  %64 = tail call zeroext i8 @crc7update(i8 noundef zeroext 0, ptr noundef nonnull %60, i32 noundef %63) #8
+  %.unshifted.i = xor i8 %64, %56
+  %65 = icmp ult i8 %.unshifted.i, 2
+  br i1 %65, label %check_control_frame_crc_for_heur.exit, label %check_control_frame_crc_for_heur.exit.thread
 
-65:                                               ; preds = %check_control_frame_crc_for_heur.exit
+check_control_frame_crc_for_heur.exit:            ; preds = %55
   %66 = tail call ptr @wmem_file_scope() #8
   %67 = tail call noalias ptr @wmem_alloc0(ptr noundef %66, i64 noundef 132704) #8
   %68 = getelementptr inbounds i8, ptr %67, i64 8
@@ -8471,12 +8471,12 @@ check_control_frame_crc_for_heur.exit:            ; preds = %52
   tail call fastcc void @set_both_sides_umts_fp_conv_data(ptr noundef nonnull %1, ptr noundef %67)
   br label %check_control_frame_crc_for_heur.exit.thread.sink.split
 
-check_control_frame_crc_for_heur.exit.thread.sink.split: ; preds = %35, %19, %65
+check_control_frame_crc_for_heur.exit.thread.sink.split: ; preds = %35, %19, %check_control_frame_crc_for_heur.exit
   %69 = tail call fastcc i32 @dissect_fp_common(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
   br label %check_control_frame_crc_for_heur.exit.thread
 
-check_control_frame_crc_for_heur.exit.thread:     ; preds = %check_control_frame_crc_for_heur.exit.thread.sink.split, %49, %52, %check_control_frame_crc_for_heur.exit, %46, %43, %40, %30, %35, %27, %19
-  %.0 = phi i32 [ 0, %19 ], [ 0, %27 ], [ 0, %35 ], [ 0, %30 ], [ 0, %40 ], [ 0, %43 ], [ 0, %46 ], [ 0, %check_control_frame_crc_for_heur.exit ], [ 0, %52 ], [ 0, %49 ], [ 1, %check_control_frame_crc_for_heur.exit.thread.sink.split ]
+check_control_frame_crc_for_heur.exit.thread:     ; preds = %check_control_frame_crc_for_heur.exit.thread.sink.split, %49, %52, %55, %46, %43, %40, %30, %35, %27, %19
+  %.0 = phi i32 [ 0, %19 ], [ 0, %27 ], [ 0, %35 ], [ 0, %30 ], [ 0, %40 ], [ 0, %43 ], [ 0, %46 ], [ 0, %55 ], [ 0, %52 ], [ 0, %49 ], [ 1, %check_control_frame_crc_for_heur.exit.thread.sink.split ]
   ret i32 %.0
 }
 

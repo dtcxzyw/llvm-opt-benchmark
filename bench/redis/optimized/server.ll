@@ -2053,9 +2053,9 @@ for.body19.us:                                    ; preds = %land.rhs.us
   %cond18.i.us = select i1 %cmp8.i.us, i64 0, i64 %shl16.i.us
   %add.i.us = add i64 %cond18.i.us, %cond.i.us
   %cmp23.i.us = icmp sgt i64 %add.i.us, 4
-  br i1 %cmp23.i.us, label %htNeedsResize.exit.us, label %if.end32.us
+  br i1 %cmp23.i.us, label %land.rhs.i.us, label %if.end32.us
 
-htNeedsResize.exit.us:                            ; preds = %for.body19.us
+land.rhs.i.us:                                    ; preds = %for.body19.us
   %ht_used.i.us = getelementptr inbounds i8, ptr %cond.us, i64 24
   %8 = load i64, ptr %ht_used.i.us, align 8
   %arrayidx21.i.us = getelementptr inbounds i8, ptr %cond.us, i64 32
@@ -2063,14 +2063,14 @@ htNeedsResize.exit.us:                            ; preds = %for.body19.us
   %add22.i.us = add i64 %9, %8
   %mul.i.us = mul nsw i64 %add22.i.us, 100
   %div.i.us = sdiv i64 %mul.i.us, %add.i.us
-  %cmp25.i.us = icmp sgt i64 %div.i.us, 9
-  br i1 %cmp25.i.us, label %if.end32.us, label %if.then30.us
+  %cmp25.i.us = icmp slt i64 %div.i.us, 10
+  br i1 %cmp25.i.us, label %if.then30.us, label %if.end32.us
 
-if.then30.us:                                     ; preds = %htNeedsResize.exit.us
+if.then30.us:                                     ; preds = %land.rhs.i.us
   %call31.us = tail call i32 @dictResize(ptr noundef nonnull %cond.us) #38
   br label %if.end32.us
 
-if.end32.us:                                      ; preds = %if.then30.us, %htNeedsResize.exit.us, %for.body19.us
+if.end32.us:                                      ; preds = %if.then30.us, %land.rhs.i.us, %for.body19.us
   %call33.us = tail call i32 @dbGetNextNonEmptySlot(ptr noundef nonnull %arrayidx, i32 noundef %4, i32 noundef 0) #38
   store i32 %call33.us, ptr %arrayidx3, align 8
   %inc.us = add nuw nsw i32 %i.026.us, 1
@@ -2104,9 +2104,9 @@ for.body19:                                       ; preds = %land.rhs
   %cond18.i = select i1 %cmp8.i, i64 0, i64 %shl16.i
   %add.i = add i64 %cond18.i, %cond.i
   %cmp23.i = icmp sgt i64 %add.i, 4
-  br i1 %cmp23.i, label %htNeedsResize.exit, label %if.end32
+  br i1 %cmp23.i, label %land.rhs.i, label %if.end32
 
-htNeedsResize.exit:                               ; preds = %for.body19
+land.rhs.i:                                       ; preds = %for.body19
   %ht_used.i = getelementptr inbounds i8, ptr %cond, i64 24
   %14 = load i64, ptr %ht_used.i, align 8
   %arrayidx21.i = getelementptr inbounds i8, ptr %cond, i64 32
@@ -2114,14 +2114,14 @@ htNeedsResize.exit:                               ; preds = %for.body19
   %add22.i = add i64 %15, %14
   %mul.i = mul nsw i64 %add22.i, 100
   %div.i = sdiv i64 %mul.i, %add.i
-  %cmp25.i = icmp sgt i64 %div.i, 9
-  br i1 %cmp25.i, label %if.end32, label %if.then30
+  %cmp25.i = icmp slt i64 %div.i, 10
+  br i1 %cmp25.i, label %if.then30, label %if.end32
 
-if.then30:                                        ; preds = %htNeedsResize.exit
+if.then30:                                        ; preds = %land.rhs.i
   %call31 = tail call i32 @dictResize(ptr noundef nonnull %cond) #38
   br label %if.end32
 
-if.end32:                                         ; preds = %for.body19, %if.then30, %htNeedsResize.exit
+if.end32:                                         ; preds = %land.rhs.i, %for.body19, %if.then30
   %call33 = tail call i32 @dbGetNextNonEmptySlot(ptr noundef nonnull %arrayidx, i32 noundef %10, i32 noundef %1) #38
   store i32 %call33, ptr %arrayidx3, align 8
   %inc = add nuw nsw i32 %i.026, 1
@@ -9886,15 +9886,15 @@ if.end3:                                          ; preds = %if.end
   %4 = load ptr, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 12), align 8
   %call.i = tail call ptr @dictFetchValue(ptr noundef %4, ptr noundef %3) #38
   %tobool.not.i = icmp eq ptr %call.i, null
-  br i1 %tobool.not.i, label %if.else, label %isContainerCommandBySds.exit
+  br i1 %tobool.not.i, label %if.else, label %land.rhs.i
 
-isContainerCommandBySds.exit:                     ; preds = %if.end3
+land.rhs.i:                                       ; preds = %if.end3
   %subcommands_dict.i = getelementptr inbounds i8, ptr %call.i, i64 288
   %5 = load ptr, ptr %subcommands_dict.i, align 8
   %tobool1.i.not = icmp eq ptr %5, null
   br i1 %tobool1.i.not, label %if.else, label %if.then5
 
-if.then5:                                         ; preds = %isContainerCommandBySds.exit
+if.then5:                                         ; preds = %land.rhs.i
   %6 = load ptr, ptr %argv, align 8
   %7 = load ptr, ptr %6, align 8
   %ptr9 = getelementptr inbounds i8, ptr %7, i64 8
@@ -9911,7 +9911,7 @@ if.then5:                                         ; preds = %isContainerCommandB
   %call15 = tail call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %call11, ptr noundef nonnull @.str.172, ptr noundef %11, ptr noundef %call10) #38
   br label %if.end29
 
-if.else:                                          ; preds = %if.end3, %isContainerCommandBySds.exit
+if.else:                                          ; preds = %if.end3, %land.rhs.i
   %call16 = tail call ptr @sdsempty() #38
   %argc = getelementptr inbounds i8, ptr %c, i64 88
   %12 = load i32, ptr %argc, align 8

@@ -115,14 +115,14 @@ define internal noundef i32 @dissect_carp(ptr noundef %0, ptr noundef %1, ptr no
   %13 = zext nneg i8 %12 to i32
   %14 = tail call ptr @try_val_to_str(i32 noundef %13, ptr noundef nonnull @carp_type_vals) #2
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %test_carp_packet.exit.thread, label %test_carp_packet.exit
+  br i1 %15, label %test_carp_packet.exit.thread, label %16
 
-test_carp_packet.exit:                            ; preds = %11
-  %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #2
-  %.not.i.not = icmp eq i8 %16, 7
-  br i1 %.not.i.not, label %17, label %test_carp_packet.exit.thread
+16:                                               ; preds = %11
+  %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #2
+  %.not.i = icmp eq i8 %17, 7
+  br i1 %.not.i, label %test_carp_packet.exit, label %test_carp_packet.exit.thread
 
-17:                                               ; preds = %test_carp_packet.exit
+test_carp_packet.exit:                            ; preds = %16
   %18 = getelementptr inbounds i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @col_set_str(ptr noundef %19, i32 noundef 34, ptr noundef nonnull @.str.33) #2
@@ -165,7 +165,7 @@ test_carp_packet.exit:                            ; preds = %11
   %.not75 = icmp eq i32 %53, 0
   br i1 %.not75, label %54, label %63
 
-54:                                               ; preds = %17
+54:                                               ; preds = %test_carp_packet.exit
   %55 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   %.not76 = icmp ult i32 %55, %51
   br i1 %.not76, label %63, label %56
@@ -181,7 +181,7 @@ test_carp_packet.exit:                            ; preds = %11
   %62 = call ptr @proto_tree_add_checksum(ptr noundef %27, ptr noundef %0, i32 noundef 6, i32 noundef %59, i32 noundef %60, ptr noundef nonnull @ei_carp_checksum, ptr noundef nonnull %1, i32 noundef %61, i32 noundef 0, i32 noundef 5) #2
   br label %67
 
-63:                                               ; preds = %54, %17
+63:                                               ; preds = %54, %test_carp_packet.exit
   %64 = load i32, ptr @hf_carp_checksum, align 4
   %65 = load i32, ptr @hf_carp_checksum_status, align 4
   %66 = tail call ptr @proto_tree_add_checksum(ptr noundef %27, ptr noundef %0, i32 noundef 6, i32 noundef %64, i32 noundef %65, ptr noundef nonnull @ei_carp_checksum, ptr noundef nonnull %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #2
@@ -194,8 +194,8 @@ test_carp_packet.exit:                            ; preds = %11
   %71 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %70, ptr noundef %0, i32 noundef 16, i32 noundef 20, i32 noundef 0) #2
   br label %test_carp_packet.exit.thread
 
-test_carp_packet.exit.thread:                     ; preds = %8, %11, %4, %test_carp_packet.exit, %67
-  %.0 = phi i32 [ 36, %67 ], [ 0, %test_carp_packet.exit ], [ 0, %4 ], [ 0, %11 ], [ 0, %8 ]
+test_carp_packet.exit.thread:                     ; preds = %16, %8, %11, %4, %67
+  %.0 = phi i32 [ 36, %67 ], [ 0, %4 ], [ 0, %11 ], [ 0, %8 ], [ 0, %16 ]
   ret i32 %.0
 }
 
@@ -237,19 +237,19 @@ define internal noundef i32 @dissect_carp_heur(ptr noundef %0, ptr noundef %1, p
   %12 = zext nneg i8 %11 to i32
   %13 = tail call ptr @try_val_to_str(i32 noundef %12, ptr noundef nonnull @carp_type_vals) #2
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %test_carp_packet.exit.thread, label %test_carp_packet.exit
+  br i1 %14, label %test_carp_packet.exit.thread, label %15
 
-test_carp_packet.exit:                            ; preds = %10
-  %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #2
-  %.not.i.not = icmp eq i8 %15, 7
-  br i1 %.not.i.not, label %16, label %test_carp_packet.exit.thread
+15:                                               ; preds = %10
+  %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #2
+  %.not.i = icmp eq i8 %16, 7
+  br i1 %.not.i, label %test_carp_packet.exit, label %test_carp_packet.exit.thread
 
-16:                                               ; preds = %test_carp_packet.exit
+test_carp_packet.exit:                            ; preds = %15
   %17 = tail call i32 @dissect_carp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison), !range !4
   br label %test_carp_packet.exit.thread
 
-test_carp_packet.exit.thread:                     ; preds = %7, %10, %4, %test_carp_packet.exit, %16
-  %.0 = phi i32 [ 1, %16 ], [ 0, %test_carp_packet.exit ], [ 0, %4 ], [ 0, %10 ], [ 0, %7 ]
+test_carp_packet.exit.thread:                     ; preds = %15, %7, %10, %4, %test_carp_packet.exit
+  %.0 = phi i32 [ 1, %test_carp_packet.exit ], [ 0, %4 ], [ 0, %10 ], [ 0, %7 ], [ 0, %15 ]
   ret i32 %.0
 }
 

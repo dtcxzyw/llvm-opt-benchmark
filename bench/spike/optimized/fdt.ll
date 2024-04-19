@@ -248,8 +248,8 @@ define noundef i32 @fdt_check_header(ptr nocapture noundef readonly %0) local_un
   %85 = zext i32 %84 to i64
   %86 = icmp ugt i64 %.0.i.i.ph, %85
   %87 = icmp slt i32 %84, 0
-  %or.cond38 = or i1 %87, %86
-  br i1 %or.cond38, label %check_block_.exit.thread, label %88
+  %or.cond39 = or i1 %87, %86
+  br i1 %or.cond39, label %check_block_.exit.thread, label %88
 
 88:                                               ; preds = %66
   %89 = trunc nuw nsw i64 %.0.i.i.ph to i32
@@ -273,8 +273,8 @@ define noundef i32 @fdt_check_header(ptr nocapture noundef readonly %0) local_un
   %107 = or disjoint i32 %103, %106
   %108 = icmp ult i32 %107, %89
   %109 = icmp ugt i32 %107, %84
-  %.not41 = or i1 %108, %109
-  br i1 %.not41, label %check_block_.exit.thread, label %110
+  %.not43 = or i1 %108, %109
+  br i1 %.not43, label %check_block_.exit.thread, label %110
 
 110:                                              ; preds = %88
   %111 = icmp ult i32 %37, 17
@@ -298,14 +298,14 @@ define noundef i32 @fdt_check_header(ptr nocapture noundef readonly %0) local_un
   %129 = or disjoint i32 %125, %128
   %130 = icmp ult i32 %129, %89
   %131 = icmp ugt i32 %129, %84
-  %.not45 = or i1 %130, %131
+  %.not46 = or i1 %130, %131
   br i1 %111, label %132, label %133
 
 132:                                              ; preds = %110
-  br i1 %.not45, label %check_block_.exit.thread, label %155
+  br i1 %.not46, label %check_block_.exit.thread, label %check_block_.exit
 
 133:                                              ; preds = %110
-  br i1 %.not45, label %check_block_.exit.thread, label %134
+  br i1 %.not46, label %check_block_.exit.thread, label %134
 
 134:                                              ; preds = %133
   %135 = getelementptr inbounds i8, ptr %0, i64 37
@@ -327,12 +327,12 @@ define noundef i32 @fdt_check_header(ptr nocapture noundef readonly %0) local_un
   %151 = zext i8 %150 to i32
   %152 = or disjoint i32 %148, %151
   %153 = add i32 %152, %129
-  %154 = icmp ult i32 %153, %129
-  %.not42 = icmp ugt i32 %153, %84
-  %or.cond47 = or i1 %154, %.not42
-  br i1 %or.cond47, label %check_block_.exit.thread, label %155
+  %154 = icmp uge i32 %153, %129
+  %155 = icmp ule i32 %153, %84
+  %or.cond40 = and i1 %154, %155
+  br i1 %or.cond40, label %check_block_.exit, label %check_block_.exit.thread
 
-155:                                              ; preds = %134, %132
+check_block_.exit:                                ; preds = %134, %132
   %156 = getelementptr inbounds i8, ptr %0, i64 12
   %157 = load i8, ptr %156, align 1
   %158 = zext i8 %157 to i32
@@ -356,7 +356,7 @@ define noundef i32 @fdt_check_header(ptr nocapture noundef readonly %0) local_un
   %.not15.i29 = or i1 %174, %175
   br i1 %.not15.i29, label %check_block_.exit32.thread, label %176
 
-176:                                              ; preds = %155
+176:                                              ; preds = %check_block_.exit
   %177 = getelementptr inbounds i8, ptr %0, i64 33
   %178 = load i8, ptr %177, align 1
   %179 = zext i8 %178 to i32
@@ -380,11 +380,11 @@ define noundef i32 @fdt_check_header(ptr nocapture noundef readonly %0) local_un
   br i1 %196, label %check_block_.exit32.thread, label %check_block_.exit32
 
 check_block_.exit32:                              ; preds = %176
-  %.not46 = icmp ugt i32 %195, %84
-  %cond.fr = freeze i1 %.not46
+  %.not47 = icmp ugt i32 %195, %84
+  %cond.fr = freeze i1 %.not47
   br i1 %cond.fr, label %check_block_.exit32.thread, label %check_block_.exit.thread
 
-check_block_.exit32.thread:                       ; preds = %176, %155, %check_block_.exit32
+check_block_.exit32.thread:                       ; preds = %176, %check_block_.exit, %check_block_.exit32
   br label %check_block_.exit.thread
 
 check_block_.exit.thread:                         ; preds = %19, %134, %133, %check_block_.exit32.thread, %check_block_.exit32, %132, %88, %66, %45, %1

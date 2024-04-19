@@ -937,38 +937,38 @@ define hidden void @"_ZN88_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$
   %.fca.0.extract.i = extractvalue { i64, i64 } %8, 0
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
   %switch.i = icmp eq i64 %.fca.0.extract.i, 0
-  br i1 %switch.i, label %"_ZN102_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..Row$LT$diesel..pg..backend..Pg$GT$$GT$3get17h0402c8a5c2508349E.exit", label %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hd3a390ed58beaa9bE.llvm.768955472827859366.exit"
+  br i1 %switch.i, label %"_ZN102_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..Row$LT$diesel..pg..backend..Pg$GT$$GT$3get17h0402c8a5c2508349E.exit", label %9
 
-"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hd3a390ed58beaa9bE.llvm.768955472827859366.exit": ; preds = %3
+9:                                                ; preds = %3
   %.not.i.i = icmp ule i64 %6, %.fca.1.extract.i
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
-  %10 = load i64, ptr %9, align 8, !alias.scope !328, !noalias !331
-  %11 = icmp ult i64 %.fca.1.extract.i, %10
-  %.016.i.i = select i1 %.not.i.i, i1 %11, i1 false
-  br i1 %.016.i.i, label %12, label %"_ZN102_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..Row$LT$diesel..pg..backend..Pg$GT$$GT$3get17h0402c8a5c2508349E.exit"
+  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %11 = load i64, ptr %10, align 8, !alias.scope !328, !noalias !331
+  %12 = icmp ult i64 %.fca.1.extract.i, %11
+  %.016.i.i = select i1 %.not.i.i, i1 %12, i1 false
+  br i1 %.016.i.i, label %13, label %"_ZN102_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..Row$LT$diesel..pg..backend..Pg$GT$$GT$3get17h0402c8a5c2508349E.exit"
 
-12:                                               ; preds = %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hd3a390ed58beaa9bE.llvm.768955472827859366.exit"
+13:                                               ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !333)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !336)
-  %13 = tail call { i64, i64 } @"_ZN89_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hf04f0fa525faa18aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, i64 noundef %.fca.1.extract.i), !noalias !333
-  %.fca.0.extract.i2 = extractvalue { i64, i64 } %13, 0
+  %14 = tail call { i64, i64 } @"_ZN89_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hf04f0fa525faa18aE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, i64 noundef %.fca.1.extract.i), !noalias !333
+  %.fca.0.extract.i2 = extractvalue { i64, i64 } %14, 0
   %switch.i3 = icmp eq i64 %.fca.0.extract.i2, 0
-  br i1 %switch.i3, label %"_ZN102_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..Row$LT$diesel..pg..backend..Pg$GT$$GT$3get17h0402c8a5c2508349E.exit", label %14
+  br i1 %switch.i3, label %"_ZN102_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..Row$LT$diesel..pg..backend..Pg$GT$$GT$3get17h0402c8a5c2508349E.exit", label %15
 
-14:                                               ; preds = %12
-  %.fca.1.extract.i4 = extractvalue { i64, i64 } %13, 1
-  %15 = load ptr, ptr %4, align 8, !alias.scope !336, !noalias !333, !nonnull !4, !noundef !4
-  %16 = getelementptr inbounds i8, ptr %15, i64 16
-  %17 = getelementptr inbounds i8, ptr %4, i64 8
-  %18 = load i64, ptr %17, align 8, !alias.scope !336, !noalias !333, !noundef !4
+15:                                               ; preds = %13
+  %.fca.1.extract.i4 = extractvalue { i64, i64 } %14, 1
+  %16 = load ptr, ptr %4, align 8, !alias.scope !336, !noalias !333, !nonnull !4, !noundef !4
+  %17 = getelementptr inbounds i8, ptr %16, i64 16
+  %18 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = load i64, ptr %18, align 8, !alias.scope !336, !noalias !333, !noundef !4
   %.sroa.43.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %18, ptr %.sroa.43.0..sroa_idx.i, align 8, !alias.scope !333, !noalias !336
+  store i64 %19, ptr %.sroa.43.0..sroa_idx.i, align 8, !alias.scope !333, !noalias !336
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.fca.1.extract.i4, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !333, !noalias !336
   br label %"_ZN102_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..Row$LT$diesel..pg..backend..Pg$GT$$GT$3get17h0402c8a5c2508349E.exit"
 
-"_ZN102_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..Row$LT$diesel..pg..backend..Pg$GT$$GT$3get17h0402c8a5c2508349E.exit": ; preds = %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hd3a390ed58beaa9bE.llvm.768955472827859366.exit", %3, %14, %12
-  %storemerge = phi ptr [ %16, %14 ], [ null, %12 ], [ null, %3 ], [ null, %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hd3a390ed58beaa9bE.llvm.768955472827859366.exit" ]
+"_ZN102_$LT$diesel..pg..connection..row..PgRow$u20$as$u20$diesel..row..Row$LT$diesel..pg..backend..Pg$GT$$GT$3get17h0402c8a5c2508349E.exit": ; preds = %3, %9, %15, %13
+  %storemerge = phi ptr [ %17, %15 ], [ null, %13 ], [ null, %9 ], [ null, %3 ]
   store ptr %storemerge, ptr %0, align 8
   ret void
 }

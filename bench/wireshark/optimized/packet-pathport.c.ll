@@ -248,19 +248,19 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_pathport(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   %6 = icmp ult i32 %5, 24
-  br i1 %6, label %packet_is_pathport.exit.thread, label %packet_is_pathport.exit
+  br i1 %6, label %packet_is_pathport.exit.thread, label %7
 
-packet_is_pathport.exit:                          ; preds = %4
-  %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #3
-  %.not.i.not = icmp eq i16 %7, -4863
-  br i1 %.not.i.not, label %8, label %packet_is_pathport.exit.thread
+7:                                                ; preds = %4
+  %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #3
+  %.not.i = icmp eq i16 %8, -4863
+  br i1 %.not.i, label %packet_is_pathport.exit, label %packet_is_pathport.exit.thread
 
-8:                                                ; preds = %packet_is_pathport.exit
+packet_is_pathport.exit:                          ; preds = %7
   %9 = tail call fastcc i32 @dissect_pathport_common(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %packet_is_pathport.exit.thread
 
-packet_is_pathport.exit.thread:                   ; preds = %4, %packet_is_pathport.exit, %8
-  %.0 = phi i32 [ %9, %8 ], [ 0, %packet_is_pathport.exit ], [ 0, %4 ]
+packet_is_pathport.exit.thread:                   ; preds = %7, %4, %packet_is_pathport.exit
+  %.0 = phi i32 [ %9, %packet_is_pathport.exit ], [ 0, %4 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -279,19 +279,19 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 define internal noundef i32 @dissect_pathport_heur(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   %6 = icmp ult i32 %5, 24
-  br i1 %6, label %packet_is_pathport.exit.thread, label %packet_is_pathport.exit
+  br i1 %6, label %packet_is_pathport.exit.thread, label %7
 
-packet_is_pathport.exit:                          ; preds = %4
-  %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #3
-  %.not.i.not = icmp eq i16 %7, -4863
-  br i1 %.not.i.not, label %8, label %packet_is_pathport.exit.thread
+7:                                                ; preds = %4
+  %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #3
+  %.not.i = icmp eq i16 %8, -4863
+  br i1 %.not.i, label %packet_is_pathport.exit, label %packet_is_pathport.exit.thread
 
-8:                                                ; preds = %packet_is_pathport.exit
+packet_is_pathport.exit:                          ; preds = %7
   %9 = tail call fastcc i32 @dissect_pathport_common(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %packet_is_pathport.exit.thread
 
-packet_is_pathport.exit.thread:                   ; preds = %4, %packet_is_pathport.exit, %8
-  %.0 = phi i32 [ 1, %8 ], [ 0, %packet_is_pathport.exit ], [ 0, %4 ]
+packet_is_pathport.exit.thread:                   ; preds = %7, %4, %packet_is_pathport.exit
+  %.0 = phi i32 [ 1, %packet_is_pathport.exit ], [ 0, %4 ], [ 0, %7 ]
   ret i32 %.0
 }
 

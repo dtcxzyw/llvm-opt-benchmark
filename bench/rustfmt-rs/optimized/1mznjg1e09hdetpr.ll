@@ -1393,8 +1393,8 @@ define hidden void @_ZN10rustc_span30create_session_if_not_set_then17h2c1b1dfcb6
 
 13:                                               ; preds = %.noexc
   %.08.val.i.i = load ptr, ptr %11, align 8, !noalias !193, !noundef !8
-  %.not = icmp eq ptr %.08.val.i.i, null
-  br i1 %.not, label %14, label %15
+  %.not.i.not = icmp eq ptr %.08.val.i.i, null
+  br i1 %.not.i.not, label %14, label %15
 
 14:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 432, ptr nonnull %8)
@@ -2349,8 +2349,8 @@ define hidden noundef zeroext i1 @"_ZN10scoped_tls18ScopedKey$LT$T$GT$6is_set17h
 
 "_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h3e23d597a32bbadaE.llvm.17476841346288807550.exit": ; preds = %1
   %.08.val.i = load ptr, ptr %5, align 8, !noalias !366, !noundef !8
-  %7 = icmp ne ptr %.08.val.i, null
-  ret i1 %7
+  %.not = icmp ne ptr %.08.val.i, null
+  ret i1 %.not
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

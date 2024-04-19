@@ -1894,7 +1894,7 @@ for.body:                                         ; preds = %entry, %for.inc
 
 if.end:                                           ; preds = %for.body
   %call2 = call ptr @dbIteratorInit(ptr noundef %add.ptr, i32 noundef 0) #22
-  %2 = trunc i64 %indvars.iv to i32
+  %2 = trunc nuw nsw i64 %indvars.iv to i32
   %call3 = call i32 @htonl(i32 noundef %2) #23
   store i32 %call3, ptr %aux, align 4
   call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %ctx.i)
@@ -2715,7 +2715,7 @@ if.then213:                                       ; preds = %if.end205
   %bf.load227 = load i64, ptr %fill, align 8
   %bf.shl = shl i64 %bf.load227, 48
   %bf.ashr = ashr exact i64 %bf.shl, 48
-  %bf.cast = trunc i64 %bf.ashr to i32
+  %bf.cast = trunc nsw i64 %bf.ashr to i32
   %call228 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %add.ptr224, i64 noundef %conv226, ptr noundef nonnull @.str.137, i32 noundef %bf.cast) #22
   %idx.ext229 = sext i32 %call228 to i64
   %add.ptr230 = getelementptr inbounds i8, ptr %add.ptr224, i64 %idx.ext229
@@ -4660,7 +4660,7 @@ if.end54:                                         ; preds = %do.body51
   %11 = load ptr, ptr %arrayidx57, align 8
   %refcount = getelementptr inbounds i8, ptr %11, i64 4
   %12 = load i32, ptr %refcount, align 4
-  %13 = trunc i64 %indvars.iv to i32
+  %13 = trunc nuw nsw i64 %indvars.iv to i32
   call void (i32, ptr, ...) @_serverLog(i32 noundef 3, ptr noundef nonnull @.str.240, i32 noundef %13, ptr noundef %arg.0, i32 noundef %12) #22
   br label %for.inc
 
@@ -5174,7 +5174,7 @@ cond.end:                                         ; preds = %for.body, %sw.bb13.
   br i1 %cmp26, label %do.end29, label %if.end28
 
 if.end28:                                         ; preds = %cond.end
-  %18 = trunc i64 %indvars.iv to i32
+  %18 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (i32, ptr, ...) @_serverLog(i32 noundef 1027, ptr noundef nonnull @.str.265, i32 noundef %18, ptr noundef %call24) #22
   br label %do.end29
 
@@ -5311,7 +5311,7 @@ if.then.i:                                        ; preds = %if.then3
 
 for.cond.preheader:                               ; preds = %if.end32, %while.cond.backedge
   %indvars.iv.next.lcssa.sink = phi i64 [ %indvars.iv, %while.cond.backedge ], [ %indvars.iv.next, %if.end32 ]
-  %4 = trunc i64 %indvars.iv.next.lcssa.sink to i32
+  %4 = trunc nuw i64 %indvars.iv.next.lcssa.sink to i32
   %cmp5048 = icmp sgt i32 %4, 0
   br i1 %cmp5048, label %for.body.preheader, label %for.end
 
@@ -6192,19 +6192,18 @@ if.then:                                          ; preds = %entry
   %sub = sub nsw i32 0, %usec
   %rem = srem i32 %call, %sub
   %cmp1 = icmp eq i32 %rem, 0
-  %cond = zext i1 %cmp1 to i32
-  br label %if.end
+  br i1 %cmp1, label %if.then2, label %if.end4
 
-if.end:                                           ; preds = %if.then, %entry
-  %usec.addr.0 = phi i32 [ %cond, %if.then ], [ %usec, %entry ]
-  %tobool.not = icmp eq i32 %usec.addr.0, 0
+if.end:                                           ; preds = %entry
+  %tobool.not = icmp eq i32 %usec, 0
   br i1 %tobool.not, label %if.end4, label %if.then2
 
-if.then2:                                         ; preds = %if.end
-  %call3 = tail call i32 @usleep(i32 noundef %usec.addr.0) #22
+if.then2:                                         ; preds = %if.then, %if.end
+  %usec.addr.010 = phi i32 [ %usec, %if.end ], [ 1, %if.then ]
+  %call3 = tail call i32 @usleep(i32 noundef %usec.addr.010) #22
   br label %if.end4
 
-if.end4:                                          ; preds = %if.then2, %if.end
+if.end4:                                          ; preds = %if.then, %if.then2, %if.end
   ret void
 }
 

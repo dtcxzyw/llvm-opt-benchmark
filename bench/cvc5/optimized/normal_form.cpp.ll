@@ -24587,16 +24587,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call2.i.i.i.i15 = invoke noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef 36)
-          to label %call2.i.i.i.i.noexc unwind label %lpad
-
-call2.i.i.i.i.noexc:                              ; preds = %if.then.i
-  %cmp.i.i.i = icmp eq i32 %call2.i.i.i.i15, 2
-  %d_nchildren.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
-  %bf.load.i.i.i = load i32, ptr %d_nchildren.i.i.i, align 4
-  %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 67108863
-  %sub.i.i.i = sext i1 %cmp.i.i.i to i32
-  %cond.i.i.i = add nsw i32 %bf.clear.i.i.i, %sub.i.i.i
-  br label %invoke.cont
+          to label %invoke.cont unwind label %lpad
 
 if.else.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i.i)
@@ -24629,18 +24620,22 @@ _ZNK4cvc58internal6theory5arith6linear10Polynomial6isZeroEv.exit.i: ; preds = %.
   %_mp_size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i1.i.i, i64 4
   %4 = load i32, ptr %_mp_size.i.i.i.i.i.i, align 4
   %.fr.i = freeze i32 %4
-  %cmp6.i.i.not.i.i.i.i = icmp ne i32 %.fr.i, 0
+  %cmp6.i.i.not.i.i.i.i.not = icmp eq i32 %.fr.i, 0
   call void @_ZN4cvc58internal6theory5arith6linear8MonomialD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i.i)
-  %spec.select.i = zext i1 %cmp6.i.i.not.i.i.i.i to i32
-  br label %invoke.cont
+  br i1 %cmp6.i.i.not.i.i.i.i.not, label %cleanup163, label %if.then
 
-invoke.cont:                                      ; preds = %_ZNK4cvc58internal6theory5arith6linear10Polynomial6isZeroEv.exit.i, %call2.i.i.i.i.noexc
-  %retval.0.i = phi i32 [ %cond.i.i.i, %call2.i.i.i.i.noexc ], [ %spec.select.i, %_ZNK4cvc58internal6theory5arith6linear10Polynomial6isZeroEv.exit.i ]
-  %cmp = icmp eq i32 %retval.0.i, 1
+invoke.cont:                                      ; preds = %if.then.i
+  %cmp.i.i.i = icmp eq i32 %call2.i.i.i.i15, 2
+  %d_nchildren.i.i.i = getelementptr inbounds i8, ptr %0, i64 12
+  %bf.load.i.i.i = load i32, ptr %d_nchildren.i.i.i, align 4
+  %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 67108863
+  %sub.i.i.i = sext i1 %cmp.i.i.i to i32
+  %cond.i.i.i = add nsw i32 %bf.clear.i.i.i, %sub.i.i.i
+  %cmp = icmp eq i32 %cond.i.i.i, 1
   br i1 %cmp, label %if.then, label %cleanup163
 
-if.then:                                          ; preds = %invoke.cont.thread, %invoke.cont
+if.then:                                          ; preds = %_ZNK4cvc58internal6theory5arith6linear10Polynomial6isZeroEv.exit.i, %invoke.cont.thread, %invoke.cont
   invoke void @_ZNK4cvc58internal6theory5arith6linear10Polynomial7getHeadEv(ptr nonnull sret(%"class.cvc5::internal::theory::arith::linear::Monomial") align 8 %mleft, ptr noundef nonnull align 8 dereferenceable(9) %pleft)
           to label %invoke.cont2 unwind label %lpad
 
@@ -25167,8 +25162,8 @@ ehcleanup161:                                     ; preds = %lpad3, %lpad.i.i.i.
   call void @_ZN4cvc58internal6theory5arith6linear8MonomialD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mleft) #20
   br label %ehcleanup164
 
-cleanup163:                                       ; preds = %invoke.cont, %cleanup160
-  %retval.5 = phi i1 [ %retval.4, %cleanup160 ], [ false, %invoke.cont ]
+cleanup163:                                       ; preds = %_ZNK4cvc58internal6theory5arith6linear10Polynomial6isZeroEv.exit.i, %invoke.cont, %cleanup160
+  %retval.5 = phi i1 [ %retval.4, %cleanup160 ], [ false, %invoke.cont ], [ false, %_ZNK4cvc58internal6theory5arith6linear10Polynomial6isZeroEv.exit.i ]
   %62 = load ptr, ptr %pleft, align 8
   %bf.load.i.i.i.i243 = load i64, ptr %62, align 8
   %63 = and i64 %bf.load.i.i.i.i243, 1152920405095219200

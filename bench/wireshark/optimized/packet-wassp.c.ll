@@ -2163,19 +2163,19 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal noundef i32 @dissect_wassp_static(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %6 = icmp ult i32 %5, 8
-  br i1 %6, label %test_wassp.exit.thread, label %test_wassp.exit
+  br i1 %6, label %test_wassp.exit.thread, label %7
 
-test_wassp.exit:                                  ; preds = %4
-  %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
-  %.not.i.not = icmp eq i8 %7, 3
-  br i1 %.not.i.not, label %8, label %test_wassp.exit.thread
+7:                                                ; preds = %4
+  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
+  %.not.i = icmp eq i8 %8, 3
+  br i1 %.not.i, label %test_wassp.exit, label %test_wassp.exit.thread
 
-8:                                                ; preds = %test_wassp.exit
+test_wassp.exit:                                  ; preds = %7
   tail call fastcc void @dissect_wassp(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %test_wassp.exit.thread
 
-test_wassp.exit.thread:                           ; preds = %4, %test_wassp.exit, %8
-  %.0 = phi i32 [ 1, %8 ], [ 0, %test_wassp.exit ], [ 0, %4 ]
+test_wassp.exit.thread:                           ; preds = %7, %4, %test_wassp.exit
+  %.0 = phi i32 [ 1, %test_wassp.exit ], [ 0, %4 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -2220,19 +2220,19 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 define internal noundef i32 @dissect_wassp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %6 = icmp ult i32 %5, 8
-  br i1 %6, label %test_wassp.exit.thread, label %test_wassp.exit
+  br i1 %6, label %test_wassp.exit.thread, label %7
 
-test_wassp.exit:                                  ; preds = %4
-  %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
-  %.not.i.not = icmp eq i8 %7, 3
-  br i1 %.not.i.not, label %8, label %test_wassp.exit.thread
+7:                                                ; preds = %4
+  %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
+  %.not.i = icmp eq i8 %8, 3
+  br i1 %.not.i, label %test_wassp.exit, label %test_wassp.exit.thread
 
-8:                                                ; preds = %test_wassp.exit
+test_wassp.exit:                                  ; preds = %7
   tail call fastcc void @dissect_wassp(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %test_wassp.exit.thread
 
-test_wassp.exit.thread:                           ; preds = %4, %test_wassp.exit, %8
-  %.0 = phi i32 [ 1, %8 ], [ 0, %test_wassp.exit ], [ 0, %4 ]
+test_wassp.exit.thread:                           ; preds = %7, %4, %test_wassp.exit
+  %.0 = phi i32 [ 1, %test_wassp.exit ], [ 0, %4 ], [ 0, %7 ]
   ret i32 %.0
 }
 

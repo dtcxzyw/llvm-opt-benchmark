@@ -3410,17 +3410,17 @@ invoke.cont146.thread:                            ; preds = %if.then.i216
 
 if.else.i217:                                     ; preds = %if.then.i216
   %cmp16.i = icmp ult i64 %result.0.copyload.i.i, %result.0.copyload.i13.i
-  %spec.select.i = zext i1 %cmp16.i to i32
-  br label %invoke.cont146
-
-invoke.cont146:                                   ; preds = %if.else.i217, %call.i.i.noexc
-  %r.0.i = phi i32 [ %call.i.i220, %call.i.i.noexc ], [ %spec.select.i, %if.else.i217 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
-  %cmp148 = icmp sgt i32 %r.0.i, 0
+  br i1 %cmp16.i, label %if.then149, label %for.inc
+
+invoke.cont146:                                   ; preds = %call.i.i.noexc
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  %cmp148 = icmp sgt i32 %call.i.i220, 0
   br i1 %cmp148, label %if.then149, label %for.inc
 
-if.then149:                                       ; preds = %invoke.cont146
+if.then149:                                       ; preds = %if.else.i217, %invoke.cont146
   %vtable152 = load ptr, ptr %call93, align 8
   %vfn153 = getelementptr inbounds i8, ptr %vtable152, i64 88
   %145 = load ptr, ptr %vfn153, align 8
@@ -3452,9 +3452,9 @@ lpad97.loopexit.split-lp:                         ; preds = %if.then170.invoke, 
           cleanup
   br label %_ZNKSt14default_deleteIN7rocksdb20InternalIteratorBaseINS0_5SliceEEEEclEPS3_.exit.i355
 
-for.inc:                                          ; preds = %invoke.cont146.thread, %invoke.cont146, %invoke.cont154
-  %largest.sroa.0.1 = phi ptr [ %146, %invoke.cont154 ], [ %largest.sroa.0.0, %invoke.cont146 ], [ %largest.sroa.0.0, %invoke.cont146.thread ]
-  %largest.sroa.7.1 = phi i64 [ %147, %invoke.cont154 ], [ %largest.sroa.7.0, %invoke.cont146 ], [ %largest.sroa.7.0, %invoke.cont146.thread ]
+for.inc:                                          ; preds = %if.else.i217, %invoke.cont146.thread, %invoke.cont146, %invoke.cont154
+  %largest.sroa.0.1 = phi ptr [ %146, %invoke.cont154 ], [ %largest.sroa.0.0, %invoke.cont146 ], [ %largest.sroa.0.0, %invoke.cont146.thread ], [ %largest.sroa.0.0, %if.else.i217 ]
+  %largest.sroa.7.1 = phi i64 [ %147, %invoke.cont154 ], [ %largest.sroa.7.0, %invoke.cont146 ], [ %largest.sroa.7.0, %invoke.cont146.thread ], [ %largest.sroa.7.0, %if.else.i217 ]
   %vtable158 = load ptr, ptr %call93, align 8
   %vfn159 = getelementptr inbounds i8, ptr %vtable158, i64 64
   %150 = load ptr, ptr %vfn159, align 8

@@ -769,7 +769,7 @@ if.then.i.i38:                                    ; preds = %if.then.i
   %call.i.i39 = tail call ptr @policy_node_cmp_new() #7
   store ptr %call.i.i39, ptr %auth_policies5.i, align 8
   %tobool1.not.i.i = icmp eq ptr %call.i.i39, null
-  br i1 %tobool1.not.i.i, label %error, label %tree_add_auth_node.exit.i
+  br i1 %tobool1.not.i.i, label %error, label %if.end7.i.i
 
 if.else.i.i:                                      ; preds = %if.then.i
   %call3.i.i25 = tail call i32 @sk_find(ptr noundef nonnull %81, ptr noundef null, ptr noundef nonnull %80) #7
@@ -778,44 +778,44 @@ if.else.i.i:                                      ; preds = %if.then.i
 
 if.else.if.end7_crit_edge.i.i:                    ; preds = %if.else.i.i
   %.pre.i.i36 = load ptr, ptr %auth_policies5.i, align 8
-  br label %tree_add_auth_node.exit.i
+  br label %if.end7.i.i
 
-tree_add_auth_node.exit.i:                        ; preds = %if.else.if.end7_crit_edge.i.i, %if.then.i.i38
+if.end7.i.i:                                      ; preds = %if.else.if.end7_crit_edge.i.i, %if.then.i.i38
   %82 = phi ptr [ %.pre.i.i36, %if.else.if.end7_crit_edge.i.i ], [ %call.i.i39, %if.then.i.i38 ]
   %call8.i.i37 = tail call i64 @sk_push(ptr noundef %82, ptr noundef nonnull %80) #7
   %tobool9.not.i.not.i = icmp eq i64 %call8.i.i37, 0
   br i1 %tobool9.not.i.not.i, label %error, label %if.end6.i27
 
-if.end6.i27:                                      ; preds = %tree_add_auth_node.exit.i, %if.else.i.i, %if.end16
-  %addnodes.0.i = phi ptr [ %auth_nodes, %tree_add_auth_node.exit.i ], [ %auth_nodes, %if.else.i.i ], [ %auth_policies5.i, %if.end16 ]
+if.end6.i27:                                      ; preds = %if.end7.i.i, %if.else.i.i, %if.end16
+  %addnodes.0.i = phi ptr [ %auth_nodes, %if.else.i.i ], [ %auth_nodes, %if.end7.i.i ], [ %auth_policies5.i, %if.end16 ]
   %83 = load i32, ptr %nlevel.i, align 8
-  %cmp48.i = icmp sgt i32 %83, 1
-  br i1 %cmp48.i, label %for.body.preheader.i29, label %for.end26.i
+  %cmp45.i = icmp sgt i32 %83, 1
+  br i1 %cmp45.i, label %for.body.preheader.i29, label %for.end26.i
 
 for.body.preheader.i29:                           ; preds = %if.end6.i27
   %84 = load ptr, ptr %call68.i, align 8
   br label %for.body.i30
 
 for.body.i30:                                     ; preds = %for.inc24.i, %for.body.preheader.i29
-  %i.050.i = phi i32 [ %inc25.i, %for.inc24.i ], [ 1, %for.body.preheader.i29 ]
-  %curr.049.i = phi ptr [ %incdec.ptr.i31, %for.inc24.i ], [ %84, %for.body.preheader.i29 ]
-  %anyPolicy9.i = getelementptr inbounds i8, ptr %curr.049.i, i64 16
+  %i.047.i = phi i32 [ %inc25.i, %for.inc24.i ], [ 1, %for.body.preheader.i29 ]
+  %curr.046.i = phi ptr [ %incdec.ptr.i31, %for.inc24.i ], [ %84, %for.body.preheader.i29 ]
+  %anyPolicy9.i = getelementptr inbounds i8, ptr %curr.046.i, i64 16
   %85 = load ptr, ptr %anyPolicy9.i, align 8
   %tobool10.not.i = icmp eq ptr %85, null
   br i1 %tobool10.not.i, label %for.end26.i, label %if.end12.i
 
 if.end12.i:                                       ; preds = %for.body.i30
-  %incdec.ptr.i31 = getelementptr inbounds i8, ptr %curr.049.i, i64 32
-  %nodes.i = getelementptr inbounds i8, ptr %curr.049.i, i64 40
+  %incdec.ptr.i31 = getelementptr inbounds i8, ptr %curr.046.i, i64 32
+  %nodes.i = getelementptr inbounds i8, ptr %curr.046.i, i64 40
   %86 = load ptr, ptr %nodes.i, align 8
-  %call1445.i = tail call i64 @sk_num(ptr noundef %86) #7
-  %cmp1546.not.i = icmp eq i64 %call1445.i, 0
-  br i1 %cmp1546.not.i, label %for.inc24.i, label %for.body16.i
+  %call1442.i = tail call i64 @sk_num(ptr noundef %86) #7
+  %cmp1543.not.i = icmp eq i64 %call1442.i, 0
+  br i1 %cmp1543.not.i, label %for.inc24.i, label %for.body16.i
 
 for.body16.i:                                     ; preds = %if.end12.i, %for.inc.i32
-  %j.047.i = phi i64 [ %inc.i33, %for.inc.i32 ], [ 0, %if.end12.i ]
+  %j.044.i = phi i64 [ %inc.i33, %for.inc.i32 ], [ 0, %if.end12.i ]
   %87 = load ptr, ptr %nodes.i, align 8
-  %call18.i = tail call ptr @sk_value(ptr noundef %87, i64 noundef %j.047.i) #7
+  %call18.i = tail call ptr @sk_value(ptr noundef %87, i64 noundef %j.044.i) #7
   %parent.i = getelementptr inbounds i8, ptr %call18.i, i64 8
   %88 = load ptr, ptr %parent.i, align 8
   %cmp19.i = icmp eq ptr %88, %85
@@ -830,7 +830,7 @@ if.then.i31.i:                                    ; preds = %land.lhs.true.i35
   %call.i32.i = tail call ptr @policy_node_cmp_new() #7
   store ptr %call.i32.i, ptr %addnodes.0.i, align 8
   %tobool1.not.i33.i = icmp eq ptr %call.i32.i, null
-  br i1 %tobool1.not.i33.i, label %error, label %tree_add_auth_node.exit34.i
+  br i1 %tobool1.not.i33.i, label %error, label %if.end7.i27.i
 
 if.else.i21.i:                                    ; preds = %land.lhs.true.i35
   %call3.i22.i = tail call i32 @sk_find(ptr noundef nonnull %89, ptr noundef null, ptr noundef nonnull %call18.i) #7
@@ -839,23 +839,23 @@ if.else.i21.i:                                    ; preds = %land.lhs.true.i35
 
 if.else.if.end7_crit_edge.i25.i:                  ; preds = %if.else.i21.i
   %.pre.i26.i = load ptr, ptr %addnodes.0.i, align 8
-  br label %tree_add_auth_node.exit34.i
+  br label %if.end7.i27.i
 
-tree_add_auth_node.exit34.i:                      ; preds = %if.else.if.end7_crit_edge.i25.i, %if.then.i31.i
+if.end7.i27.i:                                    ; preds = %if.else.if.end7_crit_edge.i25.i, %if.then.i31.i
   %90 = phi ptr [ %.pre.i26.i, %if.else.if.end7_crit_edge.i25.i ], [ %call.i32.i, %if.then.i31.i ]
   %call8.i28.i = tail call i64 @sk_push(ptr noundef %90, ptr noundef nonnull %call18.i) #7
   %tobool9.not.i29.not.i = icmp eq i64 %call8.i28.i, 0
   br i1 %tobool9.not.i29.not.i, label %error, label %for.inc.i32
 
-for.inc.i32:                                      ; preds = %tree_add_auth_node.exit34.i, %if.else.i21.i, %for.body16.i
-  %inc.i33 = add nuw i64 %j.047.i, 1
+for.inc.i32:                                      ; preds = %if.end7.i27.i, %if.else.i21.i, %for.body16.i
+  %inc.i33 = add nuw i64 %j.044.i, 1
   %91 = load ptr, ptr %nodes.i, align 8
   %call14.i = tail call i64 @sk_num(ptr noundef %91) #7
   %cmp15.i = icmp ult i64 %inc.i33, %call14.i
   br i1 %cmp15.i, label %for.body16.i, label %for.inc24.i, !llvm.loop !18
 
 for.inc24.i:                                      ; preds = %for.inc.i32, %if.end12.i
-  %inc25.i = add nuw nsw i32 %i.050.i, 1
+  %inc25.i = add nuw nsw i32 %i.047.i, 1
   %92 = load i32, ptr %nlevel.i, align 8
   %cmp.i34 = icmp slt i32 %inc25.i, %92
   br i1 %cmp.i34, label %for.body.i30, label %for.end26.i, !llvm.loop !19
@@ -1024,8 +1024,8 @@ if.then32:                                        ; preds = %if.end30
 if.end38:                                         ; preds = %if.then32, %if.end30
   br label %return
 
-error:                                            ; preds = %if.then5.i.i, %if.then10.i.i.i, %if.end.i.i.i, %if.then.i.i.i, %if.end.i.i.i.i, %if.then.i31.i, %tree_add_auth_node.exit34.i, %if.end37.i, %if.then15.i, %if.end37.us.i, %if.then.i.i38, %tree_add_auth_node.exit.i, %return.sink.split.i.i.i, %tree_init.exit
-  %tree.064 = phi ptr [ null, %tree_init.exit ], [ %call68.i, %return.sink.split.i.i.i ], [ %call68.i, %tree_add_auth_node.exit.i ], [ %call68.i, %if.then.i.i38 ], [ %call68.i, %if.end37.us.i ], [ %call68.i, %if.then15.i ], [ %call68.i, %if.end37.i ], [ %call68.i, %tree_add_auth_node.exit34.i ], [ %call68.i, %if.then.i31.i ], [ %call68.i, %if.end.i.i.i.i ], [ %call68.i, %if.then.i.i.i ], [ %call68.i, %if.end.i.i.i ], [ %call68.i, %if.then10.i.i.i ], [ %call68.i, %if.then5.i.i ]
+error:                                            ; preds = %if.then5.i.i, %if.then10.i.i.i, %if.end.i.i.i, %if.then.i.i.i, %if.end.i.i.i.i, %if.end7.i27.i, %if.then.i31.i, %if.end37.i, %if.then15.i, %if.end37.us.i, %if.end7.i.i, %if.then.i.i38, %return.sink.split.i.i.i, %tree_init.exit
+  %tree.064 = phi ptr [ null, %tree_init.exit ], [ %call68.i, %return.sink.split.i.i.i ], [ %call68.i, %if.then.i.i38 ], [ %call68.i, %if.end7.i.i ], [ %call68.i, %if.end37.us.i ], [ %call68.i, %if.then15.i ], [ %call68.i, %if.end37.i ], [ %call68.i, %if.then.i31.i ], [ %call68.i, %if.end7.i27.i ], [ %call68.i, %if.end.i.i.i.i ], [ %call68.i, %if.then.i.i.i ], [ %call68.i, %if.end.i.i.i ], [ %call68.i, %if.then10.i.i.i ], [ %call68.i, %if.then5.i.i ]
   call void @X509_policy_tree_free(ptr noundef %tree.064)
   br label %return
 

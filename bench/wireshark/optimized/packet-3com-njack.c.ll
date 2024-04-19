@@ -194,19 +194,19 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_njack_static(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   %6 = icmp ult i32 %5, 6
-  br i1 %6, label %test_njack.exit.thread, label %test_njack.exit
+  br i1 %6, label %test_njack.exit.thread, label %7
 
-test_njack.exit:                                  ; preds = %4
-  %7 = tail call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.106, i64 noundef 5) #2
-  %.not.i.not = icmp eq i32 %7, 0
-  br i1 %.not.i.not, label %8, label %test_njack.exit.thread
+7:                                                ; preds = %4
+  %8 = tail call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.106, i64 noundef 5) #2
+  %.not.i = icmp eq i32 %8, 0
+  br i1 %.not.i, label %test_njack.exit, label %test_njack.exit.thread
 
-8:                                                ; preds = %test_njack.exit
+test_njack.exit:                                  ; preds = %7
   %9 = tail call fastcc i32 @dissect_njack(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %test_njack.exit.thread
 
-test_njack.exit.thread:                           ; preds = %4, %test_njack.exit, %8
-  %.0 = phi i32 [ %9, %8 ], [ 0, %test_njack.exit ], [ 0, %4 ]
+test_njack.exit.thread:                           ; preds = %7, %4, %test_njack.exit
+  %.0 = phi i32 [ %9, %test_njack.exit ], [ 0, %4 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -229,19 +229,19 @@ declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 define internal noundef i32 @dissect_njack_heur(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   %6 = icmp ult i32 %5, 6
-  br i1 %6, label %test_njack.exit.thread, label %test_njack.exit
+  br i1 %6, label %test_njack.exit.thread, label %7
 
-test_njack.exit:                                  ; preds = %4
-  %7 = tail call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.106, i64 noundef 5) #2
-  %.not.i.not = icmp eq i32 %7, 0
-  br i1 %.not.i.not, label %8, label %test_njack.exit.thread
+7:                                                ; preds = %4
+  %8 = tail call i32 @tvb_strncaseeql(ptr noundef %0, i32 noundef 0, ptr noundef nonnull @.str.106, i64 noundef 5) #2
+  %.not.i = icmp eq i32 %8, 0
+  br i1 %.not.i, label %test_njack.exit, label %test_njack.exit.thread
 
-8:                                                ; preds = %test_njack.exit
+test_njack.exit:                                  ; preds = %7
   %9 = tail call fastcc i32 @dissect_njack(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %test_njack.exit.thread
 
-test_njack.exit.thread:                           ; preds = %4, %test_njack.exit, %8
-  %.0 = phi i32 [ 1, %8 ], [ 0, %test_njack.exit ], [ 0, %4 ]
+test_njack.exit.thread:                           ; preds = %7, %4, %test_njack.exit
+  %.0 = phi i32 [ 1, %test_njack.exit ], [ 0, %4 ], [ 0, %7 ]
   ret i32 %.0
 }
 

@@ -1558,11 +1558,11 @@ ZSTD_blockSizeMax.exit59.thread:                  ; preds = %if.end16
   %blockSizeMax1.i57 = getelementptr inbounds i8, ptr %dctx, i64 29944
   %4 = load i32, ptr %blockSizeMax1.i57, align 8
   %5 = zext i32 %4 to i64
-  %spec.select73 = tail call i64 @llvm.umin.i64(i64 %5, i64 %dstCapacity)
+  %spec.select79 = tail call i64 @llvm.umin.i64(i64 %5, i64 %dstCapacity)
   br label %cond.end
 
 cond.end:                                         ; preds = %ZSTD_blockSizeMax.exit59.thread, %ZSTD_blockSizeMax.exit59
-  %cond = phi i64 [ %spec.select, %ZSTD_blockSizeMax.exit59 ], [ %spec.select73, %ZSTD_blockSizeMax.exit59.thread ]
+  %cond = phi i64 [ %spec.select, %ZSTD_blockSizeMax.exit59 ], [ %spec.select79, %ZSTD_blockSizeMax.exit59.thread ]
   %cond.i66 = getelementptr inbounds i8, ptr %dst, i64 %cond
   %virtualStart = getelementptr inbounds i8, ptr %dctx, i64 29904
   %6 = load ptr, ptr %virtualStart, align 8
@@ -1585,8 +1585,8 @@ if.end30:                                         ; preds = %cond.end
   %cmp36 = icmp sgt i32 %8, 0
   %or.cond1 = select i1 %or.cond, i1 %cmp36, i1 false
   %cmp53 = icmp ugt ptr %dst, inttoptr (i64 -1048577 to ptr)
-  %or.cond72 = or i1 %cmp53, %or.cond1
-  br i1 %or.cond72, label %return, label %lor.lhs.false66
+  %or.cond78 = or i1 %cmp53, %or.cond1
+  br i1 %or.cond78, label %return, label %lor.lhs.false66
 
 lor.lhs.false66:                                  ; preds = %if.end30
   %tobool67 = icmp eq i32 %7, 0
@@ -1622,20 +1622,18 @@ ZSTD_getOffsetInfo.exit:                          ; preds = %for.body.i
   %sub.i = sub i32 8, %10
   %shl20.i = shl i32 %retval.sroa.0.1.i, %sub.i
   %cmp87 = icmp ugt i32 %shl20.i, 6
-  %conv = zext i1 %cmp87 to i32
-  br label %if.end89
-
-if.end89:                                         ; preds = %ZSTD_getOffsetInfo.exit, %lor.lhs.false66
-  %usePrefetchDecoder.0 = phi i32 [ %conv, %ZSTD_getOffsetInfo.exit ], [ %7, %lor.lhs.false66 ]
   store i32 0, ptr %ddictIsCold, align 4
-  %tobool91.not = icmp eq i32 %usePrefetchDecoder.0, 0
-  br i1 %tobool91.not, label %if.end94, label %if.then92
+  br i1 %cmp87, label %if.then92, label %if.end94
 
-if.then92:                                        ; preds = %if.end89
+if.end89:                                         ; preds = %lor.lhs.false66
+  store i32 0, ptr %ddictIsCold, align 4
+  br i1 %tobool67, label %if.end94, label %if.then92
+
+if.then92:                                        ; preds = %ZSTD_getOffsetInfo.exit, %if.end89
   %call93 = tail call fastcc i64 @ZSTD_decompressSequencesLong(ptr noundef nonnull %dctx, ptr noundef %dst, i64 noundef %dstCapacity, ptr noundef %add.ptr31, i64 noundef %sub32, i32 noundef %8)
   br label %return
 
-if.end94:                                         ; preds = %if.end89
+if.end94:                                         ; preds = %ZSTD_getOffsetInfo.exit, %if.end89
   %litBufferLocation = getelementptr inbounds i8, ptr %dctx, i64 30384
   %12 = load i32, ptr %litBufferLocation, align 8
   %cmp95 = icmp eq i32 %12, 2
@@ -3676,8 +3674,8 @@ for.end148.i.i:                                   ; preds = %for.end148.i.loopex
   %litBufferEnd.i.0.lcssa.i = phi ptr [ %4, %for.cond43.i.preheader.i ], [ %litBufferEnd.i.1.i, %for.end148.i.loopexit.i ]
   %seqNb.i.1.lcssa.i = phi i32 [ %seqNb.i.0.lcssa.i, %for.cond43.i.preheader.i ], [ %nbSeq, %for.end148.i.loopexit.i ]
   %cmp.i1768.i = icmp eq ptr %191, %190
-  %cmp1.i1770.not.i = icmp eq i32 %189, 64
-  %or.cond1977.i = select i1 %cmp.i1768.i, i1 %cmp1.i1770.not.i, i1 false
+  %cmp1.i1770.i = icmp eq i32 %189, 64
+  %or.cond1977.i = select i1 %cmp.i1768.i, i1 %cmp1.i1770.i, i1 false
   br i1 %or.cond1977.i, label %if.end162.i.i, label %ZSTD_decompressSequencesLong_default.exit
 
 if.end162.i.i:                                    ; preds = %for.end148.i.i
@@ -6627,8 +6625,8 @@ if.end133.i.i:                                    ; preds = %if.end43.i.i, %if.e
   %205 = load ptr, ptr %start.i.i, align 8
   %cmp.i1238.i = icmp eq ptr %204, %205
   %206 = load i32, ptr %bitsConsumed.i6.i.i, align 8
-  %cmp1.i1240.not.i = icmp eq i32 %206, 64
-  %or.cond1319.i = select i1 %cmp.i1238.i, i1 %cmp1.i1240.not.i, i1 false
+  %cmp1.i1240.i = icmp eq i32 %206, 64
+  %or.cond1319.i = select i1 %cmp.i1238.i, i1 %cmp1.i1240.i, i1 false
   br i1 %or.cond1319.i, label %for.body156.i.i, label %ZSTD_decompressSequencesSplitLitBuffer_default.exit
 
 for.body156.i.i:                                  ; preds = %if.end133.i.i, %for.body156.i.i
@@ -7692,8 +7690,8 @@ for.end40.i.i:                                    ; preds = %if.end35.i.i
   %107 = load ptr, ptr %start.i.i, align 8
   %cmp.i566.i = icmp eq ptr %106, %107
   %108 = load i32, ptr %bitsConsumed.i6.i.i, align 8
-  %cmp1.i.not.i = icmp eq i32 %108, 64
-  %or.cond590.i = select i1 %cmp.i566.i, i1 %cmp1.i.not.i, i1 false
+  %cmp1.i.i = icmp eq i32 %108, 64
+  %or.cond590.i = select i1 %cmp.i566.i, i1 %cmp1.i.i, i1 false
   br i1 %or.cond590.i, label %for.body60.i.i, label %ZSTD_decompressSequences_default.exit
 
 for.body60.i.i:                                   ; preds = %for.end40.i.i, %for.body60.i.i
@@ -9901,8 +9899,8 @@ for.end148.i:                                     ; preds = %for.end148.i.loopex
   %litBufferEnd.i.0.lcssa = phi ptr [ %3, %for.cond43.i.preheader ], [ %litBufferEnd.i.1, %for.end148.i.loopexit ]
   %seqNb.i.1.lcssa = phi i32 [ %seqNb.i.0.lcssa, %for.cond43.i.preheader ], [ %nbSeq, %for.end148.i.loopexit ]
   %cmp.i1768 = icmp eq ptr %190, %189
-  %cmp1.i1770.not = icmp eq i32 %188, 64
-  %or.cond1977 = select i1 %cmp.i1768, i1 %cmp1.i1770.not, i1 false
+  %cmp1.i1770 = icmp eq i32 %188, 64
+  %or.cond1977 = select i1 %cmp.i1768, i1 %cmp1.i1770, i1 false
   br i1 %or.cond1977, label %if.end162.i, label %ZSTD_decompressSequencesLong_body.exit
 
 if.end162.i:                                      ; preds = %for.end148.i
@@ -13200,8 +13198,8 @@ if.end133.i:                                      ; preds = %if.end43.i, %if.end
   %204 = load ptr, ptr %start.i, align 8
   %cmp.i1238 = icmp eq ptr %203, %204
   %205 = load i32, ptr %bitsConsumed.i6.i, align 8
-  %cmp1.i1240.not = icmp eq i32 %205, 64
-  %or.cond1319 = select i1 %cmp.i1238, i1 %cmp1.i1240.not, i1 false
+  %cmp1.i1240 = icmp eq i32 %205, 64
+  %or.cond1319 = select i1 %cmp.i1238, i1 %cmp1.i1240, i1 false
   br i1 %or.cond1319, label %for.body156.i, label %ZSTD_decompressSequences_bodySplitLitBuffer.exit
 
 for.body156.i:                                    ; preds = %if.end133.i, %for.body156.i
@@ -14244,8 +14242,8 @@ for.end40.i:                                      ; preds = %if.end35.i
   %106 = load ptr, ptr %start.i, align 8
   %cmp.i566 = icmp eq ptr %105, %106
   %107 = load i32, ptr %bitsConsumed.i6.i, align 8
-  %cmp1.i.not = icmp eq i32 %107, 64
-  %or.cond590 = select i1 %cmp.i566, i1 %cmp1.i.not, i1 false
+  %cmp1.i = icmp eq i32 %107, 64
+  %or.cond590 = select i1 %cmp.i566, i1 %cmp1.i, i1 false
   br i1 %or.cond590, label %for.body60.i, label %ZSTD_decompressSequences_body.exit
 
 for.body60.i:                                     ; preds = %for.end40.i, %for.body60.i

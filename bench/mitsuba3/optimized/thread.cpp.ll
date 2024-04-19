@@ -992,8 +992,8 @@ common.resume:                                    ; preds = %120, %85, %41
   %69 = icmp eq i32 %57, %1
   br i1 %69, label %88, label %.thread
 
-.thread:                                          ; preds = %56, %67, %60
-  %70 = phi i32 [ %57, %56 ], [ %68, %67 ], [ %57, %60 ]
+.thread:                                          ; preds = %56, %60, %67
+  %70 = phi i32 [ %57, %56 ], [ %57, %60 ], [ %68, %67 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond131.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond131.not, label %._crit_edge, label %56, !llvm.loop !7

@@ -7286,12 +7286,11 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
 if.then.i59:                                      ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   %add.i = add nsw i64 %61, %call85
   %cmp1.i = icmp sgt i64 %add.i, -1
-  br i1 %cmp1.i, label %lor.lhs.false, label %if.else.i
-
-if.else.i:                                        ; preds = %if.then.i59
-  %not.or.cond.i = xor i1 %call92, true
-  %..i = sext i1 %not.or.cond.i to i64
-  br label %_ZN4node6Buffer12_GLOBAL__N_113IndexOfOffsetEmllb.exit
+  %brmerge = or i1 %call92, %cmp1.i
+  %add.i.mux = select i1 %cmp1.i, i64 %add.i, i64 0
+  %cmp96 = icmp ne i64 %61, 0
+  %or.cond80.not = select i1 %brmerge, i1 %cmp96, i1 false
+  br i1 %or.cond80.not, label %if.end101, label %if.then.i687
 
 if.else7.i:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   %cmp9.not.i.not = icmp slt i64 %call85, %61
@@ -7299,27 +7298,19 @@ if.else7.i:                                       ; preds = %_ZNK2v820FunctionCa
 
 if.else11.i:                                      ; preds = %if.else7.i
   %sub.i = add nsw i64 %61, -1
-  br i1 %call92, label %if.then.i687, label %_ZN4node6Buffer12_GLOBAL__N_113IndexOfOffsetEmllb.exit
+  %cmp = icmp slt i64 %61, 1
+  %or.cond = select i1 %call92, i1 true, i1 %cmp
+  br i1 %or.cond, label %if.then.i687, label %if.end101
 
-_ZN4node6Buffer12_GLOBAL__N_113IndexOfOffsetEmllb.exit: ; preds = %if.else11.i, %if.else.i
-  %retval.0.i = phi i64 [ %..i, %if.else.i ], [ %sub.i, %if.else11.i ]
-  %cmp = icmp slt i64 %retval.0.i, 0
-  br i1 %cmp, label %if.then.i687, label %lor.lhs.false
-
-lor.lhs.false:                                    ; preds = %if.then.i59, %_ZN4node6Buffer12_GLOBAL__N_113IndexOfOffsetEmllb.exit
-  %retval.0.i68 = phi i64 [ %retval.0.i, %_ZN4node6Buffer12_GLOBAL__N_113IndexOfOffsetEmllb.exit ], [ %add.i, %if.then.i59 ]
-  %cmp96 = icmp eq i64 %61, 0
-  br i1 %cmp96, label %if.then.i687, label %if.end101
-
-if.then.i687:                                     ; preds = %if.else11.i, %_ZN4node6Buffer12_GLOBAL__N_113IndexOfOffsetEmllb.exit, %lor.lhs.false
+if.then.i687:                                     ; preds = %if.then.i59, %if.else11.i
   %62 = load ptr, ptr %args, align 8
   %arrayidx.i659 = getelementptr inbounds i8, ptr %62, i64 24
   store i64 -4294967296, ptr %arrayidx.i659, align 8
   br label %return
 
-if.end101:                                        ; preds = %if.else7.i, %lor.lhs.false
-  %retval.0.i6874 = phi i64 [ %retval.0.i68, %lor.lhs.false ], [ %call85, %if.else7.i ]
-  %cmp104.not = icmp ult i64 %retval.0.i6874, %61
+if.end101:                                        ; preds = %if.then.i59, %if.else11.i, %if.else7.i
+  %retval.0.i7077 = phi i64 [ %call85, %if.else7.i ], [ %sub.i, %if.else11.i ], [ %add.i.mux, %if.then.i59 ]
+  %cmp104.not = icmp ult i64 %retval.0.i7077, %61
   br i1 %cmp104.not, label %do.end112, label %do.body109
 
 do.body109:                                       ; preds = %if.end101
@@ -7332,13 +7323,13 @@ do.end112:                                        ; preds = %if.end101
   br i1 %call92, label %if.then114, label %if.else
 
 if.then114:                                       ; preds = %do.end112
-  %add.ptr = getelementptr inbounds i8, ptr %63, i64 %retval.0.i6874
-  %sub = sub i64 %61, %retval.0.i6874
+  %add.ptr = getelementptr inbounds i8, ptr %63, i64 %retval.0.i7077
+  %sub = sub i64 %61, %retval.0.i7077
   %call117 = call noundef ptr @memchr(ptr noundef %add.ptr, i32 noundef %call73, i64 noundef %sub) #26
   br label %if.end120
 
 if.else:                                          ; preds = %do.end112
-  %add = add nuw nsw i64 %retval.0.i6874, 1
+  %add = add nuw i64 %retval.0.i7077, 1
   %conv.i = and i32 %call73, 255
   %call.i = call noundef ptr @memrchr(ptr noundef nonnull dereferenceable(1) %63, i32 noundef %conv.i, i64 noundef %add) #26
   br label %if.end120
@@ -16484,7 +16475,7 @@ entry:
   %add = add i64 %sub, 1
   %conv1.i = trunc i16 %3 to i8
   %5 = lshr i16 %3, 8
-  %conv4.i = trunc i16 %5 to i8
+  %conv4.i = trunc nuw i16 %5 to i8
   %.sroa.speculated.i = tail call noundef i8 @llvm.umax.i8(i8 %conv1.i, i8 %conv4.i)
   %is_forward_.i20 = getelementptr inbounds i8, ptr %subject, i64 16
   %6 = load i8, ptr %is_forward_.i20, align 8

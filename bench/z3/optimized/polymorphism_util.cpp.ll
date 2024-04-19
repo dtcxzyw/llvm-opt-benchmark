@@ -3722,11 +3722,11 @@ if.end95:                                         ; preds = %invoke.cont70, %inv
 
 invoke.cont96:                                    ; preds = %if.end95
   %lnot.i = xor i1 %call.i158159, true
-  %.6 = zext i1 %lnot.i to i32
+  %spec.select526 = zext i1 %lnot.i to i32
   br label %cleanup100
 
-cleanup100:                                       ; preds = %invoke.cont91, %invoke.cont96, %invoke.cont79, %invoke.cont73
-  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont73 ], [ 1, %invoke.cont79 ], [ %.6, %invoke.cont96 ], [ %spec.select, %invoke.cont91 ]
+cleanup100:                                       ; preds = %invoke.cont96, %invoke.cont91, %invoke.cont79, %invoke.cont73
+  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont73 ], [ 1, %invoke.cont79 ], [ %spec.select, %invoke.cont91 ], [ %spec.select526, %invoke.cont96 ]
   call void @_ZN9parameterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %p2) #15
   call void @_ZN9parameterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %p1) #15
   %switch = icmp eq i32 %cleanup.dest.slot.0, 1
@@ -3938,7 +3938,7 @@ _ZN15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
 
 _ZNK4decl13get_family_idEv.exit:                  ; preds = %_ZNK4sort11is_type_varEv.exit, %if.end, %_ZNK4sort11is_type_varEv.exit9, %if.end5
   %cond.i = phi i32 [ -1, %if.end5 ], [ %.pr, %_ZNK4sort11is_type_varEv.exit9 ], [ -1, %if.end ], [ %3, %_ZNK4sort11is_type_varEv.exit ]
-  %m_info.i.i169 = getelementptr inbounds i8, ptr %s1.tr133, i64 24
+  %m_info.i.i171 = getelementptr inbounds i8, ptr %s1.tr133, i64 24
   %m_info.i31 = getelementptr inbounds i8, ptr %s2, i64 24
   %28 = load ptr, ptr %m_info.i31, align 8
   %cmp.i32 = icmp eq ptr %28, null
@@ -4045,7 +4045,7 @@ for.cond:                                         ; preds = %cleanup, %_ZNK4decl
   br i1 %cmp34.not, label %return, label %invoke.cont
 
 invoke.cont:                                      ; preds = %for.cond
-  %42 = load ptr, ptr %m_info.i.i169, align 8
+  %42 = load ptr, ptr %m_info.i.i171, align 8
   %m_parameters.i.i71 = getelementptr inbounds i8, ptr %42, i64 8
   %43 = load ptr, ptr %m_parameters.i.i71, align 8
   %arrayidx.i.i.i72 = getelementptr inbounds %class.parameter, ptr %43, i64 %41
@@ -4120,11 +4120,11 @@ if.end69:                                         ; preds = %invoke.cont44, %inv
 
 invoke.cont70:                                    ; preds = %if.end69
   %lnot.i = xor i1 %call.i9899, true
-  %.4 = zext i1 %lnot.i to i32
+  %spec.select186 = zext i1 %lnot.i to i32
   br label %cleanup
 
-cleanup:                                          ; preds = %invoke.cont65, %invoke.cont70, %invoke.cont53, %invoke.cont47
-  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont47 ], [ 1, %invoke.cont53 ], [ %.4, %invoke.cont70 ], [ %spec.select, %invoke.cont65 ]
+cleanup:                                          ; preds = %invoke.cont70, %invoke.cont65, %invoke.cont53, %invoke.cont47
+  %cleanup.dest.slot.0 = phi i32 [ 1, %invoke.cont47 ], [ 1, %invoke.cont53 ], [ %spec.select, %invoke.cont65 ], [ %spec.select186, %invoke.cont70 ]
   call void @_ZN9parameterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %p2) #15
   call void @_ZN9parameterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %p1) #15
   %switch = icmp eq i32 %cleanup.dest.slot.0, 1

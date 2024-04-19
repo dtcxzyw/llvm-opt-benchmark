@@ -500,7 +500,7 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %if.end71
-  %i.027 = phi i64 [ 0, %entry ], [ %inc, %if.end71 ]
+  %i.028 = phi i64 [ 0, %entry ], [ %inc, %if.end71 ]
   %call = tail call ptr @OPENSSL_sk_new_null() #5
   %call1 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 183, ptr noundef nonnull @.str.56, ptr noundef %call) #5
   %tobool.not = icmp eq i32 %call1, 0
@@ -515,7 +515,7 @@ if.end:                                           ; preds = %for.body
   br i1 %tobool5.not, label %end, label %if.end7
 
 if.end7:                                          ; preds = %if.end
-  %arrayidx = getelementptr inbounds [18 x %struct.ip_ranges_st], ptr @ranges, i64 0, i64 %i.027
+  %arrayidx = getelementptr inbounds [18 x %struct.ip_ranges_st], ptr @ranges, i64 0, i64 %i.028
   %ip18 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   %0 = load ptr, ptr %ip18, align 8
   %call9 = tail call ptr @a2i_IPADDRESS(ptr noundef %0) #5
@@ -619,27 +619,27 @@ if.end20.i:                                       ; preds = %if.end13.i
   %call24.i = tail call ptr @OPENSSL_sk_value(ptr noundef %17, i32 noundef 0) #5
   %call25.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 165, ptr noundef nonnull @.str.89, ptr noundef %call24.i) #5
   %tobool26.not.i = icmp eq i32 %call25.i, 0
-  br i1 %tobool26.not.i, label %end, label %check_addr.exit
+  br i1 %tobool26.not.i, label %end, label %if.end28.i
 
-check_addr.exit:                                  ; preds = %if.end20.i
+if.end28.i:                                       ; preds = %if.end20.i
   %18 = load i32, ptr %call24.i, align 8
   %call30.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str.14, i32 noundef 168, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.91, i32 noundef %18, i32 noundef %11) #5
   %tobool31.not.i.not = icmp eq i32 %call30.i, 0
   br i1 %tobool31.not.i.not, label %end, label %if.end71
 
-if.end71:                                         ; preds = %check_addr.exit
+if.end71:                                         ; preds = %if.end28.i
   tail call void @OPENSSL_sk_pop_free(ptr noundef %call, ptr noundef nonnull @IPAddressFamily_free) #5
   tail call void @ASN1_OCTET_STRING_free(ptr noundef nonnull %call9) #5
   tail call void @ASN1_OCTET_STRING_free(ptr noundef nonnull %call27) #5
-  %inc = add nuw nsw i64 %i.027, 1
+  %inc = add nuw nsw i64 %i.028, 1
   %exitcond.not = icmp eq i64 %inc, 18
   br i1 %exitcond.not, label %end, label %for.body, !llvm.loop !5
 
-end:                                              ; preds = %if.end20.i, %if.end13.i, %if.end8.i, %if.end.i, %if.end66, %if.end71, %check_addr.exit, %if.end59, %if.end49, %if.end37, %if.end31, %if.end24, %if.end13, %if.end7, %if.end, %for.body
-  %addr.1 = phi ptr [ %call, %check_addr.exit ], [ %call, %if.end59 ], [ %call, %if.end49 ], [ %call, %if.end37 ], [ %call, %if.end31 ], [ %call, %if.end24 ], [ %call, %if.end13 ], [ %call, %if.end7 ], [ %call, %if.end ], [ %call, %for.body ], [ null, %if.end71 ], [ %call, %if.end66 ], [ %call, %if.end.i ], [ %call, %if.end8.i ], [ %call, %if.end13.i ], [ %call, %if.end20.i ]
-  %ip1.1 = phi ptr [ %call9, %check_addr.exit ], [ %call9, %if.end59 ], [ %call9, %if.end49 ], [ %call9, %if.end37 ], [ %call9, %if.end31 ], [ %call9, %if.end24 ], [ %call9, %if.end13 ], [ %call9, %if.end7 ], [ null, %if.end ], [ null, %for.body ], [ null, %if.end71 ], [ %call9, %if.end66 ], [ %call9, %if.end.i ], [ %call9, %if.end8.i ], [ %call9, %if.end13.i ], [ %call9, %if.end20.i ]
-  %ip2.1 = phi ptr [ %call27, %check_addr.exit ], [ %call27, %if.end59 ], [ %call27, %if.end49 ], [ %call27, %if.end37 ], [ %call27, %if.end31 ], [ %call27, %if.end24 ], [ null, %if.end13 ], [ null, %if.end7 ], [ null, %if.end ], [ null, %for.body ], [ null, %if.end71 ], [ %call27, %if.end66 ], [ %call27, %if.end.i ], [ %call27, %if.end8.i ], [ %call27, %if.end13.i ], [ %call27, %if.end20.i ]
-  %testresult.0 = phi i32 [ 0, %check_addr.exit ], [ 0, %if.end59 ], [ 0, %if.end49 ], [ 0, %if.end37 ], [ 0, %if.end31 ], [ 0, %if.end24 ], [ 0, %if.end13 ], [ 0, %if.end7 ], [ 0, %if.end ], [ 0, %for.body ], [ 1, %if.end71 ], [ 0, %if.end66 ], [ 0, %if.end.i ], [ 0, %if.end8.i ], [ 0, %if.end13.i ], [ 0, %if.end20.i ]
+end:                                              ; preds = %if.end28.i, %if.end20.i, %if.end13.i, %if.end8.i, %if.end.i, %if.end66, %if.end71, %if.end59, %if.end49, %if.end37, %if.end31, %if.end24, %if.end13, %if.end7, %if.end, %for.body
+  %addr.1 = phi ptr [ %call, %if.end59 ], [ %call, %if.end49 ], [ %call, %if.end37 ], [ %call, %if.end31 ], [ %call, %if.end24 ], [ %call, %if.end13 ], [ %call, %if.end7 ], [ %call, %if.end ], [ %call, %for.body ], [ null, %if.end71 ], [ %call, %if.end66 ], [ %call, %if.end.i ], [ %call, %if.end8.i ], [ %call, %if.end13.i ], [ %call, %if.end20.i ], [ %call, %if.end28.i ]
+  %ip1.1 = phi ptr [ %call9, %if.end59 ], [ %call9, %if.end49 ], [ %call9, %if.end37 ], [ %call9, %if.end31 ], [ %call9, %if.end24 ], [ %call9, %if.end13 ], [ %call9, %if.end7 ], [ null, %if.end ], [ null, %for.body ], [ null, %if.end71 ], [ %call9, %if.end66 ], [ %call9, %if.end.i ], [ %call9, %if.end8.i ], [ %call9, %if.end13.i ], [ %call9, %if.end20.i ], [ %call9, %if.end28.i ]
+  %ip2.1 = phi ptr [ %call27, %if.end59 ], [ %call27, %if.end49 ], [ %call27, %if.end37 ], [ %call27, %if.end31 ], [ %call27, %if.end24 ], [ null, %if.end13 ], [ null, %if.end7 ], [ null, %if.end ], [ null, %for.body ], [ null, %if.end71 ], [ %call27, %if.end66 ], [ %call27, %if.end.i ], [ %call27, %if.end8.i ], [ %call27, %if.end13.i ], [ %call27, %if.end20.i ], [ %call27, %if.end28.i ]
+  %testresult.0 = phi i32 [ 0, %if.end59 ], [ 0, %if.end49 ], [ 0, %if.end37 ], [ 0, %if.end31 ], [ 0, %if.end24 ], [ 0, %if.end13 ], [ 0, %if.end7 ], [ 0, %if.end ], [ 0, %for.body ], [ 1, %if.end71 ], [ 0, %if.end66 ], [ 0, %if.end.i ], [ 0, %if.end8.i ], [ 0, %if.end13.i ], [ 0, %if.end20.i ], [ 0, %if.end28.i ]
   tail call void @OPENSSL_sk_pop_free(ptr noundef %addr.1, ptr noundef nonnull @IPAddressFamily_free) #5
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %ip1.1) #5
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %ip2.1) #5

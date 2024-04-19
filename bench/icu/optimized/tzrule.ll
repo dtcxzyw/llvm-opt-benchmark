@@ -1183,17 +1183,17 @@ land.lhs.true.i:                                  ; preds = %_ZNKSt9type_infoneE
   %fRawOffset3.i = getelementptr inbounds i8, ptr %other, i64 72
   %9 = load i32, ptr %fRawOffset3.i, align 8
   %cmp4.i = icmp eq i32 %8, %9
-  br i1 %cmp4.i, label %_ZNK6icu_7512TimeZoneRule14isEquivalentToERKS0_.exit, label %return
+  br i1 %cmp4.i, label %land.rhs.i, label %return
 
-_ZNK6icu_7512TimeZoneRule14isEquivalentToERKS0_.exit: ; preds = %land.lhs.true.i
+land.rhs.i:                                       ; preds = %land.lhs.true.i
   %fDSTSavings.i = getelementptr inbounds i8, ptr %this, i64 76
   %10 = load i32, ptr %fDSTSavings.i, align 4
   %fDSTSavings5.i = getelementptr inbounds i8, ptr %other, i64 76
   %11 = load i32, ptr %fDSTSavings5.i, align 4
-  %cmp6.i.not = icmp eq i32 %10, %11
-  br i1 %cmp6.i.not, label %if.end6, label %return
+  %cmp6.i = icmp eq i32 %10, %11
+  br i1 %cmp6.i, label %if.end6, label %return
 
-if.end6:                                          ; preds = %_ZNK6icu_7512TimeZoneRule14isEquivalentToERKS0_.exit
+if.end6:                                          ; preds = %land.rhs.i
   %fDateTimeRule = getelementptr inbounds i8, ptr %this, i64 80
   %12 = load ptr, ptr %fDateTimeRule, align 8
   %fDateTimeRule7 = getelementptr inbounds i8, ptr %other, i64 80
@@ -1218,8 +1218,8 @@ land.rhs:                                         ; preds = %land.lhs.true
   %18 = zext i1 %cmp12 to i8
   br label %return
 
-return:                                           ; preds = %land.lhs.true.i, %if.end.i.i, %if.end6, %land.lhs.true, %land.rhs, %_ZNKSt9type_infoneERKS_.exit, %_ZNK6icu_7512TimeZoneRule14isEquivalentToERKS0_.exit, %entry
-  %retval.0 = phi i8 [ 1, %entry ], [ 0, %_ZNK6icu_7512TimeZoneRule14isEquivalentToERKS0_.exit ], [ 0, %_ZNKSt9type_infoneERKS_.exit ], [ 0, %land.lhs.true ], [ 0, %if.end6 ], [ %18, %land.rhs ], [ 0, %if.end.i.i ], [ 0, %land.lhs.true.i ]
+return:                                           ; preds = %land.rhs.i, %land.lhs.true.i, %if.end.i.i, %if.end6, %land.lhs.true, %land.rhs, %_ZNKSt9type_infoneERKS_.exit, %entry
+  %retval.0 = phi i8 [ 1, %entry ], [ 0, %_ZNKSt9type_infoneERKS_.exit ], [ 0, %land.lhs.true ], [ 0, %if.end6 ], [ %18, %land.rhs ], [ 0, %if.end.i.i ], [ 0, %land.lhs.true.i ], [ 0, %land.rhs.i ]
   ret i8 %retval.0
 }
 
@@ -1825,17 +1825,17 @@ land.lhs.true.i:                                  ; preds = %_ZNKSt9type_infoneE
   %fRawOffset3.i = getelementptr inbounds i8, ptr %other, i64 72
   %9 = load i32, ptr %fRawOffset3.i, align 8
   %cmp4.i = icmp eq i32 %8, %9
-  br i1 %cmp4.i, label %_ZNK6icu_7512TimeZoneRule14isEquivalentToERKS0_.exit, label %return
+  br i1 %cmp4.i, label %land.rhs.i, label %return
 
-_ZNK6icu_7512TimeZoneRule14isEquivalentToERKS0_.exit: ; preds = %land.lhs.true.i
+land.rhs.i:                                       ; preds = %land.lhs.true.i
   %fDSTSavings.i = getelementptr inbounds i8, ptr %this, i64 76
   %10 = load i32, ptr %fDSTSavings.i, align 4
   %fDSTSavings5.i = getelementptr inbounds i8, ptr %other, i64 76
   %11 = load i32, ptr %fDSTSavings5.i, align 4
-  %cmp6.i.not = icmp eq i32 %10, %11
-  br i1 %cmp6.i.not, label %if.end6, label %return
+  %cmp6.i = icmp eq i32 %10, %11
+  br i1 %cmp6.i, label %if.end6, label %return
 
-if.end6:                                          ; preds = %_ZNK6icu_7512TimeZoneRule14isEquivalentToERKS0_.exit
+if.end6:                                          ; preds = %land.rhs.i
   %fTimeRuleType = getelementptr inbounds i8, ptr %this, i64 80
   %12 = load i32, ptr %fTimeRuleType, align 8
   %fTimeRuleType7 = getelementptr inbounds i8, ptr %other, i64 80
@@ -1877,8 +1877,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %cmp19 = fcmp une double %18, %19
   br i1 %cmp19, label %return, label %for.cond
 
-return:                                           ; preds = %for.body, %for.cond, %for.cond.preheader, %land.lhs.true.i, %if.end.i.i, %if.end6, %lor.lhs.false9, %_ZNKSt9type_infoneERKS_.exit, %_ZNK6icu_7512TimeZoneRule14isEquivalentToERKS0_.exit, %entry
-  %retval.0 = phi i8 [ 1, %entry ], [ 0, %_ZNK6icu_7512TimeZoneRule14isEquivalentToERKS0_.exit ], [ 0, %_ZNKSt9type_infoneERKS_.exit ], [ 0, %lor.lhs.false9 ], [ 0, %if.end6 ], [ 0, %if.end.i.i ], [ 0, %land.lhs.true.i ], [ 1, %for.cond.preheader ], [ 0, %for.body ], [ 1, %for.cond ]
+return:                                           ; preds = %for.body, %for.cond, %for.cond.preheader, %land.rhs.i, %land.lhs.true.i, %if.end.i.i, %if.end6, %lor.lhs.false9, %_ZNKSt9type_infoneERKS_.exit, %entry
+  %retval.0 = phi i8 [ 1, %entry ], [ 0, %_ZNKSt9type_infoneERKS_.exit ], [ 0, %lor.lhs.false9 ], [ 0, %if.end6 ], [ 0, %if.end.i.i ], [ 0, %land.lhs.true.i ], [ 0, %land.rhs.i ], [ 1, %for.cond.preheader ], [ 0, %for.body ], [ 1, %for.cond ]
   ret i8 %retval.0
 }
 

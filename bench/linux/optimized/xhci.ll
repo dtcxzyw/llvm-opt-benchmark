@@ -6423,8 +6423,8 @@ define internal i32 @xhci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %.thread9
 
 31:                                               ; preds = %23
-  %32 = icmp slt i8 %19, 0
-  br i1 %32, label %.thread9, label %33
+  %32 = icmp sgt i8 %19, -1
+  br i1 %32, label %33, label %.thread9
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds i8, ptr %1, i64 128
@@ -6450,8 +6450,8 @@ define internal i32 @xhci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %.thread9
 
 .thread9:                                         ; preds = %42, %.thread, %23, %31, %33, %37, %28
-  %49 = phi i32 [ %27, %28 ], [ %27, %37 ], [ %27, %33 ], [ %27, %31 ], [ %22, %.thread ], [ %27, %23 ], [ %27, %42 ]
-  %50 = phi i32 [ %30, %28 ], [ 1, %37 ], [ 1, %33 ], [ 1, %31 ], [ 1, %.thread ], [ 1, %23 ], [ %spec.select, %42 ]
+  %49 = phi i32 [ %27, %28 ], [ %27, %37 ], [ %27, %33 ], [ %22, %.thread ], [ %27, %23 ], [ %27, %31 ], [ %27, %42 ]
+  %50 = phi i32 [ %30, %28 ], [ 1, %37 ], [ 1, %33 ], [ 1, %.thread ], [ 1, %23 ], [ 1, %31 ], [ %spec.select, %42 ]
   %51 = or i32 %2, 256
   %52 = sext i32 %50 to i64
   %53 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %52, i64 96)
@@ -6514,20 +6514,20 @@ define internal i32 @xhci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   %86 = getelementptr inbounds i8, ptr %1, i64 64
   %87 = load ptr, ptr %86, align 8
   %88 = icmp eq ptr %0, null
-  br i1 %88, label %.thread14, label %89
+  br i1 %88, label %.thread15, label %89
 
 89:                                               ; preds = %83
   %90 = load ptr, ptr %12, align 8
   %91 = icmp ne ptr %90, null
   %92 = icmp ne ptr %87, null
   %93 = and i1 %92, %91
-  br i1 %93, label %94, label %.thread14
+  br i1 %93, label %94, label %.thread15
 
 94:                                               ; preds = %89
   %95 = getelementptr inbounds i8, ptr %87, i64 72
   %96 = load ptr, ptr %95, align 8
   %97 = icmp eq ptr %96, null
-  br i1 %97, label %.thread14, label %98
+  br i1 %97, label %.thread15, label %98
 
 98:                                               ; preds = %94
   %99 = tail call i32 @usb_hcd_is_primary_hcd(ptr noundef nonnull %0) #21
@@ -6544,7 +6544,7 @@ define internal i32 @xhci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   %106 = getelementptr inbounds i8, ptr %87, i64 1300
   %107 = load i32, ptr %106, align 4
   %108 = icmp eq i32 %107, 0
-  br i1 %108, label %.thread14, label %109
+  br i1 %108, label %.thread15, label %109
 
 109:                                              ; preds = %104
   %110 = getelementptr inbounds i8, ptr %105, i64 968
@@ -6552,20 +6552,20 @@ define internal i32 @xhci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   %112 = getelementptr [256 x ptr], ptr %110, i64 0, i64 %111
   %113 = load ptr, ptr %112, align 8
   %114 = icmp eq ptr %113, null
-  br i1 %114, label %.thread14, label %115
+  br i1 %114, label %.thread15, label %115
 
 115:                                              ; preds = %109
   %116 = getelementptr inbounds i8, ptr %113, i64 8
   %117 = load ptr, ptr %116, align 8
   %118 = icmp eq ptr %117, %87
-  br i1 %118, label %119, label %.thread14
+  br i1 %118, label %119, label %.thread15
 
 119:                                              ; preds = %115
   %120 = getelementptr inbounds i8, ptr %105, i64 3056
   %121 = load i32, ptr %120, align 8
   %122 = and i32 %121, 2
   %123 = icmp eq i32 %122, 0
-  br i1 %123, label %124, label %.thread14
+  br i1 %123, label %124, label %.thread15
 
 124:                                              ; preds = %119
   %125 = load ptr, ptr %86, align 8
@@ -6575,7 +6575,7 @@ define internal i32 @xhci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   %129 = load i64, ptr %128, align 8
   %130 = and i64 %129, 1
   %131 = icmp eq i64 %130, 0
-  br i1 %131, label %.thread14, label %132
+  br i1 %131, label %.thread15, label %132
 
 132:                                              ; preds = %124
   %133 = getelementptr inbounds i8, ptr %10, i64 968
@@ -6586,14 +6586,14 @@ define internal i32 @xhci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   %138 = load i64, ptr %137, align 8
   %139 = and i64 %138, 1
   %140 = icmp eq i64 %139, 0
-  br i1 %140, label %141, label %.thread14
+  br i1 %140, label %141, label %.thread15
 
 141:                                              ; preds = %132
   %142 = getelementptr inbounds i8, ptr %10, i64 3056
   %143 = load i32, ptr %142, align 8
   %144 = and i32 %143, 1
   %145 = icmp eq i32 %144, 0
-  br i1 %145, label %146, label %.thread14
+  br i1 %145, label %146, label %.thread15
 
 146:                                              ; preds = %141
   %147 = getelementptr inbounds i8, ptr %136, i64 32
@@ -6608,7 +6608,7 @@ define internal i32 @xhci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   %154 = load ptr, ptr %11, align 8
   %155 = load ptr, ptr %154, align 8
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %155, ptr noundef nonnull @.str.125, i32 noundef %150) #22
-  br label %.thread14
+  br label %.thread15
 
 156:                                              ; preds = %146
   %157 = and i32 %150, 128
@@ -6619,14 +6619,14 @@ define internal i32 @xhci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   %160 = load ptr, ptr %11, align 8
   %161 = load ptr, ptr %160, align 8
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %161, ptr noundef nonnull @.str.126) #22
-  br label %.thread14
+  br label %.thread15
 
 162:                                              ; preds = %156
   %163 = load ptr, ptr %12, align 8
   %164 = getelementptr inbounds i8, ptr %163, i64 3
   %165 = load i8, ptr %164, align 1
   %166 = and i8 %165, 3
-  switch i8 %166, label %default.unreachable16 [
+  switch i8 %166, label %default.unreachable17 [
     i8 0, label %167
     i8 2, label %169
     i8 3, label %171
@@ -6649,22 +6649,22 @@ define internal i32 @xhci_urb_enqueue(ptr noundef %0, ptr noundef %1, i32 nounde
   %174 = tail call i32 @xhci_queue_isoc_tx_prepare(ptr noundef %11, i32 noundef 2080, ptr noundef %1, i32 noundef %127, i32 noundef %49) #21
   br label %175
 
-default.unreachable16:                            ; preds = %162
+default.unreachable17:                            ; preds = %162
   unreachable
 
 175:                                              ; preds = %173, %171, %169, %167
   %176 = phi i32 [ %174, %173 ], [ %172, %171 ], [ %170, %169 ], [ %168, %167 ]
   %177 = icmp eq i32 %176, 0
-  br i1 %177, label %179, label %.thread14
+  br i1 %177, label %179, label %.thread15
 
-.thread14:                                        ; preds = %89, %83, %109, %104, %115, %119, %94, %175, %159, %153, %141, %132, %124
+.thread15:                                        ; preds = %89, %83, %109, %104, %115, %119, %94, %175, %159, %153, %141, %132, %124
   %178 = phi i32 [ -22, %153 ], [ -22, %159 ], [ %176, %175 ], [ -108, %124 ], [ -19, %132 ], [ -108, %141 ], [ -22, %94 ], [ -22, %89 ], [ -22, %83 ], [ -22, %109 ], [ -22, %104 ], [ -22, %115 ], [ -19, %119 ]
   tail call void @xhci_urb_free_priv(ptr noundef nonnull %58) #21
   store ptr null, ptr %62, align 8
   br label %179
 
-179:                                              ; preds = %.thread14, %175
-  %180 = phi i32 [ %178, %.thread14 ], [ 0, %175 ]
+179:                                              ; preds = %.thread15, %175
+  %180 = phi i32 [ %178, %.thread15 ], [ 0, %175 ]
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %84, i64 noundef %85) #21
   br label %181
 

@@ -878,26 +878,26 @@ get_mpa_state.exit.i:                             ; preds = %7
   %16 = getelementptr inbounds i8, ptr %10, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %15, %17
-  br i1 %18, label %is_mpa_fpdu.exit.thread, label %is_mpa_fpdu.exit
+  br i1 %18, label %is_mpa_fpdu.exit.thread, label %19
 
-is_mpa_fpdu.exit:                                 ; preds = %13
-  %19 = getelementptr inbounds i8, ptr %10, i64 8
-  %20 = load i32, ptr %19, align 4
-  %.not29 = icmp eq i32 %15, %20
-  br i1 %.not29, label %is_mpa_fpdu.exit.thread, label %21
+19:                                               ; preds = %13
+  %20 = getelementptr inbounds i8, ptr %10, i64 8
+  %21 = load i32, ptr %20, align 4
+  %.not = icmp eq i32 %15, %21
+  br i1 %.not, label %is_mpa_fpdu.exit.thread, label %is_mpa_fpdu.exit
 
-21:                                               ; preds = %is_mpa_fpdu.exit
+is_mpa_fpdu.exit:                                 ; preds = %19
   %22 = tail call ptr @find_conversation_pinfo(ptr noundef nonnull %1, i32 noundef 0) #5
   %.not.i25 = icmp eq ptr %22, null
   br i1 %.not.i25, label %get_mpa_state.exit, label %23
 
-23:                                               ; preds = %21
+23:                                               ; preds = %is_mpa_fpdu.exit
   %24 = load i32, ptr @proto_iwarp_mpa, align 4
   %25 = tail call ptr @conversation_get_proto_data(ptr noundef nonnull %22, i32 noundef %24) #5
   br label %get_mpa_state.exit
 
-get_mpa_state.exit:                               ; preds = %21, %23
-  %.0.i26 = phi ptr [ %25, %23 ], [ null, %21 ]
+get_mpa_state.exit:                               ; preds = %is_mpa_fpdu.exit, %23
+  %.0.i26 = phi ptr [ %25, %23 ], [ null, %is_mpa_fpdu.exit ]
   %26 = getelementptr inbounds i8, ptr %1, i64 284
   %27 = load i32, ptr %26, align 4
   %28 = getelementptr inbounds i8, ptr %.0.i26, i64 20
@@ -949,8 +949,8 @@ get_mpa_state.exit:                               ; preds = %21, %23
   store i32 1, ptr %54, align 4
   br label %is_mpa_fpdu.exit.thread
 
-is_mpa_fpdu.exit.thread:                          ; preds = %13, %11, %get_mpa_state.exit.i, %7, %41, %49, %44, %is_mpa_fpdu.exit, %4
-  %.0 = phi ptr [ %.0.i26, %44 ], [ %.0.i26, %49 ], [ %.0.i26, %41 ], [ null, %is_mpa_fpdu.exit ], [ null, %4 ], [ null, %7 ], [ null, %get_mpa_state.exit.i ], [ null, %11 ], [ null, %13 ]
+is_mpa_fpdu.exit.thread:                          ; preds = %19, %13, %11, %get_mpa_state.exit.i, %7, %41, %49, %44, %4
+  %.0 = phi ptr [ %.0.i26, %44 ], [ %.0.i26, %49 ], [ %.0.i26, %41 ], [ null, %4 ], [ null, %7 ], [ null, %get_mpa_state.exit.i ], [ null, %11 ], [ null, %13 ], [ null, %19 ]
   ret ptr %.0
 }
 

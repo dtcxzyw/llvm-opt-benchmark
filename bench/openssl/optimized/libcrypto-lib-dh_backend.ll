@@ -221,15 +221,15 @@ entry:
   %engine.i = getelementptr inbounds i8, ptr %dh, i64 168
   %0 = load ptr, ptr %engine.i, align 8
   %cmp.not.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i, label %ossl_dh_is_foreign.exit, label %return
+  br i1 %cmp.not.i, label %lor.lhs.false.i, label %return
 
-ossl_dh_is_foreign.exit:                          ; preds = %entry
+lor.lhs.false.i:                                  ; preds = %entry
   %call.i = tail call ptr @ossl_dh_get_method(ptr noundef nonnull %dh) #2
   %call1.i = tail call ptr @DH_OpenSSL() #2
   %cmp2.not.i.not = icmp eq ptr %call.i, %call1.i
   br i1 %cmp2.not.i.not, label %if.end, label %return
 
-if.end:                                           ; preds = %ossl_dh_is_foreign.exit
+if.end:                                           ; preds = %lor.lhs.false.i
   %libctx = getelementptr inbounds i8, ptr %dh, i64 176
   %1 = load ptr, ptr %libctx, align 8
   %call1 = tail call ptr @ossl_dh_new_ex(ptr noundef %1) #2
@@ -262,13 +262,13 @@ if.end11:                                         ; preds = %if.end3
   br i1 %or.cond, label %if.end37, label %err
 
 if.end11.thread:                                  ; preds = %land.lhs.true
-  %flags31 = getelementptr inbounds i8, ptr %dh, i64 128
-  %4 = load i32, ptr %flags31, align 8
-  %flags1232 = getelementptr inbounds i8, ptr %call1, i64 128
-  store i32 %4, ptr %flags1232, align 8
-  %and1333 = and i32 %selection, 2
-  %cmp14.not34 = icmp eq i32 %and1333, 0
-  br i1 %cmp14.not34, label %if.end24, label %lor.lhs.false
+  %flags32 = getelementptr inbounds i8, ptr %dh, i64 128
+  %4 = load i32, ptr %flags32, align 8
+  %flags1233 = getelementptr inbounds i8, ptr %call1, i64 128
+  store i32 %4, ptr %flags1233, align 8
+  %and1334 = and i32 %selection, 2
+  %cmp14.not35 = icmp eq i32 %and1334, 0
+  br i1 %cmp14.not35, label %if.end24, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end11.thread
   %pub_key20 = getelementptr inbounds i8, ptr %dh, i64 112
@@ -315,8 +315,8 @@ err:                                              ; preds = %land.lhs.true.i23, 
   tail call void @DH_free(ptr noundef nonnull %call1) #2
   br label %return
 
-return:                                           ; preds = %entry, %if.end37, %if.end, %ossl_dh_is_foreign.exit, %err
-  %retval.0 = phi ptr [ null, %err ], [ null, %ossl_dh_is_foreign.exit ], [ null, %if.end ], [ %call1, %if.end37 ], [ null, %entry ]
+return:                                           ; preds = %lor.lhs.false.i, %entry, %if.end37, %if.end, %err
+  %retval.0 = phi ptr [ null, %err ], [ null, %if.end ], [ %call1, %if.end37 ], [ null, %entry ], [ null, %lor.lhs.false.i ]
   ret ptr %retval.0
 }
 

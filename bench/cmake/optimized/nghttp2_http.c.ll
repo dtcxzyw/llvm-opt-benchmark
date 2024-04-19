@@ -1034,13 +1034,13 @@ define dso_local noundef i32 @nghttp2_http_on_response_headers(ptr nocapture nou
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 32
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %25, label %6
+  br i1 %5, label %26, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds i8, ptr %0, i64 208
   %8 = load i16, ptr %7, align 8
-  %.fr15 = freeze i16 %8
-  %.off = add i16 %.fr15, -100
+  %.fr = freeze i16 %8
+  %.off = add i16 %.fr, -100
   %9 = icmp ult i16 %.off, 100
   br i1 %9, label %10, label %14
 
@@ -1051,44 +1051,44 @@ define dso_local noundef i32 @nghttp2_http_on_response_headers(ptr nocapture nou
   %13 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 -1, ptr %13, align 8
   store i16 -1, ptr %7, align 8
-  br label %25
+  br label %26
 
 14:                                               ; preds = %6
   %15 = and i32 %3, -16385
   store i32 %15, ptr %2, align 4
   %16 = and i32 %3, 256
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %expect_response_body.exit.thread
+  br i1 %17, label %18, label %21
 
 18:                                               ; preds = %14
-  %19 = sext i16 %.fr15 to i32
-  %.off.i = add nsw i32 %19, -100
-  %.not.i = icmp ult i32 %.off.i, 100
-  br i1 %.not.i, label %expect_response_body.exit.thread, label %switch.early.test
+  %19 = sext i16 %.fr to i32
+  %20 = add nsw i32 %19, -200
+  %.not.i = icmp ult i32 %20, -100
+  br i1 %.not.i, label %switch.early.test, label %21
 
 switch.early.test:                                ; preds = %18
-  switch i16 %.fr15, label %21 [
-    i16 304, label %expect_response_body.exit.thread
-    i16 204, label %expect_response_body.exit.thread
+  switch i16 %.fr, label %expect_response_body.exit [
+    i16 304, label %21
+    i16 204, label %21
   ]
 
-expect_response_body.exit.thread:                 ; preds = %switch.early.test, %switch.early.test, %18, %14
-  %20 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 0, ptr %20, align 8
-  br label %25
+21:                                               ; preds = %switch.early.test, %switch.early.test, %18, %14
+  %22 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 0, ptr %22, align 8
+  br label %26
 
-21:                                               ; preds = %switch.early.test
-  %22 = and i32 %3, 1152
-  %.not12 = icmp eq i32 %22, 0
-  br i1 %.not12, label %25, label %23
+expect_response_body.exit:                        ; preds = %switch.early.test
+  %23 = and i32 %3, 1152
+  %.not12 = icmp eq i32 %23, 0
+  br i1 %.not12, label %26, label %24
 
-23:                                               ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %0, i64 48
-  store i64 -1, ptr %24, align 8
-  br label %25
+24:                                               ; preds = %expect_response_body.exit
+  %25 = getelementptr inbounds i8, ptr %0, i64 48
+  store i64 -1, ptr %25, align 8
+  br label %26
 
-25:                                               ; preds = %expect_response_body.exit.thread, %23, %21, %1, %10
-  %.0 = phi i32 [ 0, %10 ], [ -1, %1 ], [ 0, %21 ], [ 0, %23 ], [ 0, %expect_response_body.exit.thread ]
+26:                                               ; preds = %21, %24, %expect_response_body.exit, %1, %10
+  %.0 = phi i32 [ 0, %10 ], [ -1, %1 ], [ 0, %expect_response_body.exit ], [ 0, %24 ], [ 0, %21 ]
   ret i32 %.0
 }
 

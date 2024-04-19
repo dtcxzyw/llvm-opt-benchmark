@@ -317,7 +317,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %0 = freeze i64 %retval.sroa.0.0.copyload9.pre.i
   %1 = add i64 %retval.sroa.0.011.i, -1
   %or.cond.not.i = icmp ult i64 %1, %0
-  %2 = trunc i64 %indvars.iv.i to i32
+  %2 = trunc nuw nsw i64 %indvars.iv.i to i32
   %retval.sroa.0.1.i = select i1 %or.cond.not.i, i64 %retval.sroa.0.011.i, i64 %0
   %space.1.i = select i1 %or.cond.not.i, i32 %space.013.i, i32 %2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -491,20 +491,20 @@ if.end8.i:                                        ; preds = %for.inc.i, %if.end8
   %arrayidx10.i = getelementptr inbounds %struct.ossl_quic_ack_range_st, ptr %10, i64 %ridx.128.i
   %12 = load i64, ptr %arrayidx10.i, align 8
   %cmp.not.i.i = icmp ugt i64 %12, %11
-  br i1 %cmp.not.i.i, label %if.end8.if.else_crit_edge.i, label %range_contains.exit.i
+  br i1 %cmp.not.i.i, label %if.end8.if.else_crit_edge.i, label %land.rhs.i.i
 
 if.end8.if.else_crit_edge.i:                      ; preds = %if.end8.i
   %end18.phi.trans.insert.i = getelementptr inbounds %struct.ossl_quic_ack_range_st, ptr %10, i64 %ridx.128.i, i32 1
   %.pre.i = load i64, ptr %end18.phi.trans.insert.i, align 8
   br label %if.else.i
 
-range_contains.exit.i:                            ; preds = %if.end8.i
+land.rhs.i.i:                                     ; preds = %if.end8.i
   %end.i.i = getelementptr inbounds i8, ptr %arrayidx10.i, i64 8
   %13 = load i64, ptr %end.i.i, align 8
   %cmp1.i.not.i = icmp ult i64 %13, %11
   br i1 %cmp1.i.not.i, label %if.else.i, label %if.then12.i
 
-if.then12.i:                                      ; preds = %range_contains.exit.i
+if.then12.i:                                      ; preds = %land.rhs.i.i
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %key.i18.i)
   store i64 %11, ptr %key.i18.i, align 8
   %h.val.i.i = load ptr, ptr %6, align 8
@@ -574,8 +574,8 @@ tx_pkt_history_remove.exit.i:                     ; preds = %ossl_list_tx_histor
   store ptr null, ptr %anext.i, align 8
   br label %for.inc22.i
 
-if.else.i:                                        ; preds = %range_contains.exit.i, %if.end8.if.else_crit_edge.i
-  %21 = phi i64 [ %.pre.i, %if.end8.if.else_crit_edge.i ], [ %13, %range_contains.exit.i ]
+if.else.i:                                        ; preds = %land.rhs.i.i, %if.end8.if.else_crit_edge.i
+  %21 = phi i64 [ %.pre.i, %if.end8.if.else_crit_edge.i ], [ %13, %land.rhs.i.i ]
   %cmp19.i = icmp ugt i64 %11, %21
   br i1 %cmp19.i, label %for.inc22.i, label %for.inc.i
 
@@ -1557,7 +1557,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %0 = freeze i64 %retval.sroa.0.0.copyload9.pre.i
   %1 = add i64 %retval.sroa.0.011.i, -1
   %or.cond.not.i = icmp ult i64 %1, %0
-  %2 = trunc i64 %indvars.iv.i to i32
+  %2 = trunc nuw nsw i64 %indvars.iv.i to i32
   %retval.sroa.0.1.i = select i1 %or.cond.not.i, i64 %retval.sroa.0.011.i, i64 %0
   %space.1.i = select i1 %or.cond.not.i, i32 %space.013.i, i32 %2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1987,7 +1987,7 @@ if.end61:                                         ; preds = %if.end41, %if.then4
   %20 = load i64, ptr %arrayidx64, align 8
   %retval.sroa.0.0.i28 = call i64 @llvm.uadd.sat.i64(i64 %20, i64 %duration.sroa.0.1)
   %cmp5.i = icmp ult i64 %retval.sroa.0.0.i28, %pto_timeout.sroa.0.031
-  %21 = trunc i64 %indvars.iv to i32
+  %21 = trunc nuw nsw i64 %indvars.iv to i32
   %spec.select = select i1 %cmp5.i, i32 %21, i32 %pto_space.030
   %spec.select21 = call i64 @llvm.umin.i64(i64 %retval.sroa.0.0.i28, i64 %pto_timeout.sroa.0.031)
   br label %for.inc
@@ -2094,14 +2094,14 @@ entry:
   %watermark.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 24
   %1 = load i64, ptr %watermark.i, align 8
   %cmp.not.i = icmp ugt i64 %1, %0
-  br i1 %cmp.not.i, label %return, label %ossl_ackm_is_rx_pn_processable.exit
+  br i1 %cmp.not.i, label %return, label %land.rhs.i
 
-ossl_ackm_is_rx_pn_processable.exit:              ; preds = %entry
+land.rhs.i:                                       ; preds = %entry
   %call1.i = tail call i32 @ossl_uint_set_query(ptr noundef nonnull %arrayidx.i, i64 noundef %0) #11
-  %cmp2.i.not = icmp eq i32 %call1.i, 0
-  br i1 %cmp2.i.not, label %if.end, label %return
+  %cmp2.i = icmp eq i32 %call1.i, 0
+  br i1 %cmp2.i, label %if.end, label %return
 
-if.end:                                           ; preds = %ossl_ackm_is_rx_pn_processable.exit
+if.end:                                           ; preds = %land.rhs.i
   %2 = load i64, ptr %pkt, align 8
   %rx_largest_pn = getelementptr inbounds i8, ptr %ackm, i64 2192
   %bf.load8 = load i8, ptr %pkt_space, align 8
@@ -2151,21 +2151,21 @@ for.body.i.i:                                     ; preds = %land.lhs.true.i, %f
   %arrayidx.i.i31 = getelementptr inbounds %struct.ossl_quic_ack_range_st, ptr %7, i64 %i.07.i.i
   %9 = load i64, ptr %arrayidx.i.i31, align 8
   %cmp.not.i.i.i = icmp ugt i64 %9, %5
-  br i1 %cmp.not.i.i.i, label %for.inc.i.i, label %range_contains.exit.i.i
+  br i1 %cmp.not.i.i.i, label %for.inc.i.i, label %land.rhs.i.i.i
 
-range_contains.exit.i.i:                          ; preds = %for.body.i.i
+land.rhs.i.i.i:                                   ; preds = %for.body.i.i
   %end.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i31, i64 8
   %10 = load i64, ptr %end.i.i.i, align 8
   %cmp1.i.not.i.i = icmp ult i64 %10, %5
   br i1 %cmp1.i.not.i.i, label %for.inc.i.i, label %ackm_is_missing.exit
 
-for.inc.i.i:                                      ; preds = %range_contains.exit.i.i, %for.body.i.i
+for.inc.i.i:                                      ; preds = %land.rhs.i.i.i, %for.body.i.i
   %inc.i.i = add nuw i64 %i.07.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %6
   br i1 %exitcond.not.i.i, label %ackm_is_missing.exit, label %for.body.i.i, !llvm.loop !18
 
-ackm_is_missing.exit:                             ; preds = %range_contains.exit.i.i, %for.inc.i.i, %if.end27, %land.lhs.true.i
-  %tobool6.i = phi i1 [ false, %land.lhs.true.i ], [ false, %if.end27 ], [ true, %for.inc.i.i ], [ false, %range_contains.exit.i.i ]
+ackm_is_missing.exit:                             ; preds = %land.rhs.i.i.i, %for.inc.i.i, %if.end27, %land.lhs.true.i
+  %tobool6.i = phi i1 [ false, %land.lhs.true.i ], [ false, %if.end27 ], [ false, %land.rhs.i.i.i ], [ true, %for.inc.i.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %r.i)
   store i64 %5, ptr %r.i, align 8
   %end.i33 = getelementptr inbounds i8, ptr %r.i, i64 8
@@ -2296,17 +2296,17 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %end.i.i = getelementptr inbounds i8, ptr %call.val8.i.i, i64 24
   %24 = load i64, ptr %end.i.i, align 8
   %cmp7.i.i = icmp eq i64 %23, %24
-  br i1 %cmp7.i.i, label %ackm_has_newly_missing.exit.i, label %if.end14.i
+  br i1 %cmp7.i.i, label %land.rhs.i.i, label %if.end14.i
 
-ackm_has_newly_missing.exit.i:                    ; preds = %land.lhs.true.i.i
+land.rhs.i.i:                                     ; preds = %land.lhs.true.i.i
   %25 = load ptr, ptr %arrayidx.i.i40, align 8
   %end16.i.i = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load i64, ptr %end16.i.i, align 8
   %add.i.i43 = add i64 %26, 1
-  %cmp17.i.not.i = icmp ugt i64 %23, %add.i.i43
-  br i1 %cmp17.i.not.i, label %if.then13.i, label %if.end14.i
+  %cmp17.i.i = icmp ugt i64 %23, %add.i.i43
+  br i1 %cmp17.i.i, label %if.then13.i, label %if.end14.i
 
-if.then13.i:                                      ; preds = %if.end.i38, %ackm_has_newly_missing.exit.i
+if.then13.i:                                      ; preds = %if.end.i38, %land.rhs.i.i
   store i8 1, ptr %arrayidx.i37, align 1
   %rx_ack_flush_deadline.i.i.i = getelementptr inbounds i8, ptr %ackm, i64 2328
   %arrayidx.i.i29.i = getelementptr inbounds [3 x %struct.OSSL_TIME], ptr %rx_ack_flush_deadline.i.i.i, i64 0, i64 %idxprom.i36
@@ -2322,7 +2322,7 @@ if.then.i.i.i:                                    ; preds = %if.then13.i
   call void %27(i64 0, i32 noundef %bf.cast47, ptr noundef %28) #11
   br label %if.end48
 
-if.end14.i:                                       ; preds = %ackm_has_newly_missing.exit.i, %land.lhs.true.i.i, %if.end.i.i, %lor.lhs.false11.i
+if.end14.i:                                       ; preds = %land.rhs.i.i, %land.lhs.true.i.i, %if.end.i.i, %lor.lhs.false11.i
   %tx_max_ack_delay15.i = getelementptr inbounds i8, ptr %ackm, i64 2360
   %tx_max_ack_delay.sroa.0.0.copyload.i = load i64, ptr %tx_max_ack_delay15.i, align 8
   %or.cond1.i = icmp ult i8 %bf.clear46, 2
@@ -2401,8 +2401,8 @@ sw.bb67:                                          ; preds = %if.end48
   store i64 %inc74, ptr %arrayidx73, align 8
   br label %return
 
-return:                                           ; preds = %entry, %rx_pkt_history_add_pn.exit, %sw.bb, %sw.bb59, %sw.bb67, %if.end48, %ossl_ackm_is_rx_pn_processable.exit
-  %retval.0 = phi i32 [ 1, %ossl_ackm_is_rx_pn_processable.exit ], [ 0, %rx_pkt_history_add_pn.exit ], [ 1, %if.end48 ], [ 1, %sw.bb67 ], [ 1, %sw.bb59 ], [ 1, %sw.bb ], [ 1, %entry ]
+return:                                           ; preds = %land.rhs.i, %entry, %rx_pkt_history_add_pn.exit, %sw.bb, %sw.bb59, %sw.bb67, %if.end48
+  %retval.0 = phi i32 [ 0, %rx_pkt_history_add_pn.exit ], [ 1, %if.end48 ], [ 1, %sw.bb67 ], [ 1, %sw.bb59 ], [ 1, %sw.bb ], [ 1, %entry ], [ 1, %land.rhs.i ]
   ret i32 %retval.0
 }
 

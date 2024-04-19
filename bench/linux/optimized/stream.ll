@@ -149,7 +149,7 @@ define dso_local i32 @sk_stream_wait_connect(ptr noundef %0, ptr nocapture nound
   %14 = getelementptr inbounds i8, ptr %0, i64 284
   br label %15
 
-15:                                               ; preds = %70, %2
+15:                                               ; preds = %.thread5, %2
   %16 = load i32, ptr %10, align 8
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %.thread, label %18, !prof !5
@@ -219,48 +219,45 @@ define dso_local i32 @sk_stream_wait_connect(ptr noundef %0, ptr nocapture nound
   call void @lock_sock_nested(ptr noundef %0, i32 noundef 0) #5
   %56 = load i32, ptr %14, align 4
   %57 = icmp eq i32 %43, %56
-  br i1 %57, label %58, label %70
+  br i1 %57, label %58, label %.thread5
 
 58:                                               ; preds = %55
   %59 = load volatile i32, ptr %10, align 8
   %60 = icmp eq i32 %59, 0
-  br i1 %60, label %61, label %67
+  br i1 %60, label %61, label %.thread5
 
 61:                                               ; preds = %58
   %62 = load volatile i8, ptr %11, align 2
   %63 = zext nneg i8 %62 to i32
   %64 = shl nuw i32 1, %63
-  %65 = and i32 %64, -259
+  %.fr7 = freeze i32 %64
+  %65 = and i32 %.fr7, -259
   %66 = icmp eq i32 %65, 0
-  br label %67
+  %spec.select = zext i1 %66 to i32
+  br label %.thread5
 
-67:                                               ; preds = %61, %58
-  %68 = phi i1 [ false, %58 ], [ %66, %61 ]
-  %69 = zext i1 %68 to i32
-  br label %70
+.thread5:                                         ; preds = %61, %58, %55
+  %67 = phi i32 [ -32, %55 ], [ 0, %58 ], [ %spec.select, %61 ]
+  %68 = load volatile ptr, ptr %12, align 8
+  call void @remove_wait_queue(ptr noundef %68, ptr noundef nonnull %3) #5
+  %69 = load i32, ptr %13, align 4
+  %70 = add i32 %69, -1
+  store i32 %70, ptr %13, align 4
+  %71 = icmp eq i32 %67, 0
+  br i1 %71, label %15, label %72, !llvm.loop !10
 
-70:                                               ; preds = %67, %55
-  %71 = phi i32 [ %69, %67 ], [ -32, %55 ]
-  %72 = load volatile ptr, ptr %12, align 8
-  call void @remove_wait_queue(ptr noundef %72, ptr noundef nonnull %3) #5
-  %73 = load i32, ptr %13, align 4
-  %74 = add i32 %73, -1
-  store i32 %74, ptr %13, align 4
-  %75 = icmp eq i32 %71, 0
-  br i1 %75, label %15, label %76, !llvm.loop !10
-
-76:                                               ; preds = %70
-  %77 = call i32 @llvm.smin.i32(i32 %71, i32 0)
+72:                                               ; preds = %.thread5
+  %73 = call i32 @llvm.smin.i32(i32 %67, i32 0)
   br label %.thread4
 
 .thread4.loopexit.split.loop.exit:                ; preds = %18
-  %78 = sub i32 0, %19
+  %74 = sub i32 0, %19
   br label %.thread4
 
-.thread4:                                         ; preds = %.thread, %26, %.thread4.loopexit.split.loop.exit, %.thread3, %76
-  %79 = phi i32 [ %77, %76 ], [ %38, %.thread3 ], [ %78, %.thread4.loopexit.split.loop.exit ], [ -32, %.thread ], [ -11, %26 ]
+.thread4:                                         ; preds = %.thread, %26, %.thread4.loopexit.split.loop.exit, %.thread3, %72
+  %75 = phi i32 [ %73, %72 ], [ %38, %.thread3 ], [ %74, %.thread4.loopexit.split.loop.exit ], [ -32, %.thread ], [ -11, %26 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #5
-  ret i32 %79
+  ret i32 %75
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

@@ -352,7 +352,7 @@ for.body.i:                                       ; preds = %if.end, %for.body.i
   store ptr %call, ptr %arrayidx.i, align 8
   %6 = load ptr, ptr %req_list.i, align 16
   %slot.i = getelementptr %struct.UfsRequest, ptr %6, i64 %indvars.iv.i, i32 2
-  %7 = trunc i64 %indvars.iv.i to i32
+  %7 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %7, ptr %slot.i, align 4
   %8 = load ptr, ptr %req_list.i, align 16
   %sg.i = getelementptr %struct.UfsRequest, ptr %8, i64 %indvars.iv.i, i32 6
@@ -638,12 +638,12 @@ if.then8.i.i:                                     ; preds = %if.then.i.i
   %call10.i.i = tail call i32 @qemu_get_thread_id() #14
   %7 = load i64, ptr %_now.i.i, align 8
   %8 = load i64, ptr %tv_usec.i.i, align 8
-  %9 = trunc i64 %indvars.iv to i32
+  %9 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.16, i32 noundef %call10.i.i, i64 noundef %7, i64 noundef %8, i32 noundef %9) #14
   br label %trace_ufs_process_req.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.17, i32 noundef %10) #14
   br label %trace_ufs_process_req.exit
 
@@ -1612,8 +1612,8 @@ ufs_exec_query_cmd.exit.i:                        ; preds = %trace_ufs_err_query
   store i8 0, ptr %scsi_status13.i.i36.i, align 1
   %data_segment_length16.i.i37.i = getelementptr inbounds i8, ptr %arrayidx, i64 346
   store i16 %147, ptr %data_segment_length16.i.i37.i, align 2
-  %cmp13.not.i.i = icmp ne i32 %status.0.i.i, 0
-  %spec.select.i.i = zext i1 %cmp13.not.i.i to i32
+  %cmp13.not.i.not.i = icmp ne i32 %status.0.i.i, 0
+  %spec.select.i = zext i1 %cmp13.not.i.not.i to i32
   br label %if.then10.i
 
 sw.default.i:                                     ; preds = %if.end.i
@@ -1664,8 +1664,8 @@ sw.epilog.i:                                      ; preds = %sw.bb10.i.i, %sw.bb
   br i1 %cmp.not.i, label %for.inc, label %if.then10.i
 
 if.then10.i:                                      ; preds = %sw.epilog.i, %trace_ufs_err_invalid_trans_code.exit.i, %ufs_exec_query_cmd.exit.i, %trace_ufs_err_scsi_cmd_invalid_lun.exit.i.i, %ufs_exec_nop_cmd.exit.i
-  %req_result.075.i = phi i32 [ %call14.i.i, %sw.epilog.i ], [ 1, %trace_ufs_err_scsi_cmd_invalid_lun.exit.i.i ], [ 0, %ufs_exec_nop_cmd.exit.i ], [ %spec.select.i.i, %ufs_exec_query_cmd.exit.i ], [ 1, %trace_ufs_err_invalid_trans_code.exit.i ]
-  tail call void @ufs_complete_req(ptr noundef nonnull %arrayidx, i32 noundef %req_result.075.i)
+  %req_result.076.i = phi i32 [ %call14.i.i, %sw.epilog.i ], [ 1, %trace_ufs_err_scsi_cmd_invalid_lun.exit.i.i ], [ 0, %ufs_exec_nop_cmd.exit.i ], [ 1, %trace_ufs_err_invalid_trans_code.exit.i ], [ %spec.select.i, %ufs_exec_query_cmd.exit.i ]
+  tail call void @ufs_complete_req(ptr noundef nonnull %arrayidx, i32 noundef %req_result.076.i)
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then10.i, %sw.epilog.i, %ufs_dma_read_upiu.exit.i, %trace_ufs_err_dma_read_req_upiu.exit45.i.i.i, %trace_ufs_err_dma_read_req_upiu.exit.i.i.i, %ufs_dma_read_utrd.exit.i.i, %for.body
@@ -1882,7 +1882,7 @@ if.then14:                                        ; preds = %lor.lhs.false, %if.
   br label %if.end18
 
 if.end18:                                         ; preds = %if.then14, %lor.lhs.false
-  %33 = trunc i64 %indvars.iv to i32
+  %33 = trunc nuw nsw i64 %indvars.iv to i32
   %shl = shl nuw i32 1, %33
   %not = xor i32 %shl, -1
   %34 = load i32, ptr %utrldbr, align 8
@@ -2351,7 +2351,7 @@ sw.bb11.i19:                                      ; preds = %if.else
 
 sw.bb14.i17:                                      ; preds = %if.else
   %56 = lshr i32 %54, 16
-  %57 = trunc i32 %56 to i16
+  %57 = trunc nuw i32 %56 to i16
   %exception_event_control.i18 = getelementptr inbounds i8, ptr %0, i64 5580
   store i16 %57, ptr %exception_event_control.i18, align 4
   br label %if.end7
@@ -2557,7 +2557,7 @@ trace_ufs_err_query_invalid_opcode.exit:          ; preds = %if.else27, %land.lh
 
 if.end33:                                         ; preds = %if.else, %if.end, %if.then6, %if.then16, %if.then20
   %value.0 = phi i32 [ %conv8, %if.then6 ], [ 0, %if.then16 ], [ %lnot.ext, %if.then20 ], [ 0, %if.end ], [ 1, %if.else ]
-  %conv34 = trunc i32 %value.0 to i8
+  %conv34 = trunc nuw i32 %value.0 to i8
   %flags35 = getelementptr inbounds i8, ptr %0, i64 5612
   %add.ptr38 = getelementptr i8, ptr %flags35, i64 %idxprom.i
   store i8 %conv34, ptr %add.ptr38, align 1
@@ -2967,7 +2967,7 @@ if.end.i.i:                                       ; preds = %sw.bb49.i
   %19 = tail call i64 @llvm.cttz.i64(i64 %conv2.i.i, i1 true), !range !12
   %cond.i.i.i = tail call i64 @llvm.umin.i64(i64 %19, i64 %conv3.i.i)
   %retval.0.i.i.i = select i1 %cmp10.not.i.i.i, i64 0, i64 %cond.i.i.i
-  %slot.049.i.i = trunc i64 %retval.0.i.i.i to i32
+  %slot.049.i.i = trunc nuw nsw i64 %retval.0.i.i.i to i32
   %cmp50.i.i = icmp ult i32 %slot.049.i.i, %conv.i.i
   br i1 %cmp50.i.i, label %while.body.lr.ph.i.i, label %while.end.i.i
 

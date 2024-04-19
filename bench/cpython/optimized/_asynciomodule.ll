@@ -2362,7 +2362,12 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %e
 if.end.i:                                         ; preds = %if.else.i
   %call7.i = tail call ptr @PyDict_GetItemWithError(ptr noundef nonnull %call4.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 24)) #6
   %cmp8.i = icmp eq ptr %call7.i, null
-  br i1 %cmp8.i, label %get_running_loop.exit, label %if.end13.i
+  br i1 %cmp8.i, label %if.then9.i, label %if.end13.i
+
+if.then9.i:                                       ; preds = %if.end.i
+  %call10.i = tail call ptr @PyErr_Occurred() #6
+  %tobool.not.i.not = icmp eq ptr %call10.i, null
+  br i1 %tobool.not.i.not, label %if.then2, label %return
 
 if.end13.i:                                       ; preds = %if.end.i
   %cached_running_loop14.i = getelementptr inbounds i8, ptr %module.32.val, i64 152
@@ -2385,18 +2390,13 @@ if.end.i.i.i:                                     ; preds = %if.end19.i
   store i32 %add.i.i.i, ptr %rl.0.i, align 8
   br label %return
 
-get_running_loop.exit:                            ; preds = %if.end.i
-  %call10.i = tail call ptr @PyErr_Occurred() #6
-  %tobool.not.i.not = icmp eq ptr %call10.i, null
-  br i1 %tobool.not.i.not, label %if.then2, label %return
-
-if.then2:                                         ; preds = %if.end16.i, %if.else.i, %get_running_loop.exit
+if.then2:                                         ; preds = %if.end16.i, %if.else.i, %if.then9.i
   %3 = load ptr, ptr @PyExc_RuntimeError, align 8
   tail call void @PyErr_SetString(ptr noundef %3, ptr noundef nonnull @.str.14) #6
   br label %return
 
-return:                                           ; preds = %if.end.i.i.i, %if.end19.i, %if.then2, %get_running_loop.exit
-  %retval.0 = phi ptr [ null, %get_running_loop.exit ], [ null, %if.then2 ], [ %rl.0.i, %if.end19.i ], [ %rl.0.i, %if.end.i.i.i ]
+return:                                           ; preds = %if.end.i.i.i, %if.end19.i, %if.then2, %if.then9.i
+  %retval.0 = phi ptr [ null, %if.then9.i ], [ null, %if.then2 ], [ %rl.0.i, %if.end19.i ], [ %rl.0.i, %if.end.i.i.i ]
   ret ptr %retval.0
 }
 
@@ -2441,7 +2441,12 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %e
 if.end.i7:                                        ; preds = %if.else.i
   %call7.i = tail call ptr @PyDict_GetItemWithError(ptr noundef nonnull %call4.i, ptr noundef nonnull getelementptr inbounds (%struct.pyruntimestate, ptr @_PyRuntime, i64 0, i32 37, i32 0, i32 3, i32 1, i32 24)) #6
   %cmp8.i = icmp eq ptr %call7.i, null
-  br i1 %cmp8.i, label %get_running_loop.exit, label %if.end13.i
+  br i1 %cmp8.i, label %if.then9.i, label %if.end13.i
+
+if.then9.i:                                       ; preds = %if.end.i7
+  %call10.i = tail call ptr @PyErr_Occurred() #6
+  %tobool.not.i.not = icmp eq ptr %call10.i, null
+  br i1 %tobool.not.i.not, label %if.end2, label %return
 
 if.end13.i:                                       ; preds = %if.end.i7
   %cached_running_loop14.i = getelementptr inbounds i8, ptr %state, i64 152
@@ -2464,12 +2469,7 @@ if.end.i.i.i:                                     ; preds = %if.end19.i
   store i32 %add.i.i.i, ptr %rl.0.i, align 8
   br label %return
 
-get_running_loop.exit:                            ; preds = %if.end.i7
-  %call10.i = tail call ptr @PyErr_Occurred() #6
-  %tobool.not.i.not = icmp eq ptr %call10.i, null
-  br i1 %tobool.not.i.not, label %if.end2, label %return
-
-if.end2:                                          ; preds = %if.end16.i, %if.else.i, %get_running_loop.exit
+if.end2:                                          ; preds = %if.end16.i, %if.else.i, %if.then9.i
   %asyncio_get_event_loop_policy = getelementptr inbounds i8, ptr %state, i64 80
   %3 = load ptr, ptr %asyncio_get_event_loop_policy, align 8
   %call3 = tail call ptr @PyObject_CallNoArgs(ptr noundef %3) #6
@@ -2496,8 +2496,8 @@ if.then1.i:                                       ; preds = %if.end.i
   call void @_Py_Dealloc(ptr noundef nonnull %call3) #6
   br label %return
 
-return:                                           ; preds = %if.end.i.i.i, %if.end19.i, %if.end.i, %if.then1.i, %if.end6, %if.end2, %get_running_loop.exit
-  %retval.0 = phi ptr [ null, %get_running_loop.exit ], [ null, %if.end2 ], [ %call.i, %if.end6 ], [ %call.i, %if.then1.i ], [ %call.i, %if.end.i ], [ %rl.0.i, %if.end19.i ], [ %rl.0.i, %if.end.i.i.i ]
+return:                                           ; preds = %if.end.i.i.i, %if.end19.i, %if.end.i, %if.then1.i, %if.end6, %if.then9.i, %if.end2
+  %retval.0 = phi ptr [ null, %if.end2 ], [ null, %if.then9.i ], [ %call.i, %if.end6 ], [ %call.i, %if.then1.i ], [ %call.i, %if.end.i ], [ %rl.0.i, %if.end19.i ], [ %rl.0.i, %if.end.i.i.i ]
   ret ptr %retval.0
 }
 

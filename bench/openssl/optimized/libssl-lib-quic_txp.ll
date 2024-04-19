@@ -414,13 +414,13 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %cmp1.not.i = icmp ule i64 %call.i, %token_len
-  %cmp4.i = icmp ult i64 %call.i, 161
-  %or.cond.i = or i1 %cmp1.not.i, %cmp4.i
+  %cmp1.not.i = icmp ugt i64 %call.i, %token_len
+  %cmp4.i = icmp ugt i64 %call.i, 160
+  %or.cond.i.not16 = and i1 %cmp1.not.i, %cmp4.i
   %sub.i = add i64 %call.i, -160
-  %cmp7.i.not = icmp ult i64 %sub.i, %token_len
-  %or.cond = or i1 %or.cond.i, %cmp7.i.not
-  br i1 %or.cond, label %return, label %if.end
+  %cmp7.i = icmp uge i64 %sub.i, %token_len
+  %or.cond = and i1 %or.cond.i.not16, %cmp7.i
+  br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %if.end.i, %entry
   %initial_token = getelementptr inbounds i8, ptr %txp, i64 288

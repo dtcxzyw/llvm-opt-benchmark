@@ -907,15 +907,15 @@ for.inc.i:                                        ; preds = %if.end20.i, %if.end
   %num_size.1.i = phi i64 [ %inc.i, %if.end12.i ], [ 0, %if.end20.i ]
   %inc25.i = add nuw i64 %i.028.i, 1
   %exitcond.not.i = icmp eq i64 %inc25.i, %call.i.i
-  br i1 %exitcond.not.i, label %_ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit, label %for.body.i, !llvm.loop !17
+  br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !17
 
-_ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %for.inc.i
-  %2 = icmp ult i64 %dot_count.1.i, 3
-  %3 = icmp eq i64 %num_size.1.i, 0
-  %.not41 = select i1 %2, i1 true, i1 %3
-  br i1 %.not41, label %if.then12, label %if.end18
+for.end.loopexit.i:                               ; preds = %for.inc.i
+  %2 = icmp ugt i64 %dot_count.1.i, 2
+  %3 = icmp ne i64 %num_size.1.i, 0
+  %4 = select i1 %2, i1 %3, i1 false
+  br i1 %4, label %if.end18, label %if.then12
 
-if.then12:                                        ; preds = %if.then16.i, %if.else.i, %land.lhs.true.i, %land.lhs.true, %_ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit
+if.then12:                                        ; preds = %land.lhs.true.i, %if.else.i, %if.then16.i, %land.lhs.true, %for.end.loopexit.i
   %call13 = call i32 @SSL_set_tlsext_host_name(ptr noundef nonnull %call, ptr noundef nonnull %server_name_indication)
   %tobool14.not = icmp eq i32 %call13, 0
   br i1 %tobool14.not, label %if.then15, label %if.end18
@@ -923,14 +923,14 @@ if.then12:                                        ; preds = %if.then16.i, %if.el
 if.then15:                                        ; preds = %if.then12
   call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 1760, i32 noundef 2, ptr noundef nonnull @.str.48, ptr noundef nonnull %server_name_indication)
   call void @SSL_free(ptr noundef nonnull %call)
-  %4 = load ptr, ptr %network_io, align 8
-  %call16 = call i32 @BIO_free(ptr noundef %4)
+  %5 = load ptr, ptr %network_io, align 8
+  %call16 = call i32 @BIO_free(ptr noundef %5)
   br label %return
 
-if.end18:                                         ; preds = %for.body.i, %if.then12, %_ZL21looks_like_ip_addressSt17basic_string_viewIcSt11char_traitsIcEE.exit, %if.then8
+if.end18:                                         ; preds = %for.body.i, %for.end.loopexit.i, %if.then12, %if.then8
   %session_cache = getelementptr inbounds i8, ptr %factory, i64 40
-  %5 = load ptr, ptr %session_cache, align 8
-  %cmp.i.not = icmp eq ptr %5, null
+  %6 = load ptr, ptr %session_cache, align 8
+  %cmp.i.not = icmp eq ptr %6, null
   br i1 %cmp.i.not, label %if.end23, label %if.then20
 
 if.then20:                                        ; preds = %if.end18
@@ -940,20 +940,20 @@ if.then20:                                        ; preds = %if.end18
   br i1 %cmp.i30, label %_ZL33tsi_ssl_handshaker_resume_sessionP6ssl_stPN3tsi18SslSessionLRUCacheE.exit, label %if.end.i31
 
 if.end.i31:                                       ; preds = %if.then20
-  call void @_ZN3tsi18SslSessionLRUCache3GetEPKc(ptr nonnull sret(%"class.std::unique_ptr") align 8 %session.i, ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef nonnull %call.i)
-  %6 = load ptr, ptr %session.i, align 8
-  %cmp.i.i.not.i = icmp eq ptr %6, null
+  call void @_ZN3tsi18SslSessionLRUCache3GetEPKc(ptr nonnull sret(%"class.std::unique_ptr") align 8 %session.i, ptr noundef nonnull align 8 dereferenceable(104) %6, ptr noundef nonnull %call.i)
+  %7 = load ptr, ptr %session.i, align 8
+  %cmp.i.i.not.i = icmp eq ptr %7, null
   br i1 %cmp.i.i.not.i, label %_ZL33tsi_ssl_handshaker_resume_sessionP6ssl_stPN3tsi18SslSessionLRUCacheE.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i31
-  %call4.i = invoke i32 @SSL_set_session(ptr noundef nonnull %call, ptr noundef nonnull %6)
+  %call4.i = invoke i32 @SSL_set_session(ptr noundef nonnull %call, ptr noundef nonnull %7)
           to label %if.end5.i unwind label %lpad.i
 
 lpad.i:                                           ; preds = %if.then2.i
-  %7 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrI14ssl_session_stN3tsi17SslSessionDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %session.i) #24
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %8
 
 if.end5.i:                                        ; preds = %if.then2.i
   %.pr.i = load ptr, ptr %session.i, align 8
@@ -965,10 +965,10 @@ if.then.i.i:                                      ; preds = %if.end5.i
           to label %_ZL33tsi_ssl_handshaker_resume_sessionP6ssl_stPN3tsi18SslSessionLRUCacheE.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  call void @__clang_call_terminate(ptr %9) #25
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #25
   unreachable
 
 _ZL33tsi_ssl_handshaker_resume_sessionP6ssl_stPN3tsi18SslSessionLRUCacheE.exit: ; preds = %if.then20, %if.end.i31, %if.end5.i, %if.then.i.i
@@ -986,8 +986,8 @@ if.then27:                                        ; preds = %if.end23
   %call28 = call noundef ptr @_ZN9grpc_core14SslErrorStringEi(i32 noundef %call25)
   call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 1777, i32 noundef 2, ptr noundef nonnull @.str.49, ptr noundef %call28)
   call void @SSL_free(ptr noundef nonnull %call)
-  %10 = load ptr, ptr %network_io, align 8
-  %call29 = call i32 @BIO_free(ptr noundef %10)
+  %11 = load ptr, ptr %network_io, align 8
+  %call29 = call i32 @BIO_free(ptr noundef %11)
   br label %return
 
 if.else:                                          ; preds = %if.end6
@@ -998,9 +998,9 @@ if.end31:                                         ; preds = %if.end23, %if.else
   %call.i32 = call noundef ptr @gpr_zalloc(i64 noundef 64)
   %ssl33 = getelementptr inbounds i8, ptr %call.i32, i64 16
   store ptr %call, ptr %ssl33, align 8
-  %11 = load ptr, ptr %network_io, align 8
+  %12 = load ptr, ptr %network_io, align 8
   %network_io34 = getelementptr inbounds i8, ptr %call.i32, i64 24
-  store ptr %11, ptr %network_io34, align 8
+  store ptr %12, ptr %network_io34, align 8
   %result = getelementptr inbounds i8, ptr %call.i32, i64 32
   store i32 11, ptr %result, align 8
   %outgoing_bytes_buffer_size = getelementptr inbounds i8, ptr %call.i32, i64 48

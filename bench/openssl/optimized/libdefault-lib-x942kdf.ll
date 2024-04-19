@@ -755,7 +755,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %keylen.tr = trunc i64 %keylen to i32
+  %keylen.tr = trunc nuw i64 %keylen to i32
   %conv = shl nuw nsw i32 %keylen.tr, 3
   %call = call fastcc i32 @der_encode_sharedinfo(ptr noundef nonnull %pkt, ptr noundef null, i64 noundef 0, ptr noundef %cek_oid, i64 noundef %cek_oid_len, ptr noundef %acvp, i64 noundef %acvp_len, ptr noundef %partyu, i64 noundef %partyu_len, ptr noundef %partyv, i64 noundef %partyv_len, ptr noundef %supp_pub, i64 noundef %supp_pub_len, ptr noundef %supp_priv, i64 noundef %supp_priv_len, i32 noundef %conv, ptr noundef null), !range !4
   %tobool.not = icmp eq i32 %call, 0
@@ -1026,14 +1026,14 @@ lor.lhs.false.i:                                  ; preds = %land.lhs.true3.i
 land.lhs.true6.i:                                 ; preds = %lor.lhs.false.i, %land.lhs.true3.i
   %call7.i = tail call i32 @ossl_DER_w_precompiled(ptr noundef %pkt, i32 noundef -1, ptr noundef %der_oid, i64 noundef %der_oidlen) #6
   %tobool8.not.i = icmp eq i32 %call7.i, 0
-  br i1 %tobool8.not.i, label %land.end, label %DER_w_keyinfo.exit
+  br i1 %tobool8.not.i, label %land.end, label %land.rhs.i
 
-DER_w_keyinfo.exit:                               ; preds = %land.lhs.true6.i
+land.rhs.i:                                       ; preds = %land.lhs.true6.i
   %call9.i = tail call i32 @ossl_DER_w_end_sequence(ptr noundef %pkt, i32 noundef -1) #6
   %tobool10.i.not = icmp eq i32 %call9.i, 0
   br i1 %tobool10.i.not, label %land.end, label %land.lhs.true37
 
-land.lhs.true37:                                  ; preds = %DER_w_keyinfo.exit
+land.lhs.true37:                                  ; preds = %land.rhs.i
   %call38 = tail call i32 @ossl_DER_w_end_sequence(ptr noundef %pkt, i32 noundef -1) #6
   %tobool39.not = icmp eq i32 %call38, 0
   br i1 %tobool39.not, label %land.end, label %land.rhs
@@ -1044,8 +1044,8 @@ land.rhs:                                         ; preds = %land.lhs.true37
   %0 = zext i1 %tobool41 to i32
   br label %land.end
 
-land.end:                                         ; preds = %land.lhs.true34, %land.lhs.true.i, %lor.lhs.false.i, %land.lhs.true6.i, %land.rhs, %land.lhs.true37, %DER_w_keyinfo.exit, %lor.lhs.false31, %lor.lhs.false26, %lor.lhs.false21, %lor.lhs.false16, %lor.lhs.false11, %lor.lhs.false, %land.lhs.true, %cond.false, %cond.true
-  %land.ext = phi i32 [ 0, %land.lhs.true37 ], [ 0, %DER_w_keyinfo.exit ], [ 0, %lor.lhs.false31 ], [ 0, %lor.lhs.false26 ], [ 0, %lor.lhs.false21 ], [ 0, %lor.lhs.false16 ], [ 0, %lor.lhs.false11 ], [ 0, %lor.lhs.false ], [ 0, %land.lhs.true ], [ 0, %cond.false ], [ 0, %cond.true ], [ %0, %land.rhs ], [ 0, %land.lhs.true6.i ], [ 0, %lor.lhs.false.i ], [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true34 ]
+land.end:                                         ; preds = %land.rhs.i, %land.lhs.true34, %land.lhs.true.i, %lor.lhs.false.i, %land.lhs.true6.i, %land.rhs, %land.lhs.true37, %lor.lhs.false31, %lor.lhs.false26, %lor.lhs.false21, %lor.lhs.false16, %lor.lhs.false11, %lor.lhs.false, %land.lhs.true, %cond.false, %cond.true
+  %land.ext = phi i32 [ 0, %land.lhs.true37 ], [ 0, %lor.lhs.false31 ], [ 0, %lor.lhs.false26 ], [ 0, %lor.lhs.false21 ], [ 0, %lor.lhs.false16 ], [ 0, %lor.lhs.false11 ], [ 0, %lor.lhs.false ], [ 0, %land.lhs.true ], [ 0, %cond.false ], [ 0, %cond.true ], [ %0, %land.rhs ], [ 0, %land.lhs.true6.i ], [ 0, %lor.lhs.false.i ], [ 0, %land.lhs.true.i ], [ 0, %land.lhs.true34 ], [ 0, %land.rhs.i ]
   ret i32 %land.ext
 }
 

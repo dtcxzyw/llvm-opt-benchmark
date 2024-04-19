@@ -896,27 +896,27 @@ define internal fastcc i32 @commview_ncfx_read_packet(ptr noundef %0, ptr nocapt
   %55 = getelementptr inbounds i8, ptr %8, i64 12
   %56 = call i32 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %55, i32 noundef 4, ptr noundef %3, ptr noundef %4) #7
   %.not59.i = icmp eq i32 %56, 0
-  br i1 %.not59.i, label %commview_ncfx_read_rf_header.exit.thread, label %commview_ncfx_read_rf_header.exit
+  br i1 %.not59.i, label %commview_ncfx_read_rf_header.exit.thread, label %57
 
-commview_ncfx_read_rf_header.exit:                ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %8, i64 16
-  %58 = call i32 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %57, i32 noundef 4, ptr noundef %3, ptr noundef %4) #7
-  %.not60.i.not = icmp eq i32 %58, 0
-  br i1 %.not60.i.not, label %commview_ncfx_read_rf_header.exit.thread, label %59
+57:                                               ; preds = %54
+  %58 = getelementptr inbounds i8, ptr %8, i64 16
+  %59 = call i32 @wtap_read_bytes(ptr noundef %0, ptr noundef nonnull %58, i32 noundef 4, ptr noundef %3, ptr noundef %4) #7
+  %.not60.i.not = icmp eq i32 %59, 0
+  br i1 %.not60.i.not, label %commview_ncfx_read_rf_header.exit.thread, label %commview_ncfx_read_rf_header.exit
 
-59:                                               ; preds = %commview_ncfx_read_rf_header.exit
+commview_ncfx_read_rf_header.exit:                ; preds = %57
   %60 = load i16, ptr %34, align 2
   %61 = zext i16 %60 to i32
   %62 = and i32 %61, 8
   %.not109 = icmp eq i32 %62, 0
   br i1 %.not109, label %65, label %63
 
-63:                                               ; preds = %59
+63:                                               ; preds = %commview_ncfx_read_rf_header.exit
   %64 = getelementptr inbounds i8, ptr %1, i64 88
   store i32 11, ptr %64, align 8
   br label %74
 
-65:                                               ; preds = %59
+65:                                               ; preds = %commview_ncfx_read_rf_header.exit
   %66 = and i32 %61, 4
   %.not110 = icmp eq i32 %66, 0
   br i1 %.not110, label %69, label %67
@@ -1045,7 +1045,7 @@ commview_ncfx_read_rf_header.exit:                ; preds = %54
   br label %124
 
 124:                                              ; preds = %120, %117
-  %125 = load i32, ptr %57, align 4
+  %125 = load i32, ptr %58, align 4
   %126 = and i32 %125, 1
   %.not115 = icmp eq i32 %126, 0
   br i1 %.not115, label %197, label %127
@@ -1234,8 +1234,8 @@ commview_ncfx_read_rf_header.exit:                ; preds = %54
   %229 = call i32 @wtap_read_packet_bytes(ptr noundef %0, ptr noundef %2, i32 noundef %228, ptr noundef %3, ptr noundef %4) #7
   br label %commview_ncfx_read_rf_header.exit.thread
 
-commview_ncfx_read_rf_header.exit.thread:         ; preds = %54, %51, %48, %45, %42, %39, %36, %33, %30, %132, %commview_ncfx_read_rf_header.exit, %5, %219, %217, %194, %129, %28
-  %.0103 = phi i32 [ 0, %194 ], [ 0, %28 ], [ 0, %129 ], [ 0, %217 ], [ %229, %219 ], [ 0, %5 ], [ 0, %commview_ncfx_read_rf_header.exit ], [ 0, %132 ], [ 0, %30 ], [ 0, %33 ], [ 0, %36 ], [ 0, %39 ], [ 0, %42 ], [ 0, %45 ], [ 0, %48 ], [ 0, %51 ], [ 0, %54 ]
+commview_ncfx_read_rf_header.exit.thread:         ; preds = %57, %54, %51, %48, %45, %42, %39, %36, %33, %30, %132, %5, %219, %217, %194, %129, %28
+  %.0103 = phi i32 [ 0, %194 ], [ 0, %28 ], [ 0, %129 ], [ 0, %217 ], [ %229, %219 ], [ 0, %5 ], [ 0, %132 ], [ 0, %30 ], [ 0, %33 ], [ 0, %36 ], [ 0, %39 ], [ 0, %42 ], [ 0, %45 ], [ 0, %48 ], [ 0, %51 ], [ 0, %54 ], [ 0, %57 ]
   ret i32 %.0103
 }
 
@@ -1318,7 +1318,7 @@ define internal i32 @commview_ncf_dump(ptr noundef %0, ptr noundef %1, ptr nound
   br label %202
 
 15:                                               ; preds = %10
-  %16 = trunc i32 %12 to i16
+  %16 = trunc nuw i32 %12 to i16
   store i16 %16, ptr %6, align 4
   %17 = getelementptr inbounds i8, ptr %6, i64 2
   store i16 %16, ptr %17, align 2
@@ -1518,7 +1518,7 @@ define internal i32 @commview_ncf_dump(ptr noundef %0, ptr noundef %1, ptr nound
   %116 = load i16, ptr %115, align 4
   %117 = trunc i16 %116 to i8
   %118 = lshr i16 %116, 8
-  %119 = trunc i16 %118 to i8
+  %119 = trunc nuw i16 %118 to i8
   br label %.thread
 
 .thread:                                          ; preds = %110, %114

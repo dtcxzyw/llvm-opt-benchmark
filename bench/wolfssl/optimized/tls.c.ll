@@ -6101,22 +6101,22 @@ entry:
   store i16 0, ptr %length, align 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %semaphore, i8 0, i64 9, i1 false)
   %tobool.not.i = icmp eq ptr %ssl, null
-  %.sink38.sroa.gep = getelementptr inbounds i8, ptr %semaphore, i64 1
-  %.sink38.sroa.gep39 = getelementptr inbounds i8, ptr %semaphore, i64 6
+  %.sink35.sroa.gep = getelementptr inbounds i8, ptr %semaphore, i64 1
+  %.sink35.sroa.gep36 = getelementptr inbounds i8, ptr %semaphore, i64 6
   br i1 %tobool.not.i, label %return, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %entry
   %call.i = tail call i32 @IsTLS(ptr noundef nonnull %ssl) #16
   %tobool1.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool1.not.i, label %TLSX_SupportExtensions.exit, label %if.end
+  br i1 %tobool1.not.i, label %lor.rhs.i, label %if.end
 
-TLSX_SupportExtensions.exit:                      ; preds = %land.rhs.i
+lor.rhs.i:                                        ; preds = %land.rhs.i
   %version.i = getelementptr inbounds i8, ptr %ssl, i64 694
   %0 = load i8, ptr %version.i, align 2
-  %cmp.i.not = icmp eq i8 %0, -2
-  br i1 %cmp.i.not, label %if.end, label %return
+  %cmp.i = icmp eq i8 %0, -2
+  br i1 %cmp.i, label %if.end, label %return
 
-if.end:                                           ; preds = %land.rhs.i, %TLSX_SupportExtensions.exit
+if.end:                                           ; preds = %lor.rhs.i, %land.rhs.i
   %cmp = icmp eq i8 %msgType, 1
   br i1 %cmp, label %if.then2, label %if.else
 
@@ -6170,9 +6170,9 @@ if.then60:                                        ; preds = %if.else
   br label %if.end76.sink.split
 
 if.end76.sink.split:                              ; preds = %if.end38, %if.then60
-  %.sink38.sroa.phi = phi ptr [ %.sink38.sroa.gep, %if.then60 ], [ %.sink38.sroa.gep39, %if.end38 ]
+  %.sink35.sroa.phi = phi ptr [ %.sink35.sroa.gep, %if.then60 ], [ %.sink35.sroa.gep36, %if.end38 ]
   %.sink = phi i8 [ -33, %if.then60 ], [ 8, %if.end38 ]
-  store i8 %.sink, ptr %.sink38.sroa.phi, align 1
+  store i8 %.sink, ptr %.sink35.sroa.phi, align 1
   br label %if.end76
 
 if.end76:                                         ; preds = %if.end76.sink.split, %if.else, %if.end38
@@ -6244,8 +6244,8 @@ if.end122:                                        ; preds = %if.end122thread-pre
   store i16 %add131, ptr %pLength, align 2
   br label %return
 
-return:                                           ; preds = %entry, %if.then92, %if.then78, %TLSX_SupportExtensions.exit, %if.end122
-  %retval.0 = phi i32 [ 0, %if.end122 ], [ 0, %TLSX_SupportExtensions.exit ], [ %call81, %if.then78 ], [ %call96, %if.then92 ], [ 0, %entry ]
+return:                                           ; preds = %lor.rhs.i, %entry, %if.then92, %if.then78, %if.end122
+  %retval.0 = phi i32 [ 0, %if.end122 ], [ %call81, %if.then78 ], [ %call96, %if.then92 ], [ 0, %entry ], [ 0, %lor.rhs.i ]
   ret i32 %retval.0
 }
 
@@ -7472,15 +7472,15 @@ land.rhs.i:                                       ; preds = %sw.epilog, %land.lh
   %5 = phi i16 [ 0, %sw.epilog ], [ 0, %land.lhs.true134 ], [ 4, %if.then138 ], [ 0, %if.end141 ]
   %call.i = tail call i32 @IsTLS(ptr noundef nonnull %ssl) #16
   %tobool1.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool1.not.i, label %TLSX_SupportExtensions.exit, label %if.then144
+  br i1 %tobool1.not.i, label %lor.rhs.i, label %if.then144
 
-TLSX_SupportExtensions.exit:                      ; preds = %land.rhs.i
+lor.rhs.i:                                        ; preds = %land.rhs.i
   %version.i = getelementptr inbounds i8, ptr %ssl, i64 694
   %6 = load i8, ptr %version.i, align 2
-  %cmp.i.not = icmp eq i8 %6, -2
-  br i1 %cmp.i.not, label %if.then144, label %if.end151
+  %cmp.i = icmp eq i8 %6, -2
+  br i1 %cmp.i, label %if.then144, label %if.end151
 
-if.then144:                                       ; preds = %land.rhs.i, %TLSX_SupportExtensions.exit
+if.then144:                                       ; preds = %lor.rhs.i, %land.rhs.i
   %extensions = getelementptr inbounds i8, ptr %ssl, i64 1200
   %7 = load ptr, ptr %extensions, align 16
   %call146 = call fastcc i32 @TLSX_GetSize(ptr noundef %7, ptr noundef nonnull %semaphore, i8 noundef zeroext %msgType, ptr noundef nonnull %length), !range !51
@@ -7491,8 +7491,8 @@ if.then144.if.end151_crit_edge:                   ; preds = %if.then144
   %.pre = load i16, ptr %length, align 2
   br label %if.end151
 
-if.end151:                                        ; preds = %if.then144.if.end151_crit_edge, %TLSX_SupportExtensions.exit
-  %8 = phi i16 [ %.pre, %if.then144.if.end151_crit_edge ], [ %5, %TLSX_SupportExtensions.exit ]
+if.end151:                                        ; preds = %if.then144.if.end151_crit_edge, %lor.rhs.i
+  %8 = phi i16 [ %.pre, %if.then144.if.end151_crit_edge ], [ %5, %lor.rhs.i ]
   %tobool153 = icmp ne i16 %8, 0
   %cmp155 = icmp ne i8 %msgType, 2
   %or.cond1 = or i1 %cmp155, %tobool153

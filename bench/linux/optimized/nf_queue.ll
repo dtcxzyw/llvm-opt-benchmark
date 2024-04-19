@@ -309,7 +309,7 @@ define dso_local noundef i32 @nf_queue(ptr noundef %0, ptr nocapture noundef rea
   br i1 %82, label %187, label %.thread27
 
 .thread27:                                        ; preds = %70, %55
-  %83 = trunc i64 %14 to i16
+  %83 = trunc nuw nsw i64 %14 to i16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
   %84 = getelementptr inbounds i8, ptr %53, i64 16
   store ptr %0, ptr %84, align 8
@@ -532,8 +532,8 @@ define dso_local void @nf_reinject(ptr noundef %0, i32 noundef %1) #0 align 16 {
   br label %24
 
 12:                                               ; preds = %2, %11
-  %.sink27 = phi i64 [ 2384, %11 ], [ 2344, %2 ]
-  %13 = getelementptr inbounds i8, ptr %7, i64 %.sink27
+  %.sink28 = phi i64 [ 2384, %11 ], [ 2344, %2 ]
+  %13 = getelementptr inbounds i8, ptr %7, i64 %.sink28
   %14 = zext i8 %10 to i64
   %15 = getelementptr [5 x ptr], ptr %13, i64 0, i64 %14
   %16 = load volatile ptr, ptr %15, align 8
@@ -604,15 +604,15 @@ define dso_local void @nf_reinject(ptr noundef %0, i32 noundef %1) #0 align 16 {
 55:                                               ; preds = %52
   %56 = tail call i32 @nf_reroute(ptr noundef %4, ptr noundef %0) #7
   %57 = icmp sgt i32 %56, -1
-  br i1 %57, label %58, label %.thread16
+  br i1 %57, label %58, label %.thread14.thread
 
-58:                                               ; preds = %92, %55
-  %59 = phi i32 [ %18, %55 ], [ %82, %92 ]
+58:                                               ; preds = %55, %92
+  %59 = phi i32 [ %82, %92 ], [ %18, %55 ]
   %60 = add i32 %59, 1
   %61 = load i16, ptr %16, align 8
   %62 = zext i16 %61 to i32
   %63 = icmp ult i32 %60, %62
-  br i1 %63, label %64, label %.thread15
+  br i1 %63, label %64, label %.thread17
 
 64:                                               ; preds = %58
   %65 = getelementptr inbounds i8, ptr %16, i64 8
@@ -639,24 +639,24 @@ define dso_local void @nf_reinject(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %77 = load i16, ptr %16, align 8
   %78 = zext i16 %77 to i64
   %79 = icmp ult i64 %76, %78
-  br i1 %79, label %67, label %.thread15, !llvm.loop !24
+  br i1 %79, label %67, label %.thread17, !llvm.loop !24
 
 80:                                               ; preds = %71
-  %81 = trunc i64 %68 to i32
+  %81 = trunc nuw nsw i64 %68 to i32
   br label %.thread14
 
 .thread14:                                        ; preds = %52, %80
   %82 = phi i32 [ %81, %80 ], [ %18, %52 ]
   %83 = phi i32 [ %74, %80 ], [ %53, %52 ]
   %84 = trunc i32 %83 to i8
-  switch i8 %84, label %.thread16 [
-    i8 1, label %.thread15
-    i8 5, label %.thread15
+  switch i8 %84, label %.thread14.thread [
+    i8 1, label %.thread17
+    i8 5, label %.thread17
     i8 3, label %92
     i8 2, label %95
   ]
 
-.thread15:                                        ; preds = %75, %58, %.thread14, %.thread14
+.thread17:                                        ; preds = %75, %58, %.thread14, %.thread14
   %85 = tail call i64 asm "lea 0(%rip), $0", "=r,~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !25
   tail call void asm "addl $1, %gs:$0", "=*m,ri,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1), i32 512, ptr nonnull elementtype(i32) getelementptr inbounds (%struct.pcpu_hot, ptr @pcpu_hot, i64 0, i32 0, i32 0, i32 1)) #7, !srcloc !26
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !27
@@ -674,11 +674,11 @@ define dso_local void @nf_reinject(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %94 = icmp eq i32 %93, 0
   br i1 %94, label %95, label %58
 
-.thread16:                                        ; preds = %55, %.thread14
+.thread14.thread:                                 ; preds = %55, %.thread14
   tail call void @kfree_skb_reason(ptr noundef %4, i32 noundef 2) #7
   br label %95
 
-95:                                               ; preds = %.thread16, %92, %.thread15, %.thread14
+95:                                               ; preds = %.thread14.thread, %92, %.thread17, %.thread14
   %96 = getelementptr inbounds i8, ptr %0, i64 40
   %97 = load ptr, ptr %96, align 8
   %98 = icmp eq ptr %97, null

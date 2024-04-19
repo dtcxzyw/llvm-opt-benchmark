@@ -256,16 +256,16 @@ lor.lhs.false:                                    ; preds = %entry
 if.end.i:                                         ; preds = %lor.lhs.false
   %call.i = tail call fastcc i32 @hkdf_common_set_ctx_params(ptr noundef nonnull %vctx, ptr noundef nonnull %params), !range !4
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %return, label %kdf_hkdf_set_ctx_params.exit
+  br i1 %tobool.not.i, label %return, label %if.end2.i
 
-kdf_hkdf_set_ctx_params.exit:                     ; preds = %if.end.i
+if.end2.i:                                        ; preds = %if.end.i
   %info.i = getelementptr inbounds i8, ptr %vctx, i64 120
   %info_len.i = getelementptr inbounds i8, ptr %vctx, i64 128
   %call3.i = tail call i32 @ossl_param_get1_concat_octet_string(ptr noundef nonnull %params, ptr noundef nonnull @.str.7, ptr noundef nonnull %info.i, ptr noundef nonnull %info_len.i, i64 noundef 32768) #7
   %cmp4.i.not = icmp eq i32 %call3.i, 0
   br i1 %cmp4.i.not, label %return, label %if.end
 
-if.end:                                           ; preds = %lor.lhs.false, %kdf_hkdf_set_ctx_params.exit
+if.end:                                           ; preds = %if.end2.i, %lor.lhs.false
   %digest = getelementptr inbounds i8, ptr %vctx, i64 16
   %call4 = tail call ptr @ossl_prov_digest_md(ptr noundef nonnull %digest) #7
   %cmp = icmp eq ptr %call4, null
@@ -359,8 +359,8 @@ sw.bb22:                                          ; preds = %if.end13
   %call27 = tail call fastcc i32 @HKDF_Expand(ptr noundef nonnull %call4, ptr noundef nonnull %1, i64 noundef %11, ptr noundef %12, i64 noundef %13, ptr noundef %key, i64 noundef %keylen), !range !4
   br label %return
 
-return:                                           ; preds = %if.end.i, %entry, %kdf_hkdf_set_ctx_params.exit, %sw.bb22, %sw.bb16, %HKDF.exit, %if.then12, %if.then9, %if.then5
-  %retval.0 = phi i32 [ 0, %if.then5 ], [ 0, %if.then9 ], [ 0, %if.then12 ], [ %retval.0.i32, %HKDF.exit ], [ %call21, %sw.bb16 ], [ %call27, %sw.bb22 ], [ 0, %kdf_hkdf_set_ctx_params.exit ], [ 0, %entry ], [ 0, %if.end.i ]
+return:                                           ; preds = %if.end2.i, %if.end.i, %entry, %sw.bb22, %sw.bb16, %HKDF.exit, %if.then12, %if.then9, %if.then5
+  %retval.0 = phi i32 [ 0, %if.then5 ], [ 0, %if.then9 ], [ 0, %if.then12 ], [ %retval.0.i32, %HKDF.exit ], [ %call21, %sw.bb16 ], [ %call27, %sw.bb22 ], [ 0, %entry ], [ 0, %if.end.i ], [ 0, %if.end2.i ]
   ret i32 %retval.0
 }
 

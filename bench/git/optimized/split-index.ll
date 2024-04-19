@@ -338,7 +338,7 @@ for.body.i:                                       ; preds = %copy_array.exit, %f
   %arrayidx.i = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv.i
   %30 = load ptr, ptr %arrayidx.i, align 8
   %index.i = getelementptr inbounds i8, ptr %30, i64 68
-  %31 = trunc i64 %indvars.iv.next.i to i32
+  %31 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   store i32 %31, ptr %index.i, align 4
   %32 = load i32, ptr %cache_nr.i, align 4
   %33 = zext i32 %32 to i64
@@ -406,7 +406,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
   %arrayidx.i = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv.i
   %4 = load ptr, ptr %arrayidx.i, align 8
   %index.i = getelementptr inbounds i8, ptr %4, i64 68
-  %5 = trunc i64 %indvars.iv.next.i to i32
+  %5 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   store i32 %5, ptr %index.i, align 4
   %6 = load i32, ptr %cache_nr.i, align 4
   %7 = zext i32 %6 to i64
@@ -494,7 +494,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %tobool36.not, label %if.then37, label %if.end38
 
 if.then37:                                        ; preds = %for.body
-  %23 = trunc i64 %indvars.iv to i32
+  %23 = trunc nuw i64 %indvars.iv to i32
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.5, i32 noundef %23) #10
   unreachable
 
@@ -561,7 +561,7 @@ if.end9:                                          ; preds = %if.end
   br i1 %tobool.not, label %if.end12, label %if.then10
 
 if.then10:                                        ; preds = %if.end9
-  %conv11 = trunc i64 %pos to i32
+  %conv11 = trunc nuw i64 %pos to i32
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.12, i32 noundef %conv11) #10
   unreachable
 
@@ -796,7 +796,12 @@ land.lhs.true54:                                  ; preds = %if.else50
   %call55 = tail call i32 @is_racy_timestamp(ptr noundef nonnull %istate, ptr noundef nonnull %8) #11
   %tobool56.not = icmp eq i32 %call55, 0
   %.pre = load i32, ptr %ce_flags, align 8
-  br i1 %tobool56.not, label %if.else60, label %if.end68.sink.split
+  br i1 %tobool56.not, label %if.else60, label %if.then57
+
+if.then57:                                        ; preds = %land.lhs.true54
+  %or59 = or i32 %.pre, 134217728
+  store i32 %or59, ptr %ce_flags, align 8
+  br label %if.end68
 
 if.else60:                                        ; preds = %land.lhs.true54, %if.else50
   %20 = phi i32 [ %.pre, %land.lhs.true54 ], [ %or, %if.else50 ]
@@ -811,12 +816,7 @@ if.else60:                                        ; preds = %land.lhs.true54, %i
   %ce_stat_data6.i = getelementptr inbounds i8, ptr %15, i64 16
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(36) %ce_stat_data.i, ptr noundef nonnull dereferenceable(36) %ce_stat_data6.i, i64 36)
   %tobool.not.i92 = icmp eq i32 %bcmp.i, 0
-  br i1 %tobool.not.i92, label %lor.rhs.i, label %compare_ce_content.exit.thread
-
-compare_ce_content.exit.thread:                   ; preds = %if.else60
-  store i32 %20, ptr %ce_flags, align 8
-  store i32 %21, ptr %ce_flags2.i, align 8
-  br label %if.then63
+  br i1 %tobool.not.i92, label %lor.rhs.i, label %if.then63
 
 lor.rhs.i:                                        ; preds = %if.else60
   %oid.i = getelementptr inbounds i8, ptr %8, i64 72
@@ -846,30 +846,31 @@ if.end.i.i:                                       ; preds = %if.else.i.i, %if.th
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
   %bcmp3.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %oid.i, ptr noundef nonnull dereferenceable(32) %oid7.i, i64 32)
-  br label %compare_ce_content.exit
+  br label %oideq.exit.i
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i
   %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(20) %oid.i, ptr noundef nonnull dereferenceable(20) %oid7.i, i64 20)
-  br label %compare_ce_content.exit
+  br label %oideq.exit.i
 
-compare_ce_content.exit:                          ; preds = %if.then.i.i.i, %if.end.i.i.i
+oideq.exit.i:                                     ; preds = %if.end.i.i.i, %if.then.i.i.i
   %retval.0.in.in.i.i.i = phi i32 [ %bcmp3.i.i.i, %if.then.i.i.i ], [ %bcmp.i.i.i, %if.end.i.i.i ]
   %retval.0.in.i.i.i.not = icmp eq i32 %retval.0.in.in.i.i.i, 0
+  br i1 %retval.0.in.i.i.i.not, label %compare_ce_content.exit, label %if.then63
+
+compare_ce_content.exit:                          ; preds = %oideq.exit.i
   store i32 %20, ptr %ce_flags, align 8
   store i32 %21, ptr %ce_flags2.i, align 8
-  br i1 %retval.0.in.i.i.i.not, label %if.end68, label %if.then63
-
-if.then63:                                        ; preds = %compare_ce_content.exit.thread, %compare_ce_content.exit
-  %27 = load i32, ptr %ce_flags, align 8
-  br label %if.end68.sink.split
-
-if.end68.sink.split:                              ; preds = %land.lhs.true54, %if.then63
-  %.pre.sink = phi i32 [ %27, %if.then63 ], [ %.pre, %land.lhs.true54 ]
-  %or59 = or i32 %.pre.sink, 134217728
-  store i32 %or59, ptr %ce_flags, align 8
   br label %if.end68
 
-if.end68:                                         ; preds = %if.end68.sink.split, %compare_ce_content.exit, %if.end45
+if.then63:                                        ; preds = %oideq.exit.i, %if.else60
+  store i32 %20, ptr %ce_flags, align 8
+  store i32 %21, ptr %ce_flags2.i, align 8
+  %27 = load i32, ptr %ce_flags, align 8
+  %or65 = or i32 %27, 134217728
+  store i32 %or65, ptr %ce_flags, align 8
+  br label %if.end68
+
+if.end68:                                         ; preds = %compare_ce_content.exit, %if.then57, %if.then63, %if.end45
   tail call void @discard_cache_entry(ptr noundef nonnull %15) #11
   %28 = load ptr, ptr %base, align 8
   %29 = load ptr, ptr %28, align 8

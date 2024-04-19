@@ -55,23 +55,23 @@ define void @Saig_ManReportUselessRegisters(ptr noundef %0) local_unnamed_addr #
   %.val.i = load i64, ptr %22, align 8
   %23 = and i64 %.val.i, 7
   %.not.i = icmp eq i64 %23, 2
-  br i1 %.not.i, label %Saig_ObjIsLo.exit, label %Saig_ObjIsLo.exit.thread
+  br i1 %.not.i, label %24, label %Saig_ObjIsLo.exit.thread
 
-Saig_ObjIsLo.exit:                                ; preds = %15
+24:                                               ; preds = %15
   %.val3.i = load i32, ptr %21, align 8
   %.val4.i = load i32, ptr %7, align 4
   %.not55 = icmp slt i32 %.val3.i, %.val4.i
-  br i1 %.not55, label %Saig_ObjIsLo.exit.thread, label %24
+  br i1 %.not55, label %Saig_ObjIsLo.exit.thread, label %Saig_ObjIsLo.exit
 
-24:                                               ; preds = %Saig_ObjIsLo.exit
+Saig_ObjIsLo.exit:                                ; preds = %24
   %.mask56 = and i64 %.val.i, 4294967232
   %25 = icmp eq i64 %.mask56, 64
   %26 = zext i1 %25 to i32
   %spec.select = add nsw i32 %.02958, %26
   br label %Saig_ObjIsLo.exit.thread
 
-Saig_ObjIsLo.exit.thread:                         ; preds = %15, %24, %Saig_ObjIsLo.exit
-  %.130 = phi i32 [ %.02958, %Saig_ObjIsLo.exit ], [ %spec.select, %24 ], [ %.02958, %15 ]
+Saig_ObjIsLo.exit.thread:                         ; preds = %24, %15, %Saig_ObjIsLo.exit
+  %.130 = phi i32 [ %spec.select, %Saig_ObjIsLo.exit ], [ %.02958, %15 ], [ %.02958, %24 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge.preheader, label %15, !llvm.loop !4
@@ -90,23 +90,23 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %15, %24, %Saig_ObjI
   %.val.i47 = load i64, ptr %33, align 8
   %34 = and i64 %.val.i47, 7
   %.not.i48 = icmp eq i64 %34, 2
-  br i1 %.not.i48, label %Saig_ObjIsPi.exit, label %Saig_ObjIsPi.exit.thread
+  br i1 %.not.i48, label %35, label %Saig_ObjIsPi.exit.thread
 
-Saig_ObjIsPi.exit:                                ; preds = %27
+35:                                               ; preds = %27
   %.val3.i49 = load i32, ptr %32, align 8
   %.val4.i50 = load i32, ptr %13, align 4
-  %.not53 = icmp slt i32 %.val3.i49, %.val4.i50
-  br i1 %.not53, label %35, label %Saig_ObjIsPi.exit.thread
+  %36 = icmp slt i32 %.val3.i49, %.val4.i50
+  br i1 %36, label %Saig_ObjIsPi.exit, label %Saig_ObjIsPi.exit.thread
 
-35:                                               ; preds = %Saig_ObjIsPi.exit
+Saig_ObjIsPi.exit:                                ; preds = %35
   %.mask54 = and i64 %.val.i47, 4294967232
-  %36 = icmp eq i64 %.mask54, 64
-  %37 = zext i1 %36 to i32
-  %spec.select36 = add nsw i32 %.061, %37
+  %37 = icmp eq i64 %.mask54, 64
+  %38 = zext i1 %37 to i32
+  %spec.select36 = add nsw i32 %.061, %38
   br label %Saig_ObjIsPi.exit.thread
 
-Saig_ObjIsPi.exit.thread:                         ; preds = %27, %35, %Saig_ObjIsPi.exit
-  %.1 = phi i32 [ %.061, %Saig_ObjIsPi.exit ], [ %spec.select36, %35 ], [ %.061, %27 ]
+Saig_ObjIsPi.exit.thread:                         ; preds = %35, %27, %Saig_ObjIsPi.exit
+  %.1 = phi i32 [ %spec.select36, %Saig_ObjIsPi.exit ], [ %.061, %27 ], [ %.061, %35 ]
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
   br i1 %exitcond70.not, label %.critedge2, label %27, !llvm.loop !6
@@ -114,22 +114,22 @@ Saig_ObjIsPi.exit.thread:                         ; preds = %27, %35, %Saig_ObjI
 .critedge2:                                       ; preds = %Saig_ObjIsPi.exit.thread, %.critedge.preheader
   %.0.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %.1, %Saig_ObjIsPi.exit.thread ]
   %.not = icmp eq i32 %.029.lcssa, 0
-  br i1 %.not, label %40, label %38
+  br i1 %.not, label %41, label %39
 
-38:                                               ; preds = %.critedge2
-  %39 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.029.lcssa, i32 noundef %.val44)
-  br label %40
+39:                                               ; preds = %.critedge2
+  %40 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.029.lcssa, i32 noundef %.val44)
+  br label %41
 
-40:                                               ; preds = %38, %.critedge2
+41:                                               ; preds = %39, %.critedge2
   %.not33 = icmp eq i32 %.0.lcssa, 0
-  br i1 %.not33, label %43, label %41
+  br i1 %.not33, label %44, label %42
 
-41:                                               ; preds = %40
+42:                                               ; preds = %41
   %.val46 = load i32, ptr %8, align 8
-  %42 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.0.lcssa, i32 noundef %.val46)
-  br label %43
+  %43 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.0.lcssa, i32 noundef %.val46)
+  br label %44
 
-43:                                               ; preds = %41, %40
+44:                                               ; preds = %42, %41
   ret void
 }
 

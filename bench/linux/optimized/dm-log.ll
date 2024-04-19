@@ -1201,11 +1201,11 @@ define internal fastcc i32 @create_log_context(ptr nocapture noundef writeonly %
   %34 = zext i32 %31 to i64
   %35 = getelementptr inbounds i8, ptr %1, i64 24
   %36 = load i64, ptr %35, align 8
-  %37 = icmp ult i64 %36, %34
+  %37 = icmp uge i64 %36, %34
   %38 = call i64 @llvm.ctpop.i64(i64 %34), !range !21
-  %39 = icmp ugt i64 %38, 1
-  %or.cond = select i1 %37, i1 true, i1 %39
-  br i1 %or.cond, label %.thread, label %42
+  %39 = icmp ult i64 %38, 2
+  %or.cond = select i1 %37, i1 %39, i1 false
+  br i1 %or.cond, label %42, label %.thread
 
 .thread:                                          ; preds = %30, %33, %24
   %40 = load ptr, ptr %3, align 8
@@ -1245,7 +1245,7 @@ define internal fastcc i32 @create_log_context(ptr nocapture noundef writeonly %
   %61 = lshr i64 %60, 3
   %62 = and i64 %61, 536870904
   %63 = lshr exact i64 %62, 2
-  %64 = trunc i64 %63 to i32
+  %64 = trunc nuw nsw i64 %63 to i32
   %65 = getelementptr inbounds i8, ptr %47, i64 40
   store i32 %64, ptr %65, align 8
   %66 = icmp eq ptr %4, null

@@ -2617,22 +2617,22 @@ define internal noundef i32 @dissect_rdmnet_over_udp_heur(ptr noundef %0, ptr no
 7:                                                ; preds = %4
   %8 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef 4, ptr noundef nonnull @is_acn_or_rdmnet_over_udp.acn_packet_id, i64 noundef 12) #6
   %.not.i.i = icmp eq i32 %8, 0
-  br i1 %.not.i.i, label %is_rdmnet_over_udp.exit, label %is_rdmnet_over_udp.exit.thread
+  br i1 %.not.i.i, label %9, label %is_rdmnet_over_udp.exit.thread
 
-is_rdmnet_over_udp.exit:                          ; preds = %7
-  %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 16) #6
-  %.not11.i.i = icmp sgt i8 %9, -1
+9:                                                ; preds = %7
+  %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 16) #6
+  %.not11.i.i = icmp sgt i8 %10, -1
   %..i.i = select i1 %.not11.i.i, i32 18, i32 19
-  %10 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %..i.i) #6
-  %.not = icmp eq i32 %10, 10
-  br i1 %.not, label %11, label %is_rdmnet_over_udp.exit.thread
+  %11 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %..i.i) #6
+  %12 = icmp eq i32 %11, 10
+  br i1 %12, label %is_rdmnet_over_udp.exit, label %is_rdmnet_over_udp.exit.thread
 
-11:                                               ; preds = %is_rdmnet_over_udp.exit
+is_rdmnet_over_udp.exit:                          ; preds = %9
   tail call fastcc void @dissect_rdmnet(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)
   br label %is_rdmnet_over_udp.exit.thread
 
-is_rdmnet_over_udp.exit.thread:                   ; preds = %7, %4, %is_rdmnet_over_udp.exit, %11
-  %.0 = phi i32 [ 1, %11 ], [ 0, %is_rdmnet_over_udp.exit ], [ 0, %4 ], [ 0, %7 ]
+is_rdmnet_over_udp.exit.thread:                   ; preds = %7, %9, %4, %is_rdmnet_over_udp.exit
+  %.0 = phi i32 [ 1, %is_rdmnet_over_udp.exit ], [ 0, %4 ], [ 0, %9 ], [ 0, %7 ]
   ret i32 %.0
 }
 
@@ -3180,7 +3180,7 @@ dissect_pdu_bit_flag_v.exit.i.i:                  ; preds = %270, %.thread.i
   %.0114181.i.i = phi i32 [ 0, %329 ], [ %358, %382 ]
   %.0115180.i.i = phi ptr [ %354, %329 ], [ %.1116.i.i, %382 ]
   %358 = add nuw nsw i32 %.0114181.i.i, 1
-  %359 = trunc i32 %358 to i8
+  %359 = trunc nuw nsw i32 %358 to i8
   %.not178.i.i = icmp eq i8 %359, 0
   br i1 %.not178.i.i, label %.preheader46.i.i.i, label %.preheader45.i.i.i
 
@@ -3291,7 +3291,7 @@ ltos.exit.i.i:                                    ; preds = %._crit_edge50.i.i.i
   %400 = zext i8 %394 to i16
   %401 = mul nuw nsw i16 %400, 100
   %402 = udiv i16 %401, 255
-  %403 = trunc i16 %402 to i8
+  %403 = trunc nuw nsw i16 %402 to i8
   br label %404
 
 404:                                              ; preds = %399, %393

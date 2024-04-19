@@ -41,8 +41,8 @@ define noundef i32 @callerid_get_own_netinfo(ptr noundef %0) #0 {
 
 .preheader:                                       ; preds = %1
   %7 = tail call ptr @readdir(ptr noundef nonnull %5) #10
-  %.not19 = icmp eq ptr %7, null
-  br i1 %.not19, label %.loopexit, label %.lr.ph
+  %.not20 = icmp eq ptr %7, null
+  br i1 %.not20, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %8 = getelementptr inbounds i8, ptr %4, i64 24
@@ -51,7 +51,7 @@ define noundef i32 @callerid_get_own_netinfo(ptr noundef %0) #0 {
 
 10:                                               ; preds = %1
   %11 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.4) #10
-  br label %44
+  br label %45
 
 12:                                               ; preds = %.lr.ph, %.backedge
   %13 = phi ptr [ %7, %.lr.ph ], [ %29, %.backedge ]
@@ -114,24 +114,27 @@ define noundef i32 @callerid_get_own_netinfo(ptr noundef %0) #0 {
   store i64 %39, ptr %2, align 8
   %40 = call fastcc i32 @_find_match_in_tcp_file(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 2, ptr noundef nonnull @.str, ptr noundef nonnull @_match_inode)
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %callerid_find_conn_by_inode.exit.thread, label %callerid_find_conn_by_inode.exit
+  br i1 %41, label %callerid_find_conn_by_inode.exit.thread, label %42
 
-callerid_find_conn_by_inode.exit.thread:          ; preds = %38
+42:                                               ; preds = %38
+  %43 = call fastcc i32 @_find_match_in_tcp_file(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 10, ptr noundef nonnull @.str.1, ptr noundef nonnull @_match_inode)
+  %.not19 = icmp eq i32 %43, 0
+  br i1 %.not19, label %callerid_find_conn_by_inode.exit.thread, label %callerid_find_conn_by_inode.exit
+
+callerid_find_conn_by_inode.exit.thread:          ; preds = %38, %42
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %.loopexit
 
-callerid_find_conn_by_inode.exit:                 ; preds = %38
-  %42 = call fastcc i32 @_find_match_in_tcp_file(ptr noundef %0, ptr noundef nonnull %2, i32 noundef 10, ptr noundef nonnull @.str.1, ptr noundef nonnull @_match_inode)
-  %.not18 = icmp eq i32 %42, 0
+callerid_find_conn_by_inode.exit:                 ; preds = %42
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  br i1 %.not18, label %.loopexit, label %.backedge
+  br label %.backedge
 
-.loopexit:                                        ; preds = %.backedge, %callerid_find_conn_by_inode.exit, %.preheader, %callerid_find_conn_by_inode.exit.thread
-  %.2 = phi i32 [ 0, %callerid_find_conn_by_inode.exit.thread ], [ -1, %.preheader ], [ -1, %.backedge ], [ 0, %callerid_find_conn_by_inode.exit ]
-  %43 = call i32 @closedir(ptr noundef nonnull %5)
-  br label %44
+.loopexit:                                        ; preds = %.backedge, %.preheader, %callerid_find_conn_by_inode.exit.thread
+  %.2 = phi i32 [ 0, %callerid_find_conn_by_inode.exit.thread ], [ -1, %.preheader ], [ -1, %.backedge ]
+  %44 = call i32 @closedir(ptr noundef nonnull %5)
+  br label %45
 
-44:                                               ; preds = %.loopexit, %10
+45:                                               ; preds = %.loopexit, %10
   %.011 = phi i32 [ -1, %10 ], [ %.2, %.loopexit ]
   ret i32 %.011
 }

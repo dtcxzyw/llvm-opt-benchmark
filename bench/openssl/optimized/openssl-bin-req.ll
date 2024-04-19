@@ -1339,7 +1339,7 @@ if.end475:                                        ; preds = %if.end472, %if.end4
   br i1 %cmp476.not, label %if.end484, label %land.lhs.true478
 
 land.lhs.true478:                                 ; preds = %if.end475
-  %conv479 = trunc i64 %chtype.2 to i32
+  %conv479 = trunc nuw nsw i64 %chtype.2 to i32
   %call480 = call ptr @parse_name(ptr noundef nonnull %subj.0, i32 noundef %conv479, i32 noundef 1, ptr noundef nonnull @.str.39) #10
   %cmp481 = icmp eq ptr %call480, null
   br i1 %cmp481, label %if.then918, label %if.end484
@@ -2574,7 +2574,7 @@ if.then28:                                        ; preds = %if.else
   br i1 %cmp27.i, label %for.body.lr.ph.i, label %for.end34.i
 
 for.body.lr.ph.i:                                 ; preds = %if.then28
-  %conv28.i = trunc i64 %chtype to i32
+  %conv28.i = trunc nuw nsw i64 %chtype to i32
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.end.i
@@ -2644,7 +2644,7 @@ for.cond42.preheader.i:                           ; preds = %if.end39.i
   br i1 %cmp4530.i, label %for.body47.lr.ph.i, label %if.end36
 
 for.body47.lr.ph.i:                               ; preds = %for.cond42.preheader.i
-  %conv51.i = trunc i64 %chtype to i32
+  %conv51.i = trunc nuw nsw i64 %chtype to i32
   br label %for.body47.i
 
 for.cond42.i:                                     ; preds = %for.body47.i
@@ -2695,23 +2695,23 @@ if.end.i:                                         ; preds = %if.then.i21, %if.el
   br i1 %tobool10.not.i, label %if.else199.i, label %start.preheader.i
 
 start.preheader.i:                                ; preds = %if.end.i
-  %call13239242.i = tail call i32 @OPENSSL_sk_num(ptr noundef %dn_sk.0) #10
-  %cmp.not240243.i = icmp sgt i32 %call13239242.i, 0
-  br i1 %cmp.not240243.i, label %if.end15.lr.ph.lr.ph.i, label %for.end112.i
+  %call13247250.i = tail call i32 @OPENSSL_sk_num(ptr noundef %dn_sk.0) #10
+  %cmp.not248251.i = icmp sgt i32 %call13247250.i, 0
+  br i1 %cmp.not248251.i, label %if.end15.lr.ph.lr.ph.i, label %for.end112.i
 
 if.end15.lr.ph.lr.ph.i:                           ; preds = %start.preheader.i
-  %conv.i.i = trunc i64 %chtype to i32
+  %conv.i.i = trunc nuw nsw i64 %chtype to i32
   br label %if.end15.i
 
 start.loopexit.i:                                 ; preds = %for.end.i29
-  %inc238.i = add nsw i32 %inc241.i, 1
-  %call13239.i = call i32 @OPENSSL_sk_num(ptr noundef %dn_sk.0) #10
-  %cmp.not240.i = icmp sgt i32 %call13239.i, %inc238.i
-  br i1 %cmp.not240.i, label %if.end15.i.backedge, label %for.end112.i
+  %inc246.i = add nsw i32 %inc249.i, 1
+  %call13247.i = call i32 @OPENSSL_sk_num(ptr noundef %dn_sk.0) #10
+  %cmp.not248.i = icmp sgt i32 %call13247.i, %inc246.i
+  br i1 %cmp.not248.i, label %if.end15.i.backedge, label %for.end112.i
 
 if.end15.i:                                       ; preds = %if.end15.i.backedge, %if.end15.lr.ph.lr.ph.i
-  %inc241.i = phi i32 [ 0, %if.end15.lr.ph.lr.ph.i ], [ %inc241.i.be, %if.end15.i.backedge ]
-  %call17.i = call ptr @OPENSSL_sk_value(ptr noundef %dn_sk.0, i32 noundef %inc241.i) #10
+  %inc249.i = phi i32 [ 0, %if.end15.lr.ph.lr.ph.i ], [ %inc249.i.be, %if.end15.i.backedge ]
+  %call17.i = call ptr @OPENSSL_sk_value(ptr noundef %dn_sk.0, i32 noundef %inc249.i) #10
   %name.i25 = getelementptr inbounds i8, ptr %call17.i, i64 8
   %25 = load ptr, ptr %name.i25, align 8
   %call1.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #11
@@ -2753,14 +2753,14 @@ check_end.exit83.i:                               ; preds = %lor.lhs.false25.i, 
   %tobool27.not.i = icmp eq i32 %call3.i81.i, 0
   br i1 %tobool27.not.i, label %for.cond.backedge.i, label %for.cond31.i.preheader
 
-for.cond.backedge.i:                              ; preds = %add_DN_object.exit.i, %check_end.exit83.i, %check_end.exit73.i, %check_end.exit63.i, %check_end.exit.i
-  %inc.i34 = add nsw i32 %inc241.i, 1
+for.cond.backedge.i:                              ; preds = %add_DN_object.exit.i, %if.end.i125.i, %check_end.exit83.i, %check_end.exit73.i, %check_end.exit63.i, %check_end.exit.i
+  %inc.i34 = add nsw i32 %inc249.i, 1
   %call13.i = call i32 @OPENSSL_sk_num(ptr noundef %dn_sk.0) #10
   %cmp.not.i = icmp sgt i32 %call13.i, %inc.i34
   br i1 %cmp.not.i, label %if.end15.i.backedge, label %for.end112.i
 
 if.end15.i.backedge:                              ; preds = %for.cond.backedge.i, %start.loopexit.i
-  %inc241.i.be = phi i32 [ %inc.i34, %for.cond.backedge.i ], [ %inc238.i, %start.loopexit.i ]
+  %inc249.i.be = phi i32 [ %inc.i34, %for.cond.backedge.i ], [ %inc246.i, %start.loopexit.i ]
   br label %if.end15.i
 
 for.cond31.i:                                     ; preds = %for.cond31.i.preheader, %for.inc.i
@@ -2899,14 +2899,13 @@ if.end104.i:                                      ; preds = %if.then103.i, %if.e
 
 if.end.i125.i:                                    ; preds = %if.end104.i
   %call3.i126.i = call i32 @X509_NAME_add_entry_by_NID(ptr noundef %call.i20, i32 noundef %call55.i, i32 noundef %conv.i.i, ptr noundef nonnull %buf.i.i, i32 noundef -1, i32 noundef -1, i32 noundef %mval.0.i31) #10
-  %tobool.not.i.i = icmp ne i32 %call3.i126.i, 0
-  %spec.select.i.i = zext i1 %tobool.not.i.i to i32
-  br label %add_DN_object.exit.i
-
-add_DN_object.exit.i:                             ; preds = %if.end.i125.i, %if.end104.i
-  %retval.0.i127.i = phi i32 [ %spec.select.i.i, %if.end.i125.i ], [ %call.i124.i, %if.end104.i ]
+  %tobool.not.i.not.i = icmp eq i32 %call3.i126.i, 0
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %buf.i.i)
-  %tobool109.not.i = icmp eq i32 %retval.0.i127.i, 0
+  br i1 %tobool.not.i.not.i, label %prompt_info.exit, label %for.cond.backedge.i
+
+add_DN_object.exit.i:                             ; preds = %if.end104.i
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %buf.i.i)
+  %tobool109.not.i = icmp eq i32 %call.i124.i, 0
   br i1 %tobool109.not.i, label %prompt_info.exit, label %for.cond.backedge.i
 
 for.end112.i:                                     ; preds = %start.loopexit.i, %for.cond.backedge.i, %start.preheader.i
@@ -2940,7 +2939,7 @@ if.then129.i:                                     ; preds = %land.lhs.true.i
   br label %for.cond133.i.preheader.preheader
 
 for.cond133.i.preheader.preheader:                ; preds = %if.then129.i, %land.lhs.true.i
-  %conv.i176.i114 = trunc i64 %chtype to i32
+  %conv.i176.i114 = trunc nuw nsw i64 %chtype to i32
   br label %for.cond133.i
 
 for.cond133.i:                                    ; preds = %for.cond133.i.backedge, %for.cond133.i.preheader.preheader
@@ -3037,7 +3036,7 @@ if.end184.i:                                      ; preds = %if.end179.i
   br i1 %tobool187.not.i, label %if.then188.i, label %if.end184.if.end189_crit_edge.i
 
 if.end184.if.end189_crit_edge.i:                  ; preds = %if.end184.i
-  %.pre279.i = load i64, ptr %n_max.i, align 8
+  %.pre292.i = load i64, ptr %n_max.i, align 8
   br label %if.end189.i
 
 if.then188.i:                                     ; preds = %if.end184.i
@@ -3045,7 +3044,7 @@ if.then188.i:                                     ; preds = %if.end184.i
   br label %if.end189.i
 
 if.end189.i:                                      ; preds = %if.then188.i, %if.end184.if.end189_crit_edge.i
-  %64 = phi i64 [ %.pre279.i, %if.end184.if.end189_crit_edge.i ], [ -1, %if.then188.i ]
+  %64 = phi i64 [ %.pre292.i, %if.end184.if.end189_crit_edge.i ], [ -1, %if.then188.i ]
   %value190.i = getelementptr inbounds i8, ptr %call145.i, i64 16
   %65 = load ptr, ptr %value190.i, align 8
   %66 = load i64, ptr %n_min.i, align 8
@@ -3081,8 +3080,8 @@ if.else199.i:                                     ; preds = %if.end.i
   %call200.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %68, ptr noundef nonnull @.str.219) #10
   br label %prompt_info.exit
 
-prompt_info.exit:                                 ; preds = %add_DN_object.exit.i, %for.cond133.i, %add_attribute_object.exit.i, %join.exit.thread.i, %join.exit101.thread.i, %join.exit112.thread.i, %join.exit123.thread.i, %if.then116.i, %if.end118.i, %join.exit138.thread.i, %join.exit149.thread.i, %join.exit160.thread.i, %join.exit171.thread.i, %add_attribute_object.exit.thread.i, %if.else199.i
-  %retval.0.i24 = phi i32 [ 0, %if.then116.i ], [ 0, %if.else199.i ], [ 1, %if.end118.i ], [ 0, %join.exit.thread.i ], [ 0, %join.exit101.thread.i ], [ 0, %join.exit112.thread.i ], [ 0, %join.exit123.thread.i ], [ 0, %join.exit138.thread.i ], [ 0, %join.exit149.thread.i ], [ 0, %join.exit160.thread.i ], [ 0, %join.exit171.thread.i ], [ 0, %add_attribute_object.exit.thread.i ], [ 0, %add_attribute_object.exit.i ], [ 1, %for.cond133.i ], [ 0, %add_DN_object.exit.i ]
+prompt_info.exit:                                 ; preds = %if.end.i125.i, %add_DN_object.exit.i, %for.cond133.i, %add_attribute_object.exit.i, %join.exit.thread.i, %join.exit101.thread.i, %join.exit112.thread.i, %join.exit123.thread.i, %if.then116.i, %if.end118.i, %join.exit138.thread.i, %join.exit149.thread.i, %join.exit160.thread.i, %join.exit171.thread.i, %add_attribute_object.exit.thread.i, %if.else199.i
+  %retval.0.i24 = phi i32 [ 0, %if.then116.i ], [ 0, %if.else199.i ], [ 1, %if.end118.i ], [ 0, %join.exit.thread.i ], [ 0, %join.exit101.thread.i ], [ 0, %join.exit112.thread.i ], [ 0, %join.exit123.thread.i ], [ 0, %join.exit138.thread.i ], [ 0, %join.exit149.thread.i ], [ 0, %join.exit160.thread.i ], [ 0, %join.exit171.thread.i ], [ 0, %add_attribute_object.exit.thread.i ], [ 0, %add_attribute_object.exit.i ], [ 1, %for.cond133.i ], [ 0, %add_DN_object.exit.i ], [ 0, %if.end.i125.i ]
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %buf.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %n_min.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %n_max.i)

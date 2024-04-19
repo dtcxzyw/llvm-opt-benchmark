@@ -710,14 +710,14 @@ define internal i32 @dissect_do_irp_udp(ptr noundef %0, ptr noundef %1, ptr noun
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
   %11 = and i8 %10, -2
   %or.cond.not.i = icmp eq i8 %11, 2
-  br i1 %or.cond.not.i, label %test_do_irp.exit, label %test_do_irp.exit.thread
+  br i1 %or.cond.not.i, label %12, label %test_do_irp.exit.thread
 
-test_do_irp.exit:                                 ; preds = %9
-  %12 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 16, i32 noundef 0) #5
-  %.not84 = icmp eq i32 %12, 0
-  br i1 %.not84, label %test_do_irp.exit.thread, label %13
+12:                                               ; preds = %9
+  %13 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 16, i32 noundef 0) #5
+  %.not = icmp eq i32 %13, 0
+  br i1 %.not, label %test_do_irp.exit.thread, label %test_do_irp.exit
 
-13:                                               ; preds = %test_do_irp.exit
+test_do_irp.exit:                                 ; preds = %12
   %14 = load i32, ptr @proto_do_irp, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %14, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
   %16 = load i32, ptr @ett_do_irp, align 4
@@ -731,7 +731,7 @@ test_do_irp.exit:                                 ; preds = %9
   %or.cond = select i1 %20, i1 %.not74, i1 false
   br i1 %or.cond, label %63, label %22
 
-22:                                               ; preds = %13
+22:                                               ; preds = %test_do_irp.exit
   %23 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 8, i32 noundef 0) #5
   %24 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 12, i32 noundef 0) #5
   br i1 %.not74, label %25, label %27
@@ -803,7 +803,7 @@ test_do_irp.exit:                                 ; preds = %9
   %62 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   br label %test_do_irp.exit.thread
 
-63:                                               ; preds = %13
+63:                                               ; preds = %test_do_irp.exit
   %64 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 20) #5
   %65 = load i32, ptr %6, align 4
   %.not75 = icmp eq i32 %65, 0
@@ -823,8 +823,8 @@ test_do_irp.exit:                                 ; preds = %9
   %74 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   br label %test_do_irp.exit.thread
 
-test_do_irp.exit.thread:                          ; preds = %9, %4, %56, %52, %70, %66, %test_do_irp.exit
-  %.070 = phi i32 [ 0, %test_do_irp.exit ], [ %.072, %52 ], [ %62, %56 ], [ %74, %70 ], [ %69, %66 ], [ 0, %4 ], [ 0, %9 ]
+test_do_irp.exit.thread:                          ; preds = %12, %9, %4, %56, %52, %70, %66
+  %.070 = phi i32 [ %.072, %52 ], [ %62, %56 ], [ %74, %70 ], [ %69, %66 ], [ 0, %4 ], [ 0, %9 ], [ 0, %12 ]
   ret i32 %.070
 }
 
@@ -838,20 +838,20 @@ define internal i32 @dissect_do_irp_tcp(ptr noundef %0, ptr noundef %1, ptr noun
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #5
   %9 = and i8 %8, -2
   %or.cond.not.i = icmp eq i8 %9, 2
-  br i1 %or.cond.not.i, label %test_do_irp.exit, label %test_do_irp.exit.thread
+  br i1 %or.cond.not.i, label %10, label %test_do_irp.exit.thread
 
-test_do_irp.exit:                                 ; preds = %7
-  %10 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 16, i32 noundef 0) #5
-  %.not8 = icmp eq i32 %10, 0
-  br i1 %.not8, label %test_do_irp.exit.thread, label %11
+10:                                               ; preds = %7
+  %11 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 16, i32 noundef 0) #5
+  %.not = icmp eq i32 %11, 0
+  br i1 %.not, label %test_do_irp.exit.thread, label %test_do_irp.exit
 
-11:                                               ; preds = %test_do_irp.exit
+test_do_irp.exit:                                 ; preds = %10
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef 20, ptr noundef nonnull @get_do_irp_message_len, ptr noundef nonnull @dissect_do_irp_tcp_full_message, ptr noundef %3) #5
   %12 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   br label %test_do_irp.exit.thread
 
-test_do_irp.exit.thread:                          ; preds = %7, %4, %test_do_irp.exit, %11
-  %.0 = phi i32 [ %12, %11 ], [ 0, %test_do_irp.exit ], [ 0, %4 ], [ 0, %7 ]
+test_do_irp.exit.thread:                          ; preds = %10, %7, %4, %test_do_irp.exit
+  %.0 = phi i32 [ %12, %test_do_irp.exit ], [ 0, %4 ], [ 0, %7 ], [ 0, %10 ]
   ret i32 %.0
 }
 

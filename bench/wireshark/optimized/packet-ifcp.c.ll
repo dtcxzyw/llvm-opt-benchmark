@@ -203,16 +203,16 @@ define internal noundef i32 @dissect_ifcp_heur(ptr noundef %0, ptr noundef %1, p
   %11 = and i16 %10, 1023
   %12 = add nsw i16 %11, -546
   %or.cond.i = icmp ult i16 %12, -531
-  br i1 %or.cond.i, label %ifcp_header_test.exit.thread, label %ifcp_header_test.exit
+  br i1 %or.cond.i, label %ifcp_header_test.exit.thread, label %13
 
-ifcp_header_test.exit:                            ; preds = %9
-  %13 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 14) #2
-  %14 = xor i16 %13, %10
-  %15 = and i16 %14, 1023
-  %.not15.i.not = icmp eq i16 %15, 1023
-  br i1 %.not15.i.not, label %16, label %ifcp_header_test.exit.thread
+13:                                               ; preds = %9
+  %14 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 14) #2
+  %15 = xor i16 %14, %10
+  %16 = and i16 %15, 1023
+  %.not15.i = icmp eq i16 %16, 1023
+  br i1 %.not15.i, label %ifcp_header_test.exit, label %ifcp_header_test.exit.thread
 
-16:                                               ; preds = %ifcp_header_test.exit
+ifcp_header_test.exit:                            ; preds = %13
   %17 = load i32, ptr @ifcp_desegment, align 4
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %17, i32 noundef 16, ptr noundef nonnull @get_ifcp_pdu_len, ptr noundef nonnull @dissect_ifcp_pdu, ptr noundef %3) #2
   %18 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
@@ -220,14 +220,14 @@ ifcp_header_test.exit:                            ; preds = %9
   %.not7 = icmp eq ptr %19, null
   br i1 %.not7, label %ifcp_header_test.exit.thread, label %20
 
-20:                                               ; preds = %16
+20:                                               ; preds = %ifcp_header_test.exit
   %21 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #2
   %22 = load ptr, ptr @ifcp_handle, align 8
   tail call void @conversation_set_dissector(ptr noundef nonnull %21, ptr noundef %22) #2
   br label %ifcp_header_test.exit.thread
 
-ifcp_header_test.exit.thread:                     ; preds = %9, %7, %4, %16, %20, %ifcp_header_test.exit
-  %.0 = phi i32 [ 0, %ifcp_header_test.exit ], [ 1, %20 ], [ 1, %16 ], [ 0, %4 ], [ 0, %7 ], [ 0, %9 ]
+ifcp_header_test.exit.thread:                     ; preds = %13, %9, %7, %4, %ifcp_header_test.exit, %20
+  %.0 = phi i32 [ 1, %20 ], [ 1, %ifcp_header_test.exit ], [ 0, %4 ], [ 0, %7 ], [ 0, %9 ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -254,25 +254,25 @@ define internal i32 @get_ifcp_pdu_len(ptr nocapture readnone %0, ptr noundef %1,
   %12 = and i16 %11, 1023
   %13 = add nsw i16 %12, -546
   %or.cond.i = icmp ult i16 %13, -531
-  br i1 %or.cond.i, label %ifcp_header_test.exit.thread, label %ifcp_header_test.exit
+  br i1 %or.cond.i, label %ifcp_header_test.exit.thread, label %14
 
-ifcp_header_test.exit:                            ; preds = %9
-  %14 = add i32 %2, 14
-  %15 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %14) #2
-  %16 = xor i16 %15, %11
-  %17 = and i16 %16, 1023
-  %.not15.i.not = icmp eq i16 %17, 1023
-  br i1 %.not15.i.not, label %18, label %ifcp_header_test.exit.thread
+14:                                               ; preds = %9
+  %15 = add i32 %2, 14
+  %16 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %15) #2
+  %17 = xor i16 %16, %11
+  %18 = and i16 %17, 1023
+  %.not15.i = icmp eq i16 %18, 1023
+  br i1 %.not15.i, label %ifcp_header_test.exit, label %ifcp_header_test.exit.thread
 
-18:                                               ; preds = %ifcp_header_test.exit
+ifcp_header_test.exit:                            ; preds = %14
   %19 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %10) #2
   %20 = shl i16 %19, 2
   %21 = and i16 %20, 4092
   %22 = zext nneg i16 %21 to i32
   br label %ifcp_header_test.exit.thread
 
-ifcp_header_test.exit.thread:                     ; preds = %9, %7, %4, %ifcp_header_test.exit, %18
-  %.0 = phi i32 [ %22, %18 ], [ 0, %ifcp_header_test.exit ], [ 0, %4 ], [ 0, %7 ], [ 0, %9 ]
+ifcp_header_test.exit.thread:                     ; preds = %14, %9, %7, %4, %ifcp_header_test.exit
+  %.0 = phi i32 [ %22, %ifcp_header_test.exit ], [ 0, %4 ], [ 0, %7 ], [ 0, %9 ], [ 0, %14 ]
   ret i32 %.0
 }
 

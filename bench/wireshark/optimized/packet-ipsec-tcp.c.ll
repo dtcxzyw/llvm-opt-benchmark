@@ -179,24 +179,24 @@ define internal noundef i32 @dissect_tcpencap_heur(ptr noundef %0, ptr noundef %
   %18 = add i32 %5, -3
   %19 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %18) #2
   %.not11.i = icmp eq i8 %19, 17
-  br i1 %.not11.i, label %packet_is_tcpencap.exit, label %20
+  br i1 %.not11.i, label %22, label %20
 
 20:                                               ; preds = %17
   %21 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %18) #2
   %.not12.i = icmp eq i8 %21, 50
-  br i1 %.not12.i, label %packet_is_tcpencap.exit, label %packet_is_tcpencap.exit.thread
+  br i1 %.not12.i, label %22, label %packet_is_tcpencap.exit.thread
 
-packet_is_tcpencap.exit:                          ; preds = %17, %20
-  %22 = tail call i32 @check_if_ndmp(ptr noundef %0, ptr noundef %1) #2
-  %.not13.i.not = icmp eq i32 %22, 0
-  br i1 %.not13.i.not, label %23, label %packet_is_tcpencap.exit.thread
+22:                                               ; preds = %20, %17
+  %23 = tail call i32 @check_if_ndmp(ptr noundef %0, ptr noundef %1) #2
+  %.not13.i = icmp eq i32 %23, 0
+  br i1 %.not13.i, label %packet_is_tcpencap.exit, label %packet_is_tcpencap.exit.thread
 
-23:                                               ; preds = %packet_is_tcpencap.exit
+packet_is_tcpencap.exit:                          ; preds = %22
   %24 = tail call i32 @dissect_tcpencap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   br label %packet_is_tcpencap.exit.thread
 
-packet_is_tcpencap.exit.thread:                   ; preds = %10, %13, %20, %4, %packet_is_tcpencap.exit, %23
-  %.0 = phi i32 [ 1, %23 ], [ 0, %packet_is_tcpencap.exit ], [ 0, %4 ], [ 0, %20 ], [ 0, %13 ], [ 0, %10 ]
+packet_is_tcpencap.exit.thread:                   ; preds = %22, %10, %13, %20, %4, %packet_is_tcpencap.exit
+  %.0 = phi i32 [ 1, %packet_is_tcpencap.exit ], [ 0, %4 ], [ 0, %20 ], [ 0, %13 ], [ 0, %10 ], [ 0, %22 ]
   ret i32 %.0
 }
 

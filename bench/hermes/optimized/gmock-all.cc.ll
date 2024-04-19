@@ -4064,7 +4064,7 @@ for.end55:                                        ; preds = %for.inc53, %for.con
   br i1 %cmp62146.not, label %for.end87, label %for.body63.lr.ph
 
 for.body63.lr.ph:                                 ; preds = %for.end55
-  %tobool57 = trunc i8 %result.0.lcssa to i1
+  %tobool57 = trunc nuw i8 %result.0.lcssa to i1
   %spec.store.select = select i1 %tobool57, ptr @.str.2, ptr @.str.33
   %stream_.i67 = getelementptr inbounds i8, ptr %listener, i64 8
   br label %for.body63
@@ -4174,7 +4174,7 @@ if.then.i.i.i106:                                 ; preds = %_ZNSt6vectorIcSaIcE
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit107
 
 _ZNSt6vectorIcSaIcEED2Ev.exit107:                 ; preds = %_ZNSt6vectorIcSaIcEED2Ev.exit, %if.then.i.i.i106
-  %tobool88 = trunc i8 %result.2.lcssa to i1
+  %tobool88 = trunc nuw i8 %result.2.lcssa to i1
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %element_matched) #26
   ret i1 %tobool88
 
@@ -7890,15 +7890,15 @@ while.body.i.i.i.i:                               ; preds = %.noexc, %while.body
 
 _ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i: ; preds = %while.body.i.i.i.i
   %cmp.i.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i, getelementptr inbounds (%"class.testing::(anonymous namespace)::MockObjectRegistry", ptr @_ZN7testing12_GLOBAL__N_122g_mock_object_registryE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0)
-  br i1 %cmp.i.i.i.i, label %invoke.cont, label %_ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit.i
+  br i1 %cmp.i.i.i.i, label %invoke.cont, label %lor.lhs.false.i.i.i
 
-_ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit.i: ; preds = %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
+lor.lhs.false.i.i.i:                              ; preds = %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i2.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %2 = load ptr, ptr %_M_storage.i.i.i2.i.i.i, align 8
   %cmp.i3.i.i.not.i = icmp ugt ptr %2, %mock_obj
   br i1 %cmp.i3.i.i.not.i, label %invoke.cont, label %if.end.i
 
-if.end.i:                                         ; preds = %_ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit.i
+if.end.i:                                         ; preds = %lor.lhs.false.i.i.i
   %call3.i1 = invoke fastcc noundef nonnull align 8 dereferenceable(136) ptr @_ZNSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEEixERS8_(ptr noundef nonnull align 8 dereferenceable(8) %mock_obj.addr.i)
           to label %call3.i.noexc unwind label %lpad.loopexit.split-lp
 
@@ -7923,8 +7923,8 @@ call9.i.noexc:                                    ; preds = %for.body.i
   %cmp.i.not.i = icmp eq ptr %call.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.not.i, label %invoke.cont, label %for.body.i, !llvm.loop !78
 
-invoke.cont:                                      ; preds = %call9.i.noexc, %call3.i.noexc, %_ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit.i, %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %.noexc
-  %retval.0.i = phi i1 [ true, %_ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit.i ], [ true, %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i ], [ true, %.noexc ], [ true, %call3.i.noexc ], [ %spec.select.i, %call9.i.noexc ]
+invoke.cont:                                      ; preds = %call9.i.noexc, %call3.i.noexc, %lor.lhs.false.i.i.i, %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %.noexc
+  %retval.0.i = phi i1 [ true, %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i ], [ true, %.noexc ], [ true, %lor.lhs.false.i.i.i ], [ true, %call3.i.noexc ], [ %spec.select.i, %call9.i.noexc ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mock_obj.addr.i)
   invoke void @_ZN7testing8internal9MutexBase6UnlockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal13g_gmock_mutexE)
           to label %_ZN7testing8internal14GTestMutexLockD2Ev.exit unwind label %terminate.lpad.i
@@ -7990,15 +7990,15 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 _ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i: ; preds = %while.body.i.i.i
   %cmp.i.i.i = icmp eq ptr %__y.addr.1.i.i.i, getelementptr inbounds (%"class.testing::(anonymous namespace)::MockObjectRegistry", ptr @_ZN7testing12_GLOBAL__N_122g_mock_object_registryE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0)
-  br i1 %cmp.i.i.i, label %return, label %_ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit
+  br i1 %cmp.i.i.i, label %return, label %lor.lhs.false.i.i
 
-_ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit: ; preds = %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i
+lor.lhs.false.i.i:                                ; preds = %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i
   %_M_storage.i.i.i2.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %2 = load ptr, ptr %_M_storage.i.i.i2.i.i, align 8
   %cmp.i3.i.i.not = icmp ugt ptr %2, %mock_obj
   br i1 %cmp.i3.i.i.not, label %return, label %if.end
 
-if.end:                                           ; preds = %_ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit
+if.end:                                           ; preds = %lor.lhs.false.i.i
   %call3 = call fastcc noundef nonnull align 8 dereferenceable(136) ptr @_ZNSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEEixERS8_(ptr noundef nonnull align 8 dereferenceable(8) %mock_obj.addr)
   %_M_left.i.i = getelementptr inbounds i8, ptr %call3, i64 112
   %3 = load ptr, ptr %_M_left.i.i, align 8
@@ -8017,8 +8017,8 @@ for.body:                                         ; preds = %if.end, %for.body
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %return, label %for.body, !llvm.loop !78
 
-return:                                           ; preds = %for.body, %if.end, %entry, %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i, %_ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit
-  %retval.0 = phi i1 [ true, %_ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit ], [ true, %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i ], [ true, %entry ], [ true, %if.end ], [ %spec.select, %for.body ]
+return:                                           ; preds = %for.body, %if.end, %lor.lhs.false.i.i, %entry, %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i
+  %retval.0 = phi i1 [ true, %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i ], [ true, %entry ], [ true, %lor.lhs.false.i.i ], [ true, %if.end ], [ %spec.select, %for.body ]
   ret i1 %retval.0
 }
 
@@ -8053,15 +8053,15 @@ while.body.i.i.i.i:                               ; preds = %.noexc, %while.body
 
 _ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i: ; preds = %while.body.i.i.i.i
   %cmp.i.i.i.i = icmp eq ptr %__y.addr.1.i.i.i.i, getelementptr inbounds (%"class.testing::(anonymous namespace)::MockObjectRegistry", ptr @_ZN7testing12_GLOBAL__N_122g_mock_object_registryE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0)
-  br i1 %cmp.i.i.i.i, label %invoke.cont, label %_ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit.i
+  br i1 %cmp.i.i.i.i, label %invoke.cont, label %lor.lhs.false.i.i.i
 
-_ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit.i: ; preds = %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
+lor.lhs.false.i.i.i:                              ; preds = %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i
   %_M_storage.i.i.i2.i.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %2 = load ptr, ptr %_M_storage.i.i.i2.i.i.i, align 8
   %cmp.i3.i.i.not.i = icmp ugt ptr %2, %mock_obj
   br i1 %cmp.i3.i.i.not.i, label %invoke.cont, label %if.end.i
 
-if.end.i:                                         ; preds = %_ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit.i
+if.end.i:                                         ; preds = %lor.lhs.false.i.i.i
   %call3.i2 = invoke fastcc noundef nonnull align 8 dereferenceable(136) ptr @_ZNSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEEixERS8_(ptr noundef nonnull align 8 dereferenceable(8) %mock_obj.addr.i)
           to label %call3.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -8087,7 +8087,7 @@ for.body.i:                                       ; preds = %call3.i.noexc, %.no
   %cmp.i.not.i = icmp eq ptr %call.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.not.i, label %invoke.cont, label %for.body.i, !llvm.loop !79
 
-invoke.cont:                                      ; preds = %.noexc3, %call3.i.noexc, %_ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit.i, %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %.noexc
+invoke.cont:                                      ; preds = %.noexc3, %call3.i.noexc, %lor.lhs.false.i.i.i, %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i, %.noexc
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mock_obj.addr.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %mock_obj.addr.i4)
   store ptr %mock_obj, ptr %mock_obj.addr.i4, align 8
@@ -8114,15 +8114,15 @@ while.body.i.i.i.i6:                              ; preds = %.noexc30, %while.bo
 
 _ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i16: ; preds = %while.body.i.i.i.i6
   %cmp.i.i.i.i17 = icmp eq ptr %__y.addr.1.i.i.i.i11, getelementptr inbounds (%"class.testing::(anonymous namespace)::MockObjectRegistry", ptr @_ZN7testing12_GLOBAL__N_122g_mock_object_registryE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0)
-  br i1 %cmp.i.i.i.i17, label %invoke.cont1, label %_ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit.i18
+  br i1 %cmp.i.i.i.i17, label %invoke.cont1, label %lor.lhs.false.i.i.i18
 
-_ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit.i18: ; preds = %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i16
+lor.lhs.false.i.i.i18:                            ; preds = %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i16
   %_M_storage.i.i.i2.i.i.i19 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i11, i64 32
   %8 = load ptr, ptr %_M_storage.i.i.i2.i.i.i19, align 8
   %cmp.i3.i.i.not.i20 = icmp ugt ptr %8, %mock_obj
   br i1 %cmp.i3.i.i.not.i20, label %invoke.cont1, label %if.end.i21
 
-if.end.i21:                                       ; preds = %_ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit.i18
+if.end.i21:                                       ; preds = %lor.lhs.false.i.i.i18
   %call3.i32 = invoke fastcc noundef nonnull align 8 dereferenceable(136) ptr @_ZNSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEEixERS8_(ptr noundef nonnull align 8 dereferenceable(8) %mock_obj.addr.i4)
           to label %call3.i.noexc31 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
@@ -8147,8 +8147,8 @@ call9.i.noexc:                                    ; preds = %for.body.i25
   %cmp.i.not.i29 = icmp eq ptr %call.i.i28, %add.ptr.i.i.i23
   br i1 %cmp.i.not.i29, label %invoke.cont1, label %for.body.i25, !llvm.loop !78
 
-invoke.cont1:                                     ; preds = %call9.i.noexc, %call3.i.noexc31, %_ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit.i18, %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i16, %.noexc30
-  %retval.0.i = phi i1 [ true, %_ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit.i18 ], [ true, %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i16 ], [ true, %.noexc30 ], [ true, %call3.i.noexc31 ], [ %spec.select.i, %call9.i.noexc ]
+invoke.cont1:                                     ; preds = %call9.i.noexc, %call3.i.noexc31, %lor.lhs.false.i.i.i18, %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i16, %.noexc30
+  %retval.0.i = phi i1 [ true, %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i16 ], [ true, %.noexc30 ], [ true, %lor.lhs.false.i.i.i18 ], [ true, %call3.i.noexc31 ], [ %spec.select.i, %call9.i.noexc ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %mock_obj.addr.i4)
   invoke void @_ZN7testing8internal9MutexBase6UnlockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal13g_gmock_mutexE)
           to label %_ZN7testing8internal14GTestMutexLockD2Ev.exit unwind label %terminate.lpad.i
@@ -8219,15 +8219,15 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 _ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i: ; preds = %while.body.i.i.i
   %cmp.i.i.i = icmp eq ptr %__y.addr.1.i.i.i, getelementptr inbounds (%"class.testing::(anonymous namespace)::MockObjectRegistry", ptr @_ZN7testing12_GLOBAL__N_122g_mock_object_registryE, i64 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0)
-  br i1 %cmp.i.i.i, label %for.end, label %_ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit
+  br i1 %cmp.i.i.i, label %for.end, label %lor.lhs.false.i.i
 
-_ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit: ; preds = %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i
+lor.lhs.false.i.i:                                ; preds = %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i
   %_M_storage.i.i.i2.i.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 32
   %2 = load ptr, ptr %_M_storage.i.i.i2.i.i, align 8
   %cmp.i3.i.i.not = icmp ugt ptr %2, %mock_obj
   br i1 %cmp.i3.i.i.not, label %for.end, label %if.end
 
-if.end:                                           ; preds = %_ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit
+if.end:                                           ; preds = %lor.lhs.false.i.i
   %call3 = call fastcc noundef nonnull align 8 dereferenceable(136) ptr @_ZNSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEEixERS8_(ptr noundef nonnull align 8 dereferenceable(8) %mock_obj.addr)
   %_M_left.i.i = getelementptr inbounds i8, ptr %call3, i64 112
   %3 = load ptr, ptr %_M_left.i.i, align 8
@@ -8247,7 +8247,7 @@ for.body:                                         ; preds = %if.end, %for.body
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !79
 
-for.end:                                          ; preds = %for.body, %if.end, %entry, %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i, %_ZNKSt3mapIPKvN7testing12_GLOBAL__N_115MockObjectStateESt4lessIS1_ESaISt4pairIKS1_S4_EEE5countERS8_.exit
+for.end:                                          ; preds = %for.body, %if.end, %lor.lhs.false.i.i, %entry, %_ZNKSt8_Rb_treeIPKvSt4pairIKS1_N7testing12_GLOBAL__N_115MockObjectStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i
   ret void
 }
 
@@ -8746,7 +8746,7 @@ for.body8:                                        ; preds = %if.then5, %for.body
   %arrayidx12 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
   store ptr %4, ptr %arrayidx12, align 8
   %5 = load i32, ptr %argc, align 4
-  %6 = trunc i64 %indvars.iv.next to i32
+  %6 = trunc nsw i64 %indvars.iv.next to i32
   %cmp7.not = icmp eq i32 %5, %6
   br i1 %cmp7.not, label %for.end, label %for.body8, !llvm.loop !82
 
@@ -8846,7 +8846,7 @@ for.body8:                                        ; preds = %if.then5, %for.body
   %arrayidx12 = getelementptr inbounds ptr, ptr %argv, i64 %indvars.iv
   store ptr %4, ptr %arrayidx12, align 8
   %5 = load i32, ptr %argc, align 4
-  %6 = trunc i64 %indvars.iv.next to i32
+  %6 = trunc nsw i64 %indvars.iv.next to i32
   %cmp7.not = icmp eq i32 %5, %6
   br i1 %cmp7.not, label %for.end, label %for.body8, !llvm.loop !84
 

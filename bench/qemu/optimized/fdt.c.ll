@@ -305,8 +305,8 @@ fdt_header_size.exit:                             ; preds = %if.else.i.i, %if.el
   %conv = zext i32 %or10.i88 to i64
   %cmp23 = icmp ugt i64 %retval.0.i.i, %conv
   %cmp28 = icmp slt i32 %or10.i88, 0
-  %or.cond267 = or i1 %cmp28, %cmp23
-  br i1 %or.cond267, label %return, label %if.end31
+  %or.cond268 = or i1 %cmp28, %cmp23
+  br i1 %or.cond268, label %return, label %if.end31
 
 if.end31:                                         ; preds = %fdt_header_size.exit
   %conv32 = trunc nuw nsw i64 %retval.0.i.i to i32
@@ -355,14 +355,14 @@ if.end40:                                         ; preds = %if.end31
   %or10.i166 = or disjoint i32 %or7.i163, %conv9.i165
   %cmp.i167 = icmp ult i32 %or10.i166, %conv32
   %cmp1.i168 = icmp ugt i32 %or10.i166, %or10.i88
-  %.not268 = or i1 %cmp.i167, %cmp1.i168
+  %.not270 = or i1 %cmp.i167, %cmp1.i168
   br i1 %cmp46, label %if.then48, label %if.else
 
 if.then48:                                        ; preds = %if.end40
-  br i1 %.not268, label %return, label %if.end67
+  br i1 %.not270, label %return, label %if.end67
 
 if.else:                                          ; preds = %if.end40
-  br i1 %.not268, label %return, label %if.end.i
+  br i1 %.not270, label %return, label %if.end.i
 
 if.end.i:                                         ; preds = %if.else
   %arrayidx1.i198 = getelementptr i8, ptr %fdt, i64 37
@@ -384,10 +384,10 @@ if.end.i:                                         ; preds = %if.else
   %conv9.i207 = zext i8 %30 to i32
   %or10.i208 = or disjoint i32 %or7.i205, %conv9.i207
   %add.i = add i32 %or10.i208, %or10.i166
-  %cmp.i211 = icmp ult i32 %add.i, %or10.i166
-  %cmp1.i8.i.not = icmp ugt i32 %add.i, %or10.i88
-  %or.cond269 = or i1 %cmp.i211, %cmp1.i8.i.not
-  br i1 %or.cond269, label %return, label %if.end67
+  %cmp.i211 = icmp uge i32 %add.i, %or10.i166
+  %cmp1.i8.i = icmp ule i32 %add.i, %or10.i88
+  %or.cond269 = and i1 %cmp.i211, %cmp1.i8.i
+  br i1 %or.cond269, label %if.end67, label %return
 
 if.end67:                                         ; preds = %if.end.i, %if.then48
   %off_dt_strings = getelementptr inbounds i8, ptr %fdt, i64 12

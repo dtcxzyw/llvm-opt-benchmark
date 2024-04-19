@@ -327,9 +327,8 @@ entry:
 if.then.i:                                        ; preds = %entry
   %call.i = call i64 @time(ptr noundef nonnull %now_t.i) #5
   %call1.i = call ptr @OPENSSL_gmtime(ptr noundef nonnull %now_t.i, ptr noundef nonnull %tm_from) #5
-  %tobool.not.i = icmp ne ptr %call1.i, null
-  %..i = zext i1 %tobool.not.i to i32
-  br label %asn1_time_to_tm.exit
+  %tobool.not.i.not = icmp eq ptr %call1.i, null
+  br i1 %tobool.not.i.not, label %asn1_time_to_tm.exit.thread, label %asn1_time_to_tm.exit.thread19
 
 if.end3.i:                                        ; preds = %entry
   %type.i = getelementptr inbounds i8, ptr %from, i64 4
@@ -339,10 +338,6 @@ if.end3.i:                                        ; preds = %entry
     i32 24, label %if.then9.i
   ]
 
-asn1_time_to_tm.exit.thread:                      ; preds = %if.end3.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now_t.i)
-  br label %return
-
 if.then5.i:                                       ; preds = %if.end3.i
   %call6.i = call i32 @asn1_utctime_to_tm(ptr noundef nonnull %tm_from, ptr noundef nonnull %from) #5
   br label %asn1_time_to_tm.exit
@@ -351,13 +346,21 @@ if.then9.i:                                       ; preds = %if.end3.i
   %call10.i = call i32 @asn1_generalizedtime_to_tm(ptr noundef nonnull %tm_from, ptr noundef nonnull %from) #5
   br label %asn1_time_to_tm.exit
 
-asn1_time_to_tm.exit:                             ; preds = %if.then.i, %if.then5.i, %if.then9.i
-  %retval.0.i = phi i32 [ %call6.i, %if.then5.i ], [ %call10.i, %if.then9.i ], [ %..i, %if.then.i ]
+asn1_time_to_tm.exit.thread19:                    ; preds = %if.then.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now_t.i)
+  br label %if.end
+
+asn1_time_to_tm.exit.thread:                      ; preds = %if.then.i, %if.end3.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now_t.i)
+  br label %return
+
+asn1_time_to_tm.exit:                             ; preds = %if.then5.i, %if.then9.i
+  %retval.0.i = phi i32 [ %call6.i, %if.then5.i ], [ %call10.i, %if.then9.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now_t.i)
   %tobool.not = icmp eq i32 %retval.0.i, 0
   br i1 %tobool.not, label %return, label %if.end
 
-if.end:                                           ; preds = %asn1_time_to_tm.exit
+if.end:                                           ; preds = %asn1_time_to_tm.exit.thread19, %asn1_time_to_tm.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %now_t.i1)
   %cmp.i2 = icmp eq ptr %to, null
   br i1 %cmp.i2, label %if.then.i10, label %if.end3.i3
@@ -365,9 +368,8 @@ if.end:                                           ; preds = %asn1_time_to_tm.exi
 if.then.i10:                                      ; preds = %if.end
   %call.i11 = call i64 @time(ptr noundef nonnull %now_t.i1) #5
   %call1.i12 = call ptr @OPENSSL_gmtime(ptr noundef nonnull %now_t.i1, ptr noundef nonnull %tm_to) #5
-  %tobool.not.i13 = icmp ne ptr %call1.i12, null
-  %..i14 = zext i1 %tobool.not.i13 to i32
-  br label %asn1_time_to_tm.exit15
+  %tobool.not.i13.not = icmp eq ptr %call1.i12, null
+  br i1 %tobool.not.i13.not, label %asn1_time_to_tm.exit15.thread, label %asn1_time_to_tm.exit15.thread26
 
 if.end3.i3:                                       ; preds = %if.end
   %type.i4 = getelementptr inbounds i8, ptr %to, i64 4
@@ -377,10 +379,6 @@ if.end3.i3:                                       ; preds = %if.end
     i32 24, label %if.then9.i5
   ]
 
-asn1_time_to_tm.exit15.thread:                    ; preds = %if.end3.i3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now_t.i1)
-  br label %return
-
 if.then5.i8:                                      ; preds = %if.end3.i3
   %call6.i9 = call i32 @asn1_utctime_to_tm(ptr noundef nonnull %tm_to, ptr noundef nonnull %to) #5
   br label %asn1_time_to_tm.exit15
@@ -389,13 +387,21 @@ if.then9.i5:                                      ; preds = %if.end3.i3
   %call10.i6 = call i32 @asn1_generalizedtime_to_tm(ptr noundef nonnull %tm_to, ptr noundef nonnull %to) #5
   br label %asn1_time_to_tm.exit15
 
-asn1_time_to_tm.exit15:                           ; preds = %if.then.i10, %if.then5.i8, %if.then9.i5
-  %retval.0.i7 = phi i32 [ %call6.i9, %if.then5.i8 ], [ %call10.i6, %if.then9.i5 ], [ %..i14, %if.then.i10 ]
+asn1_time_to_tm.exit15.thread26:                  ; preds = %if.then.i10
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now_t.i1)
+  br label %if.end4
+
+asn1_time_to_tm.exit15.thread:                    ; preds = %if.then.i10, %if.end3.i3
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now_t.i1)
+  br label %return
+
+asn1_time_to_tm.exit15:                           ; preds = %if.then5.i8, %if.then9.i5
+  %retval.0.i7 = phi i32 [ %call6.i9, %if.then5.i8 ], [ %call10.i6, %if.then9.i5 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %now_t.i1)
   %tobool2.not = icmp eq i32 %retval.0.i7, 0
   br i1 %tobool2.not, label %return, label %if.end4
 
-if.end4:                                          ; preds = %asn1_time_to_tm.exit15
+if.end4:                                          ; preds = %asn1_time_to_tm.exit15.thread26, %asn1_time_to_tm.exit15
   %call5 = call i32 @OPENSSL_gmtime_diff(ptr noundef %pday, ptr noundef %psec, ptr noundef nonnull %tm_from, ptr noundef nonnull %tm_to) #5
   br label %return
 

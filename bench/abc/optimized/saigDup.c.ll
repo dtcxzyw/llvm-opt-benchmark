@@ -475,7 +475,7 @@ Aig_ManObj.exit92:                                ; preds = %87, %88
   %118 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %12, ptr noundef %117) #9
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 2
   %.val82 = load i32, ptr %43, align 4
-  %119 = trunc i64 %indvars.iv.next112 to i32
+  %119 = trunc nuw i64 %indvars.iv.next112 to i32
   %120 = icmp sgt i32 %.val82, %119
   br i1 %120, label %87, label %.critedge4, !llvm.loop !11
 
@@ -663,27 +663,27 @@ Vec_IntAlloc.exit:                                ; preds = %Abc_UtilStrsav.exit
   %.val70 = load ptr, ptr %53, align 8
   %54 = getelementptr inbounds ptr, ptr %.val70, i64 %indvars.iv101
   %55 = load ptr, ptr %54, align 8
-  br i1 %.0.lcssa, label %56, label %62
+  br i1 %.0.lcssa, label %56, label %Saig_ObjIsLo.exit
 
 56:                                               ; preds = %51
   %57 = getelementptr inbounds i8, ptr %55, i64 24
   %58 = load i64, ptr %57, align 8
   %59 = and i64 %58, 4294967232
   %.not61 = icmp eq i64 %59, 0
-  br i1 %.not61, label %60, label %62
+  br i1 %.not61, label %60, label %Saig_ObjIsLo.exit
 
 60:                                               ; preds = %56
   %61 = and i64 %58, 7
   %.not.i83 = icmp eq i64 %61, 2
-  br i1 %.not.i83, label %Saig_ObjIsLo.exit, label %Saig_ObjIsLo.exit.thread
+  br i1 %.not.i83, label %62, label %Saig_ObjIsLo.exit.thread
 
-Saig_ObjIsLo.exit:                                ; preds = %60
+62:                                               ; preds = %60
   %.val4.i = load i32, ptr %55, align 8
   %.val.i = load i32, ptr %2, align 4
   %.not = icmp slt i32 %.val4.i, %.val.i
-  br i1 %.not, label %Saig_ObjIsLo.exit.thread, label %62
+  br i1 %.not, label %Saig_ObjIsLo.exit.thread, label %Saig_ObjIsLo.exit
 
-62:                                               ; preds = %Saig_ObjIsLo.exit, %56, %51
+Saig_ObjIsLo.exit:                                ; preds = %62, %56, %51
   %63 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %18) #9
   %64 = getelementptr inbounds i8, ptr %55, i64 40
   store ptr %63, ptr %64, align 8
@@ -699,12 +699,12 @@ Saig_ObjIsLo.exit:                                ; preds = %60
   %73 = icmp eq i32 %71, %72
   br i1 %73, label %74, label %.Vec_IntGrow.exit10_crit_edge.i
 
-.Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %62
+.Vec_IntGrow.exit10_crit_edge.i:                  ; preds = %Saig_ObjIsLo.exit
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %65, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %Vec_IntPush.exit
 
-74:                                               ; preds = %62
+74:                                               ; preds = %Saig_ObjIsLo.exit
   %75 = icmp slt i32 %71, 16
   br i1 %75, label %76, label %84
 
@@ -762,8 +762,8 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.pre = load ptr, ptr %43, align 8
   br label %Saig_ObjIsLo.exit.thread
 
-Saig_ObjIsLo.exit.thread:                         ; preds = %60, %Saig_ObjIsLo.exit, %Vec_IntPush.exit
-  %101 = phi ptr [ %52, %60 ], [ %52, %Saig_ObjIsLo.exit ], [ %.pre, %Vec_IntPush.exit ]
+Saig_ObjIsLo.exit.thread:                         ; preds = %62, %60, %Vec_IntPush.exit
+  %101 = phi ptr [ %52, %62 ], [ %52, %60 ], [ %.pre, %Vec_IntPush.exit ]
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %102 = getelementptr i8, ptr %101, i64 4
   %.val67 = load i32, ptr %102, align 4
@@ -1154,7 +1154,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   store i32 %97, ptr %69, align 4
   %98 = sext i32 %96 to i64
   %99 = getelementptr inbounds i32, ptr %95, i64 %98
-  %100 = trunc i64 %indvars.iv120 to i32
+  %100 = trunc nuw nsw i64 %indvars.iv120 to i32
   store i32 %100, ptr %99, align 4
   %.pre = load ptr, ptr %53, align 8
   br label %101
@@ -1263,7 +1263,7 @@ Vec_IntPush.exit100:                              ; preds = %.Vec_IntGrow.exit10
   store i32 %149, ptr %121, align 4
   %150 = sext i32 %148 to i64
   %151 = getelementptr inbounds i32, ptr %147, i64 %150
-  %152 = trunc i64 %indvars.iv123 to i32
+  %152 = trunc nuw nsw i64 %indvars.iv123 to i32
   store i32 %152, ptr %151, align 4
   %.pre133 = load ptr, ptr %53, align 8
   br label %.critedge2
@@ -2308,7 +2308,7 @@ define noundef ptr @Saig_ManExtendCex(ptr noundef %0, ptr nocapture noundef read
 84:                                               ; preds = %.lr.ph132
   %.val110 = load i32, ptr %3, align 8
   %85 = mul nsw i32 %.val110, %.187143
-  %86 = trunc i64 %indvars.iv148 to i32
+  %86 = trunc nuw nsw i64 %indvars.iv148 to i32
   %87 = add nsw i32 %85, %86
   %88 = and i32 %87, 31
   %89 = shl nuw i32 1, %88
@@ -2795,7 +2795,7 @@ define i32 @Saig_ManFindFailedPoCex(ptr noundef %0, ptr nocapture noundef readon
   br i1 %exitcond.not, label %.critedge10, label %160, !llvm.loop !50
 
 .critedge10.loopexit.split.loop.exit:             ; preds = %160
-  %167 = trunc i64 %indvars.iv142 to i32
+  %167 = trunc nuw nsw i64 %indvars.iv142 to i32
   br label %.critedge10
 
 .critedge10:                                      ; preds = %166, %.critedge10.loopexit.split.loop.exit, %.critedge6._crit_edge
@@ -2884,7 +2884,7 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %8
   %indvars.iv110 = phi i64 [ 0, %.lr.ph99 ], [ %indvars.iv.next111, %.critedge ]
   %42 = load ptr, ptr %20, align 8
   %.val86 = load i32, ptr %26, align 4
-  %43 = trunc i64 %indvars.iv110 to i32
+  %43 = trunc nuw nsw i64 %indvars.iv110 to i32
   %44 = add nsw i32 %.val86, %43
   %45 = getelementptr i8, ptr %42, i64 8
   %.val72 = load ptr, ptr %45, align 8
@@ -3037,7 +3037,7 @@ Aig_ObjChild0Copy.exit90:                         ; preds = %106, %114
   %indvars.iv119 = phi i64 [ 0, %.lr.ph108 ], [ %indvars.iv.next120, %Aig_ObjChild0Copy.exit92 ]
   %127 = load ptr, ptr %104, align 8
   %.val79 = load i32, ptr %59, align 8
-  %128 = trunc i64 %indvars.iv119 to i32
+  %128 = trunc nuw nsw i64 %indvars.iv119 to i32
   %129 = add nsw i32 %.val79, %128
   %130 = getelementptr i8, ptr %127, i64 8
   %.val69 = load ptr, ptr %130, align 8
@@ -3189,7 +3189,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %54 = and i64 %.val, 7
   switch i64 %54, label %Saig_ObjIsPi.exit.thread [
     i64 3, label %tailrecurse
-    i64 2, label %Saig_ObjIsLo.exit
+    i64 2, label %60
   ]
 
 tailrecurse:                                      ; preds = %53
@@ -3204,14 +3204,14 @@ tailrecurse:                                      ; preds = %53
   %.not = icmp eq i32 %.val40, %.val39
   br i1 %.not, label %Saig_ObjIsPi.exit.thread, label %.lr.ph
 
-Saig_ObjIsLo.exit:                                ; preds = %53
+60:                                               ; preds = %53
   %.val4.i = load i32, ptr %.tr6271, align 8
-  %60 = getelementptr i8, ptr %0, i64 108
-  %.val.i = load i32, ptr %60, align 4
-  %.not60 = icmp slt i32 %.val4.i, %.val.i
-  br i1 %.not60, label %Saig_ObjIsPi.exit, label %61
+  %61 = getelementptr i8, ptr %0, i64 108
+  %.val.i = load i32, ptr %61, align 4
+  %.not61 = icmp slt i32 %.val4.i, %.val.i
+  br i1 %.not61, label %Saig_ObjIsPi.exit, label %Saig_ObjIsLo.exit
 
-61:                                               ; preds = %Saig_ObjIsLo.exit
+Saig_ObjIsLo.exit:                                ; preds = %60
   %62 = getelementptr inbounds i8, ptr %0, i64 24
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr i8, ptr %0, i64 112
@@ -3229,12 +3229,12 @@ Saig_ObjIsLo.exit:                                ; preds = %53
   %74 = icmp eq i32 %72, %73
   br i1 %74, label %75, label %.Vec_PtrGrow.exit11_crit_edge.i46
 
-.Vec_PtrGrow.exit11_crit_edge.i46:                ; preds = %61
+.Vec_PtrGrow.exit11_crit_edge.i46:                ; preds = %Saig_ObjIsLo.exit
   %.phi.trans.insert.i47 = getelementptr inbounds i8, ptr %4, i64 8
   %.pre.i48 = load ptr, ptr %.phi.trans.insert.i47, align 8
   br label %Vec_PtrPush.exit52
 
-75:                                               ; preds = %61
+75:                                               ; preds = %Saig_ObjIsLo.exit
   %76 = icmp slt i32 %72, 16
   br i1 %76, label %77, label %85
 
@@ -3291,7 +3291,7 @@ Vec_PtrPush.exit52:                               ; preds = %.Vec_PtrGrow.exit11
   store ptr %70, ptr %101, align 8
   br label %Saig_ObjIsPi.exit.thread
 
-Saig_ObjIsPi.exit:                                ; preds = %Saig_ObjIsLo.exit
+Saig_ObjIsPi.exit:                                ; preds = %60
   tail call fastcc void @Vec_PtrPush(ptr noundef %2, ptr noundef nonnull %.tr6271)
   br label %Saig_ObjIsPi.exit.thread
 

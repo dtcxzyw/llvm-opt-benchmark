@@ -219,9 +219,9 @@ if.else55:                                        ; preds = %if.end29
   br i1 %cmp56.not, label %if.end62, label %if.end62.sink.split
 
 if.end62.sink.split:                              ; preds = %if.else55, %if.end52
-  %.sink140 = phi i32 [ 1, %if.end52 ], [ 128, %if.else55 ]
+  %.sink141 = phi i32 [ 1, %if.end52 ], [ 128, %if.else55 ]
   %14 = load i32, ptr %ex_flags4, align 8
-  %or60 = or i32 %14, %.sink140
+  %or60 = or i32 %14, %.sink141
   store i32 %or60, ptr %ex_flags4, align 8
   br label %if.end62
 
@@ -274,9 +274,9 @@ if.else92:                                        ; preds = %if.end62
   br i1 %cmp93.not, label %if.end99, label %if.end99.sink.split
 
 if.end99.sink.split:                              ; preds = %if.else92, %if.end89
-  %.sink142 = phi i32 [ 1024, %if.end89 ], [ 128, %if.else92 ]
+  %.sink143 = phi i32 [ 1024, %if.end89 ], [ 128, %if.else92 ]
   %20 = load i32, ptr %ex_flags4, align 8
-  %or97 = or i32 %20, %.sink142
+  %or97 = or i32 %20, %.sink143
   store i32 %or97, ptr %ex_flags4, align 8
   br label %if.end99
 
@@ -350,9 +350,9 @@ if.then140:                                       ; preds = %if.end136
   %or142 = or i32 %31, 4
   store i32 %or142, ptr %ex_flags4, align 8
   store i32 0, ptr %i, align 4
-  %call144133 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call137) #8
-  %cmp145134 = icmp sgt i32 %call144133, 0
-  br i1 %cmp145134, label %for.body, label %for.end
+  %call144134 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %call137) #8
+  %cmp145135 = icmp sgt i32 %call144134, 0
+  br i1 %cmp145135, label %for.body, label %for.end
 
 for.body:                                         ; preds = %if.then140, %for.inc
   %32 = load i32, ptr %i, align 4
@@ -396,9 +396,9 @@ sw.bb173:                                         ; preds = %for.body
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %for.body, %sw.bb173, %sw.bb170, %sw.bb167, %sw.bb164, %sw.bb161, %sw.bb158, %sw.bb155, %sw.bb152
-  %.sink145 = phi i32 [ 2, %sw.bb152 ], [ 4, %sw.bb155 ], [ 8, %sw.bb158 ], [ 16, %sw.bb161 ], [ 32, %sw.bb164 ], [ 64, %sw.bb167 ], [ 128, %sw.bb170 ], [ 256, %sw.bb173 ], [ 1, %for.body ]
+  %.sink146 = phi i32 [ 2, %sw.bb152 ], [ 4, %sw.bb155 ], [ 8, %sw.bb158 ], [ 16, %sw.bb161 ], [ 32, %sw.bb164 ], [ 64, %sw.bb167 ], [ 128, %sw.bb170 ], [ 256, %sw.bb173 ], [ 1, %for.body ]
   %33 = load i32, ptr %ex_xkusage, align 8
-  %or151 = or i32 %33, %.sink145
+  %or151 = or i32 %33, %.sink146
   store i32 %or151, ptr %ex_xkusage, align 8
   br label %for.inc
 
@@ -744,9 +744,9 @@ if.then300:                                       ; preds = %if.end292
 
 if.end303:                                        ; preds = %if.then300, %if.end292
   store i32 0, ptr %i, align 4
-  %call305135 = call i32 @X509_get_ext_count(ptr noundef nonnull %x) #8
-  %cmp306136 = icmp sgt i32 %call305135, 0
-  br i1 %cmp306136, label %for.body308, label %for.end344
+  %call305136 = call i32 @X509_get_ext_count(ptr noundef nonnull %x) #8
+  %cmp306137 = icmp sgt i32 %call305136, 0
+  br i1 %cmp306137, label %for.body308, label %for.end344
 
 for.body308:                                      ; preds = %if.end303, %for.inc342
   %82 = load i32, ptr %i, align 4
@@ -773,25 +773,22 @@ if.end321:                                        ; preds = %if.end317
   %call1.i = call i32 @OBJ_obj2nid(ptr noundef %call.i125) #8
   store i32 %call1.i, ptr %ex_nid.i, align 4
   %cmp.i126 = icmp eq i32 %call1.i, 0
-  br i1 %cmp.i126, label %X509_supported_extension.exit.thread, label %X509_supported_extension.exit
+  br i1 %cmp.i126, label %if.then324, label %if.end.i
 
-X509_supported_extension.exit.thread:             ; preds = %if.end321
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ex_nid.i)
-  br label %if.then324
-
-X509_supported_extension.exit:                    ; preds = %if.end321
+if.end.i:                                         ; preds = %if.end321
   %call.i.i = call ptr @OBJ_bsearch_(ptr noundef nonnull %ex_nid.i, ptr noundef nonnull @X509_supported_extension.supported_nids, i32 noundef 15, i32 noundef 4, ptr noundef nonnull @nid_cmp_BSEARCH_CMP_FN) #8
   %tobool.not.i.not = icmp eq ptr %call.i.i, null
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ex_nid.i)
   br i1 %tobool.not.i.not, label %if.then324, label %if.end327
 
-if.then324:                                       ; preds = %X509_supported_extension.exit, %X509_supported_extension.exit.thread
+if.then324:                                       ; preds = %if.end321, %if.end.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ex_nid.i)
   %84 = load i32, ptr %ex_flags4, align 8
   %or326 = or i32 %84, 512
   store i32 %or326, ptr %ex_flags4, align 8
   br label %for.end344
 
-if.end327:                                        ; preds = %X509_supported_extension.exit
+if.end327:                                        ; preds = %if.end.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ex_nid.i)
   %switch.tableidx = add i32 %call311, -82
   %85 = icmp ult i32 %switch.tableidx, 9
   br i1 %85, label %switch.hole_check, label %for.inc342

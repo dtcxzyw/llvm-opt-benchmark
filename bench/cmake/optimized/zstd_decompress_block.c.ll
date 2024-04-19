@@ -1211,12 +1211,12 @@ ZSTD_buildSeqTable.exit103.thread:                ; preds = %137, %138, %152, %1
 define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 {
   %8 = alloca i32, align 4
   %9 = icmp ugt i64 %4, 131072
-  br i1 %9, label %73, label %10
+  br i1 %9, label %70, label %10
 
 10:                                               ; preds = %7
   %11 = tail call i64 @ZSTD_decodeLiteralsBlock(ptr noundef %0, ptr noundef %3, i64 noundef %4, ptr noundef %1, i64 noundef %2, i32 noundef %6), !range !17
   %12 = icmp ult i64 %11, -119
-  br i1 %12, label %13, label %73
+  br i1 %12, label %13, label %70
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %3, i64 %11
@@ -1247,7 +1247,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %29 = load i32, ptr %28, align 4
   %30 = call i64 @ZSTD_decodeSeqHeaders(ptr noundef %0, ptr noundef nonnull %8, ptr noundef %14, i64 noundef %15)
   %31 = icmp ult i64 %30, -119
-  br i1 %31, label %32, label %73
+  br i1 %31, label %32, label %70
 
 32:                                               ; preds = %20
   %33 = getelementptr inbounds i8, ptr %14, i64 %30
@@ -1259,8 +1259,8 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %38 = icmp sgt i32 %37, 0
   %or.cond3 = select i1 %or.cond, i1 %38, i1 false
   %39 = icmp ugt ptr %1, inttoptr (i64 -1048577 to ptr)
-  %or.cond86 = or i1 %39, %or.cond3
-  br i1 %or.cond86, label %73, label %40
+  %or.cond92 = or i1 %39, %or.cond3
+  br i1 %or.cond92, label %70, label %40
 
 40:                                               ; preds = %32
   %41 = icmp eq i32 %29, 0
@@ -1268,7 +1268,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
   %or.cond5 = select i1 %41, i1 %42, i1 false
   %43 = icmp sgt i32 %37, 8
   %or.cond7 = select i1 %or.cond5, i1 %43, i1 false
-  br i1 %or.cond7, label %44, label %62
+  br i1 %or.cond7, label %44, label %61
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1296,35 +1296,33 @@ ZSTD_getOffsetInfo.exit:                          ; preds = %50
   %58 = sub i32 8, %48
   %59 = shl i32 %.sroa.0.1.i, %58
   %60 = icmp ugt i32 %59, 6
-  %61 = zext i1 %60 to i32
-  br label %62
-
-62:                                               ; preds = %ZSTD_getOffsetInfo.exit, %40
-  %.076 = phi i32 [ %61, %ZSTD_getOffsetInfo.exit ], [ %29, %40 ]
   store i32 0, ptr %28, align 4
-  %.not83 = icmp eq i32 %.076, 0
-  br i1 %.not83, label %65, label %63
+  br i1 %60, label %.thread89, label %.thread86
 
-63:                                               ; preds = %62
-  %64 = tail call fastcc i64 @ZSTD_decompressSequencesLong(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %33, i64 noundef %34, i32 noundef %37)
-  br label %73
+61:                                               ; preds = %40
+  store i32 0, ptr %28, align 4
+  br i1 %41, label %.thread86, label %.thread89
 
-65:                                               ; preds = %62
-  %66 = getelementptr inbounds i8, ptr %0, i64 30360
-  %67 = load i32, ptr %66, align 8
-  %68 = icmp eq i32 %67, 2
-  br i1 %68, label %69, label %71
+.thread89:                                        ; preds = %ZSTD_getOffsetInfo.exit, %61
+  %62 = tail call fastcc i64 @ZSTD_decompressSequencesLong(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %33, i64 noundef %34, i32 noundef %37)
+  br label %70
 
-69:                                               ; preds = %65
-  %70 = tail call fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %33, i64 noundef %34, i32 noundef %37)
-  br label %73
+.thread86:                                        ; preds = %ZSTD_getOffsetInfo.exit, %61
+  %63 = getelementptr inbounds i8, ptr %0, i64 30360
+  %64 = load i32, ptr %63, align 8
+  %65 = icmp eq i32 %64, 2
+  br i1 %65, label %66, label %68
 
-71:                                               ; preds = %65
-  %72 = tail call fastcc i64 @ZSTD_decompressSequences(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %33, i64 noundef %34, i32 noundef %37)
-  br label %73
+66:                                               ; preds = %.thread86
+  %67 = tail call fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %33, i64 noundef %34, i32 noundef %37)
+  br label %70
 
-73:                                               ; preds = %32, %20, %10, %7, %71, %69, %63
-  %.0 = phi i64 [ %64, %63 ], [ %70, %69 ], [ %72, %71 ], [ -72, %7 ], [ %11, %10 ], [ %30, %20 ], [ -70, %32 ]
+68:                                               ; preds = %.thread86
+  %69 = tail call fastcc i64 @ZSTD_decompressSequences(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %33, i64 noundef %34, i32 noundef %37)
+  br label %70
+
+70:                                               ; preds = %32, %20, %10, %7, %68, %66, %.thread89
+  %.0 = phi i64 [ %62, %.thread89 ], [ %67, %66 ], [ %69, %68 ], [ -72, %7 ], [ %11, %10 ], [ %30, %20 ], [ -70, %32 ]
   ret i64 %.0
 }
 

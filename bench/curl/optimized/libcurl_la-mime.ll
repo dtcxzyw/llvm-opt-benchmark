@@ -1461,26 +1461,26 @@ land.lhs.true1:                                   ; preds = %entry
   br i1 %tobool.not.i, label %return, label %if.end5
 
 if.end:                                           ; preds = %entry
-  br i1 %tobool.not.i, label %mime_open_file.exit, label %if.end5
+  br i1 %tobool.not.i, label %if.end.i, label %if.end5
 
-mime_open_file.exit:                              ; preds = %if.end
+if.end.i:                                         ; preds = %if.end
   %fp.i = getelementptr inbounds i8, ptr %instream, i64 64
   %data.i = getelementptr inbounds i8, ptr %instream, i64 24
   %0 = load ptr, ptr %data.i, align 8
   %call.i = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.34)
   store ptr %call.i, ptr %fp.i, align 8
-  %tobool3.not.i.not = icmp eq ptr %call.i, null
-  br i1 %tobool3.not.i.not, label %return, label %if.end5
+  %tobool3.not.i = icmp eq ptr %call.i, null
+  br i1 %tobool3.not.i, label %return, label %if.end5
 
-if.end5:                                          ; preds = %land.lhs.true1, %if.end, %mime_open_file.exit
-  %1 = phi ptr [ %.pre, %if.end ], [ %call.i, %mime_open_file.exit ], [ %.pre, %land.lhs.true1 ]
+if.end5:                                          ; preds = %land.lhs.true1, %if.end.i, %if.end
+  %1 = phi ptr [ %call.i, %if.end.i ], [ %.pre, %if.end ], [ %.pre, %land.lhs.true1 ]
   %call7 = tail call i32 @fseek(ptr noundef nonnull %1, i64 noundef %offset, i32 noundef %whence)
   %tobool8.not = icmp eq i32 %call7, 0
   %cond = select i1 %tobool8.not, i32 0, i32 2
   br label %return
 
-return:                                           ; preds = %mime_open_file.exit, %land.lhs.true1, %if.end5
-  %retval.0 = phi i32 [ %cond, %if.end5 ], [ 0, %land.lhs.true1 ], [ 1, %mime_open_file.exit ]
+return:                                           ; preds = %if.end.i, %land.lhs.true1, %if.end5
+  %retval.0 = phi i32 [ %cond, %if.end5 ], [ 0, %land.lhs.true1 ], [ 1, %if.end.i ]
   ret i32 %retval.0
 }
 
@@ -1494,23 +1494,23 @@ if.end:                                           ; preds = %entry
   %fp.i = getelementptr inbounds i8, ptr %instream, i64 64
   %0 = load ptr, ptr %fp.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i, label %mime_open_file.exit, label %if.end3
+  br i1 %tobool.not.i, label %if.end.i, label %if.end3
 
-mime_open_file.exit:                              ; preds = %if.end
+if.end.i:                                         ; preds = %if.end
   %data.i = getelementptr inbounds i8, ptr %instream, i64 24
   %1 = load ptr, ptr %data.i, align 8
   %call.i = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.34)
   store ptr %call.i, ptr %fp.i, align 8
-  %tobool3.not.i.not = icmp eq ptr %call.i, null
-  br i1 %tobool3.not.i.not, label %return, label %if.end3
+  %tobool3.not.i = icmp eq ptr %call.i, null
+  br i1 %tobool3.not.i, label %return, label %if.end3
 
-if.end3:                                          ; preds = %if.end, %mime_open_file.exit
-  %2 = phi ptr [ %0, %if.end ], [ %call.i, %mime_open_file.exit ]
+if.end3:                                          ; preds = %if.end.i, %if.end
+  %2 = phi ptr [ %call.i, %if.end.i ], [ %0, %if.end ]
   %call4 = tail call i64 @fread(ptr noundef %buffer, i64 noundef %size, i64 noundef %nitems, ptr noundef nonnull %2)
   br label %return
 
-return:                                           ; preds = %mime_open_file.exit, %entry, %if.end3
-  %retval.0 = phi i64 [ %call4, %if.end3 ], [ -2, %entry ], [ -1, %mime_open_file.exit ]
+return:                                           ; preds = %if.end.i, %entry, %if.end3
+  %retval.0 = phi i64 [ %call4, %if.end3 ], [ -2, %entry ], [ -1, %if.end.i ]
   ret i64 %retval.0
 }
 

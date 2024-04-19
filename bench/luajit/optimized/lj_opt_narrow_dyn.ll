@@ -87,7 +87,7 @@ if.then.i:                                        ; preds = %while.body.i
 
 if.else.i:                                        ; preds = %while.body.i
   %shr.i = lshr i32 %11, 16
-  %trunc.i = trunc i32 %shr.i to i16
+  %trunc.i = trunc nuw i32 %shr.i to i16
   switch i16 %trunc.i, label %if.else44.i [
     i16 1, label %if.then18.i
     i16 2, label %if.then25.i
@@ -424,7 +424,7 @@ if.then122:                                       ; preds = %while.end
   %or.cond = and i1 %cmp129, %cmp126
   %add132 = or disjoint i32 %28, 4096
   %spec.select = select i1 %or.cond, i32 %add132, i32 %28
-  %conv135 = trunc i32 %ref to i16
+  %conv135 = trunc nuw i32 %ref to i16
   %bpropcache.i = getelementptr inbounds i8, ptr %0, i64 2852
   br label %for.body.i
 
@@ -783,7 +783,7 @@ land.lhs.true33:                                  ; preds = %if.else30
   br i1 %tobool40.not, label %if.then41, label %common.ret47
 
 if.then41:                                        ; preds = %land.lhs.true33
-  %conv43 = trunc i32 %mode to i16
+  %conv43 = trunc nuw nsw i32 %mode to i16
   %fold.i = getelementptr inbounds i8, ptr %J, i64 184
   %ot1.i = getelementptr inbounds i8, ptr %J, i64 188
   store i16 23317, ptr %ot1.i, align 4
@@ -963,7 +963,7 @@ land.lhs.true10:                                  ; preds = %land.lhs.true5
   br i1 %cmp.i50, label %if.end, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true10
-  %op.tr34 = trunc i32 %op to i16
+  %op.tr34 = trunc nuw i32 %op to i16
   %7 = shl nuw nsw i16 %op.tr34, 8
   %conv = add nuw nsw i16 %7, 3219
   br label %return
@@ -1264,16 +1264,16 @@ entry:
   %J.val = load i32, ptr %0, align 8
   %and.i = and i32 %J.val, 2097152
   %tobool.not.i = icmp eq i32 %and.i, 0
-  br i1 %tobool.not.i, label %if.end15, label %narrow_forl.exit
+  br i1 %tobool.not.i, label %if.end15, label %if.then.i
 
-narrow_forl.exit:                                 ; preds = %entry
+if.then.i:                                        ; preds = %entry
   %1 = load double, ptr %tv, align 8
   %conv.i.i = fptosi double %1 to i32
   %conv1.i.i = sitofp i32 %conv.i.i to double
-  %cmp.i.i = fcmp une double %1, %conv1.i.i
-  br i1 %cmp.i.i, label %if.end15, label %narrow_forl.exit19
+  %cmp.i.i = fcmp oeq double %1, %conv1.i.i
+  br i1 %cmp.i.i, label %narrow_forl.exit19, label %if.end15
 
-narrow_forl.exit19:                               ; preds = %narrow_forl.exit
+narrow_forl.exit19:                               ; preds = %if.then.i
   %arrayidx1 = getelementptr inbounds i8, ptr %tv, i64 8
   %2 = load double, ptr %arrayidx1, align 8
   %conv.i.i14 = fptosi double %2 to i32
@@ -1302,7 +1302,7 @@ cond.false:                                       ; preds = %if.then
   %cmp13 = fcmp ult double %add, 0xC1E0000000000000
   br i1 %cmp13, label %if.end15, label %return
 
-if.end15:                                         ; preds = %entry, %cond.true, %cond.false, %narrow_forl.exit28, %narrow_forl.exit19, %narrow_forl.exit
+if.end15:                                         ; preds = %entry, %if.then.i, %cond.true, %cond.false, %narrow_forl.exit28, %narrow_forl.exit19
   br label %return
 
 return:                                           ; preds = %cond.true, %cond.false, %if.end15
@@ -1334,7 +1334,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp13, label %if.then, label %if.end47
 
 if.then:                                          ; preds = %entry, %entry, %land.lhs.true
-  %conv16 = trunc i32 %ref to i16
+  %conv16 = trunc nuw i32 %ref to i16
   %bpropcache.i = getelementptr inbounds i8, ptr %0, i64 2852
   br label %for.body.i
 

@@ -1259,9 +1259,9 @@ land.lhs.true5:                                   ; preds = %land.lhs.true4
   %4 = load ptr, ptr %vfn.i, align 8
   %call.i = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %2)
   %cmp.not.i = icmp sgt i32 %call.i, %3
-  br i1 %cmp.not.i, label %return, label %_ZNK6icu_7517GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit
+  br i1 %cmp.not.i, label %return, label %land.rhs.i
 
-_ZNK6icu_7517GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit: ; preds = %land.lhs.true5
+land.rhs.i:                                       ; preds = %land.lhs.true5
   %vtable2.i = load ptr, ptr %this, align 8
   %vfn3.i = getelementptr inbounds i8, ptr %vtable2.i, i64 128
   %5 = load ptr, ptr %vfn3.i, align 8
@@ -1269,7 +1269,7 @@ _ZNK6icu_7517GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit: ; preds
   %cmp5.i.not = icmp slt i32 %call4.i, %3
   br i1 %cmp5.i.not, label %return, label %for.inc
 
-for.inc:                                          ; preds = %for.body, %land.lhs.true4, %_ZNK6icu_7517GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit
+for.inc:                                          ; preds = %land.rhs.i, %for.body, %land.lhs.true4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 24
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
@@ -1356,8 +1356,8 @@ if.end35:                                         ; preds = %_ZNK6icu_7517Gregor
   %spec.select = zext i1 %or.cond18.not to i8
   br label %return
 
-return:                                           ; preds = %land.lhs.true5, %_ZNK6icu_7517GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit, %if.end35, %if.then27, %_ZNK6icu_7517GregorianCalendar10yearLengthEv.exit, %if.then11, %lor.lhs.false
-  %retval.0 = phi i8 [ 0, %lor.lhs.false ], [ 0, %if.then11 ], [ 0, %_ZNK6icu_7517GregorianCalendar10yearLengthEv.exit ], [ 0, %if.then27 ], [ %spec.select, %if.end35 ], [ 0, %_ZNK6icu_7517GregorianCalendar11boundsCheckEi19UCalendarDateFields.exit ], [ 0, %land.lhs.true5 ]
+return:                                           ; preds = %land.rhs.i, %land.lhs.true5, %if.end35, %if.then27, %_ZNK6icu_7517GregorianCalendar10yearLengthEv.exit, %if.then11, %lor.lhs.false
+  %retval.0 = phi i8 [ 0, %lor.lhs.false ], [ 0, %if.then11 ], [ 0, %_ZNK6icu_7517GregorianCalendar10yearLengthEv.exit ], [ 0, %if.then27 ], [ %spec.select, %if.end35 ], [ 0, %land.lhs.true5 ], [ 0, %land.rhs.i ]
   ret i8 %retval.0
 }
 

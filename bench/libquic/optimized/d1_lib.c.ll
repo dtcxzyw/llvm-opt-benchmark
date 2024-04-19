@@ -606,7 +606,7 @@ land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %tv_usec.i.i = getelementptr inbounds i8, ptr %2, i64 376
   %4 = load i64, ptr %tv_usec.i.i, align 8
   %cmp3.i.i = icmp eq i64 %4, 0
-  br i1 %cmp3.i.i, label %dtls1_is_timer_expired.exit.thread, label %if.end5.i.i
+  br i1 %cmp3.i.i, label %DTLSv1_get_timeout.exit.thread.i, label %if.end5.i.i
 
 if.end5.i.i:                                      ; preds = %land.lhs.true.i.i, %if.end.i.i
   %ctx.i.i.i = getelementptr inbounds i8, ptr %ssl, i64 232
@@ -664,25 +664,25 @@ if.end23.i.i:                                     ; preds = %land.lhs.true16.i.i
   %cmp38.i.i = icmp eq i64 %timeleft.sroa.0.0.i, 0
   %cmp41.i.i = icmp slt i64 %timeleft.sroa.6.0.i, 15000
   %or.cond.i.i = select i1 %cmp38.i.i, i1 %cmp41.i.i, i1 false
-  br i1 %or.cond.i.i, label %return.sink.split.i.i, label %dtls1_is_timer_expired.exit
+  br i1 %or.cond.i.i, label %return.sink.split.i.i, label %if.end.i
 
 return.sink.split.i.i:                            ; preds = %if.end23.i.i, %land.lhs.true16.i.i, %get_current_time.exit.i.i
-  br label %dtls1_is_timer_expired.exit
+  br label %if.end.i
 
-dtls1_is_timer_expired.exit.thread:               ; preds = %land.lhs.true.i.i
+DTLSv1_get_timeout.exit.thread.i:                 ; preds = %land.lhs.true.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %timenow.i.i)
   br label %return
 
-dtls1_is_timer_expired.exit:                      ; preds = %if.end23.i.i, %return.sink.split.i.i
+if.end.i:                                         ; preds = %return.sink.split.i.i, %if.end23.i.i
   %timeleft.sroa.0.2.i = phi i64 [ 0, %return.sink.split.i.i ], [ %timeleft.sroa.0.0.i, %if.end23.i.i ]
   %timeleft.sroa.6.2.i = phi i64 [ 0, %return.sink.split.i.i ], [ %timeleft.sroa.6.0.i, %if.end23.i.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %timenow.i.i)
-  %cmp.i = icmp sgt i64 %timeleft.sroa.0.2.i, 0
-  %cmp1.i = icmp sgt i64 %timeleft.sroa.6.2.i, 0
-  %or.cond.not.i.not = select i1 %cmp.i, i1 true, i1 %cmp1.i
-  br i1 %or.cond.not.i.not, label %return, label %if.end3
+  %cmp.i = icmp slt i64 %timeleft.sroa.0.2.i, 1
+  %cmp1.i = icmp slt i64 %timeleft.sroa.6.2.i, 1
+  %or.cond.not.i = select i1 %cmp.i, i1 %cmp1.i, i1 false
+  br i1 %or.cond.not.i, label %if.end3, label %return
 
-if.end3:                                          ; preds = %dtls1_is_timer_expired.exit
+if.end3:                                          ; preds = %if.end.i
   %timeout_duration.i = getelementptr inbounds i8, ptr %7, i64 384
   %13 = load i16, ptr %timeout_duration.i, align 8
   %mul.i = shl i16 %13, 1
@@ -803,8 +803,8 @@ dtls1_start_timer.exit:                           ; preds = %if.then.i.i26, %if.
   %call7 = call i32 @dtls1_retransmit_buffered_messages(ptr noundef nonnull %ssl) #9
   br label %return
 
-return:                                           ; preds = %dtls1_is_timer_expired.exit.thread, %dtls1_double_timeout.exit, %dtls1_is_timer_expired.exit, %entry, %dtls1_start_timer.exit
-  %retval.0 = phi i32 [ %call7, %dtls1_start_timer.exit ], [ -1, %entry ], [ 0, %dtls1_is_timer_expired.exit ], [ -1, %dtls1_double_timeout.exit ], [ 0, %dtls1_is_timer_expired.exit.thread ]
+return:                                           ; preds = %DTLSv1_get_timeout.exit.thread.i, %if.end.i, %dtls1_double_timeout.exit, %entry, %dtls1_start_timer.exit
+  %retval.0 = phi i32 [ %call7, %dtls1_start_timer.exit ], [ -1, %entry ], [ -1, %dtls1_double_timeout.exit ], [ 0, %if.end.i ], [ 0, %DTLSv1_get_timeout.exit.thread.i ]
   ret i32 %retval.0
 }
 

@@ -110,14 +110,14 @@ define internal noundef i32 @dissect_dtcp_ip(ptr noundef %0, ptr nocapture nound
 7:                                                ; preds = %4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
   %.not.i = icmp eq i8 %8, 1
-  br i1 %.not.i, label %dtcp_ip_check_packet.exit, label %dtcp_ip_check_packet.exit.thread
+  br i1 %.not.i, label %9, label %dtcp_ip_check_packet.exit.thread
 
-dtcp_ip_check_packet.exit:                        ; preds = %7
-  %9 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 1) #2
-  %10 = icmp ult i16 %9, 8
-  br i1 %10, label %dtcp_ip_check_packet.exit.thread, label %11
+9:                                                ; preds = %7
+  %10 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 1) #2
+  %11 = icmp ugt i16 %10, 7
+  br i1 %11, label %dtcp_ip_check_packet.exit, label %dtcp_ip_check_packet.exit.thread
 
-11:                                               ; preds = %dtcp_ip_check_packet.exit
+dtcp_ip_check_packet.exit:                        ; preds = %9
   %12 = getelementptr inbounds i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8
   tail call void @col_set_str(ptr noundef %13, i32 noundef 34, ptr noundef nonnull @.str.31) #2
@@ -166,14 +166,14 @@ dtcp_ip_check_packet.exit:                        ; preds = %7
   %53 = icmp ugt i16 %21, 8
   br i1 %53, label %54, label %dtcp_ip_check_packet.exit.thread
 
-54:                                               ; preds = %11
+54:                                               ; preds = %dtcp_ip_check_packet.exit
   %55 = add nsw i32 %22, -8
   %56 = load i32, ptr @hf_dtcp_ip_ake_info, align 4
   %57 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %56, ptr noundef %0, i32 noundef 11, i32 noundef %55, i32 noundef 0) #2
   br label %dtcp_ip_check_packet.exit.thread
 
-dtcp_ip_check_packet.exit.thread:                 ; preds = %7, %4, %11, %54, %dtcp_ip_check_packet.exit
-  %.0 = phi i32 [ 0, %dtcp_ip_check_packet.exit ], [ %23, %54 ], [ 11, %11 ], [ 0, %4 ], [ 0, %7 ]
+dtcp_ip_check_packet.exit.thread:                 ; preds = %9, %7, %4, %dtcp_ip_check_packet.exit, %54
+  %.0 = phi i32 [ %23, %54 ], [ 11, %dtcp_ip_check_packet.exit ], [ 0, %4 ], [ 0, %7 ], [ 0, %9 ]
   ret i32 %.0
 }
 

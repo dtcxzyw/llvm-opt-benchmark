@@ -1306,7 +1306,7 @@ define dso_local i32 @sata_link_hardreset(ptr noundef %0, ptr nocapture noundef 
   %21 = load i64, ptr %20, align 8
   %22 = and i64 %21, 2
   %23 = icmp eq i64 %22, 0
-  br i1 %23, label %.thread19, label %24
+  br i1 %23, label %.thread, label %24
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds i8, ptr %12, i64 8
@@ -1314,7 +1314,7 @@ define dso_local i32 @sata_link_hardreset(ptr noundef %0, ptr nocapture noundef 
   %27 = getelementptr inbounds i8, ptr %26, i64 224
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %.thread19, label %30
+  br i1 %29, label %.thread, label %30
 
 30:                                               ; preds = %24
   %31 = call i32 %28(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %7) #11
@@ -1327,24 +1327,24 @@ define dso_local i32 @sata_link_hardreset(ptr noundef %0, ptr nocapture noundef 
 34:                                               ; preds = %32, %30
   %35 = phi i32 [ %31, %30 ], [ %33, %32 ]
   %36 = icmp eq i32 %35, 0
-  %.pre.pre = load ptr, ptr %0, align 64
-  br i1 %36, label %37, label %.thread19
+  %.pre = load ptr, ptr %0, align 64
+  br i1 %36, label %37, label %.thread
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds i8, ptr %0, i64 764
   %39 = load i32, ptr %38, align 4
-  %40 = getelementptr inbounds i8, ptr %.pre.pre, i64 8256
+  %40 = getelementptr inbounds i8, ptr %.pre, i64 8256
   %41 = icmp eq ptr %40, %0
   br i1 %41, label %53, label %42
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %.pre.pre, i64 14720
+  %43 = getelementptr inbounds i8, ptr %.pre, i64 14720
   %44 = load ptr, ptr %43, align 64
   %45 = icmp eq ptr %44, %0
   br i1 %45, label %53, label %46
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %.pre.pre, i64 9024
+  %47 = getelementptr inbounds i8, ptr %.pre, i64 9024
   %48 = load i32, ptr %47, align 64
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %53, label %.thread17
@@ -1365,33 +1365,32 @@ define dso_local i32 @sata_link_hardreset(ptr noundef %0, ptr nocapture noundef 
   %58 = add i32 %57, 1
   br label %59
 
-.thread19:                                        ; preds = %34, %24, %19
-  %.pre = phi ptr [ %.pre.pre, %34 ], [ %12, %24 ], [ %12, %19 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
-  br label %64
-
-59:                                               ; preds = %53, %55
+59:                                               ; preds = %55, %53
   %60 = phi i32 [ 0, %53 ], [ %58, %55 ]
   %61 = load i32, ptr %7, align 4
   %62 = lshr i32 %61, 4
   %63 = and i32 %62, 15
   %.not = icmp eq i32 %63, %60
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
-  br i1 %.not, label %123, label %64
+  br i1 %.not, label %64, label %.thread
 
-64:                                               ; preds = %.thread19, %59
-  %65 = phi ptr [ %.pre, %.thread19 ], [ %.pre.pre, %59 ]
+64:                                               ; preds = %59
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
+  br label %123
+
+.thread:                                          ; preds = %59, %19, %24, %34
+  %65 = phi ptr [ %.pre, %59 ], [ %12, %19 ], [ %12, %24 ], [ %.pre, %34 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
   %66 = getelementptr inbounds i8, ptr %65, i64 8256
   %67 = icmp eq ptr %66, %0
   br i1 %67, label %72, label %68
 
-68:                                               ; preds = %64
+68:                                               ; preds = %.thread
   %69 = getelementptr inbounds i8, ptr %65, i64 14720
   %70 = load ptr, ptr %69, align 64
   %71 = icmp eq ptr %70, %0
   br i1 %71, label %72, label %85
 
-72:                                               ; preds = %68, %64
+72:                                               ; preds = %68, %.thread
   %73 = getelementptr inbounds i8, ptr %65, i64 24
   %74 = load i64, ptr %73, align 8
   %75 = and i64 %74, 2
@@ -1470,8 +1469,8 @@ define dso_local i32 @sata_link_hardreset(ptr noundef %0, ptr nocapture noundef 
   %.pre28 = load ptr, ptr %0, align 64
   br label %123
 
-123:                                              ; preds = %121, %59
-  %124 = phi ptr [ %.pre28, %121 ], [ %.pre.pre, %59 ]
+123:                                              ; preds = %64, %121
+  %124 = phi ptr [ %.pre, %64 ], [ %.pre28, %121 ]
   %125 = getelementptr inbounds i8, ptr %124, i64 8256
   %126 = icmp eq ptr %125, %0
   br i1 %126, label %131, label %127

@@ -991,8 +991,8 @@ entry:
   %0 = getelementptr i8, ptr %cmd_info_tlv, i64 4
   %tlv.val.i = load i16, ptr %0, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(496) %tlvs, i8 0, i64 496, i1 false)
-  %cmp.i12.i.i = icmp ugt i16 %tlv.val.i, 15
-  br i1 %cmp.i12.i.i, label %land.lhs.true.i.i.preheader.i, label %rocker_tlv_parse_nested.exit
+  %cmp.i13.i.i = icmp ugt i16 %tlv.val.i, 15
+  br i1 %cmp.i13.i.i, label %land.lhs.true.i.i.preheader.i, label %rocker_tlv_parse_nested.exit
 
 land.lhs.true.i.i.preheader.i:                    ; preds = %entry
   %conv.i.i = zext i16 %tlv.val.i to i32
@@ -1001,18 +1001,18 @@ land.lhs.true.i.i.preheader.i:                    ; preds = %entry
   br label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %for.inc.i.i, %land.lhs.true.i.i.preheader.i
-  %tlv.014.i.i = phi ptr [ %add.ptr.i.i.i, %for.inc.i.i ], [ %add.ptr.i.i, %land.lhs.true.i.i.preheader.i ]
-  %rem.013.i.i = phi i32 [ %sub1.i.i.i, %for.inc.i.i ], [ %sub.i.i, %land.lhs.true.i.i.preheader.i ]
-  %len.i.i.i = getelementptr inbounds i8, ptr %tlv.014.i.i, i64 4
+  %tlv.015.i.i = phi ptr [ %add.ptr.i.i.i, %for.inc.i.i ], [ %add.ptr.i.i, %land.lhs.true.i.i.preheader.i ]
+  %rem.014.i.i = phi i32 [ %sub1.i.i.i, %for.inc.i.i ], [ %sub.i.i, %land.lhs.true.i.i.preheader.i ]
+  %len.i.i.i = getelementptr inbounds i8, ptr %tlv.015.i.i, i64 4
   %1 = load i16, ptr %len.i.i.i, align 4
-  %cmp1.i.i.i = icmp ult i16 %1, 8
+  %cmp1.i.i.i = icmp ugt i16 %1, 7
   %conv5.i.i.i = zext i16 %1 to i32
-  %cmp6.i.not.i.i = icmp ult i32 %rem.013.i.i, %conv5.i.i.i
-  %or.cond.i.i = or i1 %cmp1.i.i.i, %cmp6.i.not.i.i
-  br i1 %or.cond.i.i, label %rocker_tlv_parse_nested.exit, label %for.body.i.i
+  %cmp6.i.i.i = icmp uge i32 %rem.014.i.i, %conv5.i.i.i
+  %or.cond12.i.i = and i1 %cmp1.i.i.i, %cmp6.i.i.i
+  br i1 %or.cond12.i.i, label %for.body.i.i, label %rocker_tlv_parse_nested.exit
 
 for.body.i.i:                                     ; preds = %land.lhs.true.i.i.i
-  %tlv.0.val.i.i = load i32, ptr %tlv.014.i.i, align 8
+  %tlv.0.val.i.i = load i32, ptr %tlv.015.i.i, align 8
   %2 = add i32 %tlv.0.val.i.i, -1
   %or.cond.not.i.i = icmp ult i32 %2, 61
   br i1 %or.cond.not.i.i, label %if.then.i.i, label %for.inc.i.i
@@ -1020,15 +1020,15 @@ for.body.i.i:                                     ; preds = %land.lhs.true.i.i.i
 if.then.i.i:                                      ; preds = %for.body.i.i
   %idxprom.i.i = zext nneg i32 %tlv.0.val.i.i to i64
   %arrayidx.i.i = getelementptr ptr, ptr %tlvs, i64 %idxprom.i.i
-  store ptr %tlv.014.i.i, ptr %arrayidx.i.i, align 8
+  store ptr %tlv.015.i.i, ptr %arrayidx.i.i, align 8
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %if.then.i.i, %for.body.i.i
   %sub.i.i.i = add nuw nsw i32 %conv5.i.i.i, 7
   %and.i.i.i = and i32 %sub.i.i.i, 131064
-  %sub1.i.i.i = sub nsw i32 %rem.013.i.i, %and.i.i.i
+  %sub1.i.i.i = sub nsw i32 %rem.014.i.i, %and.i.i.i
   %idx.ext.i.i.i = zext nneg i32 %and.i.i.i to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %tlv.014.i.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr i8, ptr %tlv.015.i.i, i64 %idx.ext.i.i.i
   %cmp.i.i.i = icmp sgt i32 %sub1.i.i.i, 7
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %rocker_tlv_parse_nested.exit, !llvm.loop !9
 
@@ -3876,8 +3876,8 @@ if.end.i20:                                       ; preds = %lor.lhs.false.i17
   %26 = add nuw nsw i32 %add.i.i.i, 8
   %mul.i.i.i = zext nneg i32 %26 to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %call6.i, i8 0, i64 %mul.i.i.i, i1 false)
-  %cmp.i12.i.i.i = icmp ugt i16 %tlv.val.i.i, 15
-  br i1 %cmp.i12.i.i.i, label %land.lhs.true.i.i.preheader.i.i, label %rocker_tlv_parse_nested.exit.i
+  %cmp.i13.i.i.i = icmp ugt i16 %tlv.val.i.i, 15
+  br i1 %cmp.i13.i.i.i, label %land.lhs.true.i.i.preheader.i.i, label %rocker_tlv_parse_nested.exit.i
 
 land.lhs.true.i.i.preheader.i.i:                  ; preds = %if.end.i20
   %conv.i.i.i = zext i16 %tlv.val.i.i to i32
@@ -3886,18 +3886,18 @@ land.lhs.true.i.i.preheader.i.i:                  ; preds = %if.end.i20
   br label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %for.inc.i.i.i, %land.lhs.true.i.i.preheader.i.i
-  %tlv.014.i.i.i = phi ptr [ %add.ptr.i.i.i.i, %for.inc.i.i.i ], [ %add.ptr.i.i.i, %land.lhs.true.i.i.preheader.i.i ]
-  %rem.013.i.i.i = phi i32 [ %sub1.i.i.i.i, %for.inc.i.i.i ], [ %sub.i.i.i, %land.lhs.true.i.i.preheader.i.i ]
-  %len.i.i.i.i = getelementptr inbounds i8, ptr %tlv.014.i.i.i, i64 4
+  %tlv.015.i.i.i = phi ptr [ %add.ptr.i.i.i.i, %for.inc.i.i.i ], [ %add.ptr.i.i.i, %land.lhs.true.i.i.preheader.i.i ]
+  %rem.014.i.i.i = phi i32 [ %sub1.i.i.i.i, %for.inc.i.i.i ], [ %sub.i.i.i, %land.lhs.true.i.i.preheader.i.i ]
+  %len.i.i.i.i = getelementptr inbounds i8, ptr %tlv.015.i.i.i, i64 4
   %27 = load i16, ptr %len.i.i.i.i, align 4
-  %cmp1.i.i.i.i = icmp ult i16 %27, 8
+  %cmp1.i.i.i.i = icmp ugt i16 %27, 7
   %conv5.i.i.i.i = zext i16 %27 to i32
-  %cmp6.i.not.i.i.i = icmp ult i32 %rem.013.i.i.i, %conv5.i.i.i.i
-  %or.cond.i.i.i = or i1 %cmp1.i.i.i.i, %cmp6.i.not.i.i.i
-  br i1 %or.cond.i.i.i, label %rocker_tlv_parse_nested.exit.i, label %for.body.i.i.i
+  %cmp6.i.i.i.i = icmp uge i32 %rem.014.i.i.i, %conv5.i.i.i.i
+  %or.cond12.i.i.i = and i1 %cmp1.i.i.i.i, %cmp6.i.i.i.i
+  br i1 %or.cond12.i.i.i, label %for.body.i.i.i, label %rocker_tlv_parse_nested.exit.i
 
 for.body.i.i.i:                                   ; preds = %land.lhs.true.i.i.i.i
-  %tlv.0.val.i.i.i = load i32, ptr %tlv.014.i.i.i, align 8
+  %tlv.0.val.i.i.i = load i32, ptr %tlv.015.i.i.i, align 8
   %28 = add i32 %tlv.0.val.i.i.i, -1
   %or.cond.not.i.i.i = icmp ult i32 %28, %conv12.i
   br i1 %or.cond.not.i.i.i, label %if.then.i.i.i, label %for.inc.i.i.i
@@ -3905,15 +3905,15 @@ for.body.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
 if.then.i.i.i:                                    ; preds = %for.body.i.i.i
   %idxprom.i.i.i = zext nneg i32 %tlv.0.val.i.i.i to i64
   %arrayidx.i.i.i = getelementptr ptr, ptr %call6.i, i64 %idxprom.i.i.i
-  store ptr %tlv.014.i.i.i, ptr %arrayidx.i.i.i, align 8
+  store ptr %tlv.015.i.i.i, ptr %arrayidx.i.i.i, align 8
   br label %for.inc.i.i.i
 
 for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %for.body.i.i.i
   %sub.i.i.i.i = add nuw nsw i32 %conv5.i.i.i.i, 7
   %and.i.i.i.i = and i32 %sub.i.i.i.i, 131064
-  %sub1.i.i.i.i = sub nsw i32 %rem.013.i.i.i, %and.i.i.i.i
+  %sub1.i.i.i.i = sub nsw i32 %rem.014.i.i.i, %and.i.i.i.i
   %idx.ext.i.i.i.i = zext nneg i32 %and.i.i.i.i to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %tlv.014.i.i.i, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %tlv.015.i.i.i, i64 %idx.ext.i.i.i.i
   %cmp.i.i.i.i = icmp sgt i32 %sub1.i.i.i.i, 7
   br i1 %cmp.i.i.i.i, label %land.lhs.true.i.i.i.i, label %rocker_tlv_parse_nested.exit.i, !llvm.loop !9
 

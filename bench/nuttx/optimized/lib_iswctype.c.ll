@@ -152,11 +152,11 @@ define i32 @iswpunct(i32 noundef %0) local_unnamed_addr #0 {
 
 iswalpha.exit.i:                                  ; preds = %1
   %3 = tail call i32 @isalpha(i32 noundef %0) #5
-  %.not.i = icmp eq i32 %3, 0
-  %4 = add i32 %0, -58
-  %5 = icmp ult i32 %4, -10
-  %or.cond = and i1 %5, %.not.i
-  br i1 %or.cond, label %iswprint.exit.i, label %iswgraph.exit
+  %.not.i = icmp ne i32 %3, 0
+  %4 = add i32 %0, -48
+  %5 = icmp ult i32 %4, 10
+  %or.cond = or i1 %5, %.not.i
+  br i1 %or.cond, label %iswgraph.exit, label %iswprint.exit.i
 
 iswprint.exit.i:                                  ; preds = %iswalpha.exit.i
   %6 = tail call i32 @isprint(i32 noundef %0) #5
@@ -169,8 +169,8 @@ iswspace.exit.i:                                  ; preds = %iswprint.exit.i
   %8 = zext i1 %.not2.i to i32
   br label %iswgraph.exit
 
-iswgraph.exit:                                    ; preds = %iswalpha.exit.i, %iswspace.exit.i, %iswprint.exit.i, %1
-  %9 = phi i32 [ 0, %iswprint.exit.i ], [ %8, %iswspace.exit.i ], [ 0, %1 ], [ 0, %iswalpha.exit.i ]
+iswgraph.exit:                                    ; preds = %1, %iswalpha.exit.i, %iswspace.exit.i, %iswprint.exit.i
+  %9 = phi i32 [ 0, %iswprint.exit.i ], [ %8, %iswspace.exit.i ], [ 0, %iswalpha.exit.i ], [ 0, %1 ]
   ret i32 %9
 }
 
@@ -296,11 +296,11 @@ iswspace.exit.i:                                  ; preds = %iswprint.exit.i
 
 iswalpha.exit.i.i:                                ; preds = %38
   %40 = tail call i32 @isalpha(i32 noundef %0) #5
-  %.not.i.i = icmp eq i32 %40, 0
-  %41 = add i32 %0, -58
-  %42 = icmp ult i32 %41, -10
-  %or.cond.i = and i1 %42, %.not.i.i
-  br i1 %or.cond.i, label %iswprint.exit.i.i, label %iswalnum.exit
+  %.not.i.i = icmp ne i32 %40, 0
+  %41 = add i32 %0, -48
+  %42 = icmp ult i32 %41, 10
+  %or.cond.i = or i1 %42, %.not.i.i
+  br i1 %or.cond.i, label %iswalnum.exit, label %iswprint.exit.i.i
 
 iswprint.exit.i.i:                                ; preds = %iswalpha.exit.i.i
   %43 = tail call i32 @isprint(i32 noundef %0) #5
@@ -338,7 +338,7 @@ iswspace.exit.i.i:                                ; preds = %iswprint.exit.i.i
   br label %iswalnum.exit
 
 iswalnum.exit:                                    ; preds = %48, %46, %iswspace.exit.i.i, %iswprint.exit.i.i, %iswalpha.exit.i.i, %38, %36, %34, %iswspace.exit.i, %iswprint.exit.i, %25, %19, %17, %15, %13, %11, %9, %iswalpha.exit.thread.i, %iswalpha.exit.i, %2, %54, %50, %30, %21
-  %.0 = phi i32 [ %59, %54 ], [ %53, %50 ], [ %33, %30 ], [ %24, %21 ], [ 0, %2 ], [ 1, %iswalpha.exit.i ], [ %8, %iswalpha.exit.thread.i ], [ %12, %11 ], [ 0, %9 ], [ %16, %15 ], [ 0, %13 ], [ %20, %19 ], [ 0, %17 ], [ 0, %iswprint.exit.i ], [ %29, %iswspace.exit.i ], [ 0, %25 ], [ %37, %36 ], [ 0, %34 ], [ 0, %iswprint.exit.i.i ], [ %45, %iswspace.exit.i.i ], [ 0, %38 ], [ 0, %iswalpha.exit.i.i ], [ %49, %48 ], [ 0, %46 ]
+  %.0 = phi i32 [ %59, %54 ], [ %53, %50 ], [ %33, %30 ], [ %24, %21 ], [ 0, %2 ], [ 1, %iswalpha.exit.i ], [ %8, %iswalpha.exit.thread.i ], [ %12, %11 ], [ 0, %9 ], [ %16, %15 ], [ 0, %13 ], [ %20, %19 ], [ 0, %17 ], [ 0, %iswprint.exit.i ], [ %29, %iswspace.exit.i ], [ 0, %25 ], [ %37, %36 ], [ 0, %34 ], [ 0, %iswprint.exit.i.i ], [ %45, %iswspace.exit.i.i ], [ 0, %iswalpha.exit.i.i ], [ 0, %38 ], [ %49, %48 ], [ 0, %46 ]
   ret i32 %.0
 }
 

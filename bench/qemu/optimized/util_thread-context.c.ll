@@ -485,22 +485,22 @@ if.then.i:                                        ; preds = %if.end7
 
 bitmap_new.exit:                                  ; preds = %if.end7
   %call9 = call ptr @numa_allocate_cpumask() #8
-  %l.032 = load ptr, ptr %host_nodes, align 8
-  %tobool10.not33 = icmp eq ptr %l.032, null
-  br i1 %tobool10.not33, label %for.end26, label %for.body.lr.ph
+  %l.038 = load ptr, ptr %host_nodes, align 8
+  %tobool10.not39 = icmp eq ptr %l.038, null
+  br i1 %tobool10.not39, label %for.end26, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %bitmap_new.exit
-  %cmp30 = icmp sgt i32 %call.fr, 0
-  br i1 %cmp30, label %for.body.us.preheader, label %for.body
+  %cmp36 = icmp sgt i32 %call.fr, 0
+  br i1 %cmp36, label %for.body.us.preheader, label %for.body
 
 for.body.us.preheader:                            ; preds = %for.body.lr.ph
   %wide.trip.count = zext nneg i32 %call.fr to i64
   br label %for.body.us
 
 for.body.us:                                      ; preds = %for.body.us.preheader, %for.inc25.us
-  %l.034.us = phi ptr [ %l.0.us, %for.inc25.us ], [ %l.032, %for.body.us.preheader ]
+  %l.040.us = phi ptr [ %l.0.us, %for.inc25.us ], [ %l.038, %for.body.us.preheader ]
   %call11.us = call ptr @numa_bitmask_clearall(ptr noundef %call9) #8
-  %value.us = getelementptr inbounds i8, ptr %l.034.us, i64 8
+  %value.us = getelementptr inbounds i8, ptr %l.040.us, i64 8
   %3 = load i16, ptr %value.us, align 8
   %conv12.us = zext i16 %3 to i32
   %call13.us = call i32 @numa_node_to_cpus(i32 noundef %conv12.us, ptr noundef %call9) #8
@@ -508,13 +508,13 @@ for.body.us:                                      ; preds = %for.body.us.prehead
   br i1 %tobool14.not.us, label %for.body19.us, label %for.inc25.us
 
 for.inc25.us:                                     ; preds = %for.inc.us, %for.body.us
-  %l.0.us = load ptr, ptr %l.034.us, align 8
+  %l.0.us = load ptr, ptr %l.040.us, align 8
   %tobool10.not.us = icmp eq ptr %l.0.us, null
   br i1 %tobool10.not.us, label %for.end26, label %for.body.us, !llvm.loop !13
 
 for.body19.us:                                    ; preds = %for.body.us, %for.inc.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc.us ], [ 0, %for.body.us ]
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %call20.us = call i32 @numa_bitmask_isbitset(ptr noundef %call9, i32 noundef %4) #8
   %tobool21.not.us = icmp eq i32 %call20.us, 0
   br i1 %tobool21.not.us, label %for.inc.us, label %if.then22.us
@@ -535,20 +535,20 @@ for.inc.us:                                       ; preds = %if.then22.us, %for.
   br i1 %exitcond.not, label %for.inc25.us, label %for.body19.us, !llvm.loop !14
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %l.034 = phi ptr [ %l.0, %for.body ], [ %l.032, %for.body.lr.ph ]
+  %l.040 = phi ptr [ %l.0, %for.body ], [ %l.038, %for.body.lr.ph ]
   %call11 = call ptr @numa_bitmask_clearall(ptr noundef %call9) #8
-  %value = getelementptr inbounds i8, ptr %l.034, i64 8
+  %value = getelementptr inbounds i8, ptr %l.040, i64 8
   %6 = load i16, ptr %value, align 8
   %conv12 = zext i16 %6 to i32
   %call13 = call i32 @numa_node_to_cpus(i32 noundef %conv12, ptr noundef %call9) #8
-  %l.0 = load ptr, ptr %l.034, align 8
+  %l.0 = load ptr, ptr %l.040, align 8
   %tobool10.not = icmp eq ptr %l.0, null
   br i1 %tobool10.not, label %for.end26, label %for.body, !llvm.loop !13
 
 for.end26:                                        ; preds = %for.body, %for.inc25.us, %bitmap_new.exit
   call void @numa_bitmask_free(ptr noundef %call9) #8
   %cmp.i27 = icmp ult i32 %call.fr, 65
-  br i1 %cmp.i27, label %if.then.i29, label %if.else.i
+  br i1 %cmp.i27, label %if.then.i29, label %bitmap_empty.exit
 
 if.then.i29:                                      ; preds = %for.end26
   %7 = load i64, ptr %call.i.i, align 8
@@ -557,23 +557,18 @@ if.then.i29:                                      ; preds = %for.end26
   %shr.i = lshr i64 -1, %and.i
   %and1.i = and i64 %7, %shr.i
   %tobool.not.i = icmp eq i64 %and1.i, 0
-  %lnot.ext.i = zext i1 %tobool.not.i to i32
-  br label %bitmap_empty.exit
+  br i1 %tobool.not.i, label %if.then30, label %if.end31
 
-if.else.i:                                        ; preds = %for.end26
+bitmap_empty.exit:                                ; preds = %for.end26
   %call.i28 = call i32 @slow_bitmap_empty(ptr noundef nonnull %call.i.i, i64 noundef %conv) #8
-  br label %bitmap_empty.exit
-
-bitmap_empty.exit:                                ; preds = %if.then.i29, %if.else.i
-  %retval.0.i = phi i32 [ %lnot.ext.i, %if.then.i29 ], [ %call.i28, %if.else.i ]
-  %tobool29.not = icmp eq i32 %retval.0.i, 0
+  %tobool29.not = icmp eq i32 %call.i28, 0
   br i1 %tobool29.not, label %if.end31, label %if.then30
 
-if.then30:                                        ; preds = %bitmap_empty.exit
+if.then30:                                        ; preds = %if.then.i29, %bitmap_empty.exit
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 212, ptr noundef nonnull @__func__.thread_context_set_node_affinity, ptr noundef nonnull @.str.17) #8
   br label %out
 
-if.end31:                                         ; preds = %bitmap_empty.exit
+if.end31:                                         ; preds = %if.then.i29, %bitmap_empty.exit
   %thread_id = getelementptr inbounds i8, ptr %call.i, i64 40
   %8 = load i32, ptr %thread_id, align 8
   %cmp32.not = icmp eq i32 %8, -1

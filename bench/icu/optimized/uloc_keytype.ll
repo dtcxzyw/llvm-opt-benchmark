@@ -1805,7 +1805,7 @@ while.cond.i:                                     ; preds = %if.then18, %if.end2
   %p.0.i = phi ptr [ %incdec.ptr.i, %if.end23.i ], [ %type, %if.then18 ]
   %4 = load i8, ptr %p.0.i, align 1
   switch i8 %4, label %if.else.i [
-    i8 0, label %_ZL23isSpecialTypeCodepointsPKc.exit
+    i8 0, label %while.end.i
     i8 45, label %if.then.i
   ]
 
@@ -1844,12 +1844,12 @@ if.end23.i:                                       ; preds = %if.then20.i, %if.th
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.0.i, i64 1
   br label %while.cond.i, !llvm.loop !17
 
-_ZL23isSpecialTypeCodepointsPKc.exit:             ; preds = %while.cond.i
-  %7 = add i32 %subtagLen.0.i, -7
-  %8 = icmp ult i32 %7, -3
-  br i1 %8, label %land.lhs.true, label %if.then40
+while.end.i:                                      ; preds = %while.cond.i
+  %7 = add i32 %subtagLen.0.i, -4
+  %8 = icmp ult i32 %7, 3
+  br i1 %8, label %if.then40, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %switch.early.test.i, %if.then.i, %if.then18, %_ZL23isSpecialTypeCodepointsPKc.exit
+land.lhs.true:                                    ; preds = %switch.early.test.i, %if.then.i, %while.end.i, %if.then18
   %and26 = and i32 %3, 2
   %tobool27.not = icmp eq i32 %and26, 0
   br i1 %tobool27.not, label %land.lhs.true32, label %while.cond.i19
@@ -1859,7 +1859,7 @@ while.cond.i19:                                   ; preds = %land.lhs.true, %if.
   %p.0.i21 = phi ptr [ %incdec.ptr.i25, %if.end8.i ], [ %type, %land.lhs.true ]
   %9 = load i8, ptr %p.0.i21, align 1
   switch i8 %9, label %if.else.i28 [
-    i8 0, label %_ZL24isSpecialTypeReorderCodePKc.exit
+    i8 0, label %while.end.i27
     i8 45, label %if.then.i22
   ]
 
@@ -1882,12 +1882,12 @@ if.end8.i:                                        ; preds = %if.then5.i, %if.the
   %incdec.ptr.i25 = getelementptr inbounds i8, ptr %p.0.i21, i64 1
   br label %while.cond.i19, !llvm.loop !18
 
-_ZL24isSpecialTypeReorderCodePKc.exit:            ; preds = %while.cond.i19
-  %11 = add i32 %subtagLen.0.i20, -9
-  %12 = icmp ult i32 %11, -6
-  br i1 %12, label %land.lhs.true32, label %if.then40
+while.end.i27:                                    ; preds = %while.cond.i19
+  %11 = add i32 %subtagLen.0.i20, -3
+  %12 = icmp ult i32 %11, 6
+  br i1 %12, label %if.then40, label %land.lhs.true32
 
-land.lhs.true32:                                  ; preds = %if.else.i28, %if.then.i22, %land.lhs.true, %_ZL24isSpecialTypeReorderCodePKc.exit
+land.lhs.true32:                                  ; preds = %if.else.i28, %if.then.i22, %while.end.i27, %land.lhs.true
   %13 = load i32, ptr %specialTypes, align 8
   %and34 = and i32 %13, 4
   %tobool35.not = icmp eq i32 %and34, 0
@@ -1929,7 +1929,7 @@ _ZL23isSpecialTypeRgKeyValuePKc.exit:             ; preds = %if.then.i30
   %.mux = select i1 %17, ptr null, ptr %type
   br i1 %brmerge, label %return, label %if.then42
 
-if.then40:                                        ; preds = %_ZL24isSpecialTypeReorderCodePKc.exit, %_ZL23isSpecialTypeCodepointsPKc.exit
+if.then40:                                        ; preds = %while.end.i27, %while.end.i
   br i1 %cmp1.not, label %return, label %if.then42
 
 if.then42:                                        ; preds = %_ZL23isSpecialTypeRgKeyValuePKc.exit, %if.then40
@@ -2004,7 +2004,7 @@ while.cond.i:                                     ; preds = %if.then18, %if.end2
   %p.0.i = phi ptr [ %incdec.ptr.i, %if.end23.i ], [ %type, %if.then18 ]
   %4 = load i8, ptr %p.0.i, align 1
   switch i8 %4, label %if.else.i [
-    i8 0, label %_ZL23isSpecialTypeCodepointsPKc.exit
+    i8 0, label %while.end.i
     i8 45, label %if.then.i
   ]
 
@@ -2043,12 +2043,12 @@ if.end23.i:                                       ; preds = %if.then20.i, %if.th
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.0.i, i64 1
   br label %while.cond.i, !llvm.loop !17
 
-_ZL23isSpecialTypeCodepointsPKc.exit:             ; preds = %while.cond.i
-  %7 = add i32 %subtagLen.0.i, -7
-  %8 = icmp ult i32 %7, -3
-  br i1 %8, label %land.lhs.true, label %if.then40
+while.end.i:                                      ; preds = %while.cond.i
+  %7 = add i32 %subtagLen.0.i, -4
+  %8 = icmp ult i32 %7, 3
+  br i1 %8, label %if.then40, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %switch.early.test.i, %if.then.i, %if.then18, %_ZL23isSpecialTypeCodepointsPKc.exit
+land.lhs.true:                                    ; preds = %switch.early.test.i, %if.then.i, %while.end.i, %if.then18
   %and26 = and i32 %3, 2
   %tobool27.not = icmp eq i32 %and26, 0
   br i1 %tobool27.not, label %land.lhs.true32, label %while.cond.i19
@@ -2058,7 +2058,7 @@ while.cond.i19:                                   ; preds = %land.lhs.true, %if.
   %p.0.i21 = phi ptr [ %incdec.ptr.i25, %if.end8.i ], [ %type, %land.lhs.true ]
   %9 = load i8, ptr %p.0.i21, align 1
   switch i8 %9, label %if.else.i28 [
-    i8 0, label %_ZL24isSpecialTypeReorderCodePKc.exit
+    i8 0, label %while.end.i27
     i8 45, label %if.then.i22
   ]
 
@@ -2081,12 +2081,12 @@ if.end8.i:                                        ; preds = %if.then5.i, %if.the
   %incdec.ptr.i25 = getelementptr inbounds i8, ptr %p.0.i21, i64 1
   br label %while.cond.i19, !llvm.loop !18
 
-_ZL24isSpecialTypeReorderCodePKc.exit:            ; preds = %while.cond.i19
-  %11 = add i32 %subtagLen.0.i20, -9
-  %12 = icmp ult i32 %11, -6
-  br i1 %12, label %land.lhs.true32, label %if.then40
+while.end.i27:                                    ; preds = %while.cond.i19
+  %11 = add i32 %subtagLen.0.i20, -3
+  %12 = icmp ult i32 %11, 6
+  br i1 %12, label %if.then40, label %land.lhs.true32
 
-land.lhs.true32:                                  ; preds = %if.else.i28, %if.then.i22, %land.lhs.true, %_ZL24isSpecialTypeReorderCodePKc.exit
+land.lhs.true32:                                  ; preds = %if.else.i28, %if.then.i22, %while.end.i27, %land.lhs.true
   %13 = load i32, ptr %specialTypes, align 8
   %and34 = and i32 %13, 4
   %tobool35.not = icmp eq i32 %and34, 0
@@ -2128,7 +2128,7 @@ _ZL23isSpecialTypeRgKeyValuePKc.exit:             ; preds = %if.then.i30
   %.mux = select i1 %17, ptr null, ptr %type
   br i1 %brmerge, label %return, label %if.then42
 
-if.then40:                                        ; preds = %_ZL24isSpecialTypeReorderCodePKc.exit, %_ZL23isSpecialTypeCodepointsPKc.exit
+if.then40:                                        ; preds = %while.end.i27, %while.end.i
   br i1 %cmp1.not, label %return, label %if.then42
 
 if.then42:                                        ; preds = %_ZL23isSpecialTypeRgKeyValuePKc.exit, %if.then40

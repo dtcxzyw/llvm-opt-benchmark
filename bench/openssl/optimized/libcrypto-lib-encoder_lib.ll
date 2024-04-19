@@ -618,43 +618,46 @@ land.lhs.true:                                    ; preds = %if.end
   %bio.i = getelementptr inbounds i8, ptr %data.i, i64 8
   store ptr %call1, ptr %bio.i, align 8
   %cmp.i.i = icmp eq ptr %ctx, null
-  br i1 %cmp.i.i, label %OSSL_ENCODER_to_bio.exit.thread, label %lor.lhs.false.i.i
+  br i1 %cmp.i.i, label %if.then.i, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %land.lhs.true
   %encoder_insts.i.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %1 = load ptr, ptr %encoder_insts.i.i, align 8
   %cmp1.i.i = icmp eq ptr %1, null
-  br i1 %cmp1.i.i, label %OSSL_ENCODER_to_bio.exit.thread, label %OSSL_ENCODER_CTX_get_num_encoders.exit.i
+  br i1 %cmp1.i.i, label %if.then.i, label %OSSL_ENCODER_CTX_get_num_encoders.exit.i
 
 OSSL_ENCODER_CTX_get_num_encoders.exit.i:         ; preds = %lor.lhs.false.i.i
   %call.i.i.i = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %1) #7
   store i32 %call.i.i.i, ptr %0, align 8
   %cmp.i = icmp eq i32 %call.i.i.i, 0
-  br i1 %cmp.i, label %OSSL_ENCODER_to_bio.exit.thread, label %OSSL_ENCODER_to_bio.exit
+  br i1 %cmp.i, label %if.then.i, label %if.end.i
 
-OSSL_ENCODER_to_bio.exit.thread:                  ; preds = %land.lhs.true, %lor.lhs.false.i.i, %OSSL_ENCODER_CTX_get_num_encoders.exit.i
+if.then.i:                                        ; preds = %OSSL_ENCODER_CTX_get_num_encoders.exit.i, %lor.lhs.false.i.i, %land.lhs.true
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 55, ptr noundef nonnull @__func__.OSSL_ENCODER_to_bio) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 59, i32 noundef 101, ptr noundef nonnull @.str.1) #7
+  br label %OSSL_ENCODER_to_bio.exit.thread
+
+if.end.i:                                         ; preds = %OSSL_ENCODER_CTX_get_num_encoders.exit.i
+  %call3.i = call fastcc i32 @encoder_process(ptr noundef nonnull %data.i)
+  %cmp4.i = icmp sgt i32 %call3.i, 0
+  br i1 %cmp4.i, label %land.lhs.true4, label %OSSL_ENCODER_to_bio.exit.thread
+
+OSSL_ENCODER_to_bio.exit.thread:                  ; preds = %if.then.i, %if.end.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %data.i)
   br label %if.end33
 
-OSSL_ENCODER_to_bio.exit:                         ; preds = %OSSL_ENCODER_CTX_get_num_encoders.exit.i
-  %call3.i = call fastcc i32 @encoder_process(ptr noundef nonnull %data.i)
-  %cmp4.i = icmp slt i32 %call3.i, 1
+land.lhs.true4:                                   ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %data.i)
-  br i1 %cmp4.i, label %if.end33, label %land.lhs.true4
-
-land.lhs.true4:                                   ; preds = %OSSL_ENCODER_to_bio.exit
   %call5 = call i64 @BIO_ctrl(ptr noundef nonnull %call1, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %buf) #7
   %cmp6 = icmp sgt i64 %call5, 0
   br i1 %cmp6, label %if.then7, label %if.end33
 
 if.then7:                                         ; preds = %land.lhs.true4
   %cmp8.not = icmp eq ptr %pdata, null
-  br i1 %cmp8.not, label %if.end18.thread22, label %land.lhs.true9
+  br i1 %cmp8.not, label %if.end18.thread23, label %land.lhs.true9
 
-if.end18.thread22:                                ; preds = %if.then7
+if.end18.thread23:                                ; preds = %if.then7
   %2 = load ptr, ptr %buf, align 8
   %3 = load i64, ptr %2, align 8
   store i64 %3, ptr %pdata_len, align 8
@@ -706,8 +709,8 @@ if.else27:                                        ; preds = %if.then22
   store ptr null, ptr %data28, align 8
   br label %if.end33
 
-if.end33:                                         ; preds = %if.end18.thread22, %if.then11, %OSSL_ENCODER_to_bio.exit.thread, %if.then24, %if.else27, %land.lhs.true4, %OSSL_ENCODER_to_bio.exit, %if.end
-  %ret.1 = phi i32 [ 1, %if.then24 ], [ 1, %if.else27 ], [ 0, %land.lhs.true4 ], [ 0, %OSSL_ENCODER_to_bio.exit ], [ 0, %if.end ], [ 0, %OSSL_ENCODER_to_bio.exit.thread ], [ 0, %if.then11 ], [ 1, %if.end18.thread22 ]
+if.end33:                                         ; preds = %if.end18.thread23, %if.then11, %OSSL_ENCODER_to_bio.exit.thread, %if.then24, %if.else27, %land.lhs.true4, %if.end
+  %ret.1 = phi i32 [ 1, %if.then24 ], [ 1, %if.else27 ], [ 0, %land.lhs.true4 ], [ 0, %if.end ], [ 0, %OSSL_ENCODER_to_bio.exit.thread ], [ 0, %if.then11 ], [ 1, %if.end18.thread23 ]
   %call34 = call i32 @BIO_free(ptr noundef %call1) #7
   br label %return
 
@@ -949,27 +952,27 @@ if.end24:                                         ; preds = %if.then33.i, %if.en
   %encoder_insts.i = getelementptr inbounds i8, ptr %ctx, i64 24
   %4 = load ptr, ptr %encoder_insts.i, align 8
   %cmp.i = icmp eq ptr %4, null
-  br i1 %cmp.i, label %land.lhs.true.i, label %ossl_encoder_ctx_add_encoder_inst.exit
+  br i1 %cmp.i, label %land.lhs.true.i, label %if.end.i
 
 land.lhs.true.i:                                  ; preds = %if.end24
   %call.i.i = tail call ptr @OPENSSL_sk_new_null() #7
   store ptr %call.i.i, ptr %encoder_insts.i, align 8
   %cmp2.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp2.i, label %ossl_encoder_ctx_add_encoder_inst.exit.thread, label %ossl_encoder_ctx_add_encoder_inst.exit
+  br i1 %cmp2.i, label %if.then.i, label %if.end.i
 
-ossl_encoder_ctx_add_encoder_inst.exit.thread:    ; preds = %land.lhs.true.i
+if.then.i:                                        ; preds = %land.lhs.true.i
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 260, ptr noundef nonnull @__func__.ossl_encoder_ctx_add_encoder_inst) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 59, i32 noundef 524303, ptr noundef null) #7
   br label %if.then.i11
 
-ossl_encoder_ctx_add_encoder_inst.exit:           ; preds = %if.end24, %land.lhs.true.i
+if.end.i:                                         ; preds = %land.lhs.true.i, %if.end24
   %5 = phi ptr [ %call.i.i, %land.lhs.true.i ], [ %4, %if.end24 ]
   %call.i4.i = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %5, ptr noundef nonnull %call.i) #7
-  %cmp5.i9 = icmp slt i32 %call.i4.i, 1
-  br i1 %cmp5.i9, label %if.then.i11, label %return
+  %cmp5.i9 = icmp sgt i32 %call.i4.i, 0
+  br i1 %cmp5.i9, label %return, label %if.then.i11
 
-if.then.i11:                                      ; preds = %ossl_encoder_ctx_add_encoder_inst.exit, %ossl_encoder_ctx_add_encoder_inst.exit.thread
+if.then.i11:                                      ; preds = %if.end.i, %if.then.i
   %6 = load ptr, ptr %call.i, align 8
   %cmp1.not.i = icmp eq ptr %6, null
   br i1 %cmp1.not.i, label %ossl_encoder_instance_free.exit.thread, label %if.then2.i
@@ -996,8 +999,8 @@ if.then31:                                        ; preds = %lor.lhs.false19, %o
   tail call void %10(ptr noundef nonnull %call16) #7
   br label %return
 
-return:                                           ; preds = %if.end, %ossl_encoder_instance_free.exit.thread, %if.then31, %ossl_encoder_ctx_add_encoder_inst.exit, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 1, %ossl_encoder_ctx_add_encoder_inst.exit ], [ 0, %if.then31 ], [ 0, %ossl_encoder_instance_free.exit.thread ], [ 0, %if.end ]
+return:                                           ; preds = %if.end, %ossl_encoder_instance_free.exit.thread, %if.end.i, %if.then31, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then31 ], [ 1, %if.end.i ], [ 0, %ossl_encoder_instance_free.exit.thread ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 

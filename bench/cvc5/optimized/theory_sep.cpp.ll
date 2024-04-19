@@ -42731,28 +42731,24 @@ cond.end23:                                       ; preds = %_ZNK4cvc58internal8
   %d_bound_kind = getelementptr inbounds i8, ptr %this, i64 1384
   %7 = load i32, ptr %d_bound_kind, align 8
   %cmp.not = icmp eq i32 %7, 2
-  br i1 %cmp.not, label %if.else, label %if.then24
-
-if.then24:                                        ; preds = %cond.end23
-  %d_card_max = getelementptr inbounds i8, ptr %this, i64 1488
-  %8 = load i64, ptr %d_card_max, align 8
-  br label %cond.end66
+  br i1 %cmp.not, label %if.else, label %cond.end66
 
 if.else:                                          ; preds = %cond.end23
   %d_type_references = getelementptr inbounds i8, ptr %this, i64 1360
-  %9 = load ptr, ptr %d_type_references, align 8
+  %8 = load ptr, ptr %d_type_references, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 1368
-  %10 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i.i85 = icmp eq ptr %9, %10
-  %spec.select = zext i1 %cmp.i.i85 to i64
-  br label %cond.end66
+  %9 = load ptr, ptr %_M_finish.i.i, align 8
+  %cmp.i.i85 = icmp eq ptr %8, %9
+  br i1 %cmp.i.i85, label %for.body.lr.ph, label %for.end
 
-cond.end66:                                       ; preds = %if.else, %if.then24
-  %n_emp.0 = phi i64 [ %8, %if.then24 ], [ %spec.select, %if.else ]
-  %cmp67372.not = icmp eq i64 %n_emp.0, 0
+cond.end66:                                       ; preds = %cond.end23
+  %d_card_max = getelementptr inbounds i8, ptr %this, i64 1488
+  %10 = load i64, ptr %d_card_max, align 8
+  %cmp67372.not = icmp eq i64 %10, 0
   br i1 %cmp67372.not, label %for.end, label %for.body.lr.ph
 
-for.body.lr.ph:                                   ; preds = %cond.end66
+for.body.lr.ph:                                   ; preds = %if.else, %cond.end66
+  %n_emp.0380 = phi i64 [ %10, %cond.end66 ], [ 1, %if.else ]
   %_M_finish.i349 = getelementptr inbounds i8, ptr %this, i64 1400
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 1408
   %d_type_references_card = getelementptr inbounds i8, ptr %this, i64 1392
@@ -42937,7 +42933,7 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %invoke.cont81, %if.then.i.i, %if.then13.i.i
   %inc = add nuw i64 %r.0373, 1
-  %exitcond.not = icmp eq i64 %inc, %n_emp.0
+  %exitcond.not = icmp eq i64 %inc, %n_emp.0380
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !539
 
 lpad:                                             ; preds = %call.i335.noexc, %for.body
@@ -42973,7 +42969,7 @@ lpad79:                                           ; preds = %if.then.i357, %if.e
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %e) #21
   br label %common.resume
 
-for.end:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %cond.end66, %_ZNK4cvc58internal8TypeNode6isNullEv.exit, %entry
+for.end:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %if.else, %cond.end66, %_ZNK4cvc58internal8TypeNode6isNullEv.exit, %entry
   ret void
 }
 

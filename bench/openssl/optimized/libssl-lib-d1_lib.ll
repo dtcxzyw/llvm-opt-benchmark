@@ -511,7 +511,7 @@ if.then7:                                         ; preds = %sw.bb
   %t.sroa.0.0.i = select i1 %cmp.i.i, i64 999, i64 %5
   %div.i = udiv i64 %t.sroa.0.0.i, 1000000000
   %rem.i = urem i64 %t.sroa.0.0.i, 1000000000
-  %div7.lhs.trunc.i = trunc i64 %rem.i to i32
+  %div7.lhs.trunc.i = trunc nuw nsw i64 %rem.i to i32
   %div77.i = udiv i32 %div7.lhs.trunc.i, 1000
   %div7.zext.i = zext nneg i32 %div77.i to i64
   store i64 %div.i, ptr %parg, align 8
@@ -598,18 +598,18 @@ entry:
   %next_timeout.i.i = getelementptr inbounds i8, ptr %0, i64 448
   %1 = load i64, ptr %next_timeout.i.i, align 8
   %cmp.i.not.not.i.not.i.i = icmp eq i64 %1, 0
-  br i1 %cmp.i.not.not.i.not.i.i, label %return, label %dtls1_is_timer_expired.exit
+  br i1 %cmp.i.not.not.i.not.i.i, label %return, label %if.end.i
 
-dtls1_is_timer_expired.exit:                      ; preds = %entry
+if.end.i:                                         ; preds = %entry
   %call1.i.i = tail call i64 @ossl_time_now() #9
   %2 = load ptr, ptr %d1.i.i, align 8
   %next_timeout5.i.i = getelementptr inbounds i8, ptr %2, i64 448
   %3 = load i64, ptr %next_timeout5.i.i, align 8
   %retval.sroa.0.0.i.i.i = tail call i64 @llvm.usub.sat.i64(i64 %3, i64 %call1.i.i)
-  %cmp.i.i.i = icmp ugt i64 %retval.sroa.0.0.i.i.i, 15000000
-  br i1 %cmp.i.i.i, label %return, label %if.end
+  %cmp.i.i.i = icmp ult i64 %retval.sroa.0.0.i.i.i, 15000001
+  br i1 %cmp.i.i.i, label %if.end, label %return
 
-if.end:                                           ; preds = %dtls1_is_timer_expired.exit
+if.end:                                           ; preds = %if.end.i
   %timer_cb = getelementptr inbounds i8, ptr %2, i64 464
   %4 = load ptr, ptr %timer_cb, align 8
   %cmp.not = icmp eq ptr %4, null
@@ -686,7 +686,7 @@ dtls1_start_timer.exit:                           ; preds = %if.end12, %if.end10
   %t.sroa.0.0.i.i.i = tail call i64 @llvm.uadd.sat.i64(i64 %.val.i, i64 999)
   %div.i.i.i = udiv i64 %t.sroa.0.0.i.i.i, 1000000000
   %rem.i.i.i = urem i64 %t.sroa.0.0.i.i.i, 1000000000
-  %div7.lhs.trunc.i.i.i = trunc i64 %rem.i.i.i to i32
+  %div7.lhs.trunc.i.i.i = trunc nuw nsw i64 %rem.i.i.i to i32
   %div77.i.i.i = udiv i32 %div7.lhs.trunc.i.i.i, 1000
   %div7.zext.i.i.i = zext nneg i32 %div77.i.i.i to i64
   store i64 %div.i.i.i, ptr %tv.i.i, align 8
@@ -697,8 +697,8 @@ dtls1_start_timer.exit:                           ; preds = %if.end12, %if.end10
   %call13 = call i32 @dtls1_retransmit_buffered_messages(ptr noundef nonnull %s) #9
   br label %return
 
-return:                                           ; preds = %entry, %if.end8, %dtls1_is_timer_expired.exit, %dtls1_start_timer.exit
-  %retval.0 = phi i32 [ %call13, %dtls1_start_timer.exit ], [ 0, %dtls1_is_timer_expired.exit ], [ -1, %if.end8 ], [ 0, %entry ]
+return:                                           ; preds = %entry, %if.end.i, %if.end8, %dtls1_start_timer.exit
+  %retval.0 = phi i32 [ %call13, %dtls1_start_timer.exit ], [ -1, %if.end8 ], [ 0, %if.end.i ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -751,7 +751,7 @@ if.end10:                                         ; preds = %if.end10.sink.split
   %t.sroa.0.0.i.i = tail call i64 @llvm.uadd.sat.i64(i64 %.val, i64 999)
   %div.i.i = udiv i64 %t.sroa.0.0.i.i, 1000000000
   %rem.i.i = urem i64 %t.sroa.0.0.i.i, 1000000000
-  %div7.lhs.trunc.i.i = trunc i64 %rem.i.i to i32
+  %div7.lhs.trunc.i.i = trunc nuw nsw i64 %rem.i.i to i32
   %div77.i.i = udiv i32 %div7.lhs.trunc.i.i, 1000
   %div7.zext.i.i = zext nneg i32 %div77.i.i to i64
   store i64 %div.i.i, ptr %tv.i, align 8
@@ -814,7 +814,7 @@ entry:
   %t.sroa.0.0.i.i = tail call i64 @llvm.uadd.sat.i64(i64 %.val, i64 999)
   %div.i.i = udiv i64 %t.sroa.0.0.i.i, 1000000000
   %rem.i.i = urem i64 %t.sroa.0.0.i.i, 1000000000
-  %div7.lhs.trunc.i.i = trunc i64 %rem.i.i to i32
+  %div7.lhs.trunc.i.i = trunc nuw nsw i64 %rem.i.i to i32
   %div77.i.i = udiv i32 %div7.lhs.trunc.i.i, 1000
   %div7.zext.i.i = zext nneg i32 %div77.i.i to i64
   store i64 %div.i.i, ptr %tv.i, align 8

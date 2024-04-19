@@ -5022,36 +5022,33 @@ servercert.exit.thread12.i:                       ; preds = %473
   %538 = call ptr @BIO_s_mem() #13
   %539 = call ptr @BIO_new(ptr noundef %538) #13
   %.not.i207.i.i = icmp eq ptr %539, null
-  br i1 %.not.i207.i.i, label %x509_name_oneline.exit211.thread.i.i, label %x509_name_oneline.exit211.i.i
+  br i1 %.not.i207.i.i, label %select.unfold.i.i, label %540
 
-x509_name_oneline.exit211.thread.i.i:             ; preds = %535
+540:                                              ; preds = %535
+  %541 = call i32 @X509_NAME_print_ex(ptr noundef nonnull %539, ptr noundef %537, i32 noundef 0, i64 noundef 196608) #13
+  %542 = call i64 @BIO_ctrl(ptr noundef nonnull %539, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %18) #13
+  %543 = load ptr, ptr %18, align 8
+  %544 = load i64, ptr %543, align 8
+  %..i208.i.i = call i64 @llvm.umin.i64(i64 %544, i64 2047)
+  %545 = getelementptr inbounds i8, ptr %543, i64 8
+  %546 = load ptr, ptr %545, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %21, ptr align 1 %546, i64 %..i208.i.i, i1 false)
+  %547 = getelementptr inbounds i8, ptr %21, i64 %..i208.i.i
+  store i8 0, ptr %547, align 1
+  %548 = call i32 @BIO_free(ptr noundef nonnull %539) #13
+  %.not16.i209.i.i = icmp eq i32 %541, 0
+  br i1 %.not16.i209.i.i, label %select.unfold.i.i, label %550
+
+select.unfold.i.i:                                ; preds = %540, %535
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
-  br label %548
-
-x509_name_oneline.exit211.i.i:                    ; preds = %535
-  %540 = call i32 @X509_NAME_print_ex(ptr noundef nonnull %539, ptr noundef %537, i32 noundef 0, i64 noundef 196608) #13
-  %541 = call i64 @BIO_ctrl(ptr noundef nonnull %539, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %18) #13
-  %542 = load ptr, ptr %18, align 8
-  %543 = load i64, ptr %542, align 8
-  %..i208.i.i = call i64 @llvm.umin.i64(i64 %543, i64 2047)
-  %544 = getelementptr inbounds i8, ptr %542, i64 8
-  %545 = load ptr, ptr %544, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %21, ptr align 1 %545, i64 %..i208.i.i, i1 false)
-  %546 = getelementptr inbounds i8, ptr %21, i64 %..i208.i.i
-  store i8 0, ptr %546, align 1
-  %547 = call i32 @BIO_free(ptr noundef nonnull %539) #13
-  %.not16.i209.not.i.i = icmp eq i32 %540, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
-  br i1 %.not16.i209.not.i.i, label %548, label %550
-
-548:                                              ; preds = %x509_name_oneline.exit211.i.i, %x509_name_oneline.exit211.thread.i.i
   br i1 %.not.i68, label %647, label %549
 
-549:                                              ; preds = %548
+549:                                              ; preds = %select.unfold.i.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.185) #13
   br label %647
 
-550:                                              ; preds = %x509_name_oneline.exit211.i.i
+550:                                              ; preds = %540
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   %551 = load i64, ptr %293, align 2
   %552 = and i64 %551, 268435456
   %.not187.i.i = icmp eq i64 %552, 0
@@ -5270,8 +5267,8 @@ ossl_strerror.exit216.i.i:                        ; preds = %582, %579, %577
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %1, ptr noundef nonnull @.str.193) #13
   br label %647
 
-647:                                              ; preds = %646, %643, %641, %638, %636, %635, %549, %548
-  %.1.i.i = phi i32 [ 0, %641 ], [ 0, %638 ], [ 0, %646 ], [ 0, %643 ], [ 60, %549 ], [ 60, %548 ], [ 60, %636 ], [ 60, %635 ]
+647:                                              ; preds = %646, %643, %641, %638, %636, %635, %549, %select.unfold.i.i
+  %.1.i.i = phi i32 [ 0, %641 ], [ 0, %638 ], [ 0, %646 ], [ 0, %643 ], [ 60, %549 ], [ 60, %select.unfold.i.i ], [ 60, %636 ], [ 60, %635 ]
   %648 = load ptr, ptr %469, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %14)

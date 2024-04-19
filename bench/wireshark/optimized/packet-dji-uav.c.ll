@@ -100,21 +100,21 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 define internal i32 @dissect_djiuav_static(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %6 = icmp ult i32 %5, 8
-  br i1 %6, label %test_djiuav.exit.thread, label %test_djiuav.exit
+  br i1 %6, label %test_djiuav.exit.thread, label %7
 
-test_djiuav.exit:                                 ; preds = %4
-  %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #5
-  %.not.i.not = icmp eq i16 %7, 21947
-  br i1 %.not.i.not, label %8, label %test_djiuav.exit.thread
+7:                                                ; preds = %4
+  %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #5
+  %.not.i = icmp eq i16 %8, 21947
+  br i1 %.not.i, label %test_djiuav.exit, label %test_djiuav.exit.thread
 
-8:                                                ; preds = %test_djiuav.exit
+test_djiuav.exit:                                 ; preds = %7
   %9 = load i32, ptr @djiuav_desegment, align 4
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %9, i32 noundef 8, ptr noundef nonnull @get_djiuav_pdu_len, ptr noundef nonnull @dissect_djiuav_pdu, ptr noundef %3) #5
   %10 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   br label %test_djiuav.exit.thread
 
-test_djiuav.exit.thread:                          ; preds = %4, %test_djiuav.exit, %8
-  %.0 = phi i32 [ %10, %8 ], [ 0, %test_djiuav.exit ], [ 0, %4 ]
+test_djiuav.exit.thread:                          ; preds = %7, %4, %test_djiuav.exit
+  %.0 = phi i32 [ %10, %test_djiuav.exit ], [ 0, %4 ], [ 0, %7 ]
   ret i32 %.0
 }
 

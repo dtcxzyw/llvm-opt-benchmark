@@ -146,29 +146,29 @@ entry:
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %stats.i)
   %call.i = call i32 @stat64(ptr noundef %filename, ptr noundef nonnull %stats.i) #9
   %cmp.i = icmp eq i32 %call.i, 0
-  br i1 %cmp.i, label %grabbag__file_change_stats.exit, label %grabbag__file_change_stats.exit.thread
+  br i1 %cmp.i, label %if.then.i, label %grabbag__file_change_stats.exit.thread
 
-grabbag__file_change_stats.exit.thread:           ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %stats.i)
-  br label %land.end
-
-grabbag__file_change_stats.exit:                  ; preds = %entry
+if.then.i:                                        ; preds = %entry
   %st_mode6.i = getelementptr inbounds i8, ptr %stats.i, i64 24
   %0 = load i32, ptr %st_mode6.i, align 8
   %or.i = or i32 %0, 128
   %call8.i = tail call i32 @chmod(ptr noundef %filename, i32 noundef %or.i) #9
-  %cmp9.not.i.not = icmp eq i32 %call8.i, 0
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %stats.i)
-  br i1 %cmp9.not.i.not, label %land.rhs, label %land.end
+  %cmp9.not.i = icmp eq i32 %call8.i, 0
+  br i1 %cmp9.not.i, label %land.rhs, label %grabbag__file_change_stats.exit.thread
 
-land.rhs:                                         ; preds = %grabbag__file_change_stats.exit
+grabbag__file_change_stats.exit.thread:           ; preds = %if.then.i, %entry
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %stats.i)
+  br label %land.end
+
+land.rhs:                                         ; preds = %if.then.i
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %stats.i)
   %call1 = tail call i32 @unlink(ptr noundef %filename) #9
   %cmp = icmp eq i32 %call1, 0
   %1 = zext i1 %cmp to i32
   br label %land.end
 
-land.end:                                         ; preds = %grabbag__file_change_stats.exit.thread, %land.rhs, %grabbag__file_change_stats.exit
-  %land.ext = phi i32 [ 0, %grabbag__file_change_stats.exit ], [ %1, %land.rhs ], [ 0, %grabbag__file_change_stats.exit.thread ]
+land.end:                                         ; preds = %grabbag__file_change_stats.exit.thread, %land.rhs
+  %land.ext = phi i32 [ %1, %land.rhs ], [ 0, %grabbag__file_change_stats.exit.thread ]
   ret i32 %land.ext
 }
 

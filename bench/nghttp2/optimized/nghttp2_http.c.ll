@@ -1079,9 +1079,9 @@ if.end8:                                          ; preds = %if.end
 
 land.lhs.true.i:                                  ; preds = %if.end8
   %conv.i = sext i16 %.fr to i32
-  %conv.off.i = add nsw i32 %conv.i, -100
-  %cmp1.not.i = icmp ult i32 %conv.off.i, 100
-  br i1 %cmp1.not.i, label %if.then12, label %switch.early.test
+  %2 = add nsw i32 %conv.i, -200
+  %cmp1.not.i = icmp ult i32 %2, -100
+  br i1 %cmp1.not.i, label %switch.early.test, label %if.then12
 
 switch.early.test:                                ; preds = %land.lhs.true.i
   switch i16 %.fr, label %if.else [

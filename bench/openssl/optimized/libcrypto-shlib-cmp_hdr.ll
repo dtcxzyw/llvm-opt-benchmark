@@ -765,22 +765,22 @@ if.end.i64:                                       ; preds = %if.then11.i.i59, %i
   %messageTime.i = getelementptr inbounds i8, ptr %hdr, i64 24
   %13 = load ptr, ptr %messageTime.i, align 8
   %cmp5.i = icmp eq ptr %13, null
-  br i1 %cmp5.i, label %land.lhs.true.i, label %ossl_cmp_hdr_update_messageTime.exit
+  br i1 %cmp5.i, label %land.lhs.true.i, label %if.end11.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i64
   %call.i66 = tail call ptr @ASN1_GENERALIZEDTIME_new() #4
   store ptr %call.i66, ptr %messageTime.i, align 8
   %cmp8.i = icmp eq ptr %call.i66, null
-  br i1 %cmp8.i, label %return, label %ossl_cmp_hdr_update_messageTime.exit
+  br i1 %cmp8.i, label %return, label %if.end11.i
 
-ossl_cmp_hdr_update_messageTime.exit:             ; preds = %if.end.i64, %land.lhs.true.i
+if.end11.i:                                       ; preds = %land.lhs.true.i, %if.end.i64
   %14 = phi ptr [ %call.i66, %land.lhs.true.i ], [ %13, %if.end.i64 ]
   %call13.i = tail call i64 @time(ptr noundef null) #4
   %call14.i = tail call ptr @ASN1_GENERALIZEDTIME_set(ptr noundef nonnull %14, i64 noundef %call13.i) #4
   %cmp15.i.not = icmp eq ptr %call14.i, null
   br i1 %cmp15.i.not, label %return, label %if.end71
 
-if.end71:                                         ; preds = %ossl_cmp_hdr_update_messageTime.exit
+if.end71:                                         ; preds = %if.end11.i
   %recipNonce = getelementptr inbounds i8, ptr %ctx, i64 296
   %15 = load ptr, ptr %recipNonce, align 8
   %cmp72.not = icmp eq ptr %15, null
@@ -851,8 +851,8 @@ land.lhs.true95:                                  ; preds = %if.end92
 if.end100:                                        ; preds = %land.lhs.true95, %if.end92
   br label %return
 
-return:                                           ; preds = %if.then.i, %land.lhs.true.i, %ossl_cmp_hdr_set1_recipient.exit.thread, %ossl_cmp_hdr_set1_sender.exit.thread, %land.lhs.true95, %if.end87, %if.end83, %ossl_cmp_hdr_set_transactionID.exit, %land.lhs.true, %ossl_cmp_hdr_update_messageTime.exit, %ossl_cmp_hdr_set_pvno.exit, %entry, %if.end100
-  %retval.0 = phi i32 [ 1, %if.end100 ], [ 0, %entry ], [ 0, %ossl_cmp_hdr_set_pvno.exit ], [ 0, %ossl_cmp_hdr_update_messageTime.exit ], [ 0, %land.lhs.true ], [ 0, %ossl_cmp_hdr_set_transactionID.exit ], [ 0, %if.end83 ], [ 0, %if.end87 ], [ 0, %land.lhs.true95 ], [ 0, %ossl_cmp_hdr_set1_sender.exit.thread ], [ 0, %ossl_cmp_hdr_set1_recipient.exit.thread ], [ 0, %land.lhs.true.i ], [ 0, %if.then.i ]
+return:                                           ; preds = %if.then.i, %land.lhs.true.i, %if.end11.i, %ossl_cmp_hdr_set1_recipient.exit.thread, %ossl_cmp_hdr_set1_sender.exit.thread, %land.lhs.true95, %if.end87, %if.end83, %ossl_cmp_hdr_set_transactionID.exit, %land.lhs.true, %ossl_cmp_hdr_set_pvno.exit, %entry, %if.end100
+  %retval.0 = phi i32 [ 1, %if.end100 ], [ 0, %entry ], [ 0, %ossl_cmp_hdr_set_pvno.exit ], [ 0, %land.lhs.true ], [ 0, %ossl_cmp_hdr_set_transactionID.exit ], [ 0, %if.end83 ], [ 0, %if.end87 ], [ 0, %land.lhs.true95 ], [ 0, %ossl_cmp_hdr_set1_sender.exit.thread ], [ 0, %ossl_cmp_hdr_set1_recipient.exit.thread ], [ 0, %if.end11.i ], [ 0, %land.lhs.true.i ], [ 0, %if.then.i ]
   ret i32 %retval.0
 }
 

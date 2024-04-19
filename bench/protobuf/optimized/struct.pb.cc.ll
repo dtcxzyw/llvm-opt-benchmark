@@ -4368,16 +4368,13 @@ _ZNK6google8protobuf8internal12MapFieldBase13maybe_payloadEv.exit: ; preds = %en
   %3 = ptrtoint ptr %2 to i64
   %and.i.i.i = and i64 %3, 1
   %cmp.i.i.i = icmp eq i64 %and.i.i.i, 0
-  br i1 %cmp.i.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
+  br i1 %cmp.i.i.i, label %cond.true.i.i.i, label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i.i
 
 cond.true.i.i.i:                                  ; preds = %_ZNK6google8protobuf8internal12MapFieldBase13maybe_payloadEv.exit
-  %cmp.not.i.i.i = icmp ne ptr %2, null
-  %cond.i.i.i = zext i1 %cmp.not.i.i.i to i32
-  %.pre.i.i = add i64 %3, -1
-  %.pre15.i.i = inttoptr i64 %.pre.i.i to ptr
-  br label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i.i
+  %cmp.not.i.not.i.i = icmp eq ptr %2, null
+  br i1 %cmp.not.i.not.i.i, label %if.end, label %for.body.preheader.i.i
 
-cond.false.i.i.i:                                 ; preds = %_ZNK6google8protobuf8internal12MapFieldBase13maybe_payloadEv.exit
+_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i.i: ; preds = %_ZNK6google8protobuf8internal12MapFieldBase13maybe_payloadEv.exit
   %capacity_proxy_.i.i.i = getelementptr inbounds i8, ptr %1, i64 12
   %4 = load i32, ptr %capacity_proxy_.i.i.i, align 4
   %add.i.i.i = add nsw i32 %4, 1
@@ -4387,25 +4384,21 @@ cond.false.i.i.i:                                 ; preds = %_ZNK6google8protobu
   %sub.i.i.i.i.i = add nsw i64 %3, -1
   %5 = inttoptr i64 %sub.i.i.i.i.i to ptr
   %6 = load i32, ptr %5, align 8
-  br label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i.i
-
-_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i.i: ; preds = %cond.false.i.i.i, %cond.true.i.i.i
-  %.pre-phi.i.i = phi ptr [ %.pre15.i.i, %cond.true.i.i.i ], [ %5, %cond.false.i.i.i ]
-  %cond9.i.i = phi i64 [ 0, %cond.true.i.i.i ], [ %add.i.i, %cond.false.i.i.i ]
-  %cond3.i.i.i = phi i32 [ %cond.i.i.i, %cond.true.i.i.i ], [ %6, %cond.false.i.i.i ]
-  %elements.i.i.i = getelementptr inbounds i8, ptr %.pre-phi.i.i, i64 8
-  %cond.i7.i.i = select i1 %cmp.i.i.i, ptr %1, ptr %elements.i.i.i
-  %cmp11.i.i = icmp sgt i32 %cond3.i.i.i, 0
+  %elements.i.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %cmp11.i.i = icmp sgt i32 %6, 0
   br i1 %cmp11.i.i, label %for.body.preheader.i.i, label %if.end
 
-for.body.preheader.i.i:                           ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i.i
-  %wide.trip.count.i.i = zext nneg i32 %cond3.i.i.i to i64
+for.body.preheader.i.i:                           ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i.i, %cond.true.i.i.i
+  %cond.i725.i.i = phi ptr [ %elements.i.i.i, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i.i ], [ %1, %cond.true.i.i.i ]
+  %cond3.i24.i.i = phi i32 [ %6, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i.i ], [ 1, %cond.true.i.i.i ]
+  %cond923.i.i = phi i64 [ %add.i.i, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i.i ], [ 0, %cond.true.i.i.i ]
+  %wide.trip.count.i.i = zext nneg i32 %cond3.i24.i.i to i64
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
-  %allocated_bytes.012.i.i = phi i64 [ %cond9.i.i, %for.body.preheader.i.i ], [ %add7.i.i, %for.body.i.i ]
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %cond.i7.i.i, i64 %indvars.iv.i.i
+  %allocated_bytes.012.i.i = phi i64 [ %cond923.i.i, %for.body.preheader.i.i ], [ %add7.i.i, %for.body.i.i ]
+  %arrayidx.i.i = getelementptr inbounds ptr, ptr %cond.i725.i.i, i64 %indvars.iv.i.i
   %7 = load ptr, ptr %arrayidx.i.i, align 8
   %call.i.i.i = tail call noundef i64 @_ZNK6google8protobuf7Message13SpaceUsedLongEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
   %add7.i.i = add i64 %call.i.i.i, %allocated_bytes.012.i.i
@@ -4413,8 +4406,8 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %if.end, label %for.body.i.i, !llvm.loop !42
 
-if.end:                                           ; preds = %for.body.i.i, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i.i, %entry
-  %size.0 = phi i64 [ 0, %entry ], [ %cond9.i.i, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i.i ], [ %add7.i.i, %for.body.i.i ]
+if.end:                                           ; preds = %for.body.i.i, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i.i, %cond.true.i.i.i, %entry
+  %size.0 = phi i64 [ 0, %entry ], [ %add.i.i, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit.i.i ], [ 0, %cond.true.i.i.i ], [ %add7.i.i, %for.body.i.i ]
   %8 = getelementptr inbounds i8, ptr %map, i64 16
   %call.i = tail call noundef i64 @_ZNK6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueEE26SpaceUsedExcludingSelfLongEv(ptr noundef nonnull align 8 dereferenceable(32) %8)
   %add.i = add i64 %size.0, %call.i

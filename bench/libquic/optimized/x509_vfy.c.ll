@@ -3966,9 +3966,9 @@ if.end14.i26.i:                                   ; preds = %if.else.i.i, %if.th
   %idp_reasons.i.i = getelementptr inbounds i8, ptr %call1, i64 52
   %41 = load i32, ptr %idp_reasons.i.i, align 4
   %42 = load ptr, ptr %crldp.i.i, align 8
-  %call44.i.i = tail call i64 @sk_num(ptr noundef %42) #14
-  %cmp45.not.i.i = icmp eq i64 %call44.i.i, 0
-  br i1 %cmp45.not.i.i, label %for.end.i32.i, label %for.body.lr.ph.i.i
+  %call41.i.i = tail call i64 @sk_num(ptr noundef %42) #14
+  %cmp42.not.i.i = icmp eq i64 %call41.i.i, 0
+  br i1 %cmp42.not.i.i, label %for.end.i32.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.end14.i26.i
   %43 = and i32 %crl_score.3.i, 32
@@ -3977,9 +3977,9 @@ for.body.lr.ph.i.i:                               ; preds = %if.end14.i26.i
   br label %for.body.i27.i
 
 for.body.i27.i:                                   ; preds = %for.inc.i28.i, %for.body.lr.ph.i.i
-  %i.046.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i29.i, %for.inc.i28.i ]
+  %i.043.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i29.i, %for.inc.i28.i ]
   %44 = load ptr, ptr %crldp.i.i, align 8
-  %call16.i.i = tail call ptr @sk_value(ptr noundef %44, i64 noundef %i.046.i.i) #14
+  %call16.i.i = tail call ptr @sk_value(ptr noundef %44, i64 noundef %i.043.i.i) #14
   %crl.val.i.i = load ptr, ptr %call1, align 8
   %45 = getelementptr i8, ptr %crl.val.i.i, i64 16
   %crl.val.val.i.i = load ptr, ptr %45, align 8
@@ -4051,7 +4051,12 @@ if.then8.i.i.i:                                   ; preds = %if.end5.i.i.i
   %dpname9.i.i.i = getelementptr inbounds i8, ptr %53, i64 16
   %57 = load ptr, ptr %dpname9.i.i.i, align 8
   %tobool10.not.i.i.i = icmp eq ptr %57, null
-  br i1 %tobool10.not.i.i.i, label %for.inc.i28.i, label %idp_check_dp.exit.i.i
+  br i1 %tobool10.not.i.i.i, label %for.inc.i28.i, label %if.end12.i.i.i
+
+if.end12.i.i.i:                                   ; preds = %if.then8.i.i.i
+  %call.i25.i.i = tail call i32 @X509_NAME_cmp(ptr noundef nonnull %55, ptr noundef nonnull %57) #14
+  %tobool15.not.i.i.i = icmp eq i32 %call.i25.i.i, 0
+  br i1 %tobool15.not.i.i.i, label %if.then25.i.i, label %for.inc.i28.i
 
 if.else19.i.i.i:                                  ; preds = %if.end.i.i.i
   %58 = load i32, ptr %53, align 8
@@ -4135,19 +4140,14 @@ for.inc66.i.i.i:                                  ; preds = %for.cond52.i.i.i, %
   %cmp48.i.i.i = icmp ult i64 %inc67.i.i.i, %call47.i.i.i
   br i1 %cmp48.i.i.i, label %for.body49.i.i.i, label %for.inc.i28.i, !llvm.loop !31
 
-idp_check_dp.exit.i.i:                            ; preds = %if.then8.i.i.i
-  %call.i25.i.i = tail call i32 @X509_NAME_cmp(ptr noundef nonnull %55, ptr noundef nonnull %57) #14
-  %tobool15.not.i.not.i.i = icmp eq i32 %call.i25.i.i, 0
-  br i1 %tobool15.not.i.not.i.i, label %if.then25.i.i, label %for.inc.i28.i
-
-if.then25.i.i:                                    ; preds = %idp_check_dp.exit.i.i, %lor.lhs.false.i.i, %if.then19.i.i, %if.end39.i.i.i, %for.body56.i.i.i
+if.then25.i.i:                                    ; preds = %if.end12.i.i.i, %lor.lhs.false.i.i, %if.then19.i.i, %if.end39.i.i.i, %for.body56.i.i.i
   %dp_reasons.i.i = getelementptr inbounds i8, ptr %call16.i.i, i64 24
   %69 = load i32, ptr %dp_reasons.i.i, align 8
   %and26.i.i = and i32 %69, %41
   br label %if.then51.i
 
-for.inc.i28.i:                                    ; preds = %for.inc.i.i.i, %for.inc66.i.i.i, %for.inc.i22.i.i, %idp_check_dp.exit.i.i, %for.cond45.preheader.i.i.i, %for.cond.preheader.i20.i.i, %if.then22.i.i.i, %if.then8.i.i.i, %if.then2.i.i.i, %crldp_check_crlissuer.exit.i.i, %for.cond.preheader.i.i.i
-  %inc.i29.i = add nuw i64 %i.046.i.i, 1
+for.inc.i28.i:                                    ; preds = %for.inc.i.i.i, %for.inc66.i.i.i, %for.inc.i22.i.i, %for.cond45.preheader.i.i.i, %for.cond.preheader.i20.i.i, %if.then22.i.i.i, %if.end12.i.i.i, %if.then8.i.i.i, %if.then2.i.i.i, %crldp_check_crlissuer.exit.i.i, %for.cond.preheader.i.i.i
+  %inc.i29.i = add nuw i64 %i.043.i.i, 1
   %70 = load ptr, ptr %crldp.i.i, align 8
   %call.i30.i = tail call i64 @sk_num(ptr noundef %70) #14
   %cmp.i31.i = icmp ult i64 %inc.i29.i, %call.i30.i
@@ -4254,17 +4254,17 @@ if.end.i27:                                       ; preds = %if.end10
   br i1 %tobool3.not.i, label %if.end11, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %if.end.i27
-  %call20.i = tail call i64 @sk_num(ptr noundef %crls) #14
-  %cmp21.not.i = icmp eq i64 %call20.i, 0
-  br i1 %cmp21.not.i, label %return.sink.split.i, label %for.body.lr.ph.i
+  %call21.i = tail call i64 @sk_num(ptr noundef %crls) #14
+  %cmp22.not.i = icmp eq i64 %call21.i, 0
+  br i1 %cmp22.not.i, label %return.sink.split.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
   %crl_number.i.i = getelementptr inbounds i8, ptr %best_crl.1, i64 56
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
-  %i.022.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
-  %call7.i = tail call ptr @sk_value(ptr noundef %crls, i64 noundef %i.022.i) #14
+  %i.023.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.inc.i ]
+  %call7.i = tail call ptr @sk_value(ptr noundef %crls, i64 noundef %i.023.i) #14
   %base_crl_number.i.i = getelementptr inbounds i8, ptr %call7.i, i64 64
   %80 = load ptr, ptr %base_crl_number.i.i, align 8
   %tobool.not.i.i28 = icmp eq ptr %80, null
@@ -4301,17 +4301,17 @@ if.end16.i.i:                                     ; preds = %if.end12.i.i35
   %87 = load ptr, ptr %crl_number.i.i, align 8
   %call19.i.i = tail call i32 @ASN1_INTEGER_cmp(ptr noundef %86, ptr noundef %87) #14
   %cmp.i.i = icmp sgt i32 %call19.i.i, 0
-  br i1 %cmp.i.i, label %for.inc.i, label %check_delta_base.exit.i
+  br i1 %cmp.i.i, label %for.inc.i, label %if.end21.i.i
 
-check_delta_base.exit.i:                          ; preds = %if.end16.i.i
+if.end21.i.i:                                     ; preds = %if.end16.i.i
   %crl_number22.i.i = getelementptr inbounds i8, ptr %call7.i, i64 56
   %88 = load ptr, ptr %crl_number22.i.i, align 8
   %89 = load ptr, ptr %crl_number.i.i, align 8
   %call24.i.i = tail call i32 @ASN1_INTEGER_cmp(ptr noundef %88, ptr noundef %89) #14
-  %cmp25.i.i = icmp slt i32 %call24.i.i, 1
-  br i1 %cmp25.i.i, label %for.inc.i, label %if.then10.i
+  %cmp25.i.i = icmp sgt i32 %call24.i.i, 0
+  br i1 %cmp25.i.i, label %if.then10.i, label %for.inc.i
 
-if.then10.i:                                      ; preds = %check_delta_base.exit.i
+if.then10.i:                                      ; preds = %if.end21.i.i
   %90 = load ptr, ptr %param.i23, align 8
   %flags.i.i36 = getelementptr inbounds i8, ptr %90, i64 24
   %91 = load i64, ptr %flags.i.i36, align 8
@@ -4359,8 +4359,8 @@ if.end15.i:                                       ; preds = %if.then13.i, %land.
   tail call void @X509_CRL_up_ref(ptr noundef nonnull %call7.i) #14
   br label %return.sink.split.i
 
-for.inc.i:                                        ; preds = %check_delta_base.exit.i, %if.end16.i.i, %if.end12.i.i35, %if.end8.i.i, %if.end3.i.i, %if.end.i.i29, %for.body.i
-  %inc.i = add nuw i64 %i.022.i, 1
+for.inc.i:                                        ; preds = %if.end21.i.i, %if.end16.i.i, %if.end12.i.i35, %if.end8.i.i, %if.end3.i.i, %if.end.i.i29, %for.body.i
+  %inc.i = add nuw i64 %i.023.i, 1
   %call.i34 = tail call i64 @sk_num(ptr noundef %crls) #14
   %cmp.i = icmp ult i64 %inc.i, %call.i34
   br i1 %cmp.i, label %for.body.i, label %return.sink.split.i, !llvm.loop !34

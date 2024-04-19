@@ -3254,14 +3254,14 @@ sw.bb7:                                           ; preds = %PyUnicode_READ.exit
   %dec.i.i.i = add i32 %13, -1
   store i32 %dec.i.i.i, ptr %c_recursion_remaining.i.i.i, align 4
   %cmp.i.i.i = icmp sgt i32 %13, 0
-  br i1 %cmp.i.i.i, label %if.end10, label %_Py_EnterRecursiveCall.exit
+  br i1 %cmp.i.i.i, label %if.end10, label %land.rhs.i.i
 
-_Py_EnterRecursiveCall.exit:                      ; preds = %sw.bb7
+land.rhs.i.i:                                     ; preds = %sw.bb7
   %call1.i.i = tail call i32 @_Py_CheckRecursiveCall(ptr noundef nonnull %call.i.i, ptr noundef nonnull @.str.20) #3
   %tobool2.i.i.not = icmp eq i32 %call1.i.i, 0
   br i1 %tobool2.i.i.not, label %if.end10, label %return
 
-if.end10:                                         ; preds = %sw.bb7, %_Py_EnterRecursiveCall.exit
+if.end10:                                         ; preds = %sw.bb7, %land.rhs.i.i
   %add11 = add nuw nsw i64 %idx, 1
   %call12 = tail call fastcc ptr @_parse_object_unicode(ptr noundef %s, ptr noundef %memo, ptr noundef nonnull %pystr, i64 noundef %add11, ptr noundef %next_idx_ptr)
   %call.i.i134 = tail call ptr @_PyThreadState_GetCurrent() #3
@@ -3278,14 +3278,14 @@ sw.bb13:                                          ; preds = %PyUnicode_READ.exit
   %dec.i.i.i137 = add i32 %15, -1
   store i32 %dec.i.i.i137, ptr %c_recursion_remaining.i.i.i136, align 4
   %cmp.i.i.i138 = icmp sgt i32 %15, 0
-  br i1 %cmp.i.i.i138, label %if.end17, label %_Py_EnterRecursiveCall.exit143
+  br i1 %cmp.i.i.i138, label %if.end17, label %land.rhs.i.i139
 
-_Py_EnterRecursiveCall.exit143:                   ; preds = %sw.bb13
+land.rhs.i.i139:                                  ; preds = %sw.bb13
   %call1.i.i140 = tail call i32 @_Py_CheckRecursiveCall(ptr noundef nonnull %call.i.i135, ptr noundef nonnull @.str.21) #3
   %tobool2.i.i141.not = icmp eq i32 %call1.i.i140, 0
   br i1 %tobool2.i.i141.not, label %if.end17, label %return
 
-if.end17:                                         ; preds = %sw.bb13, %_Py_EnterRecursiveCall.exit143
+if.end17:                                         ; preds = %sw.bb13, %land.rhs.i.i139
   %add18 = add nuw nsw i64 %idx, 1
   %call19 = tail call fastcc ptr @_parse_array_unicode(ptr noundef %s, ptr noundef %memo, ptr noundef nonnull %pystr, i64 noundef %add18, ptr noundef %next_idx_ptr)
   %call.i.i144 = tail call ptr @_PyThreadState_GetCurrent() #3
@@ -4729,8 +4729,8 @@ PyUnicode_READ.exit287.i:                         ; preds = %if.end6.i285.i, %if
 
 while.body79.i:                                   ; preds = %PyUnicode_READ.exit287.i
   %inc80.i = add nsw i64 %idx.6341.i, 1
-  %exitcond439.not = icmp eq i64 %inc80.i, %pystr.val
-  br i1 %exitcond439.not, label %while.end81.i, label %land.lhs.true72.i, !llvm.loop !16
+  %exitcond440.not = icmp eq i64 %inc80.i, %pystr.val
+  br i1 %exitcond440.not, label %while.end81.i, label %land.lhs.true72.i, !llvm.loop !16
 
 while.end81.i:                                    ; preds = %while.body79.i, %PyUnicode_READ.exit287.i, %PyUnicode_READ.exit277.i, %if.end69.i
   %idx.6.lcssa.i = phi i64 [ %idx.5.i, %if.end69.i ], [ %idx.6341.i, %PyUnicode_READ.exit287.i ], [ %pystr.val, %while.body79.i ], [ %idx.6341.i, %PyUnicode_READ.exit277.i ]
@@ -4916,8 +4916,8 @@ Py_DECREF.exit.i:                                 ; preds = %if.then1.i.i425, %i
   store i64 %idx.7321334.i, ptr %next_idx_ptr, align 8
   br label %return
 
-return:                                           ; preds = %Py_DECREF.exit.i, %if.else115.i, %if.then107.i, %if.then1.i.i176.i, %if.end.i.i173.i, %if.then.i170.i, %if.else23.i, %if.then1.i.i.i, %if.end.i.i.i, %if.then.i116.i, %if.then4.i, %if.then1.i.i, %if.end.i.i, %if.then.i130, %if.then3, %_Py_EnterRecursiveCall.exit143, %_Py_EnterRecursiveCall.exit, %if.then193, %if.then146, %if.then104, %if.then87, %if.then60, %if.then38, %if.end17, %if.end10, %sw.bb, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ %call194, %if.then193 ], [ %call147, %if.then146 ], [ %call105, %if.then104 ], [ @_Py_FalseStruct, %if.then87 ], [ @_Py_TrueStruct, %if.then60 ], [ @_Py_NoneStruct, %if.then38 ], [ %call19, %if.end17 ], [ %call12, %if.end10 ], [ %call6, %sw.bb ], [ null, %_Py_EnterRecursiveCall.exit ], [ null, %_Py_EnterRecursiveCall.exit143 ], [ null, %if.then3 ], [ null, %if.then.i130 ], [ null, %if.end.i.i ], [ null, %if.then1.i.i ], [ %rval.0.i, %Py_DECREF.exit.i ], [ null, %if.then107.i ], [ null, %if.else115.i ], [ null, %if.then4.i ], [ null, %if.then.i116.i ], [ null, %if.end.i.i.i ], [ null, %if.then1.i.i.i ], [ null, %if.else23.i ], [ null, %if.then.i170.i ], [ null, %if.end.i.i173.i ], [ null, %if.then1.i.i176.i ]
+return:                                           ; preds = %Py_DECREF.exit.i, %if.else115.i, %if.then107.i, %if.then1.i.i176.i, %if.end.i.i173.i, %if.then.i170.i, %if.else23.i, %if.then1.i.i.i, %if.end.i.i.i, %if.then.i116.i, %if.then4.i, %land.rhs.i.i139, %land.rhs.i.i, %if.then1.i.i, %if.end.i.i, %if.then.i130, %if.then3, %if.then193, %if.then146, %if.then104, %if.then87, %if.then60, %if.then38, %if.end17, %if.end10, %sw.bb, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ %call194, %if.then193 ], [ %call147, %if.then146 ], [ %call105, %if.then104 ], [ @_Py_FalseStruct, %if.then87 ], [ @_Py_TrueStruct, %if.then60 ], [ @_Py_NoneStruct, %if.then38 ], [ %call19, %if.end17 ], [ %call12, %if.end10 ], [ %call6, %sw.bb ], [ null, %if.then3 ], [ null, %if.then.i130 ], [ null, %if.end.i.i ], [ null, %if.then1.i.i ], [ null, %land.rhs.i.i ], [ null, %land.rhs.i.i139 ], [ %rval.0.i, %Py_DECREF.exit.i ], [ null, %if.then107.i ], [ null, %if.else115.i ], [ null, %if.then4.i ], [ null, %if.then.i116.i ], [ null, %if.end.i.i.i ], [ null, %if.then1.i.i.i ], [ null, %if.else23.i ], [ null, %if.then.i170.i ], [ null, %if.end.i.i173.i ], [ null, %if.then1.i.i176.i ]
   ret ptr %retval.0
 }
 
@@ -7236,19 +7236,19 @@ _Py_NewRef.exit39:                                ; preds = %_Py_NewRef.exit35, 
   %23 = getelementptr i8, ptr %22, i64 8
   %.val19 = load ptr, ptr %23, align 8
   %cmp.i.not.i = icmp eq ptr %.val19, @PyCFunction_Type
-  br i1 %cmp.i.not.i, label %if.then31, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.then31, label %lor.rhs.i
 
-PyObject_TypeCheck.exit:                          ; preds = %_Py_NewRef.exit39
+lor.rhs.i:                                        ; preds = %_Py_NewRef.exit39
   %call2.i = call i32 @PyType_IsSubtype(ptr noundef %.val19, ptr noundef nonnull @PyCFunction_Type) #3
   %tobool3.i.not = icmp eq i32 %call2.i, 0
-  br i1 %tobool3.i.not, label %return, label %PyObject_TypeCheck.exit.if.then31_crit_edge
+  br i1 %tobool3.i.not, label %return, label %lor.rhs.i.if.then31_crit_edge
 
-PyObject_TypeCheck.exit.if.then31_crit_edge:      ; preds = %PyObject_TypeCheck.exit
+lor.rhs.i.if.then31_crit_edge:                    ; preds = %lor.rhs.i
   %.pre = load ptr, ptr %encoder17, align 8
   br label %if.then31
 
-if.then31:                                        ; preds = %PyObject_TypeCheck.exit.if.then31_crit_edge, %_Py_NewRef.exit39
-  %24 = phi ptr [ %.pre, %PyObject_TypeCheck.exit.if.then31_crit_edge ], [ %22, %_Py_NewRef.exit39 ]
+if.then31:                                        ; preds = %lor.rhs.i.if.then31_crit_edge, %_Py_NewRef.exit39
+  %24 = phi ptr [ %.pre, %lor.rhs.i.if.then31_crit_edge ], [ %22, %_Py_NewRef.exit39 ]
   %call33 = call ptr @PyCFunction_GetFunction(ptr noundef %24) #3
   %cmp34 = icmp eq ptr %call33, @py_encode_basestring_ascii
   %cmp36 = icmp eq ptr %call33, @py_encode_basestring
@@ -7259,8 +7259,8 @@ if.then38:                                        ; preds = %if.then31
   store ptr %call33, ptr %fast_encode, align 8
   br label %return
 
-return:                                           ; preds = %PyObject_TypeCheck.exit, %if.then31, %if.then38, %if.end7, %entry, %if.then4
-  %retval.0 = phi ptr [ null, %if.then4 ], [ null, %entry ], [ null, %if.end7 ], [ %call8, %if.then38 ], [ %call8, %if.then31 ], [ %call8, %PyObject_TypeCheck.exit ]
+return:                                           ; preds = %lor.rhs.i, %if.then31, %if.then38, %if.end7, %entry, %if.then4
+  %retval.0 = phi ptr [ null, %if.then4 ], [ null, %entry ], [ null, %if.end7 ], [ %call8, %if.then38 ], [ %call8, %if.then31 ], [ %call8, %lor.rhs.i ]
   ret ptr %retval.0
 }
 
@@ -7394,14 +7394,14 @@ if.then1.i.i85:                                   ; preds = %if.end.i.i82
 
 if.else27:                                        ; preds = %if.else16
   %cmp.i.not.i = icmp eq ptr %obj.val68, @PyFloat_Type
-  br i1 %cmp.i.not.i, label %if.then30, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.then30, label %lor.rhs.i
 
-PyObject_TypeCheck.exit:                          ; preds = %if.else27
+lor.rhs.i:                                        ; preds = %if.else27
   %call2.i87 = tail call i32 @PyType_IsSubtype(ptr noundef %obj.val68, ptr noundef nonnull @PyFloat_Type) #3
   %tobool3.i.not = icmp eq i32 %call2.i87, 0
   br i1 %tobool3.i.not, label %if.else37, label %if.then30
 
-if.then30:                                        ; preds = %if.else27, %PyObject_TypeCheck.exit
+if.then30:                                        ; preds = %lor.rhs.i, %if.else27
   %18 = getelementptr i8, ptr %obj, i64 16
   %obj.val.i = load double, ptr %18, align 8
   %19 = tail call double @llvm.fabs.f64(double %obj.val.i)
@@ -7453,7 +7453,7 @@ if.end35:                                         ; preds = %encoder_encode_floa
   %call36 = tail call fastcc i32 @_steal_accumulate(ptr noundef %writer, ptr noundef nonnull %retval.0.i88)
   br label %return
 
-if.else37:                                        ; preds = %PyObject_TypeCheck.exit
+if.else37:                                        ; preds = %lor.rhs.i
   %obj.val66 = load ptr, ptr %0, align 8
   %24 = getelementptr i8, ptr %obj.val66, i64 168
   %call38.val = load i64, ptr %24, align 8
@@ -8192,14 +8192,14 @@ if.end.i.i:                                       ; preds = %if.then
 
 if.else:                                          ; preds = %entry
   %cmp.i.not.i = icmp eq ptr %key.val30, @PyFloat_Type
-  br i1 %cmp.i.not.i, label %if.then5, label %PyObject_TypeCheck.exit
+  br i1 %cmp.i.not.i, label %if.then5, label %lor.rhs.i
 
-PyObject_TypeCheck.exit:                          ; preds = %if.else
+lor.rhs.i:                                        ; preds = %if.else
   %call2.i = tail call i32 @PyType_IsSubtype(ptr noundef %key.val30, ptr noundef nonnull @PyFloat_Type) #3
   %tobool3.i.not = icmp eq i32 %call2.i, 0
   br i1 %tobool3.i.not, label %if.else7, label %if.then5
 
-if.then5:                                         ; preds = %if.else, %PyObject_TypeCheck.exit
+if.then5:                                         ; preds = %lor.rhs.i, %if.else
   %4 = getelementptr i8, ptr %key, i64 16
   %obj.val.i = load double, ptr %4, align 8
   %5 = tail call double @llvm.fabs.f64(double %obj.val.i)
@@ -8242,7 +8242,7 @@ if.end10.i:                                       ; preds = %if.then5
   %call11.i = tail call ptr %9(ptr noundef nonnull %key) #3
   br label %if.end27
 
-if.else7:                                         ; preds = %PyObject_TypeCheck.exit
+if.else7:                                         ; preds = %lor.rhs.i
   %cmp = icmp eq ptr %key, @_Py_TrueStruct
   %cmp8 = icmp eq ptr %key, @_Py_FalseStruct
   %or.cond = or i1 %cmp, %cmp8

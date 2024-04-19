@@ -212,19 +212,19 @@ if.end4.i:                                        ; preds = %if.end.i
   %15 = load ptr, ptr %13, align 8
   %call6.i = tail call i32 @OBJ_obj2nid(ptr noundef %15) #4
   %cmp7.i = icmp eq i32 %call6.i, 912
-  br i1 %cmp7.i, label %land.lhs.true.i, label %X509_signature_print.exit
+  br i1 %cmp7.i, label %land.lhs.true.i, label %if.end10.i
 
 land.lhs.true.i:                                  ; preds = %if.end4.i
   %call8.i = tail call i32 @x509_print_rsa_pss_params(ptr noundef %bp, ptr noundef nonnull %13, i32 noundef 9, ptr noundef null) #4
   %tobool.not.i = icmp eq i32 %call8.i, 0
-  br i1 %tobool.not.i, label %if.end252, label %X509_signature_print.exit
+  br i1 %tobool.not.i, label %if.end252, label %if.end10.i
 
-X509_signature_print.exit:                        ; preds = %if.end4.i, %land.lhs.true.i
+if.end10.i:                                       ; preds = %land.lhs.true.i, %if.end4.i
   %call14.i = tail call i32 @BIO_puts(ptr noundef %bp, ptr noundef nonnull @.str.12) #4
   %cmp15.i = icmp sgt i32 %call14.i, 0
   br i1 %cmp15.i, label %if.end86, label %if.end252
 
-if.end86:                                         ; preds = %X509_signature_print.exit, %if.end77
+if.end86:                                         ; preds = %if.end10.i, %if.end77
   %and87 = and i64 %cflag, 16
   %tobool88.not = icmp eq i64 %and87, 0
   br i1 %tobool88.not, label %if.then89, label %if.end107
@@ -453,8 +453,8 @@ if.then243:                                       ; preds = %if.end240
 if.end248:                                        ; preds = %if.then243, %if.end240
   br label %if.end252
 
-if.end252:                                        ; preds = %for.body, %land.lhs.true.i, %if.end.i, %if.then80, %ASN1_TIME_print.exit.thread, %if.end248, %if.then5, %if.end8, %if.then16, %if.then26, %if.then40, %if.else51, %X509_signature_print.exit, %if.then89, %if.end95, %if.end101, %if.then110, %if.end115, %ASN1_TIME_print.exit, %if.end125, %if.end130, %if.end136, %if.then145, %if.end151, %if.end157, %if.then166, %if.end171, %if.end176, %if.end181, %if.then200, %if.end205, %if.then213, %if.end218, %if.then233, %if.then243
-  %ret.0 = phi i32 [ 1, %if.end248 ], [ 0, %if.then243 ], [ 0, %if.then233 ], [ 0, %if.then200 ], [ 0, %if.then213 ], [ 0, %if.end218 ], [ 0, %if.end205 ], [ 0, %if.then166 ], [ 0, %if.end171 ], [ 0, %if.end176 ], [ 0, %if.end181 ], [ 0, %if.then145 ], [ 0, %if.end151 ], [ 0, %if.end157 ], [ 0, %if.then110 ], [ 0, %if.end115 ], [ 0, %if.end125 ], [ 0, %if.end136 ], [ 0, %if.end130 ], [ 0, %ASN1_TIME_print.exit ], [ 0, %if.then89 ], [ 0, %if.end95 ], [ 0, %if.end101 ], [ 0, %X509_signature_print.exit ], [ 0, %if.then26 ], [ 0, %if.then40 ], [ 0, %if.else51 ], [ 0, %if.then16 ], [ 0, %if.then5 ], [ 0, %if.end8 ], [ 0, %ASN1_TIME_print.exit.thread ], [ 0, %if.then80 ], [ 0, %if.end.i ], [ 0, %land.lhs.true.i ], [ 0, %for.body ]
+if.end252:                                        ; preds = %for.body, %if.end10.i, %land.lhs.true.i, %if.end.i, %if.then80, %ASN1_TIME_print.exit.thread, %if.end248, %if.then5, %if.end8, %if.then16, %if.then26, %if.then40, %if.else51, %if.then89, %if.end95, %if.end101, %if.then110, %if.end115, %ASN1_TIME_print.exit, %if.end125, %if.end130, %if.end136, %if.then145, %if.end151, %if.end157, %if.then166, %if.end171, %if.end176, %if.end181, %if.then200, %if.end205, %if.then213, %if.end218, %if.then233, %if.then243
+  %ret.0 = phi i32 [ 1, %if.end248 ], [ 0, %if.then243 ], [ 0, %if.then233 ], [ 0, %if.then200 ], [ 0, %if.then213 ], [ 0, %if.end218 ], [ 0, %if.end205 ], [ 0, %if.then166 ], [ 0, %if.end171 ], [ 0, %if.end176 ], [ 0, %if.end181 ], [ 0, %if.then145 ], [ 0, %if.end151 ], [ 0, %if.end157 ], [ 0, %if.then110 ], [ 0, %if.end115 ], [ 0, %if.end125 ], [ 0, %if.end136 ], [ 0, %if.end130 ], [ 0, %ASN1_TIME_print.exit ], [ 0, %if.then89 ], [ 0, %if.end95 ], [ 0, %if.end101 ], [ 0, %if.then26 ], [ 0, %if.then40 ], [ 0, %if.else51 ], [ 0, %if.then16 ], [ 0, %if.then5 ], [ 0, %if.end8 ], [ 0, %ASN1_TIME_print.exit.thread ], [ 0, %if.then80 ], [ 0, %if.end.i ], [ 0, %land.lhs.true.i ], [ 0, %if.end10.i ], [ 0, %for.body ]
   ret i32 %ret.0
 }
 

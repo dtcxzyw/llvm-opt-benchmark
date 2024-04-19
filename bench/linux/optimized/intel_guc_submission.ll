@@ -3465,35 +3465,34 @@ define dso_local void @intel_guc_submission_init_early(ptr noundef %0) local_unn
   %30 = getelementptr inbounds i8, ptr %0, i64 4
   %31 = load i32, ptr %30, align 4
   %32 = icmp eq i32 %31, -1
-  br i1 %32, label %.thread, label %34
+  br i1 %32, label %.thread, label %33
 
-.thread:                                          ; preds = %1
-  %33 = getelementptr inbounds i8, ptr %0, i64 1264
-  store i8 0, ptr %33, align 8
-  br label %47
+33:                                               ; preds = %1
+  %34 = getelementptr i8, ptr %0, i64 -632
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 7176
+  %37 = load i8, ptr %36, align 8
+  %38 = icmp ugt i8 %37, 10
+  br i1 %38, label %40, label %.thread
 
-34:                                               ; preds = %1
-  %35 = getelementptr i8, ptr %0, i64 -632
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 7176
-  %38 = load i8, ptr %37, align 8
-  %39 = icmp ugt i8 %38, 10
-  %40 = zext i1 %39 to i8
+.thread:                                          ; preds = %1, %33
+  %39 = getelementptr inbounds i8, ptr %0, i64 1264
+  store i8 0, ptr %39, align 8
+  br label %46
+
+40:                                               ; preds = %33
   %41 = getelementptr inbounds i8, ptr %0, i64 1264
-  store i8 %40, ptr %41, align 8
-  br i1 %39, label %42, label %47
+  store i8 1, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %35, i64 7084
+  %43 = load i32, ptr %42, align 4
+  %44 = trunc i32 %43 to i8
+  %45 = and i8 %44, 1
+  br label %46
 
-42:                                               ; preds = %34
-  %43 = getelementptr inbounds i8, ptr %36, i64 7084
-  %44 = load i32, ptr %43, align 4
-  %45 = trunc i32 %44 to i8
-  %46 = and i8 %45, 1
-  br label %47
-
-47:                                               ; preds = %.thread, %42, %34
-  %48 = phi i8 [ %46, %42 ], [ 0, %34 ], [ 0, %.thread ]
-  %49 = getelementptr inbounds i8, ptr %0, i64 1265
-  store i8 %48, ptr %49, align 1
+46:                                               ; preds = %.thread, %40
+  %47 = phi i8 [ %45, %40 ], [ 0, %.thread ]
+  %48 = getelementptr inbounds i8, ptr %0, i64 1265
+  store i8 %47, ptr %48, align 1
   ret void
 }
 

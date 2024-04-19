@@ -167,27 +167,27 @@ define internal i32 @dissect_pw_eth_heuristic(ptr noundef %0, ptr noundef %1, pt
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
   %6 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0) #2
   %7 = icmp slt i32 %6, 14
-  br i1 %7, label %looks_like_plain_eth.exit.thread, label %looks_like_plain_eth.exit
+  br i1 %7, label %13, label %8
 
-looks_like_plain_eth.exit:                        ; preds = %4
-  %8 = tail call ptr @tvb_get_manuf_name_if_known(ptr noundef %0, i32 noundef 0) #2
-  %9 = tail call ptr @tvb_get_manuf_name_if_known(ptr noundef %0, i32 noundef 6) #2
-  %10 = icmp eq ptr %8, null
-  %11 = icmp eq ptr %9, null
-  %or.cond.i.not = select i1 %10, i1 true, i1 %11
-  br i1 %or.cond.i.not, label %looks_like_plain_eth.exit.thread, label %13
+8:                                                ; preds = %4
+  %9 = tail call ptr @tvb_get_manuf_name_if_known(ptr noundef %0, i32 noundef 0) #2
+  %10 = tail call ptr @tvb_get_manuf_name_if_known(ptr noundef %0, i32 noundef 6) #2
+  %11 = icmp ne ptr %9, null
+  %12 = icmp ne ptr %10, null
+  %or.cond.i = select i1 %11, i1 %12, i1 false
+  br i1 %or.cond.i, label %looks_like_plain_eth.exit, label %13
 
-looks_like_plain_eth.exit.thread:                 ; preds = %4, %looks_like_plain_eth.exit
-  %12 = icmp ult i8 %5, 16
-  %pw_eth_handle_cw.pw_eth_handle_nocw = select i1 %12, ptr @pw_eth_handle_cw, ptr @pw_eth_handle_nocw
-  br label %13
+13:                                               ; preds = %4, %8
+  %14 = icmp ult i8 %5, 16
+  %pw_eth_handle_cw.pw_eth_handle_nocw = select i1 %14, ptr @pw_eth_handle_cw, ptr @pw_eth_handle_nocw
+  br label %looks_like_plain_eth.exit
 
-13:                                               ; preds = %looks_like_plain_eth.exit.thread, %looks_like_plain_eth.exit
-  %pw_eth_handle_cw.sink = phi ptr [ @pw_eth_handle_nocw, %looks_like_plain_eth.exit ], [ %pw_eth_handle_cw.pw_eth_handle_nocw, %looks_like_plain_eth.exit.thread ]
-  %14 = load ptr, ptr %pw_eth_handle_cw.sink, align 8
-  %15 = tail call i32 @call_dissector(ptr noundef %14, ptr noundef %0, ptr noundef %1, ptr noundef %2) #2
-  %16 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  ret i32 %16
+looks_like_plain_eth.exit:                        ; preds = %13, %8
+  %pw_eth_handle_cw.sink = phi ptr [ @pw_eth_handle_nocw, %8 ], [ %pw_eth_handle_cw.pw_eth_handle_nocw, %13 ]
+  %15 = load ptr, ptr %pw_eth_handle_cw.sink, align 8
+  %16 = tail call i32 @call_dissector(ptr noundef %15, ptr noundef %0, ptr noundef %1, ptr noundef %2) #2
+  %17 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  ret i32 %17
 }
 
 ; Function Attrs: nounwind uwtable

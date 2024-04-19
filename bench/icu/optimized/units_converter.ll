@@ -2935,9 +2935,9 @@ if.end2.i:                                        ; preds = %_ZN6icu_755units6Fa
   %singleUnits.i = getelementptr inbounds i8, ptr %source, i64 8
   %28 = load i32, ptr %singleUnits.i, align 8
   %cmp4.i = icmp eq i32 %28, 0
-  br i1 %cmp4.i, label %land.lhs.true, label %_ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit
+  br i1 %cmp4.i, label %land.lhs.true, label %if.end6.i
 
-_ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit: ; preds = %if.end2.i
+if.end6.i:                                        ; preds = %if.end2.i
   %fPool.i.i = getelementptr inbounds i8, ptr %source, i64 16
   %29 = load ptr, ptr %fPool.i.i, align 8
   %30 = load ptr, ptr %29, align 8
@@ -2958,13 +2958,13 @@ land.lhs.true:                                    ; preds = %if.end2.i
   %cmp.not.i57.old = icmp eq i32 %.old, 0
   br i1 %cmp.not.i57.old, label %if.end2.i60, label %if.end17
 
-if.end2.i60:                                      ; preds = %_ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit, %land.lhs.true
+if.end2.i60:                                      ; preds = %if.end6.i, %land.lhs.true
   %singleUnits.i61 = getelementptr inbounds i8, ptr %target, i64 8
   %32 = load i32, ptr %singleUnits.i61, align 8
   %cmp4.i62 = icmp eq i32 %32, 0
-  br i1 %cmp4.i62, label %if.then9, label %_ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit73
+  br i1 %cmp4.i62, label %if.then9, label %if.end6.i63
 
-_ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit73: ; preds = %if.end2.i60
+if.end6.i63:                                      ; preds = %if.end2.i60
   %fPool.i.i64 = getelementptr inbounds i8, ptr %target, i64 16
   %33 = load ptr, ptr %fPool.i.i64, align 8
   %34 = load ptr, ptr %33, align 8
@@ -2972,12 +2972,12 @@ _ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UError
   %singleUnit.sroa.1.0.copyload.i66 = load i32, ptr %singleUnit.sroa.1.0.call8.sroa_idx.i65, align 4
   %singleUnit.sroa.2.0.call8.sroa_idx.i67 = getelementptr inbounds i8, ptr %34, i64 8
   %singleUnit.sroa.2.0.copyload.i68 = load i32, ptr %singleUnit.sroa.2.0.call8.sroa_idx.i67, align 4
-  %cmp9.i69 = icmp ne i32 %singleUnit.sroa.2.0.copyload.i68, 1
-  %cmp10.i70 = icmp ne i32 %singleUnit.sroa.1.0.copyload.i66, 30
-  %or.cond.not.i71.not = select i1 %cmp9.i69, i1 true, i1 %cmp10.i70
-  br i1 %or.cond.not.i71.not, label %if.end17, label %if.then9
+  %cmp9.i69 = icmp eq i32 %singleUnit.sroa.2.0.copyload.i68, 1
+  %cmp10.i70 = icmp eq i32 %singleUnit.sroa.1.0.copyload.i66, 30
+  %or.cond.not.i71 = select i1 %cmp9.i69, i1 %cmp10.i70, i1 false
+  br i1 %or.cond.not.i71, label %if.then9, label %if.end17
 
-if.then9:                                         ; preds = %if.end2.i60, %_ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit73
+if.then9:                                         ; preds = %if.end6.i63, %if.end2.i60
   %35 = shufflevector <2 x double> %0, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %36 = insertelement <2 x double> %35, double %19, i64 1
   %37 = insertelement <2 x double> %3, double %18, i64 1
@@ -2988,7 +2988,7 @@ if.then9:                                         ; preds = %if.end2.i60, %_ZN6i
   store <2 x double> %40, ptr %sourceOffset, align 8
   br label %if.end17
 
-if.end17:                                         ; preds = %land.lhs.true, %_ZN6icu_755units6Factor19substituteConstantsEv.exit, %if.then9, %_ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit73, %_ZN6icu_755units12_GLOBAL__N_115checkSimpleUnitERKNS_15MeasureUnitImplER10UErrorCode.exit
+if.end17:                                         ; preds = %if.end6.i63, %land.lhs.true, %if.end6.i, %_ZN6icu_755units6Factor19substituteConstantsEv.exit, %if.then9
   %cmp18 = icmp eq i32 %unitsState, 0
   %reciprocal = getelementptr inbounds i8, ptr %conversionRate, i64 360
   %frombool = zext i1 %cmp18 to i8

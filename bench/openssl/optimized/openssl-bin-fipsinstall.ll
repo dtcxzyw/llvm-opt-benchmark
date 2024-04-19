@@ -1013,14 +1013,14 @@ land.lhs.true3.i:                                 ; preds = %land.lhs.true.i
 land.lhs.true6.i:                                 ; preds = %land.lhs.true3.i
   %call7.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %call1, ptr noundef nonnull @.str.88) #5
   %tobool8.not.i = icmp eq i32 %call7.i, 0
-  br i1 %tobool8.not.i, label %end, label %write_config_header.exit
+  br i1 %tobool8.not.i, label %end, label %land.rhs.i
 
-write_config_header.exit:                         ; preds = %land.lhs.true6.i
+land.rhs.i:                                       ; preds = %land.lhs.true6.i
   %call9.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %call1, ptr noundef nonnull @.str.89, ptr noundef %prov_name, ptr noundef %section) #5
   %tobool10.i.not = icmp eq i32 %call9.i, 0
   br i1 %tobool10.i.not, label %end, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %write_config_header.exit
+lor.lhs.false:                                    ; preds = %land.rhs.i
   %call3 = tail call fastcc i32 @write_config_fips_section(ptr noundef nonnull %call1, ptr noundef %section, ptr noundef %module_mac, i64 noundef %module_mac_len, ptr noundef null, i64 noundef 0)
   %tobool4.not = icmp eq i32 %call3, 0
   br i1 %tobool4.not, label %end, label %if.end6
@@ -1035,8 +1035,8 @@ if.end10:                                         ; preds = %if.end6
   %cmp12 = icmp slt i32 %call11, 1
   br i1 %cmp12, label %end, label %return.sink.split
 
-end:                                              ; preds = %if.end, %land.lhs.true.i, %land.lhs.true3.i, %land.lhs.true6.i, %if.end10, %if.end6, %write_config_header.exit, %lor.lhs.false
-  %conf.0 = phi ptr [ null, %if.end6 ], [ %call7, %if.end10 ], [ null, %lor.lhs.false ], [ null, %write_config_header.exit ], [ null, %land.lhs.true6.i ], [ null, %land.lhs.true3.i ], [ null, %land.lhs.true.i ], [ null, %if.end ]
+end:                                              ; preds = %land.rhs.i, %if.end, %land.lhs.true.i, %land.lhs.true3.i, %land.lhs.true6.i, %if.end10, %if.end6, %lor.lhs.false
+  %conf.0 = phi ptr [ null, %if.end6 ], [ %call7, %if.end10 ], [ null, %lor.lhs.false ], [ null, %land.lhs.true6.i ], [ null, %land.lhs.true3.i ], [ null, %land.lhs.true.i ], [ null, %if.end ], [ null, %land.rhs.i ]
   tail call void @NCONF_free(ptr noundef %conf.0) #5
   br label %return.sink.split
 

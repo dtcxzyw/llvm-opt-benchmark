@@ -794,36 +794,36 @@ mbedtls_ssl_get_groups.exit:                      ; preds = %7, %10
   %.050.ptr68 = getelementptr inbounds i8, ptr %1, i64 6
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %mbedtls_ssl_conf_is_tls12_enabled.exit.thread
-  %22 = phi i16 [ %51, %mbedtls_ssl_conf_is_tls12_enabled.exit.thread ], [ %21, %.lr.ph.preheader ]
-  %.050.ptr72 = phi ptr [ %.050.ptr, %mbedtls_ssl_conf_is_tls12_enabled.exit.thread ], [ %.050.ptr68, %.lr.ph.preheader ]
-  %.04971 = phi ptr [ %50, %mbedtls_ssl_conf_is_tls12_enabled.exit.thread ], [ %.0.i, %.lr.ph.preheader ]
-  %.050.idx70 = phi i64 [ %.1.idx, %mbedtls_ssl_conf_is_tls12_enabled.exit.thread ], [ 6, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %mbedtls_ssl_tls12_named_group_is_ecdhe.exit
+  %22 = phi i16 [ %51, %mbedtls_ssl_tls12_named_group_is_ecdhe.exit ], [ %21, %.lr.ph.preheader ]
+  %.050.ptr72 = phi ptr [ %.050.ptr, %mbedtls_ssl_tls12_named_group_is_ecdhe.exit ], [ %.050.ptr68, %.lr.ph.preheader ]
+  %.04971 = phi ptr [ %50, %mbedtls_ssl_tls12_named_group_is_ecdhe.exit ], [ %.0.i, %.lr.ph.preheader ]
+  %.050.idx70 = phi i64 [ %.1.idx, %mbedtls_ssl_tls12_named_group_is_ecdhe.exit ], [ 6, %.lr.ph.preheader ]
   %23 = zext i16 %22 to i32
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 261, ptr noundef nonnull @.str.20, i32 noundef %23) #6
   %24 = load ptr, ptr %0, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4
   %27 = icmp ult i32 %26, 772
-  br i1 %27, label %mbedtls_ssl_conf_is_tls12_enabled.exit, label %mbedtls_ssl_conf_is_tls12_enabled.exit.thread
+  br i1 %27, label %28, label %mbedtls_ssl_tls12_named_group_is_ecdhe.exit
 
-mbedtls_ssl_conf_is_tls12_enabled.exit:           ; preds = %.lr.ph
-  %28 = load i32, ptr %24, align 8
-  %29 = icmp ult i32 %28, 771
-  br i1 %29, label %mbedtls_ssl_conf_is_tls12_enabled.exit.thread, label %30
+28:                                               ; preds = %.lr.ph
+  %29 = load i32, ptr %24, align 8
+  %30 = icmp ugt i32 %29, 770
+  br i1 %30, label %mbedtls_ssl_conf_is_tls12_enabled.exit, label %mbedtls_ssl_tls12_named_group_is_ecdhe.exit
 
-30:                                               ; preds = %mbedtls_ssl_conf_is_tls12_enabled.exit
+mbedtls_ssl_conf_is_tls12_enabled.exit:           ; preds = %28
   %31 = load i16, ptr %.04971, align 2
   %.off = add i16 %31, -18
   %switch = icmp ult i16 %.off, 13
-  br i1 %switch, label %mbedtls_ssl_tls12_named_group_is_ecdhe.exit.thread, label %mbedtls_ssl_conf_is_tls12_enabled.exit.thread
+  br i1 %switch, label %select.unfold62, label %mbedtls_ssl_tls12_named_group_is_ecdhe.exit
 
-mbedtls_ssl_tls12_named_group_is_ecdhe.exit.thread: ; preds = %30
+select.unfold62:                                  ; preds = %mbedtls_ssl_conf_is_tls12_enabled.exit
   %32 = tail call ptr @mbedtls_ecp_curve_info_from_tls_id(i16 noundef zeroext %31) #6
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %mbedtls_ssl_conf_is_tls12_enabled.exit.thread, label %34
+  br i1 %33, label %mbedtls_ssl_tls12_named_group_is_ecdhe.exit, label %34
 
-34:                                               ; preds = %mbedtls_ssl_tls12_named_group_is_ecdhe.exit.thread
+34:                                               ; preds = %select.unfold62
   %35 = icmp ule ptr %.050.ptr72, %2
   %36 = ptrtoint ptr %.050.ptr72 to i64
   %37 = sub i64 %15, %36
@@ -846,17 +846,17 @@ mbedtls_ssl_tls12_named_group_is_ecdhe.exit.thread: ; preds = %30
   %48 = load i16, ptr %.04971, align 2
   %49 = zext i16 %48 to i32
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 277, ptr noundef nonnull @.str.21, ptr noundef %47, i32 noundef %49) #6
-  br label %mbedtls_ssl_conf_is_tls12_enabled.exit.thread
+  br label %mbedtls_ssl_tls12_named_group_is_ecdhe.exit
 
-mbedtls_ssl_conf_is_tls12_enabled.exit.thread:    ; preds = %30, %.lr.ph, %mbedtls_ssl_conf_is_tls12_enabled.exit, %39, %mbedtls_ssl_tls12_named_group_is_ecdhe.exit.thread
-  %.1.idx = phi i64 [ %.050.idx70, %mbedtls_ssl_tls12_named_group_is_ecdhe.exit.thread ], [ %.050.add, %39 ], [ %.050.idx70, %mbedtls_ssl_conf_is_tls12_enabled.exit ], [ %.050.idx70, %.lr.ph ], [ %.050.idx70, %30 ]
+mbedtls_ssl_tls12_named_group_is_ecdhe.exit:      ; preds = %mbedtls_ssl_conf_is_tls12_enabled.exit, %28, %.lr.ph, %39, %select.unfold62
+  %.1.idx = phi i64 [ %.050.idx70, %select.unfold62 ], [ %.050.add, %39 ], [ %.050.idx70, %.lr.ph ], [ %.050.idx70, %28 ], [ %.050.idx70, %mbedtls_ssl_conf_is_tls12_enabled.exit ]
   %50 = getelementptr inbounds i8, ptr %.04971, i64 2
   %.050.ptr = getelementptr inbounds i8, ptr %1, i64 %.1.idx
   %51 = load i16, ptr %50, align 2
   %.not55 = icmp eq i16 %51, 0
   br i1 %.not55, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %mbedtls_ssl_conf_is_tls12_enabled.exit.thread
+._crit_edge:                                      ; preds = %mbedtls_ssl_tls12_named_group_is_ecdhe.exit
   %52 = icmp eq i64 %.1.idx, 6
   br i1 %52, label %._crit_edge.thread, label %53
 

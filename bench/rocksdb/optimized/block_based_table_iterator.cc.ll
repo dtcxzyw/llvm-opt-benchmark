@@ -728,27 +728,18 @@ if.then.i36:                                      ; preds = %_ZNK7rocksdb21UserC
   %add.ptr11.i = getelementptr inbounds i8, ptr %86, i64 %87
   %add.ptr12.i = getelementptr inbounds i8, ptr %add.ptr11.i, i64 -8
   %result.0.copyload.i13.i = load i64, ptr %add.ptr12.i, align 1
-  %cmp14.i = icmp ugt i64 %result.0.copyload.i.i, %result.0.copyload.i13.i
-  br i1 %cmp14.i, label %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit.thread, label %if.else.i
-
-_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit.thread: ; preds = %if.then.i36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
-  br label %land.lhs.true109
-
-if.else.i:                                        ; preds = %if.then.i36
   %cmp16.i = icmp ult i64 %result.0.copyload.i.i, %result.0.copyload.i13.i
-  %spec.select.i = zext i1 %cmp16.i to i32
-  br label %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit
-
-_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit: ; preds = %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i, %if.else.i
-  %r.0.i = phi i32 [ %call.i.i, %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i ], [ %spec.select.i, %if.else.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
-  %cmp108 = icmp slt i32 %r.0.i, 1
+  br i1 %cmp16.i, label %if.else113, label %land.lhs.true109
+
+_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit: ; preds = %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
+  %cmp108 = icmp slt i32 %call.i.i, 1
   br i1 %cmp108, label %land.lhs.true109, label %if.else113
 
-land.lhs.true109:                                 ; preds = %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit.thread, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit, %land.lhs.true104
+land.lhs.true109:                                 ; preds = %if.then.i36, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit, %land.lhs.true104
   %allow_unprepared_value_ = getelementptr inbounds i8, ptr %this, i64 680
   %88 = load i8, ptr %allow_unprepared_value_, align 8
   %tobool110 = trunc i8 %88 to i1
@@ -759,7 +750,7 @@ if.then111:                                       ; preds = %land.lhs.true109
   call void @_ZN7rocksdb23BlockBasedTableIterator13ResetDataIterEv(ptr noundef nonnull align 8 dereferenceable(784) %this)
   br label %if.end135
 
-if.else113:                                       ; preds = %if.end87, %land.lhs.true109, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit
+if.else113:                                       ; preds = %if.then.i36, %if.end87, %land.lhs.true109, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit
   br i1 %68, label %if.else127, label %if.then115
 
 if.then115:                                       ; preds = %if.else113
@@ -3162,8 +3153,8 @@ if.then.i:                                        ; preds = %_ZNK7rocksdb21UserC
   %add.ptr11.i = getelementptr inbounds i8, ptr %first_internal_key.sroa.0.0, i64 %first_internal_key.sroa.5.0.copyload22
   %add.ptr12.i = getelementptr inbounds i8, ptr %add.ptr11.i, i64 -8
   %result.0.copyload.i13.i = load i64, ptr %add.ptr12.i, align 1
-  %cmp14.i = icmp ugt i64 %result.0.copyload.i.i, %result.0.copyload.i13.i
-  br i1 %cmp14.i, label %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit.thread, label %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit
+  %or.cond.not = icmp eq i64 %result.0.copyload.i.i, %result.0.copyload.i13.i
+  br i1 %or.cond.not, label %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit, label %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit.thread
 
 _ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit.thread: ; preds = %_ZNK7rocksdb21UserComparatorWrapper7CompareERKNS_5SliceES3_.exit.i, %if.then.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
@@ -3171,12 +3162,11 @@ _ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit.thread: ; preds
   br label %if.then16
 
 _ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit: ; preds = %if.then.i
-  %cmp16.i.not = icmp ult i64 %result.0.copyload.i.i, %result.0.copyload.i13.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i)
-  br i1 %cmp16.i.not, label %if.then16, label %return
+  br label %return
 
-if.then16:                                        ; preds = %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit.thread, %if.end9, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit
+if.then16:                                        ; preds = %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit.thread, %if.end9
   store ptr @.str, ptr %ref.tmp19, align 8
   %size_.i4 = getelementptr inbounds i8, ptr %ref.tmp19, i64 8
   store i64 51, ptr %size_.i4, align 8
@@ -3228,7 +3218,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 _ZN7rocksdb6StatusD2Ev.exit13:                    ; preds = %lpad21, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i12
   resume { ptr, i32 } %23
 
-return:                                           ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i8, %invoke.cont22, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %_ZN7rocksdb6StatusC2ERKS0_.exit.thread, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit, %_ZN7rocksdb6StatusD2Ev.exit
+return:                                           ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i8, %invoke.cont22, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i, %_ZN7rocksdb6StatusC2ERKS0_.exit.thread, %_ZN7rocksdb6StatusD2Ev.exit
   %retval.0 = phi i1 [ false, %_ZN7rocksdb6StatusD2Ev.exit ], [ true, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_5SliceES3_.exit ], [ false, %_ZN7rocksdb6StatusC2ERKS0_.exit.thread ], [ false, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i ], [ false, %invoke.cont22 ], [ false, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i8 ]
   ret i1 %retval.0
 }
@@ -8564,7 +8554,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %6 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %6 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %6, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
@@ -8705,7 +8695,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %6 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %6 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %6, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 

@@ -10152,14 +10152,14 @@ if.end13:                                         ; preds = %if.end10
   %tobool.not.i = icmp eq i8 %6, 0
   %arrayidx.i77 = getelementptr inbounds i8, ptr %this, i64 140
   %7 = load i32, ptr %arrayidx.i77, align 4
-  %cmp3.i.not = icmp eq i32 %7, 0
-  %or.cond157 = select i1 %tobool.not.i, i1 %cmp3.i.not, i1 false
+  %cmp3.i = icmp eq i32 %7, 0
+  %or.cond159.not163 = select i1 %tobool.not.i, i1 %cmp3.i, i1 false
   %arrayidx.i83 = getelementptr inbounds i8, ptr %this, i64 224
   %8 = load i32, ptr %arrayidx.i83, align 8
   %cmp3.i84.not = icmp eq i32 %8, 0
-  %or.cond158 = select i1 %or.cond157, i1 %cmp3.i84.not, i1 false
+  %or.cond162 = select i1 %or.cond159.not163, i1 %cmp3.i84.not, i1 false
   %vtable24 = load ptr, ptr %this, align 8
-  br i1 %or.cond158, label %if.else23, label %if.then19
+  br i1 %or.cond162, label %if.else23, label %if.then19
 
 if.then19:                                        ; preds = %if.end13
   %vfn21 = getelementptr inbounds i8, ptr %vtable24, i64 264
@@ -10187,12 +10187,12 @@ if.end27:                                         ; preds = %if.else23, %if.then
 
 if.then33:                                        ; preds = %if.end27
   %12 = load i8, ptr %fAreFieldsVirtuallySet.i, align 1
-  %tobool.not.i87 = icmp eq i8 %12, 0
+  %tobool.not.i87 = icmp ne i8 %12, 0
   %arrayidx.i91 = getelementptr inbounds i8, ptr %this, i64 152
   %13 = load i32, ptr %arrayidx.i91, align 8
-  %cmp3.i92.not = icmp eq i32 %13, 0
-  %or.cond159 = select i1 %tobool.not.i87, i1 %cmp3.i92.not, i1 false
-  br i1 %or.cond159, label %if.else38, label %if.then36
+  %cmp3.i92 = icmp ne i32 %13, 0
+  %or.cond160 = select i1 %tobool.not.i87, i1 true, i1 %cmp3.i92
+  br i1 %or.cond160, label %if.then36, label %if.else38
 
 if.then36:                                        ; preds = %if.then33
   %cmp.i96 = icmp sgt i32 %13, 0
@@ -10278,8 +10278,8 @@ _ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit114: ; preds = %if.
   br i1 %cmp67, label %if.then68, label %if.else71
 
 if.then68:                                        ; preds = %if.then61, %_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit114
-  %cond.i110154 = phi i32 [ %21, %_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit114 ], [ 1, %if.then61 ]
-  %22 = mul i32 %cond.i110154, 7
+  %cond.i110155 = phi i32 [ %21, %_ZNK6icu_758Calendar11internalGetE19UCalendarDateFieldsi.exit114 ], [ 1, %if.then61 ]
+  %22 = mul i32 %cond.i110155, 7
   %mul = add i32 %spec.select64, -7
   %add70 = add i32 %mul, %22
   br label %if.end177
@@ -10306,12 +10306,12 @@ if.else84:                                        ; preds = %_ZN6icu_758Calendar
 
 if.then86:                                        ; preds = %if.else84
   %26 = load i8, ptr %fAreFieldsVirtuallySet.i, align 1
-  %tobool.not.i116 = icmp eq i8 %26, 0
+  %tobool.not.i116 = icmp ne i8 %26, 0
   %arrayidx.i120 = getelementptr inbounds i8, ptr %this, i64 200
   %27 = load i32, ptr %arrayidx.i120, align 8
-  %cmp3.i121.not = icmp eq i32 %27, 0
-  %or.cond160 = select i1 %tobool.not.i116, i1 %cmp3.i121.not, i1 false
-  br i1 %or.cond160, label %if.then94, label %lor.lhs.false89
+  %cmp3.i121 = icmp ne i32 %27, 0
+  %or.cond161 = select i1 %tobool.not.i116, i1 true, i1 %cmp3.i121
+  br i1 %or.cond161, label %lor.lhs.false89, label %if.then94
 
 lor.lhs.false89:                                  ; preds = %if.then86
   %call90 = tail call noundef i32 @_ZNK6icu_758Calendar13resolveFieldsEPA12_A8_Ki(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull @_ZN6icu_758Calendar15kYearPrecedenceE), !range !23

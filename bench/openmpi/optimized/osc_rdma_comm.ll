@@ -2047,16 +2047,16 @@ define internal fastcc i32 @ompi_osc_rdma_master(ptr noundef %0, ptr noundef %1,
   %27 = zext i16 %.val to i32
   %28 = and i32 %27, 16
   %.not.i.i = icmp eq i32 %28, 0
-  br i1 %.not.i.i, label %.critedge, label %ompi_datatype_is_contiguous_memory_layout.exit
+  br i1 %.not.i.i, label %.critedge, label %29
 
-ompi_datatype_is_contiguous_memory_layout.exit:   ; preds = %13
-  %29 = icmp ne i32 %2, 1
-  %30 = and i32 %27, 32
-  %.not3.i.i = icmp eq i32 %30, 0
-  %or.cond.not.i.i.not = and i1 %29, %.not3.i.i
-  br i1 %or.cond.not.i.i.not, label %.critedge, label %31
+29:                                               ; preds = %13
+  %30 = icmp eq i32 %2, 1
+  %31 = and i32 %27, 32
+  %.not3.i.i = icmp ne i32 %31, 0
+  %or.cond.not.i.i = or i1 %30, %.not3.i.i
+  br i1 %or.cond.not.i.i, label %ompi_datatype_is_contiguous_memory_layout.exit, label %.critedge
 
-31:                                               ; preds = %ompi_datatype_is_contiguous_memory_layout.exit
+ompi_datatype_is_contiguous_memory_layout.exit:   ; preds = %29
   %32 = getelementptr i8, ptr %8, i64 16
   %.val57 = load i16, ptr %32, align 8
   %.val57.fr = freeze i16 %.val57
@@ -2065,13 +2065,13 @@ ompi_datatype_is_contiguous_memory_layout.exit:   ; preds = %13
   %.not.i.i58 = icmp eq i32 %34, 0
   br i1 %.not.i.i58, label %.critedge, label %ompi_datatype_is_contiguous_memory_layout.exit63
 
-ompi_datatype_is_contiguous_memory_layout.exit63: ; preds = %31
+ompi_datatype_is_contiguous_memory_layout.exit63: ; preds = %ompi_datatype_is_contiguous_memory_layout.exit
   %35 = icmp ne i32 %7, 1
   %36 = and i32 %33, 32
   %.not3.i.i59 = icmp eq i32 %36, 0
   %or.cond.not.i.i60.not = and i1 %35, %.not3.i.i59
-  %.not = icmp ugt i64 %25, %10
-  %brmerge77 = select i1 %or.cond.not.i.i60.not, i1 true, i1 %.not
+  %.not79 = icmp ugt i64 %25, %10
+  %brmerge77 = select i1 %or.cond.not.i.i60.not, i1 true, i1 %.not79
   br i1 %brmerge77, label %.critedge, label %37
 
 37:                                               ; preds = %ompi_datatype_is_contiguous_memory_layout.exit63
@@ -2159,7 +2159,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %47, %4
   %79 = icmp eq i32 %78, 0
   br i1 %79, label %.loopexit, label %.lr.ph
 
-.critedge:                                        ; preds = %ompi_datatype_is_contiguous_memory_layout.exit63, %31, %13, %ompi_datatype_is_contiguous_memory_layout.exit
+.critedge:                                        ; preds = %ompi_datatype_is_contiguous_memory_layout.exit63, %ompi_datatype_is_contiguous_memory_layout.exit, %29, %13
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %16)

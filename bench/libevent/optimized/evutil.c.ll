@@ -3216,20 +3216,20 @@ entry:
   %call.i = tail call i32 @getuid() #30
   %call1.i = tail call i32 @geteuid() #30
   %cmp.not.i = icmp eq i32 %call.i, %call1.i
-  br i1 %cmp.not.i, label %evutil_issetugid.exit, label %return
+  br i1 %cmp.not.i, label %if.end.i, label %return
 
-evutil_issetugid.exit:                            ; preds = %entry
+if.end.i:                                         ; preds = %entry
   %call2.i = tail call i32 @getgid() #30
   %call3.i = tail call i32 @getegid() #30
   %cmp4.not.i.not = icmp eq i32 %call2.i, %call3.i
   br i1 %cmp4.not.i.not, label %if.end, label %return
 
-if.end:                                           ; preds = %evutil_issetugid.exit
+if.end:                                           ; preds = %if.end.i
   %call1 = tail call ptr @getenv(ptr noundef %varname) #30
   br label %return
 
-return:                                           ; preds = %entry, %evutil_issetugid.exit, %if.end
-  %retval.0 = phi ptr [ %call1, %if.end ], [ null, %evutil_issetugid.exit ], [ null, %entry ]
+return:                                           ; preds = %if.end.i, %entry, %if.end
+  %retval.0 = phi ptr [ %call1, %if.end ], [ null, %entry ], [ null, %if.end.i ]
   ret ptr %retval.0
 }
 
@@ -3673,13 +3673,13 @@ if.then:                                          ; preds = %entry
   %cmp.i = icmp ne i32 %call.i, 0
   %shr.mask.i.i = and i32 %call.i, -16777216
   %cmp.i.not.i = icmp ne i32 %shr.mask.i.i, 2130706432
-  %or.cond.i.not13 = and i1 %cmp.i, %cmp.i.not.i
+  %or.cond.i.not11 = and i1 %cmp.i, %cmp.i.not.i
   %and.i.i = and i32 %call.i, -65536
   %cmp.i4.not.i = icmp ne i32 %and.i.i, -1442971648
-  %or.cond8.i.not12 = and i1 %cmp.i4.not.i, %or.cond.i.not13
+  %or.cond8.i.not10 = and i1 %cmp.i4.not.i, %or.cond.i.not11
   %2 = and i32 %call.i, -268435456
   %cmp.i6.i = icmp ne i32 %2, -536870912
-  %narrow.i.not = and i1 %cmp.i6.i, %or.cond8.i.not12
+  %narrow.i.not = and i1 %cmp.i6.i, %or.cond8.i.not10
   br i1 %narrow.i.not, label %do.body, label %if.end21
 
 do.body:                                          ; preds = %if.then

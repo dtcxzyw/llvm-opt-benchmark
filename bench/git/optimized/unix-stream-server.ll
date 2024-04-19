@@ -110,26 +110,26 @@ if.end6.i:                                        ; preds = %if.end2.i
   %4 = load i64, ptr %st_now.i, align 8
   %5 = load i64, ptr %st_socket.i, align 8
   %cmp9.not.i = icmp eq i64 %4, %5
-  br i1 %cmp9.not.i, label %unix_ss_was_stolen.exit, label %unix_ss_was_stolen.exit.thread
+  br i1 %cmp9.not.i, label %if.end11.i, label %unix_ss_was_stolen.exit.thread
 
-unix_ss_was_stolen.exit.thread:                   ; preds = %if.end.i, %if.end2.i, %if.end6.i
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st_now.i)
-  br label %if.end5
-
-unix_ss_was_stolen.exit:                          ; preds = %if.end6.i
+if.end11.i:                                       ; preds = %if.end6.i
   %st_mode.i = getelementptr inbounds i8, ptr %st_now.i, i64 24
   %6 = load i32, ptr %st_mode.i, align 8
   %and.i = and i32 %6, 61440
   %cmp12.i.not = icmp eq i32 %and.i, 49152
-  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st_now.i)
-  br i1 %cmp12.i.not, label %if.then3, label %if.end5
+  br i1 %cmp12.i.not, label %if.then3, label %unix_ss_was_stolen.exit.thread
 
-if.then3:                                         ; preds = %unix_ss_was_stolen.exit
+unix_ss_was_stolen.exit.thread:                   ; preds = %if.end.i, %if.end2.i, %if.end6.i, %if.end11.i
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st_now.i)
+  br label %if.end5
+
+if.then3:                                         ; preds = %if.end11.i
+  call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %st_now.i)
   %7 = load ptr, ptr %server_socket, align 8
   %call4 = tail call i32 @unlink(ptr noundef %7) #8
   br label %if.end5
 
-if.end5:                                          ; preds = %unix_ss_was_stolen.exit.thread, %if.then3, %unix_ss_was_stolen.exit
+if.end5:                                          ; preds = %unix_ss_was_stolen.exit.thread, %if.then3
   %8 = load i32, ptr %fd_socket, align 8
   %call7 = tail call i32 @close(i32 noundef %8) #8
   br label %if.end8

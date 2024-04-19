@@ -6046,14 +6046,14 @@ define ptr @uloc_toLegacyType_75(ptr noundef %keyword, ptr noundef %value) local
 entry:
   %call = tail call ptr @ulocimp_toLegacyType_75(ptr noundef %keyword, ptr noundef %value, ptr noundef null, ptr noundef null)
   %cmp = icmp eq ptr %call, null
-  br i1 %cmp, label %while.cond.i, label %if.end3
+  br i1 %cmp, label %while.cond.i, label %return
 
 while.cond.i:                                     ; preds = %entry, %if.end17.i
   %p.0.i = phi ptr [ %incdec.ptr.i, %if.end17.i ], [ %value, %entry ]
   %alphaNumLen.0.i = phi i32 [ %alphaNumLen.1.i, %if.end17.i ], [ 0, %entry ]
   %0 = load i8, ptr %p.0.i, align 1
   switch i8 %0, label %if.else.i [
-    i8 0, label %_ZL22isWellFormedLegacyTypePKc.exit
+    i8 0, label %while.end.i
     i8 95, label %if.then.i
     i8 47, label %if.then.i
     i8 45, label %if.then.i
@@ -6061,7 +6061,7 @@ while.cond.i:                                     ; preds = %entry, %if.end17.i
 
 if.then.i:                                        ; preds = %while.cond.i, %while.cond.i, %while.cond.i
   %cmp6.i = icmp eq i32 %alphaNumLen.0.i, 0
-  br i1 %cmp6.i, label %if.end3, label %if.end17.i
+  br i1 %cmp6.i, label %_ZL22isWellFormedLegacyTypePKc.exit.thread, label %if.end17.i
 
 if.else.i:                                        ; preds = %while.cond.i
   %call.i = tail call signext i8 @uprv_isASCIILetter_75(i8 noundef signext %0)
@@ -6072,7 +6072,7 @@ lor.lhs.false9.i:                                 ; preds = %if.else.i
   %1 = load i8, ptr %p.0.i, align 1
   %2 = add i8 %1, -48
   %or.cond.i = icmp ult i8 %2, 10
-  br i1 %or.cond.i, label %if.then14.i, label %if.end3
+  br i1 %or.cond.i, label %if.then14.i, label %_ZL22isWellFormedLegacyTypePKc.exit.thread
 
 if.then14.i:                                      ; preds = %lor.lhs.false9.i, %if.else.i
   %inc.i = add nsw i32 %alphaNumLen.0.i, 1
@@ -6083,15 +6083,15 @@ if.end17.i:                                       ; preds = %if.then14.i, %if.th
   %incdec.ptr.i = getelementptr inbounds i8, ptr %p.0.i, i64 1
   br label %while.cond.i, !llvm.loop !42
 
-_ZL22isWellFormedLegacyTypePKc.exit:              ; preds = %while.cond.i
+while.end.i:                                      ; preds = %while.cond.i
   %cmp18.i.not = icmp eq i32 %alphaNumLen.0.i, 0
-  br i1 %cmp18.i.not, label %if.end3, label %return
+  br i1 %cmp18.i.not, label %_ZL22isWellFormedLegacyTypePKc.exit.thread, label %return
 
-if.end3:                                          ; preds = %lor.lhs.false9.i, %if.then.i, %_ZL22isWellFormedLegacyTypePKc.exit, %entry
+_ZL22isWellFormedLegacyTypePKc.exit.thread:       ; preds = %if.then.i, %lor.lhs.false9.i, %while.end.i
   br label %return
 
-return:                                           ; preds = %_ZL22isWellFormedLegacyTypePKc.exit, %if.end3
-  %retval.0 = phi ptr [ %call, %if.end3 ], [ %value, %_ZL22isWellFormedLegacyTypePKc.exit ]
+return:                                           ; preds = %entry, %_ZL22isWellFormedLegacyTypePKc.exit.thread, %while.end.i
+  %retval.0 = phi ptr [ %value, %while.end.i ], [ null, %_ZL22isWellFormedLegacyTypePKc.exit.thread ], [ %call, %entry ]
   ret ptr %retval.0
 }
 

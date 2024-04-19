@@ -97,29 +97,29 @@ define hidden i32 @file_is_simh(ptr noundef %0, ptr nocapture noundef readonly %
   %46 = ptrtoint ptr %.133.i to i64
   %47 = ptrtoint ptr %9 to i64
   %48 = sub i64 %46, %47
-  %49 = icmp eq i64 %45, %48
-  %.not17 = icmp eq i64 %.039.i, 0
-  %or.cond = select i1 %49, i1 true, i1 %.not17
-  br i1 %or.cond, label %simh_parse.exit.thread, label %50
+  %49 = icmp ne i64 %45, %48
+  %50 = icmp ne i64 %.039.i, 0
+  %or.cond = select i1 %49, i1 %50, i1 false
+  br i1 %or.cond, label %simh_parse.exit, label %simh_parse.exit.thread
 
-50:                                               ; preds = %.loopexit35.i
+simh_parse.exit:                                  ; preds = %.loopexit35.i
   switch i32 %5, label %simh_parse.exit.thread.sink.split [
     i32 1024, label %simh_parse.exit.thread
     i32 0, label %51
   ]
 
-51:                                               ; preds = %50
+51:                                               ; preds = %simh_parse.exit
   br label %simh_parse.exit.thread.sink.split
 
-simh_parse.exit.thread.sink.split:                ; preds = %50, %51
-  %.str.1.sink = phi ptr [ @.str.1, %51 ], [ @.str, %50 ]
+simh_parse.exit.thread.sink.split:                ; preds = %simh_parse.exit, %51
+  %.str.1.sink = phi ptr [ @.str.1, %51 ], [ @.str, %simh_parse.exit ]
   %52 = tail call i32 (ptr, ptr, ...) @file_printf(ptr noundef %0, ptr noundef nonnull %.str.1.sink) #2
   %53 = icmp eq i32 %52, -1
   %.14 = select i1 %53, i32 -1, i32 1
   br label %simh_parse.exit.thread
 
-simh_parse.exit.thread:                           ; preds = %35, %simh_parse.exit.thread.sink.split, %.loopexit35.i, %50, %2
-  %.0 = phi i32 [ 0, %2 ], [ 1, %50 ], [ 0, %.loopexit35.i ], [ %.14, %simh_parse.exit.thread.sink.split ], [ 0, %35 ]
+simh_parse.exit.thread:                           ; preds = %35, %simh_parse.exit.thread.sink.split, %.loopexit35.i, %simh_parse.exit, %2
+  %.0 = phi i32 [ 0, %2 ], [ 1, %simh_parse.exit ], [ 0, %.loopexit35.i ], [ %.14, %simh_parse.exit.thread.sink.split ], [ 0, %35 ]
   ret i32 %.0
 }
 

@@ -71,24 +71,24 @@ bits2int.exit.i:                                  ; preds = %if.end.i.i
 if.end.i:                                         ; preds = %bits2int.exit.i, %if.end.i.i
   %call2.i = tail call i32 @BN_cmp(ptr noundef nonnull %call.i28, ptr noundef %q) #4
   %cmp3.i = icmp sgt i32 %call2.i, -1
-  br i1 %cmp3.i, label %land.lhs.true.i, label %bits2octets.exit
+  br i1 %cmp3.i, label %land.lhs.true.i, label %if.end7.i
 
 land.lhs.true.i:                                  ; preds = %if.end.i
   %call4.i = tail call i32 @BN_usub(ptr noundef nonnull %call.i28, ptr noundef nonnull %call.i28, ptr noundef %q) #4
   %tobool5.not.i = icmp eq i32 %call4.i, 0
-  br i1 %tobool5.not.i, label %bits2octets.exit.thread, label %bits2octets.exit
+  br i1 %tobool5.not.i, label %bits2octets.exit.thread, label %if.end7.i
 
-bits2octets.exit.thread:                          ; preds = %lor.lhs.false, %land.lhs.true.i, %bits2int.exit.i, %lor.lhs.false.i
+if.end7.i:                                        ; preds = %land.lhs.true.i, %if.end.i
+  %call.i8.i = tail call i32 @BN_bn2binpad(ptr noundef nonnull %call.i28, ptr noundef nonnull %add.ptr, i32 noundef %div) #4
+  %cmp.i9.i = icmp sgt i32 %call.i8.i, -1
+  br i1 %cmp.i9.i, label %if.end15, label %bits2octets.exit.thread
+
+bits2octets.exit.thread:                          ; preds = %lor.lhs.false, %if.end7.i, %land.lhs.true.i, %bits2int.exit.i, %lor.lhs.false.i
   tail call void @BN_free(ptr noundef %call.i28) #4
   br label %end
 
-bits2octets.exit:                                 ; preds = %if.end.i, %land.lhs.true.i
-  %call.i8.i = tail call i32 @BN_bn2binpad(ptr noundef nonnull %call.i28, ptr noundef nonnull %add.ptr, i32 noundef %div) #4
-  %cmp.i9.i = icmp slt i32 %call.i8.i, 0
+if.end15:                                         ; preds = %if.end7.i
   tail call void @BN_free(ptr noundef nonnull %call.i28) #4
-  br i1 %cmp.i9.i, label %end, label %if.end15
-
-if.end15:                                         ; preds = %bits2octets.exit
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %params.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp.i)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %tmp5.i)
@@ -145,9 +145,9 @@ kdf_setup.exit:                                   ; preds = %if.end6.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp8.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp10.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp11.i)
-  %call2448 = call i32 @EVP_KDF_derive(ptr noundef nonnull %call1.i, ptr noundef nonnull %call4, i64 noundef %idx.ext, ptr noundef null) #4
-  %tobool25.not49 = icmp eq i32 %call2448, 0
-  br i1 %tobool25.not49, label %end, label %lor.lhs.false26.lr.ph
+  %call2449 = call i32 @EVP_KDF_derive(ptr noundef nonnull %call1.i, ptr noundef nonnull %call4, i64 noundef %idx.ext, ptr noundef null) #4
+  %tobool25.not50 = icmp eq i32 %call2449, 0
+  br i1 %tobool25.not50, label %end, label %lor.lhs.false26.lr.ph
 
 lor.lhs.false26.lr.ph:                            ; preds = %kdf_setup.exit
   %conv.i36 = shl nsw i32 %div, 3
@@ -211,9 +211,9 @@ do.body.backedge:                                 ; preds = %lor.lhs.false34, %i
   %tobool25.not = icmp eq i32 %call24, 0
   br i1 %tobool25.not, label %end, label %lor.lhs.false26, !llvm.loop !4
 
-end:                                              ; preds = %do.body.backedge, %lor.rhs, %lor.lhs.false26, %if.end.i35.us, %do.body.backedge.us, %lor.rhs.us, %lor.lhs.false26.us, %kdf_setup.exit, %kdf_setup.exit.thread, %bits2octets.exit.thread, %if.end8, %bits2octets.exit
-  %kdfctx.0 = phi ptr [ null, %bits2octets.exit ], [ null, %if.end8 ], [ null, %bits2octets.exit.thread ], [ null, %kdf_setup.exit.thread ], [ %call1.i, %kdf_setup.exit ], [ %call1.i, %lor.lhs.false26.us ], [ %call1.i, %lor.rhs.us ], [ %call1.i, %do.body.backedge.us ], [ %call1.i, %if.end.i35.us ], [ %call1.i, %lor.lhs.false26 ], [ %call1.i, %lor.rhs ], [ %call1.i, %do.body.backedge ]
-  %ret.0 = phi i32 [ 0, %bits2octets.exit ], [ 0, %if.end8 ], [ 0, %bits2octets.exit.thread ], [ 0, %kdf_setup.exit.thread ], [ 0, %kdf_setup.exit ], [ 0, %if.end.i35.us ], [ 0, %do.body.backedge.us ], [ 1, %lor.rhs.us ], [ 0, %lor.lhs.false26.us ], [ 0, %do.body.backedge ], [ 1, %lor.rhs ], [ 0, %lor.lhs.false26 ]
+end:                                              ; preds = %do.body.backedge, %lor.rhs, %lor.lhs.false26, %if.end.i35.us, %do.body.backedge.us, %lor.rhs.us, %lor.lhs.false26.us, %kdf_setup.exit, %kdf_setup.exit.thread, %bits2octets.exit.thread, %if.end8
+  %kdfctx.0 = phi ptr [ null, %if.end8 ], [ null, %bits2octets.exit.thread ], [ null, %kdf_setup.exit.thread ], [ %call1.i, %kdf_setup.exit ], [ %call1.i, %lor.lhs.false26.us ], [ %call1.i, %lor.rhs.us ], [ %call1.i, %do.body.backedge.us ], [ %call1.i, %if.end.i35.us ], [ %call1.i, %lor.lhs.false26 ], [ %call1.i, %lor.rhs ], [ %call1.i, %do.body.backedge ]
+  %ret.0 = phi i32 [ 0, %if.end8 ], [ 0, %bits2octets.exit.thread ], [ 0, %kdf_setup.exit.thread ], [ 0, %kdf_setup.exit ], [ 0, %if.end.i35.us ], [ 0, %do.body.backedge.us ], [ 1, %lor.rhs.us ], [ 0, %lor.lhs.false26.us ], [ 0, %do.body.backedge ], [ 1, %lor.rhs ], [ 0, %lor.lhs.false26 ]
   call void @EVP_KDF_CTX_free(ptr noundef %kdfctx.0) #4
   call void @CRYPTO_clear_free(ptr noundef nonnull %call4, i64 noundef %conv, ptr noundef nonnull @.str, i32 noundef 196) #4
   br label %return

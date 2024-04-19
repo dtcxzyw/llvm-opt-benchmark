@@ -83,12 +83,12 @@ entry:
   store ptr null, ptr %preder, align 8
   %call.i = tail call i32 @X509_get_ext_by_NID(ptr noundef %cert, i32 noundef 952, i32 noundef -1) #3
   %cmp1.i = icmp sgt i32 %call.i, -1
-  br i1 %cmp1.i, label %ct_x509_get_ext.exit, label %if.end
+  br i1 %cmp1.i, label %land.rhs.i, label %if.end
 
-ct_x509_get_ext.exit:                             ; preds = %entry
+land.rhs.i:                                       ; preds = %entry
   %call2.i = tail call i32 @X509_get_ext_by_NID(ptr noundef %cert, i32 noundef 952, i32 noundef %call.i) #3
-  %cmp3.i = icmp slt i32 %call2.i, 0
-  br i1 %cmp3.i, label %if.end9, label %err
+  %cmp3.i = icmp sgt i32 %call2.i, -1
+  br i1 %cmp3.i, label %err, label %if.end9
 
 if.end:                                           ; preds = %entry
   %cmp = icmp eq i32 %call.i, -1
@@ -103,19 +103,19 @@ if.end4:                                          ; preds = %if.then1
   %cmp6 = icmp slt i32 %call5, 0
   br i1 %cmp6, label %err, label %if.end9
 
-if.end9:                                          ; preds = %ct_x509_get_ext.exit, %if.end4, %if.end
-  %certderlen.0 = phi i32 [ %call5, %if.end4 ], [ 0, %if.end ], [ 0, %ct_x509_get_ext.exit ]
+if.end9:                                          ; preds = %land.rhs.i, %if.end4, %if.end
+  %certderlen.0 = phi i32 [ %call5, %if.end4 ], [ 0, %if.end ], [ 0, %land.rhs.i ]
   %call.i22 = call i32 @X509_get_ext_by_NID(ptr noundef %cert, i32 noundef 951, i32 noundef -1) #3
   %cmp1.i23 = icmp sgt i32 %call.i22, -1
-  br i1 %cmp1.i23, label %ct_x509_get_ext.exit28, label %if.end17
+  br i1 %cmp1.i23, label %land.rhs.i25, label %if.end17
 
-ct_x509_get_ext.exit28:                           ; preds = %if.end9
+land.rhs.i25:                                     ; preds = %if.end9
   %call2.i26 = call i32 @X509_get_ext_by_NID(ptr noundef %cert, i32 noundef 951, i32 noundef %call.i22) #3
   %0 = and i32 %call2.i26, %call.i
   %brmerge.not.not = icmp sgt i32 %0, -1
   br i1 %brmerge.not.not, label %err, label %if.end17
 
-if.end17:                                         ; preds = %ct_x509_get_ext.exit28, %if.end9
+if.end17:                                         ; preds = %land.rhs.i25, %if.end9
   %cmp18 = icmp eq i32 %call.i22, -1
   %spec.select = select i1 %cmp18, i32 %call.i, i32 %call.i22
   %cmp21 = icmp sgt i32 %spec.select, -1
@@ -160,8 +160,8 @@ if.end36:                                         ; preds = %if.end31, %if.end17
   store i64 %conv42, ptr %prederlen43, align 8
   br label %return
 
-err:                                              ; preds = %ct_x509_get_ext.exit28, %if.end31, %if.end26, %if.then22, %if.end4, %if.then1, %ct_x509_get_ext.exit
-  %pretmp.1 = phi ptr [ null, %ct_x509_get_ext.exit ], [ null, %if.then1 ], [ null, %if.end4 ], [ null, %ct_x509_get_ext.exit28 ], [ null, %if.then22 ], [ %call23, %if.end31 ], [ %call23, %if.end26 ]
+err:                                              ; preds = %land.rhs.i25, %land.rhs.i, %if.end31, %if.end26, %if.then22, %if.end4, %if.then1
+  %pretmp.1 = phi ptr [ null, %if.then1 ], [ null, %if.end4 ], [ null, %if.then22 ], [ %call23, %if.end31 ], [ %call23, %if.end26 ], [ null, %land.rhs.i ], [ null, %land.rhs.i25 ]
   %5 = load ptr, ptr %certder, align 8
   call void @CRYPTO_free(ptr noundef %5, ptr noundef nonnull @.str, i32 noundef 195) #3
   %6 = load ptr, ptr %preder, align 8

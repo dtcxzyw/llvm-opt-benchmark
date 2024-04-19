@@ -2178,7 +2178,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   switch i32 %0, label %if.else18 [
     i32 3, label %land.lhs.true
-    i32 2, label %if.end21
+    i32 2, label %if.then16
   ]
 
 land.lhs.true:                                    ; preds = %if.end
@@ -2190,49 +2190,40 @@ land.lhs.true:                                    ; preds = %if.end
   %3 = load ptr, ptr %ptr, align 8
   %call = tail call i32 @strcasecmp(ptr noundef %3, ptr noundef nonnull @.str.32) #14
   %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.end21.thread, label %land.lhs.true6
-
-if.end21.thread:                                  ; preds = %land.lhs.true
-  %4 = load ptr, ptr @curr_functions_lib_ctx, align 8
-  br label %if.else.i
+  br i1 %tobool.not, label %if.else.i, label %land.lhs.true6
 
 land.lhs.true6:                                   ; preds = %land.lhs.true
   %call10 = tail call i32 @strcasecmp(ptr noundef %3, ptr noundef nonnull @.str.33) #14
   %tobool11.not = icmp eq i32 %call10, 0
-  br i1 %tobool11.not, label %if.end21.thread12, label %if.else18
+  br i1 %tobool11.not, label %if.then.i, label %if.else18
 
-if.end21.thread12:                                ; preds = %land.lhs.true6
-  %5 = load ptr, ptr @curr_functions_lib_ctx, align 8
-  br label %if.then.i
+if.then16:                                        ; preds = %if.end
+  %4 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 392), align 8
+  %tobool17.not.not = icmp eq i32 %4, 0
+  br i1 %tobool17.not.not, label %if.else.i, label %if.then.i
 
 if.else18:                                        ; preds = %if.end, %land.lhs.true6
   tail call void @addReplyError(ptr noundef nonnull %c, ptr noundef nonnull @.str.34) #11
   br label %return
 
-if.end21:                                         ; preds = %if.end
-  %6 = load i32, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 392), align 8
-  %tobool17.not.not = icmp eq i32 %6, 0
-  %7 = load ptr, ptr @curr_functions_lib_ctx, align 8
-  br i1 %tobool17.not.not, label %if.else.i, label %if.then.i
-
-if.then.i:                                        ; preds = %if.end21.thread12, %if.end21
-  %8 = phi ptr [ %5, %if.end21.thread12 ], [ %7, %if.end21 ]
+if.then.i:                                        ; preds = %if.then16, %land.lhs.true6
+  %5 = load ptr, ptr @curr_functions_lib_ctx, align 8
   %call.i = tail call ptr @functionsLibCtxCreate()
   store ptr %call.i, ptr @curr_functions_lib_ctx, align 8
-  tail call void @freeFunctionsAsync(ptr noundef %8) #11
+  tail call void @freeFunctionsAsync(ptr noundef %5) #11
   br label %functionsLibCtxClearCurrent.exit
 
-if.else.i:                                        ; preds = %if.end21.thread, %if.end21
-  %9 = phi ptr [ %4, %if.end21.thread ], [ %7, %if.end21 ]
-  tail call void @functionsLibCtxClear(ptr noundef %9)
+if.else.i:                                        ; preds = %if.then16, %land.lhs.true
+  %6 = load ptr, ptr @curr_functions_lib_ctx, align 8
+  tail call void @functionsLibCtxClear(ptr noundef %6)
   br label %functionsLibCtxClearCurrent.exit
 
 functionsLibCtxClearCurrent.exit:                 ; preds = %if.then.i, %if.else.i
-  %10 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
-  %inc = add nsw i64 %10, 1
+  %7 = load i64, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
+  %inc = add nsw i64 %7, 1
   store i64 %inc, ptr getelementptr inbounds (%struct.redisServer, ptr @server, i64 0, i32 219), align 8
-  %11 = load ptr, ptr @shared, align 8
-  tail call void @addReply(ptr noundef nonnull %c, ptr noundef %11) #11
+  %8 = load ptr, ptr @shared, align 8
+  tail call void @addReply(ptr noundef nonnull %c, ptr noundef %8) #11
   br label %return
 
 return:                                           ; preds = %functionsLibCtxClearCurrent.exit, %if.else18, %if.then

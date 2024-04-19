@@ -686,33 +686,28 @@ land.rhs:                                         ; preds = %if.end8
 
 lor.rhs:                                          ; preds = %land.rhs
   %call15 = tail call i32 @ossl_rsa_pss_params_30_todata(ptr noundef %call, ptr noundef nonnull %call5, ptr noundef null) #5
-  %tobool16 = icmp ne i32 %call15, 0
-  %0 = zext i1 %tobool16 to i32
+  %tobool16.not = icmp eq i32 %call15, 0
   br label %if.end17
 
 if.end17:                                         ; preds = %lor.rhs, %land.rhs, %if.end8
-  %ok.0 = phi i32 [ 1, %if.end8 ], [ 1, %land.rhs ], [ %0, %lor.rhs ]
+  %ok.0 = phi i1 [ false, %if.end8 ], [ false, %land.rhs ], [ %tobool16.not, %lor.rhs ]
   %and18 = and i32 %selection, 3
   %cmp19.not = icmp eq i32 %and18, 0
   br i1 %cmp19.not, label %if.end29, label %if.then20
 
 if.then20:                                        ; preds = %if.end17
-  %tobool23.not = icmp eq i32 %ok.0, 0
-  br i1 %tobool23.not, label %err, label %land.rhs24
+  br i1 %ok.0, label %err, label %land.rhs24
 
 land.rhs24:                                       ; preds = %if.then20
   %and21 = and i32 %selection, 1
   %call25 = tail call i32 @ossl_rsa_todata(ptr noundef nonnull %keydata, ptr noundef nonnull %call5, ptr noundef null, i32 noundef %and21) #5
-  %tobool26 = icmp ne i32 %call25, 0
-  %1 = zext i1 %tobool26 to i32
-  br label %if.end29
+  %tobool26.not = icmp eq i32 %call25, 0
+  br i1 %tobool26.not, label %err, label %lor.lhs.false31
 
-if.end29:                                         ; preds = %land.rhs24, %if.end17
-  %ok.1 = phi i32 [ %ok.0, %if.end17 ], [ %1, %land.rhs24 ]
-  %tobool30.not = icmp eq i32 %ok.1, 0
-  br i1 %tobool30.not, label %err, label %lor.lhs.false31
+if.end29:                                         ; preds = %if.end17
+  br i1 %ok.0, label %err, label %lor.lhs.false31
 
-lor.lhs.false31:                                  ; preds = %if.end29
+lor.lhs.false31:                                  ; preds = %land.rhs24, %if.end29
   %call32 = tail call ptr @OSSL_PARAM_BLD_to_param(ptr noundef nonnull %call5) #5
   %cmp33 = icmp eq ptr %call32, null
   br i1 %cmp33, label %err, label %if.end35
@@ -722,8 +717,8 @@ if.end35:                                         ; preds = %lor.lhs.false31
   tail call void @OSSL_PARAM_free(ptr noundef nonnull %call32) #5
   br label %err
 
-err:                                              ; preds = %if.then20, %if.end29, %lor.lhs.false31, %if.end35
-  %ok.2 = phi i32 [ %call36, %if.end35 ], [ 0, %lor.lhs.false31 ], [ 0, %if.end29 ], [ 0, %if.then20 ]
+err:                                              ; preds = %land.rhs24, %if.then20, %if.end29, %lor.lhs.false31, %if.end35
+  %ok.2 = phi i32 [ %call36, %if.end35 ], [ 0, %lor.lhs.false31 ], [ 0, %if.end29 ], [ 0, %if.then20 ], [ 0, %land.rhs24 ]
   tail call void @OSSL_PARAM_BLD_free(ptr noundef nonnull %call5) #5
   br label %return
 

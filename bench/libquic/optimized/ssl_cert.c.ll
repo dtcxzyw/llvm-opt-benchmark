@@ -324,26 +324,26 @@ entry:
   %chain.i = getelementptr inbounds i8, ptr %cert, i64 16
   %0 = load ptr, ptr %chain.i, align 8
   %cmp.i = icmp eq ptr %0, null
-  br i1 %cmp.i, label %if.end.i, label %ssl_cert_add0_chain_cert.exit
+  br i1 %cmp.i, label %if.end.i, label %lor.lhs.false.i
 
 if.end.i:                                         ; preds = %entry
   %call.i = tail call ptr @sk_new_null() #10
   store ptr %call.i, ptr %chain.i, align 8
   %cmp3.i = icmp eq ptr %call.i, null
-  br i1 %cmp3.i, label %return, label %ssl_cert_add0_chain_cert.exit
+  br i1 %cmp3.i, label %return, label %lor.lhs.false.i
 
-ssl_cert_add0_chain_cert.exit:                    ; preds = %entry, %if.end.i
+lor.lhs.false.i:                                  ; preds = %if.end.i, %entry
   %1 = phi ptr [ %call.i, %if.end.i ], [ %0, %entry ]
   %call5.i = tail call i64 @sk_push(ptr noundef nonnull %1, ptr noundef %x509) #10
   %tobool.not.i.not = icmp eq i64 %call5.i, 0
   br i1 %tobool.not.i.not, label %return, label %if.end
 
-if.end:                                           ; preds = %ssl_cert_add0_chain_cert.exit
+if.end:                                           ; preds = %lor.lhs.false.i
   %call1 = tail call ptr @X509_up_ref(ptr noundef %x509) #10
   br label %return
 
-return:                                           ; preds = %if.end.i, %ssl_cert_add0_chain_cert.exit, %if.end
-  %retval.0 = phi i32 [ 1, %if.end ], [ 0, %ssl_cert_add0_chain_cert.exit ], [ 0, %if.end.i ]
+return:                                           ; preds = %lor.lhs.false.i, %if.end.i, %if.end
+  %retval.0 = phi i32 [ 1, %if.end ], [ 0, %if.end.i ], [ 0, %lor.lhs.false.i ]
   ret i32 %retval.0
 }
 
@@ -1005,26 +1005,26 @@ entry:
   %chain.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %chain.i.i, align 8
   %cmp.i.i = icmp eq ptr %1, null
-  br i1 %cmp.i.i, label %if.end.i.i, label %ssl_cert_add0_chain_cert.exit.i
+  br i1 %cmp.i.i, label %if.end.i.i, label %lor.lhs.false.i.i
 
 if.end.i.i:                                       ; preds = %entry
   %call.i.i = tail call ptr @sk_new_null() #10
   store ptr %call.i.i, ptr %chain.i.i, align 8
   %cmp3.i.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp3.i.i, label %ssl_cert_add1_chain_cert.exit, label %ssl_cert_add0_chain_cert.exit.i
+  br i1 %cmp3.i.i, label %ssl_cert_add1_chain_cert.exit, label %lor.lhs.false.i.i
 
-ssl_cert_add0_chain_cert.exit.i:                  ; preds = %if.end.i.i, %entry
+lor.lhs.false.i.i:                                ; preds = %if.end.i.i, %entry
   %2 = phi ptr [ %call.i.i, %if.end.i.i ], [ %1, %entry ]
   %call5.i.i = tail call i64 @sk_push(ptr noundef nonnull %2, ptr noundef %x509) #10
   %tobool.not.i.not.i = icmp eq i64 %call5.i.i, 0
   br i1 %tobool.not.i.not.i, label %ssl_cert_add1_chain_cert.exit, label %if.end.i
 
-if.end.i:                                         ; preds = %ssl_cert_add0_chain_cert.exit.i
+if.end.i:                                         ; preds = %lor.lhs.false.i.i
   %call1.i = tail call ptr @X509_up_ref(ptr noundef %x509) #10
   br label %ssl_cert_add1_chain_cert.exit
 
-ssl_cert_add1_chain_cert.exit:                    ; preds = %if.end.i.i, %ssl_cert_add0_chain_cert.exit.i, %if.end.i
-  %retval.0.i = phi i32 [ 1, %if.end.i ], [ 0, %ssl_cert_add0_chain_cert.exit.i ], [ 0, %if.end.i.i ]
+ssl_cert_add1_chain_cert.exit:                    ; preds = %if.end.i.i, %lor.lhs.false.i.i, %if.end.i
+  %retval.0.i = phi i32 [ 1, %if.end.i ], [ 0, %if.end.i.i ], [ 0, %lor.lhs.false.i.i ]
   ret i32 %retval.0.i
 }
 
@@ -1092,26 +1092,26 @@ entry:
   %chain.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %1 = load ptr, ptr %chain.i.i, align 8
   %cmp.i.i = icmp eq ptr %1, null
-  br i1 %cmp.i.i, label %if.end.i.i, label %ssl_cert_add0_chain_cert.exit.i
+  br i1 %cmp.i.i, label %if.end.i.i, label %lor.lhs.false.i.i
 
 if.end.i.i:                                       ; preds = %entry
   %call.i.i = tail call ptr @sk_new_null() #10
   store ptr %call.i.i, ptr %chain.i.i, align 8
   %cmp3.i.i = icmp eq ptr %call.i.i, null
-  br i1 %cmp3.i.i, label %ssl_cert_add1_chain_cert.exit, label %ssl_cert_add0_chain_cert.exit.i
+  br i1 %cmp3.i.i, label %ssl_cert_add1_chain_cert.exit, label %lor.lhs.false.i.i
 
-ssl_cert_add0_chain_cert.exit.i:                  ; preds = %if.end.i.i, %entry
+lor.lhs.false.i.i:                                ; preds = %if.end.i.i, %entry
   %2 = phi ptr [ %call.i.i, %if.end.i.i ], [ %1, %entry ]
   %call5.i.i = tail call i64 @sk_push(ptr noundef nonnull %2, ptr noundef %x509) #10
   %tobool.not.i.not.i = icmp eq i64 %call5.i.i, 0
   br i1 %tobool.not.i.not.i, label %ssl_cert_add1_chain_cert.exit, label %if.end.i
 
-if.end.i:                                         ; preds = %ssl_cert_add0_chain_cert.exit.i
+if.end.i:                                         ; preds = %lor.lhs.false.i.i
   %call1.i = tail call ptr @X509_up_ref(ptr noundef %x509) #10
   br label %ssl_cert_add1_chain_cert.exit
 
-ssl_cert_add1_chain_cert.exit:                    ; preds = %if.end.i.i, %ssl_cert_add0_chain_cert.exit.i, %if.end.i
-  %retval.0.i = phi i32 [ 1, %if.end.i ], [ 0, %ssl_cert_add0_chain_cert.exit.i ], [ 0, %if.end.i.i ]
+ssl_cert_add1_chain_cert.exit:                    ; preds = %if.end.i.i, %lor.lhs.false.i.i, %if.end.i
+  %retval.0.i = phi i32 [ 1, %if.end.i ], [ 0, %if.end.i.i ], [ 0, %lor.lhs.false.i.i ]
   ret i32 %retval.0.i
 }
 

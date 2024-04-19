@@ -1291,25 +1291,25 @@ h2_submit.exit:                                   ; preds = %198, %.thread.i, %2
   %273 = load ptr, ptr %12, align 8
   %274 = call i32 @nghttp2_session_want_read(ptr noundef %273) #11
   %.not.i153 = icmp eq i32 %274, 0
-  br i1 %.not.i153, label %should_close_session.exit, label %should_close_session.exit.thread
+  br i1 %.not.i153, label %275, label %should_close_session.exit.thread
 
-should_close_session.exit:                        ; preds = %272
-  %275 = load ptr, ptr %12, align 8
-  %276 = call i32 @nghttp2_session_want_write(ptr noundef %275) #11
-  %.not3.i.not = icmp eq i32 %276, 0
-  br i1 %.not3.i.not, label %277, label %should_close_session.exit.thread
+275:                                              ; preds = %272
+  %276 = load ptr, ptr %12, align 8
+  %277 = call i32 @nghttp2_session_want_write(ptr noundef %276) #11
+  %.not3.i = icmp eq i32 %277, 0
+  br i1 %.not3.i, label %should_close_session.exit, label %should_close_session.exit.thread
 
-277:                                              ; preds = %should_close_session.exit
+should_close_session.exit:                        ; preds = %275
   %278 = getelementptr inbounds i8, ptr %.0163180, i64 333
   %279 = load i8, ptr %278, align 1
   %280 = trunc i8 %279 to i1
   br i1 %280, label %281, label %283
 
-281:                                              ; preds = %277
+281:                                              ; preds = %should_close_session.exit
   %282 = call fastcc i64 @http2_handle_stream_close(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.0163180, ptr noundef %4), !range !9
   br label %.thread207
 
-283:                                              ; preds = %277
+283:                                              ; preds = %should_close_session.exit
   br i1 %.not139, label %296, label %284
 
 284:                                              ; preds = %283
@@ -1336,10 +1336,10 @@ should_close_session.exit:                        ; preds = %272
   store i32 16, ptr %4, align 4
   br label %.thread207
 
-should_close_session.exit.thread:                 ; preds = %.thread202, %272, %should_close_session.exit, %h2_submit.exit, %238
-  %.sroa.0.0.copyload167 = phi ptr [ %.sroa.0.0.copyload169, %h2_submit.exit ], [ %.sroa.0.0.copyload168178, %238 ], [ %.sroa.0.0.copyload168178, %should_close_session.exit ], [ %.sroa.0.0.copyload168178, %272 ], [ %.sroa.0.0.copyload168178, %.thread202 ]
-  %.1164 = phi ptr [ %217, %h2_submit.exit ], [ %.0163180, %238 ], [ %.0163180, %should_close_session.exit ], [ %.0163180, %272 ], [ %.0163180, %.thread202 ]
-  %.2 = phi i64 [ %.0114146.i, %h2_submit.exit ], [ -1, %238 ], [ %.1183, %should_close_session.exit ], [ %.1183, %272 ], [ %.1183, %.thread202 ]
+should_close_session.exit.thread:                 ; preds = %275, %.thread202, %272, %h2_submit.exit, %238
+  %.sroa.0.0.copyload167 = phi ptr [ %.sroa.0.0.copyload169, %h2_submit.exit ], [ %.sroa.0.0.copyload168178, %238 ], [ %.sroa.0.0.copyload168178, %272 ], [ %.sroa.0.0.copyload168178, %.thread202 ], [ %.sroa.0.0.copyload168178, %275 ]
+  %.1164 = phi ptr [ %217, %h2_submit.exit ], [ %.0163180, %238 ], [ %.0163180, %272 ], [ %.0163180, %.thread202 ], [ %.0163180, %275 ]
+  %.2 = phi i64 [ %.0114146.i, %h2_submit.exit ], [ -1, %238 ], [ %.1183, %272 ], [ %.1183, %.thread202 ], [ %.1183, %275 ]
   %.not152 = icmp eq ptr %.1164, null
   br i1 %.not152, label %320, label %.thread207
 

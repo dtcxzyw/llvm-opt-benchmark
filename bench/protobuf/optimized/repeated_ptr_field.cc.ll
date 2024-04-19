@@ -178,7 +178,7 @@ for.body.preheader.i.i.i.i.i.i:                   ; preds = %_ZSt4copyIPPN6googl
 _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i: ; preds = %for.body.preheader.i.i.i.i.i.i, %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i
   store ptr %6, ptr %cached_blocks_.i.i.i, align 8
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %div10.i.i.i, i64 64)
-  %conv17.i.i.i = trunc i64 %.sroa.speculated.i.i.i to i8
+  %conv17.i.i.i = trunc nuw nsw i64 %.sroa.speculated.i.i.i to i8
   store i8 %conv17.i.i.i, ptr %cached_block_length_.i.i.i, align 8
   br label %if.end46
 
@@ -242,36 +242,29 @@ if.end.i:                                         ; preds = %entry
   %2 = ptrtoint ptr %1 to i64
   %and.i.i = and i64 %2, 1
   %cmp.i.i = icmp eq i64 %and.i.i, 0
-  br i1 %cmp.i.i, label %cond.true.i, label %cond.false.i
+  br i1 %cmp.i.i, label %cond.true.i, label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit
 
 cond.true.i:                                      ; preds = %if.end.i
-  %cmp.not.i = icmp ne ptr %1, null
-  %cond.i = zext i1 %cmp.not.i to i32
-  %.pre10 = add i64 %2, -1
-  %.pre11 = inttoptr i64 %.pre10 to ptr
-  br label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit
+  %cmp.not.i.not = icmp eq ptr %1, null
+  br i1 %cmp.not.i.not, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase7DestroyINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvv.exit, label %for.body.i.preheader
 
-cond.false.i:                                     ; preds = %if.end.i
+_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit: ; preds = %if.end.i
   %sub.i.i.i = add nsw i64 %2, -1
   %3 = inttoptr i64 %sub.i.i.i to ptr
   %4 = load i32, ptr %3, align 8
-  br label %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit
+  %elements.i = getelementptr inbounds i8, ptr %3, i64 8
+  %cmp3.i7 = icmp sgt i32 %4, 0
+  br i1 %cmp3.i7, label %for.body.i.preheader, label %if.then5.i
 
-_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit: ; preds = %cond.true.i, %cond.false.i
-  %.pre-phi = phi ptr [ %.pre11, %cond.true.i ], [ %3, %cond.false.i ]
-  %cond3.i = phi i32 [ %cond.i, %cond.true.i ], [ %4, %cond.false.i ]
-  %elements.i = getelementptr inbounds i8, ptr %.pre-phi, i64 8
-  %cond.i5 = select i1 %cmp.i.i, ptr %this, ptr %elements.i
-  %cmp3.i7 = icmp sgt i32 %cond3.i, 0
-  br i1 %cmp3.i7, label %for.body.i.preheader, label %for.end.i
-
-for.body.i.preheader:                             ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit
-  %wide.trip.count = zext nneg i32 %cond3.i to i64
+for.body.i.preheader:                             ; preds = %cond.true.i, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit
+  %cond.i522 = phi ptr [ %elements.i, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ], [ %this, %cond.true.i ]
+  %cond3.i21 = phi i32 [ %4, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ], [ 1, %cond.true.i ]
+  %wide.trip.count = zext nneg i32 %cond3.i21 to i64
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvPvPNS0_5ArenaE.exit
   %indvars.iv = phi i64 [ 0, %for.body.i.preheader ], [ %indvars.iv.next, %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvPvPNS0_5ArenaE.exit ]
-  %arrayidx.i = getelementptr inbounds ptr, ptr %cond.i5, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds ptr, ptr %cond.i522, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx.i, align 8
   %isnull.i.i.i = icmp eq ptr %5, null
   br i1 %isnull.i.i.i, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvPvPNS0_5ArenaE.exit, label %delete.notnull.i.i.i
@@ -286,27 +279,23 @@ delete.notnull.i.i.i:                             ; preds = %for.body.i
 _ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvPvPNS0_5ArenaE.exit: ; preds = %for.body.i, %delete.notnull.i.i.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end.i.loopexit, label %for.body.i, !llvm.loop !7
+  br i1 %exitcond.not, label %for.end.i, label %for.body.i, !llvm.loop !7
 
-for.end.i.loopexit:                               ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvPvPNS0_5ArenaE.exit
+for.end.i:                                        ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase6DeleteINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvPvPNS0_5ArenaE.exit
   %.pre = load ptr, ptr %this, align 8
   %.pre12 = ptrtoint ptr %.pre to i64
   %.pre14 = and i64 %.pre12, 1
-  br label %for.end.i
-
-for.end.i:                                        ; preds = %for.end.i.loopexit, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit
-  %and.i.pre-phi = phi i64 [ %.pre14, %for.end.i.loopexit ], [ %and.i.i, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ]
-  %.pre-phi13 = phi i64 [ %.pre12, %for.end.i.loopexit ], [ %2, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ]
-  %cmp.i = icmp eq i64 %and.i.pre-phi, 0
+  %cmp.i = icmp eq i64 %.pre14, 0
   br i1 %cmp.i, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase7DestroyINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvv.exit, label %if.then5.i
 
-if.then5.i:                                       ; preds = %for.end.i
-  %sub.i = add nsw i64 %.pre-phi13, -1
+if.then5.i:                                       ; preds = %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit, %for.end.i
+  %.pre-phi1336 = phi i64 [ %.pre12, %for.end.i ], [ %2, %_ZNK6google8protobuf8internal20RepeatedPtrFieldBase14allocated_sizeEv.exit ]
+  %sub.i = add nsw i64 %.pre-phi1336, -1
   %7 = inttoptr i64 %sub.i to ptr
   tail call void @_ZdlPv(ptr noundef %7) #16
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase7DestroyINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvv.exit
 
-_ZN6google8protobuf8internal20RepeatedPtrFieldBase7DestroyINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvv.exit: ; preds = %entry, %if.then5.i, %for.end.i
+_ZN6google8protobuf8internal20RepeatedPtrFieldBase7DestroyINS1_18GenericTypeHandlerINS0_11MessageLiteEEEEEvv.exit: ; preds = %cond.true.i, %entry, %if.then5.i, %for.end.i
   store ptr null, ptr %this, align 8
   ret void
 }

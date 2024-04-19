@@ -2304,14 +2304,19 @@ if.end.i23.i:                                     ; preds = %land.rhs.i
   %15 = tail call noundef float @llvm.fabs.f32(float %12)
   %16 = tail call noundef float @llvm.fabs.f32(float %13)
   %cmp4.i24.i = fcmp ogt float %16, %15
-  %mul.i31.i = fmul float %16, 0x3E80000000000000
-  %cmp6.i32.i = fcmp uge float %14, %mul.i31.i
-  %mul7.i26.i = fmul float %15, 0x3E80000000000000
-  %cmp8.i27.i = fcmp uge float %14, %mul7.i26.i
-  %retval.0.shrunk.i28.i = select i1 %cmp4.i24.i, i1 %cmp6.i32.i, i1 %cmp8.i27.i
-  br i1 %retval.0.shrunk.i28.i, label %lor.lhs.false, label %return
+  br i1 %cmp4.i24.i, label %if.then5.i30.i, label %_Z5ccdEqff.exit33.i
 
-lor.lhs.false:                                    ; preds = %if.end.i.i, %if.end.i8.i, %if.end.i23.i
+if.then5.i30.i:                                   ; preds = %if.end.i23.i
+  %mul.i31.i = fmul float %16, 0x3E80000000000000
+  %cmp6.i32.i = fcmp olt float %14, %mul.i31.i
+  br i1 %cmp6.i32.i, label %return, label %lor.lhs.false
+
+_Z5ccdEqff.exit33.i:                              ; preds = %if.end.i23.i
+  %mul7.i26.i = fmul float %15, 0x3E80000000000000
+  %cmp8.i27.i = fcmp olt float %14, %mul7.i26.i
+  br i1 %cmp8.i27.i, label %return, label %lor.lhs.false
+
+lor.lhs.false:                                    ; preds = %if.end.i8.i, %if.end.i.i, %_Z5ccdEqff.exit33.i, %if.then5.i30.i
   %17 = load float, ptr %simplex, align 4
   %sub.i.i58 = fsub float %2, %17
   %18 = tail call noundef float @llvm.fabs.f32(float %sub.i.i58)
@@ -2333,7 +2338,7 @@ if.end.i.i60.if.end15_crit_edge:                  ; preds = %if.end.i.i60
   %arrayidx7.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
   %.pre = load float, ptr %arrayidx7.i.i.phi.trans.insert, align 4
   %arrayidx5.i.i99.phi.trans.insert = getelementptr inbounds i8, ptr %simplex, i64 4
-  %.pre209 = load float, ptr %arrayidx5.i.i99.phi.trans.insert, align 4
+  %.pre205 = load float, ptr %arrayidx5.i.i99.phi.trans.insert, align 4
   br label %if.end15
 
 land.lhs.true.i67:                                ; preds = %if.end.i.i60, %lor.lhs.false
@@ -2371,16 +2376,21 @@ if.end.i23.i84:                                   ; preds = %land.rhs.i79
   %29 = tail call noundef float @llvm.fabs.f32(float %26)
   %30 = tail call noundef float @llvm.fabs.f32(float %27)
   %cmp4.i24.i85 = fcmp ogt float %30, %29
-  %mul.i31.i94 = fmul float %30, 0x3E80000000000000
-  %cmp6.i32.i95 = fcmp uge float %28, %mul.i31.i94
-  %mul7.i26.i87 = fmul float %29, 0x3E80000000000000
-  %cmp8.i27.i88 = fcmp uge float %28, %mul7.i26.i87
-  %retval.0.shrunk.i28.i90 = select i1 %cmp4.i24.i85, i1 %cmp6.i32.i95, i1 %cmp8.i27.i88
-  br i1 %retval.0.shrunk.i28.i90, label %if.end15, label %return
+  br i1 %cmp4.i24.i85, label %if.then5.i30.i93, label %_Z5ccdEqff.exit33.i89
 
-if.end15:                                         ; preds = %if.end.i.i60.if.end15_crit_edge, %if.end.i8.i72, %if.end.i23.i84
-  %31 = phi float [ %.pre209, %if.end.i.i60.if.end15_crit_edge ], [ %22, %if.end.i8.i72 ], [ %22, %if.end.i23.i84 ]
-  %32 = phi float [ %.pre, %if.end.i.i60.if.end15_crit_edge ], [ %21, %if.end.i8.i72 ], [ %21, %if.end.i23.i84 ]
+if.then5.i30.i93:                                 ; preds = %if.end.i23.i84
+  %mul.i31.i94 = fmul float %30, 0x3E80000000000000
+  %cmp6.i32.i95 = fcmp olt float %28, %mul.i31.i94
+  br i1 %cmp6.i32.i95, label %return, label %if.end15
+
+_Z5ccdEqff.exit33.i89:                            ; preds = %if.end.i23.i84
+  %mul7.i26.i87 = fmul float %29, 0x3E80000000000000
+  %cmp8.i27.i88 = fcmp olt float %28, %mul7.i26.i87
+  br i1 %cmp8.i27.i88, label %return, label %if.end15
+
+if.end15:                                         ; preds = %if.end.i.i60.if.end15_crit_edge, %if.end.i8.i72, %_Z5ccdEqff.exit33.i89, %if.then5.i30.i93
+  %31 = phi float [ %.pre205, %if.end.i.i60.if.end15_crit_edge ], [ %22, %if.end.i8.i72 ], [ %22, %_Z5ccdEqff.exit33.i89 ], [ %22, %if.then5.i30.i93 ]
+  %32 = phi float [ %.pre, %if.end.i.i60.if.end15_crit_edge ], [ %21, %if.end.i8.i72 ], [ %21, %_Z5ccdEqff.exit33.i89 ], [ %21, %if.then5.i30.i93 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %AO, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx.i.i, i64 16, i1 false)
   %33 = load <2 x float>, ptr %AO, align 8
   %34 = fneg <2 x float> %33
@@ -2551,8 +2561,8 @@ if.else57:                                        ; preds = %if.else51
   store float %46, ptr %ABC.sroa.14.0.dir.sroa_idx189, align 4
   br label %return
 
-return:                                           ; preds = %land.rhs.i79, %land.rhs.i, %if.then34, %if.else35, %if.then29, %if.then56, %if.else57, %if.then48, %if.else49, %if.end.i23.i, %if.end.i23.i84, %entry
-  %retval.0 = phi i32 [ 1, %entry ], [ -1, %if.end.i23.i84 ], [ -1, %if.end.i23.i ], [ 0, %if.else49 ], [ 0, %if.then48 ], [ 0, %if.else57 ], [ 0, %if.then56 ], [ 0, %if.then29 ], [ 0, %if.else35 ], [ 0, %if.then34 ], [ -1, %land.rhs.i ], [ -1, %land.rhs.i79 ]
+return:                                           ; preds = %land.rhs.i79, %land.rhs.i, %if.then5.i30.i93, %_Z5ccdEqff.exit33.i89, %if.then5.i30.i, %_Z5ccdEqff.exit33.i, %if.then34, %if.else35, %if.then29, %if.then56, %if.else57, %if.then48, %if.else49, %entry
+  %retval.0 = phi i32 [ 1, %entry ], [ 0, %if.else49 ], [ 0, %if.then48 ], [ 0, %if.else57 ], [ 0, %if.then56 ], [ 0, %if.then29 ], [ 0, %if.else35 ], [ 0, %if.then34 ], [ -1, %_Z5ccdEqff.exit33.i ], [ -1, %if.then5.i30.i ], [ -1, %_Z5ccdEqff.exit33.i89 ], [ -1, %if.then5.i30.i93 ], [ -1, %land.rhs.i ], [ -1, %land.rhs.i79 ]
   ret i32 %retval.0
 }
 

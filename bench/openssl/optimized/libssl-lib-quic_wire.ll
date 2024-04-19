@@ -375,16 +375,16 @@ lor.lhs.false.i:                                  ; preds = %entry
   %0 = load i64, ptr %f, align 8
   %call1.i = tail call i32 @WPACKET_quic_write_vlint(ptr noundef %pkt, i64 noundef %0) #11
   %tobool2.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool2.not.i, label %return, label %ossl_quic_wire_encode_frame_crypto_hdr.exit
+  br i1 %tobool2.not.i, label %return, label %lor.lhs.false3.i
 
-ossl_quic_wire_encode_frame_crypto_hdr.exit:      ; preds = %lor.lhs.false.i
+lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i
   %len.i = getelementptr inbounds i8, ptr %f, i64 8
   %1 = load i64, ptr %len.i, align 8
   %call4.i = tail call i32 @WPACKET_quic_write_vlint(ptr noundef %pkt, i64 noundef %1) #11
   %tobool5.not.i.not = icmp eq i32 %call4.i, 0
   br i1 %tobool5.not.i.not, label %return, label %lor.lhs.false
 
-lor.lhs.false:                                    ; preds = %ossl_quic_wire_encode_frame_crypto_hdr.exit
+lor.lhs.false:                                    ; preds = %lor.lhs.false3.i
   %2 = load i64, ptr %len.i, align 8
   %call3 = call i32 @WPACKET_allocate_bytes(ptr noundef %pkt, i64 noundef %2, ptr noundef nonnull %p) #11
   %tobool4.not = icmp eq i32 %call3, 0
@@ -406,8 +406,8 @@ if.end9:                                          ; preds = %if.then6, %if.end
   %6 = load ptr, ptr %p, align 8
   br label %return
 
-return:                                           ; preds = %entry, %lor.lhs.false.i, %ossl_quic_wire_encode_frame_crypto_hdr.exit, %lor.lhs.false, %if.end9
-  %retval.0 = phi ptr [ %6, %if.end9 ], [ null, %lor.lhs.false ], [ null, %ossl_quic_wire_encode_frame_crypto_hdr.exit ], [ null, %lor.lhs.false.i ], [ null, %entry ]
+return:                                           ; preds = %lor.lhs.false3.i, %entry, %lor.lhs.false.i, %lor.lhs.false, %if.end9
+  %retval.0 = phi ptr [ %6, %if.end9 ], [ null, %lor.lhs.false ], [ null, %lor.lhs.false.i ], [ null, %entry ], [ null, %lor.lhs.false3.i ]
   ret ptr %retval.0
 }
 

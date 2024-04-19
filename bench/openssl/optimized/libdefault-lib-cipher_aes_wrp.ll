@@ -176,7 +176,7 @@ if.then43.i:                                      ; preds = %if.end40.i
   br label %if.end10
 
 if.end44.i:                                       ; preds = %if.end40.i
-  %conv45.i = trunc i64 %call.i to i32
+  %conv45.i = trunc nuw nsw i64 %call.i to i32
   br label %if.end10
 
 aes_wrap_cipher_internal.exit:                    ; preds = %if.end17.i, %if.then26.i
@@ -738,7 +738,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %enc1 = getelementptr inbounds i8, ptr %vctx, i64 108
-  %0 = trunc i32 %enc to i8
+  %0 = trunc nuw nsw i32 %enc to i8
   %bf.load = load i8, ptr %enc1, align 4
   %bf.value = shl i8 %0, 1
   %bf.shl = and i8 %bf.value, 2
@@ -781,40 +781,34 @@ if.end22:                                         ; preds = %if.then18
   %bf.load23 = load i8, ptr %enc1, align 4
   %3 = and i8 %bf.load23, 64
   %cmp26 = icmp eq i8 %3, 0
-  br i1 %cmp26, label %if.then27, label %if.else33
-
-if.then27:                                        ; preds = %if.end22
-  %bf.lshr30 = lshr i8 %bf.load23, 1
-  %bf.clear31 = and i8 %bf.lshr30, 1
-  %bf.cast32 = zext nneg i8 %bf.clear31 to i32
-  br label %if.end40
+  %4 = and i8 %bf.load23, 2
+  %tobool41.not = icmp eq i8 %4, 0
+  br i1 %cmp26, label %if.end40, label %if.else33
 
 if.else33:                                        ; preds = %if.end22
-  %4 = and i8 %bf.load23, 2
-  %tobool39.not = icmp eq i8 %4, 0
-  %lnot.ext = zext i1 %tobool39.not to i32
-  br label %if.end40
+  br i1 %tobool41.not, label %if.then42, label %if.else44
 
-if.end40:                                         ; preds = %if.else33, %if.then27
-  %use_forward_transform.0 = phi i32 [ %bf.cast32, %if.then27 ], [ %lnot.ext, %if.else33 ]
-  %tobool41.not = icmp eq i32 %use_forward_transform.0, 0
+if.end40:                                         ; preds = %if.end22
+  br i1 %tobool41.not, label %if.else44, label %if.then42
+
+if.then42:                                        ; preds = %if.else33, %if.end40
+  %keylen.tr21 = trunc i64 %keylen to i32
+  %conv = shl i32 %keylen.tr21, 3
+  %ks = getelementptr inbounds i8, ptr %vctx, i64 192
+  %call43 = tail call i32 @AES_set_encrypt_key(ptr noundef nonnull %key, i32 noundef %conv, ptr noundef nonnull %ks) #3
+  br label %if.end51.sink.split
+
+if.else44:                                        ; preds = %if.else33, %if.end40
   %keylen.tr = trunc i64 %keylen to i32
   %conv46 = shl i32 %keylen.tr, 3
   %ks47 = getelementptr inbounds i8, ptr %vctx, i64 192
-  %block49 = getelementptr inbounds i8, ptr %vctx, i64 48
-  br i1 %tobool41.not, label %if.else44, label %if.then42
-
-if.then42:                                        ; preds = %if.end40
-  %call43 = tail call i32 @AES_set_encrypt_key(ptr noundef nonnull %key, i32 noundef %conv46, ptr noundef nonnull %ks47) #3
-  br label %if.end51.sink.split
-
-if.else44:                                        ; preds = %if.end40
   %call48 = tail call i32 @AES_set_decrypt_key(ptr noundef nonnull %key, i32 noundef %conv46, ptr noundef nonnull %ks47) #3
   br label %if.end51.sink.split
 
 if.end51.sink.split:                              ; preds = %if.else44, %if.then42
   %AES_encrypt.sink = phi ptr [ @AES_encrypt, %if.then42 ], [ @AES_decrypt, %if.else44 ]
-  store ptr %AES_encrypt.sink, ptr %block49, align 8
+  %block = getelementptr inbounds i8, ptr %vctx, i64 48
+  store ptr %AES_encrypt.sink, ptr %block, align 8
   br label %if.end51
 
 if.end51:                                         ; preds = %if.end51.sink.split, %if.end16

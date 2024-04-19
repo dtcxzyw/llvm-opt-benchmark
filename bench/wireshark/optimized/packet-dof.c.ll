@@ -4515,8 +4515,8 @@ switch.early.test108:                             ; preds = %23
 
 31:                                               ; preds = %27
   %32 = load i32, ptr %16, align 8
-  %.not89.not = icmp ugt i32 %30, %32
-  br i1 %.not89.not, label %.loopexit, label %33
+  %.not89 = icmp ugt i32 %30, %32
+  br i1 %.not89, label %.loopexit, label %33
 
 33:                                               ; preds = %31
   br i1 %or.cond, label %39, label %34
@@ -4672,8 +4672,8 @@ define internal fastcc noundef zeroext i8 @parseStringField(ptr nocapture nounde
 
 26:                                               ; preds = %22
   %27 = load i32, ptr %10, align 8
-  %.not59.not = icmp ugt i32 %25, %27
-  br i1 %.not59.not, label %._crit_edge, label %28
+  %.not59 = icmp ugt i32 %25, %27
+  br i1 %.not59, label %._crit_edge, label %28
 
 28:                                               ; preds = %26
   store i32 %25, ptr %2, align 4
@@ -4700,8 +4700,8 @@ define internal fastcc noundef zeroext i8 @parseStringField(ptr nocapture nounde
 
 38:                                               ; preds = %34
   %39 = load i32, ptr %10, align 8
-  %.not56.not = icmp ugt i32 %37, %39
-  br i1 %.not56.not, label %._crit_edge, label %40
+  %.not56 = icmp ugt i32 %37, %39
+  br i1 %.not56, label %._crit_edge, label %40
 
 40:                                               ; preds = %38
   store i32 %37, ptr %2, align 4
@@ -4723,8 +4723,8 @@ define internal fastcc noundef zeroext i8 @parseStringField(ptr nocapture nounde
   %47 = icmp ult i32 %storemerge, %46
   br i1 %47, label %11, label %._crit_edge, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %17, %26, %38, %32, %11, %11, %44, %1
-  %.0 = phi i8 [ 0, %1 ], [ 0, %44 ], [ 0, %11 ], [ 0, %11 ], [ 1, %32 ], [ 1, %38 ], [ 1, %26 ], [ 1, %17 ]
+._crit_edge:                                      ; preds = %17, %32, %11, %11, %44, %26, %38, %1
+  %.0 = phi i8 [ 0, %1 ], [ 1, %38 ], [ 1, %26 ], [ 0, %44 ], [ 0, %11 ], [ 0, %11 ], [ 1, %32 ], [ 1, %17 ]
   ret i8 %.0
 }
 

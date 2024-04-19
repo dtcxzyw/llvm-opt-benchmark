@@ -40,7 +40,7 @@ entry:
 declare void @DSA_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_tests() local_unnamed_addr #0 {
+define dso_local noundef i32 @setup_tests() local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call ptr @DSA_new() #4
   %cmp.i.i = icmp eq ptr %call.i.i, null
@@ -66,30 +66,30 @@ load_dsa_params.exit.i:                           ; preds = %if.then5.i.i, %if.e
   store ptr %retval.0.i.i, ptr @dsakey, align 8
   %call1.i = tail call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 117, ptr noundef nonnull @.str.4, ptr noundef %retval.0.i.i) #4
   %tobool.not.i = icmp eq i32 %call1.i, 0
-  br i1 %tobool.not.i, label %return, label %genkeys.exit
+  br i1 %tobool.not.i, label %return, label %if.end.i
 
-genkeys.exit:                                     ; preds = %load_dsa_params.exit.i
+if.end.i:                                         ; preds = %load_dsa_params.exit.i
   %0 = load ptr, ptr @dsakey, align 8
   %call2.i = tail call i32 @DSA_generate_key(ptr noundef %0) #4
   %call3.i = tail call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 120, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef %call2.i, i32 noundef 1) #4
   %tobool4.not.i.not = icmp eq i32 %call3.i, 0
   br i1 %tobool4.not.i.not, label %return, label %if.end
 
-if.end:                                           ; preds = %genkeys.exit
+if.end:                                           ; preds = %if.end.i
   tail call void @add_test(ptr noundef nonnull @.str, ptr noundef nonnull @dsa_exact_size_test) #4
   tail call void @add_test(ptr noundef nonnull @.str.1, ptr noundef nonnull @dsa_small_digest_test) #4
   tail call void @add_test(ptr noundef nonnull @.str.2, ptr noundef nonnull @dsa_large_digest_test) #4
   br label %return
 
-return:                                           ; preds = %load_dsa_params.exit.i, %genkeys.exit, %if.end
-  %retval.0 = phi i32 [ 1, %if.end ], [ 0, %genkeys.exit ], [ 0, %load_dsa_params.exit.i ]
+return:                                           ; preds = %if.end.i, %load_dsa_params.exit.i, %if.end
+  %retval.0 = phi i32 [ 1, %if.end ], [ 0, %load_dsa_params.exit.i ], [ 0, %if.end.i ]
   ret i32 %retval.0
 }
 
 declare void @add_test(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_exact_size_test() #0 {
+define internal noundef i32 @dsa_exact_size_test() #0 {
 entry:
   %call = tail call fastcc i32 @sign_and_verify(i32 noundef 28), !range !5
   %tobool.not = icmp eq i32 %call, 0
@@ -105,7 +105,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_small_digest_test() #0 {
+define internal noundef i32 @dsa_small_digest_test() #0 {
 entry:
   %call = tail call fastcc i32 @sign_and_verify(i32 noundef 16), !range !5
   %tobool.not = icmp eq i32 %call, 0
@@ -121,7 +121,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_large_digest_test() #0 {
+define internal noundef i32 @dsa_large_digest_test() #0 {
 entry:
   %call = tail call fastcc i32 @sign_and_verify(i32 noundef 33), !range !5
   %tobool.not = icmp eq i32 %call, 0
@@ -151,7 +151,7 @@ declare ptr @BN_bin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr
 declare void @BN_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sign_and_verify(i32 noundef %len) unnamed_addr #0 {
+define internal fastcc noundef i32 @sign_and_verify(i32 noundef %len) unnamed_addr #0 {
 entry:
   %sigLength = alloca i64, align 8
   %0 = load ptr, ptr @dsakey, align 8

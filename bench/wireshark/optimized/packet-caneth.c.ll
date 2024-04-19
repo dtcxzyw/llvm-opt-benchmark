@@ -94,14 +94,14 @@ define internal i32 @dissect_caneth(ptr noundef %0, ptr noundef %1, ptr noundef 
 13:                                               ; preds = %11
   %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #3
   %.not7.i = icmp eq i8 %14, 1
-  br i1 %.not7.i, label %test_caneth.exit, label %test_caneth.exit.thread
+  br i1 %.not7.i, label %15, label %test_caneth.exit.thread
 
-test_caneth.exit:                                 ; preds = %13
-  %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 9) #3
-  %16 = icmp ugt i8 %15, 16
-  br i1 %16, label %test_caneth.exit.thread, label %17
+15:                                               ; preds = %13
+  %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 9) #3
+  %17 = icmp ult i8 %16, 17
+  br i1 %17, label %test_caneth.exit, label %test_caneth.exit.thread
 
-17:                                               ; preds = %test_caneth.exit
+test_caneth.exit:                                 ; preds = %15
   %18 = getelementptr inbounds i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @col_set_str(ptr noundef %19, i32 noundef 34, ptr noundef nonnull @.str.22) #3
@@ -120,12 +120,12 @@ test_caneth.exit:                                 ; preds = %13
   %31 = load i32, ptr %8, align 4
   %32 = add i32 %31, -1
   store i32 %32, ptr %8, align 4
-  %.not2832 = icmp eq i32 %31, 0
-  br i1 %.not2832, label %._crit_edge, label %.lr.ph
+  %.not2833 = icmp eq i32 %31, 0
+  br i1 %.not2833, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %17, %dissect_caneth_can.exit
-  %.02733 = phi i32 [ %77, %dissect_caneth_can.exit ], [ 10, %17 ]
-  %33 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.02733, i32 noundef 15) #3
+.lr.ph:                                           ; preds = %test_caneth.exit, %dissect_caneth_can.exit
+  %.02734 = phi i32 [ %77, %dissect_caneth_can.exit ], [ 10, %test_caneth.exit ]
+  %33 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.02734, i32 noundef 15) #3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
@@ -195,15 +195,15 @@ dissect_caneth_can.exit:                          ; preds = %66, %71
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %77 = add i32 %.02733, 15
+  %77 = add i32 %.02734, 15
   %78 = load i32, ptr %8, align 4
   %79 = add i32 %78, -1
   store i32 %79, ptr %8, align 4
   %.not28 = icmp eq i32 %78, 0
   br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %dissect_caneth_can.exit, %17
-  %.027.lcssa = phi i32 [ 10, %17 ], [ %77, %dissect_caneth_can.exit ]
+._crit_edge:                                      ; preds = %dissect_caneth_can.exit, %test_caneth.exit
+  %.027.lcssa = phi i32 [ 10, %test_caneth.exit ], [ %77, %dissect_caneth_can.exit ]
   %80 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.027.lcssa) #3
   %81 = icmp sgt i32 %80, 0
   br i1 %81, label %82, label %85
@@ -217,8 +217,8 @@ dissect_caneth_can.exit:                          ; preds = %66, %71
   %86 = call i32 @tvb_captured_length(ptr noundef %0) #3
   br label %test_caneth.exit.thread
 
-test_caneth.exit.thread:                          ; preds = %13, %11, %4, %test_caneth.exit, %85
-  %.0 = phi i32 [ %86, %85 ], [ 0, %test_caneth.exit ], [ 0, %4 ], [ 0, %11 ], [ 0, %13 ]
+test_caneth.exit.thread:                          ; preds = %15, %13, %11, %4, %85
+  %.0 = phi i32 [ %86, %85 ], [ 0, %4 ], [ 0, %11 ], [ 0, %13 ], [ 0, %15 ]
   ret i32 %.0
 }
 

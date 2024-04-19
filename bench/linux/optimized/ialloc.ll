@@ -637,7 +637,7 @@ define internal fastcc ptr @ext4_read_inode_bitmap(ptr noundef %0, i32 noundef %
   %106 = load i32, ptr %105, align 4
   %107 = and i32 %106, 16
   %108 = icmp eq i32 %107, 0
-  br i1 %108, label %109, label %.thread12
+  br i1 %108, label %109, label %select.unfold
 
 109:                                              ; preds = %.thread9
   %110 = and i32 %106, 1024
@@ -668,17 +668,17 @@ define internal fastcc ptr @ext4_read_inode_bitmap(ptr noundef %0, i32 noundef %
   %119 = getelementptr inbounds i8, ptr %118, i64 1280
   %120 = load ptr, ptr %119, align 64
   %.not = icmp eq ptr %120, null
-  br i1 %.not, label %.thread11, label %.thread12
+  br i1 %.not, label %.thread11, label %select.unfold
 
-.thread12:                                        ; preds = %.thread9, %.thread32
-  %121 = phi ptr [ %102, %.thread9 ], [ %118, %.thread32 ]
+select.unfold:                                    ; preds = %.thread32, %.thread9
+  %121 = phi ptr [ %118, %.thread32 ], [ %102, %.thread9 ]
   %122 = getelementptr inbounds i8, ptr %5, i64 18
   %123 = load i16, ptr %122, align 2
   %124 = and i16 %123, 1
   %125 = icmp eq i16 %124, 0
   br i1 %125, label %.thread11, label %126
 
-126:                                              ; preds = %.thread12
+126:                                              ; preds = %select.unfold
   %127 = icmp eq i32 %1, 0
   br i1 %127, label %128, label %131
 
@@ -737,8 +737,8 @@ define internal fastcc ptr @ext4_read_inode_bitmap(ptr noundef %0, i32 noundef %
   tail call void @unlock_buffer(ptr noundef nonnull %47) #10
   br label %.thread15
 
-.thread11:                                        ; preds = %109, %116, %.thread12, %.thread32
-  %161 = phi ptr [ %.pre, %116 ], [ %121, %.thread12 ], [ %118, %.thread32 ], [ %102, %109 ]
+.thread11:                                        ; preds = %109, %.thread32, %116, %select.unfold
+  %161 = phi ptr [ %118, %.thread32 ], [ %.pre, %116 ], [ %121, %select.unfold ], [ %102, %109 ]
   %162 = getelementptr inbounds i8, ptr %161, i64 424
   %163 = load ptr, ptr %162, align 8
   %164 = getelementptr [128 x %struct.bgl_lock], ptr %163, i64 0, i64 %75
@@ -816,11 +816,11 @@ define internal fastcc ptr @ext4_read_inode_bitmap(ptr noundef %0, i32 noundef %
 
 .preheader16:                                     ; preds = %196
   %208 = icmp eq i32 %207, 0
-  br i1 %208, label %.thread13, label %.lr.ph22, !prof !27
+  br i1 %208, label %.thread12, label %.lr.ph22, !prof !27
 
 .preheader:                                       ; preds = %196
   %209 = icmp eq i32 %207, 8
-  br i1 %209, label %.thread14, label %.lr.ph24, !prof !27
+  br i1 %209, label %.thread13, label %.lr.ph24, !prof !27
 
 .lr.ph22:                                         ; preds = %.preheader16, %216
   %210 = phi i32 [ %217, %216 ], [ %207, %.preheader16 ]
@@ -830,12 +830,12 @@ define internal fastcc ptr @ext4_read_inode_bitmap(ptr noundef %0, i32 noundef %
   %214 = icmp ult i8 %213, 2
   tail call void @llvm.assume(i1 %214)
   %215 = icmp eq i8 %213, 0
-  br i1 %215, label %216, label %.thread13, !prof !24
+  br i1 %215, label %216, label %.thread12, !prof !24
 
 216:                                              ; preds = %.lr.ph22
   %217 = extractvalue { i8, i32 } %212, 1
   %218 = icmp eq i32 %217, 0
-  br i1 %218, label %.thread13, label %.lr.ph22, !prof !29, !llvm.loop !30
+  br i1 %218, label %.thread12, label %.lr.ph22, !prof !29, !llvm.loop !30
 
 .lr.ph24:                                         ; preds = %.preheader, %225
   %219 = phi i32 [ %226, %225 ], [ %207, %.preheader ]
@@ -845,24 +845,24 @@ define internal fastcc ptr @ext4_read_inode_bitmap(ptr noundef %0, i32 noundef %
   %223 = icmp ult i8 %222, 2
   tail call void @llvm.assume(i1 %223)
   %224 = icmp eq i8 %222, 0
-  br i1 %224, label %225, label %.thread14, !prof !24
+  br i1 %224, label %225, label %.thread13, !prof !24
 
 225:                                              ; preds = %.lr.ph24
   %226 = extractvalue { i8, i32 } %221, 1
   %227 = icmp eq i32 %226, 8
-  br i1 %227, label %.thread14, label %.lr.ph24, !prof !29, !llvm.loop !30
+  br i1 %227, label %.thread13, label %.lr.ph24, !prof !29, !llvm.loop !30
 
-.thread14:                                        ; preds = %225, %.lr.ph24, %.preheader
+.thread13:                                        ; preds = %225, %.lr.ph24, %.preheader
   tail call void @_raw_spin_lock(ptr noundef %202) #10
-  br label %.thread13
+  br label %.thread12
 
-.thread13:                                        ; preds = %216, %.lr.ph22, %.preheader16, %.thread14
+.thread12:                                        ; preds = %216, %.lr.ph22, %.preheader16, %.thread13
   %228 = load volatile i64, ptr %47, align 8
   %229 = and i64 %228, 16777216
   %230 = icmp eq i64 %229, 0
   br i1 %230, label %231, label %251
 
-231:                                              ; preds = %.thread13
+231:                                              ; preds = %.thread12
   %232 = tail call i64 @ext4_inode_bitmap(ptr noundef %0, ptr noundef nonnull %5) #10
   %233 = load ptr, ptr %3, align 8
   %234 = getelementptr inbounds i8, ptr %233, i64 32
@@ -894,7 +894,7 @@ define internal fastcc ptr @ext4_read_inode_bitmap(ptr noundef %0, i32 noundef %
   tail call void @ext4_mark_group_bitmap_corrupted(ptr noundef %0, i32 noundef %1, i32 noundef 8) #10
   br label %256
 
-251:                                              ; preds = %244, %240, %.thread13
+251:                                              ; preds = %244, %240, %.thread12
   %252 = load ptr, ptr %3, align 8
   %253 = getelementptr inbounds i8, ptr %252, i64 424
   %254 = load ptr, ptr %253, align 8
@@ -1524,7 +1524,7 @@ define dso_local ptr @__ext4_new_inode(ptr noundef %0, ptr noundef %1, ptr nound
   %148 = getelementptr inbounds i8, ptr %147, i64 32
   %149 = load i64, ptr %148, align 32
   %150 = udiv i64 %146, %149
-  %151 = trunc i64 %150 to i32
+  %151 = trunc nuw i64 %150 to i32
   store i32 %151, ptr %13, align 4
   %152 = urem i64 %146, %149
   store i64 %152, ptr %14, align 8
@@ -1629,7 +1629,7 @@ define dso_local ptr @__ext4_new_inode(ptr noundef %0, ptr noundef %1, ptr nound
   %210 = add i64 %208, %209
   %211 = zext i32 %163 to i64
   %212 = urem i64 %210, %211
-  %213 = trunc i64 %212 to i32
+  %213 = trunc nuw i64 %212 to i32
   br label %.preheader65
 
 .preheader65:                                     ; preds = %.preheader65.preheader, %228
@@ -2440,7 +2440,7 @@ define dso_local ptr @__ext4_new_inode(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %686, label %691, label %687
 
 687:                                              ; preds = %679
-  %688 = trunc i32 %513 to i16
+  %688 = trunc nuw i32 %513 to i16
   switch i16 %688, label %691 [
     i16 -24576, label %689
     i16 -32768, label %689

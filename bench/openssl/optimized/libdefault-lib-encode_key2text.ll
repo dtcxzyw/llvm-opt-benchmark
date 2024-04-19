@@ -1435,14 +1435,14 @@ if.end15.i.i.i:                                   ; preds = %lor.lhs.false9.i.i.
 land.lhs.true.i.i.i:                              ; preds = %if.end15.i.i.i
   %call18.i.i.i = call fastcc i32 @print_labeled_bignum(ptr noundef nonnull %out, ptr noundef nonnull @.str.50, ptr noundef %call1.i.i.i)
   %tobool19.not.i.i.i = icmp eq i32 %call18.i.i.i, 0
-  br i1 %tobool19.not.i.i.i, label %err.i.i, label %ec_param_explicit_curve_to_text.exit.i.i
+  br i1 %tobool19.not.i.i.i, label %err.i.i, label %land.rhs.i.i.i
 
-ec_param_explicit_curve_to_text.exit.i.i:         ; preds = %land.lhs.true.i.i.i
+land.rhs.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
   %call20.i.i.i = call fastcc i32 @print_labeled_bignum(ptr noundef nonnull %out, ptr noundef nonnull @.str.51, ptr noundef nonnull %call2.i.i.i)
   %tobool21.i.not.i.i = icmp eq i32 %call20.i.i.i, 0
   br i1 %tobool21.i.not.i.i, label %err.i.i, label %lor.lhs.false16.i.i
 
-lor.lhs.false16.i.i:                              ; preds = %ec_param_explicit_curve_to_text.exit.i.i
+lor.lhs.false16.i.i:                              ; preds = %land.rhs.i.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %buf.i.i.i)
   store ptr null, ptr %buf.i.i.i, align 8
   %call.i21.i.i = call i32 @EC_GROUP_get_point_conversion_form(ptr noundef nonnull %call) #6
@@ -1507,8 +1507,8 @@ land.lhs.true28.i.i:                              ; preds = %lor.lhs.false26.i.i
 if.end32.i.i:                                     ; preds = %land.lhs.true28.i.i, %lor.lhs.false26.i.i
   br label %err.i.i
 
-err.i.i:                                          ; preds = %if.end32.i.i, %land.lhs.true28.i.i, %land.lhs.true.i.i, %lor.lhs.false19.i.i, %ec_param_explicit_gen_to_text.exit.i.i, %ec_param_explicit_gen_to_text.exit.thread.i.i, %ec_param_explicit_curve_to_text.exit.i.i, %land.lhs.true.i.i.i, %if.end15.i.i.i, %lor.lhs.false9.i.i.i, %if.then6.i.i.i, %lor.lhs.false.i.i.i, %lor.lhs.false.i.i, %if.end10.i.i, %if.end.i.i
-  %ret.0.i.i = phi i32 [ 0, %if.end.i.i ], [ 0, %if.end10.i.i ], [ 1, %if.end32.i.i ], [ 0, %land.lhs.true28.i.i ], [ 0, %land.lhs.true.i.i ], [ 0, %lor.lhs.false19.i.i ], [ 0, %ec_param_explicit_gen_to_text.exit.i.i ], [ 0, %ec_param_explicit_curve_to_text.exit.i.i ], [ 0, %ec_param_explicit_gen_to_text.exit.thread.i.i ], [ 0, %lor.lhs.false.i.i.i ], [ 0, %lor.lhs.false.i.i ], [ 0, %lor.lhs.false9.i.i.i ], [ 0, %if.then6.i.i.i ], [ 0, %land.lhs.true.i.i.i ], [ 0, %if.end15.i.i.i ]
+err.i.i:                                          ; preds = %if.end32.i.i, %land.lhs.true28.i.i, %land.lhs.true.i.i, %lor.lhs.false19.i.i, %ec_param_explicit_gen_to_text.exit.i.i, %ec_param_explicit_gen_to_text.exit.thread.i.i, %land.rhs.i.i.i, %land.lhs.true.i.i.i, %if.end15.i.i.i, %lor.lhs.false9.i.i.i, %if.then6.i.i.i, %lor.lhs.false.i.i.i, %lor.lhs.false.i.i, %if.end10.i.i, %if.end.i.i
+  %ret.0.i.i = phi i32 [ 0, %if.end.i.i ], [ 0, %if.end10.i.i ], [ 1, %if.end32.i.i ], [ 0, %land.lhs.true28.i.i ], [ 0, %land.lhs.true.i.i ], [ 0, %lor.lhs.false19.i.i ], [ 0, %ec_param_explicit_gen_to_text.exit.i.i ], [ 0, %ec_param_explicit_gen_to_text.exit.thread.i.i ], [ 0, %lor.lhs.false.i.i.i ], [ 0, %lor.lhs.false.i.i ], [ 0, %lor.lhs.false9.i.i.i ], [ 0, %if.then6.i.i.i ], [ 0, %land.lhs.true.i.i.i ], [ 0, %if.end15.i.i.i ], [ 0, %land.rhs.i.i.i ]
   call void @BN_CTX_end(ptr noundef nonnull %call.i.i) #6
   call void @BN_CTX_free(ptr noundef nonnull %call.i.i) #6
   br label %err

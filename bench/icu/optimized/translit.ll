@@ -939,12 +939,12 @@ lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i
 lor.lhs.false6.i:                                 ; preds = %lor.lhs.false3.i
   %contextLimit.i = getelementptr inbounds i8, ptr %index, i64 4
   %5 = load i32, ptr %contextLimit.i, align 4
-  %cmp8.i = icmp slt i32 %5, %4
-  %cmp10.i.not = icmp sgt i32 %5, %call.i
-  %or.cond = or i1 %cmp8.i, %cmp10.i.not
-  br i1 %or.cond, label %if.then5, label %if.end6
+  %cmp8.i = icmp sge i32 %5, %4
+  %cmp10.i = icmp sle i32 %5, %call.i
+  %or.cond = and i1 %cmp8.i, %cmp10.i
+  br i1 %or.cond, label %if.end6, label %if.then5
 
-if.then5:                                         ; preds = %if.end, %lor.lhs.false.i, %lor.lhs.false3.i, %lor.lhs.false6.i
+if.then5:                                         ; preds = %lor.lhs.false6.i, %lor.lhs.false3.i, %lor.lhs.false.i, %if.end
   store i32 1, ptr %status, align 4
   br label %return
 
@@ -1057,10 +1057,10 @@ lor.lhs.false3.i.i:                               ; preds = %lor.lhs.false.i.i
 lor.lhs.false6.i.i:                               ; preds = %lor.lhs.false3.i.i
   %contextLimit.i.i = getelementptr inbounds i8, ptr %index, i64 4
   %5 = load i32, ptr %contextLimit.i.i, align 4
-  %cmp8.i.i = icmp slt i32 %5, %4
-  %cmp10.i.not.i = icmp sgt i32 %5, %call.i.i
-  %or.cond.i = or i1 %cmp8.i.i, %cmp10.i.not.i
-  br i1 %or.cond.i, label %if.then5.i, label %if.end6.i
+  %cmp8.i.i = icmp sge i32 %5, %4
+  %cmp10.i.i = icmp sle i32 %5, %call.i.i
+  %or.cond.i = and i1 %cmp8.i.i, %cmp10.i.i
+  br i1 %or.cond.i, label %if.end6.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %lor.lhs.false6.i.i, %lor.lhs.false3.i.i, %lor.lhs.false.i.i, %if.end.i
   store i32 1, ptr %status, align 4
@@ -1117,10 +1117,10 @@ lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i
 lor.lhs.false6.i:                                 ; preds = %lor.lhs.false3.i
   %contextLimit.i = getelementptr inbounds i8, ptr %index, i64 4
   %4 = load i32, ptr %contextLimit.i, align 4
-  %cmp8.i = icmp slt i32 %4, %3
-  %cmp10.i.not = icmp sgt i32 %4, %call.i
-  %or.cond = or i1 %cmp8.i, %cmp10.i.not
-  br i1 %or.cond, label %return, label %if.end
+  %cmp8.i = icmp sge i32 %4, %3
+  %cmp10.i = icmp sle i32 %4, %call.i
+  %or.cond = and i1 %cmp8.i, %cmp10.i
+  br i1 %or.cond, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false6.i
   %vtable = load ptr, ptr %this, align 8

@@ -776,11 +776,7 @@ if.then16:                                        ; preds = %if.end13
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %check.i)
   %call.i = call i32 @wc_RNG_HealthTest_ex(i32 noundef 1, ptr noundef null, i32 noundef 0, ptr noundef nonnull @seedA_data, i32 noundef 48, ptr noundef nonnull @reseedSeedA_data, i32 noundef 32, ptr noundef nonnull %check.i, i32 noundef 128, ptr noundef %2, i32 poison), !range !10
   %cmp.i = icmp eq i32 %call.i, 0
-  br i1 %cmp.i, label %for.body.i.i, label %wc_RNG_HealthTestLocal.exit.thread
-
-wc_RNG_HealthTestLocal.exit.thread:               ; preds = %if.then16
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %check.i)
-  br label %return.sink.split
+  br i1 %cmp.i, label %for.body.i.i, label %if.end51.thread
 
 for.body.i.i:                                     ; preds = %if.then16, %for.body.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 0, %if.then16 ]
@@ -794,14 +790,18 @@ for.body.i.i:                                     ; preds = %if.then16, %for.bod
   %or.i.i = or i32 %compareSum.08.i.i, %xor.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 128
-  br i1 %exitcond.not.i.i, label %wc_RNG_HealthTestLocal.exit, label %for.body.i.i, !llvm.loop !7
+  br i1 %exitcond.not.i.i, label %ConstantCompare.exit.i, label %for.body.i.i, !llvm.loop !7
 
-wc_RNG_HealthTestLocal.exit:                      ; preds = %for.body.i.i
+ConstantCompare.exit.i:                           ; preds = %for.body.i.i
   %cmp4.not.i.not = icmp eq i32 %or.i.i, 0
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %check.i)
-  br i1 %cmp4.not.i.not, label %if.then23, label %return.sink.split
+  br i1 %cmp4.not.i.not, label %if.then23, label %if.end51.thread
 
-if.then23:                                        ; preds = %wc_RNG_HealthTestLocal.exit
+if.end51.thread:                                  ; preds = %ConstantCompare.exit.i, %if.then16
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %check.i)
+  br label %return.sink.split
+
+if.then23:                                        ; preds = %ConstantCompare.exit.i
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %check.i)
   %call24 = call i32 @wc_GenerateSeed(ptr noundef %rng, ptr noundef nonnull %newSeed, i32 noundef 36), !range !10
   %cmp25.not.not = icmp eq i32 %call24, 0
   br i1 %cmp25.not.not, label %if.end35, label %if.end48
@@ -838,9 +838,9 @@ if.end51:                                         ; preds = %if.end48, %if.end13
 if.else60:                                        ; preds = %if.end51
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %if.end51, %wc_RNG_HealthTestLocal.exit, %wc_RNG_HealthTestLocal.exit.thread, %if.else60
-  %.sink = phi i8 [ 2, %if.else60 ], [ 3, %wc_RNG_HealthTestLocal.exit.thread ], [ 3, %wc_RNG_HealthTestLocal.exit ], [ 3, %if.end51 ]
-  %retval.0.ph = phi i32 [ -199, %if.else60 ], [ -209, %wc_RNG_HealthTestLocal.exit.thread ], [ -209, %wc_RNG_HealthTestLocal.exit ], [ -209, %if.end51 ]
+return.sink.split:                                ; preds = %if.end51, %if.end51.thread, %if.else60
+  %.sink = phi i8 [ 2, %if.else60 ], [ 3, %if.end51.thread ], [ 3, %if.end51 ]
+  %retval.0.ph = phi i32 [ -199, %if.else60 ], [ -209, %if.end51.thread ], [ -209, %if.end51 ]
   store i8 %.sink, ptr %status, align 8
   br label %return
 

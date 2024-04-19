@@ -7557,21 +7557,21 @@ if.then50:                                        ; preds = %if.else
 lor.lhs.false.i:                                  ; preds = %if.then50
   %8 = load i32, ptr %call.i, align 8
   %cmp1.not.i = icmp eq i32 %8, 3
-  br i1 %cmp1.not.i, label %wolfSSL_SESSION_up_ref.exit, label %wolfSSL_SESSION_up_ref.exit.thread
+  br i1 %cmp1.not.i, label %if.end.i, label %wolfSSL_SESSION_up_ref.exit.thread
 
-wolfSSL_SESSION_up_ref.exit.thread:               ; preds = %lor.lhs.false.i, %if.then50
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ret.i)
-  br label %if.end90
-
-wolfSSL_SESSION_up_ref.exit:                      ; preds = %lor.lhs.false.i
+if.end.i:                                         ; preds = %lor.lhs.false.i
   %ref.i = getelementptr inbounds i8, ptr %call.i, i64 8
   call void @wolfSSL_RefInc(ptr noundef nonnull %ref.i, ptr noundef nonnull %ret.i) #20
   %9 = load i32, ptr %ret.i, align 4
-  %cmp2.not.i.not = icmp eq i32 %9, 0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ret.i)
-  br i1 %cmp2.not.i.not, label %if.then54, label %if.end90
+  %cmp2.not.i = icmp eq i32 %9, 0
+  br i1 %cmp2.not.i, label %if.then54, label %wolfSSL_SESSION_up_ref.exit.thread
 
-if.then54:                                        ; preds = %wolfSSL_SESSION_up_ref.exit
+wolfSSL_SESSION_up_ref.exit.thread:               ; preds = %lor.lhs.false.i, %if.then50, %if.end.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ret.i)
+  br label %if.end90
+
+if.then54:                                        ; preds = %if.end.i
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ret.i)
   %10 = load ptr, ptr %session41, align 16
   call void @wolfSSL_FreeSession(ptr poison, ptr noundef %10)
   store ptr %call, ptr %session41, align 16
@@ -7623,8 +7623,8 @@ if.then82:                                        ; preds = %land.lhs.true78
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %altSessionID, ptr noundef nonnull align 8 dereferenceable(32) %altSessionID88, i64 32, i1 false)
   br label %if.end90
 
-if.end90:                                         ; preds = %wolfSSL_SESSION_up_ref.exit.thread, %wolfSSL_SESSION_up_ref.exit, %land.lhs.true21, %if.else59, %if.then82, %land.lhs.true78, %land.lhs.true73
-  %ret.144 = phi i1 [ false, %if.then82 ], [ false, %land.lhs.true78 ], [ false, %land.lhs.true73 ], [ true, %if.else59 ], [ true, %land.lhs.true21 ], [ true, %wolfSSL_SESSION_up_ref.exit ], [ true, %wolfSSL_SESSION_up_ref.exit.thread ]
+if.end90:                                         ; preds = %wolfSSL_SESSION_up_ref.exit.thread, %land.lhs.true21, %if.else59, %if.then82, %land.lhs.true78, %land.lhs.true73
+  %ret.145 = phi i1 [ false, %if.then82 ], [ false, %land.lhs.true78 ], [ false, %land.lhs.true73 ], [ true, %if.else59 ], [ true, %land.lhs.true21 ], [ true, %wolfSSL_SESSION_up_ref.exit.thread ]
   br i1 %sessRow.0, label %if.end95, label %if.then93
 
 if.then93:                                        ; preds = %if.end90
@@ -7632,7 +7632,7 @@ if.then93:                                        ; preds = %if.end90
   br label %if.end95
 
 if.end95:                                         ; preds = %if.then93, %if.end90
-  br i1 %ret.144, label %return, label %if.end99
+  br i1 %ret.145, label %return, label %if.end99
 
 if.end99:                                         ; preds = %if.end95
   %call100 = call i32 @LowResTimer() #20

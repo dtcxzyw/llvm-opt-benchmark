@@ -731,20 +731,20 @@ land.end:                                         ; preds = %land.rhs, %entry
 define ptr @evp_keymgmt_load(ptr noundef readonly %keymgmt, ptr noundef %objref, i64 noundef %objref_sz) local_unnamed_addr #0 {
 entry:
   %cmp.not.i = icmp eq ptr %keymgmt, null
-  br i1 %cmp.not.i, label %return, label %evp_keymgmt_has_load.exit
+  br i1 %cmp.not.i, label %return, label %land.rhs.i
 
-evp_keymgmt_has_load.exit:                        ; preds = %entry
+land.rhs.i:                                       ; preds = %entry
   %load.i = getelementptr inbounds i8, ptr %keymgmt, i64 136
   %0 = load ptr, ptr %load.i, align 8
   %cmp1.i.not = icmp eq ptr %0, null
   br i1 %cmp1.i.not, label %return, label %if.then
 
-if.then:                                          ; preds = %evp_keymgmt_has_load.exit
+if.then:                                          ; preds = %land.rhs.i
   %call1 = tail call ptr %0(ptr noundef %objref, i64 noundef %objref_sz) #4
   br label %return
 
-return:                                           ; preds = %entry, %evp_keymgmt_has_load.exit, %if.then
-  %retval.0 = phi ptr [ %call1, %if.then ], [ null, %evp_keymgmt_has_load.exit ], [ null, %entry ]
+return:                                           ; preds = %land.rhs.i, %entry, %if.then
+  %retval.0 = phi ptr [ %call1, %if.then ], [ null, %entry ], [ null, %land.rhs.i ]
   ret ptr %retval.0
 }
 

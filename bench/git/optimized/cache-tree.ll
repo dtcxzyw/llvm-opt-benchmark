@@ -724,13 +724,13 @@ for.inc49.i:                                      ; preds = %if.end46.i, %land.l
   %27 = zext i32 %26 to i64
   %cmp16.i = icmp ult i64 %indvars.iv.next48.i, %27
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
-  br i1 %cmp16.i, label %for.body17.i, label %verify_cache.exit, !llvm.loop !11
+  br i1 %cmp16.i, label %for.body17.i, label %for.end51.loopexit.i, !llvm.loop !11
 
-verify_cache.exit:                                ; preds = %for.inc49.i
+for.end51.loopexit.i:                             ; preds = %for.inc49.i
   %.not = icmp eq i32 %funny.4.i, 0
   br i1 %.not, label %if.end, label %return
 
-if.end:                                           ; preds = %entry, %for.cond14.preheader.i, %verify_cache.exit
+if.end:                                           ; preds = %for.cond14.preheader.i, %entry, %for.end51.loopexit.i
   %cache_tree = getelementptr inbounds i8, ptr %istate, i64 32
   %28 = load ptr, ptr %cache_tree, align 8
   %tobool1.not = icmp eq ptr %28, null
@@ -773,8 +773,8 @@ if.end10:                                         ; preds = %if.then9, %land.lhs
   %tobool.not.i13 = icmp eq i32 %35, 0
   %bf.load.i = load i8, ptr getelementptr inbounds (%struct.trace_key, ptr @trace_perf_key, i64 0, i32 2), align 4
   %bf.clear.i = and i8 %bf.load.i, 1
-  %tobool15.not20 = icmp ne i8 %bf.clear.i, 0
-  %tobool15.not = select i1 %tobool.not.i13, i1 %tobool15.not20, i1 false
+  %tobool15.not16 = icmp ne i8 %bf.clear.i, 0
+  %tobool15.not = select i1 %tobool.not.i13, i1 %tobool15.not16, i1 false
   br i1 %tobool15.not, label %do.end, label %if.then16
 
 if.then16:                                        ; preds = %if.end10
@@ -793,8 +793,8 @@ if.end20:                                         ; preds = %do.end
   store i32 %or, ptr %cache_changed, align 4
   br label %return
 
-return:                                           ; preds = %for.body.i, %for.end51.thread.i, %for.end.thread.i, %for.end.i, %do.end, %verify_cache.exit, %if.end20
-  %retval.0 = phi i32 [ 0, %if.end20 ], [ -1, %verify_cache.exit ], [ %call13, %do.end ], [ -1, %for.end.i ], [ -1, %for.end.thread.i ], [ -1, %for.end51.thread.i ], [ -1, %for.body.i ]
+return:                                           ; preds = %for.body.i, %for.end51.loopexit.i, %for.end51.thread.i, %for.end.thread.i, %for.end.i, %do.end, %if.end20
+  %retval.0 = phi i32 [ 0, %if.end20 ], [ %call13, %do.end ], [ -1, %for.end.i ], [ -1, %for.end.thread.i ], [ -1, %for.end51.thread.i ], [ -1, %for.end51.loopexit.i ], [ -1, %for.body.i ]
   ret i32 %retval.0
 }
 

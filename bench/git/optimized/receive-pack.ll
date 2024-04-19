@@ -886,7 +886,7 @@ find_header.exit.lr.ph.i:                         ; preds = %while.cond.preheade
 find_header.exit.thread.i:                        ; preds = %if.end12.i, %while.cond.preheader.i
   %options_seen.0.lcssa.i = phi i64 [ 0, %while.cond.preheader.i ], [ %indvars.iv.next.i, %if.end12.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %out_len.i.i)
-  br label %check_cert_push_options.exit
+  br label %while.end.i
 
 find_header.exit.i:                               ; preds = %if.end12.i, %find_header.exit.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %find_header.exit.lr.ph.i ], [ %indvars.iv.next.i, %if.end12.i ]
@@ -899,7 +899,7 @@ find_header.exit.i:                               ; preds = %if.end12.i, %find_h
   %call5.i.i = call ptr @xmemdupz(ptr noundef nonnull %call.i27.i, i64 noundef %.pre.i.i) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %out_len.i.i)
   %tobool3.not.i = icmp eq ptr %call5.i.i, null
-  br i1 %tobool3.not.i, label %check_cert_push_options.exit, label %while.body.i
+  br i1 %tobool3.not.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %find_header.exit.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %add.ptr3.i.i to i64
@@ -909,7 +909,7 @@ while.body.i:                                     ; preds = %find_header.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %40 = load i64, ptr %nr.i, align 8
   %cmp.not.i36 = icmp ugt i64 %40, %indvars.iv.i
-  br i1 %cmp.not.i36, label %lor.lhs.false.i, label %check_cert_push_options.exit.thread
+  br i1 %cmp.not.i36, label %lor.lhs.false.i, label %for.body.preheader
 
 lor.lhs.false.i:                                  ; preds = %while.body.i
   %41 = load ptr, ptr %push_options, align 8
@@ -917,7 +917,7 @@ lor.lhs.false.i:                                  ; preds = %while.body.i
   %42 = load ptr, ptr %arrayidx.i, align 8
   %call9.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call5.i.i, ptr noundef nonnull dereferenceable(1) %42) #18
   %tobool10.not.i = icmp eq i32 %call9.i, 0
-  br i1 %tobool10.not.i, label %if.end12.i, label %check_cert_push_options.exit.thread
+  br i1 %tobool10.not.i, label %if.end12.i, label %for.body.preheader
 
 if.end12.i:                                       ; preds = %lor.lhs.false.i
   call void @free(ptr noundef nonnull %call5.i.i) #16
@@ -928,11 +928,7 @@ if.end12.i:                                       ; preds = %lor.lhs.false.i
   %tobool.not.i.i39 = icmp eq ptr %call.i.i38, null
   br i1 %tobool.not.i.i39, label %find_header.exit.thread.i, label %find_header.exit.i, !llvm.loop !7
 
-check_cert_push_options.exit.thread:              ; preds = %lor.lhs.false.i, %while.body.i
-  call void @free(ptr noundef nonnull %call5.i.i) #16
-  br label %for.body.preheader
-
-check_cert_push_options.exit:                     ; preds = %find_header.exit.i, %find_header.exit.thread.i
+while.end.i:                                      ; preds = %find_header.exit.i, %find_header.exit.thread.i
   %options_seen.018.i = phi i64 [ %options_seen.0.lcssa.i, %find_header.exit.thread.i ], [ %indvars.iv.i, %find_header.exit.i ]
   %conv13.i = and i64 %options_seen.018.i, 4294967295
   %nr14.i = getelementptr inbounds i8, ptr %push_options, i64 8
@@ -940,18 +936,20 @@ check_cert_push_options.exit:                     ; preds = %find_header.exit.i,
   %cmp15.not.i = icmp eq i64 %43, %conv13.i
   br i1 %cmp15.not.i, label %if.end112, label %for.body.preheader
 
-for.body.preheader:                               ; preds = %check_cert_push_options.exit.thread, %check_cert_push_options.exit
+for.body.preheader:                               ; preds = %lor.lhs.false.i, %while.body.i, %while.end.i
+  %retval.0.i14.i = phi ptr [ null, %while.end.i ], [ %call5.i.i, %while.body.i ], [ %call5.i.i, %lor.lhs.false.i ]
+  call void @free(ptr noundef %retval.0.i14.i) #16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %cmd.0227 = phi ptr [ %44, %for.body ], [ %34, %for.body.preheader ]
-  %error_string = getelementptr inbounds i8, ptr %cmd.0227, i64 8
+  %cmd.0232 = phi ptr [ %44, %for.body ], [ %34, %for.body.preheader ]
+  %error_string = getelementptr inbounds i8, ptr %cmd.0232, i64 8
   store ptr @.str.12, ptr %error_string, align 8
-  %44 = load ptr, ptr %cmd.0227, align 8
+  %44 = load ptr, ptr %cmd.0232, align 8
   %tobool111.not = icmp eq ptr %44, null
   br i1 %tobool111.not, label %if.end112, label %for.body, !llvm.loop !8
 
-if.end112:                                        ; preds = %for.body, %if.end107, %check_cert_push_options.exit
+if.end112:                                        ; preds = %for.body, %while.end.i, %if.end107
   call void @prepare_shallow_info(ptr noundef nonnull %si, ptr noundef nonnull %shallow) #16
   %nr_ours = getelementptr inbounds i8, ptr %si, i64 16
   %45 = load i32, ptr %nr_ours, align 8
@@ -1056,8 +1054,8 @@ unpack_with_sideband.exit:                        ; preds = %if.then.i44, %if.en
   %tobool.not.i49 = icmp eq i32 %54, 0
   %55 = load i32, ptr %nr_theirs, align 8
   %tobool1.not.i = icmp eq i32 %55, 0
-  %or.cond202 = select i1 %tobool.not.i49, i1 %tobool1.not.i, i1 false
-  br i1 %or.cond202, label %if.then.i87, label %for.body.lr.ph.i
+  %or.cond207 = select i1 %tobool.not.i49, i1 %tobool1.not.i, i1 false
+  br i1 %or.cond207, label %if.then.i87, label %for.body.lr.ph.i
 
 if.then.i87:                                      ; preds = %unpack_with_sideband.exit
   store i32 0, ptr @shallow_update, align 4

@@ -71,28 +71,28 @@ define internal i32 @dissect_tplink_smarthome(ptr noundef %0, ptr noundef %1, pt
 11:                                               ; preds = %8
   %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #2
   %.not.i = icmp eq i8 %12, -48
-  br i1 %.not.i, label %test_tplink_smarthome.exit, label %test_tplink_smarthome.exit.thread
+  br i1 %.not.i, label %13, label %test_tplink_smarthome.exit.thread
 
-test_tplink_smarthome.exit:                       ; preds = %11
-  %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #2
-  %14 = xor i8 %13, -48
-  switch i8 %14, label %test_tplink_smarthome.exit.thread [
-    i8 125, label %15
-    i8 34, label %15
+13:                                               ; preds = %11
+  %14 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 5) #2
+  %15 = xor i8 %14, -48
+  switch i8 %15, label %test_tplink_smarthome.exit.thread [
+    i8 125, label %test_tplink_smarthome.exit
+    i8 34, label %test_tplink_smarthome.exit
   ]
 
-15:                                               ; preds = %test_tplink_smarthome.exit, %test_tplink_smarthome.exit
+test_tplink_smarthome.exit:                       ; preds = %13, %13
   %16 = load i32, ptr @proto_tplink_smarthome, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %5, i32 noundef %16, ptr noundef nonnull inttoptr (i64 1 to ptr)) #2
   br label %17
 
-17:                                               ; preds = %15, %4
+17:                                               ; preds = %test_tplink_smarthome.exit, %4
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef 4, ptr noundef nonnull @get_tplink_smarthome_message_len, ptr noundef nonnull @dissect_tplink_smarthome_message, ptr noundef %3) #2
   %18 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   br label %test_tplink_smarthome.exit.thread
 
-test_tplink_smarthome.exit.thread:                ; preds = %test_tplink_smarthome.exit, %11, %8, %17
-  %.0 = phi i32 [ %18, %17 ], [ 0, %test_tplink_smarthome.exit ], [ 0, %8 ], [ 0, %11 ]
+test_tplink_smarthome.exit.thread:                ; preds = %13, %11, %8, %17
+  %.0 = phi i32 [ %18, %17 ], [ 0, %8 ], [ 0, %11 ], [ 0, %13 ]
   ret i32 %.0
 }
 
@@ -118,18 +118,18 @@ define internal i32 @dissect_tplink_smarthome_message(ptr noundef %0, ptr nounde
 12:                                               ; preds = %9
   %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.058) #2
   %.not.i = icmp eq i8 %13, -48
-  br i1 %.not.i, label %test_tplink_smarthome.exit, label %test_tplink_smarthome.exit.thread
+  br i1 %.not.i, label %14, label %test_tplink_smarthome.exit.thread
 
-test_tplink_smarthome.exit:                       ; preds = %12
-  %14 = or disjoint i32 %.058, 1
-  %15 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %14) #2
-  %16 = xor i8 %15, -48
-  switch i8 %16, label %test_tplink_smarthome.exit.thread [
-    i8 125, label %17
-    i8 34, label %17
+14:                                               ; preds = %12
+  %15 = or disjoint i32 %.058, 1
+  %16 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %15) #2
+  %17 = xor i8 %16, -48
+  switch i8 %17, label %test_tplink_smarthome.exit.thread [
+    i8 125, label %test_tplink_smarthome.exit
+    i8 34, label %test_tplink_smarthome.exit
   ]
 
-17:                                               ; preds = %test_tplink_smarthome.exit, %test_tplink_smarthome.exit
+test_tplink_smarthome.exit:                       ; preds = %14, %14
   %18 = getelementptr inbounds i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8
   tail call void @col_set_str(ptr noundef %19, i32 noundef 34, ptr noundef nonnull @.str.7) #2
@@ -143,12 +143,12 @@ test_tplink_smarthome.exit:                       ; preds = %12
   %26 = icmp eq i32 %25, 2
   br i1 %26, label %27, label %30
 
-27:                                               ; preds = %17
+27:                                               ; preds = %test_tplink_smarthome.exit
   %28 = load i32, ptr @hf_tplink_smarthome_Len, align 4
   %29 = tail call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %28, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #2
   br label %30
 
-30:                                               ; preds = %27, %17
+30:                                               ; preds = %27, %test_tplink_smarthome.exit
   %31 = sub i32 %5, %.058
   %32 = getelementptr inbounds i8, ptr %1, i64 408
   %33 = load ptr, ptr %32, align 8
@@ -219,8 +219,8 @@ test_tplink_smarthome.exit:                       ; preds = %12
   %69 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   br label %test_tplink_smarthome.exit.thread
 
-test_tplink_smarthome.exit.thread:                ; preds = %test_tplink_smarthome.exit, %12, %9, %4, %59
-  %.0 = phi i32 [ %69, %59 ], [ 0, %4 ], [ 0, %test_tplink_smarthome.exit ], [ 0, %9 ], [ 0, %12 ]
+test_tplink_smarthome.exit.thread:                ; preds = %14, %12, %9, %4, %59
+  %.0 = phi i32 [ %69, %59 ], [ 0, %4 ], [ 0, %9 ], [ 0, %12 ], [ 0, %14 ]
   ret i32 %.0
 }
 

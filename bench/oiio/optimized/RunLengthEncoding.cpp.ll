@@ -105,9 +105,9 @@ if.end:                                           ; preds = %delete.notnull, %en
 define hidden noundef zeroext i1 @_ZN3dpx17RunLengthEncoding4ReadERKNS_6HeaderEPNS_17ElementReadStreamEiRKNS_5BlockEPvNS_8DataSizeE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(2049) %dpxHeader, ptr noundef %fd, i32 noundef %element, ptr nocapture nonnull readnone align 4 %block, ptr nocapture readnone %data, i32 noundef %size) unnamed_addr #4 align 2 {
 entry:
   %or.cond.i = icmp ugt i32 %element, 7
-  br i1 %or.cond.i, label %return, label %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit
+  br i1 %or.cond.i, label %return, label %if.end.i
 
-_ZNK3dpx13GenericHeader13ImageEncodingEi.exit:    ; preds = %entry
+if.end.i:                                         ; preds = %entry
   %chan.i = getelementptr inbounds i8, ptr %dpxHeader, i64 780
   %idxprom.i = zext nneg i32 %element to i64
   %encoding.i = getelementptr inbounds [8 x %"struct.dpx::ImageElement"], ptr %chan.i, i64 0, i64 %idxprom.i, i32 10
@@ -115,7 +115,7 @@ _ZNK3dpx13GenericHeader13ImageEncodingEi.exit:    ; preds = %entry
   %cmp3.i = icmp eq i16 %0, 1
   br i1 %cmp3.i, label %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit, label %return
 
-_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit
+_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit: ; preds = %if.end.i
   %call2 = tail call noundef i32 @_ZNK3dpx13GenericHeader26ImageElementComponentCountEi(ptr noundef nonnull align 4 dereferenceable(1664) %dpxHeader, i32 noundef %element)
   %call3 = tail call noundef i32 @_ZNK3dpx6Header5WidthEv(ptr noundef nonnull align 4 dereferenceable(2049) %dpxHeader)
   %call4 = tail call noundef i32 @_ZNK3dpx6Header6HeightEv(ptr noundef nonnull align 4 dereferenceable(2049) %dpxHeader)
@@ -169,8 +169,8 @@ _ZNK3dpx13GenericHeader10DataOffsetEi.exit:       ; preds = %if.else
   tail call void @_ZdaPv(ptr noundef nonnull %call51) #8
   br label %return
 
-return:                                           ; preds = %entry, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit, %if.else, %switch.early.test, %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit
-  %retval.0 = phi i1 [ false, %_ZNK3dpx13GenericHeader13ImageEncodingEi.exit ], [ false, %switch.early.test ], [ false, %if.else ], [ true, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit ], [ true, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit ], [ false, %entry ]
+return:                                           ; preds = %entry, %if.end.i, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit, %if.else, %switch.early.test
+  %retval.0 = phi i1 [ false, %switch.early.test ], [ false, %if.else ], [ true, %_ZNK3dpx13GenericHeader10DataOffsetEi.exit ], [ true, %_ZNK3dpx13GenericHeader16EndOfLinePaddingEi.exit ], [ false, %if.end.i ], [ false, %entry ]
   ret i1 %retval.0
 }
 

@@ -2155,8 +2155,8 @@ lor.lhs.false:                                    ; preds = %while.end
   %conv90 = trunc nsw i64 %shr to i32
   %cmp91 = icmp ult i32 %conv90, -14
   %cmp96 = fcmp uno double %60, 0.000000e+00
-  %or.cond391 = and i1 %cmp91, %cmp96
-  br i1 %or.cond391, label %if.then98, label %if.end117
+  %or.cond390 = and i1 %cmp91, %cmp96
+  br i1 %or.cond390, label %if.then98, label %if.end117
 
 if.then98:                                        ; preds = %lor.lhs.false, %while.end
   %61 = load i32, ptr %val, align 8
@@ -2513,20 +2513,21 @@ if.then211:                                       ; preds = %if.then206
   %103 = inttoptr i64 %102 to ptr
   %call216 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %98, ptr noundef %103) #7
   %tobool217.not = icmp eq ptr %call216, null
-  br i1 %tobool217.not, label %if.else232, label %if.end224
+  br i1 %tobool217.not, label %if.else232, label %land.end222
 
-if.end224:                                        ; preds = %if.then211
+land.end222:                                      ; preds = %if.then211
   %104 = load i64, ptr %call216, align 8
-  %cmp219.not = icmp eq i64 %104, -1
+  %.fr = freeze i64 %104
+  %cmp219.not = icmp eq i64 %.fr, -1
   br i1 %cmp219.not, label %if.else232, label %if.then226
 
-if.then226:                                       ; preds = %if.end224
+if.then226:                                       ; preds = %land.end222
   %cond124.tr = trunc nuw nsw i32 %cond124 to i16
   %105 = shl nuw nsw i16 %cond124.tr, 8
   %conv229 = or disjoint i16 %105, 128
   br label %if.end255.sink.split
 
-if.else232:                                       ; preds = %if.then211, %if.then206, %if.end224
+if.else232:                                       ; preds = %if.then211, %if.then206, %land.end222
   %cmp233 = icmp eq i8 %87, 58
   br i1 %cmp233, label %if.then235, label %if.end255
 
@@ -2558,12 +2559,12 @@ land.lhs.true258:                                 ; preds = %if.end255
 
 if.end262:                                        ; preds = %land.lhs.true258, %if.end255
   %shr187.le = lshr i32 %99, 24
-  %and188.le336 = and i32 %shr187.le, 31
-  %sub189.le = add nsw i32 %and188.le336, -4
-  %cmp190.le332 = icmp ult i32 %sub189.le, 9
+  %and188.le335 = and i32 %shr187.le, 31
+  %sub189.le = add nsw i32 %and188.le335, -4
+  %cmp190.le331 = icmp ult i32 %sub189.le, 9
   %and193.le = and i32 %91, 520093696
-  %cmp194.le328 = icmp ne i32 %and193.le, 0
-  %107 = and i1 %cmp194.le328, %cmp190.le332
+  %cmp194.le327 = icmp ne i32 %and193.le, 0
+  %107 = and i1 %cmp194.le327, %cmp190.le331
   %cmp267 = icmp eq ptr %cond134, %nilnode.i
   br i1 %cmp267, label %if.then269, label %if.end352
 
@@ -2622,12 +2623,12 @@ if.end302:                                        ; preds = %if.else280, %if.the
   br label %if.end352
 
 if.else308:                                       ; preds = %if.end203
-  %shr187.le339 = lshr i32 %99, 24
-  %and188.le = and i32 %shr187.le339, 31
-  %sub189.le334 = add nsw i32 %and188.le, -4
-  %cmp190.le = icmp ult i32 %sub189.le334, 9
-  %and193.le330 = and i32 %91, 520093696
-  %cmp194.le = icmp ne i32 %and193.le330, 0
+  %shr187.le338 = lshr i32 %99, 24
+  %and188.le = and i32 %shr187.le338, 31
+  %sub189.le333 = add nsw i32 %and188.le, -4
+  %cmp190.le = icmp ult i32 %sub189.le333, 9
+  %and193.le329 = and i32 %91, 520093696
+  %cmp194.le = icmp ne i32 %and193.le329, 0
   %111 = and i1 %cmp194.le, %cmp190.le
   %conv309 = trunc nuw nsw i32 %cond124 to i16
   %call312 = tail call i32 @lj_opt_fwd_wasnonnil(ptr noundef nonnull %J, i16 noundef zeroext %conv309, i32 noundef %conv119.mask) #7
@@ -2706,12 +2707,12 @@ if.then359:                                       ; preds = %if.end352
   store i16 467, ptr %op2.i200.i, align 2
   %call362 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #7
   store i32 %call362, ptr %val, align 8
-  %.pre363 = lshr i32 %call362, 24
-  %.pre364 = and i32 %.pre363, 31
+  %.pre362 = lshr i32 %call362, 24
+  %.pre363 = and i32 %.pre362, 31
   br label %if.end364
 
 if.end364:                                        ; preds = %if.then359, %if.end352
-  %and369.pre-phi = phi i32 [ %.pre364, %if.then359 ], [ %and355, %if.end352 ]
+  %and369.pre-phi = phi i32 [ %.pre363, %if.then359 ], [ %and355, %if.end352 ]
   %117 = phi i32 [ %call362, %if.then359 ], [ %116, %if.end352 ]
   %add365 = shl nuw nsw i32 %cond124, 8
   %shl366 = or disjoint i32 %and369.pre-phi, %add365

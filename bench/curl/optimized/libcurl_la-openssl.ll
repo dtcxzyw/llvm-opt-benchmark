@@ -5127,13 +5127,9 @@ if.end106.i.i:                                    ; preds = %if.then98.i.i, %do.
   %call.i134.i.i = call ptr @BIO_s_mem() #13
   %call1.i135.i.i = call ptr @BIO_new(ptr noundef %call.i134.i.i) #13
   %tobool.not.i136.i.i = icmp eq ptr %call1.i135.i.i, null
-  br i1 %tobool.not.i136.i.i, label %x509_name_oneline.exit147.thread.i.i, label %x509_name_oneline.exit147.i.i
+  br i1 %tobool.not.i136.i.i, label %if.then112.i.i, label %if.end.i137.i.i
 
-x509_name_oneline.exit147.thread.i.i:             ; preds = %if.end106.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %biomem.i133.i.i)
-  br label %if.then112.i.i
-
-x509_name_oneline.exit147.i.i:                    ; preds = %if.end106.i.i
+if.end.i137.i.i:                                  ; preds = %if.end106.i.i
   %call2.i138.i.i = call i32 @X509_NAME_print_ex(ptr noundef nonnull %call1.i135.i.i, ptr noundef %call108.i.i, i32 noundef 0, i64 noundef 196608) #13
   %call3.i139.i.i = call i64 @BIO_ctrl(ptr noundef nonnull %call1.i135.i.i, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %biomem.i133.i.i) #13
   %132 = load ptr, ptr %biomem.i133.i.i, align 8
@@ -5145,18 +5141,19 @@ x509_name_oneline.exit147.i.i:                    ; preds = %if.end106.i.i
   %arrayidx.i142.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 %..i140.i.i
   store i8 0, ptr %arrayidx.i142.i.i, align 1
   %call7.i143.i.i = call i32 @BIO_free(ptr noundef nonnull %call1.i135.i.i) #13
-  %tobool8.not.i144.not.i.i = icmp eq i32 %call2.i138.i.i, 0
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %biomem.i133.i.i)
-  br i1 %tobool8.not.i144.not.i.i, label %if.then112.i.i, label %land.lhs.true118.i.i
+  %tobool8.not.i144.i.i = icmp eq i32 %call2.i138.i.i, 0
+  br i1 %tobool8.not.i144.i.i, label %if.then112.i.i, label %land.lhs.true118.i.i
 
-if.then112.i.i:                                   ; preds = %x509_name_oneline.exit147.i.i, %x509_name_oneline.exit147.thread.i.i
+if.then112.i.i:                                   ; preds = %if.end.i137.i.i, %if.end106.i.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %biomem.i133.i.i)
   br i1 %.not.i, label %if.end260.i.i, label %if.then114.i.i
 
 if.then114.i.i:                                   ; preds = %if.then112.i.i
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.191) #13
   br label %if.end260.i.i
 
-land.lhs.true118.i.i:                             ; preds = %x509_name_oneline.exit147.i.i
+land.lhs.true118.i.i:                             ; preds = %if.end.i137.i.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %biomem.i133.i.i)
   %bf.load121.i.i = load i64, ptr %verbose.i55, align 2
   %135 = and i64 %bf.load121.i.i, 536870912
   %tobool125.not.i.i = icmp eq i64 %135, 0
@@ -5652,7 +5649,7 @@ verifystatus.exit.i.i:                            ; preds = %sw.default.i.i.i, %
   br i1 %tobool275.not.i.i, label %if.end280.i.i, label %if.then276.i.i
 
 if.then276.i.i:                                   ; preds = %verifystatus.exit.i.i, %verifystatus.exit.thread.i.i
-  %result.08.i203.i.i = phi i32 [ 91, %verifystatus.exit.thread.i.i ], [ %result.017.i.i.i, %verifystatus.exit.i.i ]
+  %result.08.i204.i.i = phi i32 [ 91, %verifystatus.exit.thread.i.i ], [ %result.017.i.i.i, %verifystatus.exit.i.i ]
   %176 = load ptr, ptr %server_cert.i.i, align 8
   call void @X509_free(ptr noundef %176) #13
   store ptr null, ptr %server_cert.i.i, align 8
@@ -5703,9 +5700,9 @@ if.end10.i.i.i:                                   ; preds = %if.end6.i.i.i
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %cmp18.not.i.i.i = icmp eq i64 %sub.ptr.sub.i.i.i, %conv.i193.i.i
   %or.cond13.i.i.i = select i1 %or.cond.i.i.i, i1 %cmp18.not.i.i.i, i1 false
-  br i1 %or.cond13.i.i.i, label %ossl_pkp_pin_peer_pubkey.exit.i.i, label %ossl_pkp_pin_peer_pubkey.exit.thread207.i.i
+  br i1 %or.cond13.i.i.i, label %ossl_pkp_pin_peer_pubkey.exit.i.i, label %ossl_pkp_pin_peer_pubkey.exit.thread208.i.i
 
-ossl_pkp_pin_peer_pubkey.exit.thread207.i.i:      ; preds = %if.end10.i.i.i
+ossl_pkp_pin_peer_pubkey.exit.thread208.i.i:      ; preds = %if.end10.i.i.i
   %180 = load ptr, ptr @Curl_cfree, align 8
   call void %180(ptr noundef nonnull %call7.i194.i.i) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %temp.i.i.i)
@@ -5723,13 +5720,13 @@ ossl_pkp_pin_peer_pubkey.exit.i.i:                ; preds = %if.end10.i.i.i
   %tobool300.not.i.i = icmp eq i32 %call23.i.i.i, 0
   br i1 %tobool300.not.i.i, label %if.end303.i.i, label %if.then301.i.i
 
-if.then301.i.i:                                   ; preds = %ossl_pkp_pin_peer_pubkey.exit.i.i, %ossl_pkp_pin_peer_pubkey.exit.thread.i.i, %ossl_pkp_pin_peer_pubkey.exit.thread207.i.i
-  %retval.0.i197206.i.i = phi i32 [ 90, %ossl_pkp_pin_peer_pubkey.exit.thread.i.i ], [ %call23.i.i.i, %ossl_pkp_pin_peer_pubkey.exit.i.i ], [ 90, %ossl_pkp_pin_peer_pubkey.exit.thread207.i.i ]
+if.then301.i.i:                                   ; preds = %ossl_pkp_pin_peer_pubkey.exit.i.i, %ossl_pkp_pin_peer_pubkey.exit.thread.i.i, %ossl_pkp_pin_peer_pubkey.exit.thread208.i.i
+  %retval.0.i197207.i.i = phi i32 [ 90, %ossl_pkp_pin_peer_pubkey.exit.thread.i.i ], [ %call23.i.i.i, %ossl_pkp_pin_peer_pubkey.exit.i.i ], [ 90, %ossl_pkp_pin_peer_pubkey.exit.thread208.i.i ]
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.200) #13
   br label %if.end303.i.i
 
 if.end303.i.i:                                    ; preds = %if.then301.i.i, %ossl_pkp_pin_peer_pubkey.exit.i.i, %if.end280.i.i
-  %result.4.i.i = phi i32 [ %retval.0.i197206.i.i, %if.then301.i.i ], [ 0, %ossl_pkp_pin_peer_pubkey.exit.i.i ], [ %spec.select.i.i, %if.end280.i.i ]
+  %result.4.i.i = phi i32 [ %retval.0.i197207.i.i, %if.then301.i.i ], [ 0, %ossl_pkp_pin_peer_pubkey.exit.i.i ], [ %spec.select.i.i, %if.end280.i.i ]
   %182 = load ptr, ptr %server_cert.i.i, align 8
   call void @X509_free(ptr noundef %182) #13
   store ptr null, ptr %server_cert.i.i, align 8
@@ -5745,7 +5742,7 @@ servercert.exit.thread.i:                         ; preds = %if.end194.i.i, %if.
   br label %return
 
 servercert.exit.i:                                ; preds = %if.end303.i.i, %if.then276.i.i
-  %retval.0.i.i = phi i32 [ %result.4.i.i, %if.end303.i.i ], [ %result.08.i203.i.i, %if.then276.i.i ]
+  %retval.0.i.i = phi i32 [ %result.4.i.i, %if.end303.i.i ], [ %result.08.i204.i.i, %if.then276.i.i ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %error_buffer.i.i)
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %buffer.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ptr.i.i)

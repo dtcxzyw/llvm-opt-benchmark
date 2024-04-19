@@ -143,7 +143,7 @@ opal_update_counted_pointer.exit.i.i.i:           ; preds = %.lr.ph.i.i.i
   %58 = extractvalue { i128, i1 } %56, 0
   %.sroa.0.0.extract.trunc.i.i.i = trunc i128 %58 to i64
   %.sroa.4.0.extract.shift.i.i.i = lshr i128 %58, 64
-  %.sroa.4.0.extract.trunc.i.i.i = trunc i128 %.sroa.4.0.extract.shift.i.i.i to i64
+  %.sroa.4.0.extract.trunc.i.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i.i, ptr %.sroa.4.i.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i.i)
@@ -325,7 +325,7 @@ opal_update_counted_pointer.exit.i40.i.i:         ; preds = %.lr.ph.i28.i.i
   %127 = extractvalue { i128, i1 } %125, 0
   %.sroa.0.0.extract.trunc.i41.i.i = trunc i128 %127 to i64
   %.sroa.4.0.extract.shift.i42.i.i = lshr i128 %127, 64
-  %.sroa.4.0.extract.trunc.i43.i.i = trunc i128 %.sroa.4.0.extract.shift.i42.i.i to i64
+  %.sroa.4.0.extract.trunc.i43.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i42.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i43.i.i, ptr %.sroa.4.i24.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i23.i.i)
@@ -447,7 +447,7 @@ opal_update_counted_pointer.exit.i.i25.i.i:       ; preds = %.lr.ph.i.i13.i.i
   %167 = extractvalue { i128, i1 } %165, 0
   %.sroa.0.0.extract.trunc.i.i26.i.i = trunc i128 %167 to i64
   %.sroa.4.0.extract.shift.i.i27.i.i = lshr i128 %167, 64
-  %.sroa.4.0.extract.trunc.i.i28.i.i = trunc i128 %.sroa.4.0.extract.shift.i.i27.i.i to i64
+  %.sroa.4.0.extract.trunc.i.i28.i.i = trunc nuw i128 %.sroa.4.0.extract.shift.i.i27.i.i to i64
   store i64 %.sroa.4.0.extract.trunc.i.i28.i.i, ptr %.sroa.4.i.i8.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.22.i.i.i7.i.i)
@@ -569,17 +569,17 @@ opal_thread_add_fetch_32.exit152:                 ; preds = %209, %206, %opal_th
   %217 = zext i16 %.val149 to i32
   %218 = and i32 %217, 16
   %.not.i = icmp eq i32 %218, 0
-  br i1 %.not.i, label %opal_datatype_is_contiguous_memory_layout.exit.thread, label %opal_datatype_is_contiguous_memory_layout.exit
+  br i1 %.not.i, label %opal_datatype_is_contiguous_memory_layout.exit.thread, label %219
 
-opal_datatype_is_contiguous_memory_layout.exit:   ; preds = %opal_thread_add_fetch_32.exit152
-  %219 = and i64 %32, 4294967295
-  %220 = icmp ne i64 %219, 1
-  %221 = and i32 %217, 32
-  %.not3.i = icmp eq i32 %221, 0
-  %or.cond.not.i.not = and i1 %220, %.not3.i
-  br i1 %or.cond.not.i.not, label %opal_datatype_is_contiguous_memory_layout.exit.thread, label %222
+219:                                              ; preds = %opal_thread_add_fetch_32.exit152
+  %220 = and i64 %32, 4294967295
+  %221 = icmp eq i64 %220, 1
+  %222 = and i32 %217, 32
+  %.not3.i = icmp ne i32 %222, 0
+  %or.cond.not.i = or i1 %221, %.not3.i
+  br i1 %or.cond.not.i, label %opal_datatype_is_contiguous_memory_layout.exit, label %opal_datatype_is_contiguous_memory_layout.exit.thread
 
-222:                                              ; preds = %opal_datatype_is_contiguous_memory_layout.exit
+opal_datatype_is_contiguous_memory_layout.exit:   ; preds = %219
   %223 = load ptr, ptr @ompi_mtl, align 8
   %224 = getelementptr inbounds i8, ptr %223, i64 16
   %225 = load i32, ptr %224, align 8
@@ -587,8 +587,8 @@ opal_datatype_is_contiguous_memory_layout.exit:   ; preds = %opal_thread_add_fet
   %spec.select = and i32 %226, 1073741824
   br label %opal_datatype_is_contiguous_memory_layout.exit.thread
 
-opal_datatype_is_contiguous_memory_layout.exit.thread: ; preds = %opal_thread_add_fetch_32.exit152, %222, %opal_datatype_is_contiguous_memory_layout.exit
-  %.0127 = phi i32 [ 0, %opal_datatype_is_contiguous_memory_layout.exit ], [ %spec.select, %222 ], [ 0, %opal_thread_add_fetch_32.exit152 ]
+opal_datatype_is_contiguous_memory_layout.exit.thread: ; preds = %219, %opal_thread_add_fetch_32.exit152, %opal_datatype_is_contiguous_memory_layout.exit
+  %.0127 = phi i32 [ %spec.select, %opal_datatype_is_contiguous_memory_layout.exit ], [ 0, %opal_thread_add_fetch_32.exit152 ], [ 0, %219 ]
   %227 = load ptr, ptr @ompi_mpi_local_convertor, align 8
   %228 = getelementptr inbounds i8, ptr %.0.i, i64 192
   %229 = getelementptr inbounds i8, ptr %227, i64 16

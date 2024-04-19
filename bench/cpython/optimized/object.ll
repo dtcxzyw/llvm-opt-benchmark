@@ -1163,8 +1163,8 @@ _PyMem_IsPtrFreed.exit6:                          ; preds = %lor.lhs.false
   %spec.select = zext i1 %cmp4.i5.not to i32
   br label %return
 
-return:                                           ; preds = %entry, %entry, %entry, %entry, %_PyMem_IsPtrFreed.exit6, %lor.lhs.false, %lor.lhs.false, %lor.lhs.false
-  %retval.0 = phi i32 [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 1, %lor.lhs.false ], [ 1, %lor.lhs.false ], [ 1, %lor.lhs.false ], [ %spec.select, %_PyMem_IsPtrFreed.exit6 ], [ 1, %entry ]
+return:                                           ; preds = %_PyMem_IsPtrFreed.exit6, %entry, %entry, %entry, %entry, %lor.lhs.false, %lor.lhs.false, %lor.lhs.false
+  %retval.0 = phi i32 [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 1, %lor.lhs.false ], [ 1, %lor.lhs.false ], [ 1, %lor.lhs.false ], [ 1, %entry ], [ %spec.select, %_PyMem_IsPtrFreed.exit6 ]
   ret i32 %retval.0
 }
 
@@ -1868,14 +1868,14 @@ if.end13:                                         ; preds = %if.end8
   %dec.i.i = add i32 %5, -1
   store i32 %dec.i.i, ptr %c_recursion_remaining.i.i, align 4
   %cmp.i.i19 = icmp sgt i32 %5, 0
-  br i1 %cmp.i.i19, label %if.end18, label %_Py_EnterRecursiveCallTstate.exit
+  br i1 %cmp.i.i19, label %if.end18, label %land.rhs.i
 
-_Py_EnterRecursiveCallTstate.exit:                ; preds = %if.end13
+land.rhs.i:                                       ; preds = %if.end13
   %call1.i = tail call i32 @_Py_CheckRecursiveCall(ptr noundef nonnull %4, ptr noundef nonnull @.str.18) #17
   %tobool2.i.not = icmp eq i32 %call1.i, 0
   br i1 %tobool2.i.not, label %if.end18, label %return
 
-if.end18:                                         ; preds = %if.end13, %_Py_EnterRecursiveCallTstate.exit
+if.end18:                                         ; preds = %if.end13, %land.rhs.i
   %v.val = load ptr, ptr %0, align 8
   %tp_str20 = getelementptr inbounds i8, ptr %v.val, i64 136
   %6 = load ptr, ptr %tp_str20, align 8
@@ -1918,8 +1918,8 @@ if.then1.i:                                       ; preds = %if.end.i
   tail call void %15(ptr noundef nonnull %call21) #17
   br label %return
 
-return:                                           ; preds = %if.end.i.i, %if.then6, %if.end24, %if.end.i, %if.then1.i, %if.then28, %if.end18, %_Py_EnterRecursiveCallTstate.exit, %entry, %if.then11, %if.then1
-  %retval.0 = phi ptr [ %call2, %if.then1 ], [ %call12, %if.then11 ], [ null, %entry ], [ null, %_Py_EnterRecursiveCallTstate.exit ], [ null, %if.end18 ], [ null, %if.then28 ], [ null, %if.then1.i ], [ null, %if.end.i ], [ %call21, %if.end24 ], [ %v, %if.then6 ], [ %v, %if.end.i.i ]
+return:                                           ; preds = %land.rhs.i, %if.end.i.i, %if.then6, %if.end24, %if.end.i, %if.then1.i, %if.then28, %if.end18, %entry, %if.then11, %if.then1
+  %retval.0 = phi ptr [ %call2, %if.then1 ], [ %call12, %if.then11 ], [ null, %entry ], [ null, %if.end18 ], [ null, %if.then28 ], [ null, %if.then1.i ], [ null, %if.end.i ], [ %call21, %if.end24 ], [ %v, %if.then6 ], [ %v, %if.end.i.i ], [ null, %land.rhs.i ]
   ret ptr %retval.0
 }
 
@@ -1960,14 +1960,14 @@ if.end9:                                          ; preds = %if.end3
   %dec.i.i = add i32 %5, -1
   store i32 %dec.i.i, ptr %c_recursion_remaining.i.i, align 4
   %cmp.i.i = icmp sgt i32 %5, 0
-  br i1 %cmp.i.i, label %if.end14, label %_Py_EnterRecursiveCallTstate.exit
+  br i1 %cmp.i.i, label %if.end14, label %land.rhs.i
 
-_Py_EnterRecursiveCallTstate.exit:                ; preds = %if.end9
+land.rhs.i:                                       ; preds = %if.end9
   %call1.i = tail call i32 @_Py_CheckRecursiveCall(ptr noundef nonnull %4, ptr noundef nonnull @.str.16) #17
   %tobool2.i.not = icmp eq i32 %call1.i, 0
   br i1 %tobool2.i.not, label %if.end14, label %return
 
-if.end14:                                         ; preds = %if.end9, %_Py_EnterRecursiveCallTstate.exit
+if.end14:                                         ; preds = %if.end9, %land.rhs.i
   %v.val = load ptr, ptr %0, align 8
   %tp_repr16 = getelementptr inbounds i8, ptr %v.val, i64 88
   %6 = load ptr, ptr %tp_repr16, align 8
@@ -2010,8 +2010,8 @@ if.then1.i:                                       ; preds = %if.end.i
   tail call void %15(ptr noundef nonnull %call17) #17
   br label %return
 
-return:                                           ; preds = %if.end20, %if.end.i, %if.then1.i, %if.then24, %if.end14, %_Py_EnterRecursiveCallTstate.exit, %entry, %if.then6, %if.then1
-  %retval.0 = phi ptr [ %call2, %if.then1 ], [ %call8, %if.then6 ], [ null, %entry ], [ null, %_Py_EnterRecursiveCallTstate.exit ], [ null, %if.end14 ], [ null, %if.then24 ], [ null, %if.then1.i ], [ null, %if.end.i ], [ %call17, %if.end20 ]
+return:                                           ; preds = %land.rhs.i, %if.end20, %if.end.i, %if.then1.i, %if.then24, %if.end14, %entry, %if.then6, %if.then1
+  %retval.0 = phi ptr [ %call2, %if.then1 ], [ %call8, %if.then6 ], [ null, %entry ], [ null, %if.end14 ], [ null, %if.then24 ], [ null, %if.then1.i ], [ null, %if.end.i ], [ %call17, %if.end20 ], [ null, %land.rhs.i ]
   ret ptr %retval.0
 }
 
@@ -2706,14 +2706,14 @@ if.end4:                                          ; preds = %entry
   %dec.i.i = add i32 %4, -1
   store i32 %dec.i.i, ptr %c_recursion_remaining.i.i, align 4
   %cmp.i.i = icmp sgt i32 %4, 0
-  br i1 %cmp.i.i, label %if.end8, label %_Py_EnterRecursiveCallTstate.exit
+  br i1 %cmp.i.i, label %if.end8, label %land.rhs.i
 
-_Py_EnterRecursiveCallTstate.exit:                ; preds = %if.end4
+land.rhs.i:                                       ; preds = %if.end4
   %call1.i = tail call i32 @_Py_CheckRecursiveCall(ptr noundef nonnull %1, ptr noundef nonnull @.str.24) #17
   %tobool2.i.not = icmp eq i32 %call1.i, 0
   br i1 %tobool2.i.not, label %if.end8, label %return
 
-if.end8:                                          ; preds = %if.end4, %_Py_EnterRecursiveCallTstate.exit
+if.end8:                                          ; preds = %if.end4, %land.rhs.i
   %5 = getelementptr i8, ptr %w, i64 8
   %w.val46.i = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %v, i64 8
@@ -2877,8 +2877,8 @@ do_richcompare.exit:                              ; preds = %if.then.i, %if.then
   store i32 %inc.i, ptr %c_recursion_remaining.i.i, align 4
   br label %return
 
-return:                                           ; preds = %_Py_EnterRecursiveCallTstate.exit, %_PyErr_Occurred.exit, %if.then3, %do_richcompare.exit
-  %retval.0 = phi ptr [ %retval.0.i6, %do_richcompare.exit ], [ null, %if.then3 ], [ null, %_PyErr_Occurred.exit ], [ null, %_Py_EnterRecursiveCallTstate.exit ]
+return:                                           ; preds = %land.rhs.i, %_PyErr_Occurred.exit, %if.then3, %do_richcompare.exit
+  %retval.0 = phi ptr [ %retval.0.i6, %do_richcompare.exit ], [ null, %if.then3 ], [ null, %_PyErr_Occurred.exit ], [ null, %land.rhs.i ]
   ret ptr %retval.0
 }
 

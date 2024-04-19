@@ -1186,7 +1186,11 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %f
   %add.ptr19.i.i.i.i = getelementptr inbounds ptr, ptr %4, i64 %and.i.i.i.i.i
   %10 = load ptr, ptr %add.ptr19.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %10, %dep
-  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf14FileDescriptorEEENS1_6HashEqIS8_vE4HashENSB_2EqESaIS8_EE5countIS8_EEmRKT_.exit, label %for.inc.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i, label %for.inc.i.i.i.i
+
+if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %return, label %if.then
 
 for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   %sub.i.i.i.i.i = add nsw i32 %__begin5.sroa.0.025.i.i.i.i, -1
@@ -1205,11 +1209,7 @@ if.end34.i.i.i.i:                                 ; preds = %for.end.i.i.i.i
   %add3.i.i.i.i.i = add i64 %add.i12.i.i.i.i, %seq.sroa.4.0.i.i.i.i
   br label %while.body.i.i.i.i, !llvm.loop !8
 
-_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf14FileDescriptorEEENS1_6HashEqIS8_vE4HashENSB_2EqESaIS8_EE5countIS8_EEmRKT_.exit: ; preds = %for.body.i.i.i.i
-  %.not = icmp eq ptr %0, null
-  br i1 %.not, label %return, label %if.then
-
-if.then:                                          ; preds = %_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf14FileDescriptorEEENS1_6HashEqIS8_vE4HashENSB_2EqESaIS8_EE5countIS8_EEmRKT_.exit
+if.then:                                          ; preds = %if.then.i.i.i.i
   %opensource_runtime = getelementptr inbounds i8, ptr %this, i64 263
   %12 = load i8, ptr %opensource_runtime, align 1
   %tobool = trunc i8 %12 to i1
@@ -1220,8 +1220,8 @@ cond.false:                                       ; preds = %if.then
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp3) #24
   unreachable
 
-return:                                           ; preds = %for.end.i.i.i.i, %_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf14FileDescriptorEEENS1_6HashEqIS8_vE4HashENSB_2EqESaIS8_EE5countIS8_EEmRKT_.exit, %if.then
-  %cmp.not3 = phi i1 [ false, %_ZNK4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf14FileDescriptorEEENS1_6HashEqIS8_vE4HashENSB_2EqESaIS8_EE5countIS8_EEmRKT_.exit ], [ true, %if.then ], [ false, %for.end.i.i.i.i ]
+return:                                           ; preds = %for.end.i.i.i.i, %if.then.i.i.i.i, %if.then
+  %cmp.not3 = phi i1 [ true, %if.then ], [ false, %if.then.i.i.i.i ], [ false, %for.end.i.i.i.i ]
   ret i1 %cmp.not3
 }
 

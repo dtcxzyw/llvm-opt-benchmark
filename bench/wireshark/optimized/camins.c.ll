@@ -83,32 +83,33 @@ define hidden noundef i32 @camins_open(ptr noundef %0, ptr noundef %1, ptr nocap
   %.1.i = phi i32 [ %.012.i, %15 ], [ %.012.i, %22 ], [ %.012.i, %23 ], [ %.012.i, %24 ], [ %spec.select25.i, %17 ], [ %.012.i, %21 ], [ %.012.i, %.fold.split.i ]
   %26 = add nuw nsw i64 %.0.i, 2
   %27 = icmp ugt i64 %.0.i, 1073741821
-  br i1 %27, label %detect_camins_file.exit, label %9, !llvm.loop !4
+  br i1 %27, label %.thread.i, label %9, !llvm.loop !4
 
 28:                                               ; preds = %9
   %.pr.i = load i32, ptr %4, align 4
   switch i32 %.pr.i, label %detect_camins_file.exit.thread [
-    i32 -12, label %detect_camins_file.exit
-    i32 0, label %detect_camins_file.exit
+    i32 -12, label %.thread.i
+    i32 0, label %.thread.i
   ]
 
-detect_camins_file.exit.thread:                   ; preds = %28
+.thread.i:                                        ; preds = %25, %28, %28
+  %.229.i = phi i32 [ %.012.i, %28 ], [ %.012.i, %28 ], [ %.1.i, %25 ]
+  %.21528.i = phi i32 [ %.013.i, %28 ], [ %.013.i, %28 ], [ %.114.i, %25 ]
+  %29 = mul i32 %.229.i, 10
+  %30 = icmp ugt i32 %.21528.i, %29
+  br i1 %30, label %31, label %detect_camins_file.exit.thread
+
+detect_camins_file.exit.thread:                   ; preds = %28, %.thread.i
+  %.020.i.ph = phi i32 [ 0, %.thread.i ], [ -1, %28 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
   br label %45
 
-detect_camins_file.exit:                          ; preds = %25, %28, %28
-  %.229.i = phi i32 [ %.012.i, %28 ], [ %.012.i, %28 ], [ %.1.i, %25 ]
-  %.21528.i = phi i32 [ %.013.i, %28 ], [ %.013.i, %28 ], [ %.114.i, %25 ]
-  %29 = mul i32 %.229.i, 10
-  %30 = icmp ugt i32 %.21528.i, %29
+31:                                               ; preds = %.thread.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br i1 %30, label %31, label %45
-
-31:                                               ; preds = %detect_camins_file.exit
   %32 = load ptr, ptr %0, align 8
   %33 = call i64 @file_seek(ptr noundef %32, i64 noundef 0, i32 noundef 0, ptr noundef %1) #4
   %34 = icmp eq i64 %33, -1
@@ -135,8 +136,8 @@ detect_camins_file.exit:                          ; preds = %25, %28, %28
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #4
   br label %45
 
-45:                                               ; preds = %detect_camins_file.exit.thread, %31, %detect_camins_file.exit, %35
-  %.0 = phi i32 [ 1, %35 ], [ 0, %detect_camins_file.exit ], [ -1, %31 ], [ -1, %detect_camins_file.exit.thread ]
+45:                                               ; preds = %detect_camins_file.exit.thread, %31, %35
+  %.0 = phi i32 [ 1, %35 ], [ -1, %31 ], [ %.020.i.ph, %detect_camins_file.exit.thread ]
   ret i32 %.0
 }
 

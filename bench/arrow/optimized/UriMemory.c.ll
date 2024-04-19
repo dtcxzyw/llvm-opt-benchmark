@@ -316,15 +316,15 @@ land.lhs.true6.i:                                 ; preds = %land.lhs.true4.i
   %reallocarray.i = getelementptr inbounds i8, ptr %memory, i64 24
   %3 = load ptr, ptr %reallocarray.i, align 8
   %tobool7.not.i = icmp eq ptr %3, null
-  br i1 %tobool7.not.i, label %return, label %uriMemoryManagerIsComplete.exit
+  br i1 %tobool7.not.i, label %return, label %land.rhs.i
 
-uriMemoryManagerIsComplete.exit:                  ; preds = %land.lhs.true6.i
+land.rhs.i:                                       ; preds = %land.lhs.true6.i
   %free.i = getelementptr inbounds i8, ptr %memory, i64 32
   %4 = load ptr, ptr %free.i, align 8
   %tobool8.i.not = icmp eq ptr %4, null
   br i1 %tobool8.i.not, label %return, label %if.end3
 
-if.end3:                                          ; preds = %uriMemoryManagerIsComplete.exit
+if.end3:                                          ; preds = %land.rhs.i
   %call4 = tail call ptr %0(ptr noundef nonnull %memory, i64 noundef 7) #15
   %cmp5 = icmp eq ptr %call4, null
   br i1 %cmp5, label %return, label %if.end7
@@ -517,8 +517,8 @@ if.then165:                                       ; preds = %if.end160
   tail call void %36(ptr noundef nonnull %memory, ptr noundef nonnull %call162) #15
   br label %return
 
-return:                                           ; preds = %for.body, %for.body42, %for.body100, %land.lhs.true.i, %land.lhs.true2.i, %land.lhs.true4.i, %land.lhs.true6.i, %if.end160, %if.then165, %if.end135, %if.end126, %if.end117, %for.end109, %for.body87.preheader, %if.end77, %if.end59, %for.end51, %for.body29.preheader, %for.end, %if.end7, %if.end3, %uriMemoryManagerIsComplete.exit, %entry
-  %retval.0 = phi i32 [ 2, %entry ], [ 10, %uriMemoryManagerIsComplete.exit ], [ 11, %if.end3 ], [ 11, %if.end7 ], [ 11, %for.end ], [ 11, %for.body29.preheader ], [ 11, %for.end51 ], [ 11, %if.end59 ], [ 11, %if.end77 ], [ 11, %for.body87.preheader ], [ 11, %for.end109 ], [ 11, %if.end117 ], [ 11, %if.end126 ], [ 11, %if.end135 ], [ 0, %if.then165 ], [ 0, %if.end160 ], [ 10, %land.lhs.true6.i ], [ 10, %land.lhs.true4.i ], [ 10, %land.lhs.true2.i ], [ 10, %land.lhs.true.i ], [ 11, %for.body100 ], [ 11, %for.body42 ], [ 11, %for.body ]
+return:                                           ; preds = %for.body, %for.body42, %for.body100, %land.rhs.i, %land.lhs.true.i, %land.lhs.true2.i, %land.lhs.true4.i, %land.lhs.true6.i, %if.end160, %if.then165, %if.end135, %if.end126, %if.end117, %for.end109, %for.body87.preheader, %if.end77, %if.end59, %for.end51, %for.body29.preheader, %for.end, %if.end7, %if.end3, %entry
+  %retval.0 = phi i32 [ 2, %entry ], [ 11, %if.end3 ], [ 11, %if.end7 ], [ 11, %for.end ], [ 11, %for.body29.preheader ], [ 11, %for.end51 ], [ 11, %if.end59 ], [ 11, %if.end77 ], [ 11, %for.body87.preheader ], [ 11, %for.end109 ], [ 11, %if.end117 ], [ 11, %if.end126 ], [ 11, %if.end135 ], [ 0, %if.then165 ], [ 0, %if.end160 ], [ 10, %land.lhs.true6.i ], [ 10, %land.lhs.true4.i ], [ 10, %land.lhs.true2.i ], [ 10, %land.lhs.true.i ], [ 10, %land.rhs.i ], [ 11, %for.body100 ], [ 11, %for.body42 ], [ 11, %for.body ]
   ret i32 %retval.0
 }
 

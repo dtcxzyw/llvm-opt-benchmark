@@ -546,34 +546,34 @@ synthesize_ino_value.exit.thread:                 ; preds = %62, %synthesize_ino
   %137 = load ptr, ptr %3, align 8
   %138 = icmp ne ptr %137, null
   %or.cond = select i1 %136, i1 %138, i1 false
-  br i1 %or.cond, label %139, label %143
+  br i1 %or.cond, label %139, label %145
 
 139:                                              ; preds = %134
   %140 = load i8, ptr %137, align 1
   %.not55 = icmp eq i8 %140, 0
-  br i1 %.not55, label %143, label %141
+  br i1 %.not55, label %145, label %141
 
 141:                                              ; preds = %139
   %142 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %137) #13
-  br label %145
+  %143 = getelementptr inbounds i8, ptr %5, i64 65
+  %or.cond.i95 = icmp ugt i64 %142, 8589934591
+  %..i96 = call i64 @llvm.umin.i64(i64 %142, i64 8589934591)
+  %144 = call fastcc i64 @format_octal_recursive(i64 noundef %..i96, ptr noundef nonnull %143, i32 noundef 11), !range !6
+  br i1 %or.cond.i95, label %select.unfold, label %149
 
-143:                                              ; preds = %139, %134
-  %144 = call i64 @archive_entry_size(ptr noundef %1) #11
-  br label %145
+145:                                              ; preds = %139, %134
+  %146 = call i64 @archive_entry_size(ptr noundef %1) #11
+  %147 = getelementptr inbounds i8, ptr %5, i64 65
+  %or.cond.i99 = icmp ugt i64 %146, 8589934591
+  %..i100 = call i64 @llvm.umin.i64(i64 %146, i64 8589934591)
+  %148 = call fastcc i64 @format_octal_recursive(i64 noundef %..i100, ptr noundef nonnull %147, i32 noundef 11), !range !6
+  br i1 %or.cond.i99, label %select.unfold, label %149
 
-145:                                              ; preds = %143, %141
-  %.sink111 = phi i64 [ %144, %143 ], [ %142, %141 ]
-  %146 = getelementptr inbounds i8, ptr %5, i64 65
-  %..i100 = call i64 @llvm.umin.i64(i64 %.sink111, i64 8589934591)
-  %147 = call fastcc i64 @format_octal_recursive(i64 noundef %..i100, ptr noundef nonnull %146, i32 noundef 11), !range !6
-  %.0.in = icmp ult i64 %.sink111, 8589934592
-  br i1 %.0.in, label %149, label %148
-
-148:                                              ; preds = %145
+select.unfold:                                    ; preds = %145, %141
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 34, ptr noundef nonnull @.str.15) #11
   br label %162
 
-149:                                              ; preds = %145
+149:                                              ; preds = %141, %145
   %150 = call i32 @__archive_write_output(ptr noundef %0, ptr noundef nonnull %5, i64 noundef 76) #11
   %.not57 = icmp eq i32 %150, 0
   br i1 %.not57, label %151, label %162
@@ -603,8 +603,8 @@ synthesize_ino_value.exit.thread:                 ; preds = %62, %synthesize_ino
   %spec.select = select i1 %.not61, i32 %.1, i32 -30
   br label %162
 
-162:                                              ; preds = %159, %151, %149, %154, %157, %148, %130, %84, %synthesize_ino_value.exit.thread, %23
-  %.2 = phi i32 [ -30, %23 ], [ -30, %synthesize_ino_value.exit.thread ], [ -30, %84 ], [ -30, %130 ], [ -25, %148 ], [ %.1, %157 ], [ %.1, %154 ], [ -30, %149 ], [ -30, %151 ], [ %spec.select, %159 ]
+162:                                              ; preds = %159, %151, %149, %154, %157, %select.unfold, %130, %84, %synthesize_ino_value.exit.thread, %23
+  %.2 = phi i32 [ -30, %23 ], [ -30, %synthesize_ino_value.exit.thread ], [ -30, %84 ], [ -30, %130 ], [ -25, %select.unfold ], [ %.1, %157 ], [ %.1, %154 ], [ -30, %149 ], [ -30, %151 ], [ %spec.select, %159 ]
   call void @archive_entry_free(ptr noundef null) #11
   ret i32 %.2
 }

@@ -3322,12 +3322,12 @@ if.end4:                                          ; preds = %sw.bb
   %cmp.i15.not = icmp eq ptr %.val14, @PyFloat_Type
   %or.cond = or i1 %cmp.i.not, %cmp.i15.not
   %cmp.i17.not = icmp eq ptr %.val14, @PyBytes_Type
-  %or.cond36 = or i1 %cmp.i17.not, %or.cond
+  %or.cond35 = or i1 %cmp.i17.not, %or.cond
   %cmp.i19.not = icmp eq ptr %.val14, @PyComplex_Type
-  %or.cond37 = or i1 %cmp.i19.not, %or.cond36
+  %or.cond36 = or i1 %cmp.i19.not, %or.cond35
   %cmp.i21.not = icmp eq ptr %.val14, @PyUnicode_Type
-  %or.cond38 = or i1 %cmp.i21.not, %or.cond37
-  br i1 %or.cond38, label %return, label %return.sink.split
+  %or.cond37 = or i1 %cmp.i21.not, %or.cond36
+  br i1 %or.cond37, label %return, label %return.sink.split
 
 sw.bb21:                                          ; preds = %if.end
   %v.i = getelementptr inbounds i8, ptr %exp, i64 8
@@ -3348,13 +3348,13 @@ if.end6.i:                                        ; preds = %if.end.i
   %7 = getelementptr i8, ptr %.val.i, i64 8
   %.val5.i.i = load ptr, ptr %7, align 8
   %cmp.i.not.i.i = icmp eq ptr %.val5.i.i, @PyFloat_Type
-  br i1 %cmp.i.not.i.i, label %return, label %ensure_literal_negative.exit
+  br i1 %cmp.i.not.i.i, label %return, label %land.lhs.true5.i.i
 
-ensure_literal_negative.exit:                     ; preds = %if.end6.i
-  %cmp.i6.not.i.i.not = icmp ne ptr %.val5.i.i, @PyLong_Type
-  %cmp.i8.i.i = icmp ne ptr %.val5.i.i, @PyComplex_Type
-  %spec.select.i.not = and i1 %cmp.i6.not.i.i.not, %cmp.i8.i.i
-  br i1 %spec.select.i.not, label %return.sink.split, label %return
+land.lhs.true5.i.i:                               ; preds = %if.end6.i
+  %cmp.i6.not.i.i.not = icmp eq ptr %.val5.i.i, @PyLong_Type
+  %cmp.i8.i.i = icmp eq ptr %.val5.i.i, @PyComplex_Type
+  %spec.select.i = or i1 %cmp.i6.not.i.i.not, %cmp.i8.i.i
+  br i1 %spec.select.i, label %return, label %return.sink.split
 
 sw.bb26:                                          ; preds = %if.end
   %v.i23 = getelementptr inbounds i8, ptr %exp, i64 8
@@ -3381,8 +3381,8 @@ sw.bb.i:                                          ; preds = %if.end.i25
   %.val5.i.i27 = load ptr, ptr %13, align 8
   %cmp.i.not.i.i28 = icmp eq ptr %.val5.i.i27, @PyFloat_Type
   %cmp.i6.not.i.not.not.i = icmp eq ptr %.val5.i.i27, @PyLong_Type
-  %or.cond.i = or i1 %cmp.i.not.i.i28, %cmp.i6.not.i.not.not.i
-  br i1 %or.cond.i, label %sw.epilog.i, label %return.sink.split
+  %or.cond16.i = or i1 %cmp.i.not.i.i28, %cmp.i6.not.i.not.not.i
+  br i1 %or.cond16.i, label %sw.epilog.i, label %return.sink.split
 
 sw.bb10.i:                                        ; preds = %if.end.i25
   %v.i.i = getelementptr inbounds i8, ptr %8, i64 8
@@ -3403,31 +3403,31 @@ if.end6.i.i:                                      ; preds = %if.end.i.i
   %18 = getelementptr i8, ptr %.val.i.i, i64 8
   %.val5.i.i.i = load ptr, ptr %18, align 8
   %cmp.i.not.i.i.i = icmp eq ptr %.val5.i.i.i, @PyFloat_Type
-  %cmp.i6.not.i.i.not.not.i = icmp eq ptr %.val5.i.i.i, @PyLong_Type
-  %or.cond19.i = or i1 %cmp.i.not.i.i.i, %cmp.i6.not.i.i.not.not.i
-  br i1 %or.cond19.i, label %sw.epilog.i, label %return.sink.split
+  %cmp.i6.not.i.i.not.i = icmp eq ptr %.val5.i.i.i, @PyLong_Type
+  %or.cond.i = or i1 %cmp.i.not.i.i.i, %cmp.i6.not.i.i.not.i
+  br i1 %or.cond.i, label %sw.epilog.i, label %return.sink.split
 
 sw.epilog.i:                                      ; preds = %if.end6.i.i, %sw.bb.i
   %19 = load i32, ptr %9, align 8
   %cond.i = icmp eq i32 %19, 20
-  br i1 %cond.i, label %ensure_literal_complex.exit, label %return.sink.split
+  br i1 %cond.i, label %sw.bb16.i, label %return.sink.split
 
-ensure_literal_complex.exit:                      ; preds = %sw.epilog.i
+sw.bb16.i:                                        ; preds = %sw.epilog.i
   %20 = getelementptr i8, ptr %9, i64 8
   %.val7.i = load ptr, ptr %20, align 8
   %.phi.trans.insert.i.i = getelementptr i8, ptr %.val7.i, i64 8
   %.val.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8
-  %cmp.i8.i.not.i.not = icmp eq ptr %.val.pre.i.i, @PyComplex_Type
-  br i1 %cmp.i8.i.not.i.not, label %return, label %return.sink.split
+  %cmp.i8.i.not.i = icmp eq ptr %.val.pre.i.i, @PyComplex_Type
+  br i1 %cmp.i8.i.not.i, label %return, label %return.sink.split
 
-return.sink.split:                                ; preds = %ensure_literal_negative.exit, %ensure_literal_complex.exit, %if.end, %sw.bb21, %if.end.i, %sw.bb26, %if.end.i25, %sw.epilog.i, %sw.bb10.i, %if.end.i.i, %sw.bb.i, %if.end6.i.i, %if.end4
-  %.str.57.sink = phi ptr [ @.str.56, %if.end4 ], [ @.str.57, %if.end6.i.i ], [ @.str.57, %sw.bb.i ], [ @.str.57, %if.end.i.i ], [ @.str.57, %sw.bb10.i ], [ @.str.57, %sw.epilog.i ], [ @.str.57, %if.end.i25 ], [ @.str.57, %sw.bb26 ], [ @.str.57, %if.end.i ], [ @.str.57, %sw.bb21 ], [ @.str.57, %if.end ], [ @.str.57, %ensure_literal_complex.exit ], [ @.str.57, %ensure_literal_negative.exit ]
+return.sink.split:                                ; preds = %if.end, %sw.bb21, %if.end.i, %land.lhs.true5.i.i, %sw.bb26, %if.end.i25, %sw.bb16.i, %sw.epilog.i, %sw.bb10.i, %if.end.i.i, %if.end6.i.i, %sw.bb.i, %if.end4
+  %.str.57.sink = phi ptr [ @.str.56, %if.end4 ], [ @.str.57, %sw.bb.i ], [ @.str.57, %if.end6.i.i ], [ @.str.57, %if.end.i.i ], [ @.str.57, %sw.bb10.i ], [ @.str.57, %sw.epilog.i ], [ @.str.57, %sw.bb16.i ], [ @.str.57, %if.end.i25 ], [ @.str.57, %sw.bb26 ], [ @.str.57, %land.lhs.true5.i.i ], [ @.str.57, %if.end.i ], [ @.str.57, %sw.bb21 ], [ @.str.57, %if.end ]
   %21 = load ptr, ptr @PyExc_ValueError, align 8
   tail call void @PyErr_SetString(ptr noundef %21, ptr noundef nonnull %.str.57.sink) #5
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end6.i, %if.end, %ensure_literal_complex.exit, %ensure_literal_negative.exit, %if.end, %if.end4, %sw.bb, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %sw.bb ], [ 1, %if.end4 ], [ 1, %if.end ], [ 1, %ensure_literal_negative.exit ], [ 1, %ensure_literal_complex.exit ], [ 1, %if.end ], [ 1, %if.end6.i ], [ 0, %return.sink.split ]
+return:                                           ; preds = %return.sink.split, %land.lhs.true5.i.i, %sw.bb16.i, %if.end6.i, %if.end, %if.end, %if.end4, %sw.bb, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %sw.bb ], [ 1, %if.end4 ], [ 1, %if.end ], [ 1, %if.end ], [ 1, %if.end6.i ], [ 1, %sw.bb16.i ], [ 1, %land.lhs.true5.i.i ], [ 0, %return.sink.split ]
   ret i32 %retval.0
 }
 

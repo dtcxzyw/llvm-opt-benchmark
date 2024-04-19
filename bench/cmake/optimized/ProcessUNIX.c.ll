@@ -1788,33 +1788,33 @@ kwsysProcessInitialize.exit:                      ; preds = %80
   store i32 %108, ptr %109, align 4
   %110 = call i32 (i32, i32, ...) @fcntl(i32 noundef %105, i32 noundef 3) #25
   %111 = icmp sgt i32 %110, -1
-  br i1 %111, label %kwsysProcessSetNonBlocking.exit.i, label %185
+  br i1 %111, label %112, label %185
 
-kwsysProcessSetNonBlocking.exit.i:                ; preds = %104
-  %112 = or i32 %110, 2048
-  %113 = call i32 (i32, i32, ...) @fcntl(i32 noundef %105, i32 noundef 4, i32 noundef %112) #25
-  %114 = icmp slt i32 %113, 0
-  br i1 %114, label %185, label %115
+112:                                              ; preds = %104
+  %113 = or i32 %110, 2048
+  %114 = call i32 (i32, i32, ...) @fcntl(i32 noundef %105, i32 noundef 4, i32 noundef %113) #25
+  %115 = icmp sgt i32 %114, -1
+  br i1 %115, label %kwsysProcessSetNonBlocking.exit.i, label %185
 
-115:                                              ; preds = %kwsysProcessSetNonBlocking.exit.i
+kwsysProcessSetNonBlocking.exit.i:                ; preds = %112
   %116 = load i32, ptr %107, align 4
   %117 = call i32 (i32, i32, ...) @fcntl(i32 noundef %116, i32 noundef 3) #25
   %118 = icmp sgt i32 %117, -1
-  br i1 %118, label %kwsysProcessSetNonBlocking.exit22.i, label %185
+  br i1 %118, label %119, label %185
 
-kwsysProcessSetNonBlocking.exit22.i:              ; preds = %115
-  %119 = or i32 %117, 2048
-  %120 = call i32 (i32, i32, ...) @fcntl(i32 noundef %116, i32 noundef 4, i32 noundef %119) #25
-  %121 = icmp slt i32 %120, 0
-  br i1 %121, label %185, label %122
+119:                                              ; preds = %kwsysProcessSetNonBlocking.exit.i
+  %120 = or i32 %117, 2048
+  %121 = call i32 (i32, i32, ...) @fcntl(i32 noundef %116, i32 noundef 4, i32 noundef %120) #25
+  %122 = icmp sgt i32 %121, -1
+  br i1 %122, label %kwsysProcessSetNonBlocking.exit22.i, label %185
 
-122:                                              ; preds = %kwsysProcessSetNonBlocking.exit22.i
+kwsysProcessSetNonBlocking.exit22.i:              ; preds = %119
   %123 = load i32, ptr %5, align 4
   %124 = call i32 (i32, i32, ...) @fcntl(i32 noundef %123, i32 noundef 2, i32 noundef 1) #25
   %125 = icmp slt i32 %124, 0
   br i1 %125, label %185, label %126
 
-126:                                              ; preds = %122
+126:                                              ; preds = %kwsysProcessSetNonBlocking.exit22.i
   %127 = load i32, ptr %107, align 4
   %128 = call i32 (i32, i32, ...) @fcntl(i32 noundef %127, i32 noundef 2, i32 noundef 1) #25
   %129 = icmp slt i32 %128, 0
@@ -1935,7 +1935,7 @@ kwsysProcessesAdd.exit:                           ; preds = %178, %181, %154
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %6)
   br label %186
 
-185:                                              ; preds = %101, %kwsysProcessSetNonBlocking.exit22.i, %kwsysProcessSetNonBlocking.exit.i, %126, %122, %132, %104, %115
+185:                                              ; preds = %101, %126, %kwsysProcessSetNonBlocking.exit22.i, %132, %112, %104, %119, %kwsysProcessSetNonBlocking.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %6)
   call fastcc void @kwsysProcessCleanup(ptr noundef nonnull %0, i32 noundef 1)

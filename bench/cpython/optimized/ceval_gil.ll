@@ -1630,15 +1630,15 @@ entry:
   %gil1 = getelementptr inbounds i8, ptr %0, i64 72
   %1 = load ptr, ptr %gil1, align 8
   %cmp.i = icmp eq ptr %1, null
-  br i1 %cmp.i, label %return, label %gil_created.exit
+  br i1 %cmp.i, label %return, label %if.end.i
 
-gil_created.exit:                                 ; preds = %entry
+if.end.i:                                         ; preds = %entry
   %locked.i = getelementptr inbounds i8, ptr %1, i64 16
   %2 = load atomic i32, ptr %locked.i acquire, align 4
-  %cmp1.i = icmp slt i32 %2, 0
-  br i1 %cmp1.i, label %return, label %if.end
+  %cmp1.i = icmp sgt i32 %2, -1
+  br i1 %cmp1.i, label %if.end, label %return
 
-if.end:                                           ; preds = %gil_created.exit
+if.end:                                           ; preds = %if.end.i
   tail call fastcc void @create_gil(ptr noundef nonnull %1)
   tail call fastcc void @take_gil(ptr noundef nonnull %tstate)
   %3 = load ptr, ptr %interp, align 8
@@ -1647,7 +1647,7 @@ if.end:                                           ; preds = %gil_created.exit
   tail call void @_PyThreadState_DeleteExcept(ptr noundef nonnull %tstate) #15
   br label %return
 
-return:                                           ; preds = %gil_created.exit, %entry, %if.end
+return:                                           ; preds = %entry, %if.end.i, %if.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
   store i32 0, ptr %agg.result, align 8
   ret void

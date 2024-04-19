@@ -1299,7 +1299,7 @@ if.then13.i.i:                                    ; preds = %if.then10.i.i
 
 if.end16.i.i:                                     ; preds = %if.then13.i.i, %if.then10.i.i
   %and17.i.i = lshr i32 %8, 26
-  %12 = trunc i32 %and17.i.i to i8
+  %12 = trunc nuw nsw i32 %and17.i.i to i8
   %frombool.i.i = and i8 %12, 1
   store i8 %frombool.i.i, ptr %cptse.i.i, align 4
   %13 = trunc i32 %and17.i.i to i1
@@ -1365,7 +1365,7 @@ if.end57.i.i:                                     ; preds = %do.body.i.i
   %sub69.i.i = sub nuw nsw i64 65536, %conv68.i.i
   %conv70.i.i = zext i32 %spec.select.i.i to i64
   %cond73.i.i = call i64 @llvm.umin.i64(i64 %sub69.i.i, i64 %conv70.i.i)
-  %conv74.i.i = trunc i64 %cond73.i.i to i32
+  %conv74.i.i = trunc nuw nsw i64 %cond73.i.i to i32
   %add.ptr78.i.i = getelementptr i8, ptr %data140.i.i, i64 %conv68.i.i
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   fence seq_cst
@@ -1416,7 +1416,7 @@ if.else127.i.i:                                   ; preds = %if.end43.i.i
   %sub130.i.i = sub nuw nsw i64 65536, %conv129.i.i
   %conv131.i.i = zext nneg i32 %and2.i.i to i64
   %cond138.i.i = call i64 @llvm.umin.i64(i64 %sub130.i.i, i64 %conv131.i.i)
-  %conv139.i.i = trunc i64 %cond138.i.i to i16
+  %conv139.i.i = trunc nuw i64 %cond138.i.i to i16
   %add.ptr145.i.i = getelementptr i8, ptr %data140.i.i, i64 %conv129.i.i
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   fence seq_cst
@@ -1881,7 +1881,7 @@ e1000x_inc_reg_if_not_full.exit98:                ; preds = %if.end147, %if.then
   %conv9.i = trunc i64 %.add5.i to i32
   store i32 %conv9.i, ptr %arrayidx.i99, align 4
   %shr.i = lshr i64 %.add5.i, 32
-  %conv12.i = trunc i64 %shr.i to i32
+  %conv12.i = trunc nuw i64 %shr.i to i32
   store i32 %conv12.i, ptr %arrayidx2.i, align 4
   %arrayidx.i100 = getelementptr i8, ptr %s, i64 27888
   %49 = load i32, ptr %arrayidx.i100, align 4
@@ -1901,7 +1901,7 @@ e1000x_inc_reg_if_not_full.exit104:               ; preds = %e1000x_inc_reg_if_n
   %conv9.i113 = trunc i64 %.add5.i112 to i32
   store i32 %conv9.i113, ptr %arrayidx.i105, align 4
   %shr.i114 = lshr i64 %.add5.i112, 32
-  %conv12.i115 = trunc i64 %shr.i114 to i32
+  %conv12.i115 = trunc nuw i64 %shr.i114 to i32
   store i32 %conv12.i115, ptr %arrayidx2.i107, align 4
   ret void
 }
@@ -2049,18 +2049,18 @@ if.end16:                                         ; preds = %if.end11
   %3 = load i32, ptr %arrayidx.i, align 8
   %conv.i = trunc i32 %3 to i16
   %call.i104 = call zeroext i1 @e1000x_is_vlan_packet(ptr noundef %filter_buf.0, i16 noundef zeroext %conv.i) #13
-  br i1 %call.i104, label %lor.lhs.false.i, label %receive_filter.exit
+  br i1 %call.i104, label %lor.lhs.false.i, label %land.rhs.i
 
 lor.lhs.false.i:                                  ; preds = %if.end16
   %add.ptr.i = getelementptr i8, ptr %filter_buf.0, i64 14
   %call2.i = call zeroext i1 @e1000x_rx_vlan_filter(ptr noundef nonnull %mac_reg, ptr noundef %add.ptr.i) #13
-  br i1 %call2.i, label %receive_filter.exit, label %return
+  br i1 %call2.i, label %land.rhs.i, label %return
 
-receive_filter.exit:                              ; preds = %if.end16, %lor.lhs.false.i
+land.rhs.i:                                       ; preds = %lor.lhs.false.i, %if.end16
   %call6.i = call zeroext i1 @e1000x_rx_group_filter(ptr noundef nonnull %mac_reg, ptr noundef %filter_buf.0) #13
   br i1 %call6.i, label %if.end19, label %return
 
-if.end19:                                         ; preds = %receive_filter.exit
+if.end19:                                         ; preds = %land.rhs.i
   %mac_reg.val = load i32, ptr %mac_reg, align 4
   %4 = and i32 %mac_reg.val, 1073741824
   %tobool23.not = icmp eq i32 %4, 0
@@ -2350,8 +2350,8 @@ if.then195.split:                                 ; preds = %do.end167
   call fastcc void @set_interrupt_cause(ptr noundef nonnull %call, i32 noundef %or.i129)
   br label %return
 
-return:                                           ; preds = %lor.lhs.false.i, %if.then195.split, %if.end184.split, %receive_filter.exit, %if.end11, %if.end, %entry, %do.end162, %if.then53
-  %retval.0 = phi i64 [ -1, %do.end162 ], [ -1, %if.then53 ], [ -1, %entry ], [ 0, %if.end ], [ %call2, %if.end11 ], [ %call2, %receive_filter.exit ], [ %size.0, %if.end184.split ], [ %size.0, %if.then195.split ], [ %call2, %lor.lhs.false.i ]
+return:                                           ; preds = %land.rhs.i, %lor.lhs.false.i, %if.then195.split, %if.end184.split, %if.end11, %if.end, %entry, %do.end162, %if.then53
+  %retval.0 = phi i64 [ -1, %do.end162 ], [ -1, %if.then53 ], [ -1, %entry ], [ 0, %if.end ], [ %call2, %if.end11 ], [ %size.0, %if.end184.split ], [ %size.0, %if.then195.split ], [ %call2, %lor.lhs.false.i ], [ %call2, %land.rhs.i ]
   ret i64 %retval.0
 }
 

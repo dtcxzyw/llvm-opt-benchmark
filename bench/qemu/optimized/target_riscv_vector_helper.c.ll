@@ -56206,10 +56206,6 @@ if.end.i:                                         ; preds = %entry
     i32 3, label %if.then38.i.i
   ]
 
-get_round.exit.thread.i:                          ; preds = %if.end.i
-  %or8.i = tail call i64 @llvm.fshl.i64(i64 %conv3.i.i, i64 %conv2.i.i, i64 1)
-  br label %vsmul64.exit
-
 if.then14.i.i:                                    ; preds = %if.end.i
   %conv9.i.i = trunc nuw nsw i64 %and.i22.i.i to i8
   br label %get_round.exit.i
@@ -56230,11 +56226,18 @@ if.then38.i.i:                                    ; preds = %if.end.i
   %tobool.not.i.i = icmp sgt i64 %conv2.i.i, -1
   %cmp39.i.i = icmp ne i64 %and.i26.i.i, 0
   %and4116.i.i = and i1 %tobool.not.i.i, %cmp39.i.i
-  %conv42.i.i = zext i1 %and4116.i.i to i8
-  br label %get_round.exit.i
+  br i1 %and4116.i.i, label %if.then2.thread.i, label %get_round.exit.thread.i
 
-get_round.exit.i:                                 ; preds = %if.then38.i.i, %if.then17.i.i, %if.then14.i.i
-  %retval.0.i.i = phi i8 [ %conv9.i.i, %if.then14.i.i ], [ %and.i.i, %if.then17.i.i ], [ %conv42.i.i, %if.then38.i.i ]
+if.then2.thread.i:                                ; preds = %if.then38.i.i
+  %or13.i = shl i64 %conv3.i.i, 1
+  br label %if.else.i
+
+get_round.exit.thread.i:                          ; preds = %if.then38.i.i, %if.end.i
+  %or9.i = tail call i64 @llvm.fshl.i64(i64 %conv3.i.i, i64 %conv2.i.i, i64 1)
+  br label %vsmul64.exit
+
+get_round.exit.i:                                 ; preds = %if.then17.i.i, %if.then14.i.i
+  %retval.0.i.i = phi i8 [ %conv9.i.i, %if.then14.i.i ], [ %and.i.i, %if.then17.i.i ]
   %or.i = tail call i64 @llvm.fshl.i64(i64 %conv3.i.i, i64 %conv2.i.i, i64 1)
   %tobool.not.i = icmp eq i8 %retval.0.i.i, 0
   br i1 %tobool.not.i, label %vsmul64.exit, label %if.then2.i
@@ -56248,12 +56251,13 @@ if.then4.i:                                       ; preds = %if.then2.i
   store i64 1, ptr %vxsat5.i, align 8
   br label %vsmul64.exit
 
-if.else.i:                                        ; preds = %if.then2.i
-  %add.i = add nsw i64 %or.i, 1
+if.else.i:                                        ; preds = %if.then2.i, %if.then2.thread.i
+  %or1518.i = phi i64 [ %or13.i, %if.then2.thread.i ], [ %or.i, %if.then2.i ]
+  %add.i = add nsw i64 %or1518.i, 1
   br label %vsmul64.exit
 
 vsmul64.exit:                                     ; preds = %if.then.i, %get_round.exit.thread.i, %get_round.exit.i, %if.then4.i, %if.else.i
-  %retval.0.i = phi i64 [ 9223372036854775807, %if.then.i ], [ 9223372036854775807, %if.then4.i ], [ %add.i, %if.else.i ], [ %or.i, %get_round.exit.i ], [ %or8.i, %get_round.exit.thread.i ]
+  %retval.0.i = phi i64 [ 9223372036854775807, %if.then.i ], [ 9223372036854775807, %if.then4.i ], [ %add.i, %if.else.i ], [ %or.i, %get_round.exit.i ], [ %or9.i, %get_round.exit.thread.i ]
   %add.ptr4 = getelementptr i64, ptr %vd, i64 %idx.ext
   store i64 %retval.0.i, ptr %add.ptr4, align 8
   ret void
@@ -56512,10 +56516,6 @@ if.end.i:                                         ; preds = %entry
     i32 3, label %if.then38.i.i
   ]
 
-get_round.exit.thread.i:                          ; preds = %if.end.i
-  %or8.i = tail call i64 @llvm.fshl.i64(i64 %conv3.i.i, i64 %conv2.i.i, i64 1)
-  br label %vsmul64.exit
-
 if.then14.i.i:                                    ; preds = %if.end.i
   %conv9.i.i = trunc nuw nsw i64 %and.i22.i.i to i8
   br label %get_round.exit.i
@@ -56536,11 +56536,18 @@ if.then38.i.i:                                    ; preds = %if.end.i
   %tobool.not.i.i = icmp sgt i64 %conv2.i.i, -1
   %cmp39.i.i = icmp ne i64 %and.i26.i.i, 0
   %and4116.i.i = and i1 %tobool.not.i.i, %cmp39.i.i
-  %conv42.i.i = zext i1 %and4116.i.i to i8
-  br label %get_round.exit.i
+  br i1 %and4116.i.i, label %if.then2.thread.i, label %get_round.exit.thread.i
 
-get_round.exit.i:                                 ; preds = %if.then38.i.i, %if.then17.i.i, %if.then14.i.i
-  %retval.0.i.i = phi i8 [ %conv9.i.i, %if.then14.i.i ], [ %and.i.i, %if.then17.i.i ], [ %conv42.i.i, %if.then38.i.i ]
+if.then2.thread.i:                                ; preds = %if.then38.i.i
+  %or13.i = shl i64 %conv3.i.i, 1
+  br label %if.else.i
+
+get_round.exit.thread.i:                          ; preds = %if.then38.i.i, %if.end.i
+  %or9.i = tail call i64 @llvm.fshl.i64(i64 %conv3.i.i, i64 %conv2.i.i, i64 1)
+  br label %vsmul64.exit
+
+get_round.exit.i:                                 ; preds = %if.then17.i.i, %if.then14.i.i
+  %retval.0.i.i = phi i8 [ %conv9.i.i, %if.then14.i.i ], [ %and.i.i, %if.then17.i.i ]
   %or.i = tail call i64 @llvm.fshl.i64(i64 %conv3.i.i, i64 %conv2.i.i, i64 1)
   %tobool.not.i = icmp eq i8 %retval.0.i.i, 0
   br i1 %tobool.not.i, label %vsmul64.exit, label %if.then2.i
@@ -56554,12 +56561,13 @@ if.then4.i:                                       ; preds = %if.then2.i
   store i64 1, ptr %vxsat5.i, align 8
   br label %vsmul64.exit
 
-if.else.i:                                        ; preds = %if.then2.i
-  %add.i = add nsw i64 %or.i, 1
+if.else.i:                                        ; preds = %if.then2.i, %if.then2.thread.i
+  %or1518.i = phi i64 [ %or13.i, %if.then2.thread.i ], [ %or.i, %if.then2.i ]
+  %add.i = add nsw i64 %or1518.i, 1
   br label %vsmul64.exit
 
 vsmul64.exit:                                     ; preds = %if.then.i, %get_round.exit.thread.i, %get_round.exit.i, %if.then4.i, %if.else.i
-  %retval.0.i = phi i64 [ 9223372036854775807, %if.then.i ], [ 9223372036854775807, %if.then4.i ], [ %add.i, %if.else.i ], [ %or.i, %get_round.exit.i ], [ %or8.i, %get_round.exit.thread.i ]
+  %retval.0.i = phi i64 [ 9223372036854775807, %if.then.i ], [ 9223372036854775807, %if.then4.i ], [ %add.i, %if.else.i ], [ %or.i, %get_round.exit.i ], [ %or9.i, %get_round.exit.thread.i ]
   %add.ptr2 = getelementptr i64, ptr %vd, i64 %idx.ext
   store i64 %retval.0.i, ptr %add.ptr2, align 8
   ret void

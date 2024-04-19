@@ -345,50 +345,50 @@ if.end.i:                                         ; preds = %entry
   %0 = load ptr, ptr %int_curr_symbol.i.i, align 8
   %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
   %cmp.i48.i.i = icmp eq i64 %call.i.i.i, 1
-  br i1 %cmp.i48.i.i, label %locale_is_ascii.exit.i.i, label %if.then.i.i
+  br i1 %cmp.i48.i.i, label %land.rhs.i.i.i, label %if.then.i.i
 
-locale_is_ascii.exit.i.i:                         ; preds = %if.end.i
+land.rhs.i.i.i:                                   ; preds = %if.end.i
   %1 = load i8, ptr %0, align 1
-  %cmp1.i.i.i = icmp slt i8 %1, 0
-  br i1 %cmp1.i.i.i, label %if.then.i.i, label %lor.lhs.false.i.i
+  %cmp1.i.i.i = icmp sgt i8 %1, -1
+  br i1 %cmp1.i.i.i, label %lor.lhs.false.i.i, label %if.then.i.i
 
-lor.lhs.false.i.i:                                ; preds = %locale_is_ascii.exit.i.i
+lor.lhs.false.i.i:                                ; preds = %land.rhs.i.i.i
   %currency_symbol.i.i = getelementptr inbounds i8, ptr %call1.i, i64 32
   %2 = load ptr, ptr %currency_symbol.i.i, align 8
   %call.i49.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #7
   %cmp.i50.i.i = icmp eq i64 %call.i49.i.i, 1
-  br i1 %cmp.i50.i.i, label %locale_is_ascii.exit54.i.i, label %if.then.i.i
+  br i1 %cmp.i50.i.i, label %land.rhs.i52.i.i, label %if.then.i.i
 
-locale_is_ascii.exit54.i.i:                       ; preds = %lor.lhs.false.i.i
+land.rhs.i52.i.i:                                 ; preds = %lor.lhs.false.i.i
   %3 = load i8, ptr %2, align 1
-  %cmp1.i53.i.i = icmp slt i8 %3, 0
-  br i1 %cmp1.i53.i.i, label %if.then.i.i, label %lor.lhs.false3.i.i
+  %cmp1.i53.i.i = icmp sgt i8 %3, -1
+  br i1 %cmp1.i53.i.i, label %lor.lhs.false3.i.i, label %if.then.i.i
 
-lor.lhs.false3.i.i:                               ; preds = %locale_is_ascii.exit54.i.i
+lor.lhs.false3.i.i:                               ; preds = %land.rhs.i52.i.i
   %mon_decimal_point.i.i = getelementptr inbounds i8, ptr %call1.i, i64 40
   %4 = load ptr, ptr %mon_decimal_point.i.i, align 8
   %call.i55.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #7
   %cmp.i56.i.i = icmp eq i64 %call.i55.i.i, 1
-  br i1 %cmp.i56.i.i, label %locale_is_ascii.exit60.i.i, label %if.then.i.i
+  br i1 %cmp.i56.i.i, label %land.rhs.i58.i.i, label %if.then.i.i
 
-locale_is_ascii.exit60.i.i:                       ; preds = %lor.lhs.false3.i.i
+land.rhs.i58.i.i:                                 ; preds = %lor.lhs.false3.i.i
   %5 = load i8, ptr %4, align 1
-  %cmp1.i59.i.i = icmp slt i8 %5, 0
-  br i1 %cmp1.i59.i.i, label %if.then.i.i, label %lor.rhs.i.i
+  %cmp1.i59.i.i = icmp sgt i8 %5, -1
+  br i1 %cmp1.i59.i.i, label %lor.rhs.i.i, label %if.then.i.i
 
-lor.rhs.i.i:                                      ; preds = %locale_is_ascii.exit60.i.i
+lor.rhs.i.i:                                      ; preds = %land.rhs.i58.i.i
   %mon_thousands_sep.i.i = getelementptr inbounds i8, ptr %call1.i, i64 48
   %6 = load ptr, ptr %mon_thousands_sep.i.i, align 8
   %call.i61.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #7
   %cmp.i62.i.i = icmp eq i64 %call.i61.i.i, 1
-  br i1 %cmp.i62.i.i, label %locale_is_ascii.exit66.i.i, label %if.then.i.i
+  br i1 %cmp.i62.i.i, label %land.rhs.i64.i.i, label %if.then.i.i
 
-locale_is_ascii.exit66.i.i:                       ; preds = %lor.rhs.i.i
+land.rhs.i64.i.i:                                 ; preds = %lor.rhs.i.i
   %7 = load i8, ptr %6, align 1
-  %cmp1.i65.i.i = icmp slt i8 %7, 0
-  br i1 %cmp1.i65.i.i, label %if.then.i.i, label %if.end26.i.i
+  %cmp1.i65.i.i = icmp sgt i8 %7, -1
+  br i1 %cmp1.i65.i.i, label %if.end26.i.i, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %locale_is_ascii.exit66.i.i, %lor.rhs.i.i, %locale_is_ascii.exit60.i.i, %lor.lhs.false3.i.i, %locale_is_ascii.exit54.i.i, %lor.lhs.false.i.i, %locale_is_ascii.exit.i.i, %if.end.i
+if.then.i.i:                                      ; preds = %land.rhs.i64.i.i, %lor.rhs.i.i, %land.rhs.i58.i.i, %lor.lhs.false3.i.i, %land.rhs.i52.i.i, %lor.lhs.false.i.i, %land.rhs.i.i.i, %if.end.i
   %call9.i.i = tail call ptr @setlocale(i32 noundef 0, ptr noundef null) #6
   %tobool10.not.i.i = icmp eq ptr %call9.i.i, null
   br i1 %tobool10.not.i.i, label %if.then11.i.i, label %if.end.i138.i
@@ -421,9 +421,9 @@ if.then23.i.i:                                    ; preds = %land.lhs.true.i.i
   %call24.i.i = tail call ptr @setlocale(i32 noundef 0, ptr noundef nonnull %call17.i.i) #6
   br label %if.end26.i.i
 
-if.end26.i.i:                                     ; preds = %if.then23.i.i, %land.lhs.true.i.i, %if.end16.i.i, %locale_is_ascii.exit66.i.i
-  %loc.1.i.i = phi i1 [ false, %if.then23.i.i ], [ true, %locale_is_ascii.exit66.i.i ], [ true, %if.end16.i.i ], [ true, %land.lhs.true.i.i ]
-  %oldloc.0.i.i = phi ptr [ %call12.i.i, %if.then23.i.i ], [ null, %locale_is_ascii.exit66.i.i ], [ %call12.i.i, %if.end16.i.i ], [ %call12.i.i, %land.lhs.true.i.i ]
+if.end26.i.i:                                     ; preds = %if.then23.i.i, %land.lhs.true.i.i, %if.end16.i.i, %land.rhs.i64.i.i
+  %loc.1.i.i = phi i1 [ false, %if.then23.i.i ], [ true, %land.rhs.i64.i.i ], [ true, %if.end16.i.i ], [ true, %land.lhs.true.i.i ]
+  %oldloc.0.i.i = phi ptr [ %call12.i.i, %if.then23.i.i ], [ null, %land.rhs.i64.i.i ], [ %call12.i.i, %if.end16.i.i ], [ %call12.i.i, %land.lhs.true.i.i ]
   %9 = load ptr, ptr %int_curr_symbol.i.i, align 8
   %call28.i.i = tail call ptr @PyUnicode_DecodeLocale(ptr noundef %9, ptr noundef null) #6
   %cmp29.i.i = icmp eq ptr %call28.i.i, null

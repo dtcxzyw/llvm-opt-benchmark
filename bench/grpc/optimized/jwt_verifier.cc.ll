@@ -1107,23 +1107,23 @@ if.then33:                                        ; preds = %if.end31
   br i1 %cmp34, label %return, label %if.then42
 
 if.else:                                          ; preds = %if.end31
-  br i1 %cmp34, label %if.then42, label %if.end41
+  br i1 %cmp34, label %if.then42, label %land.rhs
 
-if.end41:                                         ; preds = %if.else
+land.rhs:                                         ; preds = %if.else
   %call38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %audience, ptr noundef nonnull dereferenceable(1) %12) #26
   %cmp39 = icmp eq i32 %call38, 0
   br i1 %cmp39, label %return, label %if.then42
 
-if.then42:                                        ; preds = %if.then33, %if.else, %if.end41
-  %cond = phi ptr [ %audience, %if.else ], [ %audience, %if.end41 ], [ @.str.21, %if.then33 ]
-  %13 = phi ptr [ null, %if.else ], [ %12, %if.end41 ], [ %12, %if.then33 ]
+if.then42:                                        ; preds = %if.then33, %if.else, %land.rhs
+  %13 = phi ptr [ %12, %if.then33 ], [ null, %if.else ], [ %12, %land.rhs ]
+  %cond = phi ptr [ @.str.21, %if.then33 ], [ %audience, %if.else ], [ %audience, %land.rhs ]
   %cmp45 = icmp eq ptr %13, null
   %spec.select = select i1 %cmp45, ptr @.str.21, ptr %13
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.15, i32 noundef 350, i32 noundef 2, ptr noundef nonnull @.str.20, ptr noundef nonnull %cond, ptr noundef nonnull %spec.select)
   br label %return
 
-return:                                           ; preds = %if.then33, %if.end41, %if.then42, %if.then28, %if.then18, %if.then7
-  %retval.0 = phi i32 [ 5, %if.then7 ], [ 5, %if.then18 ], [ 6, %if.then28 ], [ 3, %if.then42 ], [ 0, %if.end41 ], [ 0, %if.then33 ]
+return:                                           ; preds = %land.rhs, %if.then33, %if.then42, %if.then28, %if.then18, %if.then7
+  %retval.0 = phi i32 [ 5, %if.then7 ], [ 5, %if.then18 ], [ 6, %if.then28 ], [ 3, %if.then42 ], [ 0, %if.then33 ], [ 0, %land.rhs ]
   ret i32 %retval.0
 }
 

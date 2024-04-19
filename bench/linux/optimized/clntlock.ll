@@ -407,8 +407,8 @@ define dso_local i32 @nlmclnt_grant(ptr noundef %0, ptr noundef %1) local_unname
   %81 = tail call i32 @__wake_up(ptr noundef %80, i32 noundef 3, i32 noundef 1, ptr noundef null) #11
   br label %.thread
 
-.thread:                                          ; preds = %65, %78, %74, %58, %44, %43, %36, %29, %24, %15
-  %82 = phi i32 [ 0, %78 ], [ %17, %15 ], [ %17, %24 ], [ %17, %29 ], [ %17, %58 ], [ %17, %74 ], [ %17, %44 ], [ %17, %36 ], [ %17, %43 ], [ %17, %65 ]
+.thread:                                          ; preds = %74, %65, %78, %58, %44, %43, %36, %29, %24, %15
+  %82 = phi i32 [ 0, %78 ], [ %17, %15 ], [ %17, %24 ], [ %17, %29 ], [ %17, %58 ], [ %17, %44 ], [ %17, %36 ], [ %17, %43 ], [ %17, %65 ], [ %17, %74 ]
   %83 = load ptr, ptr %16, align 8
   %84 = icmp eq ptr %83, @nlm_blocked
   br i1 %84, label %.loopexit, label %15, !llvm.loop !7

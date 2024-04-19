@@ -396,21 +396,21 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb, ptr noundef nonnull align 8 dereferenceable(24) @__const.xmks_tempfile_m.full_template, i64 24, i1 false)
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %directory_template) #16
   %cmp.i.i.i = icmp ult i64 %call.i.i, 6
-  br i1 %cmp.i.i.i, label %if.then, label %ends_with.exit
+  br i1 %cmp.i.i.i, label %if.then, label %lor.lhs.false.i.i.i
 
-ends_with.exit:                                   ; preds = %entry
+lor.lhs.false.i.i.i:                              ; preds = %entry
   %0 = getelementptr i8, ptr %directory_template, i64 %call.i.i
   %add.ptr.i.i.i = getelementptr i8, ptr %0, i64 -6
   %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %add.ptr.i.i.i, ptr noundef nonnull dereferenceable(6) @.str.4, i64 6)
-  %tobool.not.i.i.i.not = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %tobool.not.i.i.i.not, label %if.end, label %if.then
+  %tobool.not.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
+  br i1 %tobool.not.i.i.i, label %if.end, label %if.then
 
-if.then:                                          ; preds = %entry, %ends_with.exit
+if.then:                                          ; preds = %entry, %lor.lhs.false.i.i.i
   %call1 = tail call ptr @__errno_location() #15
   store i32 22, ptr %call1, align 4
   br label %return
 
-if.end:                                           ; preds = %ends_with.exit
+if.end:                                           ; preds = %lor.lhs.false.i.i.i
   %call2 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #14
   %tobool3.not = icmp eq ptr %call2, null
   %spec.store.select = select i1 %tobool3.not, ptr @.str.2, ptr %call2
@@ -757,7 +757,7 @@ if.then6.i:                                       ; preds = %if.end.i
   %call8.i = tail call i32 @ferror(ptr noundef nonnull %3) #14
   %tobool9.not.i = icmp eq i32 %call8.i, 0
   %call16.i = tail call i32 @fclose(ptr noundef nonnull %3)
-  br i1 %tobool9.not.i, label %close_tempfile_gently.exit, label %if.then10.i
+  br i1 %tobool9.not.i, label %if.end20.i, label %if.then10.i
 
 if.then10.i:                                      ; preds = %if.then6.i
   %tobool12.not.i = icmp eq i32 %call16.i, 0
@@ -770,43 +770,44 @@ if.then13.i:                                      ; preds = %if.then10.i
 
 if.else18.i:                                      ; preds = %if.end.i
   %call19.i = tail call i32 @close(i32 noundef %2) #14
-  br label %close_tempfile_gently.exit
+  %4 = freeze i32 %call19.i
+  br label %if.end20.i
 
-close_tempfile_gently.exit:                       ; preds = %if.then6.i, %if.else18.i
-  %err.0.i = phi i32 [ %call19.i, %if.else18.i ], [ %call16.i, %if.then6.i ]
+if.end20.i:                                       ; preds = %if.else18.i, %if.then6.i
+  %err.0.i = phi i32 [ %4, %if.else18.i ], [ %call16.i, %if.then6.i ]
   %tobool21.not.i.not = icmp eq i32 %err.0.i, 0
   br i1 %tobool21.not.i.not, label %if.end4, label %if.then3
 
-if.then3:                                         ; preds = %if.then13.i, %if.then10.i, %close_tempfile_gently.exit
+if.then3:                                         ; preds = %if.then13.i, %if.then10.i, %if.end20.i
   tail call void @delete_tempfile(ptr noundef nonnull %tempfile_p)
   br label %return
 
-if.end4:                                          ; preds = %lor.lhs.false.i, %close_tempfile_gently.exit
+if.end4:                                          ; preds = %lor.lhs.false.i, %if.end20.i
   %buf = getelementptr inbounds i8, ptr %0, i64 56
-  %4 = load ptr, ptr %buf, align 8
-  %call5 = tail call i32 @rename(ptr noundef %4, ptr noundef %path) #14
+  %5 = load ptr, ptr %buf, align 8
+  %call5 = tail call i32 @rename(ptr noundef %5, ptr noundef %path) #14
   %tobool6.not = icmp eq i32 %call5, 0
   br i1 %tobool6.not, label %if.end10, label %if.then7
 
 if.then7:                                         ; preds = %if.end4
   %call8 = tail call ptr @__errno_location() #15
-  %5 = load i32, ptr %call8, align 4
+  %6 = load i32, ptr %call8, align 4
   tail call void @delete_tempfile(ptr noundef nonnull %tempfile_p)
-  store i32 %5, ptr %call8, align 4
+  store i32 %6, ptr %call8, align 4
   br label %return
 
 if.end10:                                         ; preds = %if.end4
   %prev.i.i = getelementptr inbounds i8, ptr %0, i64 8
-  %6 = load volatile ptr, ptr %prev.i.i, align 8
-  %7 = load volatile ptr, ptr %0, align 8
-  %prev1.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
-  store volatile ptr %6, ptr %prev1.i.i.i, align 8
-  store volatile ptr %7, ptr %6, align 8
+  %7 = load volatile ptr, ptr %prev.i.i, align 8
+  %8 = load volatile ptr, ptr %0, align 8
+  %prev1.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
+  store volatile ptr %7, ptr %prev1.i.i.i, align 8
+  store volatile ptr %8, ptr %7, align 8
   %filename.i = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @strbuf_release(ptr noundef nonnull %filename.i) #14
   %directory.i = getelementptr inbounds i8, ptr %0, i64 64
-  %8 = load ptr, ptr %directory.i, align 8
-  tail call void @free(ptr noundef %8) #14
+  %9 = load ptr, ptr %directory.i, align 8
+  tail call void @free(ptr noundef %9) #14
   tail call void @free(ptr noundef nonnull %0) #14
   store ptr null, ptr %tempfile_p, align 8
   br label %return

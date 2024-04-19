@@ -542,9 +542,9 @@ if.end.i.i:                                       ; preds = %if.end8.i
   %2 = load ptr, ptr %lock.i.i, align 8
   %call1.i.i = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %2) #2
   %tobool.not.i.i = icmp eq i32 %call1.i.i, 0
-  br i1 %tobool.not.i.i, label %if.then11.i, label %init_thread_push_handlers.exit.i
+  br i1 %tobool.not.i.i, label %if.then11.i, label %if.end3.i.i
 
-init_thread_push_handlers.exit.i:                 ; preds = %if.end.i.i
+if.end3.i.i:                                      ; preds = %if.end.i.i
   %3 = load ptr, ptr %1, align 8
   %call.i4.i.i = tail call i32 @OPENSSL_sk_push(ptr noundef %3, ptr noundef nonnull %call2.i) #2
   %cmp5.i.not.i = icmp eq i32 %call.i4.i.i, 0
@@ -552,13 +552,13 @@ init_thread_push_handlers.exit.i:                 ; preds = %if.end.i.i
   %call7.i.i = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %4) #2
   br i1 %cmp5.i.not.i, label %if.then11.i, label %if.end
 
-if.then11.i:                                      ; preds = %init_thread_push_handlers.exit.i, %if.end.i.i, %if.end8.i
+if.then11.i:                                      ; preds = %if.end3.i.i, %if.end.i.i, %if.end8.i
   %call12.i = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @destructor_key, ptr noundef null) #2
   tail call void @CRYPTO_free(ptr noundef nonnull %call2.i, ptr noundef nonnull @.str, i32 noundef 112) #2
   br label %return
 
-if.end:                                           ; preds = %init_thread_push_handlers.exit.i, %entry
-  %retval.0.i = phi ptr [ %call2.i, %init_thread_push_handlers.exit.i ], [ %call.i, %entry ]
+if.end:                                           ; preds = %if.end3.i.i, %entry
+  %retval.0.i = phi ptr [ %call.i, %entry ], [ %call2.i, %if.end3.i.i ]
   %call1 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 32, ptr noundef nonnull @.str, i32 noundef 406) #2
   %cmp2 = icmp eq ptr %call1, null
   br i1 %cmp2, label %return, label %if.end4

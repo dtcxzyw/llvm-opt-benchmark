@@ -70,15 +70,15 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   store i32 0, ptr %result, align 4
   %tobool.not.i = icmp eq i32 %no_store, 0
-  br i1 %tobool.not.i, label %land.lhs.true, label %is_temporary_method_store.exit
+  br i1 %tobool.not.i, label %land.lhs.true, label %land.rhs.i
 
-is_temporary_method_store.exit:                   ; preds = %if.end
+land.rhs.i:                                       ; preds = %if.end
   %force_store.i = getelementptr inbounds i8, ptr %cbdata, i64 20
   %0 = load i32, ptr %force_store.i, align 4
-  %tobool1.not.i.not = icmp eq i32 %0, 0
-  br i1 %tobool1.not.i.not, label %if.end10, label %land.lhs.true
+  %tobool1.not.i = icmp eq i32 %0, 0
+  br i1 %tobool1.not.i, label %if.end10, label %land.lhs.true
 
-land.lhs.true:                                    ; preds = %if.end, %is_temporary_method_store.exit
+land.lhs.true:                                    ; preds = %if.end, %land.rhs.i
   %conv6 = sext i32 %operation_id to i64
   %call7 = tail call i32 @ossl_provider_test_operation_bit(ptr noundef %provider, i64 noundef %conv6, ptr noundef nonnull %result) #2
   %tobool8.not = icmp eq i32 %call7, 0
@@ -90,8 +90,8 @@ land.lhs.true.if.end10_crit_edge:                 ; preds = %land.lhs.true
   %2 = zext i1 %1 to i32
   br label %if.end10
 
-if.end10:                                         ; preds = %land.lhs.true.if.end10_crit_edge, %is_temporary_method_store.exit
-  %tobool11.not = phi i32 [ %2, %land.lhs.true.if.end10_crit_edge ], [ 1, %is_temporary_method_store.exit ]
+if.end10:                                         ; preds = %land.lhs.true.if.end10_crit_edge, %land.rhs.i
+  %tobool11.not = phi i32 [ %2, %land.lhs.true.if.end10_crit_edge ], [ 1, %land.rhs.i ]
   store i32 %tobool11.not, ptr %result, align 4
   br label %return
 
@@ -104,15 +104,15 @@ return:                                           ; preds = %land.lhs.true, %if.
 define internal i32 @ossl_method_construct_reserve_store(i32 noundef %no_store, ptr nocapture noundef %cbdata) #0 {
 entry:
   %tobool.not.i = icmp eq i32 %no_store, 0
-  br i1 %tobool.not.i, label %if.end5, label %is_temporary_method_store.exit
+  br i1 %tobool.not.i, label %if.end5, label %land.rhs.i
 
-is_temporary_method_store.exit:                   ; preds = %entry
+land.rhs.i:                                       ; preds = %entry
   %force_store.i = getelementptr inbounds i8, ptr %cbdata, i64 20
   %0 = load i32, ptr %force_store.i, align 4
-  %tobool1.not.i.not = icmp eq i32 %0, 0
-  br i1 %tobool1.not.i.not, label %land.lhs.true, label %if.end5
+  %tobool1.not.i = icmp eq i32 %0, 0
+  br i1 %tobool1.not.i, label %land.lhs.true, label %if.end5
 
-land.lhs.true:                                    ; preds = %is_temporary_method_store.exit
+land.lhs.true:                                    ; preds = %land.rhs.i
   %store = getelementptr inbounds i8, ptr %cbdata, i64 8
   %1 = load ptr, ptr %store, align 8
   %cmp = icmp eq ptr %1, null
@@ -129,7 +129,7 @@ if.then:                                          ; preds = %land.lhs.true
   %cmp3 = icmp eq ptr %call1, null
   br i1 %cmp3, label %return, label %if.end5
 
-if.end5:                                          ; preds = %entry, %if.then, %land.lhs.true, %is_temporary_method_store.exit
+if.end5:                                          ; preds = %land.rhs.i, %entry, %if.then, %land.lhs.true
   %mcm6 = getelementptr inbounds i8, ptr %cbdata, i64 24
   %5 = load ptr, ptr %mcm6, align 8
   %lock_store = getelementptr inbounds i8, ptr %5, i64 8
@@ -211,23 +211,23 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   store i32 1, ptr %result, align 4
   %tobool.not.i = icmp eq i32 %no_store, 0
-  br i1 %tobool.not.i, label %lor.rhs, label %is_temporary_method_store.exit
+  br i1 %tobool.not.i, label %lor.rhs, label %land.rhs.i
 
-is_temporary_method_store.exit:                   ; preds = %if.end
+land.rhs.i:                                       ; preds = %if.end
   %force_store.i = getelementptr inbounds i8, ptr %cbdata, i64 20
   %0 = load i32, ptr %force_store.i, align 4
-  %tobool1.not.i.not = icmp eq i32 %0, 0
-  br i1 %tobool1.not.i.not, label %return, label %lor.rhs
+  %tobool1.not.i = icmp eq i32 %0, 0
+  br i1 %tobool1.not.i, label %return, label %lor.rhs
 
-lor.rhs:                                          ; preds = %if.end, %is_temporary_method_store.exit
+lor.rhs:                                          ; preds = %if.end, %land.rhs.i
   %conv6 = sext i32 %operation_id to i64
   %call7 = tail call i32 @ossl_provider_set_operation_bit(ptr noundef %provider, i64 noundef %conv6) #2
   %tobool8 = icmp ne i32 %call7, 0
   %1 = zext i1 %tobool8 to i32
   br label %return
 
-return:                                           ; preds = %is_temporary_method_store.exit, %lor.rhs, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 1, %is_temporary_method_store.exit ], [ %1, %lor.rhs ]
+return:                                           ; preds = %land.rhs.i, %lor.rhs, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ %1, %lor.rhs ], [ 1, %land.rhs.i ]
   ret i32 %retval.0
 }
 

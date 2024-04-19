@@ -662,18 +662,18 @@ while.cond.i.i:                                   ; preds = %if.end46.i.i, %whil
   %38 = and i16 %37, 2048
   %tobool59.not.i.i = icmp eq i16 %38, 0
   %incdec.ptr60.i.i = getelementptr inbounds i8, ptr %p.1.i.i, i64 1
-  br i1 %tobool59.not.i.i, label %file_name_check.exit.i, label %while.cond.i.i, !llvm.loop !7
+  br i1 %tobool59.not.i.i, label %while.end.i.i, label %while.cond.i.i, !llvm.loop !7
 
-file_name_check.exit.i:                           ; preds = %while.cond.i.i
-  %cmp62.i.not.i = icmp eq i8 %36, 0
-  br i1 %cmp62.i.not.i, label %file_name_check.exit.if.then12_crit_edge.i, label %if.end20.i
+while.end.i.i:                                    ; preds = %while.cond.i.i
+  %cmp62.i.i = icmp eq i8 %36, 0
+  br i1 %cmp62.i.i, label %while.end.i.if.then12_crit_edge.i, label %if.end20.i
 
-file_name_check.exit.if.then12_crit_edge.i:       ; preds = %file_name_check.exit.i
-  %.pre6.i = load ptr, ptr %last_entry.i, align 8
+while.end.i.if.then12_crit_edge.i:                ; preds = %while.end.i.i
+  %.pre4.i = load ptr, ptr %last_entry.i, align 8
   br label %if.then12.i
 
-if.then12.i:                                      ; preds = %file_name_check.exit.if.then12_crit_edge.i, %land.lhs.true.i10
-  %39 = phi ptr [ %.pre6.i, %file_name_check.exit.if.then12_crit_edge.i ], [ %22, %land.lhs.true.i10 ]
+if.then12.i:                                      ; preds = %while.end.i.if.then12_crit_edge.i, %land.lhs.true.i10
+  %39 = phi ptr [ %.pre4.i, %while.end.i.if.then12_crit_edge.i ], [ %22, %land.lhs.true.i10 ]
   %40 = load ptr, ptr %uri.i.i, align 8
   %41 = load i8, ptr %40, align 1
   %cmp.not.i.i.i = icmp eq i8 %41, 0
@@ -710,8 +710,8 @@ file_name_to_uri.exit.i:                          ; preds = %ossl_ends_with_dirs
   %call11.i.i = tail call i64 @OPENSSL_strlcat(ptr noundef nonnull %call7.i.i, ptr noundef %39, i64 noundef %add6.i.i) #8
   br label %if.end20.i
 
-if.end20.i:                                       ; preds = %file_name_to_uri.exit.i, %file_name_check.exit.i, %if.end46.i.i, %if.else.i.i, %if.then31.i.i, %lor.lhs.false.i.i16, %if.end14.i.i, %if.end.i.i13, %if.end4.i
-  %newname.1.i = phi ptr [ %call7.i.i, %file_name_to_uri.exit.i ], [ null, %file_name_check.exit.i ], [ null, %if.end4.i ], [ null, %if.end.i.i13 ], [ null, %lor.lhs.false.i.i16 ], [ null, %if.end14.i.i ], [ null, %if.then31.i.i ], [ null, %if.else.i.i ], [ null, %if.end46.i.i ]
+if.end20.i:                                       ; preds = %file_name_to_uri.exit.i, %while.end.i.i, %if.end46.i.i, %if.else.i.i, %if.then31.i.i, %lor.lhs.false.i.i16, %if.end14.i.i, %if.end.i.i13, %if.end4.i
+  %newname.1.i = phi ptr [ %call7.i.i, %file_name_to_uri.exit.i ], [ null, %if.end4.i ], [ null, %while.end.i.i ], [ null, %if.end.i.i13 ], [ null, %lor.lhs.false.i.i16 ], [ null, %if.end14.i.i ], [ null, %if.then31.i.i ], [ null, %if.else.i.i ], [ null, %if.end46.i.i ]
   %47 = load ptr, ptr %uri.i.i, align 8
   %call23.i = tail call ptr @OPENSSL_DIR_read(ptr noundef nonnull %_.i7, ptr noundef %47) #8
   store ptr %call23.i, ptr %last_entry.i, align 8

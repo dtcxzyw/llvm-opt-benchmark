@@ -5976,41 +5976,38 @@ gc_for_fd_with_gvl.exit.thread:                   ; preds = %8, %gc_for_fd_with_
 
 23:                                               ; preds = %gc_for_fd_with_gvl.exit.thread25, %1
   %.014 = phi ptr [ %3, %1 ], [ %13, %gc_for_fd_with_gvl.exit.thread25 ]
-  br label %24
+  %24 = call ptr @readdir(ptr noundef nonnull %.014) #22
+  %.not1932 = icmp eq ptr %24, null
+  br i1 %.not1932, label %to_be_skipped.exit.thread, label %.lr.ph
 
-24:                                               ; preds = %to_be_skipped.exit, %23
-  %25 = call ptr @readdir(ptr noundef nonnull %.014) #22
-  %.not19 = icmp eq ptr %25, null
-  br i1 %.not19, label %to_be_skipped.exit.thread, label %26
+.lr.ph:                                           ; preds = %23, %to_be_skipped.exit
+  %25 = phi ptr [ %34, %to_be_skipped.exit ], [ %24, %23 ]
+  %26 = getelementptr inbounds i8, ptr %25, i64 19
+  %27 = load i8, ptr %26, align 1
+  %.not.i21 = icmp eq i8 %27, 46
+  br i1 %.not.i21, label %28, label %to_be_skipped.exit.thread
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds i8, ptr %25, i64 19
-  %28 = load i8, ptr %27, align 1
-  %.not.i21 = icmp eq i8 %28, 46
-  br i1 %.not.i21, label %29, label %to_be_skipped.exit.thread
-
-29:                                               ; preds = %26
-  %30 = getelementptr i8, ptr %25, i64 20
-  %31 = load i8, ptr %30, align 1
-  switch i8 %31, label %to_be_skipped.exit.thread [
+28:                                               ; preds = %.lr.ph
+  %29 = getelementptr i8, ptr %25, i64 20
+  %30 = load i8, ptr %29, align 1
+  switch i8 %30, label %to_be_skipped.exit.thread [
     i8 0, label %to_be_skipped.exit
-    i8 46, label %32
+    i8 46, label %31
   ]
 
-32:                                               ; preds = %29
-  %33 = getelementptr i8, ptr %25, i64 21
-  %34 = load i8, ptr %33, align 1
-  %.not8.i = icmp eq i8 %34, 0
-  %..i = zext i1 %.not8.i to i32
-  br label %to_be_skipped.exit
+31:                                               ; preds = %28
+  %32 = getelementptr i8, ptr %25, i64 21
+  %33 = load i8, ptr %32, align 1
+  %.not8.i = icmp eq i8 %33, 0
+  br i1 %.not8.i, label %to_be_skipped.exit, label %to_be_skipped.exit.thread
 
-to_be_skipped.exit:                               ; preds = %29, %32
-  %.0.i22 = phi i32 [ 1, %29 ], [ %..i, %32 ]
-  %.not20 = icmp eq i32 %.0.i22, 0
-  br i1 %.not20, label %to_be_skipped.exit.thread, label %24, !llvm.loop !83
+to_be_skipped.exit:                               ; preds = %31, %28
+  %34 = call ptr @readdir(ptr noundef nonnull %.014) #22
+  %.not19 = icmp eq ptr %34, null
+  br i1 %.not19, label %to_be_skipped.exit.thread, label %.lr.ph, !llvm.loop !83
 
-to_be_skipped.exit.thread:                        ; preds = %29, %26, %to_be_skipped.exit, %24
-  %.012 = phi i64 [ 20, %24 ], [ 0, %to_be_skipped.exit ], [ 0, %26 ], [ 0, %29 ]
+to_be_skipped.exit.thread:                        ; preds = %to_be_skipped.exit, %.lr.ph, %31, %28, %23
+  %.012 = phi i64 [ 20, %23 ], [ 0, %28 ], [ 0, %31 ], [ 0, %.lr.ph ], [ 20, %to_be_skipped.exit ]
   %35 = call i32 @closedir(ptr noundef nonnull %.014)
   %36 = inttoptr i64 %.012 to ptr
   br label %37

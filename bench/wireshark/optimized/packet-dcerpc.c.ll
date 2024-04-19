@@ -4935,17 +4935,17 @@ define internal noundef i32 @dcerpcstat_packet(ptr nocapture noundef readonly %0
   %72 = getelementptr i8, ptr %10, i64 22
   %73 = load i8, ptr %72, align 2
   %.not30.i = icmp eq i8 %71, %73
-  br i1 %.not30.i, label %uuid_equal.exit, label %uuid_equal.exit.thread
+  br i1 %.not30.i, label %74, label %uuid_equal.exit.thread
 
-uuid_equal.exit:                                  ; preds = %69
-  %74 = getelementptr i8, ptr %12, i64 15
-  %75 = load i8, ptr %74, align 1
-  %76 = getelementptr i8, ptr %10, i64 23
-  %77 = load i8, ptr %76, align 1
-  %.not31.i.not = icmp eq i8 %75, %77
-  br i1 %.not31.i.not, label %78, label %uuid_equal.exit.thread
+74:                                               ; preds = %69
+  %75 = getelementptr i8, ptr %12, i64 15
+  %76 = load i8, ptr %75, align 1
+  %77 = getelementptr i8, ptr %10, i64 23
+  %78 = load i8, ptr %77, align 1
+  %.not31.i = icmp eq i8 %76, %78
+  br i1 %.not31.i, label %uuid_equal.exit, label %uuid_equal.exit.thread
 
-78:                                               ; preds = %uuid_equal.exit
+uuid_equal.exit:                                  ; preds = %74
   %79 = getelementptr inbounds i8, ptr %12, i64 16
   %80 = load i16, ptr %79, align 8
   %81 = getelementptr inbounds i8, ptr %10, i64 24
@@ -4953,13 +4953,13 @@ uuid_equal.exit:                                  ; preds = %69
   %.not23 = icmp eq i16 %80, %82
   br i1 %.not23, label %83, label %uuid_equal.exit.thread
 
-83:                                               ; preds = %78
+83:                                               ; preds = %uuid_equal.exit
   %84 = getelementptr inbounds i8, ptr %12, i64 48
   tail call void @add_srt_table_data(ptr noundef nonnull %8, i32 noundef %19, ptr noundef nonnull %84, ptr noundef %1) #16
   br label %uuid_equal.exit.thread
 
-uuid_equal.exit.thread:                           ; preds = %25, %29, %34, %39, %44, %49, %54, %59, %64, %69, %uuid_equal.exit, %78, %22, %16, %13, %5, %83
-  %.0 = phi i32 [ 1, %83 ], [ 0, %5 ], [ 0, %13 ], [ 0, %16 ], [ 0, %22 ], [ 0, %78 ], [ 0, %uuid_equal.exit ], [ 0, %69 ], [ 0, %64 ], [ 0, %59 ], [ 0, %54 ], [ 0, %49 ], [ 0, %44 ], [ 0, %39 ], [ 0, %34 ], [ 0, %29 ], [ 0, %25 ]
+uuid_equal.exit.thread:                           ; preds = %74, %25, %29, %34, %39, %44, %49, %54, %59, %64, %69, %uuid_equal.exit, %22, %16, %13, %5, %83
+  %.0 = phi i32 [ 1, %83 ], [ 0, %5 ], [ 0, %13 ], [ 0, %16 ], [ 0, %22 ], [ 0, %uuid_equal.exit ], [ 0, %69 ], [ 0, %64 ], [ 0, %59 ], [ 0, %54 ], [ 0, %49 ], [ 0, %44 ], [ 0, %39 ], [ 0, %34 ], [ 0, %29 ], [ 0, %25 ], [ 0, %74 ]
   ret i32 %.0
 }
 

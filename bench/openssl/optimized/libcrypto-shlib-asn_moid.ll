@@ -25,26 +25,26 @@ entry:
   br i1 %cmp, label %return.sink.split, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %call39 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call1) #5
-  %cmp410 = icmp sgt i32 %call39, 0
-  br i1 %cmp410, label %for.body, label %return
+  %call310 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call1) #5
+  %cmp411 = icmp sgt i32 %call310, 0
+  br i1 %cmp411, label %for.body, label %return
 
-for.cond:                                         ; preds = %do_create.exit
-  %inc = add nuw nsw i32 %i.011, 1
+for.cond:                                         ; preds = %if.end42.i
+  %inc = add nuw nsw i32 %i.012, 1
   %call3 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %call1) #5
   %cmp4 = icmp slt i32 %inc, %call3
   br i1 %cmp4, label %for.body, label %return, !llvm.loop !4
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
-  %i.011 = phi i32 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
-  %call6 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call1, i32 noundef %i.011) #5
+  %i.012 = phi i32 [ %inc, %for.cond ], [ 0, %for.cond.preheader ]
+  %call6 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %call1, i32 noundef %i.012) #5
   %value = getelementptr inbounds i8, ptr %call6, i64 16
   %0 = load ptr, ptr %value, align 8
   %name = getelementptr inbounds i8, ptr %call6, i64 8
   %1 = load ptr, ptr %name, align 8
   %call.i = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 44) #6
   %cmp.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i, label %do_create.exit, label %if.else.i
+  br i1 %cmp.i, label %if.end42.i, label %if.else.i
 
 if.else.i:                                        ; preds = %for.body
   %cmp1.i = icmp eq ptr %call.i, %0
@@ -52,7 +52,7 @@ if.else.i:                                        ; preds = %for.body
 
 if.then2.i:                                       ; preds = %if.else.i
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 1
-  br label %do_create.exit
+  br label %if.end42.i
 
 if.else3.i:                                       ; preds = %if.else.i
   %add.ptr4.i = getelementptr inbounds i8, ptr %call.i, i64 1
@@ -104,9 +104,9 @@ if.end34.i:                                       ; preds = %while.end28.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call30.i, ptr nonnull align 1 %ln.0.i, i64 %sub.ptr.sub.i, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %call30.i, i64 %sub.ptr.sub.i
   store i8 0, ptr %arrayidx.i, align 1
-  br label %do_create.exit
+  br label %if.end42.i
 
-do_create.exit:                                   ; preds = %for.body, %if.then2.i, %if.end34.i
+if.end42.i:                                       ; preds = %if.end34.i, %if.then2.i, %for.body
   %ln.1.i = phi ptr [ %1, %if.then2.i ], [ %call30.i, %if.end34.i ], [ %1, %for.body ]
   %ostr.1.i = phi ptr [ %add.ptr.i, %if.then2.i ], [ %ostr.0.i, %if.end34.i ], [ %0, %for.body ]
   %lntmp.0.i = phi ptr [ null, %if.then2.i ], [ %call30.i, %if.end34.i ], [ null, %for.body ]
@@ -115,11 +115,11 @@ do_create.exit:                                   ; preds = %for.body, %if.then2
   %cmp44.i.not = icmp eq i32 %call43.i, 0
   br i1 %cmp44.i.not, label %return.sink.split, label %for.cond
 
-return.sink.split:                                ; preds = %do_create.exit, %if.else3.i, %while.end28.i, %while.body22.i, %entry
-  %.sink16 = phi i32 [ 32, %entry ], [ 38, %while.body22.i ], [ 38, %while.end28.i ], [ 38, %if.else3.i ], [ 38, %do_create.exit ]
-  %.sink = phi i32 [ 172, %entry ], [ 171, %while.body22.i ], [ 171, %while.end28.i ], [ 171, %if.else3.i ], [ 171, %do_create.exit ]
+return.sink.split:                                ; preds = %while.end28.i, %if.else3.i, %if.end42.i, %while.body22.i, %entry
+  %.sink17 = phi i32 [ 32, %entry ], [ 38, %while.body22.i ], [ 38, %if.end42.i ], [ 38, %if.else3.i ], [ 38, %while.end28.i ]
+  %.sink = phi i32 [ 172, %entry ], [ 171, %while.body22.i ], [ 171, %if.end42.i ], [ 171, %if.else3.i ], [ 171, %while.end28.i ]
   tail call void @ERR_new() #5
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef %.sink16, ptr noundef nonnull @__func__.oid_module_init) #5
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef %.sink17, ptr noundef nonnull @__func__.oid_module_init) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef %.sink, ptr noundef null) #5
   br label %return
 

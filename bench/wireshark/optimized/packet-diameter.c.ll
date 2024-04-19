@@ -532,21 +532,21 @@ define internal i32 @dissect_diameter(ptr noundef %0, ptr noundef %1, ptr nounde
   %15 = zext i8 %14 to i32
   %16 = and i32 %15, 15
   %.not11.i = icmp eq i32 %16, 0
-  br i1 %.not11.i, label %check_diameter.exit, label %check_diameter.exit.thread
+  br i1 %.not11.i, label %17, label %check_diameter.exit.thread
 
-check_diameter.exit:                              ; preds = %13
+17:                                               ; preds = %13
   %.not12.i = icmp sgt i8 %14, -1
-  %17 = and i32 %15, 32
-  %.not13.i = icmp eq i32 %17, 0
+  %18 = and i32 %15, 32
+  %.not13.i = icmp eq i32 %18, 0
   %or.cond14.i = or i1 %.not12.i, %.not13.i
-  br i1 %or.cond14.i, label %18, label %check_diameter.exit.thread
+  br i1 %or.cond14.i, label %check_diameter.exit, label %check_diameter.exit.thread
 
-18:                                               ; preds = %check_diameter.exit
+check_diameter.exit:                              ; preds = %17
   %19 = tail call i32 @dissect_diameter_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   br label %check_diameter.exit.thread
 
-check_diameter.exit.thread:                       ; preds = %13, %9, %7, %4, %check_diameter.exit, %18
-  %.0 = phi i32 [ %19, %18 ], [ 0, %check_diameter.exit ], [ 0, %4 ], [ 0, %7 ], [ 0, %9 ], [ 0, %13 ]
+check_diameter.exit.thread:                       ; preds = %17, %13, %9, %7, %4, %check_diameter.exit
+  %.0 = phi i32 [ %19, %check_diameter.exit ], [ 0, %4 ], [ 0, %7 ], [ 0, %9 ], [ 0, %13 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -2390,16 +2390,16 @@ define internal noundef i32 @dissect_diameter_tcp_heur(ptr noundef %0, ptr nound
   %15 = zext i8 %14 to i32
   %16 = and i32 %15, 15
   %.not11.i = icmp eq i32 %16, 0
-  br i1 %.not11.i, label %check_diameter.exit, label %check_diameter.exit.thread
+  br i1 %.not11.i, label %17, label %check_diameter.exit.thread
 
-check_diameter.exit:                              ; preds = %13
+17:                                               ; preds = %13
   %.not12.i = icmp sgt i8 %14, -1
-  %17 = and i32 %15, 32
-  %.not13.i = icmp eq i32 %17, 0
+  %18 = and i32 %15, 32
+  %.not13.i = icmp eq i32 %18, 0
   %or.cond14.i = or i1 %.not12.i, %.not13.i
-  br i1 %or.cond14.i, label %18, label %check_diameter.exit.thread
+  br i1 %or.cond14.i, label %check_diameter.exit, label %check_diameter.exit.thread
 
-18:                                               ; preds = %check_diameter.exit
+check_diameter.exit:                              ; preds = %17
   %19 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #13
   %20 = load ptr, ptr @diameter_tcp_handle, align 8
   tail call void @conversation_set_dissector(ptr noundef nonnull %19, ptr noundef %20) #13
@@ -2407,8 +2407,8 @@ check_diameter.exit:                              ; preds = %13
   tail call void @tcp_dissect_pdus(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %21, i32 noundef 4, ptr noundef nonnull @get_diameter_pdu_len, ptr noundef nonnull @dissect_diameter_common, ptr noundef %3) #13
   br label %check_diameter.exit.thread
 
-check_diameter.exit.thread:                       ; preds = %13, %9, %7, %4, %check_diameter.exit, %18
-  %.0 = phi i32 [ 1, %18 ], [ 0, %check_diameter.exit ], [ 0, %4 ], [ 0, %7 ], [ 0, %9 ], [ 0, %13 ]
+check_diameter.exit.thread:                       ; preds = %17, %13, %9, %7, %4, %check_diameter.exit
+  %.0 = phi i32 [ 1, %check_diameter.exit ], [ 0, %4 ], [ 0, %7 ], [ 0, %9 ], [ 0, %13 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -3265,7 +3265,7 @@ define internal fastcc i32 @dissect_diameter_avp(ptr noundef %0, ptr noundef %1,
   %26 = and i32 %11, 16777215
   %27 = and i32 %11, 3
   %.not = icmp eq i32 %27, 0
-  %28 = trunc i32 %27 to i8
+  %28 = trunc nuw nsw i32 %27 to i8
   %29 = sub nuw nsw i8 4, %28
   %30 = select i1 %.not, i8 0, i8 %29
   %.not184 = icmp eq ptr %25, null
@@ -4165,7 +4165,7 @@ define internal noundef ptr @build_simple_avp(ptr nocapture noundef readonly %0,
   br label %35
 
 switch.hole_check:                                ; preds = %9
-  %switch.maskindex = trunc i32 %switch.tableidx to i16
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
   %switch.shifted = lshr i16 2827, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   br i1 %switch.lobit, label %switch.lookup, label %13

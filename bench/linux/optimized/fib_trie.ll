@@ -7521,7 +7521,7 @@ define internal fastcc ptr @replace(ptr noundef %0, ptr noundef %1) unnamed_addr
   br i1 %45, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %39, %.thread
-  %46 = phi ptr [ %67, %.thread ], [ %1, %39 ]
+  %46 = phi ptr [ %68, %.thread ], [ %1, %39 ]
   %47 = phi i64 [ %49, %.thread ], [ %44, %39 ]
   %48 = getelementptr inbounds i8, ptr %46, i64 8
   %49 = add i64 %47, -1
@@ -7541,19 +7541,19 @@ define internal fastcc ptr @replace(ptr noundef %0, ptr noundef %1) unnamed_addr
   %61 = getelementptr inbounds i8, ptr %46, i64 4
   %62 = load i8, ptr %61, align 4
   %63 = zext i8 %62 to i32
-  %64 = icmp ne i32 %60, %63
-  %.not = icmp eq i8 %58, 0
-  %or.cond = or i1 %.not, %64
-  br i1 %or.cond, label %.thread, label %65
+  %64 = icmp eq i32 %60, %63
+  %65 = icmp ne i8 %58, 0
+  %or.cond = and i1 %65, %64
+  br i1 %or.cond, label %66, label %.thread
 
-65:                                               ; preds = %53
-  %66 = tail call fastcc ptr @resize(ptr noundef nonnull %51)
+66:                                               ; preds = %53
+  %67 = tail call fastcc ptr @resize(ptr noundef nonnull %51)
   br label %.thread
 
-.thread:                                          ; preds = %.preheader, %53, %65
-  %67 = phi ptr [ %66, %65 ], [ %46, %53 ], [ %46, %.preheader ]
-  %68 = icmp eq i64 %49, 0
-  br i1 %68, label %.loopexit, label %.preheader, !llvm.loop !92
+.thread:                                          ; preds = %.preheader, %53, %66
+  %68 = phi ptr [ %67, %66 ], [ %46, %53 ], [ %46, %.preheader ]
+  %69 = icmp eq i64 %49, 0
+  br i1 %69, label %.loopexit, label %.preheader, !llvm.loop !92
 
 .loopexit:                                        ; preds = %.thread, %39
   ret ptr %5

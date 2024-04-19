@@ -556,13 +556,13 @@ land.lhs.true.i:                                  ; preds = %while.end
   %3 = getelementptr i8, ptr %object.0, i64 8
   %op.val.i = load ptr, ptr %3, align 8
   %cmp.i.not.i = icmp eq ptr %op.val.i, @PyCapsule_Type
-  br i1 %cmp.i.not.i, label %land.lhs.true1.i, label %if.then.i.sink.split
+  br i1 %cmp.i.not.i, label %land.lhs.true1.i, label %EXIT.thread44
 
 land.lhs.true1.i:                                 ; preds = %land.lhs.true.i
   %pointer.i = getelementptr inbounds i8, ptr %object.0, i64 16
   %4 = load ptr, ptr %pointer.i, align 8
   %cmp2.not.i = icmp eq ptr %4, null
-  br i1 %cmp2.not.i, label %if.then.i.sink.split, label %land.rhs.i
+  br i1 %cmp2.not.i, label %EXIT.thread44, label %land.rhs.i
 
 land.rhs.i:                                       ; preds = %land.lhs.true1.i
   %name3.i = getelementptr inbounds i8, ptr %object.0, i64 24
@@ -570,29 +570,29 @@ land.rhs.i:                                       ; preds = %land.lhs.true1.i
   %tobool.i.i = icmp ne ptr %5, null
   %tobool1.i.i = icmp ne ptr %name, null
   %or.cond.i.i = and i1 %tobool1.i.i, %tobool.i.i
-  br i1 %or.cond.i.i, label %if.end.i.i, label %PyCapsule_IsValid.exit
+  br i1 %or.cond.i.i, label %if.end.i.i, label %name_matches.exit.i
 
 if.end.i.i:                                       ; preds = %land.rhs.i
   %call.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %name) #8
   %tobool2.not.i.i = icmp eq i32 %call.i.i, 0
-  br i1 %tobool2.not.i.i, label %if.then.i, label %if.then.i.sink.split
+  br i1 %tobool2.not.i.i, label %if.then.i, label %EXIT.thread44
 
-PyCapsule_IsValid.exit:                           ; preds = %land.rhs.i
+name_matches.exit.i:                              ; preds = %land.rhs.i
   %cmp.i4.i = icmp eq ptr %5, %name
-  br i1 %cmp.i4.i, label %if.then.i, label %if.then.i.sink.split
+  br i1 %cmp.i4.i, label %if.then.i, label %EXIT.thread44
 
-EXIT:                                             ; preds = %while.end
+EXIT.thread44:                                    ; preds = %name_matches.exit.i, %land.lhs.true.i, %land.lhs.true1.i, %if.end.i.i
   %6 = load ptr, ptr @PyExc_AttributeError, align 8
-  %call23 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %6, ptr noundef nonnull @.str.14, ptr noundef %name) #7
-  br label %Py_XDECREF.exit
-
-if.then.i.sink.split:                             ; preds = %land.lhs.true.i, %land.lhs.true1.i, %PyCapsule_IsValid.exit, %if.end.i.i
-  %7 = load ptr, ptr @PyExc_AttributeError, align 8
-  %call2347 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.14, ptr noundef %name) #7
+  %call2345 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %6, ptr noundef nonnull @.str.14, ptr noundef %name) #7
   br label %if.then.i
 
-if.then.i:                                        ; preds = %if.then.i.sink.split, %PyCapsule_IsValid.exit, %if.end.i.i
-  %return_value.041 = phi ptr [ %4, %if.end.i.i ], [ %4, %PyCapsule_IsValid.exit ], [ null, %if.then.i.sink.split ]
+EXIT:                                             ; preds = %while.end
+  %7 = load ptr, ptr @PyExc_AttributeError, align 8
+  %call23 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %7, ptr noundef nonnull @.str.14, ptr noundef %name) #7
+  br label %Py_XDECREF.exit
+
+if.then.i:                                        ; preds = %if.end.i.i, %name_matches.exit.i, %EXIT.thread44
+  %return_value.042 = phi ptr [ null, %EXIT.thread44 ], [ %4, %name_matches.exit.i ], [ %4, %if.end.i.i ]
   %8 = load i64, ptr %object.0, align 8
   %9 = and i64 %8, 2147483648
   %cmp.i2.not.i = icmp eq i64 %9, 0
@@ -609,12 +609,12 @@ if.then1.i.i:                                     ; preds = %if.end.i.i27
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %if.end15, %if.end15.thread, %EXIT, %if.then.i, %if.end.i.i27, %if.then1.i.i
-  %return_value.035 = phi ptr [ null, %EXIT ], [ %return_value.041, %if.then.i ], [ %return_value.041, %if.end.i.i27 ], [ %return_value.041, %if.then1.i.i ], [ null, %if.end15.thread ], [ null, %if.end15 ]
+  %return_value.036 = phi ptr [ null, %EXIT ], [ %return_value.042, %if.then.i ], [ %return_value.042, %if.end.i.i27 ], [ %return_value.042, %if.then1.i.i ], [ null, %if.end15.thread ], [ null, %if.end15 ]
   tail call void @PyMem_Free(ptr noundef nonnull %call1) #7
   br label %return
 
 return:                                           ; preds = %Py_XDECREF.exit, %if.then
-  %retval.0 = phi ptr [ %return_value.035, %Py_XDECREF.exit ], [ %call2, %if.then ]
+  %retval.0 = phi ptr [ %return_value.036, %Py_XDECREF.exit ], [ %call2, %if.then ]
   ret ptr %retval.0
 }
 

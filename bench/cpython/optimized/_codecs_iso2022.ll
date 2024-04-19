@@ -2440,15 +2440,15 @@ entry:
   %jisxcommon_encmap.i = getelementptr inbounds i8, ptr %0, i64 40
   %call.i = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.21, ptr noundef nonnull %jisxcommon_encmap.i, ptr noundef null), !range !15
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %jisx0208_init.exit, label %return
+  br i1 %tobool.not.i, label %lor.lhs.false.i, label %return
 
-jisx0208_init.exit:                               ; preds = %entry
+lor.lhs.false.i:                                  ; preds = %entry
   %jisx0208_decmap.i = getelementptr inbounds i8, ptr %0, i64 48
   %call1.i = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.22, ptr noundef null, ptr noundef nonnull %jisx0208_decmap.i), !range !15
   %tobool2.not.i.not = icmp eq i32 %call1.i, 0
   br i1 %tobool2.not.i.not, label %lor.lhs.false, label %return
 
-lor.lhs.false:                                    ; preds = %jisx0208_init.exit
+lor.lhs.false:                                    ; preds = %lor.lhs.false.i
   %jisx0213_bmp_encmap = getelementptr inbounds i8, ptr %0, i64 64
   %call1 = tail call fastcc i32 @importmap(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.27, ptr noundef nonnull %jisx0213_bmp_encmap, ptr noundef null), !range !15
   %tobool2.not = icmp eq i32 %call1, 0
@@ -2490,8 +2490,8 @@ lor.lhs.false18:                                  ; preds = %lor.lhs.false15
   %spec.select = sext i1 %tobool20.not to i32
   br label %return
 
-return:                                           ; preds = %entry, %lor.lhs.false18, %jisx0208_init.exit, %lor.lhs.false, %lor.lhs.false3, %lor.lhs.false6, %lor.lhs.false9, %lor.lhs.false12, %lor.lhs.false15
-  %retval.0 = phi i32 [ -1, %lor.lhs.false15 ], [ -1, %lor.lhs.false12 ], [ -1, %lor.lhs.false9 ], [ -1, %lor.lhs.false6 ], [ -1, %lor.lhs.false3 ], [ -1, %lor.lhs.false ], [ -1, %jisx0208_init.exit ], [ %spec.select, %lor.lhs.false18 ], [ -1, %entry ]
+return:                                           ; preds = %lor.lhs.false.i, %entry, %lor.lhs.false18, %lor.lhs.false, %lor.lhs.false3, %lor.lhs.false6, %lor.lhs.false9, %lor.lhs.false12, %lor.lhs.false15
+  %retval.0 = phi i32 [ -1, %lor.lhs.false15 ], [ -1, %lor.lhs.false12 ], [ -1, %lor.lhs.false9 ], [ -1, %lor.lhs.false6 ], [ -1, %lor.lhs.false3 ], [ -1, %lor.lhs.false ], [ %spec.select, %lor.lhs.false18 ], [ -1, %entry ], [ -1, %lor.lhs.false.i ]
   ret i32 %retval.0
 }
 

@@ -678,13 +678,13 @@ define hidden void @proto_reg_handoff_knxip() #0 {
   store i8 0, ptr @knx_decryption_key_count, align 1
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %24
-  %8 = phi i8 [ 0, %.lr.ph.preheader ], [ %25, %24 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %24 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %25
+  %8 = phi i8 [ 0, %.lr.ph.preheader ], [ %26, %25 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %25 ]
   %9 = getelementptr [10 x ptr], ptr @pref_key_texts, i64 0, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not8 = icmp eq ptr %10, null
-  br i1 %.not8, label %24, label %11
+  br i1 %.not8, label %25, label %11
 
 11:                                               ; preds = %.lr.ph
   %12 = zext nneg i8 %8 to i64
@@ -695,15 +695,10 @@ define hidden void @proto_reg_handoff_knxip() #0 {
   %15 = icmp eq ptr %14, null
   br i1 %15, label %hex_to_knx_key.exit.thread, label %16
 
-hex_to_knx_key.exit.thread:                       ; preds = %11
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  %.pre = load i8, ptr @knx_decryption_key_count, align 1
-  br label %24
-
 16:                                               ; preds = %11
   %17 = load i64, ptr %1, align 8
   %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %hex_to_knx_key.exit, label %18
+  br i1 %.not.i, label %.loopexit.i, label %18
 
 18:                                               ; preds = %16
   %19 = icmp ugt i64 %17, 16
@@ -712,42 +707,47 @@ hex_to_knx_key.exit.thread:                       ; preds = %11
 .thread.i:                                        ; preds = %18
   store i64 16, ptr %1, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, ptr noundef nonnull align 1 dereferenceable(16) %14, i64 16, i1 false)
-  br label %hex_to_knx_key.exit
+  br label %.loopexit.i
 
 20:                                               ; preds = %18
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %13, ptr nonnull align 1 %14, i64 %17, i1 false)
   %.not11.i = icmp eq i64 %17, 16
-  br i1 %.not11.i, label %hex_to_knx_key.exit, label %.lr.ph.preheader.i
+  br i1 %.not11.i, label %.loopexit.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %20
   %scevgep.i = getelementptr i8, ptr %13, i64 %17
   %21 = sub nuw nsw i64 16, %17
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 0, i64 %21, i1 false)
   store i64 16, ptr %1, align 8
-  br label %hex_to_knx_key.exit
+  br label %.loopexit.i
 
-hex_to_knx_key.exit:                              ; preds = %16, %.thread.i, %20, %.lr.ph.preheader.i
+.loopexit.i:                                      ; preds = %.lr.ph.preheader.i, %20, %.thread.i, %16
   call void @g_free(ptr noundef nonnull %14) #9
   %.pre.i = load i64, ptr %1, align 8
   %.not11 = icmp eq i64 %.pre.i, 0
+  br i1 %.not11, label %hex_to_knx_key.exit.thread, label %22
+
+hex_to_knx_key.exit.thread:                       ; preds = %.loopexit.i, %11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  %.pre14 = load i8, ptr @knx_decryption_key_count, align 1
-  br i1 %.not11, label %24, label %22
+  %.pre = load i8, ptr @knx_decryption_key_count, align 1
+  br label %25
 
-22:                                               ; preds = %hex_to_knx_key.exit
-  %23 = add i8 %.pre14, 1
-  store i8 %23, ptr @knx_decryption_key_count, align 1
-  br label %24
+22:                                               ; preds = %.loopexit.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
+  %23 = load i8, ptr @knx_decryption_key_count, align 1
+  %24 = add i8 %23, 1
+  store i8 %24, ptr @knx_decryption_key_count, align 1
+  br label %25
 
-24:                                               ; preds = %hex_to_knx_key.exit.thread, %.lr.ph, %22, %hex_to_knx_key.exit
-  %25 = phi i8 [ %.pre, %hex_to_knx_key.exit.thread ], [ %8, %.lr.ph ], [ %23, %22 ], [ %.pre14, %hex_to_knx_key.exit ]
+25:                                               ; preds = %hex_to_knx_key.exit.thread, %.lr.ph, %22
+  %26 = phi i8 [ %.pre, %hex_to_knx_key.exit.thread ], [ %8, %.lr.ph ], [ %24, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %26 = icmp ult i64 %indvars.iv, 9
-  %27 = icmp ult i8 %25, 10
-  %28 = select i1 %26, i1 %27, i1 false
-  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  %27 = icmp ult i64 %indvars.iv, 9
+  %28 = icmp ult i8 %26, 10
+  %29 = select i1 %27, i1 %28, i1 false
+  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %24
+._crit_edge:                                      ; preds = %25
   ret void
 }
 

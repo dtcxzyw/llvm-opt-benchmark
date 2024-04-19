@@ -229,7 +229,7 @@ define dso_local noundef i32 @ipv6_parse_hopopts(ptr noundef %0) local_unnamed_a
 
 51:                                               ; preds = %44
   %52 = load i16, ptr %22, align 2
-  %53 = trunc i32 %40 to i16
+  %53 = trunc nuw nsw i32 %40 to i16
   %54 = add i16 %52, %53
   store i16 %54, ptr %22, align 2
   %55 = getelementptr inbounds i8, ptr %0, i64 54
@@ -1979,7 +1979,7 @@ define internal noundef i32 @ipv6_rthdr_rcv(ptr noundef %0) #3 align 16 {
   br label %.thread.i
 
 .thread.i:                                        ; preds = %297, %271, %267
-  %302 = phi ptr [ %301, %297 ], [ %243, %271 ], [ %243, %267 ]
+  %302 = phi ptr [ %301, %297 ], [ %243, %267 ], [ %243, %271 ]
   %303 = getelementptr inbounds i8, ptr %302, i64 3
   %304 = load i8, ptr %303, align 1
   %305 = add i8 %304, -1
@@ -2461,7 +2461,7 @@ define internal noundef i32 @ipv6_rthdr_rcv(ptr noundef %0) #3 align 16 {
   br label %ipv6_srh_rcv.exit
 
 628:                                              ; preds = %607
-  %629 = trunc i64 %577 to i8
+  %629 = trunc nuw i64 %577 to i8
   %630 = tail call i32 @ipv6_chk_rpl_srh_loop(ptr noundef %425, ptr noundef %622, i8 noundef zeroext %629) #10
   %631 = icmp eq i32 %630, 0
   br i1 %631, label %634, label %632
@@ -3038,7 +3038,7 @@ define internal noundef i32 @ipv6_destopt_rcv(ptr noundef %0) #3 align 16 {
 
 86:                                               ; preds = %77
   %87 = load i16, ptr %14, align 2
-  %88 = trunc i32 %.pre-phi27 to i16
+  %88 = trunc nuw nsw i32 %.pre-phi27 to i16
   %89 = add i16 %87, %88
   store i16 %89, ptr %14, align 2
   %90 = load i16, ptr %81, align 2

@@ -555,20 +555,20 @@ land.lhs.true.i.i.i:                              ; preds = %if.end.i.i.i
   %11 = and i32 %call4.i.i.i, 536870911
   switch i32 %11, label %GeneratePrivateDh.exit.thread21.i [
     i32 128, label %sw.bb.i.i.i.i
-    i32 256, label %CheckDhLN.exit.i.i.i
+    i32 256, label %sw.bb1.i.i.i.i
   ]
 
 sw.bb.i.i.i.i:                                    ; preds = %land.lhs.true.i.i.i
   %cmp.i.not.i.i.i = icmp eq i32 %mul5.i.i.i, 160
   br i1 %cmp.i.not.i.i.i, label %if.end12.i.i.i, label %GeneratePrivateDh.exit.thread21.i
 
-CheckDhLN.exit.i.i.i:                             ; preds = %land.lhs.true.i.i.i
+sw.bb1.i.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
   %12 = add i32 %mul5.i.i.i, -224
   %switch.and.i.i.i.i = and i32 %12, -40
   %switch.selectcmp.i.not.i.i.i = icmp eq i32 %switch.and.i.i.i.i, 0
   br i1 %switch.selectcmp.i.not.i.i.i, label %if.end12.i.i.i, label %GeneratePrivateDh.exit.thread21.i
 
-if.end12.i.i.i:                                   ; preds = %CheckDhLN.exit.i.i.i, %sw.bb.i.i.i.i, %if.end.i.i.i
+if.end12.i.i.i:                                   ; preds = %sw.bb1.i.i.i.i, %sw.bb.i.i.i.i, %if.end.i.i.i
   %13 = load i32, ptr %privSz, align 4
   %add.i.i.i = add i32 %13, 8
   %call14.i.i.i = call i32 @sp_init_multi(ptr noundef nonnull %tmpX.i.i.i, ptr noundef nonnull %tmpQ.i.i.i, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #13
@@ -586,7 +586,7 @@ if.end28.i.i.i:                                   ; preds = %do.body19.i.i.i
   br i1 %cmp29.not.i.i.i, label %do.cond.i.i.i, label %GeneratePrivateDh.exit.thread24.i
 
 GeneratePrivateDh.exit.thread24.i:                ; preds = %if.end28.i.i.i, %do.body19.i.i.i
-  %err.028.i.i.i = phi i32 [ %call27.i.i.i, %if.end28.i.i.i ], [ %call21.i.i.i, %do.body19.i.i.i ]
+  %err.030.i.i.i = phi i32 [ %call27.i.i.i, %if.end28.i.i.i ], [ %call21.i.i.i, %do.body19.i.i.i ]
   call void @sp_clear(ptr noundef nonnull %tmpX.i.i.i) #13
   call void @sp_clear(ptr noundef nonnull %tmpQ.i.i.i) #13
   call void @llvm.lifetime.end.p0(i64 1040, ptr nonnull %tmpQ.i.i.i)
@@ -724,8 +724,8 @@ GeneratePrivateDh.exit.thread17.i:                ; preds = %if.end29.i.i
   store i32 %sz.0.i.i, ptr %privSz, align 4
   br label %if.then11.i
 
-GeneratePrivateDh.exit.thread21.i:                ; preds = %if.end12.i.i.i, %CheckDhLN.exit.i.i.i, %sw.bb.i.i.i.i, %land.lhs.true.i.i.i
-  %retval.0.i.i.ph.i = phi i32 [ -173, %sw.bb.i.i.i.i ], [ -173, %land.lhs.true.i.i.i ], [ %call14.i.i.i, %if.end12.i.i.i ], [ -173, %CheckDhLN.exit.i.i.i ]
+GeneratePrivateDh.exit.thread21.i:                ; preds = %if.end12.i.i.i, %sw.bb1.i.i.i.i, %sw.bb.i.i.i.i, %land.lhs.true.i.i.i
+  %retval.0.i.i.ph.i = phi i32 [ -173, %sw.bb1.i.i.i.i ], [ -173, %sw.bb.i.i.i.i ], [ -173, %land.lhs.true.i.i.i ], [ %call14.i.i.i, %if.end12.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 1040, ptr nonnull %tmpQ.i.i.i)
   call void @llvm.lifetime.end.p0(i64 1040, ptr nonnull %tmpX.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4104, ptr nonnull %cBuf.i.i.i)
@@ -793,7 +793,7 @@ GeneratePublicDh.exit.i:                          ; preds = %if.end30.i.i, %if.e
   br label %return
 
 return:                                           ; preds = %GeneratePublicDh.exit.i, %GeneratePrivateDh.exit.i, %GeneratePrivateDh.exit.thread21.i, %if.end29.i.i, %sw.epilog.i.i, %GeneratePrivateDh.exit.thread24.i, %land.rhs.i.i, %entry
-  %retval.0 = phi i32 [ -173, %entry ], [ %retval.0.i.i, %GeneratePublicDh.exit.i ], [ %err.6.i.i.i, %GeneratePrivateDh.exit.i ], [ %retval.0.i.i.ph.i, %GeneratePrivateDh.exit.thread21.i ], [ %err.028.i.i.i, %GeneratePrivateDh.exit.thread24.i ], [ -234, %sw.epilog.i.i ], [ -3, %land.rhs.i.i ], [ %call28.i.i, %if.end29.i.i ]
+  %retval.0 = phi i32 [ -173, %entry ], [ %retval.0.i.i, %GeneratePublicDh.exit.i ], [ %err.6.i.i.i, %GeneratePrivateDh.exit.i ], [ %retval.0.i.i.ph.i, %GeneratePrivateDh.exit.thread21.i ], [ %err.030.i.i.i, %GeneratePrivateDh.exit.thread24.i ], [ -234, %sw.epilog.i.i ], [ -3, %land.rhs.i.i ], [ %call28.i.i, %if.end29.i.i ]
   ret i32 %retval.0
 }
 

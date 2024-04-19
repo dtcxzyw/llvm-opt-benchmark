@@ -461,34 +461,34 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   %101 = load ptr, ptr %3, align 8
   %102 = icmp ne ptr %101, null
   %or.cond = select i1 %100, i1 %102, i1 false
-  br i1 %or.cond, label %103, label %107
+  br i1 %or.cond, label %103, label %109
 
 103:                                              ; preds = %98
   %104 = load i8, ptr %101, align 1
   %.not64 = icmp eq i8 %104, 0
-  br i1 %.not64, label %107, label %105
+  br i1 %.not64, label %109, label %105
 
 105:                                              ; preds = %103
   %106 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %101) #12
-  br label %109
+  %107 = getelementptr inbounds i8, ptr %5, i64 54
+  %or.cond.i102 = icmp ugt i64 %106, 4294967295
+  %..i103 = call i64 @llvm.umin.i64(i64 %106, i64 4294967295)
+  %108 = call fastcc i64 @format_hex_recursive(i64 noundef %..i103, ptr noundef nonnull %107, i32 noundef 8), !range !6
+  br i1 %or.cond.i102, label %select.unfold, label %113
 
-107:                                              ; preds = %103, %98
-  %108 = call i64 @archive_entry_size(ptr noundef %1) #10
-  br label %109
+109:                                              ; preds = %103, %98
+  %110 = call i64 @archive_entry_size(ptr noundef %1) #10
+  %111 = getelementptr inbounds i8, ptr %5, i64 54
+  %or.cond.i106 = icmp ugt i64 %110, 4294967295
+  %..i107 = call i64 @llvm.umin.i64(i64 %110, i64 4294967295)
+  %112 = call fastcc i64 @format_hex_recursive(i64 noundef %..i107, ptr noundef nonnull %111, i32 noundef 8), !range !6
+  br i1 %or.cond.i106, label %select.unfold, label %113
 
-109:                                              ; preds = %107, %105
-  %.sink109 = phi i64 [ %108, %107 ], [ %106, %105 ]
-  %110 = getelementptr inbounds i8, ptr %5, i64 54
-  %..i107 = call i64 @llvm.umin.i64(i64 %.sink109, i64 4294967295)
-  %111 = call fastcc i64 @format_hex_recursive(i64 noundef %..i107, ptr noundef nonnull %110, i32 noundef 8), !range !6
-  %.0.in = icmp ult i64 %.sink109, 4294967296
-  br i1 %.0.in, label %113, label %112
-
-112:                                              ; preds = %109
+select.unfold:                                    ; preds = %109, %105
   call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 34, ptr noundef nonnull @.str.14) #10
   br label %142
 
-113:                                              ; preds = %109
+113:                                              ; preds = %105, %109
   %114 = call i32 @__archive_write_output(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef 110) #10
   %.not66 = icmp eq i32 %114, 0
   br i1 %.not66, label %115, label %142
@@ -544,8 +544,8 @@ get_sconv.exit:                                   ; preds = %2, %._crit_edge.i, 
   %spec.select = select i1 %.not73, i32 %.2, i32 -30
   br label %142
 
-142:                                              ; preds = %136, %133, %121, %115, %113, %124, %131, %112, %94, %23
-  %.3 = phi i32 [ -30, %23 ], [ -30, %94 ], [ -25, %112 ], [ %.2, %131 ], [ %.2, %124 ], [ -30, %113 ], [ -30, %115 ], [ -30, %121 ], [ -30, %133 ], [ %spec.select, %136 ]
+142:                                              ; preds = %136, %133, %121, %115, %113, %124, %131, %select.unfold, %94, %23
+  %.3 = phi i32 [ -30, %23 ], [ -30, %94 ], [ -25, %select.unfold ], [ %.2, %131 ], [ %.2, %124 ], [ -30, %113 ], [ -30, %115 ], [ -30, %121 ], [ -30, %133 ], [ %spec.select, %136 ]
   call void @archive_entry_free(ptr noundef null) #10
   ret i32 %.3
 }

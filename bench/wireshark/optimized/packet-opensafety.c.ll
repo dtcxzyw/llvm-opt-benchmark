@@ -4981,27 +4981,27 @@ proto_item_set_generated.exit183.i:               ; preds = %1844, %1841, %1835
   br i1 %1706, label %1866, label %dissect_opensafety_checksum.exit.thread
 
 1866:                                             ; preds = %1865
-  br i1 %.not170.i, label %dissect_opensafety_checksum.exit, label %1867
+  br i1 %.not170.i, label %1871, label %1867
 
 1867:                                             ; preds = %1866
   %1868 = getelementptr inbounds i8, ptr %0, i64 52
   %1869 = load i32, ptr %1868, align 4
-  %1870 = icmp ne i32 %1869, 0
-  br label %dissect_opensafety_checksum.exit
+  %1870 = icmp eq i32 %1869, 0
+  br label %1871
 
-dissect_opensafety_checksum.exit:                 ; preds = %1866, %1867
-  %not..i = phi i1 [ true, %1866 ], [ %1870, %1867 ]
-  %1871 = zext i16 %.4.i to i32
-  %1872 = icmp ne i32 %.2164.i, %1871
-  %narrow.i = select i1 %not..i, i1 %1872, i1 false
-  br i1 %narrow.i, label %dissect_opensafety_checksum.exit.thread, label %1873
+1871:                                             ; preds = %1867, %1866
+  %not..i = phi i1 [ false, %1866 ], [ %1870, %1867 ]
+  %1872 = zext i16 %.4.i to i32
+  %1873 = icmp eq i32 %.2164.i, %1872
+  %narrow.i = select i1 %not..i, i1 true, i1 %1873
+  br i1 %narrow.i, label %dissect_opensafety_checksum.exit, label %dissect_opensafety_checksum.exit.thread
 
-1873:                                             ; preds = %dissect_opensafety_checksum.exit
+dissect_opensafety_checksum.exit:                 ; preds = %1871
   %1874 = load i8, ptr %27, align 1
   %1875 = icmp eq i8 %1874, -96
   br i1 %1875, label %1876, label %dissect_opensafety_checksum.exit.thread
 
-1876:                                             ; preds = %1873
+1876:                                             ; preds = %dissect_opensafety_checksum.exit
   %1877 = load i16, ptr %11, align 4
   %1878 = zext i16 %1877 to i32
   %1879 = add nuw nsw i32 %1878, 1
@@ -5018,7 +5018,7 @@ dissect_opensafety_checksum.exit:                 ; preds = %1866, %1867
   %1887 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %3, ptr noundef nonnull @ei_crc_frame_1_valid_frame2_invalid) #10
   br label %dissect_opensafety_checksum.exit.thread
 
-dissect_opensafety_checksum.exit.thread:          ; preds = %1865, %.critedge, %1876, %1886, %1873, %dissect_opensafety_checksum.exit
+dissect_opensafety_checksum.exit.thread:          ; preds = %1871, %1865, %.critedge, %1876, %1886, %dissect_opensafety_checksum.exit
   ret void
 }
 

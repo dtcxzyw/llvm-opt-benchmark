@@ -15,33 +15,32 @@ define dso_local void @intel_guc_rc_init_early(ptr nocapture noundef %0) local_u
   %2 = getelementptr inbounds i8, ptr %0, i64 1264
   %3 = load i8, ptr %2, align 8, !range !5, !noundef !6
   %4 = icmp eq i8 %3, 0
-  br i1 %4, label %.thread, label %6
+  br i1 %4, label %.thread, label %5
 
-.thread:                                          ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 1284
-  store i8 0, ptr %5, align 4
-  br label %17
+5:                                                ; preds = %1
+  %6 = getelementptr i8, ptr %0, i64 -632
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %7, i64 7176
+  %9 = load i8, ptr %8, align 8
+  %10 = icmp ugt i8 %9, 11
+  br i1 %10, label %12, label %.thread
 
-6:                                                ; preds = %1
-  %7 = getelementptr i8, ptr %0, i64 -632
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 7176
-  %10 = load i8, ptr %9, align 8
-  %11 = icmp ugt i8 %10, 11
-  %12 = zext i1 %11 to i8
+.thread:                                          ; preds = %1, %5
+  %11 = getelementptr inbounds i8, ptr %0, i64 1284
+  store i8 0, ptr %11, align 4
+  br label %16
+
+12:                                               ; preds = %5
   %13 = getelementptr inbounds i8, ptr %0, i64 1284
-  store i8 %12, ptr %13, align 4
-  br i1 %11, label %14, label %17
+  store i8 1, ptr %13, align 4
+  %14 = getelementptr inbounds i8, ptr %0, i64 1265
+  %15 = load i8, ptr %14, align 1, !range !5, !noundef !6
+  br label %16
 
-14:                                               ; preds = %6
-  %15 = getelementptr inbounds i8, ptr %0, i64 1265
-  %16 = load i8, ptr %15, align 1, !range !5, !noundef !6
-  br label %17
-
-17:                                               ; preds = %.thread, %14, %6
-  %18 = phi i8 [ %16, %14 ], [ 0, %6 ], [ 0, %.thread ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 1285
-  store i8 %18, ptr %19, align 1
+16:                                               ; preds = %.thread, %12
+  %17 = phi i8 [ %15, %12 ], [ 0, %.thread ]
+  %18 = getelementptr inbounds i8, ptr %0, i64 1285
+  store i8 %17, ptr %18, align 1
   ret void
 }
 

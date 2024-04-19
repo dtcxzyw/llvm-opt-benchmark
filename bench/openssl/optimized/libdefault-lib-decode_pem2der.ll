@@ -92,15 +92,15 @@ entry:
   %0 = load ptr, ptr %vctx, align 8
   %call.i = tail call ptr @ossl_bio_new_from_core_bio(ptr noundef %0, ptr noundef %cin) #4
   %cmp.i = icmp eq ptr %call.i, null
-  br i1 %cmp.i, label %return, label %read_pem.exit
+  br i1 %cmp.i, label %return, label %if.end.i
 
-read_pem.exit:                                    ; preds = %entry
+if.end.i:                                         ; preds = %entry
   %call1.i = call i32 @PEM_read_bio(ptr noundef nonnull %call.i, ptr noundef nonnull %pem_name, ptr noundef nonnull %pem_header, ptr noundef nonnull %der, ptr noundef nonnull %der_len) #4
-  %cmp2.i = icmp slt i32 %call1.i, 1
+  %cmp2.i = icmp sgt i32 %call1.i, 0
   %call3.i = call i32 @BIO_free(ptr noundef nonnull %call.i) #4
-  br i1 %cmp2.i, label %return, label %if.end
+  br i1 %cmp2.i, label %if.end, label %return
 
-if.end:                                           ; preds = %read_pem.exit
+if.end:                                           ; preds = %if.end.i
   %1 = load ptr, ptr %pem_header, align 8
   %call1 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #5
   %cmp2 = icmp ugt i64 %call1, 10
@@ -125,13 +125,13 @@ if.end11:                                         ; preds = %lor.lhs.false, %if.
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %inc = add nuw nsw i64 %i.017, 1
+  %inc = add nuw nsw i64 %i.018, 1
   %exitcond.not = icmp eq i64 %inc, 17
   br i1 %exitcond.not, label %end, label %for.body, !llvm.loop !4
 
 for.body:                                         ; preds = %if.end11, %for.cond
-  %i.017 = phi i64 [ 0, %if.end11 ], [ %inc, %for.cond ]
-  %arrayidx = getelementptr inbounds [17 x %struct.pem_name_map_st], ptr @pem2der_decode.pem_name_map, i64 0, i64 %i.017
+  %i.018 = phi i64 [ 0, %if.end11 ], [ %inc, %for.cond ]
+  %arrayidx = getelementptr inbounds [17 x %struct.pem_name_map_st], ptr @pem2der_decode.pem_name_map, i64 0, i64 %i.018
   %4 = load ptr, ptr %arrayidx, align 16
   %call15 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #5
   %cmp16 = icmp eq i32 %call15, 0
@@ -190,8 +190,8 @@ end:                                              ; preds = %for.cond, %if.end37
   call void @CRYPTO_free(ptr noundef %12, ptr noundef nonnull @.str, i32 noundef 211) #4
   br label %return
 
-return:                                           ; preds = %entry, %read_pem.exit, %end
-  %retval.0 = phi i32 [ %ok.0, %end ], [ 1, %read_pem.exit ], [ 1, %entry ]
+return:                                           ; preds = %entry, %if.end.i, %end
+  %retval.0 = phi i32 [ %ok.0, %end ], [ 1, %if.end.i ], [ 1, %entry ]
   ret i32 %retval.0
 }
 

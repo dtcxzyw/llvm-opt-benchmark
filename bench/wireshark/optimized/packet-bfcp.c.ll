@@ -325,15 +325,15 @@ define internal i32 @dissect_bfcp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
   %14 = add i8 %13, -19
   %or.cond17.i = icmp ult i8 %14, -18
-  br i1 %or.cond17.i, label %dissect_bfcp_heur_check.exit.thread, label %dissect_bfcp_heur_check.exit
+  br i1 %or.cond17.i, label %dissect_bfcp_heur_check.exit.thread, label %15
 
-dissect_bfcp_heur_check.exit:                     ; preds = %12
-  %15 = zext nneg i8 %13 to i32
-  %16 = tail call ptr @try_val_to_str(i32 noundef %15, ptr noundef nonnull @map_bfcp_primitive) #4
-  %.not65 = icmp eq ptr %16, null
-  br i1 %.not65, label %dissect_bfcp_heur_check.exit.thread, label %17
+15:                                               ; preds = %12
+  %16 = zext nneg i8 %13 to i32
+  %17 = tail call ptr @try_val_to_str(i32 noundef %16, ptr noundef nonnull @map_bfcp_primitive) #4
+  %.not = icmp eq ptr %17, null
+  br i1 %.not, label %dissect_bfcp_heur_check.exit.thread, label %dissect_bfcp_heur_check.exit
 
-17:                                               ; preds = %dissect_bfcp_heur_check.exit
+dissect_bfcp_heur_check.exit:                     ; preds = %15
   %18 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
   %19 = zext i8 %18 to i32
   %20 = tail call ptr @try_val_to_str(i32 noundef %19, ptr noundef nonnull @map_bfcp_primitive) #4
@@ -352,7 +352,7 @@ dissect_bfcp_heur_check.exit:                     ; preds = %12
   %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %31, label %52
 
-31:                                               ; preds = %17
+31:                                               ; preds = %dissect_bfcp_heur_check.exit
   %32 = getelementptr inbounds i8, ptr %1, i64 20
   %33 = load i32, ptr %32, align 4
   %34 = getelementptr inbounds i8, ptr %1, i64 184
@@ -382,8 +382,8 @@ dissect_bfcp_heur_check.exit:                     ; preds = %12
   tail call void @p_add_proto_data(ptr noundef %50, ptr noundef nonnull %1, i32 noundef %51, i32 noundef 0, ptr noundef %49) #4
   br label %52
 
-52:                                               ; preds = %47, %17
-  %.0.i62 = phi ptr [ %30, %17 ], [ %46, %47 ]
+52:                                               ; preds = %47, %dissect_bfcp_heur_check.exit
+  %.0.i62 = phi ptr [ %30, %dissect_bfcp_heur_check.exit ], [ %46, %47 ]
   %53 = load i8, ptr %.0.i62, align 4
   %.not39.i = icmp eq i8 %53, 0
   br i1 %.not39.i, label %show_setup_info.exit, label %54
@@ -492,8 +492,8 @@ show_setup_info.exit:                             ; preds = %31, %44, %52, %prot
   %116 = call i32 @tvb_captured_length(ptr noundef %0) #4
   br label %dissect_bfcp_heur_check.exit.thread
 
-dissect_bfcp_heur_check.exit.thread:              ; preds = %12, %8, %4, %dissect_bfcp_heur_check.exit, %111
-  %.0 = phi i32 [ %116, %111 ], [ 0, %dissect_bfcp_heur_check.exit ], [ 0, %4 ], [ 0, %8 ], [ 0, %12 ]
+dissect_bfcp_heur_check.exit.thread:              ; preds = %15, %12, %8, %4, %111
+  %.0 = phi i32 [ %116, %111 ], [ 0, %4 ], [ 0, %8 ], [ 0, %12 ], [ 0, %15 ]
   ret i32 %.0
 }
 
@@ -547,20 +547,20 @@ define internal noundef i32 @dissect_bfcp_heur(ptr noundef %0, ptr noundef %1, p
   %12 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
   %13 = add i8 %12, -19
   %or.cond17.i = icmp ult i8 %13, -18
-  br i1 %or.cond17.i, label %dissect_bfcp_heur_check.exit.thread, label %dissect_bfcp_heur_check.exit
+  br i1 %or.cond17.i, label %dissect_bfcp_heur_check.exit.thread, label %14
 
-dissect_bfcp_heur_check.exit:                     ; preds = %11
-  %14 = zext nneg i8 %12 to i32
-  %15 = tail call ptr @try_val_to_str(i32 noundef %14, ptr noundef nonnull @map_bfcp_primitive) #4
-  %.not10 = icmp eq ptr %15, null
-  br i1 %.not10, label %dissect_bfcp_heur_check.exit.thread, label %16
+14:                                               ; preds = %11
+  %15 = zext nneg i8 %12 to i32
+  %16 = tail call ptr @try_val_to_str(i32 noundef %15, ptr noundef nonnull @map_bfcp_primitive) #4
+  %.not = icmp eq ptr %16, null
+  br i1 %.not, label %dissect_bfcp_heur_check.exit.thread, label %dissect_bfcp_heur_check.exit
 
-16:                                               ; preds = %dissect_bfcp_heur_check.exit
+dissect_bfcp_heur_check.exit:                     ; preds = %14
   %17 = tail call i32 @dissect_bfcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   br label %dissect_bfcp_heur_check.exit.thread
 
-dissect_bfcp_heur_check.exit.thread:              ; preds = %11, %7, %4, %dissect_bfcp_heur_check.exit, %16
-  %.0 = phi i32 [ 1, %16 ], [ 0, %dissect_bfcp_heur_check.exit ], [ 0, %4 ], [ 0, %7 ], [ 0, %11 ]
+dissect_bfcp_heur_check.exit.thread:              ; preds = %14, %11, %7, %4, %dissect_bfcp_heur_check.exit
+  %.0 = phi i32 [ 1, %dissect_bfcp_heur_check.exit ], [ 0, %4 ], [ 0, %7 ], [ 0, %11 ], [ 0, %14 ]
   ret i32 %.0
 }
 

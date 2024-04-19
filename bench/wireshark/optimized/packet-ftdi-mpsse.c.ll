@@ -1749,7 +1749,7 @@ define internal fastcc ptr @get_recorded_command_data(ptr noundef %0, ptr nounde
   store ptr null, ptr %32, align 8
   %33 = call ptr @wmem_tree_lookup32_array_le(ptr noundef %0, ptr noundef nonnull %9) #6
   %.not = icmp eq ptr %33, null
-  br i1 %.not, label %is_same_mpsse_instance.exit.thread, label %34
+  br i1 %.not, label %is_same_mpsse_instance.exit, label %34
 
 34:                                               ; preds = %3
   %35 = load i32, ptr %2, align 4
@@ -1776,20 +1776,20 @@ define internal fastcc ptr @get_recorded_command_data(ptr noundef %0, ptr nounde
   %50 = getelementptr inbounds i8, ptr %33, i64 12
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %49, %51
-  br i1 %52, label %is_same_mpsse_instance.exit, label %is_same_mpsse_instance.exit.thread
+  br i1 %52, label %53, label %is_same_mpsse_instance.exit.thread
 
-is_same_mpsse_instance.exit:                      ; preds = %48
-  %53 = load i32, ptr %17, align 4
-  %54 = getelementptr inbounds i8, ptr %33, i64 16
-  %55 = load i32, ptr %54, align 4
-  %.not15 = icmp eq i32 %53, %55
-  br i1 %.not15, label %56, label %is_same_mpsse_instance.exit.thread
+53:                                               ; preds = %48
+  %54 = load i32, ptr %17, align 4
+  %55 = getelementptr inbounds i8, ptr %33, i64 16
+  %56 = load i32, ptr %55, align 4
+  %57 = icmp eq i32 %54, %56
+  br i1 %57, label %is_same_mpsse_instance.exit, label %is_same_mpsse_instance.exit.thread
 
-is_same_mpsse_instance.exit.thread:               ; preds = %34, %38, %43, %48, %is_same_mpsse_instance.exit, %3
-  br label %56
+is_same_mpsse_instance.exit.thread:               ; preds = %48, %43, %38, %34, %53
+  br label %is_same_mpsse_instance.exit
 
-56:                                               ; preds = %is_same_mpsse_instance.exit, %is_same_mpsse_instance.exit.thread
-  %.0 = phi ptr [ null, %is_same_mpsse_instance.exit.thread ], [ %33, %is_same_mpsse_instance.exit ]
+is_same_mpsse_instance.exit:                      ; preds = %3, %is_same_mpsse_instance.exit.thread, %53
+  %.0 = phi ptr [ %33, %53 ], [ null, %is_same_mpsse_instance.exit.thread ], [ null, %3 ]
   ret ptr %.0
 }
 

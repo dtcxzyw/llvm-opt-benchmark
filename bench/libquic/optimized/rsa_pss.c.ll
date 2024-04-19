@@ -176,11 +176,7 @@ lor.lhs.false49:                                  ; preds = %if.end4.i, %if.end4
   store ptr null, ptr %maskGenAlgorithm, align 8
   %call.i13 = call i32 @EVP_MD_type(ptr noundef %13) #3
   %cmp.i14 = icmp eq i32 %call.i13, 64
-  br i1 %cmp.i14, label %rsa_md_to_mgf1.exit.thread, label %if.end.i15
-
-rsa_md_to_mgf1.exit.thread:                       ; preds = %lor.lhs.false49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %stmp.i)
-  br label %if.end53
+  br i1 %cmp.i14, label %if.end53, label %if.end.i15
 
 if.end.i15:                                       ; preds = %lor.lhs.false49
   %call.i.i = call i32 @EVP_MD_type(ptr noundef %13) #3
@@ -190,7 +186,7 @@ if.end.i15:                                       ; preds = %lor.lhs.false49
 if.end.i.i:                                       ; preds = %if.end.i15
   %call1.i.i = call ptr @X509_ALGOR_new() #3
   %cmp2.i.i = icmp eq ptr %call1.i.i, null
-  br i1 %cmp2.i.i, label %rsa_md_to_mgf1.exit, label %if.end4.i.i
+  br i1 %cmp2.i.i, label %err.i, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
   call void @X509_ALGOR_set_md(ptr noundef nonnull %call1.i.i, ptr noundef %13) #3
@@ -200,32 +196,36 @@ lor.lhs.false.i:                                  ; preds = %if.end4.i.i, %if.en
   %algtmp.0.ph.i = phi ptr [ %call1.i.i, %if.end4.i.i ], [ null, %if.end.i15 ]
   %call2.i = call ptr @ASN1_item_pack(ptr noundef %algtmp.0.ph.i, ptr noundef nonnull @X509_ALGOR_it, ptr noundef nonnull %stmp.i) #3
   %tobool3.not.i = icmp eq ptr %call2.i, null
-  br i1 %tobool3.not.i, label %rsa_md_to_mgf1.exit, label %if.end5.i
+  br i1 %tobool3.not.i, label %err.i, label %if.end5.i
 
 if.end5.i:                                        ; preds = %lor.lhs.false.i
   %call6.i = call ptr @X509_ALGOR_new() #3
   store ptr %call6.i, ptr %maskGenAlgorithm, align 8
   %tobool7.not.i = icmp eq ptr %call6.i, null
-  br i1 %tobool7.not.i, label %rsa_md_to_mgf1.exit, label %if.end9.i
+  br i1 %tobool7.not.i, label %err.i, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end5.i
   %call10.i = call ptr @OBJ_nid2obj(i32 noundef 911) #3
   %14 = load ptr, ptr %stmp.i, align 8
   %call11.i = call i32 @X509_ALGOR_set0(ptr noundef nonnull %call6.i, ptr noundef %call10.i, i32 noundef 16, ptr noundef %14) #3
   store ptr null, ptr %stmp.i, align 8
-  br label %rsa_md_to_mgf1.exit
+  br label %err.i
 
-rsa_md_to_mgf1.exit:                              ; preds = %if.end.i.i, %lor.lhs.false.i, %if.end5.i, %if.end9.i
+err.i:                                            ; preds = %if.end9.i, %if.end5.i, %lor.lhs.false.i, %if.end.i.i
   %algtmp.011.i = phi ptr [ %algtmp.0.ph.i, %if.end5.i ], [ %algtmp.0.ph.i, %lor.lhs.false.i ], [ %algtmp.0.ph.i, %if.end9.i ], [ null, %if.end.i.i ]
   %15 = load ptr, ptr %stmp.i, align 8
   call void @ASN1_STRING_free(ptr noundef %15) #3
   call void @X509_ALGOR_free(ptr noundef %algtmp.011.i) #3
   %16 = load ptr, ptr %maskGenAlgorithm, align 8
   %tobool12.not.i.not = icmp eq ptr %16, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %stmp.i)
-  br i1 %tobool12.not.i.not, label %err, label %if.end53
+  br i1 %tobool12.not.i.not, label %rsa_md_to_mgf1.exit, label %if.end53
 
-if.end53:                                         ; preds = %rsa_md_to_mgf1.exit.thread, %rsa_md_to_mgf1.exit
+rsa_md_to_mgf1.exit:                              ; preds = %err.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %stmp.i)
+  br label %err
+
+if.end53:                                         ; preds = %err.i, %lor.lhs.false49
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %stmp.i)
   %call54 = call ptr @ASN1_item_pack(ptr noundef nonnull %call.i, ptr noundef nonnull @RSA_PSS_PARAMS_it, ptr noundef nonnull %os) #3
   %tobool55.not = icmp eq ptr %call54, null
   br i1 %tobool55.not, label %err, label %if.end57
@@ -237,7 +237,7 @@ if.end57:                                         ; preds = %if.end53
   store ptr null, ptr %os, align 8
   br label %err
 
-err:                                              ; preds = %if.end.i, %if.end53, %rsa_md_to_mgf1.exit, %if.then35, %lor.lhs.false39, %if.end28, %if.end57
+err:                                              ; preds = %rsa_md_to_mgf1.exit, %if.end.i, %if.end53, %if.then35, %lor.lhs.false39, %if.end28, %if.end57
   %ret.0 = phi i32 [ 1, %if.end57 ], [ 0, %if.end53 ], [ 0, %rsa_md_to_mgf1.exit ], [ 0, %lor.lhs.false39 ], [ 0, %if.then35 ], [ 0, %if.end28 ], [ 0, %if.end.i ]
   call void @ASN1_item_free(ptr noundef %call.i, ptr noundef nonnull @RSA_PSS_PARAMS_it) #3
   %18 = load ptr, ptr %os, align 8

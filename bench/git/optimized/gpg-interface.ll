@@ -1532,11 +1532,11 @@ if.then19:                                        ; preds = %if.end17
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %verify_time, ptr noundef nonnull @.str.52, ptr noundef %call21) #14
   %.pre = load ptr, ptr %buffer_file, align 8
   %buf25.phi.trans.insert = getelementptr inbounds i8, ptr %verify_time, i64 16
-  %.pre63 = load ptr, ptr %buf25.phi.trans.insert, align 8
+  %.pre64 = load ptr, ptr %buf25.phi.trans.insert, align 8
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then19, %if.end17
-  %7 = phi ptr [ %.pre63, %if.then19 ], [ @strbuf_slopbuf, %if.end17 ]
+  %7 = phi ptr [ %.pre64, %if.then19 ], [ @strbuf_slopbuf, %if.end17 ]
   %8 = phi ptr [ %.pre, %if.then19 ], [ %call.i32, %if.end17 ]
   %program = getelementptr inbounds i8, ptr %fmt, i64 8
   %9 = load ptr, ptr %program, align 8
@@ -1595,20 +1595,20 @@ if.else:                                          ; preds = %if.end35
   %21 = load ptr, ptr %buf46, align 8
   %buf92 = getelementptr inbounds i8, ptr %ssh_keygen_out, i64 16
   %22 = load i8, ptr %21, align 1
-  %tobool47.not59 = icmp eq i8 %22, 0
-  br i1 %tobool47.not59, label %if.end99, label %for.body.lr.ph
+  %tobool47.not60 = icmp eq i8 %22, 0
+  br i1 %tobool47.not60, label %if.end99, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.else
   %payload_len87 = getelementptr inbounds i8, ptr %sigc, i64 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %line.061 = phi ptr [ %21, %for.body.lr.ph ], [ %spec.select31, %for.inc ]
-  %ret.060 = phi i32 [ 0, %for.body.lr.ph ], [ %ret.2, %for.inc ]
-  %call48 = call ptr @strchrnul(ptr noundef nonnull %line.061, i32 noundef 10) #17
+  %line.062 = phi ptr [ %21, %for.body.lr.ph ], [ %spec.select31, %for.inc ]
+  %ret.061 = phi i32 [ 0, %for.body.lr.ph ], [ %ret.2, %for.inc ]
+  %call48 = call ptr @strchrnul(ptr noundef nonnull %line.062, i32 noundef 10) #17
   %23 = load i8, ptr %call48, align 1
   %tobool49.not = icmp ne i8 %23, 0
-  %cmp51 = icmp ult ptr %line.061, %call48
+  %cmp51 = icmp ult ptr %line.062, %call48
   %or.cond30 = and i1 %cmp51, %tobool49.not
   br i1 %or.cond30, label %land.lhs.true53, label %if.end58
 
@@ -1623,14 +1623,14 @@ if.end58:                                         ; preds = %land.lhs.true53, %f
   %end_of_text.0 = phi ptr [ %call48, %for.body ], [ %spec.select, %land.lhs.true53 ]
   %spec.select31.idx = zext i1 %tobool49.not to i64
   %spec.select31 = getelementptr inbounds i8, ptr %call48, i64 %spec.select31.idx
-  %cmp63 = icmp eq ptr %line.061, %end_of_text.0
+  %cmp63 = icmp eq ptr %line.062, %end_of_text.0
   br i1 %cmp63, label %for.inc, label %if.end66
 
 if.end66:                                         ; preds = %if.end58
   %sub.ptr.lhs.cast = ptrtoint ptr %end_of_text.0 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %line.061 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %line.062 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call67 = call ptr @xmemdupz(ptr noundef nonnull %line.061, i64 noundef %sub.ptr.sub) #14
+  %call67 = call ptr @xmemdupz(ptr noundef nonnull %line.062, i64 noundef %sub.ptr.sub) #14
   call void @child_process_init(ptr noundef nonnull %ssh_keygen) #14
   call void @strbuf_release(ptr noundef nonnull %ssh_keygen_out) #14
   call void @strbuf_release(ptr noundef nonnull %ssh_keygen_err) #14
@@ -1679,22 +1679,22 @@ if.end84:                                         ; preds = %if.then79, %_.exit5
   %call89 = call i32 @sigchain_pop(i32 noundef 13) #14
   call void @free(ptr noundef %call67) #14
   %tobool90.not = icmp eq i32 %call88, 0
-  br i1 %tobool90.not, label %if.end95, label %for.inc
+  br i1 %tobool90.not, label %if.then91, label %for.inc
 
-if.end95:                                         ; preds = %if.end84
+if.then91:                                        ; preds = %if.end84
   %36 = load ptr, ptr %buf92, align 8
   %call93 = call i32 @starts_with(ptr noundef %36, ptr noundef nonnull @.str.66) #14
-  %tobool94.not.not = icmp eq i32 %call93, 0
-  br i1 %tobool94.not.not, label %for.inc, label %if.end99
+  %tobool94.not = icmp eq i32 %call93, 0
+  br i1 %tobool94.not, label %for.inc, label %if.end99
 
-for.inc:                                          ; preds = %if.end84, %if.end95, %if.end58
-  %ret.2 = phi i32 [ %ret.060, %if.end58 ], [ 1, %if.end95 ], [ %call88, %if.end84 ]
+for.inc:                                          ; preds = %if.then91, %if.end84, %if.end58
+  %ret.2 = phi i32 [ %ret.061, %if.end58 ], [ %call88, %if.end84 ], [ 1, %if.then91 ]
   %37 = load i8, ptr %spec.select31, align 1
   %tobool47.not = icmp eq i8 %37, 0
   br i1 %tobool47.not, label %if.end99, label %for.body, !llvm.loop !17
 
-if.end99:                                         ; preds = %if.end95, %for.inc, %if.else, %if.then39
-  %ret.3 = phi i32 [ -1, %if.then39 ], [ 0, %if.else ], [ 0, %if.end95 ], [ %ret.2, %for.inc ]
+if.end99:                                         ; preds = %for.inc, %if.then91, %if.else, %if.then39
+  %ret.3 = phi i32 [ -1, %if.then39 ], [ 0, %if.else ], [ %ret.2, %for.inc ], [ 0, %if.then91 ]
   call void @strbuf_stripspace(ptr noundef nonnull %ssh_keygen_out, i8 noundef signext 0) #14
   call void @strbuf_stripspace(ptr noundef nonnull %ssh_keygen_err, i8 noundef signext 0) #14
   %buf100 = getelementptr inbounds i8, ptr %ssh_principals_err, i64 16

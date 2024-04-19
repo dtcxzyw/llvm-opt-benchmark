@@ -172,7 +172,7 @@ X509_STORE_load_store_ex.exit:                    ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_STORE_load_locations_ex(ptr noundef %ctx, ptr noundef %file, ptr noundef %path, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define i32 @X509_STORE_load_locations_ex(ptr noundef %ctx, ptr noundef %file, ptr noundef %path, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %file, null
   %cmp1 = icmp eq ptr %path, null
@@ -186,37 +186,40 @@ lor.lhs.false.i:                                  ; preds = %if.end
   %call.i = tail call ptr @X509_LOOKUP_file() #2
   %call1.i = tail call ptr @X509_STORE_add_lookup(ptr noundef %ctx, ptr noundef %call.i) #2
   %cmp2.i = icmp eq ptr %call1.i, null
-  br i1 %cmp2.i, label %return, label %X509_STORE_load_file_ex.exit
+  br i1 %cmp2.i, label %return, label %lor.lhs.false3.i
 
-X509_STORE_load_file_ex.exit:                     ; preds = %lor.lhs.false.i
+lor.lhs.false3.i:                                 ; preds = %lor.lhs.false.i
   %call4.i = tail call i32 @X509_LOOKUP_ctrl_ex(ptr noundef nonnull %call1.i, i32 noundef 1, ptr noundef nonnull %file, i64 noundef 1, ptr noundef null, ptr noundef %libctx, ptr noundef %propq) #2
   %cmp5.i = icmp slt i32 %call4.i, 1
-  br i1 %cmp5.i, label %return, label %if.end5
+  %brmerge = or i1 %cmp1, %cmp5.i
+  %not.cmp5.i = xor i1 %cmp5.i, true
+  %.mux = zext i1 %not.cmp5.i to i32
+  br i1 %brmerge, label %return, label %lor.lhs.false.i7
 
-if.end5:                                          ; preds = %X509_STORE_load_file_ex.exit, %if.end
-  br i1 %cmp1, label %if.end11, label %lor.lhs.false.i7
+if.end5:                                          ; preds = %if.end
+  br i1 %cmp1, label %return, label %lor.lhs.false.i7
 
-lor.lhs.false.i7:                                 ; preds = %if.end5
+lor.lhs.false.i7:                                 ; preds = %lor.lhs.false3.i, %if.end5
   %call.i8 = tail call ptr @X509_LOOKUP_hash_dir() #2
   %call1.i9 = tail call ptr @X509_STORE_add_lookup(ptr noundef %ctx, ptr noundef %call.i8) #2
   %cmp2.i10 = icmp eq ptr %call1.i9, null
-  br i1 %cmp2.i10, label %return, label %X509_STORE_load_path.exit
+  br i1 %cmp2.i10, label %X509_STORE_load_path.exit.thread, label %lor.lhs.false3.i11
 
-X509_STORE_load_path.exit:                        ; preds = %lor.lhs.false.i7
+lor.lhs.false3.i11:                               ; preds = %lor.lhs.false.i7
   %call4.i12 = tail call i32 @X509_LOOKUP_ctrl(ptr noundef nonnull %call1.i9, i32 noundef 2, ptr noundef nonnull %path, i64 noundef 1, ptr noundef null) #2
-  %cmp5.i13 = icmp slt i32 %call4.i12, 1
-  br i1 %cmp5.i13, label %return, label %if.end11
+  %cmp5.i13 = icmp sgt i32 %call4.i12, 0
+  br i1 %cmp5.i13, label %return, label %X509_STORE_load_path.exit.thread
 
-if.end11:                                         ; preds = %X509_STORE_load_path.exit, %if.end5
+X509_STORE_load_path.exit.thread:                 ; preds = %lor.lhs.false.i7, %lor.lhs.false3.i11
   br label %return
 
-return:                                           ; preds = %lor.lhs.false.i7, %lor.lhs.false.i, %X509_STORE_load_path.exit, %X509_STORE_load_file_ex.exit, %entry, %if.end11
-  %retval.0 = phi i32 [ 1, %if.end11 ], [ 0, %entry ], [ 0, %X509_STORE_load_file_ex.exit ], [ 0, %X509_STORE_load_path.exit ], [ 0, %lor.lhs.false.i ], [ 0, %lor.lhs.false.i7 ]
+return:                                           ; preds = %lor.lhs.false3.i, %lor.lhs.false.i, %if.end5, %lor.lhs.false3.i11, %X509_STORE_load_path.exit.thread, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %X509_STORE_load_path.exit.thread ], [ 1, %lor.lhs.false3.i11 ], [ 1, %if.end5 ], [ 0, %lor.lhs.false.i ], [ %.mux, %lor.lhs.false3.i ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_STORE_load_locations(ptr noundef %ctx, ptr noundef %file, ptr noundef %path) local_unnamed_addr #0 {
+define i32 @X509_STORE_load_locations(ptr noundef %ctx, ptr noundef %file, ptr noundef %path) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @X509_STORE_load_locations_ex(ptr noundef %ctx, ptr noundef %file, ptr noundef %path, ptr noundef null, ptr noundef null), !range !4
   ret i32 %call

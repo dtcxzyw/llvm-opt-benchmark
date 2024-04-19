@@ -3092,7 +3092,7 @@ pccard_get_first_tuple.exit:                      ; preds = %40
 64:                                               ; preds = %58
   store i8 %61, ptr %53, align 8
   %65 = icmp eq i8 %61, %62
-  br i1 %65, label %.thread7, label %66
+  br i1 %65, label %thread-pre-split, label %66
 
 66:                                               ; preds = %64
   %67 = zext i8 %62 to i32
@@ -3108,18 +3108,18 @@ pccard_get_first_tuple.exit:                      ; preds = %40
   %77 = zext nneg i32 %76 to i64
   %78 = call fastcc i32 @read_cis_cache(ptr noundef nonnull %15, i32 noundef %73, i32 noundef %75, i64 noundef %77, ptr noundef nonnull %30), !range !20
   %.not = icmp eq i32 %78, 0
-  br i1 %.not, label %.thread7, label %pccard_get_first_tuple.exit.thread
+  br i1 %.not, label %thread-pre-split, label %pccard_get_first_tuple.exit.thread
 
-.thread7:                                         ; preds = %66, %64
+thread-pre-split:                                 ; preds = %66, %64
   %79 = add i64 %60, 2
   %80 = zext i8 %61 to i64
   %81 = add i64 %79, %80
   %82 = icmp sgt i64 %81, %4
-  %.pre8 = load i8, ptr %54, align 4
+  %.pre7 = load i8, ptr %54, align 4
   br i1 %82, label %83, label %.loopexit
 
-83:                                               ; preds = %.thread7
-  store i8 %.pre8, ptr %34, align 8
+83:                                               ; preds = %thread-pre-split
+  store i8 %.pre7, ptr %34, align 8
   store i8 %61, ptr %55, align 1
   %84 = icmp eq i8 %61, 0
   br i1 %84, label %86, label %85
@@ -3155,10 +3155,10 @@ pccard_get_first_tuple.exit:                      ; preds = %40
   %103 = icmp eq i64 %89, %87
   br i1 %103, label %.loopexit, label %88, !llvm.loop !47
 
-.loopexit:                                        ; preds = %100, %.thread7
-  %104 = phi i64 [ %59, %.thread7 ], [ %101, %100 ]
+.loopexit:                                        ; preds = %100, %thread-pre-split
+  %104 = phi i64 [ %59, %thread-pre-split ], [ %101, %100 ]
   %105 = icmp uge i64 %81, %57
-  %106 = icmp eq i8 %.pre8, -1
+  %106 = icmp eq i8 %.pre7, -1
   %107 = select i1 %105, i1 true, i1 %106
   br i1 %107, label %pccard_get_first_tuple.exit.thread, label %108
 
@@ -3167,8 +3167,8 @@ pccard_get_first_tuple.exit:                      ; preds = %40
   %110 = icmp eq i32 %109, 0
   br i1 %110, label %58, label %pccard_get_first_tuple.exit.thread, !llvm.loop !48
 
-pccard_get_first_tuple.exit.thread:               ; preds = %58, %108, %.loopexit, %66, %40, %36, %pccard_get_first_tuple.exit
-  %111 = phi i64 [ 0, %pccard_get_first_tuple.exit ], [ 0, %36 ], [ 0, %40 ], [ %59, %58 ], [ %104, %.loopexit ], [ %59, %66 ], [ %104, %108 ]
+pccard_get_first_tuple.exit.thread:               ; preds = %66, %58, %108, %.loopexit, %40, %36, %pccard_get_first_tuple.exit
+  %111 = phi i64 [ 0, %pccard_get_first_tuple.exit ], [ 0, %36 ], [ 0, %40 ], [ %59, %66 ], [ %59, %58 ], [ %104, %.loopexit ], [ %104, %108 ]
   call void @kfree(ptr noundef nonnull %34) #12
   br label %112
 

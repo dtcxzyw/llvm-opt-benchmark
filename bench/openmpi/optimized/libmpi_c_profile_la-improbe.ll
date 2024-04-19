@@ -64,20 +64,20 @@ define noundef i32 @PMPI_Improbe(i32 noundef %0, i32 noundef %1, ptr noundef %2,
   %18 = icmp eq ptr %2, null
   %19 = icmp eq ptr %2, @ompi_mpi_comm_null
   %or.cond.i = or i1 %18, %19
-  br i1 %or.cond.i, label %.thread, label %ompi_comm_invalid.exit
+  br i1 %or.cond.i, label %.thread, label %20
 
-ompi_comm_invalid.exit:                           ; preds = %17
-  %20 = getelementptr inbounds i8, ptr %2, i64 224
-  %21 = load i32, ptr %20, align 8
-  %22 = and i32 %21, 48
-  %or.cond7.i.not = icmp eq i32 %22, 0
-  br i1 %or.cond7.i.not, label %23, label %.thread
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds i8, ptr %2, i64 224
+  %22 = load i32, ptr %21, align 8
+  %23 = and i32 %22, 48
+  %or.cond7.i.not = icmp eq i32 %23, 0
+  br i1 %or.cond7.i.not, label %ompi_comm_invalid.exit, label %.thread
 
-23:                                               ; preds = %ompi_comm_invalid.exit
+ompi_comm_invalid.exit:                           ; preds = %20
   %or.cond3 = icmp ult i32 %0, -2
   br i1 %or.cond3, label %24, label %30
 
-24:                                               ; preds = %23
+24:                                               ; preds = %ompi_comm_invalid.exit
   %25 = icmp slt i32 %0, 0
   br i1 %25, label %.thread, label %ompi_comm_peer_invalid.exit
 
@@ -89,17 +89,17 @@ ompi_comm_peer_invalid.exit:                      ; preds = %24
   %.not.i.not = icmp sgt i32 %29, %0
   br i1 %.not.i.not, label %30, label %.thread
 
-30:                                               ; preds = %23, %ompi_comm_peer_invalid.exit
+30:                                               ; preds = %ompi_comm_invalid.exit, %ompi_comm_peer_invalid.exit
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.thread, label %36
 
-.thread:                                          ; preds = %24, %17, %ompi_comm_peer_invalid.exit, %ompi_comm_invalid.exit, %14, %30
-  %.04059 = phi i32 [ 7, %30 ], [ 6, %ompi_comm_peer_invalid.exit ], [ 5, %ompi_comm_invalid.exit ], [ 4, %14 ], [ 5, %17 ], [ 6, %24 ]
+.thread:                                          ; preds = %24, %20, %17, %ompi_comm_peer_invalid.exit, %14, %30
+  %.04060 = phi i32 [ 7, %30 ], [ 6, %ompi_comm_peer_invalid.exit ], [ 4, %14 ], [ 5, %17 ], [ 5, %20 ], [ 6, %24 ]
   %31 = getelementptr inbounds i8, ptr %2, i64 296
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %2, i64 304
   %34 = load i32, ptr %33, align 8
-  %35 = tail call i32 @ompi_errhandler_invoke(ptr noundef %32, ptr noundef %2, i32 noundef %34, i32 noundef %.04059, ptr noundef nonnull @FUNC_NAME) #3
+  %35 = tail call i32 @ompi_errhandler_invoke(ptr noundef %32, ptr noundef %2, i32 noundef %34, i32 noundef %.04060, ptr noundef nonnull @FUNC_NAME) #3
   br label %85
 
 36:                                               ; preds = %30, %6
@@ -202,7 +202,7 @@ ompi_errcode_get_mpi_code.exit:                   ; preds = %55, %51, %.preheade
   br label %85
 
 85:                                               ; preds = %48, %ompi_errcode_get_mpi_code.exit, %47, %.thread
-  %.0 = phi i32 [ %.04059, %.thread ], [ 0, %47 ], [ %.0.i52, %ompi_errcode_get_mpi_code.exit ], [ 0, %48 ]
+  %.0 = phi i32 [ %.04060, %.thread ], [ 0, %47 ], [ %.0.i52, %ompi_errcode_get_mpi_code.exit ], [ 0, %48 ]
   ret i32 %.0
 }
 

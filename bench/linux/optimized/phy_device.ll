@@ -1226,7 +1226,7 @@ define internal fastcc i32 @phy_scan_fixups(ptr noundef %0) unnamed_addr #0 alig
   br label %8
 
 8:                                                ; preds = %.thread, %4
-  %9 = phi ptr [ %2, %4 ], [ %39, %.thread ]
+  %9 = phi ptr [ %2, %4 ], [ %40, %.thread ]
   %10 = getelementptr inbounds i8, ptr %9, i64 16
   %11 = load ptr, ptr %5, align 8
   %12 = icmp eq ptr %11, null
@@ -1247,7 +1247,7 @@ define internal fastcc i32 @phy_scan_fixups(ptr noundef %0) unnamed_addr #0 alig
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %.thread
 
-22:                                               ; preds = %15, %19
+22:                                               ; preds = %19, %15
   %23 = load i32, ptr %6, align 8
   %24 = getelementptr inbounds i8, ptr %9, i64 80
   %25 = load i32, ptr %24, align 8
@@ -1255,33 +1255,33 @@ define internal fastcc i32 @phy_scan_fixups(ptr noundef %0) unnamed_addr #0 alig
   %27 = load i32, ptr %26, align 4
   %28 = xor i32 %25, %23
   %29 = and i32 %28, %27
-  %30 = icmp ne i32 %29, 0
-  %31 = icmp ne i32 %25, -1
-  %.not6 = and i1 %31, %30
-  br i1 %.not6, label %.thread, label %32
+  %30 = icmp eq i32 %29, 0
+  %31 = icmp eq i32 %25, -1
+  %32 = or i1 %31, %30
+  br i1 %32, label %33, label %.thread
 
-32:                                               ; preds = %22
-  %33 = getelementptr inbounds i8, ptr %9, i64 88
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call i32 %34(ptr noundef %0) #18
-  %36 = icmp sgt i32 %35, -1
-  br i1 %36, label %.thread4, label %.loopexit
+33:                                               ; preds = %22
+  %34 = getelementptr inbounds i8, ptr %9, i64 88
+  %35 = load ptr, ptr %34, align 8
+  %36 = tail call i32 %35(ptr noundef %0) #18
+  %37 = icmp sgt i32 %36, -1
+  br i1 %37, label %.thread4, label %.loopexit
 
-.thread4:                                         ; preds = %32
-  %37 = load i32, ptr %7, align 4
-  %38 = or i32 %37, 16
-  store i32 %38, ptr %7, align 4
+.thread4:                                         ; preds = %33
+  %38 = load i32, ptr %7, align 4
+  %39 = or i32 %38, 16
+  store i32 %39, ptr %7, align 4
   br label %.thread
 
-.thread:                                          ; preds = %19, %.thread4, %22
-  %39 = load ptr, ptr %9, align 8
-  %40 = icmp eq ptr %39, @phy_fixup_list
-  br i1 %40, label %.loopexit, label %8, !llvm.loop !14
+.thread:                                          ; preds = %22, %19, %.thread4
+  %40 = load ptr, ptr %9, align 8
+  %41 = icmp eq ptr %40, @phy_fixup_list
+  br i1 %41, label %.loopexit, label %8, !llvm.loop !14
 
-.loopexit:                                        ; preds = %.thread, %32, %1
-  %41 = phi i32 [ 0, %1 ], [ %35, %32 ], [ 0, %.thread ]
+.loopexit:                                        ; preds = %.thread, %33, %1
+  %42 = phi i32 [ 0, %1 ], [ %36, %33 ], [ 0, %.thread ]
   tail call void @mutex_unlock(ptr noundef nonnull @phy_fixup_lock) #18
-  ret i32 %41
+  ret i32 %42
 }
 
 ; Function Attrs: cold null_pointer_is_valid

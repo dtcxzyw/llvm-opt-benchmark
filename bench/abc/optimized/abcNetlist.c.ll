@@ -293,15 +293,15 @@ define internal fastcc ptr @Abc_NtkAigToLogicSop(ptr noundef %0) unnamed_addr #0
   %54 = getelementptr inbounds i8, ptr %48, i64 56
   %55 = load ptr, ptr %54, align 8
   %.not.i = icmp eq ptr %55, null
-  br i1 %.not.i, label %Abc_AigNodeIsChoice.exit.thread, label %Abc_AigNodeIsChoice.exit
+  br i1 %.not.i, label %Abc_AigNodeIsChoice.exit.thread, label %56
 
-Abc_AigNodeIsChoice.exit:                         ; preds = %53
-  %56 = getelementptr i8, ptr %48, i64 44
-  %.val.i = load i32, ptr %56, align 4
-  %57 = icmp slt i32 %.val.i, 1
-  br i1 %57, label %Abc_AigNodeIsChoice.exit.thread, label %58
+56:                                               ; preds = %53
+  %57 = getelementptr i8, ptr %48, i64 44
+  %.val.i = load i32, ptr %57, align 4
+  %58 = icmp sgt i32 %.val.i, 0
+  br i1 %58, label %Abc_AigNodeIsChoice.exit, label %Abc_AigNodeIsChoice.exit.thread
 
-58:                                               ; preds = %Abc_AigNodeIsChoice.exit
+Abc_AigNodeIsChoice.exit:                         ; preds = %56
   %59 = tail call ptr @Abc_NtkCreateObj(ptr noundef %2, i32 noundef 7) #7
   %60 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
   %61 = getelementptr inbounds i8, ptr %60, i64 4
@@ -312,8 +312,8 @@ Abc_AigNodeIsChoice.exit:                         ; preds = %53
   store ptr %62, ptr %63, align 8
   br label %64
 
-64:                                               ; preds = %58, %Vec_IntPush.exit
-  %.094144 = phi ptr [ %48, %58 ], [ %100, %Vec_IntPush.exit ]
+64:                                               ; preds = %Abc_AigNodeIsChoice.exit, %Vec_IntPush.exit
+  %.094144 = phi ptr [ %48, %Abc_AigNodeIsChoice.exit ], [ %100, %Vec_IntPush.exit ]
   %65 = load i32, ptr %51, align 4
   %66 = getelementptr inbounds i8, ptr %.094144, i64 20
   %67 = load i32, ptr %66, align 4
@@ -412,9 +412,9 @@ Vec_IntFree.exit:                                 ; preds = %101, %108
   %.pre174 = load ptr, ptr %10, align 8
   br label %Abc_AigNodeIsChoice.exit.thread
 
-Abc_AigNodeIsChoice.exit.thread:                  ; preds = %53, %Vec_IntFree.exit, %50, %44, %Abc_AigNodeIsChoice.exit
-  %109 = phi ptr [ %45, %44 ], [ %.pre174, %Vec_IntFree.exit ], [ %45, %Abc_AigNodeIsChoice.exit ], [ %45, %50 ], [ %45, %53 ]
-  %.1 = phi i32 [ %.0147, %44 ], [ 1, %Vec_IntFree.exit ], [ %.0147, %Abc_AigNodeIsChoice.exit ], [ %.0147, %50 ], [ %.0147, %53 ]
+Abc_AigNodeIsChoice.exit.thread:                  ; preds = %56, %53, %Vec_IntFree.exit, %50, %44
+  %109 = phi ptr [ %45, %44 ], [ %.pre174, %Vec_IntFree.exit ], [ %45, %50 ], [ %45, %53 ], [ %45, %56 ]
+  %.1 = phi i32 [ %.0147, %44 ], [ 1, %Vec_IntFree.exit ], [ %.0147, %50 ], [ %.0147, %53 ], [ %.0147, %56 ]
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %110 = getelementptr i8, ptr %109, i64 4
   %.val113 = load i32, ptr %110, align 4

@@ -1422,7 +1422,7 @@ if.then3:                                         ; preds = %land.lhs.true
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %state.i, i8 0, i64 184, i1 false)
   %call.i = call i32 @wt_status_check_rebase(ptr noundef nonnull %wt, ptr noundef nonnull %state.i) #17
   %tobool.not.i = icmp eq i32 %call.i, 0
-  br i1 %tobool.not.i, label %is_worktree_being_rebased.exit.thread, label %land.lhs.true.i
+  br i1 %tobool.not.i, label %if.end7, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then3
   %rebase_in_progress.i = getelementptr inbounds i8, ptr %state.i, i64 12
@@ -1436,7 +1436,7 @@ land.lhs.true.i:                                  ; preds = %if.then3
   %4 = load ptr, ptr %branch.i, align 8
   %tobool4.i = icmp ne ptr %4, null
   %or.cond1.i = select i1 %or.cond.i, i1 %tobool4.i, i1 false
-  br i1 %or.cond1.i, label %land.lhs.true5.i, label %is_worktree_being_rebased.exit.thread
+  br i1 %or.cond1.i, label %land.lhs.true5.i, label %if.end7
 
 land.lhs.true5.i:                                 ; preds = %land.lhs.true.i
   %scevgep.i.i = getelementptr i8, ptr %target, i64 11
@@ -1460,21 +1460,21 @@ do.cond.i.i:                                      ; preds = %do.body.i.i
 skip_prefix.exit.i:                               ; preds = %do.cond.i.i, %do.body.i.i
   %target.addr.0.i = phi ptr [ %target, %do.cond.i.i ], [ %scevgep.i.i, %do.body.i.i ]
   %tobool.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i.i, label %is_worktree_being_rebased.exit, label %is_worktree_being_rebased.exit.thread
+  br i1 %tobool.not.i.i, label %land.rhs.i, label %if.end7
 
-is_worktree_being_rebased.exit.thread:            ; preds = %skip_prefix.exit.i, %if.then3, %land.lhs.true.i
-  call void @wt_status_state_free_buffers(ptr noundef nonnull %state.i) #17
-  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %state.i)
-  br label %if.end7
-
-is_worktree_being_rebased.exit:                   ; preds = %skip_prefix.exit.i
+land.rhs.i:                                       ; preds = %skip_prefix.exit.i
   %call8.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %target.addr.0.i) #19
-  %tobool9.not.i.not = icmp eq i32 %call8.i, 0
+  %tobool9.not.i = icmp eq i32 %call8.i, 0
+  br i1 %tobool9.not.i, label %is_worktree_being_rebased.exit, label %if.end7
+
+is_worktree_being_rebased.exit:                   ; preds = %land.rhs.i
   call void @wt_status_state_free_buffers(ptr noundef nonnull %state.i) #17
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %state.i)
-  br i1 %tobool9.not.i.not, label %return, label %if.end7
+  br label %return
 
-if.end7:                                          ; preds = %is_worktree_being_rebased.exit.thread, %is_worktree_being_rebased.exit
+if.end7:                                          ; preds = %skip_prefix.exit.i, %if.then3, %land.rhs.i, %land.lhs.true.i
+  call void @wt_status_state_free_buffers(ptr noundef nonnull %state.i) #17
+  call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %state.i)
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %state.i9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %state.i9, i8 0, i64 184, i1 false)
   %call.i10 = call i32 @wt_status_check_bisect(ptr noundef %wt, ptr noundef nonnull %state.i9) #17
@@ -1507,21 +1507,24 @@ do.cond.i.i20:                                    ; preds = %do.body.i.i15
 skip_prefix.exit.i24:                             ; preds = %do.cond.i.i20, %do.body.i.i15
   %target.addr.0.i25 = phi ptr [ %target, %do.cond.i.i20 ], [ %scevgep.i.i14, %do.body.i.i15 ]
   %tobool.not.i.i26 = icmp eq i8 %8, 0
-  br i1 %tobool.not.i.i26, label %is_worktree_being_bisected.exit, label %is_worktree_being_bisected.exit.thread
+  br i1 %tobool.not.i.i26, label %land.rhs.i27, label %is_worktree_being_bisected.exit.thread
 
-is_worktree_being_bisected.exit.thread:           ; preds = %skip_prefix.exit.i24, %if.end7
+land.rhs.i27:                                     ; preds = %skip_prefix.exit.i24
+  %call5.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %target.addr.0.i25) #19
+  %tobool6.not.i = icmp eq i32 %call5.i, 0
+  br i1 %tobool6.not.i, label %is_worktree_being_bisected.exit, label %is_worktree_being_bisected.exit.thread
+
+is_worktree_being_bisected.exit.thread:           ; preds = %skip_prefix.exit.i24, %if.end7, %land.rhs.i27
   call void @wt_status_state_free_buffers(ptr noundef nonnull %state.i9) #17
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %state.i9)
   br label %if.end12
 
-is_worktree_being_bisected.exit:                  ; preds = %skip_prefix.exit.i24
-  %call5.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %target.addr.0.i25) #19
-  %tobool6.not.i.not = icmp eq i32 %call5.i, 0
+is_worktree_being_bisected.exit:                  ; preds = %land.rhs.i27
   call void @wt_status_state_free_buffers(ptr noundef nonnull %state.i9) #17
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %state.i9)
-  br i1 %tobool6.not.i.not, label %return, label %if.end12
+  br label %return
 
-if.end12:                                         ; preds = %is_worktree_being_bisected.exit.thread, %is_worktree_being_bisected.exit, %land.lhs.true, %if.end
+if.end12:                                         ; preds = %is_worktree_being_bisected.exit.thread, %land.lhs.true, %if.end
   %call13 = call ptr @get_worktree_ref_store(ptr noundef %wt) #17
   %call14 = call ptr @refs_resolve_ref_unsafe(ptr noundef %call13, ptr noundef %symref, i32 noundef 0, ptr noundef null, ptr noundef nonnull %flags) #17
   %10 = load i32, ptr %flags, align 4
@@ -1539,7 +1542,7 @@ land.lhs.true18:                                  ; preds = %if.end12
 if.end22:                                         ; preds = %land.lhs.true18, %if.end12
   br label %return
 
-return:                                           ; preds = %land.lhs.true18, %is_worktree_being_bisected.exit, %is_worktree_being_rebased.exit, %entry, %if.end22
+return:                                           ; preds = %is_worktree_being_bisected.exit, %is_worktree_being_rebased.exit, %land.lhs.true18, %entry, %if.end22
   %retval.0 = phi i32 [ 0, %if.end22 ], [ 0, %entry ], [ 1, %is_worktree_being_rebased.exit ], [ 1, %is_worktree_being_bisected.exit ], [ 1, %land.lhs.true18 ]
   ret i32 %retval.0
 }

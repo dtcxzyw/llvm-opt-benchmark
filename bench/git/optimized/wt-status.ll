@@ -3389,14 +3389,14 @@ if.else.i80.i.i.i:                                ; preds = %if.end20.i.i.i.i
   %call21.call22.i.i.i.i = select i1 %tobool28.not.i.i.i.i, ptr %call21.i.i.i.i, ptr %call22.i.i.i.i
   %call35.i.i.i.i = call ptr @oid_to_hex(ptr noundef nonnull %head_oid.orig_head_oid.i.i.i.i) #19
   %call36.i.i.i.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call35.i.i.i.i, ptr noundef nonnull dereferenceable(1) %call21.call22.i.i.i.i) #20
-  %tobool37.not.i.not.i.i.i = icmp eq i32 %call36.i.i.i.i, 0
+  %tobool37.not.i.not.not.i.i.i = icmp eq i32 %call36.i.i.i.i, 0
   call void @free(ptr noundef nonnull %call21.i.i.i.i) #19
   call void @free(ptr noundef nonnull %call22.i.i.i.i) #19
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %head_oid.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %orig_head_oid.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %head_flags.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %orig_head_flags.i.i.i.i)
-  br i1 %tobool37.not.i.not.i.i.i, label %if.else35.i.i.i, label %if.then19.i.i.i
+  br i1 %tobool37.not.i.not.not.i.i.i, label %if.else35.i.i.i, label %if.then19.i.i.i
 
 split_commit_in_progress.exit.thread.i.i.i:       ; preds = %lor.lhs.false16.i.i.i.i, %if.end14.i.i.i.i, %lor.lhs.false10.i.i.i.i, %if.end.i.i.i.i, %lor.lhs.false5.i.i.i.i, %lor.lhs.false.i.i.i.i, %land.lhs.true2.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %head_oid.i.i.i.i)
@@ -4442,18 +4442,18 @@ land.lhs.true72.i:                                ; preds = %if.end69.i
   %call.i295.i = call ptr @getenv(ptr noundef nonnull @.str.240) #19
   %tobool.not.i296.i = icmp eq ptr %call.i295.i, null
   %untracked_in_ms1.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %s, i64 1208
-  br i1 %tobool.not.i296.i, label %uf_was_slow.exit.i, label %uf_was_slow.exit.thread.i
+  br i1 %tobool.not.i296.i, label %entry.if.end_crit_edge.i.i, label %if.then.i297.i
 
-uf_was_slow.exit.thread.i:                        ; preds = %land.lhs.true72.i
+entry.if.end_crit_edge.i.i:                       ; preds = %land.lhs.true72.i
+  %.pre.i300.i = load i32, ptr %untracked_in_ms1.phi.trans.insert.i.i, align 8
+  %327 = icmp ugt i32 %.pre.i300.i, 2000
+  br i1 %327, label %if.then75.i, label %if.end97.i
+
+if.then.i297.i:                                   ; preds = %land.lhs.true72.i
   store i32 3250, ptr %untracked_in_ms1.phi.trans.insert.i.i, align 8
   br label %if.then75.i
 
-uf_was_slow.exit.i:                               ; preds = %land.lhs.true72.i
-  %.pre.i300.i = load i32, ptr %untracked_in_ms1.phi.trans.insert.i.i, align 8
-  %327 = icmp ult i32 %.pre.i300.i, 2001
-  br i1 %327, label %if.end97.i, label %if.then75.i
-
-if.then75.i:                                      ; preds = %uf_was_slow.exit.i, %uf_was_slow.exit.thread.i
+if.then75.i:                                      ; preds = %if.then.i297.i, %entry.if.end_crit_edge.i.i
   call void (ptr, ptr, ptr, ...) @status_printf_ln(ptr noundef nonnull %s, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.29)
   %cmp.i31 = icmp sgt i32 %call2.i, 0
   %328 = load i32, ptr @git_gettext_enabled, align 4
@@ -4521,7 +4521,7 @@ cond.end94.i:                                     ; preds = %if.end3.i327.i, %co
   call void (ptr, ptr, ptr, ...) @status_printf_ln(ptr noundef nonnull %s, ptr noundef nonnull @.str.29, ptr noundef %retval.0.i323.i, ptr noundef %cond95.i)
   br label %if.end97.i
 
-if.end97.i:                                       ; preds = %cond.end94.i, %if.else86.i, %_.exit318.i, %uf_was_slow.exit.i, %if.end69.i
+if.end97.i:                                       ; preds = %cond.end94.i, %if.else86.i, %_.exit318.i, %entry.if.end_crit_edge.i.i, %if.end69.i
   %verbose.i = getelementptr inbounds i8, ptr %s, i64 56
   %335 = load i32, ptr %verbose.i, align 8
   %tobool98.not.i = icmp eq i32 %335, 0
