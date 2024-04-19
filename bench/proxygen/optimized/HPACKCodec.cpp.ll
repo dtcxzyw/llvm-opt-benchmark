@@ -487,7 +487,7 @@ invoke.cont4.i.i:                                 ; preds = %invoke.cont.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont4.i.i
   %limits.sroa.2.0.extract.shift.i.i.i = lshr i64 %call5.i.i, 32
-  %limits.sroa.2.0.extract.trunc.i.i.i = trunc i64 %limits.sroa.2.0.extract.shift.i.i.i to i32
+  %limits.sroa.2.0.extract.trunc.i.i.i = trunc nuw i64 %limits.sroa.2.0.extract.shift.i.i.i to i32
   %limits.sroa.0.0.extract.trunc.i.i.i = trunc i64 %call5.i.i to i32
   store i32 %limits.sroa.0.0.extract.trunc.i.i.i, ptr %huffMin_.i.i.i, align 4
   store i32 %limits.sroa.2.0.extract.trunc.i.i.i, ptr %huffMax_.i.i.i, align 8
@@ -693,7 +693,11 @@ invoke.cont:
   %3 = load i64, ptr %2, align 8
   %conv.i.i = zext i32 %0 to i64
   %cmp.i.not.i = icmp ugt i64 %3, %conv.i.i
-  br i1 %cmp.i.not.i, label %call.i.noexc, label %if.then.i.i
+  br i1 %cmp.i.not.i, label %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i, label %if.then.i.i
+
+entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i: ; preds = %invoke.cont
+  %.pre.i = load ptr, ptr %1, align 8
+  br label %call.i.noexc
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %4 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIvvEEvEERT_vE3arg acquire, align 8
@@ -726,20 +730,20 @@ if.then.i5.i:                                     ; preds = %call1.i.i.noexc
 .noexc:                                           ; preds = %if.then.i5.i
   %7 = load atomic i32, ptr %preparedTL acquire, align 8
   %.pre.i.i = load ptr, ptr %1, align 8
-  %.pre7.i = zext i32 %7 to i64
+  %.pre8.i = zext i32 %7 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i: ; preds = %.noexc, %call1.i.i.noexc
-  %.pre.pre-phi.i = phi i64 [ %conv.i.i, %call1.i.i.noexc ], [ %.pre7.i, %.noexc ]
+  %.pre7.pre-phi.i = phi i64 [ %conv.i.i, %call1.i.i.noexc ], [ %.pre8.i, %.noexc ]
   %8 = phi ptr [ %call1.i.i4, %call1.i.i.noexc ], [ %.pre.i.i, %.noexc ]
   %elementsCapacity.i6.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load atomic i64, ptr %elementsCapacity.i6.i.i monotonic, align 8
   store i64 %9, ptr %2, align 8
   br label %call.i.noexc
 
-call.i.noexc:                                     ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i, %invoke.cont
-  %idxprom.i.pre-phi.i = phi i64 [ %.pre.pre-phi.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i ], [ %conv.i.i, %invoke.cont ]
-  %10 = load ptr, ptr %1, align 8
+call.i.noexc:                                     ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i
+  %idxprom.i.pre-phi.i = phi i64 [ %conv.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i ], [ %.pre7.pre-phi.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i ]
+  %10 = phi ptr [ %.pre.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i ], [ %8, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i ]
   %11 = load ptr, ptr %10, align 8
   %arrayidx.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %11, i64 %idxprom.i.pre-phi.i
   %12 = load ptr, ptr %arrayidx.i.i, align 8
@@ -932,7 +936,11 @@ invoke.cont:
   %3 = load i64, ptr %2, align 8
   %conv.i.i = zext i32 %0 to i64
   %cmp.i.not.i = icmp ugt i64 %3, %conv.i.i
-  br i1 %cmp.i.not.i, label %call.i.noexc, label %if.then.i.i
+  br i1 %cmp.i.not.i, label %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i, label %if.then.i.i
+
+entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i: ; preds = %invoke.cont
+  %.pre.i = load ptr, ptr %1, align 8
+  br label %call.i.noexc
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %4 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIvvEEvEERT_vE3arg acquire, align 8
@@ -965,20 +973,20 @@ if.then.i5.i:                                     ; preds = %call1.i.i.noexc
 .noexc:                                           ; preds = %if.then.i5.i
   %7 = load atomic i32, ptr %preparedTL acquire, align 8
   %.pre.i.i = load ptr, ptr %1, align 8
-  %.pre7.i = zext i32 %7 to i64
+  %.pre8.i = zext i32 %7 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i: ; preds = %.noexc, %call1.i.i.noexc
-  %.pre.pre-phi.i = phi i64 [ %conv.i.i, %call1.i.i.noexc ], [ %.pre7.i, %.noexc ]
+  %.pre7.pre-phi.i = phi i64 [ %conv.i.i, %call1.i.i.noexc ], [ %.pre8.i, %.noexc ]
   %8 = phi ptr [ %call1.i.i6, %call1.i.i.noexc ], [ %.pre.i.i, %.noexc ]
   %elementsCapacity.i6.i.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load atomic i64, ptr %elementsCapacity.i6.i.i monotonic, align 8
   store i64 %9, ptr %2, align 8
   br label %call.i.noexc
 
-call.i.noexc:                                     ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i, %invoke.cont
-  %idxprom.i.pre-phi.i = phi i64 [ %.pre.pre-phi.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i ], [ %conv.i.i, %invoke.cont ]
-  %10 = load ptr, ptr %1, align 8
+call.i.noexc:                                     ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i
+  %idxprom.i.pre-phi.i = phi i64 [ %conv.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i ], [ %.pre7.pre-phi.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i ]
+  %10 = phi ptr [ %.pre.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i ], [ %8, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i ]
   %11 = load ptr, ptr %10, align 8
   %arrayidx.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %11, i64 %idxprom.i.pre-phi.i
   %12 = load ptr, ptr %arrayidx.i.i, align 8
@@ -3140,7 +3148,7 @@ if.then7.i.i.i:                                   ; preds = %if.else.i.i.i
   br label %_ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i
 
 _ZN5folly13fbstring_coreIcE9initSmallEPKcm.exit.i.i: ; preds = %if.then7.i.i.i, %if.else.i.i.i, %sw.bb4.i.i.i, %if.then.i.i.i
-  %3 = trunc i64 %sub.ptr.sub.i to i8
+  %3 = trunc nuw i64 %sub.ptr.sub.i to i8
   %conv.i.i.i.i = sub nuw nsw i8 23, %3
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 31
   store i8 %conv.i.i.i.i, ptr %arrayidx.i.i.i.i, align 1
@@ -3745,7 +3753,11 @@ entry:
   %4 = load i64, ptr %3, align 8
   %conv.i17 = zext i32 %1 to i64
   %cmp.i18.not = icmp ugt i64 %4, %conv.i17
-  br i1 %cmp.i18.not, label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23, label %if.then.i21
+  br i1 %cmp.i18.not, label %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23_crit_edge, label %if.then.i21
+
+entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23_crit_edge: ; preds = %entry
+  %.pre = load ptr, ptr %2, align 8
+  br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23
 
 if.then.i21:                                      ; preds = %entry
   %5 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIvvEEvEERT_vE3arg acquire, align 8
@@ -3778,20 +3790,20 @@ if.then.i10:                                      ; preds = %call1.i.noexc
 .noexc:                                           ; preds = %if.then.i10
   %8 = load atomic i32, ptr %this acquire, align 4
   %.pre.i = load ptr, ptr %2, align 8
-  %.pre49 = zext i32 %8 to i64
+  %.pre51 = zext i32 %8 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit
 
 _ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit: ; preds = %call1.i.noexc, %.noexc
-  %.pre.pre-phi = phi i64 [ %conv.i17, %call1.i.noexc ], [ %.pre49, %.noexc ]
+  %.pre47.pre-phi = phi i64 [ %conv.i17, %call1.i.noexc ], [ %.pre51, %.noexc ]
   %9 = phi ptr [ %call1.i12, %call1.i.noexc ], [ %.pre.i, %.noexc ]
   %elementsCapacity.i6.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load atomic i64, ptr %elementsCapacity.i6.i monotonic, align 8
   store i64 %10, ptr %3, align 8
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23
 
-_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit, %entry
-  %idxprom.i19.pre-phi = phi i64 [ %.pre.pre-phi, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit ], [ %conv.i17, %entry ]
-  %11 = load ptr, ptr %2, align 8
+_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23: ; preds = %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23_crit_edge, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit
+  %idxprom.i19.pre-phi = phi i64 [ %conv.i17, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23_crit_edge ], [ %.pre47.pre-phi, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit ]
+  %11 = phi ptr [ %.pre, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23_crit_edge ], [ %9, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit ]
   %12 = load ptr, ptr %11, align 8
   %arrayidx.i20 = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %12, i64 %idxprom.i19.pre-phi
   %13 = load ptr, ptr %arrayidx.i20, align 8
@@ -3843,7 +3855,11 @@ invoke.cont2:                                     ; preds = %.noexc14, %_ZN5foll
   %20 = load i64, ptr %3, align 8
   %conv.i = zext i32 %19 to i64
   %cmp.i.not = icmp ugt i64 %20, %conv.i
-  br i1 %cmp.i.not, label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit, label %if.then.i
+  br i1 %cmp.i.not, label %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge, label %if.then.i
+
+invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge: ; preds = %invoke.cont2
+  %.pre48 = load ptr, ptr %2, align 8
+  br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit
 
 if.then.i:                                        ; preds = %invoke.cont2
   %21 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIvvEEvEERT_vE3arg acquire, align 8
@@ -3876,20 +3892,20 @@ if.then.i24:                                      ; preds = %call1.i.noexc30
 .noexc32:                                         ; preds = %if.then.i24
   %24 = load atomic i32, ptr %this acquire, align 4
   %.pre.i25 = load ptr, ptr %2, align 8
-  %.pre48 = zext i32 %24 to i64
+  %.pre50 = zext i32 %24 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit33
 
 _ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit33: ; preds = %call1.i.noexc30, %.noexc32
-  %.pre47.pre-phi = phi i64 [ %conv.i, %call1.i.noexc30 ], [ %.pre48, %.noexc32 ]
+  %.pre49.pre-phi = phi i64 [ %conv.i, %call1.i.noexc30 ], [ %.pre50, %.noexc32 ]
   %25 = phi ptr [ %call1.i31, %call1.i.noexc30 ], [ %.pre.i25, %.noexc32 ]
   %elementsCapacity.i6.i26 = getelementptr inbounds i8, ptr %25, i64 8
   %26 = load atomic i64, ptr %elementsCapacity.i6.i26 monotonic, align 8
   store i64 %26, ptr %3, align 8
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit
 
-_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit33, %invoke.cont2
-  %idxprom.i.pre-phi = phi i64 [ %.pre47.pre-phi, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit33 ], [ %conv.i, %invoke.cont2 ]
-  %27 = load ptr, ptr %2, align 8
+_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit: ; preds = %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit33
+  %idxprom.i.pre-phi = phi i64 [ %conv.i, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge ], [ %.pre49.pre-phi, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit33 ]
+  %27 = phi ptr [ %.pre48, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge ], [ %25, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit33 ]
   %28 = load ptr, ptr %27, align 8
   %arrayidx.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %28, i64 %idxprom.i.pre-phi
   %ownsDeleter.i34 = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
@@ -4564,7 +4580,7 @@ if.then.i.i.i.i:                                  ; preds = %while.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %while.end.i.i.i.i
   %3 = lshr i16 %2, 8
-  %conv4.i.i.i.i = trunc i16 %3 to i8
+  %conv4.i.i.i.i = trunc nuw i16 %3 to i8
   store i8 %conv4.i.i.i.i, ptr %buffer, align 16
   br label %_ZN5folly16to_ascii_decimalILm20EEEmRAT__cm.exit
 
@@ -4632,7 +4648,7 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond.not, label %if.end, label %if.then5
 
 if.then5:                                         ; preds = %if.then
-  %2 = trunc i64 %add to i8
+  %2 = trunc nuw i64 %add to i8
   %conv.i9 = sub nuw nsw i8 23, %2
   store i8 %conv.i9, ptr %arrayidx.i, align 1
   %arrayidx2.i = getelementptr inbounds [24 x i8], ptr %this, i64 0, i64 %add
@@ -4704,7 +4720,7 @@ sw.epilog.i16:                                    ; preds = %sw.bb2.i13, %cond.t
   %12 = load i64, ptr %capacity_.i.i17, align 8
   %and.i.i18 = and i64 %12, 4611686018427387903
   %13 = lshr i64 %12, 56
-  %14 = trunc i64 %13 to i8
+  %14 = trunc nuw i64 %13 to i8
   br label %_ZNK5folly13fbstring_coreIcE8capacityEv.exit22
 
 _ZNK5folly13fbstring_coreIcE8capacityEv.exit22:   ; preds = %cond.true14, %if.then.i20, %sw.epilog.i16

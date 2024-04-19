@@ -54,7 +54,7 @@ for.body.lr.ph:                                   ; preds = %while.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %while.end9
-  %node.017.in = phi i64 [ %2, %for.body.lr.ph ], [ %19, %while.end9 ]
+  %node.017.in = phi i64 [ %2, %for.body.lr.ph ], [ %17, %while.end9 ]
   %node.017 = inttoptr i64 %node.017.in to ptr
   %le_prev = getelementptr inbounds i8, ptr %node.017, i64 104
   %5 = load ptr, ptr %le_prev, align 8
@@ -120,85 +120,80 @@ add_pollfd.exit:                                  ; preds = %if.then3.add_pollfd
   %arrayidx.i = getelementptr ptr, ptr %12, i64 %idxprom.i
   store ptr %node.017, ptr %arrayidx.i, align 8
   %14 = load ptr, ptr %.pre4.i, align 8
-  %15 = load i32, ptr %0, align 4
-  %idxprom10.i = zext i32 %15 to i64
-  %arrayidx11.i = getelementptr %struct._GPollFD, ptr %14, i64 %idxprom10.i
-  %16 = load i32, ptr %node.017, align 8
-  %17 = load i16, ptr %events, align 4
-  store i32 %16, ptr %arrayidx11.i, align 4
+  %arrayidx11.i = getelementptr %struct._GPollFD, ptr %14, i64 %idxprom.i
+  %15 = load i32, ptr %node.017, align 8
+  %16 = load i16, ptr %events, align 4
+  store i32 %15, ptr %arrayidx11.i, align 4
   %.compoundliteral.sroa.2.0.arrayidx11.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx11.i, i64 4
-  store i16 %17, ptr %.compoundliteral.sroa.2.0.arrayidx11.sroa_idx.i, align 4
+  store i16 %16, ptr %.compoundliteral.sroa.2.0.arrayidx11.sroa_idx.i, align 4
   %.compoundliteral.sroa.3.0.arrayidx11.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx11.i, i64 6
   store i16 0, ptr %.compoundliteral.sroa.3.0.arrayidx11.sroa_idx.i, align 2
-  %18 = load i32, ptr %0, align 4
-  %inc.i = add i32 %18, 1
+  %inc.i = add i32 %13, 1
   store i32 %inc.i, ptr %0, align 4
   br label %while.end9
 
 while.end9:                                       ; preds = %for.body, %land.lhs.true, %add_pollfd.exit
   %node10 = getelementptr inbounds i8, ptr %node.017, i64 64
-  %19 = load atomic i64, ptr %node10 monotonic, align 8
+  %17 = load atomic i64, ptr %node10 monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !6
-  %tobool.not = icmp eq i64 %19, 0
+  %tobool.not = icmp eq i64 %17, 0
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %while.end9, %while.end
-  %20 = load i32, ptr %0, align 4
-  %call = tail call zeroext i1 @fdmon_epoll_try_upgrade(ptr noundef %ctx, i32 noundef %20) #7
+  %18 = load i32, ptr %0, align 4
+  %call = tail call zeroext i1 @fdmon_epoll_try_upgrade(ptr noundef %ctx, i32 noundef %18) #7
   br i1 %call, label %if.then12, label %if.end14
 
 if.then12:                                        ; preds = %for.end
   store i32 0, ptr %0, align 4
   %fdmon_ops = getelementptr inbounds i8, ptr %ctx, i64 576
-  %21 = load ptr, ptr %fdmon_ops, align 8
-  %wait = getelementptr inbounds i8, ptr %21, i64 8
-  %22 = load ptr, ptr %wait, align 8
-  %call13 = tail call i32 %22(ptr noundef %ctx, ptr noundef %ready_list, i64 noundef %timeout) #7
+  %19 = load ptr, ptr %fdmon_ops, align 8
+  %wait = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = load ptr, ptr %wait, align 8
+  %call13 = tail call i32 %20(ptr noundef %ctx, ptr noundef %ready_list, i64 noundef %timeout) #7
   br label %return
 
 if.end14:                                         ; preds = %for.end
-  %23 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @pollfds)
-  %24 = load ptr, ptr %23, align 8
-  %25 = load i32, ptr %0, align 4
-  %call15 = tail call i32 @qemu_poll_ns(ptr noundef %24, i32 noundef %25, i64 noundef %timeout) #7
+  %21 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @pollfds)
+  %22 = load ptr, ptr %21, align 8
+  %23 = load i32, ptr %0, align 4
+  %call15 = tail call i32 @qemu_poll_ns(ptr noundef %22, i32 noundef %23, i64 noundef %timeout) #7
   %cmp16 = icmp sgt i32 %call15, 0
-  br i1 %cmp16, label %for.cond19.preheader, label %if.end32
+  %24 = load i32, ptr %0, align 4
+  %cmp2018 = icmp ne i32 %24, 0
+  %or.cond = select i1 %cmp16, i1 %cmp2018, i1 false
+  br i1 %or.cond, label %for.body22.lr.ph, label %if.end32
 
-for.cond19.preheader:                             ; preds = %if.end14
-  %26 = load i32, ptr %0, align 4
-  %cmp2018.not = icmp eq i32 %26, 0
-  br i1 %cmp2018.not, label %if.end32, label %for.body22.lr.ph
-
-for.body22.lr.ph:                                 ; preds = %for.cond19.preheader
-  %27 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @nodes)
+for.body22.lr.ph:                                 ; preds = %if.end14
+  %25 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @nodes)
   br label %for.body22
 
 for.body22:                                       ; preds = %for.body22.lr.ph, %for.inc30
-  %28 = phi i32 [ %26, %for.body22.lr.ph ], [ %33, %for.inc30 ]
+  %26 = phi i32 [ %24, %for.body22.lr.ph ], [ %31, %for.inc30 ]
   %i.019 = phi i32 [ 0, %for.body22.lr.ph ], [ %inc, %for.inc30 ]
-  %29 = load ptr, ptr %23, align 8
+  %27 = load ptr, ptr %21, align 8
   %idxprom = sext i32 %i.019 to i64
-  %revents23 = getelementptr %struct._GPollFD, ptr %29, i64 %idxprom, i32 2
-  %30 = load i16, ptr %revents23, align 2
-  %tobool25.not = icmp eq i16 %30, 0
+  %revents23 = getelementptr %struct._GPollFD, ptr %27, i64 %idxprom, i32 2
+  %28 = load i16, ptr %revents23, align 2
+  %tobool25.not = icmp eq i16 %28, 0
   br i1 %tobool25.not, label %for.inc30, label %if.then26
 
 if.then26:                                        ; preds = %for.body22
-  %conv24 = zext i16 %30 to i32
-  %31 = load ptr, ptr %27, align 8
-  %arrayidx28 = getelementptr ptr, ptr %31, i64 %idxprom
-  %32 = load ptr, ptr %arrayidx28, align 8
-  tail call void @aio_add_ready_handler(ptr noundef %ready_list, ptr noundef %32, i32 noundef %conv24) #7
+  %conv24 = zext i16 %28 to i32
+  %29 = load ptr, ptr %25, align 8
+  %arrayidx28 = getelementptr ptr, ptr %29, i64 %idxprom
+  %30 = load ptr, ptr %arrayidx28, align 8
+  tail call void @aio_add_ready_handler(ptr noundef %ready_list, ptr noundef %30, i32 noundef %conv24) #7
   %.pre20 = load i32, ptr %0, align 4
   br label %for.inc30
 
 for.inc30:                                        ; preds = %for.body22, %if.then26
-  %33 = phi i32 [ %28, %for.body22 ], [ %.pre20, %if.then26 ]
+  %31 = phi i32 [ %26, %for.body22 ], [ %.pre20, %if.then26 ]
   %inc = add nuw i32 %i.019, 1
-  %cmp20 = icmp ult i32 %inc, %33
+  %cmp20 = icmp ult i32 %inc, %31
   br i1 %cmp20, label %for.body22, label %if.end32, !llvm.loop !9
 
-if.end32:                                         ; preds = %for.inc30, %for.cond19.preheader, %if.end14
+if.end32:                                         ; preds = %for.inc30, %if.end14
   store i32 0, ptr %0, align 4
   br label %return
 

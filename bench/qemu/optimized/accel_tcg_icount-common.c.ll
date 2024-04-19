@@ -285,7 +285,7 @@ if.end18:                                         ; preds = %if.else11, %if.end9
 
 if.then22:                                        ; preds = %if.end18
   %3 = load i8, ptr @icount_sleep, align 1
-  %tobool23 = trunc i8 %3 to i1
+  %tobool23 = trunc nuw i8 %3 to i1
   br i1 %tobool23, label %if.end59, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.then22
@@ -303,7 +303,7 @@ if.end27:                                         ; preds = %if.end18
 
 if.then29:                                        ; preds = %if.end27
   %4 = load i8, ptr @icount_sleep, align 1
-  %tobool30 = trunc i8 %4 to i1
+  %tobool30 = trunc nuw i8 %4 to i1
   %5 = atomicrmw xchg ptr getelementptr inbounds (%struct.TimersState, ptr @timers_state, i64 0, i32 3), i32 1 seq_cst, align 4
   %tobool.not3.i = icmp eq i32 %5, 0
   br i1 %tobool.not3.i, label %qemu_spin_lock.exit, label %while.cond6.preheader.i
@@ -401,7 +401,7 @@ declare void @timer_mod_anticipate(ptr noundef, i64 noundef) local_unnamed_addr 
 define dso_local void @icount_account_warp_timer() local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr @icount_sleep, align 1
-  %tobool = trunc i8 %0 to i1
+  %tobool = trunc nuw i8 %0 to i1
   br i1 %tobool, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -726,7 +726,7 @@ if.then22:                                        ; preds = %if.else
 
 if.else23:                                        ; preds = %if.else
   %3 = load i8, ptr @icount_sleep, align 1
-  %tobool24 = trunc i8 %3 to i1
+  %tobool24 = trunc nuw i8 %3 to i1
   br i1 %tobool24, label %if.end28, label %if.then25
 
 if.then25:                                        ; preds = %if.else23
@@ -828,21 +828,19 @@ entry:
 define dso_local void @icount_notify_exit() local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr @use_icount, align 4
-  %tobool.not = icmp eq i32 %0, 0
-  br i1 %tobool.not, label %if.end, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %entry
+  %tobool = icmp ne i32 %0, 0
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @current_cpu)
   %2 = load ptr, ptr %1, align 8
-  %tobool1.not = icmp eq ptr %2, null
-  br i1 %tobool1.not, label %if.end, label %if.then
+  %tobool1 = icmp ne ptr %2, null
+  %or.cond = select i1 %tobool, i1 %tobool1, i1 false
+  br i1 %or.cond, label %if.then, label %if.end
 
-if.then:                                          ; preds = %land.lhs.true
+if.then:                                          ; preds = %entry
   tail call void @qemu_cpu_kick(ptr noundef nonnull %2) #8
   tail call void @qemu_clock_notify(i32 noundef 1) #8
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %land.lhs.true, %entry
+if.end:                                           ; preds = %if.then, %entry
   ret void
 }
 

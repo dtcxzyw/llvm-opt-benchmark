@@ -6308,6 +6308,9 @@ if.end7:                                          ; preds = %if.end, %PyObject_T
 
 for.body.lr.ph:                                   ; preds = %if.end7
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
+  %.pre = load ptr, ptr %6, align 8
+  %c_recursion_remaining.i.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 44
+  %.pre20 = load i32, ptr %c_recursion_remaining.i.i.i.phi.trans.insert, align 4
   br label %for.body
 
 for.cond:                                         ; preds = %if.end15
@@ -6316,26 +6319,26 @@ for.cond:                                         ; preds = %if.end15
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !17
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
+  %7 = phi i32 [ %.pre20, %for.body.lr.ph ], [ %inc.i.i, %for.cond ]
+  %8 = phi ptr [ %.pre, %for.body.lr.ph ], [ %11, %for.cond ]
   %i.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.cond ]
-  %7 = load ptr, ptr %excs, align 8
-  %ob_item = getelementptr inbounds i8, ptr %7, i64 24
+  %9 = load ptr, ptr %excs, align 8
+  %ob_item = getelementptr inbounds i8, ptr %9, i64 24
   %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %i.017
-  %8 = load ptr, ptr %arrayidx, align 8
-  %9 = load ptr, ptr %6, align 8
-  %c_recursion_remaining.i.i.i = getelementptr inbounds i8, ptr %9, i64 44
-  %10 = load i32, ptr %c_recursion_remaining.i.i.i, align 4
-  %dec.i.i.i = add i32 %10, -1
+  %10 = load ptr, ptr %arrayidx, align 8
+  %c_recursion_remaining.i.i.i = getelementptr inbounds i8, ptr %8, i64 44
+  %dec.i.i.i = add i32 %7, -1
   store i32 %dec.i.i.i, ptr %c_recursion_remaining.i.i.i, align 4
-  %cmp.i.i.i = icmp sgt i32 %10, 0
+  %cmp.i.i.i = icmp sgt i32 %7, 0
   br i1 %cmp.i.i.i, label %if.end15, label %_Py_EnterRecursiveCall.exit
 
 _Py_EnterRecursiveCall.exit:                      ; preds = %for.body
-  %call1.i.i = tail call i32 @_Py_CheckRecursiveCall(ptr noundef nonnull %9, ptr noundef nonnull @.str.59) #10
+  %call1.i.i = tail call i32 @_Py_CheckRecursiveCall(ptr noundef nonnull %8, ptr noundef nonnull @.str.59) #10
   %tobool2.i.i.not = icmp eq i32 %call1.i.i, 0
   br i1 %tobool2.i.i.not, label %if.end15, label %return
 
 if.end15:                                         ; preds = %for.body, %_Py_EnterRecursiveCall.exit
-  %call17 = tail call fastcc i32 @collect_exception_group_leaf_ids(ptr noundef %8, ptr noundef %leaf_ids)
+  %call17 = tail call fastcc i32 @collect_exception_group_leaf_ids(ptr noundef %10, ptr noundef %leaf_ids)
   %11 = load ptr, ptr %6, align 8
   %c_recursion_remaining.i.i = getelementptr inbounds i8, ptr %11, i64 44
   %12 = load i32, ptr %c_recursion_remaining.i.i, align 4

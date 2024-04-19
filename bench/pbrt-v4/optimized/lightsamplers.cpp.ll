@@ -2094,31 +2094,35 @@ if.then43:                                        ; preds = %for.end
   %sub.ptr.div.i57 = sdiv exact i64 %sub.ptr.sub.i56, 56
   %conv = trunc i64 %sub.ptr.div.i57 to i32
   invoke void @_ZN4pbrt15BVHLightSampler8buildBVHERSt6vectorISt4pairIiNS_11LightBoundsEESaIS4_EEiiji(ptr nonnull sret(%"struct.std::pair") align 4 %tmp, ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(24) %bvhLights, i32 noundef 0, i32 noundef %conv, i32 noundef 0, i32 noundef 0)
-          to label %invoke.cont51 unwind label %lpad12.loopexit.split-lp
+          to label %if.then43.invoke.cont51_crit_edge unwind label %lpad12.loopexit.split-lp
 
-invoke.cont51:                                    ; preds = %invoke.cont11, %for.end, %if.then43
+if.then43.invoke.cont51_crit_edge:                ; preds = %if.then43
+  %.pre85 = load ptr, ptr %bvhLights, align 8
+  br label %invoke.cont51
+
+invoke.cont51:                                    ; preds = %invoke.cont11, %if.then43.invoke.cont51_crit_edge, %for.end
+  %46 = phi ptr [ %.pre85, %if.then43.invoke.cont51_crit_edge ], [ %45, %for.end ], [ null, %invoke.cont11 ]
   %nStored.i58 = getelementptr inbounds i8, ptr %this, i64 112
-  %46 = load i64, ptr %nStored.i58, align 8
+  %47 = load i64, ptr %nStored.i58, align 8
   %nStored.i.i = getelementptr inbounds i8, ptr %this, i64 144
-  %47 = load i64, ptr %nStored.i.i, align 8
-  %mul = shl i64 %46, 5
-  %mul53 = shl i64 %47, 2
+  %48 = load i64, ptr %nStored.i.i, align 8
+  %mul = shl i64 %47, 5
+  %mul53 = shl i64 %48, 2
   %nStored.i60 = getelementptr inbounds i8, ptr %this, i64 56
-  %48 = load i64, ptr %nStored.i60, align 8
-  %49 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL13lightBVHBytesE)
-  %50 = load i64, ptr %49, align 8
-  %reass.add = add i64 %48, %lights.coerce1
+  %49 = load i64, ptr %nStored.i60, align 8
+  %50 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL13lightBVHBytesE)
+  %51 = load i64, ptr %50, align 8
+  %reass.add = add i64 %49, %lights.coerce1
   %reass.mul = shl i64 %reass.add, 3
   %add57 = add i64 %mul53, %mul
-  %add62 = add i64 %add57, %50
+  %add62 = add i64 %add57, %51
   %add63 = add i64 %add62, %reass.mul
-  store i64 %add63, ptr %49, align 8
-  %51 = load ptr, ptr %bvhLights, align 8
-  %tobool.not.i.i.i = icmp eq ptr %51, null
+  store i64 %add63, ptr %50, align 8
+  %tobool.not.i.i.i = icmp eq ptr %46, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorISt4pairIiN4pbrt11LightBoundsEESaIS3_EED2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont51
-  call void @_ZdlPv(ptr noundef nonnull %51) #24
+  call void @_ZdlPv(ptr noundef nonnull %46) #24
   br label %_ZNSt6vectorISt4pairIiN4pbrt11LightBoundsEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorISt4pairIiN4pbrt11LightBoundsEESaIS3_EED2Ev.exit: ; preds = %invoke.cont51, %if.then.i.i.i

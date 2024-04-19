@@ -1030,17 +1030,16 @@ entry.split.us.split.us:                          ; preds = %entry.split.us
   %5 = load ptr, ptr @_ZN13ModifySafeMapItSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS1_EEE10null_valueE, align 8
   %.fr59 = freeze ptr %5
   %cmp.i.not.i.us.us = icmp eq ptr %.fr59, null
-  br i1 %cmp.i.not.i.us.us, label %while.cond.us.us.us.preheader, label %cleanup.sink.split
+  br i1 %cmp.i.not.i.us.us, label %while.cond.us.us.us.preheader, label %cleanup
 
 while.cond.us.us.us.preheader:                    ; preds = %entry.split.us.split.us
   %6 = add i16 %1, 1
   %inc.us.us.us.lcssa = tail call i16 @llvm.umax.i16(i16 %6, i16 1)
-  br label %cleanup.sink.split
+  br label %cleanup
 
 while.cond.us:                                    ; preds = %entry.split.us, %while.body.us
   %7 = phi i16 [ %inc.us, %while.body.us ], [ %1, %entry.split.us ]
   %inc.us = add i16 %7, 1
-  store i16 %inc.us, ptr %0, align 2, !tbaa !36
   %cmp.not.i.us = icmp eq i16 %inc.us, 0
   br i1 %cmp.not.i.us, label %while.body.us, label %while.body.i.i.i25.i.i.us
 
@@ -1090,17 +1089,16 @@ entry.split.split.us.split.us:                    ; preds = %entry.split.split.u
   %11 = load ptr, ptr @_ZN13ModifySafeMapItSt10unique_ptrI18ClientActiveObjectSt14default_deleteIS1_EEE10null_valueE, align 8
   %.fr58 = freeze ptr %11
   %cmp.i.not.i.us28.us = icmp eq ptr %.fr58, null
-  br i1 %cmp.i.not.i.us28.us, label %while.cond.us3.us.us.preheader, label %cleanup.sink.split
+  br i1 %cmp.i.not.i.us28.us, label %while.cond.us3.us.us.preheader, label %cleanup
 
 while.cond.us3.us.us.preheader:                   ; preds = %entry.split.split.us.split.us
   %12 = add i16 %1, 1
   %inc.us4.us.us.lcssa = tail call i16 @llvm.umax.i16(i16 %12, i16 1)
-  br label %cleanup.sink.split
+  br label %cleanup
 
 while.cond.us3:                                   ; preds = %entry.split.split.us, %while.body.us29
   %13 = phi i16 [ %inc.us4, %while.body.us29 ], [ %1, %entry.split.split.us ]
   %inc.us4 = add i16 %13, 1
-  store i16 %inc.us4, ptr %0, align 2, !tbaa !36
   %cmp.not.i.us5 = icmp eq i16 %inc.us4, 0
   br i1 %cmp.not.i.us5, label %while.body.us29, label %while.body.i.i.i25.i.i.us8
 
@@ -1145,7 +1143,6 @@ entry.split.split:                                ; preds = %entry.split
 while.cond.us34:                                  ; preds = %entry.split.split, %while.body.us42
   %17 = phi i16 [ %inc.us35, %while.body.us42 ], [ %1, %entry.split.split ]
   %inc.us35 = add i16 %17, 1
-  store i16 %inc.us35, ptr %0, align 2, !tbaa !36
   %cmp.not.i.us36 = icmp eq i16 %inc.us35, 0
   br i1 %cmp.not.i.us36, label %while.body.us42, label %while.body.i.i.i.i.i.us
 
@@ -1187,7 +1184,6 @@ while.body.us42:                                  ; preds = %_ZNK15ActiveObjectM
 while.cond:                                       ; preds = %entry.split.split, %while.body
   %21 = phi i16 [ %inc, %while.body ], [ %1, %entry.split.split ]
   %inc = add i16 %21, 1
-  store i16 %inc, ptr %0, align 2, !tbaa !36
   %cmp.not.i = icmp eq i16 %inc, 0
   br i1 %cmp.not.i, label %while.body, label %while.body.i.i.i.i.i
 
@@ -1256,14 +1252,10 @@ while.body:                                       ; preds = %_ZNK15ActiveObjectM
   %cmp = icmp eq i16 %inc, %1
   br i1 %cmp, label %cleanup, label %while.cond, !llvm.loop !49
 
-cleanup.sink.split:                               ; preds = %while.cond.us3.us.us.preheader, %entry.split.split.us.split.us, %while.cond.us.us.us.preheader, %entry.split.us.split.us
-  %.us-phi48.sink = phi i16 [ %1, %entry.split.us.split.us ], [ %1, %entry.split.split.us.split.us ], [ %inc.us.us.us.lcssa, %while.cond.us.us.us.preheader ], [ %inc.us4.us.us.lcssa, %while.cond.us3.us.us.preheader ]
-  %.us-phi.ph = phi i16 [ 0, %entry.split.us.split.us ], [ 0, %entry.split.split.us.split.us ], [ %inc.us.us.us.lcssa, %while.cond.us.us.us.preheader ], [ %inc.us4.us.us.lcssa, %while.cond.us3.us.us.preheader ]
-  store i16 %.us-phi48.sink, ptr %0, align 2, !tbaa !36
-  br label %cleanup
-
-cleanup:                                          ; preds = %while.body, %_ZNK15ActiveObjectMgrI18ClientActiveObjectE8isFreeIdEt.exit, %while.body.us42, %_ZNK15ActiveObjectMgrI18ClientActiveObjectE8isFreeIdEt.exit.us39, %while.body.us29, %_ZNK15ActiveObjectMgrI18ClientActiveObjectE8isFreeIdEt.exit.us26, %while.body.us, %_ZNK15ActiveObjectMgrI18ClientActiveObjectE8isFreeIdEt.exit.us, %cleanup.sink.split
-  %.us-phi = phi i16 [ %.us-phi.ph, %cleanup.sink.split ], [ %inc.us, %_ZNK15ActiveObjectMgrI18ClientActiveObjectE8isFreeIdEt.exit.us ], [ 0, %while.body.us ], [ %inc.us4, %_ZNK15ActiveObjectMgrI18ClientActiveObjectE8isFreeIdEt.exit.us26 ], [ 0, %while.body.us29 ], [ %inc.us35, %_ZNK15ActiveObjectMgrI18ClientActiveObjectE8isFreeIdEt.exit.us39 ], [ 0, %while.body.us42 ], [ %inc, %_ZNK15ActiveObjectMgrI18ClientActiveObjectE8isFreeIdEt.exit ], [ 0, %while.body ]
+cleanup:                                          ; preds = %while.body, %_ZNK15ActiveObjectMgrI18ClientActiveObjectE8isFreeIdEt.exit, %while.body.us42, %_ZNK15ActiveObjectMgrI18ClientActiveObjectE8isFreeIdEt.exit.us39, %while.body.us29, %_ZNK15ActiveObjectMgrI18ClientActiveObjectE8isFreeIdEt.exit.us26, %while.body.us, %_ZNK15ActiveObjectMgrI18ClientActiveObjectE8isFreeIdEt.exit.us, %entry.split.us.split.us, %while.cond.us.us.us.preheader, %entry.split.split.us.split.us, %while.cond.us3.us.us.preheader
+  %inc.lcssa.sink = phi i16 [ %1, %entry.split.us.split.us ], [ %1, %entry.split.split.us.split.us ], [ %inc.us.us.us.lcssa, %while.cond.us.us.us.preheader ], [ %inc.us4.us.us.lcssa, %while.cond.us3.us.us.preheader ], [ %inc.us, %_ZNK15ActiveObjectMgrI18ClientActiveObjectE8isFreeIdEt.exit.us ], [ %1, %while.body.us ], [ %inc.us4, %_ZNK15ActiveObjectMgrI18ClientActiveObjectE8isFreeIdEt.exit.us26 ], [ %1, %while.body.us29 ], [ %inc.us35, %_ZNK15ActiveObjectMgrI18ClientActiveObjectE8isFreeIdEt.exit.us39 ], [ %1, %while.body.us42 ], [ %inc, %_ZNK15ActiveObjectMgrI18ClientActiveObjectE8isFreeIdEt.exit ], [ %1, %while.body ]
+  %.us-phi = phi i16 [ 0, %entry.split.us.split.us ], [ 0, %entry.split.split.us.split.us ], [ %inc.us.us.us.lcssa, %while.cond.us.us.us.preheader ], [ %inc.us4.us.us.lcssa, %while.cond.us3.us.us.preheader ], [ %inc.us, %_ZNK15ActiveObjectMgrI18ClientActiveObjectE8isFreeIdEt.exit.us ], [ 0, %while.body.us ], [ %inc.us4, %_ZNK15ActiveObjectMgrI18ClientActiveObjectE8isFreeIdEt.exit.us26 ], [ 0, %while.body.us29 ], [ %inc.us35, %_ZNK15ActiveObjectMgrI18ClientActiveObjectE8isFreeIdEt.exit.us39 ], [ 0, %while.body.us42 ], [ %inc, %_ZNK15ActiveObjectMgrI18ClientActiveObjectE8isFreeIdEt.exit ], [ 0, %while.body ]
+  store i16 %inc.lcssa.sink, ptr %0, align 2, !tbaa !36
   ret i16 %.us-phi
 }
 

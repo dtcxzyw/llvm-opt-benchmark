@@ -18,7 +18,7 @@ $_ZTWN8facebook5velox7process20fatalSignalProcessedE = comdat any
 @_ZN8facebook5velox7process21ScopedThreadDebugInfoC1ERKNS1_15ThreadDebugInfoE = unnamed_addr alias void (ptr, ptr), ptr @_ZN8facebook5velox7process21ScopedThreadDebugInfoC2ERKNS1_15ThreadDebugInfoE
 @_ZN8facebook5velox7process21ScopedThreadDebugInfoD1Ev = unnamed_addr alias void (ptr), ptr @_ZN8facebook5velox7process21ScopedThreadDebugInfoD2Ev
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define noundef ptr @_ZN8facebook5velox7process18GetThreadDebugInfoEv() local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN8facebook5velox7process15threadDebugInfoE)
@@ -29,7 +29,7 @@ entry:
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define void @_ZN8facebook5velox7process21ScopedThreadDebugInfoC2ERKNS1_15ThreadDebugInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(96) %localDebugInfo) unnamed_addr #2 align 2 {
 entry:
   store ptr null, ptr %this, align 8
@@ -40,7 +40,7 @@ entry:
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
 define void @_ZN8facebook5velox7process21ScopedThreadDebugInfoD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
@@ -80,13 +80,13 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %call4 = tail call i64 @write(i32 noundef 2, ptr noundef nonnull @.str.1, i64 noundef 32)
-  %call5 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #10
-  %call7 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #10
+  %call5 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #9
+  %call7 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #9
   %call8 = tail call i64 @write(i32 noundef 2, ptr noundef %call5, i64 noundef %call7)
   %call10 = tail call i64 @write(i32 noundef 2, ptr noundef nonnull @.str.2, i64 noundef 10)
   %taskId_ = getelementptr inbounds i8, ptr %1, i64 32
-  %call11 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %taskId_) #10
-  %call13 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %taskId_) #10
+  %call11 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %taskId_) #9
+  %call13 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %taskId_) #9
   %call14 = tail call i64 @write(i32 noundef 2, ptr noundef %call11, i64 noundef %call13)
   %2 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN8facebook5velox7process20fatalSignalProcessedE)
   %3 = load i8, ptr %2, align 1
@@ -94,26 +94,17 @@ if.else:                                          ; preds = %entry
   br i1 %tobool, label %if.end18, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.else
-  %callback_ = getelementptr inbounds i8, ptr %1, i64 64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %1, i64 80
   %4 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i.not = icmp eq ptr %4, null
-  br i1 %tobool.not.i.i.not, label %if.end18, label %if.then16
+  br i1 %tobool.not.i.i.not, label %if.end18, label %_ZNKSt8functionIFvvEEclEv.exit
 
-if.then16:                                        ; preds = %land.lhs.true
+_ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %land.lhs.true
+  %callback_ = getelementptr inbounds i8, ptr %1, i64 64
   store i8 1, ptr %2, align 1
-  %5 = load ptr, ptr %_M_manager.i.i, align 8
-  %tobool.not.i.i11 = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i11, label %if.then.i, label %_ZNKSt8functionIFvvEEclEv.exit
-
-if.then.i:                                        ; preds = %if.then16
-  tail call void @_ZSt25__throw_bad_function_callv() #11
-  unreachable
-
-_ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %if.then16
   %_M_invoker.i = getelementptr inbounds i8, ptr %1, i64 88
-  %6 = load ptr, ptr %_M_invoker.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(16) %callback_)
+  %5 = load ptr, ptr %_M_invoker.i, align 8
+  tail call void %5(ptr noundef nonnull align 8 dereferenceable(16) %callback_)
   br label %if.end18
 
 if.end18:                                         ; preds = %if.else, %land.lhs.true, %_ZNKSt8functionIFvvEEclEv.exit, %if.then
@@ -132,33 +123,28 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: noreturn
-declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #8
-
 ; Function Attrs: uwtable
-define weak_odr hidden noundef ptr @_ZTWN8facebook5velox7process15threadDebugInfoE() local_unnamed_addr #9 comdat {
+define weak_odr hidden noundef ptr @_ZTWN8facebook5velox7process15threadDebugInfoE() local_unnamed_addr #8 comdat {
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN8facebook5velox7process15threadDebugInfoE)
   ret ptr %1
 }
 
 ; Function Attrs: uwtable
-define weak_odr hidden noundef ptr @_ZTWN8facebook5velox7process20fatalSignalProcessedE() local_unnamed_addr #9 comdat {
+define weak_odr hidden noundef ptr @_ZTWN8facebook5velox7process20fatalSignalProcessedE() local_unnamed_addr #8 comdat {
   %1 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZN8facebook5velox7process20fatalSignalProcessedE)
   ret ptr %1
 }
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #6 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #9 = { uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
-attributes #10 = { nounwind }
-attributes #11 = { noreturn }
+attributes #8 = { uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

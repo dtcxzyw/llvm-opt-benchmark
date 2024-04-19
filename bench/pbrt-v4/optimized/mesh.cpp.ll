@@ -587,32 +587,26 @@ do.end:                                           ; preds = %entry
   %7 = load i64, ptr %6, align 8
   %inc = add nsw i64 %7, 1
   store i64 %inc, ptr %6, align 8
-  %8 = load i32, ptr %this, align 8
-  %conv12 = sext i32 %8 to i64
-  %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL5nTrisE)
-  %10 = load i64, ptr %9, align 8
-  %add = add nsw i64 %10, %conv12
-  store i64 %add, ptr %9, align 8
-  %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL13triangleBytesE)
-  %12 = load i64, ptr %11, align 8
-  %add13 = add i64 %12, 64
-  store i64 %add13, ptr %11, align 8
-  %13 = load ptr, ptr @_ZN4pbrt14intBufferCacheE, align 8
-  %14 = load ptr, ptr %indices, align 8
-  %15 = load ptr, ptr %_M_finish.i, align 8
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %15 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %14 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 2
-  %call16 = tail call noundef ptr @_ZN4pbrt11BufferCacheIiE11LookupOrAddEN4pstd4spanIKiEENS2_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(7176) %13, ptr %14, i64 %sub.ptr.div.i.i, ptr %coerce.val.ip)
+  %sext = shl i64 %div, 32
+  %conv12 = ashr exact i64 %sext, 32
+  %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL5nTrisE)
+  %9 = load i64, ptr %8, align 8
+  %add = add nsw i64 %9, %conv12
+  store i64 %add, ptr %8, align 8
+  %10 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL13triangleBytesE)
+  %11 = load i64, ptr %10, align 8
+  %add13 = add i64 %11, 64
+  store i64 %add13, ptr %10, align 8
+  %12 = load ptr, ptr @_ZN4pbrt14intBufferCacheE, align 8
+  %call16 = tail call noundef ptr @_ZN4pbrt11BufferCacheIiE11LookupOrAddEN4pstd4spanIKiEENS2_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(7176) %12, ptr %5, i64 %sub.ptr.div.i22, ptr %coerce.val.ip)
   store ptr %call16, ptr %vertexIndices, align 8
-  %16 = load ptr, ptr %p, align 8
-  %17 = load ptr, ptr %_M_finish.i13, align 8
-  %cmp.i.not103 = icmp eq ptr %16, %17
+  %13 = load ptr, ptr %p, align 8
+  %14 = load ptr, ptr %_M_finish.i13, align 8
+  %cmp.i.not103 = icmp eq ptr %13, %14
   br i1 %cmp.i.not103, label %for.end, label %for.body
 
 for.body:                                         ; preds = %do.end, %for.body
-  %__begin1.sroa.0.0104 = phi ptr [ %incdec.ptr.i, %for.body ], [ %16, %do.end ]
+  %__begin1.sroa.0.0104 = phi ptr [ %incdec.ptr.i, %for.body ], [ %13, %do.end ]
   %agg.tmp24.sroa.0.0.copyload = load <2 x float>, ptr %__begin1.sroa.0.0104, align 4
   %agg.tmp24.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__begin1.sroa.0.0104, i64 8
   %agg.tmp24.sroa.2.0.copyload = load float, ptr %agg.tmp24.sroa.2.0..sroa_idx, align 4
@@ -622,7 +616,7 @@ for.body:                                         ; preds = %do.end, %for.body
   store <2 x float> %call25.fca.0.extract, ptr %__begin1.sroa.0.0104, align 4
   store float %call25.fca.1.extract, ptr %agg.tmp24.sroa.2.0..sroa_idx, align 4
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0104, i64 12
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %17
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %14
   br i1 %cmp.i.not, label %for.end.loopexit, label %for.body
 
 for.end.loopexit:                                 ; preds = %for.body
@@ -631,14 +625,14 @@ for.end.loopexit:                                 ; preds = %for.body
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %do.end
-  %18 = phi ptr [ %.pre110, %for.end.loopexit ], [ %16, %do.end ]
-  %19 = phi ptr [ %.pre, %for.end.loopexit ], [ %16, %do.end ]
-  %20 = load ptr, ptr @_ZN4pbrt17point3BufferCacheE, align 8
-  %sub.ptr.lhs.cast.i.i25 = ptrtoint ptr %18 to i64
-  %sub.ptr.rhs.cast.i.i26 = ptrtoint ptr %19 to i64
+  %15 = phi ptr [ %.pre110, %for.end.loopexit ], [ %13, %do.end ]
+  %16 = phi ptr [ %.pre, %for.end.loopexit ], [ %13, %do.end ]
+  %17 = load ptr, ptr @_ZN4pbrt17point3BufferCacheE, align 8
+  %sub.ptr.lhs.cast.i.i25 = ptrtoint ptr %15 to i64
+  %sub.ptr.rhs.cast.i.i26 = ptrtoint ptr %16 to i64
   %sub.ptr.sub.i.i27 = sub i64 %sub.ptr.lhs.cast.i.i25, %sub.ptr.rhs.cast.i.i26
   %sub.ptr.div.i.i28 = sdiv exact i64 %sub.ptr.sub.i.i27, 12
-  %call31 = tail call noundef ptr @_ZN4pbrt11BufferCacheINS_6Point3IfEEE11LookupOrAddEN4pstd4spanIKS2_EENS4_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(7176) %20, ptr %19, i64 %sub.ptr.div.i.i28, ptr %coerce.val.ip)
+  %call31 = tail call noundef ptr @_ZN4pbrt11BufferCacheINS_6Point3IfEEE11LookupOrAddEN4pstd4spanIKS2_EENS4_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(7176) %17, ptr %16, i64 %sub.ptr.div.i.i28, ptr %coerce.val.ip)
   store ptr %call31, ptr %p4, align 8
   %reverseOrientation33 = getelementptr inbounds i8, ptr %this, i64 56
   store i8 %frombool, ptr %reverseOrientation33, align 8
@@ -646,21 +640,21 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %transformSwapsHandedness = getelementptr inbounds i8, ptr %this, i64 57
   %frombool36 = zext i1 %call35 to i8
   store i8 %frombool36, ptr %transformSwapsHandedness, align 1
-  %21 = load ptr, ptr %uv, align 8
+  %18 = load ptr, ptr %uv, align 8
   %_M_finish.i.i30 = getelementptr inbounds i8, ptr %uv, i64 8
-  %22 = load ptr, ptr %_M_finish.i.i30, align 8
-  %cmp.i.i = icmp eq ptr %21, %22
+  %19 = load ptr, ptr %_M_finish.i.i30, align 8
+  %cmp.i.i = icmp eq ptr %18, %19
   br i1 %cmp.i.i, label %if.end54, label %do.body39
 
 do.body39:                                        ; preds = %for.end
-  %23 = load i32, ptr %nVertices, align 4
-  store i32 %23, ptr %va40, align 4
-  %sub.ptr.lhs.cast.i32 = ptrtoint ptr %22 to i64
-  %sub.ptr.rhs.cast.i33 = ptrtoint ptr %21 to i64
+  %20 = load i32, ptr %nVertices, align 4
+  store i32 %20, ptr %va40, align 4
+  %sub.ptr.lhs.cast.i32 = ptrtoint ptr %19 to i64
+  %sub.ptr.rhs.cast.i33 = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i34 = sub i64 %sub.ptr.lhs.cast.i32, %sub.ptr.rhs.cast.i33
   %sub.ptr.div.i35 = ashr exact i64 %sub.ptr.sub.i34, 3
   store i64 %sub.ptr.div.i35, ptr %vb42, align 8
-  %conv44 = sext i32 %23 to i64
+  %conv44 = sext i32 %20 to i64
   %cmp45 = icmp eq i64 %sub.ptr.div.i35, %conv44
   br i1 %cmp45, label %do.end48, label %if.then46
 
@@ -669,27 +663,27 @@ if.then46:                                        ; preds = %do.body39
   unreachable
 
 do.end48:                                         ; preds = %do.body39
-  %24 = load ptr, ptr @_ZN4pbrt17point2BufferCacheE, align 8
-  %call52 = tail call noundef ptr @_ZN4pbrt11BufferCacheINS_6Point2IfEEE11LookupOrAddEN4pstd4spanIKS2_EENS4_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(7176) %24, ptr %21, i64 %sub.ptr.div.i35, ptr %coerce.val.ip)
+  %21 = load ptr, ptr @_ZN4pbrt17point2BufferCacheE, align 8
+  %call52 = tail call noundef ptr @_ZN4pbrt11BufferCacheINS_6Point2IfEEE11LookupOrAddEN4pstd4spanIKS2_EENS4_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(7176) %21, ptr %18, i64 %sub.ptr.div.i35, ptr %coerce.val.ip)
   store ptr %call52, ptr %uv7, align 8
   br label %if.end54
 
 if.end54:                                         ; preds = %do.end48, %for.end
-  %25 = load ptr, ptr %n, align 8
+  %22 = load ptr, ptr %n, align 8
   %_M_finish.i.i42 = getelementptr inbounds i8, ptr %n, i64 8
-  %26 = load ptr, ptr %_M_finish.i.i42, align 8
-  %cmp.i.i43 = icmp eq ptr %25, %26
+  %23 = load ptr, ptr %_M_finish.i.i42, align 8
+  %cmp.i.i43 = icmp eq ptr %22, %23
   br i1 %cmp.i.i43, label %if.end95, label %do.body57
 
 do.body57:                                        ; preds = %if.end54
-  %27 = load i32, ptr %nVertices, align 4
-  store i32 %27, ptr %va58, align 4
-  %sub.ptr.lhs.cast.i45 = ptrtoint ptr %26 to i64
-  %sub.ptr.rhs.cast.i46 = ptrtoint ptr %25 to i64
+  %24 = load i32, ptr %nVertices, align 4
+  store i32 %24, ptr %va58, align 4
+  %sub.ptr.lhs.cast.i45 = ptrtoint ptr %23 to i64
+  %sub.ptr.rhs.cast.i46 = ptrtoint ptr %22 to i64
   %sub.ptr.sub.i47 = sub i64 %sub.ptr.lhs.cast.i45, %sub.ptr.rhs.cast.i46
   %sub.ptr.div.i48 = sdiv exact i64 %sub.ptr.sub.i47, 12
   store i64 %sub.ptr.div.i48, ptr %vb60, align 8
-  %conv62 = sext i32 %27 to i64
+  %conv62 = sext i32 %24 to i64
   %cmp63 = icmp eq i64 %sub.ptr.div.i48, %conv62
   br i1 %cmp63, label %for.body73.lr.ph, label %if.then64
 
@@ -697,19 +691,19 @@ for.body73.lr.ph:                                 ; preds = %do.body57
   br i1 %reverseOrientation, label %for.body73.us, label %for.body73
 
 for.body73.us:                                    ; preds = %for.body73.lr.ph, %for.body73.us
-  %__begin2.sroa.0.0106.us = phi ptr [ %incdec.ptr.i51.us, %for.body73.us ], [ %25, %for.body73.lr.ph ]
+  %__begin2.sroa.0.0106.us = phi ptr [ %incdec.ptr.i51.us, %for.body73.us ], [ %22, %for.body73.lr.ph ]
   %agg.tmp76.sroa.0.0.copyload.us = load <2 x float>, ptr %__begin2.sroa.0.0106.us, align 4
   %agg.tmp76.sroa.2.0..sroa_idx.us = getelementptr inbounds i8, ptr %__begin2.sroa.0.0106.us, i64 8
   %agg.tmp76.sroa.2.0.copyload.us = load float, ptr %agg.tmp76.sroa.2.0..sroa_idx.us, align 4
   %call77.us = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Normal3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %renderFromObject, <2 x float> %agg.tmp76.sroa.0.0.copyload.us, float %agg.tmp76.sroa.2.0.copyload.us)
   %call77.fca.0.extract.us = extractvalue { <2 x float>, float } %call77.us, 0
   %call77.fca.1.extract.us = extractvalue { <2 x float>, float } %call77.us, 1
-  %28 = fneg <2 x float> %call77.fca.0.extract.us
+  %25 = fneg <2 x float> %call77.fca.0.extract.us
   %fneg3.i.us = fneg float %call77.fca.1.extract.us
-  store <2 x float> %28, ptr %__begin2.sroa.0.0106.us, align 4
+  store <2 x float> %25, ptr %__begin2.sroa.0.0106.us, align 4
   store float %fneg3.i.us, ptr %agg.tmp76.sroa.2.0..sroa_idx.us, align 4
   %incdec.ptr.i51.us = getelementptr inbounds i8, ptr %__begin2.sroa.0.0106.us, i64 12
-  %cmp.i50.not.us = icmp eq ptr %incdec.ptr.i51.us, %26
+  %cmp.i50.not.us = icmp eq ptr %incdec.ptr.i51.us, %23
   br i1 %cmp.i50.not.us, label %for.end89, label %for.body73.us
 
 if.then64:                                        ; preds = %do.body57
@@ -717,7 +711,7 @@ if.then64:                                        ; preds = %do.body57
   unreachable
 
 for.body73:                                       ; preds = %for.body73.lr.ph, %for.body73
-  %__begin2.sroa.0.0106 = phi ptr [ %incdec.ptr.i51, %for.body73 ], [ %25, %for.body73.lr.ph ]
+  %__begin2.sroa.0.0106 = phi ptr [ %incdec.ptr.i51, %for.body73 ], [ %22, %for.body73.lr.ph ]
   %agg.tmp76.sroa.0.0.copyload = load <2 x float>, ptr %__begin2.sroa.0.0106, align 4
   %agg.tmp76.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__begin2.sroa.0.0106, i64 8
   %agg.tmp76.sroa.2.0.copyload = load float, ptr %agg.tmp76.sroa.2.0..sroa_idx, align 4
@@ -727,37 +721,37 @@ for.body73:                                       ; preds = %for.body73.lr.ph, %
   store <2 x float> %call77.fca.0.extract, ptr %__begin2.sroa.0.0106, align 4
   store float %call77.fca.1.extract, ptr %agg.tmp76.sroa.2.0..sroa_idx, align 4
   %incdec.ptr.i51 = getelementptr inbounds i8, ptr %__begin2.sroa.0.0106, i64 12
-  %cmp.i50.not = icmp eq ptr %incdec.ptr.i51, %26
+  %cmp.i50.not = icmp eq ptr %incdec.ptr.i51, %23
   br i1 %cmp.i50.not, label %for.end89, label %for.body73
 
 for.end89:                                        ; preds = %for.body73, %for.body73.us
-  %29 = load ptr, ptr @_ZN4pbrt18normal3BufferCacheE, align 8
-  %30 = load ptr, ptr %n, align 8
-  %31 = load ptr, ptr %_M_finish.i.i42, align 8
-  %sub.ptr.lhs.cast.i.i53 = ptrtoint ptr %31 to i64
-  %sub.ptr.rhs.cast.i.i54 = ptrtoint ptr %30 to i64
+  %26 = load ptr, ptr @_ZN4pbrt18normal3BufferCacheE, align 8
+  %27 = load ptr, ptr %n, align 8
+  %28 = load ptr, ptr %_M_finish.i.i42, align 8
+  %sub.ptr.lhs.cast.i.i53 = ptrtoint ptr %28 to i64
+  %sub.ptr.rhs.cast.i.i54 = ptrtoint ptr %27 to i64
   %sub.ptr.sub.i.i55 = sub i64 %sub.ptr.lhs.cast.i.i53, %sub.ptr.rhs.cast.i.i54
   %sub.ptr.div.i.i56 = sdiv exact i64 %sub.ptr.sub.i.i55, 12
-  %call93 = tail call noundef ptr @_ZN4pbrt11BufferCacheINS_7Normal3IfEEE11LookupOrAddEN4pstd4spanIKS2_EENS4_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(7176) %29, ptr %30, i64 %sub.ptr.div.i.i56, ptr %coerce.val.ip)
+  %call93 = tail call noundef ptr @_ZN4pbrt11BufferCacheINS_7Normal3IfEEE11LookupOrAddEN4pstd4spanIKS2_EENS4_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(7176) %26, ptr %27, i64 %sub.ptr.div.i.i56, ptr %coerce.val.ip)
   store ptr %call93, ptr %n5, align 8
   br label %if.end95
 
 if.end95:                                         ; preds = %for.end89, %if.end54
-  %32 = load ptr, ptr %s, align 8
+  %29 = load ptr, ptr %s, align 8
   %_M_finish.i.i58 = getelementptr inbounds i8, ptr %s, i64 8
-  %33 = load ptr, ptr %_M_finish.i.i58, align 8
-  %cmp.i.i59 = icmp eq ptr %32, %33
+  %30 = load ptr, ptr %_M_finish.i.i58, align 8
+  %cmp.i.i59 = icmp eq ptr %29, %30
   br i1 %cmp.i.i59, label %if.end132, label %do.body98
 
 do.body98:                                        ; preds = %if.end95
-  %34 = load i32, ptr %nVertices, align 4
-  store i32 %34, ptr %va99, align 4
-  %sub.ptr.lhs.cast.i61 = ptrtoint ptr %33 to i64
-  %sub.ptr.rhs.cast.i62 = ptrtoint ptr %32 to i64
+  %31 = load i32, ptr %nVertices, align 4
+  store i32 %31, ptr %va99, align 4
+  %sub.ptr.lhs.cast.i61 = ptrtoint ptr %30 to i64
+  %sub.ptr.rhs.cast.i62 = ptrtoint ptr %29 to i64
   %sub.ptr.sub.i63 = sub i64 %sub.ptr.lhs.cast.i61, %sub.ptr.rhs.cast.i62
   %sub.ptr.div.i64 = sdiv exact i64 %sub.ptr.sub.i63, 12
   store i64 %sub.ptr.div.i64, ptr %vb101, align 8
-  %conv103 = sext i32 %34 to i64
+  %conv103 = sext i32 %31 to i64
   %cmp104 = icmp eq i64 %sub.ptr.div.i64, %conv103
   br i1 %cmp104, label %for.body117, label %if.then105
 
@@ -766,7 +760,7 @@ if.then105:                                       ; preds = %do.body98
   unreachable
 
 for.body117:                                      ; preds = %do.body98, %for.body117
-  %__begin2109.sroa.0.0108 = phi ptr [ %incdec.ptr.i67, %for.body117 ], [ %32, %do.body98 ]
+  %__begin2109.sroa.0.0108 = phi ptr [ %incdec.ptr.i67, %for.body117 ], [ %29, %do.body98 ]
   %agg.tmp120.sroa.0.0.copyload = load <2 x float>, ptr %__begin2109.sroa.0.0108, align 4
   %agg.tmp120.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__begin2109.sroa.0.0108, i64 8
   %agg.tmp120.sroa.2.0.copyload = load float, ptr %agg.tmp120.sroa.2.0..sroa_idx, align 4
@@ -776,7 +770,7 @@ for.body117:                                      ; preds = %do.body98, %for.bod
   store <2 x float> %call121.fca.0.extract, ptr %__begin2109.sroa.0.0108, align 4
   store float %call121.fca.1.extract, ptr %agg.tmp120.sroa.2.0..sroa_idx, align 4
   %incdec.ptr.i67 = getelementptr inbounds i8, ptr %__begin2109.sroa.0.0108, i64 12
-  %cmp.i66.not = icmp eq ptr %incdec.ptr.i67, %33
+  %cmp.i66.not = icmp eq ptr %incdec.ptr.i67, %30
   br i1 %cmp.i66.not, label %for.end126, label %for.body117
 
 for.end126:                                       ; preds = %for.body117
@@ -786,27 +780,27 @@ for.end126:                                       ; preds = %for.body117
   %.pre114 = ptrtoint ptr %.pre111 to i64
   %.pre115 = sub i64 %.pre113, %.pre114
   %.pre116 = sdiv exact i64 %.pre115, 12
-  %35 = load ptr, ptr @_ZN4pbrt18vector3BufferCacheE, align 8
-  %call130 = tail call noundef ptr @_ZN4pbrt11BufferCacheINS_7Vector3IfEEE11LookupOrAddEN4pstd4spanIKS2_EENS4_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(7176) %35, ptr %.pre111, i64 %.pre116, ptr %coerce.val.ip)
+  %32 = load ptr, ptr @_ZN4pbrt18vector3BufferCacheE, align 8
+  %call130 = tail call noundef ptr @_ZN4pbrt11BufferCacheINS_7Vector3IfEEE11LookupOrAddEN4pstd4spanIKS2_EENS4_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(7176) %32, ptr %.pre111, i64 %.pre116, ptr %coerce.val.ip)
   store ptr %call130, ptr %s6, align 8
   br label %if.end132
 
 if.end132:                                        ; preds = %for.end126, %if.end95
-  %36 = load ptr, ptr %faceIndices, align 8
+  %33 = load ptr, ptr %faceIndices, align 8
   %_M_finish.i.i74 = getelementptr inbounds i8, ptr %faceIndices, i64 8
-  %37 = load ptr, ptr %_M_finish.i.i74, align 8
-  %cmp.i.i75 = icmp eq ptr %36, %37
+  %34 = load ptr, ptr %_M_finish.i.i74, align 8
+  %cmp.i.i75 = icmp eq ptr %33, %34
   br i1 %cmp.i.i75, label %do.body151, label %do.body135
 
 do.body135:                                       ; preds = %if.end132
-  %38 = load i32, ptr %this, align 8
-  store i32 %38, ptr %va136, align 4
-  %sub.ptr.lhs.cast.i77 = ptrtoint ptr %37 to i64
-  %sub.ptr.rhs.cast.i78 = ptrtoint ptr %36 to i64
+  %35 = load i32, ptr %this, align 8
+  store i32 %35, ptr %va136, align 4
+  %sub.ptr.lhs.cast.i77 = ptrtoint ptr %34 to i64
+  %sub.ptr.rhs.cast.i78 = ptrtoint ptr %33 to i64
   %sub.ptr.sub.i79 = sub i64 %sub.ptr.lhs.cast.i77, %sub.ptr.rhs.cast.i78
   %sub.ptr.div.i80 = ashr exact i64 %sub.ptr.sub.i79, 2
   store i64 %sub.ptr.div.i80, ptr %vb138, align 8
-  %conv140 = sext i32 %38 to i64
+  %conv140 = sext i32 %35 to i64
   %cmp141 = icmp eq i64 %sub.ptr.div.i80, %conv140
   br i1 %cmp141, label %do.end144, label %if.then142
 
@@ -815,16 +809,16 @@ if.then142:                                       ; preds = %do.body135
   unreachable
 
 do.end144:                                        ; preds = %do.body135
-  %39 = load ptr, ptr @_ZN4pbrt14intBufferCacheE, align 8
-  %call148 = tail call noundef ptr @_ZN4pbrt11BufferCacheIiE11LookupOrAddEN4pstd4spanIKiEENS2_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(7176) %39, ptr %36, i64 %sub.ptr.div.i80, ptr %coerce.val.ip)
+  %36 = load ptr, ptr @_ZN4pbrt14intBufferCacheE, align 8
+  %call148 = tail call noundef ptr @_ZN4pbrt11BufferCacheIiE11LookupOrAddEN4pstd4spanIKiEENS2_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(7176) %36, ptr %33, i64 %sub.ptr.div.i80, ptr %coerce.val.ip)
   store ptr %call148, ptr %faceIndices8, align 8
   br label %do.body151
 
 do.body151:                                       ; preds = %if.end132, %do.end144
-  %40 = load ptr, ptr %_M_finish.i13, align 8
-  %41 = load ptr, ptr %p, align 8
-  %sub.ptr.lhs.cast.i88 = ptrtoint ptr %40 to i64
-  %sub.ptr.rhs.cast.i89 = ptrtoint ptr %41 to i64
+  %37 = load ptr, ptr %_M_finish.i13, align 8
+  %38 = load ptr, ptr %p, align 8
+  %sub.ptr.lhs.cast.i88 = ptrtoint ptr %37 to i64
+  %sub.ptr.rhs.cast.i89 = ptrtoint ptr %38 to i64
   %sub.ptr.sub.i90 = sub i64 %sub.ptr.lhs.cast.i88, %sub.ptr.rhs.cast.i89
   %sub.ptr.div.i91 = sdiv exact i64 %sub.ptr.sub.i90, 12
   store i64 %sub.ptr.div.i91, ptr %va152, align 8
@@ -837,10 +831,10 @@ if.then158:                                       ; preds = %do.body151
   unreachable
 
 do.body161:                                       ; preds = %do.body151
-  %42 = load ptr, ptr %_M_finish.i, align 8
-  %43 = load ptr, ptr %indices, align 8
-  %sub.ptr.lhs.cast.i93 = ptrtoint ptr %42 to i64
-  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %43 to i64
+  %39 = load ptr, ptr %_M_finish.i, align 8
+  %40 = load ptr, ptr %indices, align 8
+  %sub.ptr.lhs.cast.i93 = ptrtoint ptr %39 to i64
+  %sub.ptr.rhs.cast.i94 = ptrtoint ptr %40 to i64
   %sub.ptr.sub.i95 = sub i64 %sub.ptr.lhs.cast.i93, %sub.ptr.rhs.cast.i94
   %sub.ptr.div.i96 = ashr exact i64 %sub.ptr.sub.i95, 2
   store i64 %sub.ptr.div.i96, ptr %va162, align 8
@@ -3736,7 +3730,7 @@ entry:
   %sub.ptr.lhs.cast.i17 = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i18 = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i19 = sub i64 %sub.ptr.lhs.cast.i17, %sub.ptr.rhs.cast.i18
-  %sub.ptr.div.i20 = lshr exact i64 %sub.ptr.sub.i19, 2
+  %sub.ptr.div.i20 = ashr exact i64 %sub.ptr.sub.i19, 2
   %rem = and i64 %sub.ptr.div.i20, 3
   store i64 %rem, ptr %va, align 8
   store i32 0, ptr %vb, align 4
@@ -3752,16 +3746,16 @@ do.end:                                           ; preds = %entry
   %7 = load i64, ptr %6, align 8
   %inc = add nsw i64 %7, 1
   store i64 %inc, ptr %6, align 8
-  %8 = load i32, ptr %nPatches, align 4
-  %conv11 = sext i32 %8 to i64
-  %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL5nBlpsE)
-  %10 = load i64, ptr %9, align 8
-  %add = add nsw i64 %10, %conv11
-  store i64 %add, ptr %9, align 8
-  %11 = load ptr, ptr %_M_finish.i11, align 8
-  %12 = load ptr, ptr %P, align 8
-  %sub.ptr.lhs.cast.i22 = ptrtoint ptr %11 to i64
-  %sub.ptr.rhs.cast.i23 = ptrtoint ptr %12 to i64
+  %sext = shl i64 %sub.ptr.div.i, 32
+  %conv11 = ashr exact i64 %sext, 32
+  %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL5nBlpsE)
+  %9 = load i64, ptr %8, align 8
+  %add = add nsw i64 %9, %conv11
+  store i64 %add, ptr %8, align 8
+  %10 = load ptr, ptr %_M_finish.i11, align 8
+  %11 = load ptr, ptr %P, align 8
+  %sub.ptr.lhs.cast.i22 = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast.i23 = ptrtoint ptr %11 to i64
   %sub.ptr.sub.i24 = sub i64 %sub.ptr.lhs.cast.i22, %sub.ptr.rhs.cast.i23
   %sub.ptr.div.i25 = sdiv exact i64 %sub.ptr.sub.i24, 12
   store i64 %sub.ptr.div.i25, ptr %va13, align 8
@@ -3774,15 +3768,9 @@ if.then19:                                        ; preds = %do.end
   unreachable
 
 do.body22:                                        ; preds = %do.end
-  %13 = load ptr, ptr %_M_finish.i, align 8
-  %14 = load ptr, ptr %indices, align 8
-  %sub.ptr.lhs.cast.i27 = ptrtoint ptr %13 to i64
-  %sub.ptr.rhs.cast.i28 = ptrtoint ptr %14 to i64
-  %sub.ptr.sub.i29 = sub i64 %sub.ptr.lhs.cast.i27, %sub.ptr.rhs.cast.i28
-  %sub.ptr.div.i30 = ashr exact i64 %sub.ptr.sub.i29, 2
-  store i64 %sub.ptr.div.i30, ptr %va23, align 8
+  store i64 %sub.ptr.div.i20, ptr %va23, align 8
   store i32 2147483647, ptr %vb25, align 4
-  %cmp28.not = icmp ugt i64 %sub.ptr.div.i30, 2147483647
+  %cmp28.not = icmp ugt i64 %sub.ptr.div.i20, 2147483647
   br i1 %cmp28.not, label %if.then29, label %do.end31
 
 if.then29:                                        ; preds = %do.body22
@@ -3790,20 +3778,20 @@ if.then29:                                        ; preds = %do.body22
   unreachable
 
 do.end31:                                         ; preds = %do.body22
-  %15 = load ptr, ptr @_ZN4pbrt14intBufferCacheE, align 8
-  %call34 = tail call noundef ptr @_ZN4pbrt11BufferCacheIiE11LookupOrAddEN4pstd4spanIKiEENS2_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(7176) %15, ptr %14, i64 %sub.ptr.div.i30, ptr %coerce.val.ip)
+  %12 = load ptr, ptr @_ZN4pbrt14intBufferCacheE, align 8
+  %call34 = tail call noundef ptr @_ZN4pbrt11BufferCacheIiE11LookupOrAddEN4pstd4spanIKiEENS2_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(7176) %12, ptr %5, i64 %sub.ptr.div.i20, ptr %coerce.val.ip)
   store ptr %call34, ptr %vertexIndices, align 8
-  %16 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL8blpBytesE)
-  %17 = load i64, ptr %16, align 8
-  %add36 = add i64 %17, 64
-  store i64 %add36, ptr %16, align 8
-  %18 = load ptr, ptr %P, align 8
-  %19 = load ptr, ptr %_M_finish.i11, align 8
-  %cmp.i.not83 = icmp eq ptr %18, %19
+  %13 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL8blpBytesE)
+  %14 = load i64, ptr %13, align 8
+  %add36 = add i64 %14, 64
+  store i64 %add36, ptr %13, align 8
+  %15 = load ptr, ptr %P, align 8
+  %16 = load ptr, ptr %_M_finish.i11, align 8
+  %cmp.i.not83 = icmp eq ptr %15, %16
   br i1 %cmp.i.not83, label %for.end, label %for.body
 
 for.body:                                         ; preds = %do.end31, %for.body
-  %__begin1.sroa.0.084 = phi ptr [ %incdec.ptr.i, %for.body ], [ %18, %do.end31 ]
+  %__begin1.sroa.0.084 = phi ptr [ %incdec.ptr.i, %for.body ], [ %15, %do.end31 ]
   %agg.tmp44.sroa.0.0.copyload = load <2 x float>, ptr %__begin1.sroa.0.084, align 4
   %agg.tmp44.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__begin1.sroa.0.084, i64 8
   %agg.tmp44.sroa.2.0.copyload = load float, ptr %agg.tmp44.sroa.2.0..sroa_idx, align 4
@@ -3813,7 +3801,7 @@ for.body:                                         ; preds = %do.end31, %for.body
   store <2 x float> %call45.fca.0.extract, ptr %__begin1.sroa.0.084, align 4
   store float %call45.fca.1.extract, ptr %agg.tmp44.sroa.2.0..sroa_idx, align 4
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.084, i64 12
-  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %19
+  %cmp.i.not = icmp eq ptr %incdec.ptr.i, %16
   br i1 %cmp.i.not, label %for.end.loopexit, label %for.body
 
 for.end.loopexit:                                 ; preds = %for.body
@@ -3822,30 +3810,30 @@ for.end.loopexit:                                 ; preds = %for.body
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %do.end31
-  %20 = phi ptr [ %.pre88, %for.end.loopexit ], [ %18, %do.end31 ]
-  %21 = phi ptr [ %.pre, %for.end.loopexit ], [ %18, %do.end31 ]
-  %22 = load ptr, ptr @_ZN4pbrt17point3BufferCacheE, align 8
-  %sub.ptr.lhs.cast.i.i33 = ptrtoint ptr %20 to i64
-  %sub.ptr.rhs.cast.i.i34 = ptrtoint ptr %21 to i64
+  %17 = phi ptr [ %.pre88, %for.end.loopexit ], [ %15, %do.end31 ]
+  %18 = phi ptr [ %.pre, %for.end.loopexit ], [ %15, %do.end31 ]
+  %19 = load ptr, ptr @_ZN4pbrt17point3BufferCacheE, align 8
+  %sub.ptr.lhs.cast.i.i33 = ptrtoint ptr %17 to i64
+  %sub.ptr.rhs.cast.i.i34 = ptrtoint ptr %18 to i64
   %sub.ptr.sub.i.i35 = sub i64 %sub.ptr.lhs.cast.i.i33, %sub.ptr.rhs.cast.i.i34
   %sub.ptr.div.i.i36 = sdiv exact i64 %sub.ptr.sub.i.i35, 12
-  %call51 = tail call noundef ptr @_ZN4pbrt11BufferCacheINS_6Point3IfEEE11LookupOrAddEN4pstd4spanIKS2_EENS4_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(7176) %22, ptr %21, i64 %sub.ptr.div.i.i36, ptr %coerce.val.ip)
+  %call51 = tail call noundef ptr @_ZN4pbrt11BufferCacheINS_6Point3IfEEE11LookupOrAddEN4pstd4spanIKS2_EENS4_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(7176) %19, ptr %18, i64 %sub.ptr.div.i.i36, ptr %coerce.val.ip)
   store ptr %call51, ptr %p, align 8
-  %23 = load ptr, ptr %UV, align 8
+  %20 = load ptr, ptr %UV, align 8
   %_M_finish.i.i38 = getelementptr inbounds i8, ptr %UV, i64 8
-  %24 = load ptr, ptr %_M_finish.i.i38, align 8
-  %cmp.i.i = icmp eq ptr %23, %24
+  %21 = load ptr, ptr %_M_finish.i.i38, align 8
+  %cmp.i.i = icmp eq ptr %20, %21
   br i1 %cmp.i.i, label %if.end70, label %do.body55
 
 do.body55:                                        ; preds = %for.end
-  %25 = load i32, ptr %nVertices, align 8
-  store i32 %25, ptr %va56, align 4
-  %sub.ptr.lhs.cast.i40 = ptrtoint ptr %24 to i64
-  %sub.ptr.rhs.cast.i41 = ptrtoint ptr %23 to i64
+  %22 = load i32, ptr %nVertices, align 8
+  store i32 %22, ptr %va56, align 4
+  %sub.ptr.lhs.cast.i40 = ptrtoint ptr %21 to i64
+  %sub.ptr.rhs.cast.i41 = ptrtoint ptr %20 to i64
   %sub.ptr.sub.i42 = sub i64 %sub.ptr.lhs.cast.i40, %sub.ptr.rhs.cast.i41
   %sub.ptr.div.i43 = ashr exact i64 %sub.ptr.sub.i42, 3
   store i64 %sub.ptr.div.i43, ptr %vb58, align 8
-  %conv60 = sext i32 %25 to i64
+  %conv60 = sext i32 %22 to i64
   %cmp61 = icmp eq i64 %sub.ptr.div.i43, %conv60
   br i1 %cmp61, label %do.end64, label %if.then62
 
@@ -3854,27 +3842,27 @@ if.then62:                                        ; preds = %do.body55
   unreachable
 
 do.end64:                                         ; preds = %do.body55
-  %26 = load ptr, ptr @_ZN4pbrt17point2BufferCacheE, align 8
-  %call68 = tail call noundef ptr @_ZN4pbrt11BufferCacheINS_6Point2IfEEE11LookupOrAddEN4pstd4spanIKS2_EENS4_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(7176) %26, ptr %23, i64 %sub.ptr.div.i43, ptr %coerce.val.ip)
+  %23 = load ptr, ptr @_ZN4pbrt17point2BufferCacheE, align 8
+  %call68 = tail call noundef ptr @_ZN4pbrt11BufferCacheINS_6Point2IfEEE11LookupOrAddEN4pstd4spanIKS2_EENS4_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(7176) %23, ptr %20, i64 %sub.ptr.div.i43, ptr %coerce.val.ip)
   store ptr %call68, ptr %uv, align 8
   br label %if.end70
 
 if.end70:                                         ; preds = %do.end64, %for.end
-  %27 = load ptr, ptr %N, align 8
+  %24 = load ptr, ptr %N, align 8
   %_M_finish.i.i50 = getelementptr inbounds i8, ptr %N, i64 8
-  %28 = load ptr, ptr %_M_finish.i.i50, align 8
-  %cmp.i.i51 = icmp eq ptr %27, %28
+  %25 = load ptr, ptr %_M_finish.i.i50, align 8
+  %cmp.i.i51 = icmp eq ptr %24, %25
   br i1 %cmp.i.i51, label %if.end112, label %do.body73
 
 do.body73:                                        ; preds = %if.end70
-  %29 = load i32, ptr %nVertices, align 8
-  store i32 %29, ptr %va74, align 4
-  %sub.ptr.lhs.cast.i53 = ptrtoint ptr %28 to i64
-  %sub.ptr.rhs.cast.i54 = ptrtoint ptr %27 to i64
+  %26 = load i32, ptr %nVertices, align 8
+  store i32 %26, ptr %va74, align 4
+  %sub.ptr.lhs.cast.i53 = ptrtoint ptr %25 to i64
+  %sub.ptr.rhs.cast.i54 = ptrtoint ptr %24 to i64
   %sub.ptr.sub.i55 = sub i64 %sub.ptr.lhs.cast.i53, %sub.ptr.rhs.cast.i54
   %sub.ptr.div.i56 = sdiv exact i64 %sub.ptr.sub.i55, 12
   store i64 %sub.ptr.div.i56, ptr %vb76, align 8
-  %conv78 = sext i32 %29 to i64
+  %conv78 = sext i32 %26 to i64
   %cmp79 = icmp eq i64 %sub.ptr.div.i56, %conv78
   br i1 %cmp79, label %for.body89.lr.ph, label %if.then80
 
@@ -3882,19 +3870,19 @@ for.body89.lr.ph:                                 ; preds = %do.body73
   br i1 %reverseOrientation, label %for.body89.us, label %for.body89
 
 for.body89.us:                                    ; preds = %for.body89.lr.ph, %for.body89.us
-  %__begin2.sroa.0.086.us = phi ptr [ %incdec.ptr.i59.us, %for.body89.us ], [ %27, %for.body89.lr.ph ]
+  %__begin2.sroa.0.086.us = phi ptr [ %incdec.ptr.i59.us, %for.body89.us ], [ %24, %for.body89.lr.ph ]
   %agg.tmp93.sroa.0.0.copyload.us = load <2 x float>, ptr %__begin2.sroa.0.086.us, align 4
   %agg.tmp93.sroa.2.0..sroa_idx.us = getelementptr inbounds i8, ptr %__begin2.sroa.0.086.us, i64 8
   %agg.tmp93.sroa.2.0.copyload.us = load float, ptr %agg.tmp93.sroa.2.0..sroa_idx.us, align 4
   %call94.us = tail call { <2 x float>, float } @_ZNK4pbrt9TransformclIfEENS_7Normal3IT_EES4_(ptr noundef nonnull align 4 dereferenceable(128) %renderFromObject, <2 x float> %agg.tmp93.sroa.0.0.copyload.us, float %agg.tmp93.sroa.2.0.copyload.us)
   %call94.fca.0.extract.us = extractvalue { <2 x float>, float } %call94.us, 0
   %call94.fca.1.extract.us = extractvalue { <2 x float>, float } %call94.us, 1
-  %30 = fneg <2 x float> %call94.fca.0.extract.us
+  %27 = fneg <2 x float> %call94.fca.0.extract.us
   %fneg3.i.us = fneg float %call94.fca.1.extract.us
-  store <2 x float> %30, ptr %__begin2.sroa.0.086.us, align 4
+  store <2 x float> %27, ptr %__begin2.sroa.0.086.us, align 4
   store float %fneg3.i.us, ptr %agg.tmp93.sroa.2.0..sroa_idx.us, align 4
   %incdec.ptr.i59.us = getelementptr inbounds i8, ptr %__begin2.sroa.0.086.us, i64 12
-  %cmp.i58.not.us = icmp eq ptr %incdec.ptr.i59.us, %28
+  %cmp.i58.not.us = icmp eq ptr %incdec.ptr.i59.us, %25
   br i1 %cmp.i58.not.us, label %for.end106, label %for.body89.us
 
 if.then80:                                        ; preds = %do.body73
@@ -3902,7 +3890,7 @@ if.then80:                                        ; preds = %do.body73
   unreachable
 
 for.body89:                                       ; preds = %for.body89.lr.ph, %for.body89
-  %__begin2.sroa.0.086 = phi ptr [ %incdec.ptr.i59, %for.body89 ], [ %27, %for.body89.lr.ph ]
+  %__begin2.sroa.0.086 = phi ptr [ %incdec.ptr.i59, %for.body89 ], [ %24, %for.body89.lr.ph ]
   %agg.tmp93.sroa.0.0.copyload = load <2 x float>, ptr %__begin2.sroa.0.086, align 4
   %agg.tmp93.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %__begin2.sroa.0.086, i64 8
   %agg.tmp93.sroa.2.0.copyload = load float, ptr %agg.tmp93.sroa.2.0..sroa_idx, align 4
@@ -3912,37 +3900,37 @@ for.body89:                                       ; preds = %for.body89.lr.ph, %
   store <2 x float> %call94.fca.0.extract, ptr %__begin2.sroa.0.086, align 4
   store float %call94.fca.1.extract, ptr %agg.tmp93.sroa.2.0..sroa_idx, align 4
   %incdec.ptr.i59 = getelementptr inbounds i8, ptr %__begin2.sroa.0.086, i64 12
-  %cmp.i58.not = icmp eq ptr %incdec.ptr.i59, %28
+  %cmp.i58.not = icmp eq ptr %incdec.ptr.i59, %25
   br i1 %cmp.i58.not, label %for.end106, label %for.body89
 
 for.end106:                                       ; preds = %for.body89, %for.body89.us
-  %31 = load ptr, ptr @_ZN4pbrt18normal3BufferCacheE, align 8
-  %32 = load ptr, ptr %N, align 8
-  %33 = load ptr, ptr %_M_finish.i.i50, align 8
-  %sub.ptr.lhs.cast.i.i61 = ptrtoint ptr %33 to i64
-  %sub.ptr.rhs.cast.i.i62 = ptrtoint ptr %32 to i64
+  %28 = load ptr, ptr @_ZN4pbrt18normal3BufferCacheE, align 8
+  %29 = load ptr, ptr %N, align 8
+  %30 = load ptr, ptr %_M_finish.i.i50, align 8
+  %sub.ptr.lhs.cast.i.i61 = ptrtoint ptr %30 to i64
+  %sub.ptr.rhs.cast.i.i62 = ptrtoint ptr %29 to i64
   %sub.ptr.sub.i.i63 = sub i64 %sub.ptr.lhs.cast.i.i61, %sub.ptr.rhs.cast.i.i62
   %sub.ptr.div.i.i64 = sdiv exact i64 %sub.ptr.sub.i.i63, 12
-  %call110 = tail call noundef ptr @_ZN4pbrt11BufferCacheINS_7Normal3IfEEE11LookupOrAddEN4pstd4spanIKS2_EENS4_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(7176) %31, ptr %32, i64 %sub.ptr.div.i.i64, ptr %coerce.val.ip)
+  %call110 = tail call noundef ptr @_ZN4pbrt11BufferCacheINS_7Normal3IfEEE11LookupOrAddEN4pstd4spanIKS2_EENS4_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(7176) %28, ptr %29, i64 %sub.ptr.div.i.i64, ptr %coerce.val.ip)
   store ptr %call110, ptr %n, align 8
   br label %if.end112
 
 if.end112:                                        ; preds = %for.end106, %if.end70
-  %34 = load ptr, ptr %fIndices, align 8
+  %31 = load ptr, ptr %fIndices, align 8
   %_M_finish.i.i66 = getelementptr inbounds i8, ptr %fIndices, i64 8
-  %35 = load ptr, ptr %_M_finish.i.i66, align 8
-  %cmp.i.i67 = icmp eq ptr %34, %35
+  %32 = load ptr, ptr %_M_finish.i.i66, align 8
+  %cmp.i.i67 = icmp eq ptr %31, %32
   br i1 %cmp.i.i67, label %if.end130, label %do.body115
 
 do.body115:                                       ; preds = %if.end112
-  %36 = load i32, ptr %nPatches, align 4
-  store i32 %36, ptr %va116, align 4
-  %sub.ptr.lhs.cast.i69 = ptrtoint ptr %35 to i64
-  %sub.ptr.rhs.cast.i70 = ptrtoint ptr %34 to i64
+  %33 = load i32, ptr %nPatches, align 4
+  store i32 %33, ptr %va116, align 4
+  %sub.ptr.lhs.cast.i69 = ptrtoint ptr %32 to i64
+  %sub.ptr.rhs.cast.i70 = ptrtoint ptr %31 to i64
   %sub.ptr.sub.i71 = sub i64 %sub.ptr.lhs.cast.i69, %sub.ptr.rhs.cast.i70
   %sub.ptr.div.i72 = ashr exact i64 %sub.ptr.sub.i71, 2
   store i64 %sub.ptr.div.i72, ptr %vb118, align 8
-  %conv120 = sext i32 %36 to i64
+  %conv120 = sext i32 %33 to i64
   %cmp121 = icmp eq i64 %sub.ptr.div.i72, %conv120
   br i1 %cmp121, label %do.end124, label %if.then122
 
@@ -3951,8 +3939,8 @@ if.then122:                                       ; preds = %do.body115
   unreachable
 
 do.end124:                                        ; preds = %do.body115
-  %37 = load ptr, ptr @_ZN4pbrt14intBufferCacheE, align 8
-  %call128 = tail call noundef ptr @_ZN4pbrt11BufferCacheIiE11LookupOrAddEN4pstd4spanIKiEENS2_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(7176) %37, ptr %34, i64 %sub.ptr.div.i72, ptr %coerce.val.ip)
+  %34 = load ptr, ptr @_ZN4pbrt14intBufferCacheE, align 8
+  %call128 = tail call noundef ptr @_ZN4pbrt11BufferCacheIiE11LookupOrAddEN4pstd4spanIKiEENS2_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(7176) %34, ptr %31, i64 %sub.ptr.div.i72, ptr %coerce.val.ip)
   store ptr %call128, ptr %faceIndices, align 8
   br label %if.end130
 

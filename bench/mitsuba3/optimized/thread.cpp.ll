@@ -2179,7 +2179,7 @@ define noundef zeroext i1 @_ZN7mitsuba6Thread24register_external_threadERKNSt3__
   %2 = atomicrmw add ptr @_ZN7mitsubaL10thread_ctrE, i32 1 seq_cst, align 4
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #32
   invoke void @_ZN7mitsuba12WorkerThreadC2ERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %0)
-          to label %4 unwind label %33
+          to label %4 unwind label %29
 
 4:                                                ; preds = %1
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7mitsubaL4selfE)
@@ -2198,30 +2198,26 @@ define noundef zeroext i1 @_ZN7mitsuba6Thread24register_external_threadERKNSt3__
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %16, i64 40
   store i8 1, ptr %17, align 8
-  %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
-  %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 41
-  store i8 1, ptr %21, align 1
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 16
-  %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
-  %26 = load i8, ptr %25, align 8
-  %27 = and i8 %26, 1
-  %.not.i.i.i = icmp eq i8 %27, 0
-  %28 = getelementptr inbounds i8, ptr %24, i64 32
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %24, i64 17
-  %31 = select i1 %.not.i.i.i, ptr %30, ptr %29
-  %32 = tail call i32 @pthread_setname_np(i64 noundef %6, ptr noundef %31) #3
+  %18 = load ptr, ptr %15, align 8
+  %19 = getelementptr inbounds i8, ptr %18, i64 41
+  store i8 1, ptr %19, align 1
+  %20 = load ptr, ptr %15, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %22 = load i8, ptr %21, align 8
+  %23 = and i8 %22, 1
+  %.not.i.i.i = icmp eq i8 %23, 0
+  %24 = getelementptr inbounds i8, ptr %20, i64 32
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds i8, ptr %20, i64 17
+  %27 = select i1 %.not.i.i.i, ptr %26, ptr %25
+  %28 = tail call i32 @pthread_setname_np(i64 noundef %6, ptr noundef %27) #3
   ret i1 true
 
-33:                                               ; preds = %1
-  %34 = landingpad { ptr, i32 }
+29:                                               ; preds = %1
+  %30 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %3) #31
-  resume { ptr, i32 } %34
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2591,35 +2587,27 @@ define void @_ZN7mitsuba6Thread15static_shutdownEv() local_unnamed_addr #16 alig
   %5 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %1, %0 ]
   store ptr %5, ptr getelementptr inbounds (%"class.std::__1::vector", ptr @_ZN7mitsubaL16registered_tasksE, i64 0, i32 1), align 8
   %.b.i.i.i = load i1, ptr @__tls_guard, align 1
-  br i1 %.b.i.i.i, label %_ZN7mitsuba6Thread6threadEv.exit, label %6, !prof !4
+  br i1 %.b.i.i.i, label %7, label %6, !prof !4
 
 6:                                                ; preds = %._crit_edge
   store i1 true, ptr @__tls_guard, align 1
   tail call fastcc void @__cxx_global_var_init.1()
-  br label %_ZN7mitsuba6Thread6threadEv.exit
+  br label %7
 
-_ZN7mitsuba6Thread6threadEv.exit:                 ; preds = %._crit_edge, %6
-  %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7mitsubaL4selfE)
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 40
-  store i8 0, ptr %11, align 8
-  %12 = load ptr, ptr %7, align 8
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %18, label %14
-
-14:                                               ; preds = %_ZN7mitsuba6Thread6threadEv.exit
-  %15 = load ptr, ptr %12, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 64
-  %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
-  br label %18
-
-18:                                               ; preds = %14, %_ZN7mitsuba6Thread6threadEv.exit
-  store ptr null, ptr %7, align 8
-  %19 = load i32, ptr @_ZN7mitsubaL14this_thread_idE, align 4
-  %20 = tail call i32 @pthread_key_delete(i32 noundef %19) #3
+7:                                                ; preds = %._crit_edge, %6
+  %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7mitsubaL4selfE)
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds i8, ptr %9, i64 16
+  %11 = load ptr, ptr %10, align 8
+  %12 = getelementptr inbounds i8, ptr %11, i64 40
+  store i8 0, ptr %12, align 8
+  %13 = load ptr, ptr %9, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 64
+  %15 = load ptr, ptr %14, align 8
+  tail call void %15(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  store ptr null, ptr %8, align 8
+  %16 = load i32, ptr @_ZN7mitsubaL14this_thread_idE, align 4
+  %17 = tail call i32 @pthread_key_delete(i32 noundef %16) #3
   ret void
 }
 

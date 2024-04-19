@@ -6364,6 +6364,7 @@ for.cond.preheader:                               ; preds = %_ZN4pstd6vectorIN4p
 invoke.cont16.lr.ph:                              ; preds = %for.cond.preheader
   %conv4 = sitofp i32 %shl to float
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL12nSplitCurvesE)
+  %.promoted = load i64, ptr %3, align 8
   %smax = tail call i32 @llvm.smax.i32(i32 %shl, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   %4 = insertelement <2 x float> poison, float %conv4, i64 0
@@ -6372,6 +6373,7 @@ invoke.cont16.lr.ph:                              ; preds = %for.cond.preheader
 
 invoke.cont16:                                    ; preds = %invoke.cont16.lr.ph, %invoke.cont16
   %indvars.iv = phi i64 [ 0, %invoke.cont16.lr.ph ], [ %indvars.iv.next, %invoke.cont16 ]
+  %inc18 = phi i64 [ %.promoted, %invoke.cont16.lr.ph ], [ %inc, %invoke.cont16 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds %"class.pbrt::Curve", ptr %call.i.i.i13, i64 %indvars.iv
   store ptr %call.i.i.i.i, ptr %arrayidx, align 8
@@ -6386,24 +6388,26 @@ invoke.cont16:                                    ; preds = %invoke.cont16.lr.ph
   %or.i.i = or i64 %11, 864691128455135232
   %arrayidx.i = getelementptr inbounds %"class.pbrt::Shape", ptr %call.i.i.i.i.i.i, i64 %indvars.iv
   store i64 %or.i.i, ptr %arrayidx.i, align 8
-  %12 = load i64, ptr %3, align 8
-  %inc = add nsw i64 %12, 1
-  store i64 %inc, ptr %3, align 8
+  %inc = add nsw i64 %inc18, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %invoke.cont16, !llvm.loop !17
+  br i1 %exitcond.not, label %for.cond.for.end_crit_edge, label %invoke.cont16, !llvm.loop !17
 
 lpad:                                             ; preds = %_ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEEC2EmRKS5_.exit
-  %13 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #25
-  resume { ptr, i32 } %13
+  resume { ptr, i32 } %12
 
-for.end:                                          ; preds = %invoke.cont16, %for.cond.preheader
+for.cond.for.end_crit_edge:                       ; preds = %invoke.cont16
+  store i64 %inc, ptr %3, align 8
+  br label %for.end
+
+for.end:                                          ; preds = %for.cond.for.end_crit_edge, %for.cond.preheader
   %add20 = add nsw i64 %mul.i, 120
-  %14 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL10curveBytesE)
-  %15 = load i64, ptr %14, align 8
-  %add21 = add i64 %add20, %15
-  store i64 %add21, ptr %14, align 8
+  %13 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL10curveBytesE)
+  %14 = load i64, ptr %13, align 8
+  %add21 = add i64 %add20, %14
+  store i64 %add21, ptr %13, align 8
   ret void
 }
 
@@ -8019,34 +8023,19 @@ if.end298:                                        ; preds = %if.end292, %if.then
   %renderFromObject = getelementptr inbounds i8, ptr %159, i64 96
   %160 = load ptr, ptr %renderFromObject, align 8
   call void @_ZNK4pbrt9TransformclERKNS_18SurfaceInteractionE(ptr nonnull sret(%"class.pbrt::SurfaceInteraction") align 8 %ref.tmp325, ptr noundef nonnull align 4 dereferenceable(128) %160, ptr noundef nonnull align 8 dereferenceable(248) %intr)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %intr, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp325, i64 72, i1 false)
-  %medium.i.i = getelementptr inbounds i8, ptr %intr, i64 72
   %medium3.i.i = getelementptr inbounds i8, ptr %ref.tmp325, i64 72
   %161 = load i64, ptr %medium3.i.i, align 8
-  store i64 %161, ptr %medium.i.i, align 8
-  %dpdu.i = getelementptr inbounds i8, ptr %intr, i64 80
   %dpdu2.i = getelementptr inbounds i8, ptr %ref.tmp325, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %dpdu.i, ptr noundef nonnull align 8 dereferenceable(112) %dpdu2.i, i64 112, i1 false)
-  %material.i = getelementptr inbounds i8, ptr %intr, i64 192
   %material3.i = getelementptr inbounds i8, ptr %ref.tmp325, i64 192
-  %162 = load i64, ptr %material3.i, align 8
-  store i64 %162, ptr %material.i, align 8
-  %areaLight.i = getelementptr inbounds i8, ptr %intr, i64 200
-  %areaLight5.i = getelementptr inbounds i8, ptr %ref.tmp325, i64 200
-  %163 = load i64, ptr %areaLight5.i, align 8
-  store i64 %163, ptr %areaLight.i, align 8
-  %dpdx.i = getelementptr inbounds i8, ptr %intr, i64 208
   %dpdx7.i = getelementptr inbounds i8, ptr %ref.tmp325, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %dpdx.i, ptr noundef nonnull align 8 dereferenceable(40) %dpdx7.i, i64 40, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %si, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp325, i64 72, i1 false)
   %medium.i.i.i.i = getelementptr inbounds i8, ptr %si, i64 72
   store i64 %161, ptr %medium.i.i.i.i, align 8
   %dpdu.i.i.i = getelementptr inbounds i8, ptr %si, i64 80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %dpdu.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %dpdu2.i, i64 112, i1 false)
   %material.i.i.i = getelementptr inbounds i8, ptr %si, i64 192
-  store i64 %162, ptr %material.i.i.i, align 8
-  %areaLight.i.i.i = getelementptr inbounds i8, ptr %si, i64 200
-  store i64 %163, ptr %areaLight.i.i.i, align 8
+  %162 = load <2 x i64>, ptr %material3.i, align 8
+  store <2 x i64> %162, ptr %material.i.i.i, align 8
   %dpdx.i.i.i = getelementptr inbounds i8, ptr %si, i64 208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %dpdx.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %dpdx7.i, i64 40, i1 false)
   %tHit.i.i = getelementptr inbounds i8, ptr %si, i64 248
@@ -8055,10 +8044,10 @@ if.end298:                                        ; preds = %if.end292, %if.then
   br label %if.end332
 
 if.end332:                                        ; preds = %if.end298, %if.end206
-  %164 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL10nCurveHitsE)
-  %165 = load i64, ptr %164, align 8
-  %inc333 = add nsw i64 %165, 1
-  store i64 %inc333, ptr %164, align 8
+  %163 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4pbrtL10nCurveHitsE)
+  %164 = load i64, ptr %163, align 8
+  %inc333 = add nsw i64 %164, 1
+  store i64 %inc333, ptr %163, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %_ZN4pstd8optionalIN4pbrt17ShapeIntersectionEE5valueEv.exit, %if.end200, %if.end185, %if.end94, %if.end73, %if.else, %cond.true, %for.end, %if.end332
@@ -16819,7 +16808,14 @@ invoke.cont139:                                   ; preds = %invoke.cont137
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp134) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp135) #25
   %call142 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %displacementTexName) #25
-  br i1 %call142, label %if.end175, label %if.then143
+  br i1 %call142, label %invoke.cont139.if.end175_crit_edge, label %if.then143
+
+invoke.cont139.if.end175_crit_edge:               ; preds = %invoke.cont139
+  %triIndices176.phi.trans.insert = getelementptr inbounds i8, ptr %plyMesh, i64 96
+  %.pre = load ptr, ptr %triIndices176.phi.trans.insert, align 8
+  %_M_finish.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %plyMesh, i64 104
+  %.pre246 = load ptr, ptr %_M_finish.i.i.phi.trans.insert, align 8
+  br label %if.end175
 
 if.then143:                                       ; preds = %invoke.cont139
   %call146 = invoke ptr @_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt12FloatTextureESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_(ptr noundef nonnull align 8 dereferenceable(48) %floatTextures, ptr noundef nonnull align 8 dereferenceable(32) %displacementTexName)
@@ -16979,12 +16975,11 @@ land.end170:                                      ; preds = %land.rhs164, %invok
   store i64 %add, ptr %73, align 8
   br label %if.end175
 
-if.end175:                                        ; preds = %land.end170, %invoke.cont139
+if.end175:                                        ; preds = %invoke.cont139.if.end175_crit_edge, %land.end170
+  %75 = phi ptr [ %.pre246, %invoke.cont139.if.end175_crit_edge ], [ %71, %land.end170 ]
+  %76 = phi ptr [ %.pre, %invoke.cont139.if.end175_crit_edge ], [ %72, %land.end170 ]
   %triIndices176 = getelementptr inbounds i8, ptr %plyMesh, i64 96
-  %75 = load ptr, ptr %triIndices176, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %plyMesh, i64 104
-  %76 = load ptr, ptr %_M_finish.i.i, align 8
-  %cmp.i.i = icmp eq ptr %75, %76
+  %cmp.i.i = icmp eq ptr %76, %75
   br i1 %cmp.i.i, label %if.end194, label %if.then178
 
 if.then178:                                       ; preds = %if.end175

@@ -6986,7 +6986,11 @@ define internal i64 @proc_waitall(i64 %0) #1 {
 7:                                                ; preds = %26, %1
   %8 = tail call i64 @rb_process_status_wait(i32 noundef -1, i32 noundef 0)
   %9 = icmp eq i64 %8, 4
-  br i1 %9, label %26, label %10
+  br i1 %9, label %._crit_edge, label %10
+
+._crit_edge:                                      ; preds = %7
+  %.pre = load ptr, ptr %3, align 8
+  br label %26
 
 10:                                               ; preds = %7
   %11 = tail call ptr @rb_check_typeddata(i64 noundef %8, ptr noundef nonnull @rb_process_status_type) #26
@@ -7016,17 +7020,17 @@ define internal i64 @proc_waitall(i64 %0) #1 {
   tail call void @rb_syserr_fail(i32 noundef %23, ptr noundef null) #28
   unreachable
 
-26:                                               ; preds = %7, %14
-  %.0.i.ph = phi i32 [ %12, %14 ], [ 0, %7 ]
-  %27 = sext i32 %.0.i.ph to i64
-  %28 = shl nsw i64 %27, 1
-  %29 = or disjoint i64 %28, 1
-  %30 = load ptr, ptr %3, align 8
-  %31 = getelementptr i8, ptr %30, i64 48
+26:                                               ; preds = %._crit_edge, %14
+  %27 = phi ptr [ %15, %14 ], [ %.pre, %._crit_edge ]
+  %.0.i.ph = phi i32 [ %12, %14 ], [ 0, %._crit_edge ]
+  %28 = sext i32 %.0.i.ph to i64
+  %29 = shl nsw i64 %28, 1
+  %30 = or disjoint i64 %29, 1
+  %31 = getelementptr i8, ptr %27, i64 48
   %.val.i.i8 = load ptr, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %.val.i.i8, i64 208
   %33 = load i64, ptr %32, align 8
-  %34 = tail call i64 @rb_assoc_new(i64 noundef %29, i64 noundef %33) #26
+  %34 = tail call i64 @rb_assoc_new(i64 noundef %30, i64 noundef %33) #26
   %35 = tail call i64 @rb_ary_push(i64 noundef %2, i64 noundef %34) #26
   br label %7
 

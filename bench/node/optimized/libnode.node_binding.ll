@@ -847,7 +847,7 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit140: ; preds = %if.end14
   %call26 = tail call i64 @_ZNK2v85Value10Int32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr.i135, ptr %call2.i) #22
   %tobool.i371 = trunc i64 %call26 to i1
   %ref.tmp.sroa.316.0.extract.shift = lshr i64 %call26, 32
-  %ref.tmp.sroa.316.0.extract.trunc = trunc i64 %ref.tmp.sroa.316.0.extract.shift to i32
+  %ref.tmp.sroa.316.0.extract.trunc = trunc nuw i64 %ref.tmp.sroa.316.0.extract.shift to i32
   br i1 %tobool.i371, label %if.end30, label %if.then29
 
 if.then29:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit140
@@ -3194,16 +3194,11 @@ if.then8.i.i.i:                                   ; preds = %if.then6.i.i.i
   %force_context_aware.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 376
   %21 = load i8, ptr %force_context_aware.i.i.i.i, align 8
   %tobool.i43.i.i.i = trunc i8 %21 to i1
-  br i1 %tobool.i43.i.i.i, label %if.then10.i.i.i, label %if.end12.i.i.i
+  br i1 %tobool.i43.i.i.i, label %if.end.i46.i.i.i, label %if.end12.i.i.i
 
-if.then10.i.i.i:                                  ; preds = %if.then8.i.i.i
-  %22 = load ptr, ptr %handle_.i.i.i.i, align 8
-  %cmp.i45.i.i.i = icmp eq ptr %22, null
-  br i1 %cmp.i45.i.i.i, label %_ZN4node7binding4DLib5CloseEv.exit62.i.i.i, label %if.end.i46.i.i.i
-
-if.end.i46.i.i.i:                                 ; preds = %if.then10.i.i.i
-  %23 = load atomic i8, ptr @_ZZL16libc_may_be_muslvE17has_cached_retval.0 seq_cst, align 1
-  %tobool.i.i.i.i47.i.i.i = trunc i8 %23 to i1
+if.end.i46.i.i.i:                                 ; preds = %if.then8.i.i.i
+  %22 = load atomic i8, ptr @_ZZL16libc_may_be_muslvE17has_cached_retval.0 seq_cst, align 1
+  %tobool.i.i.i.i47.i.i.i = trunc i8 %22 to i1
   br i1 %tobool.i.i.i.i47.i.i.i, label %_ZL16libc_may_be_muslv.exit.i52.i.i.i, label %if.end.i.i48.i.i.i
 
 if.end.i.i48.i.i.i:                               ; preds = %if.end.i46.i.i.i
@@ -3215,77 +3210,76 @@ if.end.i.i48.i.i.i:                               ; preds = %if.end.i46.i.i.i
   br label %_ZL16libc_may_be_muslv.exit.i52.i.i.i
 
 _ZL16libc_may_be_muslv.exit.i52.i.i.i:            ; preds = %if.end.i.i48.i.i.i, %if.end.i46.i.i.i
-  %24 = load atomic i8, ptr @_ZZL16libc_may_be_muslvE6retval.0 seq_cst, align 1
-  %retval.0.i.i53.i.i.i = trunc i8 %24 to i1
+  %23 = load atomic i8, ptr @_ZZL16libc_may_be_muslvE6retval.0 seq_cst, align 1
+  %retval.0.i.i53.i.i.i = trunc i8 %23 to i1
   br i1 %retval.0.i.i53.i.i.i, label %_ZN4node7binding4DLib5CloseEv.exit62.i.i.i, label %if.end3.i54.i.i.i
 
 if.end3.i54.i.i.i:                                ; preds = %_ZL16libc_may_be_muslv.exit.i52.i.i.i
-  %25 = load ptr, ptr %handle_.i.i.i.i, align 8
-  %call5.i55.i.i.i = tail call i32 @dlclose(ptr noundef %25) #22
+  %24 = load ptr, ptr %handle_.i.i.i.i, align 8
+  %call5.i55.i.i.i = tail call i32 @dlclose(ptr noundef %24) #22
   %cmp6.i56.i.i.i = icmp eq i32 %call5.i55.i.i.i, 0
   br i1 %cmp6.i56.i.i.i, label %if.then7.i58.i.i.i, label %if.end11.i57.i.i.i
 
 if.then7.i58.i.i.i:                               ; preds = %if.end3.i54.i.i.i
   %has_entry_in_global_handle_map_.i59.i.i.i = getelementptr inbounds i8, ptr %0, i64 80
-  %26 = load i8, ptr %has_entry_in_global_handle_map_.i59.i.i.i, align 8
-  %tobool.i60.i.i.i = trunc i8 %26 to i1
+  %25 = load i8, ptr %has_entry_in_global_handle_map_.i59.i.i.i, align 8
+  %tobool.i60.i.i.i = trunc i8 %25 to i1
   br i1 %tobool.i60.i.i.i, label %if.then8.i61.i.i.i, label %if.end11.i57.i.i.i
 
 if.then8.i61.i.i.i:                               ; preds = %if.then7.i58.i.i.i
-  %27 = load ptr, ptr %handle_.i.i.i.i, align 8
-  tail call void @_ZN4node7binding19global_handle_map_t5eraseEPv(ptr noundef nonnull align 8 dereferenceable(96) @_ZN4node7bindingL17global_handle_mapE, ptr noundef %27)
+  %26 = load ptr, ptr %handle_.i.i.i.i, align 8
+  tail call void @_ZN4node7binding19global_handle_map_t5eraseEPv(ptr noundef nonnull align 8 dereferenceable(96) @_ZN4node7bindingL17global_handle_mapE, ptr noundef %26)
   br label %if.end11.i57.i.i.i
 
 if.end11.i57.i.i.i:                               ; preds = %if.then8.i61.i.i.i, %if.then7.i58.i.i.i, %if.end3.i54.i.i.i
   store ptr null, ptr %handle_.i.i.i.i, align 8
   br label %_ZN4node7binding4DLib5CloseEv.exit62.i.i.i
 
-_ZN4node7binding4DLib5CloseEv.exit62.i.i.i:       ; preds = %if.end11.i57.i.i.i, %_ZL16libc_may_be_muslv.exit.i52.i.i.i, %if.then10.i.i.i
-  %28 = load ptr, ptr %__functor.val, align 8
-  %29 = load ptr, ptr %28, align 8
-  %isolate_.i.i63.i.i.i = getelementptr inbounds i8, ptr %29, i64 88
-  %30 = load ptr, ptr %isolate_.i.i63.i.i.i, align 8
-  %call.i.i64.i.i.i = tail call ptr @_ZN4node30ERR_NON_CONTEXT_AWARE_DISABLEDIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %30, ptr noundef nonnull @.str.79)
-  %call6.i.i65.i.i.i = tail call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %30, ptr %call.i.i64.i.i.i) #22
+_ZN4node7binding4DLib5CloseEv.exit62.i.i.i:       ; preds = %if.end11.i57.i.i.i, %_ZL16libc_may_be_muslv.exit.i52.i.i.i
+  %27 = load ptr, ptr %__functor.val, align 8
+  %28 = load ptr, ptr %27, align 8
+  %isolate_.i.i63.i.i.i = getelementptr inbounds i8, ptr %28, i64 88
+  %29 = load ptr, ptr %isolate_.i.i63.i.i.i, align 8
+  %call.i.i64.i.i.i = tail call ptr @_ZN4node30ERR_NON_CONTEXT_AWARE_DISABLEDIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %29, ptr noundef nonnull @.str.79)
+  %call6.i.i65.i.i.i = tail call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr %call.i.i64.i.i.i) #22
   br label %"_ZSt10__invoke_rIbRZN4node7binding6DLOpenERKN2v820FunctionCallbackInfoINS2_5ValueEEEE3$_0JPNS1_4DLibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
 if.end12.i.i.i:                                   ; preds = %if.then8.i.i.i, %if.then6.i.i.i
-  %31 = load ptr, ptr %handle_.i.i.i.i, align 8
   %nm_dso_handle.i.i.i = getelementptr inbounds i8, ptr %16, i64 8
-  store ptr %31, ptr %nm_dso_handle.i.i.i, align 8
+  store ptr %call2.i.i.i.i, ptr %nm_dso_handle.i.i.i, align 8
   %has_entry_in_global_handle_map_.i66.i.i.i = getelementptr inbounds i8, ptr %0, i64 80
   store i8 1, ptr %has_entry_in_global_handle_map_.i66.i.i.i, align 8
-  tail call void @_ZN4node7binding19global_handle_map_t3setEPvPNS_11node_moduleE(ptr noundef nonnull align 8 dereferenceable(96) @_ZN4node7bindingL17global_handle_mapE, ptr noundef %31, ptr noundef nonnull %16)
+  %30 = load ptr, ptr %handle_.i.i.i.i, align 8
+  tail call void @_ZN4node7binding19global_handle_map_t3setEPvPNS_11node_moduleE(ptr noundef nonnull align 8 dereferenceable(96) @_ZN4node7bindingL17global_handle_mapE, ptr noundef %30, ptr noundef nonnull %16)
   br label %if.end66.i.i.i
 
 if.else.i.i.i:                                    ; preds = %if.end.i.i.i
-  %32 = load ptr, ptr %handle_.i.i.i.i, align 8
-  %call.i.i68.i.i.i = tail call noundef ptr @dlsym(ptr noundef %32, ptr noundef nonnull @.str.81) #22
+  %call.i.i68.i.i.i = tail call noundef ptr @dlsym(ptr noundef nonnull %call2.i.i.i.i, ptr noundef nonnull @.str.81) #22
   %tobool14.not.i.i.i = icmp eq ptr %call.i.i68.i.i.i, null
   br i1 %tobool14.not.i.i.i, label %if.else30.i.i.i, label %if.then15.i.i.i
 
 if.then15.i.i.i:                                  ; preds = %if.else.i.i.i
-  %33 = getelementptr inbounds i8, ptr %__functor.val, i64 8
+  %31 = getelementptr inbounds i8, ptr %__functor.val, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i = load ptr, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %34 = load ptr, ptr %33, align 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i = load ptr, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %__functor.val, i64 16
+  %agg.tmp17.sroa.0.0.copyload.i.i.i = load ptr, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %__functor.val, i64 24
   %36 = load ptr, ptr %35, align 8
-  %agg.tmp17.sroa.0.0.copyload.i.i.i = load ptr, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %__functor.val, i64 24
-  %38 = load ptr, ptr %37, align 8
-  %agg.tmp20.sroa.0.0.copyload.i.i.i = load ptr, ptr %38, align 8
+  %agg.tmp20.sroa.0.0.copyload.i.i.i = load ptr, ptr %36, align 8
   tail call void %call.i.i68.i.i.i(ptr %agg.tmp.sroa.0.0.copyload.i.i.i, ptr %agg.tmp17.sroa.0.0.copyload.i.i.i, ptr %agg.tmp20.sroa.0.0.copyload.i.i.i) #22
   br label %"_ZSt10__invoke_rIbRZN4node7binding6DLOpenERKN2v820FunctionCallbackInfoINS2_5ValueEEEE3$_0JPNS1_4DLibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
 if.else30.i.i.i:                                  ; preds = %if.else.i.i.i
-  %39 = load ptr, ptr %handle_.i.i.i.i, align 8
-  %call.i.i70.i.i.i = tail call noundef ptr @dlsym(ptr noundef %39, ptr noundef nonnull @.str.82) #22
+  %37 = load ptr, ptr %handle_.i.i.i.i, align 8
+  %call.i.i70.i.i.i = tail call noundef ptr @dlsym(ptr noundef %37, ptr noundef nonnull @.str.82) #22
   %tobool32.not.i.i.i = icmp eq ptr %call.i.i70.i.i.i, null
   br i1 %tobool32.not.i.i.i, label %if.else55.i.i.i, label %if.then33.i.i.i
 
 if.then33.i.i.i:                                  ; preds = %if.else30.i.i.i
-  %40 = load ptr, ptr %handle_.i.i.i.i, align 8
-  %call.i.i72.i.i.i = tail call noundef ptr @dlsym(ptr noundef %40, ptr noundef nonnull @.str.83) #22
+  %38 = load ptr, ptr %handle_.i.i.i.i, align 8
+  %call.i.i72.i.i.i = tail call noundef ptr @dlsym(ptr noundef %38, ptr noundef nonnull @.str.83) #22
   %tobool35.not.i.i.i = icmp eq ptr %call.i.i72.i.i.i, null
   br i1 %tobool35.not.i.i.i, label %if.end38.i.i.i, label %if.then36.i.i.i
 
@@ -3295,40 +3289,40 @@ if.then36.i.i.i:                                  ; preds = %if.then33.i.i.i
 
 if.end38.i.i.i:                                   ; preds = %if.then36.i.i.i, %if.then33.i.i.i
   %module_api_version.0.i.i.i = phi i32 [ %call37.i.i.i, %if.then36.i.i.i ], [ 8, %if.then33.i.i.i ]
-  %41 = getelementptr inbounds i8, ptr %__functor.val, i64 8
+  %39 = getelementptr inbounds i8, ptr %__functor.val, i64 8
+  %40 = load ptr, ptr %39, align 8
+  %agg.tmp39.sroa.0.0.copyload.i.i.i = load ptr, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %42 = load ptr, ptr %41, align 8
-  %agg.tmp39.sroa.0.0.copyload.i.i.i = load ptr, ptr %42, align 8
-  %43 = getelementptr inbounds i8, ptr %__functor.val, i64 16
+  %agg.tmp41.sroa.0.0.copyload.i.i.i = load ptr, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %__functor.val, i64 24
   %44 = load ptr, ptr %43, align 8
-  %agg.tmp41.sroa.0.0.copyload.i.i.i = load ptr, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %__functor.val, i64 24
-  %46 = load ptr, ptr %45, align 8
-  %agg.tmp45.sroa.0.0.copyload.i.i.i = load ptr, ptr %46, align 8
+  %agg.tmp45.sroa.0.0.copyload.i.i.i = load ptr, ptr %44, align 8
   tail call void @_Z30napi_module_register_by_symbolN2v85LocalINS_6ObjectEEENS0_INS_5ValueEEENS0_INS_7ContextEEEPFP12napi_value__P10napi_env__S8_Ei(ptr %agg.tmp39.sroa.0.0.copyload.i.i.i, ptr %agg.tmp41.sroa.0.0.copyload.i.i.i, ptr %agg.tmp45.sroa.0.0.copyload.i.i.i, ptr noundef nonnull %call.i.i70.i.i.i, i32 noundef %module_api_version.0.i.i.i) #22
   br label %"_ZSt10__invoke_rIbRZN4node7binding6DLOpenERKN2v820FunctionCallbackInfoINS2_5ValueEEEE3$_0JPNS1_4DLibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
 if.else55.i.i.i:                                  ; preds = %if.else30.i.i.i
   %has_entry_in_global_handle_map_.i73.i.i.i = getelementptr inbounds i8, ptr %0, i64 80
   store i8 1, ptr %has_entry_in_global_handle_map_.i73.i.i.i, align 8
-  %47 = load ptr, ptr %handle_.i.i.i.i, align 8
-  %call.i75.i.i.i = tail call noundef ptr @_ZN4node7binding19global_handle_map_t25get_and_increase_refcountEPv(ptr noundef nonnull align 8 dereferenceable(96) @_ZN4node7bindingL17global_handle_mapE, ptr noundef %47)
+  %45 = load ptr, ptr %handle_.i.i.i.i, align 8
+  %call.i75.i.i.i = tail call noundef ptr @_ZN4node7binding19global_handle_map_t25get_and_increase_refcountEPv(ptr noundef nonnull align 8 dereferenceable(96) @_ZN4node7bindingL17global_handle_mapE, ptr noundef %45)
   %cmp57.i.i.i = icmp eq ptr %call.i75.i.i.i, null
   br i1 %cmp57.i.i.i, label %if.then60.i.i.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %if.else55.i.i.i
   %nm_context_register_func58.i.i.i = getelementptr inbounds i8, ptr %call.i75.i.i.i, i64 32
-  %48 = load ptr, ptr %nm_context_register_func58.i.i.i, align 8
-  %cmp59.i.i.i = icmp eq ptr %48, null
+  %46 = load ptr, ptr %nm_context_register_func58.i.i.i, align 8
+  %cmp59.i.i.i = icmp eq ptr %46, null
   br i1 %cmp59.i.i.i, label %if.then60.i.i.i, label %if.end66.i.i.i
 
 if.then60.i.i.i:                                  ; preds = %lor.lhs.false.i.i.i, %if.else55.i.i.i
-  %49 = load ptr, ptr %handle_.i.i.i.i, align 8
-  %cmp.i.i.i = icmp eq ptr %49, null
+  %47 = load ptr, ptr %handle_.i.i.i.i, align 8
+  %cmp.i.i.i = icmp eq ptr %47, null
   br i1 %cmp.i.i.i, label %_ZN4node7binding4DLib5CloseEv.exit.i.i, label %if.end.i2.i.i
 
 if.end.i2.i.i:                                    ; preds = %if.then60.i.i.i
-  %50 = load atomic i8, ptr @_ZZL16libc_may_be_muslvE17has_cached_retval.0 seq_cst, align 1
-  %tobool.i.i.i.i.i.i = trunc i8 %50 to i1
+  %48 = load atomic i8, ptr @_ZZL16libc_may_be_muslvE17has_cached_retval.0 seq_cst, align 1
+  %tobool.i.i.i.i.i.i = trunc i8 %48 to i1
   br i1 %tobool.i.i.i.i.i.i, label %_ZL16libc_may_be_muslv.exit.i.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.end.i2.i.i
@@ -3340,24 +3334,24 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i2.i.i
   br label %_ZL16libc_may_be_muslv.exit.i.i.i
 
 _ZL16libc_may_be_muslv.exit.i.i.i:                ; preds = %if.end.i.i.i.i, %if.end.i2.i.i
-  %51 = load atomic i8, ptr @_ZZL16libc_may_be_muslvE6retval.0 seq_cst, align 1
-  %retval.0.i.i.i.i = trunc i8 %51 to i1
+  %49 = load atomic i8, ptr @_ZZL16libc_may_be_muslvE6retval.0 seq_cst, align 1
+  %retval.0.i.i.i.i = trunc i8 %49 to i1
   br i1 %retval.0.i.i.i.i, label %_ZN4node7binding4DLib5CloseEv.exit.i.i, label %if.end3.i.i.i
 
 if.end3.i.i.i:                                    ; preds = %_ZL16libc_may_be_muslv.exit.i.i.i
-  %52 = load ptr, ptr %handle_.i.i.i.i, align 8
-  %call5.i5.i.i = tail call i32 @dlclose(ptr noundef %52) #22
+  %50 = load ptr, ptr %handle_.i.i.i.i, align 8
+  %call5.i5.i.i = tail call i32 @dlclose(ptr noundef %50) #22
   %cmp6.i.i.i = icmp eq i32 %call5.i5.i.i, 0
   br i1 %cmp6.i.i.i, label %if.then7.i.i.i, label %if.end11.i.i.i
 
 if.then7.i.i.i:                                   ; preds = %if.end3.i.i.i
-  %53 = load i8, ptr %has_entry_in_global_handle_map_.i73.i.i.i, align 8
-  %tobool.i.i.i = trunc i8 %53 to i1
+  %51 = load i8, ptr %has_entry_in_global_handle_map_.i73.i.i.i, align 8
+  %tobool.i.i.i = trunc i8 %51 to i1
   br i1 %tobool.i.i.i, label %if.then8.i6.i.i, label %if.end11.i.i.i
 
 if.then8.i6.i.i:                                  ; preds = %if.then7.i.i.i
-  %54 = load ptr, ptr %handle_.i.i.i.i, align 8
-  tail call void @_ZN4node7binding19global_handle_map_t5eraseEPv(ptr noundef nonnull align 8 dereferenceable(96) @_ZN4node7bindingL17global_handle_mapE, ptr noundef %54)
+  %52 = load ptr, ptr %handle_.i.i.i.i, align 8
+  tail call void @_ZN4node7binding19global_handle_map_t5eraseEPv(ptr noundef nonnull align 8 dereferenceable(96) @_ZN4node7bindingL17global_handle_mapE, ptr noundef %52)
   br label %if.end11.i.i.i
 
 if.end11.i.i.i:                                   ; preds = %if.then8.i6.i.i, %if.then7.i.i.i, %if.end3.i.i.i
@@ -3365,56 +3359,56 @@ if.end11.i.i.i:                                   ; preds = %if.then8.i6.i.i, %i
   br label %_ZN4node7binding4DLib5CloseEv.exit.i.i
 
 _ZN4node7binding4DLib5CloseEv.exit.i.i:           ; preds = %if.end11.i.i.i, %_ZL16libc_may_be_muslv.exit.i.i.i, %if.then60.i.i.i
-  %55 = load ptr, ptr %__functor.val, align 8
+  %53 = load ptr, ptr %__functor.val, align 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds i8, ptr %__functor.val, i64 32
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %__functor.val, i64 32
-  %58 = load ptr, ptr %57, align 8
-  %buf_.i.i.i.i = getelementptr inbounds i8, ptr %58, i64 16
-  %59 = load ptr, ptr %buf_.i.i.i.i, align 8
-  store ptr %59, ptr %ref.tmp61.i.i.i, align 8
-  %isolate_.i.i.i.i = getelementptr inbounds i8, ptr %56, i64 88
-  %60 = load ptr, ptr %isolate_.i.i.i.i, align 8
-  %call.i.i1.i.i = call ptr @_ZN4node17ERR_DLOPEN_FAILEDIJPcEEEN2v85LocalINS2_5ValueEEEPNS2_7IsolateEPKcDpOT_(ptr noundef %60, ptr noundef nonnull @.str.64, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp61.i.i.i)
-  %call6.i.i.i.i = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %60, ptr %call.i.i1.i.i) #22
+  %buf_.i.i.i.i = getelementptr inbounds i8, ptr %56, i64 16
+  %57 = load ptr, ptr %buf_.i.i.i.i, align 8
+  store ptr %57, ptr %ref.tmp61.i.i.i, align 8
+  %isolate_.i.i.i.i = getelementptr inbounds i8, ptr %54, i64 88
+  %58 = load ptr, ptr %isolate_.i.i.i.i, align 8
+  %call.i.i1.i.i = call ptr @_ZN4node17ERR_DLOPEN_FAILEDIJPcEEEN2v85LocalINS2_5ValueEEEPNS2_7IsolateEPKcDpOT_(ptr noundef %58, ptr noundef nonnull @.str.64, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp61.i.i.i)
+  %call6.i.i.i.i = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %58, ptr %call.i.i1.i.i) #22
   br label %"_ZSt10__invoke_rIbRZN4node7binding6DLOpenERKN2v820FunctionCallbackInfoINS2_5ValueEEEE3$_0JPNS1_4DLibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
 if.end66.i.i.i:                                   ; preds = %lor.lhs.false.i.i.i, %if.end12.i.i.i
   %mp.0.i.i.i = phi ptr [ %16, %if.end12.i.i.i ], [ %call.i75.i.i.i, %lor.lhs.false.i.i.i ]
-  %61 = load i32, ptr %mp.0.i.i.i, align 8
-  switch i32 %61, label %if.then70.i.i.i [
+  %59 = load i32, ptr %mp.0.i.i.i, align 8
+  switch i32 %59, label %if.then70.i.i.i [
     i32 -1, label %do.body.i.i.i
     i32 120, label %do.body.i.i.i
   ]
 
 if.then70.i.i.i:                                  ; preds = %if.end66.i.i.i
-  %62 = load ptr, ptr %handle_.i.i.i.i, align 8
-  %call.i.i77.i.i.i = tail call noundef ptr @dlsym(ptr noundef %62, ptr noundef nonnull @.str.81) #22
+  %60 = load ptr, ptr %handle_.i.i.i.i, align 8
+  %call.i.i77.i.i.i = tail call noundef ptr @dlsym(ptr noundef %60, ptr noundef nonnull @.str.81) #22
   %tobool73.not.i.i.i = icmp eq ptr %call.i.i77.i.i.i, null
   br i1 %tobool73.not.i.i.i, label %if.end91.i.i.i, label %if.then74.i.i.i
 
 if.then74.i.i.i:                                  ; preds = %if.then70.i.i.i
-  %63 = getelementptr inbounds i8, ptr %__functor.val, i64 8
+  %61 = getelementptr inbounds i8, ptr %__functor.val, i64 8
+  %62 = load ptr, ptr %61, align 8
+  %agg.tmp75.sroa.0.0.copyload.i.i.i = load ptr, ptr %62, align 8
+  %63 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %64 = load ptr, ptr %63, align 8
-  %agg.tmp75.sroa.0.0.copyload.i.i.i = load ptr, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %__functor.val, i64 16
+  %agg.tmp77.sroa.0.0.copyload.i.i.i = load ptr, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %__functor.val, i64 24
   %66 = load ptr, ptr %65, align 8
-  %agg.tmp77.sroa.0.0.copyload.i.i.i = load ptr, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %__functor.val, i64 24
-  %68 = load ptr, ptr %67, align 8
-  %agg.tmp81.sroa.0.0.copyload.i.i.i = load ptr, ptr %68, align 8
+  %agg.tmp81.sroa.0.0.copyload.i.i.i = load ptr, ptr %66, align 8
   tail call void %call.i.i77.i.i.i(ptr %agg.tmp75.sroa.0.0.copyload.i.i.i, ptr %agg.tmp77.sroa.0.0.copyload.i.i.i, ptr %agg.tmp81.sroa.0.0.copyload.i.i.i) #22
   br label %"_ZSt10__invoke_rIbRZN4node7binding6DLOpenERKN2v820FunctionCallbackInfoINS2_5ValueEEEE3$_0JPNS1_4DLibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
 if.end91.i.i.i:                                   ; preds = %if.then70.i.i.i
-  %69 = load i32, ptr %mp.0.i.i.i, align 8
-  store i32 %69, ptr %actual_nm_version.i.i.i, align 4
-  %70 = load ptr, ptr %handle_.i.i.i.i, align 8
-  %cmp.i79.i.i.i = icmp eq ptr %70, null
+  %67 = load i32, ptr %mp.0.i.i.i, align 8
+  store i32 %67, ptr %actual_nm_version.i.i.i, align 4
+  %68 = load ptr, ptr %handle_.i.i.i.i, align 8
+  %cmp.i79.i.i.i = icmp eq ptr %68, null
   br i1 %cmp.i79.i.i.i, label %_ZN4node7binding4DLib5CloseEv.exit96.i.i.i, label %if.end.i80.i.i.i
 
 if.end.i80.i.i.i:                                 ; preds = %if.end91.i.i.i
-  %71 = load atomic i8, ptr @_ZZL16libc_may_be_muslvE17has_cached_retval.0 seq_cst, align 1
-  %tobool.i.i.i.i81.i.i.i = trunc i8 %71 to i1
+  %69 = load atomic i8, ptr @_ZZL16libc_may_be_muslvE17has_cached_retval.0 seq_cst, align 1
+  %tobool.i.i.i.i81.i.i.i = trunc i8 %69 to i1
   br i1 %tobool.i.i.i.i81.i.i.i, label %_ZL16libc_may_be_muslv.exit.i86.i.i.i, label %if.end.i.i82.i.i.i
 
 if.end.i.i82.i.i.i:                               ; preds = %if.end.i80.i.i.i
@@ -3426,25 +3420,25 @@ if.end.i.i82.i.i.i:                               ; preds = %if.end.i80.i.i.i
   br label %_ZL16libc_may_be_muslv.exit.i86.i.i.i
 
 _ZL16libc_may_be_muslv.exit.i86.i.i.i:            ; preds = %if.end.i.i82.i.i.i, %if.end.i80.i.i.i
-  %72 = load atomic i8, ptr @_ZZL16libc_may_be_muslvE6retval.0 seq_cst, align 1
-  %retval.0.i.i87.i.i.i = trunc i8 %72 to i1
+  %70 = load atomic i8, ptr @_ZZL16libc_may_be_muslvE6retval.0 seq_cst, align 1
+  %retval.0.i.i87.i.i.i = trunc i8 %70 to i1
   br i1 %retval.0.i.i87.i.i.i, label %_ZN4node7binding4DLib5CloseEv.exit96.i.i.i, label %if.end3.i88.i.i.i
 
 if.end3.i88.i.i.i:                                ; preds = %_ZL16libc_may_be_muslv.exit.i86.i.i.i
-  %73 = load ptr, ptr %handle_.i.i.i.i, align 8
-  %call5.i89.i.i.i = tail call i32 @dlclose(ptr noundef %73) #22
+  %71 = load ptr, ptr %handle_.i.i.i.i, align 8
+  %call5.i89.i.i.i = tail call i32 @dlclose(ptr noundef %71) #22
   %cmp6.i90.i.i.i = icmp eq i32 %call5.i89.i.i.i, 0
   br i1 %cmp6.i90.i.i.i, label %if.then7.i92.i.i.i, label %if.end11.i91.i.i.i
 
 if.then7.i92.i.i.i:                               ; preds = %if.end3.i88.i.i.i
   %has_entry_in_global_handle_map_.i93.i.i.i = getelementptr inbounds i8, ptr %0, i64 80
-  %74 = load i8, ptr %has_entry_in_global_handle_map_.i93.i.i.i, align 8
-  %tobool.i94.i.i.i = trunc i8 %74 to i1
+  %72 = load i8, ptr %has_entry_in_global_handle_map_.i93.i.i.i, align 8
+  %tobool.i94.i.i.i = trunc i8 %72 to i1
   br i1 %tobool.i94.i.i.i, label %if.then8.i95.i.i.i, label %if.end11.i91.i.i.i
 
 if.then8.i95.i.i.i:                               ; preds = %if.then7.i92.i.i.i
-  %75 = load ptr, ptr %handle_.i.i.i.i, align 8
-  tail call void @_ZN4node7binding19global_handle_map_t5eraseEPv(ptr noundef nonnull align 8 dereferenceable(96) @_ZN4node7bindingL17global_handle_mapE, ptr noundef %75)
+  %73 = load ptr, ptr %handle_.i.i.i.i, align 8
+  tail call void @_ZN4node7binding19global_handle_map_t5eraseEPv(ptr noundef nonnull align 8 dereferenceable(96) @_ZN4node7bindingL17global_handle_mapE, ptr noundef %73)
   br label %if.end11.i91.i.i.i
 
 if.end11.i91.i.i.i:                               ; preds = %if.then8.i95.i.i.i, %if.then7.i92.i.i.i, %if.end3.i88.i.i.i
@@ -3452,24 +3446,24 @@ if.end11.i91.i.i.i:                               ; preds = %if.then8.i95.i.i.i,
   br label %_ZN4node7binding4DLib5CloseEv.exit96.i.i.i
 
 _ZN4node7binding4DLib5CloseEv.exit96.i.i.i:       ; preds = %if.end11.i91.i.i.i, %_ZL16libc_may_be_muslv.exit.i86.i.i.i, %if.end91.i.i.i
-  %76 = load ptr, ptr %__functor.val, align 8
+  %74 = load ptr, ptr %__functor.val, align 8
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds i8, ptr %__functor.val, i64 32
   %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %__functor.val, i64 32
-  %79 = load ptr, ptr %78, align 8
-  %buf_.i97.i.i.i = getelementptr inbounds i8, ptr %79, i64 16
-  %80 = load ptr, ptr %buf_.i97.i.i.i, align 8
-  store ptr %80, ptr %ref.tmp93.i.i.i, align 8
+  %buf_.i97.i.i.i = getelementptr inbounds i8, ptr %77, i64 16
+  %78 = load ptr, ptr %buf_.i97.i.i.i, align 8
+  store ptr %78, ptr %ref.tmp93.i.i.i, align 8
   store i32 120, ptr %ref.tmp95.i.i.i, align 4
-  %isolate_.i.i98.i.i.i = getelementptr inbounds i8, ptr %77, i64 88
-  %81 = load ptr, ptr %isolate_.i.i98.i.i.i, align 8
-  %call.i.i99.i.i.i = call ptr @_ZN4node17ERR_DLOPEN_FAILEDIJPcRKiiEEEN2v85LocalINS4_5ValueEEEPNS4_7IsolateEPKcDpOT_(ptr noundef %81, ptr noundef nonnull @.str.65, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp93.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %actual_nm_version.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp95.i.i.i)
-  %call10.i.i.i.i.i = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %81, ptr %call.i.i99.i.i.i) #22
+  %isolate_.i.i98.i.i.i = getelementptr inbounds i8, ptr %75, i64 88
+  %79 = load ptr, ptr %isolate_.i.i98.i.i.i, align 8
+  %call.i.i99.i.i.i = call ptr @_ZN4node17ERR_DLOPEN_FAILEDIJPcRKiiEEEN2v85LocalINS4_5ValueEEEPNS4_7IsolateEPKcDpOT_(ptr noundef %79, ptr noundef nonnull @.str.65, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp93.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %actual_nm_version.i.i.i, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp95.i.i.i)
+  %call10.i.i.i.i.i = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %79, ptr %call.i.i99.i.i.i) #22
   br label %"_ZSt10__invoke_rIbRZN4node7binding6DLOpenERKN2v820FunctionCallbackInfoINS2_5ValueEEEE3$_0JPNS1_4DLibEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESD_E4typeEOSE_DpOSF_.exit"
 
 do.body.i.i.i:                                    ; preds = %if.end66.i.i.i, %if.end66.i.i.i
   %nm_flags.i.i.i = getelementptr inbounds i8, ptr %mp.0.i.i.i, i64 4
-  %82 = load i32, ptr %nm_flags.i.i.i, align 4
-  %and.i.i.i = and i32 %82, 1
+  %80 = load i32, ptr %nm_flags.i.i.i, align 4
+  %and.i.i.i = and i32 %80, 1
   %cmp97.not.i.i.i = icmp eq i32 %and.i.i.i, 0
   br i1 %cmp97.not.i.i.i, label %do.end104.i.i.i, label %do.body101.i.i.i
 
@@ -3481,51 +3475,51 @@ do.body101.i.i.i:                                 ; preds = %do.body.i.i.i
 do.end104.i.i.i:                                  ; preds = %do.body.i.i.i
   tail call void @uv_mutex_unlock(ptr noundef nonnull @"_ZZZN4node7binding6DLOpenERKN2v820FunctionCallbackInfoINS1_5ValueEEEENK3$_0clEPNS0_4DLibEE15dlib_load_mutex") #22
   %nm_context_register_func105.i.i.i = getelementptr inbounds i8, ptr %mp.0.i.i.i, i64 32
-  %83 = load ptr, ptr %nm_context_register_func105.i.i.i, align 8
-  %cmp106.not.i.i.i = icmp eq ptr %83, null
+  %81 = load ptr, ptr %nm_context_register_func105.i.i.i, align 8
+  %cmp106.not.i.i.i = icmp eq ptr %81, null
   br i1 %cmp106.not.i.i.i, label %if.else125.i.i.i, label %if.then107.i.i.i
 
 if.then107.i.i.i:                                 ; preds = %do.end104.i.i.i
-  %84 = getelementptr inbounds i8, ptr %__functor.val, i64 8
+  %82 = getelementptr inbounds i8, ptr %__functor.val, i64 8
+  %83 = load ptr, ptr %82, align 8
+  %agg.tmp109.sroa.0.0.copyload.i.i.i = load ptr, ptr %83, align 8
+  %84 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %85 = load ptr, ptr %84, align 8
-  %agg.tmp109.sroa.0.0.copyload.i.i.i = load ptr, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %__functor.val, i64 16
+  %agg.tmp111.sroa.0.0.copyload.i.i.i = load ptr, ptr %85, align 8
+  %86 = getelementptr inbounds i8, ptr %__functor.val, i64 24
   %87 = load ptr, ptr %86, align 8
-  %agg.tmp111.sroa.0.0.copyload.i.i.i = load ptr, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %__functor.val, i64 24
-  %89 = load ptr, ptr %88, align 8
-  %agg.tmp115.sroa.0.0.copyload.i.i.i = load ptr, ptr %89, align 8
+  %agg.tmp115.sroa.0.0.copyload.i.i.i = load ptr, ptr %87, align 8
   %nm_priv.i.i.i = getelementptr inbounds i8, ptr %mp.0.i.i.i, i64 48
-  %90 = load ptr, ptr %nm_priv.i.i.i, align 8
-  tail call void %83(ptr %agg.tmp109.sroa.0.0.copyload.i.i.i, ptr %agg.tmp111.sroa.0.0.copyload.i.i.i, ptr %agg.tmp115.sroa.0.0.copyload.i.i.i, ptr noundef %90) #22
+  %88 = load ptr, ptr %nm_priv.i.i.i, align 8
+  tail call void %81(ptr %agg.tmp109.sroa.0.0.copyload.i.i.i, ptr %agg.tmp111.sroa.0.0.copyload.i.i.i, ptr %agg.tmp115.sroa.0.0.copyload.i.i.i, ptr noundef %88) #22
   br label %cleanup.i.i.i
 
 if.else125.i.i.i:                                 ; preds = %do.end104.i.i.i
   %nm_register_func.i.i.i = getelementptr inbounds i8, ptr %mp.0.i.i.i, i64 24
-  %91 = load ptr, ptr %nm_register_func.i.i.i, align 8
-  %cmp126.not.i.i.i = icmp eq ptr %91, null
+  %89 = load ptr, ptr %nm_register_func.i.i.i, align 8
+  %cmp126.not.i.i.i = icmp eq ptr %89, null
   br i1 %cmp126.not.i.i.i, label %if.else142.i.i.i, label %if.then127.i.i.i
 
 if.then127.i.i.i:                                 ; preds = %if.else125.i.i.i
-  %92 = getelementptr inbounds i8, ptr %__functor.val, i64 8
+  %90 = getelementptr inbounds i8, ptr %__functor.val, i64 8
+  %91 = load ptr, ptr %90, align 8
+  %agg.tmp129.sroa.0.0.copyload.i.i.i = load ptr, ptr %91, align 8
+  %92 = getelementptr inbounds i8, ptr %__functor.val, i64 16
   %93 = load ptr, ptr %92, align 8
-  %agg.tmp129.sroa.0.0.copyload.i.i.i = load ptr, ptr %93, align 8
-  %94 = getelementptr inbounds i8, ptr %__functor.val, i64 16
-  %95 = load ptr, ptr %94, align 8
-  %agg.tmp131.sroa.0.0.copyload.i.i.i = load ptr, ptr %95, align 8
+  %agg.tmp131.sroa.0.0.copyload.i.i.i = load ptr, ptr %93, align 8
   %nm_priv135.i.i.i = getelementptr inbounds i8, ptr %mp.0.i.i.i, i64 48
-  %96 = load ptr, ptr %nm_priv135.i.i.i, align 8
-  tail call void %91(ptr %agg.tmp129.sroa.0.0.copyload.i.i.i, ptr %agg.tmp131.sroa.0.0.copyload.i.i.i, ptr noundef %96) #22
+  %94 = load ptr, ptr %nm_priv135.i.i.i, align 8
+  tail call void %89(ptr %agg.tmp129.sroa.0.0.copyload.i.i.i, ptr %agg.tmp131.sroa.0.0.copyload.i.i.i, ptr noundef %94) #22
   br label %cleanup.i.i.i
 
 if.else142.i.i.i:                                 ; preds = %if.else125.i.i.i
-  %97 = load ptr, ptr %handle_.i.i.i.i, align 8
-  %cmp.i101.i.i.i = icmp eq ptr %97, null
+  %95 = load ptr, ptr %handle_.i.i.i.i, align 8
+  %cmp.i101.i.i.i = icmp eq ptr %95, null
   br i1 %cmp.i101.i.i.i, label %_ZN4node7binding4DLib5CloseEv.exit118.i.i.i, label %if.end.i102.i.i.i
 
 if.end.i102.i.i.i:                                ; preds = %if.else142.i.i.i
-  %98 = load atomic i8, ptr @_ZZL16libc_may_be_muslvE17has_cached_retval.0 seq_cst, align 1
-  %tobool.i.i.i.i103.i.i.i = trunc i8 %98 to i1
+  %96 = load atomic i8, ptr @_ZZL16libc_may_be_muslvE17has_cached_retval.0 seq_cst, align 1
+  %tobool.i.i.i.i103.i.i.i = trunc i8 %96 to i1
   br i1 %tobool.i.i.i.i103.i.i.i, label %_ZL16libc_may_be_muslv.exit.i108.i.i.i, label %if.end.i.i104.i.i.i
 
 if.end.i.i104.i.i.i:                              ; preds = %if.end.i102.i.i.i
@@ -3537,25 +3531,25 @@ if.end.i.i104.i.i.i:                              ; preds = %if.end.i102.i.i.i
   br label %_ZL16libc_may_be_muslv.exit.i108.i.i.i
 
 _ZL16libc_may_be_muslv.exit.i108.i.i.i:           ; preds = %if.end.i.i104.i.i.i, %if.end.i102.i.i.i
-  %99 = load atomic i8, ptr @_ZZL16libc_may_be_muslvE6retval.0 seq_cst, align 1
-  %retval.0.i.i109.i.i.i = trunc i8 %99 to i1
+  %97 = load atomic i8, ptr @_ZZL16libc_may_be_muslvE6retval.0 seq_cst, align 1
+  %retval.0.i.i109.i.i.i = trunc i8 %97 to i1
   br i1 %retval.0.i.i109.i.i.i, label %_ZN4node7binding4DLib5CloseEv.exit118.i.i.i, label %if.end3.i110.i.i.i
 
 if.end3.i110.i.i.i:                               ; preds = %_ZL16libc_may_be_muslv.exit.i108.i.i.i
-  %100 = load ptr, ptr %handle_.i.i.i.i, align 8
-  %call5.i111.i.i.i = tail call i32 @dlclose(ptr noundef %100) #22
+  %98 = load ptr, ptr %handle_.i.i.i.i, align 8
+  %call5.i111.i.i.i = tail call i32 @dlclose(ptr noundef %98) #22
   %cmp6.i112.i.i.i = icmp eq i32 %call5.i111.i.i.i, 0
   br i1 %cmp6.i112.i.i.i, label %if.then7.i114.i.i.i, label %if.end11.i113.i.i.i
 
 if.then7.i114.i.i.i:                              ; preds = %if.end3.i110.i.i.i
   %has_entry_in_global_handle_map_.i115.i.i.i = getelementptr inbounds i8, ptr %0, i64 80
-  %101 = load i8, ptr %has_entry_in_global_handle_map_.i115.i.i.i, align 8
-  %tobool.i116.i.i.i = trunc i8 %101 to i1
+  %99 = load i8, ptr %has_entry_in_global_handle_map_.i115.i.i.i, align 8
+  %tobool.i116.i.i.i = trunc i8 %99 to i1
   br i1 %tobool.i116.i.i.i, label %if.then8.i117.i.i.i, label %if.end11.i113.i.i.i
 
 if.then8.i117.i.i.i:                              ; preds = %if.then7.i114.i.i.i
-  %102 = load ptr, ptr %handle_.i.i.i.i, align 8
-  tail call void @_ZN4node7binding19global_handle_map_t5eraseEPv(ptr noundef nonnull align 8 dereferenceable(96) @_ZN4node7bindingL17global_handle_mapE, ptr noundef %102)
+  %100 = load ptr, ptr %handle_.i.i.i.i, align 8
+  tail call void @_ZN4node7binding19global_handle_map_t5eraseEPv(ptr noundef nonnull align 8 dereferenceable(96) @_ZN4node7bindingL17global_handle_mapE, ptr noundef %100)
   br label %if.end11.i113.i.i.i
 
 if.end11.i113.i.i.i:                              ; preds = %if.then8.i117.i.i.i, %if.then7.i114.i.i.i, %if.end3.i110.i.i.i
@@ -3563,12 +3557,12 @@ if.end11.i113.i.i.i:                              ; preds = %if.then8.i117.i.i.i
   br label %_ZN4node7binding4DLib5CloseEv.exit118.i.i.i
 
 _ZN4node7binding4DLib5CloseEv.exit118.i.i.i:      ; preds = %if.end11.i113.i.i.i, %_ZL16libc_may_be_muslv.exit.i108.i.i.i, %if.else142.i.i.i
-  %103 = load ptr, ptr %__functor.val, align 8
-  %104 = load ptr, ptr %103, align 8
-  %isolate_.i.i119.i.i.i = getelementptr inbounds i8, ptr %104, i64 88
-  %105 = load ptr, ptr %isolate_.i.i119.i.i.i, align 8
-  %call.i.i120.i.i.i = tail call ptr @_ZN4node17ERR_DLOPEN_FAILEDIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %105, ptr noundef nonnull @.str.69)
-  %call6.i.i121.i.i.i = tail call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %105, ptr %call.i.i120.i.i.i) #22
+  %101 = load ptr, ptr %__functor.val, align 8
+  %102 = load ptr, ptr %101, align 8
+  %isolate_.i.i119.i.i.i = getelementptr inbounds i8, ptr %102, i64 88
+  %103 = load ptr, ptr %isolate_.i.i119.i.i.i, align 8
+  %call.i.i120.i.i.i = tail call ptr @_ZN4node17ERR_DLOPEN_FAILEDIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %103, ptr noundef nonnull @.str.69)
+  %call6.i.i121.i.i.i = tail call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %103, ptr %call.i.i120.i.i.i) #22
   br label %cleanup.i.i.i
 
 cleanup.i.i.i:                                    ; preds = %_ZN4node7binding4DLib5CloseEv.exit118.i.i.i, %if.then127.i.i.i, %if.then107.i.i.i
@@ -5074,7 +5068,7 @@ if.then.i:                                        ; preds = %while.end.i
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 
 if.else.i:                                        ; preds = %while.end.i
-  %5 = trunc i32 %__val.addr.0.lcssa.i to i8
+  %5 = trunc nuw i32 %__val.addr.0.lcssa.i to i8
   %conv.i = or disjoint i8 %5, 48
   br label %_ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit
 

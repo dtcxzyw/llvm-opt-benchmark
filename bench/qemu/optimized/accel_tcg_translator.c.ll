@@ -139,10 +139,7 @@ if.else.i:                                        ; preds = %if.end8.i
   %15 = load ptr, ptr %14, align 8
   %exitreq_label13.i = getelementptr inbounds i8, ptr %15, i64 208
   store ptr %call12.i, ptr %exitreq_label13.i, align 8
-  %16 = load ptr, ptr %14, align 8
-  %exitreq_label14.i = getelementptr inbounds i8, ptr %16, i64 208
-  %17 = load ptr, ptr %exitreq_label14.i, align 8
-  tail call void @tcg_gen_brcondi_i32(i32 noundef 2, ptr noundef %call.i, i32 noundef 0, ptr noundef %17) #8
+  tail call void @tcg_gen_brcondi_i32(i32 noundef 2, ptr noundef %call.i, i32 noundef 0, ptr noundef %call12.i) #8
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %if.else.i, %if.then11.i
@@ -151,15 +148,15 @@ if.end15.i:                                       ; preds = %if.else.i, %if.then
   br i1 %tobool.not.not.i, label %if.end19.i, label %if.then18.i
 
 if.then18.i:                                      ; preds = %if.end15.i
-  %18 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st16_i32(ptr noundef %count.01114.i, ptr noundef %18, i64 noundef -16) #8
+  %16 = load ptr, ptr @tcg_env, align 8
+  tail call void @tcg_gen_st16_i32(ptr noundef %count.01114.i, ptr noundef %16, i64 noundef -16) #8
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.then18.i, %if.end15.i
-  %19 = load i32, ptr %max_insns2, align 8
-  %cmp.i = icmp eq i32 %19, 1
-  %20 = load i8, ptr %saved_can_do_io, align 1
-  %conv.i.i = sext i8 %20 to i32
+  %17 = load i32, ptr %max_insns2, align 8
+  %cmp.i = icmp eq i32 %17, 1
+  %18 = load i8, ptr %saved_can_do_io, align 1
+  %conv.i.i = sext i8 %18 to i32
   %conv1.i.i = zext i1 %cmp.i to i32
   %cmp.not.i.i = icmp eq i32 %conv.i.i, %conv1.i.i
   br i1 %cmp.not.i.i, label %gen_tb_start.exit, label %if.then.i.i
@@ -168,16 +165,16 @@ if.then.i.i:                                      ; preds = %if.end19.i
   %frombool.i.i = zext i1 %cmp.i to i8
   store i8 %frombool.i.i, ptr %saved_can_do_io, align 1
   %call.i.i = tail call ptr @tcg_constant_i32(i32 noundef %conv1.i.i) #8
-  %21 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st8_i32(ptr noundef %call.i.i, ptr noundef %21, i64 noundef -12) #8
+  %19 = load ptr, ptr @tcg_env, align 8
+  tail call void @tcg_gen_st8_i32(ptr noundef %call.i.i, ptr noundef %19, i64 noundef -12) #8
   br label %gen_tb_start.exit
 
 gen_tb_start.exit:                                ; preds = %if.end19.i, %if.then.i.i
   %tb_start = getelementptr inbounds i8, ptr %ops, i64 8
-  %22 = load ptr, ptr %tb_start, align 8
-  tail call void %22(ptr noundef nonnull %db, ptr noundef %cpu) #8
-  %23 = load i32, ptr %is_jmp, align 8
-  %cmp9 = icmp eq i32 %23, 0
+  %20 = load ptr, ptr %tb_start, align 8
+  tail call void %20(ptr noundef nonnull %db, ptr noundef %cpu) #8
+  %21 = load i32, ptr %is_jmp, align 8
+  %cmp9 = icmp eq i32 %21, 0
   tail call void @llvm.assume(i1 %cmp9)
   %and13 = and i32 %0, 4096
   %tobool14 = icmp ne i32 %and13, 0
@@ -188,104 +185,104 @@ gen_tb_start.exit:                                ; preds = %if.end19.i, %if.the
   store i8 %frombool16, ptr %plugin_enabled18, align 2
   %insn_start = getelementptr inbounds i8, ptr %ops, i64 16
   %translate_insn = getelementptr inbounds i8, ptr %ops, i64 24
-  %24 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %22 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %.pre79 = load i32, ptr %num_insns, align 4
   br i1 %call15.fr, label %while.body.us, label %while.body
 
 while.body.us:                                    ; preds = %gen_tb_start.exit, %lor.lhs.false.us
-  %25 = phi i32 [ %36, %lor.lhs.false.us ], [ %.pre79, %gen_tb_start.exit ]
-  %inc.us = add i32 %25, 1
+  %23 = phi i32 [ %34, %lor.lhs.false.us ], [ %.pre79, %gen_tb_start.exit ]
+  %inc.us = add i32 %23, 1
   store i32 %inc.us, ptr %num_insns, align 4
   store i32 %inc.us, ptr %max_insns, align 4
-  %26 = load ptr, ptr %insn_start, align 8
-  tail call void %26(ptr noundef nonnull %db, ptr noundef %cpu) #8
-  %27 = load i32, ptr %is_jmp, align 8
-  %cmp23.us = icmp eq i32 %27, 0
+  %24 = load ptr, ptr %insn_start, align 8
+  tail call void %24(ptr noundef nonnull %db, ptr noundef %cpu) #8
+  %25 = load i32, ptr %is_jmp, align 8
+  %cmp23.us = icmp eq i32 %25, 0
   tail call void @llvm.assume(i1 %cmp23.us)
   tail call void @plugin_gen_insn_start(ptr noundef %cpu, ptr noundef nonnull %db) #8
-  %28 = load i32, ptr %num_insns, align 4
-  %29 = load i32, ptr %max_insns2, align 8
-  %cmp32.us = icmp eq i32 %28, %29
+  %26 = load i32, ptr %num_insns, align 4
+  %27 = load i32, ptr %max_insns2, align 8
+  %cmp32.us = icmp eq i32 %26, %27
   br i1 %cmp32.us, label %if.then33.us, label %if.end34.us
 
 if.then33.us:                                     ; preds = %while.body.us
-  %30 = load i8, ptr %saved_can_do_io, align 1
-  %cmp.not.i.us = icmp eq i8 %30, 1
+  %28 = load i8, ptr %saved_can_do_io, align 1
+  %cmp.not.i.us = icmp eq i8 %28, 1
   br i1 %cmp.not.i.us, label %if.end34.us, label %if.then.i.us
 
 if.then.i.us:                                     ; preds = %if.then33.us
   store i8 1, ptr %saved_can_do_io, align 1
   %call.i66.us = tail call ptr @tcg_constant_i32(i32 noundef 1) #8
-  %31 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st8_i32(ptr noundef %call.i66.us, ptr noundef %31, i64 noundef -12) #8
+  %29 = load ptr, ptr @tcg_env, align 8
+  tail call void @tcg_gen_st8_i32(ptr noundef %call.i66.us, ptr noundef %29, i64 noundef -12) #8
   br label %if.end34.us
 
 if.end34.us:                                      ; preds = %if.then.i.us, %if.then33.us, %while.body.us
-  %32 = load ptr, ptr %translate_insn, align 8
-  tail call void %32(ptr noundef nonnull %db, ptr noundef %cpu) #8
+  %30 = load ptr, ptr %translate_insn, align 8
+  tail call void %30(ptr noundef nonnull %db, ptr noundef %cpu) #8
   tail call void @plugin_gen_insn_end() #8
-  %33 = load i32, ptr %is_jmp, align 8
-  %cmp39.not.us = icmp eq i32 %33, 0
+  %31 = load i32, ptr %is_jmp, align 8
+  %cmp39.not.us = icmp eq i32 %31, 0
   br i1 %cmp39.not.us, label %if.end41.us, label %while.end
 
 if.end41.us:                                      ; preds = %if.end34.us
-  %34 = load ptr, ptr %24, align 8
-  %nb_ops.i.us = getelementptr inbounds i8, ptr %34, i64 56
-  %35 = load i32, ptr %nb_ops.i.us, align 8
-  %cmp.i68.us = icmp sgt i32 %35, 3999
+  %32 = load ptr, ptr %22, align 8
+  %nb_ops.i.us = getelementptr inbounds i8, ptr %32, i64 56
+  %33 = load i32, ptr %nb_ops.i.us, align 8
+  %cmp.i68.us = icmp sgt i32 %33, 3999
   br i1 %cmp.i68.us, label %if.then46, label %lor.lhs.false.us
 
 lor.lhs.false.us:                                 ; preds = %if.end41.us
-  %36 = load i32, ptr %num_insns, align 4
-  %37 = load i32, ptr %max_insns2, align 8
-  %cmp45.not.us = icmp slt i32 %36, %37
+  %34 = load i32, ptr %num_insns, align 4
+  %35 = load i32, ptr %max_insns2, align 8
+  %cmp45.not.us = icmp slt i32 %34, %35
   br i1 %cmp45.not.us, label %while.body.us, label %if.then46
 
 while.body:                                       ; preds = %gen_tb_start.exit, %lor.lhs.false
-  %38 = phi i32 [ %49, %lor.lhs.false ], [ %.pre79, %gen_tb_start.exit ]
-  %inc = add i32 %38, 1
+  %36 = phi i32 [ %47, %lor.lhs.false ], [ %.pre79, %gen_tb_start.exit ]
+  %inc = add i32 %36, 1
   store i32 %inc, ptr %num_insns, align 4
   store i32 %inc, ptr %max_insns, align 4
-  %39 = load ptr, ptr %insn_start, align 8
-  tail call void %39(ptr noundef nonnull %db, ptr noundef %cpu) #8
-  %40 = load i32, ptr %is_jmp, align 8
-  %cmp23 = icmp eq i32 %40, 0
+  %37 = load ptr, ptr %insn_start, align 8
+  tail call void %37(ptr noundef nonnull %db, ptr noundef %cpu) #8
+  %38 = load i32, ptr %is_jmp, align 8
+  %cmp23 = icmp eq i32 %38, 0
   tail call void @llvm.assume(i1 %cmp23)
-  %41 = load i32, ptr %num_insns, align 4
-  %42 = load i32, ptr %max_insns2, align 8
-  %cmp32 = icmp eq i32 %41, %42
+  %39 = load i32, ptr %num_insns, align 4
+  %40 = load i32, ptr %max_insns2, align 8
+  %cmp32 = icmp eq i32 %39, %40
   br i1 %cmp32, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %while.body
-  %43 = load i8, ptr %saved_can_do_io, align 1
-  %cmp.not.i = icmp eq i8 %43, 1
+  %41 = load i8, ptr %saved_can_do_io, align 1
+  %cmp.not.i = icmp eq i8 %41, 1
   br i1 %cmp.not.i, label %if.end34, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then33
   store i8 1, ptr %saved_can_do_io, align 1
   %call.i66 = tail call ptr @tcg_constant_i32(i32 noundef 1) #8
-  %44 = load ptr, ptr @tcg_env, align 8
-  tail call void @tcg_gen_st8_i32(ptr noundef %call.i66, ptr noundef %44, i64 noundef -12) #8
+  %42 = load ptr, ptr @tcg_env, align 8
+  tail call void @tcg_gen_st8_i32(ptr noundef %call.i66, ptr noundef %42, i64 noundef -12) #8
   br label %if.end34
 
 if.end34:                                         ; preds = %if.then.i, %if.then33, %while.body
-  %45 = load ptr, ptr %translate_insn, align 8
-  tail call void %45(ptr noundef nonnull %db, ptr noundef %cpu) #8
-  %46 = load i32, ptr %is_jmp, align 8
-  %cmp39.not = icmp eq i32 %46, 0
+  %43 = load ptr, ptr %translate_insn, align 8
+  tail call void %43(ptr noundef nonnull %db, ptr noundef %cpu) #8
+  %44 = load i32, ptr %is_jmp, align 8
+  %cmp39.not = icmp eq i32 %44, 0
   br i1 %cmp39.not, label %if.end41, label %while.end
 
 if.end41:                                         ; preds = %if.end34
-  %47 = load ptr, ptr %24, align 8
-  %nb_ops.i = getelementptr inbounds i8, ptr %47, i64 56
-  %48 = load i32, ptr %nb_ops.i, align 8
-  %cmp.i68 = icmp sgt i32 %48, 3999
+  %45 = load ptr, ptr %22, align 8
+  %nb_ops.i = getelementptr inbounds i8, ptr %45, i64 56
+  %46 = load i32, ptr %nb_ops.i, align 8
+  %cmp.i68 = icmp sgt i32 %46, 3999
   br i1 %cmp.i68, label %if.then46, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end41
-  %49 = load i32, ptr %num_insns, align 4
-  %50 = load i32, ptr %max_insns2, align 8
-  %cmp45.not = icmp slt i32 %49, %50
+  %47 = load i32, ptr %num_insns, align 4
+  %48 = load i32, ptr %max_insns2, align 8
+  %cmp45.not = icmp slt i32 %47, %48
   br i1 %cmp45.not, label %while.body, label %if.then46
 
 if.then46:                                        ; preds = %if.end41, %lor.lhs.false, %if.end41.us, %lor.lhs.false.us
@@ -294,30 +291,30 @@ if.then46:                                        ; preds = %if.end41, %lor.lhs.
 
 while.end:                                        ; preds = %if.end34, %if.end34.us, %if.then46
   %tb_stop = getelementptr inbounds i8, ptr %ops, i64 32
-  %51 = load ptr, ptr %tb_stop, align 8
-  tail call void %51(ptr noundef nonnull %db, ptr noundef %cpu) #8
+  %49 = load ptr, ptr %tb_stop, align 8
+  tail call void %49(ptr noundef nonnull %db, ptr noundef %cpu) #8
   br i1 %tobool.not.not.i, label %if.end.i72, label %if.then.i70
 
 if.then.i70:                                      ; preds = %while.end
-  %52 = load i32, ptr %num_insns, align 4
-  %call.i71 = tail call ptr @tcg_constant_i32(i32 noundef %52) #8
-  %53 = load ptr, ptr %24, align 8
-  %54 = ptrtoint ptr %call.i71 to i64
-  %add.ptr.i.i.i = getelementptr i8, ptr %53, i64 %54
-  %55 = ptrtoint ptr %add.ptr.i.i.i to i64
+  %50 = load i32, ptr %num_insns, align 4
+  %call.i71 = tail call ptr @tcg_constant_i32(i32 noundef %50) #8
+  %51 = load ptr, ptr %22, align 8
+  %52 = ptrtoint ptr %call.i71 to i64
+  %add.ptr.i.i.i = getelementptr i8, ptr %51, i64 %52
+  %53 = ptrtoint ptr %add.ptr.i.i.i to i64
   %arrayidx.i.i = getelementptr i8, ptr %icount_start_insn.016.i, i64 48
-  store i64 %55, ptr %arrayidx.i.i, align 8
+  store i64 %53, ptr %arrayidx.i.i, align 8
   br label %if.end.i72
 
 if.end.i72:                                       ; preds = %while.end, %if.then.i70
-  %56 = load ptr, ptr %24, align 8
-  %exitreq_label.i73 = getelementptr inbounds i8, ptr %56, i64 208
-  %57 = load ptr, ptr %exitreq_label.i73, align 8
-  %tobool2.not.i74 = icmp eq ptr %57, null
+  %54 = load ptr, ptr %22, align 8
+  %exitreq_label.i73 = getelementptr inbounds i8, ptr %54, i64 208
+  %55 = load ptr, ptr %exitreq_label.i73, align 8
+  %tobool2.not.i74 = icmp eq ptr %55, null
   br i1 %tobool2.not.i74, label %gen_tb_end.exit, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i72
-  tail call void @gen_set_label(ptr noundef nonnull %57) #8
+  tail call void @gen_set_label(ptr noundef nonnull %55) #8
   tail call void @tcg_gen_exit_tb(ptr noundef %tb, i32 noundef 3) #8
   br label %gen_tb_end.exit
 
@@ -325,30 +322,30 @@ gen_tb_end.exit:                                  ; preds = %if.end.i72, %if.the
   br i1 %call15.fr, label %if.then51, label %if.end53
 
 if.then51:                                        ; preds = %gen_tb_end.exit
-  %58 = load i32, ptr %num_insns, align 4
-  %conv = sext i32 %58 to i64
+  %56 = load i32, ptr %num_insns, align 4
+  %conv = sext i32 %56 to i64
   tail call void @plugin_gen_tb_end(ptr noundef %cpu, i64 noundef %conv) #8
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then51, %gen_tb_end.exit
-  %59 = load i64, ptr %pc_next, align 8
-  %60 = load i64, ptr %pc_first, align 8
-  %sub = sub i64 %59, %60
+  %57 = load i64, ptr %pc_next, align 8
+  %58 = load i64, ptr %pc_first, align 8
+  %sub = sub i64 %57, %58
   %conv56 = trunc i64 %sub to i16
   %size = getelementptr inbounds i8, ptr %tb, i64 24
   store i16 %conv56, ptr %size, align 8
-  %61 = load i32, ptr %num_insns, align 4
-  %conv58 = trunc i32 %61 to i16
+  %59 = load i32, ptr %num_insns, align 4
+  %conv58 = trunc i32 %59 to i16
   %icount = getelementptr inbounds i8, ptr %tb, i64 26
   store i16 %conv58, ptr %icount, align 2
-  %62 = load i32, ptr @qemu_loglevel, align 4
-  %and.i75 = and i32 %62, 2
+  %60 = load i32, ptr @qemu_loglevel, align 4
+  %and.i75 = and i32 %60, 2
   %cmp.i76.not = icmp eq i32 %and.i75, 0
   br i1 %cmp.i76.not, label %if.end71, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end53
-  %63 = load i64, ptr %pc_first, align 8
-  %call62 = tail call zeroext i1 @qemu_log_in_addr_range(i64 noundef %63) #8
+  %61 = load i64, ptr %pc_first, align 8
+  %call62 = tail call zeroext i1 @qemu_log_in_addr_range(i64 noundef %61) #8
   br i1 %call62, label %if.then64, label %if.end71
 
 if.then64:                                        ; preds = %land.lhs.true
@@ -357,10 +354,10 @@ if.then64:                                        ; preds = %land.lhs.true
   br i1 %tobool66.not, label %if.end71, label %if.then67
 
 if.then67:                                        ; preds = %if.then64
-  %64 = tail call i64 @fwrite(ptr nonnull @.str, i64 17, i64 1, ptr nonnull %call65)
+  %62 = tail call i64 @fwrite(ptr nonnull @.str, i64 17, i64 1, ptr nonnull %call65)
   %disas_log = getelementptr inbounds i8, ptr %ops, i64 40
-  %65 = load ptr, ptr %disas_log, align 8
-  tail call void %65(ptr noundef nonnull %db, ptr noundef %cpu, ptr noundef nonnull %call65) #8
+  %63 = load ptr, ptr %disas_log, align 8
+  tail call void %63(ptr noundef nonnull %db, ptr noundef %cpu, ptr noundef nonnull %call65) #8
   %fputc = tail call i32 @fputc(i32 10, ptr nonnull %call65)
   tail call void @qemu_log_unlock(ptr noundef nonnull %call65) #8
   br label %if.end71
@@ -475,7 +472,7 @@ if.end.i8:                                        ; preds = %if.then
   br i1 %cmp1.i, label %if.then3.i, label %if.else.i9
 
 if.then3.i:                                       ; preds = %if.end.i8
-  %conv5.i = trunc i64 %sub.i to i32
+  %conv5.i = trunc nuw i64 %sub.i to i32
   %call.i = tail call ptr @g_byte_array_set_size(ptr noundef nonnull %12, i32 noundef %conv5.i) #8
   %.pre.i = load ptr, ptr %10, align 8
   br label %if.end13.i
@@ -517,7 +514,7 @@ if.end.i14:                                       ; preds = %if.end
   br i1 %cmp1.i19, label %if.then3.i25, label %if.else.i20
 
 if.then3.i25:                                     ; preds = %if.end.i14
-  %conv5.i26 = trunc i64 %sub.i16 to i32
+  %conv5.i26 = trunc nuw i64 %sub.i16 to i32
   %call.i27 = tail call ptr @g_byte_array_set_size(ptr noundef nonnull %19, i32 noundef %conv5.i26) #8
   %.pre.i28 = load ptr, ptr %17, align 8
   br label %if.end13.i22
@@ -642,7 +639,7 @@ if.end.i9:                                        ; preds = %if.then
   br i1 %cmp1.i, label %if.then3.i, label %if.else.i11
 
 if.then3.i:                                       ; preds = %if.end.i9
-  %conv5.i = trunc i64 %sub.i10 to i32
+  %conv5.i = trunc nuw i64 %sub.i10 to i32
   %call.i = tail call ptr @g_byte_array_set_size(ptr noundef nonnull %11, i32 noundef %conv5.i) #8
   %.pre.i = load ptr, ptr %9, align 8
   br label %if.end13.i
@@ -688,7 +685,7 @@ if.end.i15:                                       ; preds = %if.end
   br i1 %cmp1.i20, label %if.then3.i26, label %if.else.i21
 
 if.then3.i26:                                     ; preds = %if.end.i15
-  %conv5.i27 = trunc i64 %sub.i17 to i32
+  %conv5.i27 = trunc nuw i64 %sub.i17 to i32
   %call.i28 = tail call ptr @g_byte_array_set_size(ptr noundef nonnull %18, i32 noundef %conv5.i27) #8
   %.pre.i29 = load ptr, ptr %16, align 8
   br label %if.end13.i23
@@ -812,7 +809,7 @@ if.end.i9:                                        ; preds = %if.then
   br i1 %cmp1.i, label %if.then3.i, label %if.else.i11
 
 if.then3.i:                                       ; preds = %if.end.i9
-  %conv5.i = trunc i64 %sub.i10 to i32
+  %conv5.i = trunc nuw i64 %sub.i10 to i32
   %call.i = tail call ptr @g_byte_array_set_size(ptr noundef nonnull %11, i32 noundef %conv5.i) #8
   %.pre.i = load ptr, ptr %9, align 8
   br label %if.end13.i
@@ -857,7 +854,7 @@ if.end.i15:                                       ; preds = %if.end
   br i1 %cmp1.i20, label %if.then3.i26, label %if.else.i21
 
 if.then3.i26:                                     ; preds = %if.end.i15
-  %conv5.i27 = trunc i64 %sub.i17 to i32
+  %conv5.i27 = trunc nuw i64 %sub.i17 to i32
   %call.i28 = tail call ptr @g_byte_array_set_size(ptr noundef nonnull %18, i32 noundef %conv5.i27) #8
   %.pre.i29 = load ptr, ptr %16, align 8
   br label %if.end13.i23
@@ -981,7 +978,7 @@ if.end.i9:                                        ; preds = %if.then
   br i1 %cmp1.i, label %if.then3.i, label %if.else.i11
 
 if.then3.i:                                       ; preds = %if.end.i9
-  %conv5.i = trunc i64 %sub.i10 to i32
+  %conv5.i = trunc nuw i64 %sub.i10 to i32
   %call.i = tail call ptr @g_byte_array_set_size(ptr noundef nonnull %11, i32 noundef %conv5.i) #8
   %.pre.i = load ptr, ptr %9, align 8
   br label %if.end13.i
@@ -1026,7 +1023,7 @@ if.end.i15:                                       ; preds = %if.end
   br i1 %cmp1.i20, label %if.then3.i26, label %if.else.i21
 
 if.then3.i26:                                     ; preds = %if.end.i15
-  %conv5.i27 = trunc i64 %sub.i17 to i32
+  %conv5.i27 = trunc nuw i64 %sub.i17 to i32
   %call.i28 = tail call ptr @g_byte_array_set_size(ptr noundef nonnull %18, i32 noundef %conv5.i27) #8
   %.pre.i29 = load ptr, ptr %16, align 8
   br label %if.end13.i23
@@ -1076,7 +1073,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp1.i, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %conv5.i = trunc i64 %sub.i to i32
+  %conv5.i = trunc nuw i64 %sub.i to i32
   %call.i = tail call ptr @g_byte_array_set_size(ptr noundef nonnull %4, i32 noundef %conv5.i) #8
   %.pre.i = load ptr, ptr %2, align 8
   br label %if.end13.i

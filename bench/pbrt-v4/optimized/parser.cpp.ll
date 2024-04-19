@@ -9355,7 +9355,7 @@ init.end:                                         ; preds = %invoke.cont, %init.
   %8 = load i64, ptr %t, align 8
   %9 = add i64 %8, -63
   %cmp19 = icmp ult i64 %9, -64
-  br i1 %cmp19, label %do.end, label %if.end36
+  br i1 %cmp19, label %if.then27, label %if.end36
 
 ehcleanup.thread:                                 ; preds = %init
   %10 = landingpad { ptr, i32 }
@@ -9363,96 +9363,84 @@ ehcleanup.thread:                                 ; preds = %init
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4pbrtL10parseFloatERKNS_5TokenEE3reg) #32
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit33
 
-do.end:                                           ; preds = %init.end
+if.then27:                                        ; preds = %init.end
   %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4pbrtL10parseFloatERKNS_5TokenEE7numTrue)
   %12 = load i64, ptr %11, align 8
   %inc21 = add nsw i64 %12, 1
   store i64 %inc21, ptr %11, align 8
-  %.pre = load i64, ptr %t, align 8
-  %.pre44 = add i64 %.pre, -63
-  %13 = icmp ult i64 %.pre44, -64
-  br i1 %13, label %if.then27, label %if.end36
-
-if.then27:                                        ; preds = %do.end
-  %add31 = add nuw i64 %.pre, 1
+  %add31 = add nuw i64 %8, 1
   %call.i24 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %add31) #34
           to label %invoke.cont41 unwind label %lpad32
 
 lpad32:                                           ; preds = %if.then27, %if.then60, %if.else
-  %allocBuf.sroa.0.0 = phi ptr [ %allocBuf.sroa.0.15776, %if.then60 ], [ %allocBuf.sroa.0.15689, %if.else ], [ null, %if.then27 ]
-  %14 = landingpad { ptr, i32 }
+  %allocBuf.sroa.0.0 = phi ptr [ %allocBuf.sroa.0.15068, %if.then60 ], [ %allocBuf.sroa.0.14980, %if.else ], [ null, %if.then27 ]
+  %13 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
-if.end36:                                         ; preds = %init.end, %do.end
-  %.pr47 = phi i64 [ %.pre, %do.end ], [ %8, %init.end ]
+if.end36:                                         ; preds = %init.end
   %_M_str.i25 = getelementptr inbounds i8, ptr %t, i64 8
-  %tobool.not.i.i.i.i.i = icmp eq i64 %.pr47, 0
-  br i1 %tobool.not.i.i.i.i.i, label %invoke.cont41.thread, label %invoke.cont41.thread78
+  %tobool.not.i.i.i.i.i = icmp eq i64 %8, 0
+  br i1 %tobool.not.i.i.i.i.i, label %invoke.cont41.thread, label %invoke.cont41.thread70
 
-invoke.cont41.thread78:                           ; preds = %if.end36
-  %15 = load ptr, ptr %_M_str.i25, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %15, i64 %.pr47
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %buf, ptr align 1 %15, i64 %.pr47, i1 false)
-  %arrayidx85 = getelementptr inbounds i8, ptr %buf, i64 %.pr47
+invoke.cont41.thread70:                           ; preds = %if.end36
+  %14 = load ptr, ptr %_M_str.i25, align 8
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %buf, ptr align 1 %14, i64 %8, i1 false)
   br label %for.body.i.preheader
 
 invoke.cont41.thread:                             ; preds = %if.end36
-  %arrayidx72 = getelementptr inbounds i8, ptr %buf, i64 %.pr47
-  store i8 0, ptr %arrayidx72, align 1
+  %arrayidx64 = getelementptr inbounds i8, ptr %buf, i64 %8
+  store i8 0, ptr %arrayidx64, align 1
   store i32 0, ptr %length, align 4
   br label %if.then48
 
 invoke.cont41:                                    ; preds = %if.then27
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %call.i24, i8 0, i64 %add31, i1 false), !noalias !233
-  %_M_str.i2551 = getelementptr inbounds i8, ptr %t, i64 8
-  %16 = load ptr, ptr %_M_str.i2551, align 8
-  %add.ptr.i52 = getelementptr inbounds i8, ptr %16, i64 %.pre
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %call.i24, ptr align 1 %16, i64 %.pre, i1 false)
-  %arrayidx = getelementptr inbounds i8, ptr %call.i24, i64 %.pre
+  %_M_str.i2546 = getelementptr inbounds i8, ptr %t, i64 8
+  %15 = load ptr, ptr %_M_str.i2546, align 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %call.i24, ptr align 1 %15, i64 %8, i1 false)
   br label %for.body.i.preheader
 
-for.body.i.preheader:                             ; preds = %invoke.cont41, %invoke.cont41.thread78
-  %arrayidx.sink = phi ptr [ %arrayidx, %invoke.cont41 ], [ %arrayidx85, %invoke.cont41.thread78 ]
-  %.pr475490 = phi i64 [ %.pre, %invoke.cont41 ], [ %.pr47, %invoke.cont41.thread78 ]
-  %allocBuf.sroa.0.15689 = phi ptr [ %call.i24, %invoke.cont41 ], [ null, %invoke.cont41.thread78 ]
-  %bufp.05888 = phi ptr [ %call.i24, %invoke.cont41 ], [ %buf, %invoke.cont41.thread78 ]
-  %_M_str.i256087 = phi ptr [ %_M_str.i2551, %invoke.cont41 ], [ %_M_str.i25, %invoke.cont41.thread78 ]
-  %17 = phi ptr [ %16, %invoke.cont41 ], [ %15, %invoke.cont41.thread78 ]
-  %add.ptr.i6286 = phi ptr [ %add.ptr.i52, %invoke.cont41 ], [ %add.ptr.i, %invoke.cont41.thread78 ]
-  store i8 0, ptr %arrayidx.sink, align 1
+for.body.i.preheader:                             ; preds = %invoke.cont41, %invoke.cont41.thread70
+  %call.i24.sink = phi ptr [ %call.i24, %invoke.cont41 ], [ %buf, %invoke.cont41.thread70 ]
+  %allocBuf.sroa.0.14980 = phi ptr [ %call.i24, %invoke.cont41 ], [ null, %invoke.cont41.thread70 ]
+  %_M_str.i255378 = phi ptr [ %_M_str.i2546, %invoke.cont41 ], [ %_M_str.i25, %invoke.cont41.thread70 ]
+  %16 = phi ptr [ %15, %invoke.cont41 ], [ %14, %invoke.cont41.thread70 ]
+  %arrayidx = getelementptr inbounds i8, ptr %call.i24.sink, i64 %8
+  store i8 0, ptr %arrayidx, align 1
+  %add.ptr.i5577 = getelementptr inbounds i8, ptr %16, i64 %8
   store i32 0, ptr %length, align 4
   br label %for.body.i
 
 for.cond.i:                                       ; preds = %for.body.i
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.03.i, i64 1
-  %cmp.not.i27 = icmp eq ptr %incdec.ptr.i, %add.ptr.i6286
+  %cmp.not.i27 = icmp eq ptr %incdec.ptr.i, %add.ptr.i5577
   br i1 %cmp.not.i27, label %if.then48, label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.cond.i
-  %__begin2.03.i = phi ptr [ %incdec.ptr.i, %for.cond.i ], [ %17, %for.body.i.preheader ]
-  %18 = load i8, ptr %__begin2.03.i, align 1
-  %19 = add i8 %18, -48
-  %or.cond.i = icmp ult i8 %19, 10
+  %__begin2.03.i = phi ptr [ %incdec.ptr.i, %for.cond.i ], [ %16, %for.body.i.preheader ]
+  %17 = load i8, ptr %__begin2.03.i, align 1
+  %18 = add i8 %17, -48
+  %or.cond.i = icmp ult i8 %18, 10
   br i1 %or.cond.i, label %for.cond.i, label %if.else
 
 if.then48:                                        ; preds = %for.cond.i, %invoke.cont41.thread
-  %allocBuf.sroa.0.15777 = phi ptr [ null, %invoke.cont41.thread ], [ %allocBuf.sroa.0.15689, %for.cond.i ]
-  %bufp.05975 = phi ptr [ %buf, %invoke.cont41.thread ], [ %bufp.05888, %for.cond.i ]
-  %_M_str.i256174 = phi ptr [ %_M_str.i25, %invoke.cont41.thread ], [ %_M_str.i256087, %for.cond.i ]
-  %call49 = call i64 @strtol(ptr noundef nonnull %bufp.05975, ptr noundef nonnull %endptr, i32 noundef 10) #32
+  %allocBuf.sroa.0.15069 = phi ptr [ null, %invoke.cont41.thread ], [ %allocBuf.sroa.0.14980, %for.cond.i ]
+  %bufp.05267 = phi ptr [ %buf, %invoke.cont41.thread ], [ %call.i24.sink, %for.cond.i ]
+  %_M_str.i255466 = phi ptr [ %_M_str.i25, %invoke.cont41.thread ], [ %_M_str.i255378, %for.cond.i ]
+  %call49 = call i64 @strtol(ptr noundef nonnull %bufp.05267, ptr noundef nonnull %endptr, i32 noundef 10) #32
   %conv50 = sitofp i64 %call49 to double
-  %20 = load ptr, ptr %endptr, align 8
-  %sub.ptr.lhs.cast = ptrtoint ptr %20 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %bufp.05975 to i64
+  %19 = load ptr, ptr %endptr, align 8
+  %sub.ptr.lhs.cast = ptrtoint ptr %19 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %bufp.05267 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv51 = trunc i64 %sub.ptr.sub to i32
   store i32 %conv51, ptr %length, align 4
   br label %if.end58
 
 if.else:                                          ; preds = %for.body.i
-  %conv54 = trunc i64 %.pr475490 to i32
-  %call56 = invoke noundef float @_ZNK17double_conversion23StringToDoubleConverter13StringToFloatEPKciPi(ptr noundef nonnull align 8 dereferenceable(42) @_ZN4pbrtL11floatParserE, ptr noundef nonnull %bufp.05888, i32 noundef %conv54, ptr noundef nonnull %length)
+  %conv54 = trunc i64 %8 to i32
+  %call56 = invoke noundef float @_ZNK17double_conversion23StringToDoubleConverter13StringToFloatEPKciPi(ptr noundef nonnull align 8 dereferenceable(42) @_ZN4pbrtL11floatParserE, ptr noundef nonnull %call.i24.sink, i32 noundef %conv54, ptr noundef nonnull %length)
           to label %invoke.cont55 unwind label %lpad32
 
 invoke.cont55:                                    ; preds = %if.else
@@ -9461,16 +9449,16 @@ invoke.cont55:                                    ; preds = %if.else
   br label %if.end58
 
 if.end58:                                         ; preds = %invoke.cont55, %if.then48
-  %allocBuf.sroa.0.15776 = phi ptr [ %allocBuf.sroa.0.15689, %invoke.cont55 ], [ %allocBuf.sroa.0.15777, %if.then48 ]
-  %_M_str.i256173 = phi ptr [ %_M_str.i256087, %invoke.cont55 ], [ %_M_str.i256174, %if.then48 ]
-  %21 = phi i32 [ %.pr39, %invoke.cont55 ], [ %conv51, %if.then48 ]
+  %allocBuf.sroa.0.15068 = phi ptr [ %allocBuf.sroa.0.14980, %invoke.cont55 ], [ %allocBuf.sroa.0.15069, %if.then48 ]
+  %_M_str.i255465 = phi ptr [ %_M_str.i255378, %invoke.cont55 ], [ %_M_str.i255466, %if.then48 ]
+  %20 = phi i32 [ %.pr39, %invoke.cont55 ], [ %conv51, %if.then48 ]
   %val.0 = phi double [ %conv57, %invoke.cont55 ], [ %conv50, %if.then48 ]
-  %cmp59 = icmp eq i32 %21, 0
+  %cmp59 = icmp eq i32 %20, 0
   br i1 %cmp59, label %if.then60, label %if.end68
 
 if.then60:                                        ; preds = %if.end58
   %agg.tmp63.sroa.0.0.copyload = load i64, ptr %t, align 8
-  %agg.tmp63.sroa.2.0.copyload = load ptr, ptr %_M_str.i256173, align 8
+  %agg.tmp63.sroa.2.0.copyload = load ptr, ptr %_M_str.i255465, align 8
   invoke fastcc void @_ZN4pbrtL8toStringB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %ref.tmp62, i64 %agg.tmp63.sroa.0.0.copyload, ptr %agg.tmp63.sroa.2.0.copyload)
           to label %invoke.cont65 unwind label %lpad32
 
@@ -9483,22 +9471,22 @@ invoke.cont67:                                    ; preds = %invoke.cont65
   unreachable
 
 lpad66:                                           ; preds = %invoke.cont65
-  %22 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp62) #32
   br label %ehcleanup
 
 if.end68:                                         ; preds = %if.end58
-  %cmp.not.i28 = icmp eq ptr %allocBuf.sroa.0.15776, null
+  %cmp.not.i28 = icmp eq ptr %allocBuf.sroa.0.15068, null
   br i1 %cmp.not.i28, label %return, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i29
 
 _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i29: ; preds = %if.end68
-  call void @_ZdaPv(ptr noundef nonnull %allocBuf.sroa.0.15776) #35
+  call void @_ZdaPv(ptr noundef nonnull %allocBuf.sroa.0.15068) #35
   br label %return
 
 ehcleanup:                                        ; preds = %lpad66, %lpad32
-  %allocBuf.sroa.0.2 = phi ptr [ %allocBuf.sroa.0.15776, %lpad66 ], [ %allocBuf.sroa.0.0, %lpad32 ]
-  %.pn = phi { ptr, i32 } [ %22, %lpad66 ], [ %14, %lpad32 ]
+  %allocBuf.sroa.0.2 = phi ptr [ %allocBuf.sroa.0.15068, %lpad66 ], [ %allocBuf.sroa.0.0, %lpad32 ]
+  %.pn = phi { ptr, i32 } [ %21, %lpad66 ], [ %13, %lpad32 ]
   %cmp.not.i31 = icmp eq ptr %allocBuf.sroa.0.2, null
   br i1 %cmp.not.i31, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit33, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i32
 

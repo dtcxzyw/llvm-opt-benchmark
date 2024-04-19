@@ -827,21 +827,19 @@ if.end.i.i:                                       ; preds = %do.body.i
 lor.lhs.false.i.i:                                ; preds = %if.end.i.i
   %3 = load i8, ptr %0, align 8
   %tobool.i.i.i.i = trunc i8 %3 to i1
-  br i1 %tobool.i.i.i.i, label %tsd_local_slow.exit.i.i, label %tsd_state_compute.exit.i
-
-tsd_local_slow.exit.i.i:                          ; preds = %lor.lhs.false.i.i
   %4 = load i8, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_reentrancy_level.i.i.i.i, align 1
-  %cmp.i3.i.i = icmp sgt i8 %4, 0
-  br i1 %cmp.i3.i.i, label %tsd_state_compute.exit.i, label %lor.lhs.false3.i.i
+  %cmp.i3.i.i = icmp slt i8 %4, 1
+  %or.cond.not = select i1 %tobool.i.i.i.i, i1 %cmp.i3.i.i, i1 false
+  br i1 %or.cond.not, label %lor.lhs.false3.i.i, label %tsd_state_compute.exit.i
 
-lor.lhs.false3.i.i:                               ; preds = %tsd_local_slow.exit.i.i
+lor.lhs.false3.i.i:                               ; preds = %lor.lhs.false.i.i
   %5 = load atomic i32, ptr @tsd_global_slow_count monotonic, align 4
   %cmp.i4.not.i.i = icmp ne i32 %5, 0
   %spec.select.i.i = zext i1 %cmp.i4.not.i.i to i8
   br label %tsd_state_compute.exit.i
 
-tsd_state_compute.exit.i:                         ; preds = %lor.lhs.false3.i.i, %tsd_local_slow.exit.i.i, %lor.lhs.false.i.i, %if.end.i.i, %do.body.i
-  %retval.0.i.i = phi i8 [ 1, %tsd_local_slow.exit.i.i ], [ 1, %if.end.i.i ], [ %spec.select.i.i, %lor.lhs.false3.i.i ], [ %tsd.val.i.i, %do.body.i ], [ 1, %lor.lhs.false.i.i ]
+tsd_state_compute.exit.i:                         ; preds = %lor.lhs.false3.i.i, %lor.lhs.false.i.i, %if.end.i.i, %do.body.i
+  %retval.0.i.i = phi i8 [ 1, %if.end.i.i ], [ %spec.select.i.i, %lor.lhs.false3.i.i ], [ %tsd.val.i.i, %do.body.i ], [ 1, %lor.lhs.false.i.i ]
   %6 = atomicrmw xchg ptr %state.i.i, i8 %retval.0.i.i acquire, align 1
   %cmp.i = icmp eq i8 %6, 2
   br i1 %cmp.i, label %do.body.i, label %tsd_slow_update.exit, !llvm.loop !5

@@ -19748,19 +19748,12 @@ trans_th_sdd.exit.thread:                         ; preds = %sw.bb457
 sw.bb462:                                         ; preds = %entry
   %shr.i.i1374 = lshr i32 %insn, 15
   %and.i.i1375 = and i32 %shr.i.i1374, 31
-  %rs1.i1376 = getelementptr inbounds i8, ptr %u, i64 4
-  store i32 %and.i.i1375, ptr %rs1.i1376, align 4
   %shr.i7.i1377 = lshr i32 %insn, 25
   %and.i8.i1378 = and i32 %shr.i7.i1377, 3
-  %imm2.i1379 = getelementptr inbounds i8, ptr %u, i64 12
-  store i32 %and.i8.i1378, ptr %imm2.i1379, align 4
   %shr.i9.i1380 = lshr i32 %insn, 7
   %and.i10.i1381 = and i32 %shr.i9.i1380, 31
-  store i32 %and.i10.i1381, ptr %u, align 4
   %shr.i11.i1382 = lshr i32 %insn, 20
   %and.i12.i1383 = and i32 %shr.i11.i1382, 31
-  %rs2.i1384 = getelementptr inbounds i8, ptr %u, i64 8
-  store i32 %and.i12.i1383, ptr %rs2.i1384, align 4
   %shr463 = lshr i32 %insn, 27
   switch i32 %shr463, label %sw.epilog502 [
     i32 8, label %sw.bb465
@@ -19942,19 +19935,12 @@ trans_th_flurd.exit:                              ; preds = %do.body8.i1457
 sw.bb482:                                         ; preds = %entry
   %shr.i.i1479 = lshr i32 %insn, 15
   %and.i.i1480 = and i32 %shr.i.i1479, 31
-  %rs1.i1481 = getelementptr inbounds i8, ptr %u, i64 4
-  store i32 %and.i.i1480, ptr %rs1.i1481, align 4
   %shr.i7.i1482 = lshr i32 %insn, 25
   %and.i8.i1483 = and i32 %shr.i7.i1482, 3
-  %imm2.i1484 = getelementptr inbounds i8, ptr %u, i64 12
-  store i32 %and.i8.i1483, ptr %imm2.i1484, align 4
   %shr.i9.i1485 = lshr i32 %insn, 7
   %and.i10.i1486 = and i32 %shr.i9.i1485, 31
-  store i32 %and.i10.i1486, ptr %u, align 4
   %shr.i11.i1487 = lshr i32 %insn, 20
   %and.i12.i1488 = and i32 %shr.i11.i1487, 31
-  %rs2.i1489 = getelementptr inbounds i8, ptr %u, i64 8
-  store i32 %and.i12.i1488, ptr %rs2.i1489, align 4
   %shr483 = lshr i32 %insn, 27
   switch i32 %shr483, label %sw.epilog502 [
     i32 8, label %sw.bb485

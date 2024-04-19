@@ -777,34 +777,24 @@ if.end87.i:                                       ; preds = %if.end52.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %guardSize.i) #20
   %call88.i = call i32 @pthread_attr_getguardsize(ptr noundef nonnull %attr.i, ptr noundef nonnull %guardSize.i) #20
   %cmp89.not.i = icmp eq i32 %call88.i, 0
-  br i1 %cmp89.not.i, label %if.end87.if.end91_crit_edge.i, label %if.then90.i
-
-if.end87.if.end91_crit_edge.i:                    ; preds = %if.end87.i
-  %.pre.i = load i64, ptr %guardSize.i, align 8, !tbaa !14
-  br label %if.end91.i
-
-if.then90.i:                                      ; preds = %if.end87.i
-  store i64 0, ptr %guardSize.i, align 8, !tbaa !14
-  br label %if.end91.i
-
-if.end91.i:                                       ; preds = %if.then90.i, %if.end87.if.end91_crit_edge.i
-  %23 = phi i64 [ %.pre.i, %if.end87.if.end91_crit_edge.i ], [ 0, %if.then90.i ]
+  %.pre.i = load i64, ptr %guardSize.i, align 8
+  %23 = select i1 %cmp89.not.i, i64 %.pre.i, i64 0
   %24 = load ptr, ptr %addr.i, align 8, !tbaa !27
   %25 = ptrtoint ptr %24 to i64
   %add.i = add i64 %23, %25
   %26 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN5folly6detailL14tls_stackLimitE)
   store i64 %add.i, ptr %26, align 8, !tbaa !14
   %27 = load i64, ptr %rawSize.i, align 8, !tbaa !14
-  %28 = load i64, ptr %guardSize.i, align 8, !tbaa !14
-  %sub.i = sub i64 %27, %28
+  %sub.i = sub i64 %27, %23
   store i64 %sub.i, ptr %2, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %guardSize.i) #20
   br label %"_ZN5folly6detail14ScopeGuardImplIZNS0_L16fetchStackLimitsEvE3$_0Lb1EED2Ev.exit.i"
 
-"_ZN5folly6detail14ScopeGuardImplIZNS0_L16fetchStackLimitsEvE3$_0Lb1EED2Ev.exit.i": ; preds = %if.end91.i, %for.cond55.loopexit.i, %for.cond22.loopexit.i
+"_ZN5folly6detail14ScopeGuardImplIZNS0_L16fetchStackLimitsEvE3$_0Lb1EED2Ev.exit.i": ; preds = %if.end87.i, %for.cond55.loopexit.i, %for.cond22.loopexit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %rawSize.i) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %addr.i) #20
   %call.i.i.i.i = call i32 @pthread_attr_destroy(ptr noundef nonnull %attr.i) #20
+  %.pre.pre = load i64, ptr %2, align 8, !tbaa !14
   br label %_ZN5folly6detailL16fetchStackLimitsEv.exit
 
 "_ZN5folly6detail14ScopeGuardImplIZNS0_L16fetchStackLimitsEvE3$_0Lb1EED2Ev.exit132.i": ; preds = %ehcleanup81.i, %ehcleanup.i
@@ -820,50 +810,50 @@ ehcleanup100.i:                                   ; preds = %"_ZN5folly6detail14
   resume { ptr, i32 } %.pn112.i
 
 _ZN5folly6detailL16fetchStackLimitsEv.exit:       ; preds = %"_ZN5folly6detail14ScopeGuardImplIZNS0_L16fetchStackLimitsEvE3$_0Lb1EED2Ev.exit.i", %for.cond.loopexit.i
+  %.pre = phi i64 [ %.pre.pre, %"_ZN5folly6detail14ScopeGuardImplIZNS0_L16fetchStackLimitsEvE3$_0Lb1EED2Ev.exit.i" ], [ 1, %for.cond.loopexit.i ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %attr.i) #20
-  %.pre = load i64, ptr %2, align 8, !tbaa !14
   br label %if.end2
 
 if.end2:                                          ; preds = %_ZN5folly6detailL16fetchStackLimitsEv.exit, %if.end
-  %29 = phi i64 [ %.pre, %_ZN5folly6detailL16fetchStackLimitsEv.exit ], [ %3, %if.end ]
+  %28 = phi i64 [ %.pre, %_ZN5folly6detailL16fetchStackLimitsEv.exit ], [ %3, %if.end ]
   %.sroa.speculated = call i64 @llvm.umax.i64(i64 %retain, i64 1)
-  %cmp4.not = icmp ugt i64 %29, %.sroa.speculated
+  %cmp4.not = icmp ugt i64 %28, %.sroa.speculated
   br i1 %cmp4.not, label %if.end6, label %cleanup.cont
 
 if.end6:                                          ; preds = %if.end2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %marker.i) #20
-  %30 = ptrtoint ptr %marker.i to i64
+  %29 = ptrtoint ptr %marker.i to i64
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %marker.i) #20
-  %sub = sub i64 %30, %retain
-  %31 = load atomic i8, ptr @_ZGVZN5folly6detailL8pageSizeEvE10s_pageSize acquire, align 8
-  %guard.uninitialized.i = icmp eq i8 %31, 0
+  %sub = sub i64 %29, %retain
+  %30 = load atomic i8, ptr @_ZGVZN5folly6detailL8pageSizeEvE10s_pageSize acquire, align 8
+  %guard.uninitialized.i = icmp eq i8 %30, 0
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN5folly6detailL8pageSizeEv.exit, !prof !7
 
 init.check.i:                                     ; preds = %if.end6
-  %32 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detailL8pageSizeEvE10s_pageSize) #20
-  %tobool.not.i23 = icmp eq i32 %32, 0
+  %31 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detailL8pageSizeEvE10s_pageSize) #20
+  %tobool.not.i23 = icmp eq i32 %31, 0
   br i1 %tobool.not.i23, label %_ZN5folly6detailL8pageSizeEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
   %call.i24 = call i64 @sysconf(i32 noundef 30) #20
   store i64 %call.i24, ptr @_ZZN5folly6detailL8pageSizeEvE10s_pageSize, align 8, !tbaa !14
-  %33 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN5folly6detailL8pageSizeEvE10s_pageSize)
+  %32 = call ptr @llvm.invariant.start.p0(i64 8, ptr nonnull @_ZZN5folly6detailL8pageSizeEvE10s_pageSize)
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN5folly6detailL8pageSizeEvE10s_pageSize) #20
   br label %_ZN5folly6detailL8pageSizeEv.exit
 
 _ZN5folly6detailL8pageSizeEv.exit:                ; preds = %init.i, %init.check.i, %if.end6
-  %34 = load i64, ptr @_ZZN5folly6detailL8pageSizeEvE10s_pageSize, align 8, !tbaa !14
-  %not = sub i64 0, %34
+  %33 = load i64, ptr @_ZZN5folly6detailL8pageSizeEvE10s_pageSize, align 8, !tbaa !14
+  %not = sub i64 0, %33
   %and = and i64 %sub, %not
-  %35 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN5folly6detailL14tls_stackLimitE)
-  %36 = load i64, ptr %35, align 8, !tbaa !14
-  %cmp10.not = icmp ugt i64 %and, %36
+  %34 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN5folly6detailL14tls_stackLimitE)
+  %35 = load i64, ptr %34, align 8, !tbaa !14
+  %cmp10.not = icmp ugt i64 %and, %35
   br i1 %cmp10.not, label %if.end12, label %cleanup.cont
 
 if.end12:                                         ; preds = %_ZN5folly6detailL8pageSizeEv.exit
-  %sub13 = sub i64 %and, %36
-  %37 = inttoptr i64 %36 to ptr
-  %call14 = call i32 @madvise(ptr noundef %37, i64 noundef %sub13, i32 noundef 4) #20
+  %sub13 = sub i64 %and, %35
+  %36 = inttoptr i64 %35 to ptr
+  %call14 = call i32 @madvise(ptr noundef %36, i64 noundef %sub13, i32 noundef 4) #20
   br label %cleanup.cont
 
 cleanup.cont:                                     ; preds = %if.end12, %_ZN5folly6detailL8pageSizeEv.exit, %if.end2, %_ZN5folly6detail11MemoryIdler27isUnmapUnusedStackAvailableEv.exit

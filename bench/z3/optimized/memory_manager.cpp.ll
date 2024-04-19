@@ -293,7 +293,7 @@ _ZN6memory19get_max_used_memoryEv.exit:           ; preds = %entry
   %1 = load i64, ptr @_ZL22g_memory_max_used_size, align 8
   %call1.i.i.i1.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #22
   %call1 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str)
-  %conv = uitofp i64 %1 to double
+  %conv = uitofp nneg i64 %1 to double
   %div = fmul double %conv, 0x3EB0000000000000
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call1, double noundef %div)
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call2, ptr noundef nonnull @.str.2)
@@ -320,7 +320,7 @@ _ZN6memory19get_max_used_memoryEv.exit:           ; preds = %entry
   %1 = load i64, ptr @_ZL22g_memory_max_used_size, align 8
   %call1.i.i.i1.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %0) #22
   %call1 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.3)
-  %conv = uitofp i64 %1 to double
+  %conv = uitofp nneg i64 %1 to double
   %div = fmul double %conv, 0x3EB0000000000000
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call1, double noundef %div)
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call2, ptr noundef nonnull @.str.4)
@@ -462,8 +462,7 @@ entry:
   %3 = load i64, ptr %2, align 8
   %add1 = add nsw i64 %3, 1
   store i64 %add1, ptr %2, align 8
-  %4 = load i64, ptr %0, align 8
-  %cmp = icmp sgt i64 %4, 100000
+  %cmp = icmp sgt i64 %add, 100000
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
@@ -482,8 +481,8 @@ if.then3:                                         ; preds = %if.end
 if.end4:                                          ; preds = %if.end
   %call5 = tail call i64 @malloc_usable_size(ptr noundef nonnull %call) #22
   %sub = sub i64 %call5, %s
-  %5 = load i64, ptr %0, align 8
-  %add6 = add i64 %sub, %5
+  %4 = load i64, ptr %0, align 8
+  %add6 = add i64 %sub, %4
   store i64 %add6, ptr %0, align 8
   ret ptr %call
 }
@@ -496,7 +495,7 @@ define internal fastcc void @_ZL19throw_out_of_memoryv() unnamed_addr #12 person
 entry:
   store atomic i8 1, ptr @_ZL22g_memory_out_of_memory.0 seq_cst, align 1
   %0 = load i8, ptr @_ZL25g_exit_when_out_of_memory, align 1
-  %tobool = trunc i8 %0 to i1
+  %tobool = trunc nuw i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -533,14 +532,13 @@ if.end:                                           ; preds = %entry
   %sub = sub i64 %s, %call
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @g_memory_thread_alloc_size)
   %1 = load i64, ptr %0, align 8
-  %add = add i64 %sub, %1
+  %add = add i64 %1, %sub
   store i64 %add, ptr %0, align 8
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @g_memory_thread_alloc_count)
   %3 = load i64, ptr %2, align 8
   %add1 = add nsw i64 %3, 1
   store i64 %add1, ptr %2, align 8
-  %4 = load i64, ptr %0, align 8
-  %cmp2 = icmp sgt i64 %4, 100000
+  %cmp2 = icmp sgt i64 %add, 100000
   br i1 %cmp2, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
@@ -559,8 +557,8 @@ if.then7:                                         ; preds = %if.end4
 if.end8:                                          ; preds = %if.end4
   %call9 = tail call i64 @malloc_usable_size(ptr noundef nonnull %call5) #22
   %sub10 = sub i64 %call9, %s
-  %5 = load i64, ptr %0, align 8
-  %add11 = add i64 %sub10, %5
+  %4 = load i64, ptr %0, align 8
+  %add11 = add i64 %sub10, %4
   store i64 %add11, ptr %0, align 8
   br label %return
 

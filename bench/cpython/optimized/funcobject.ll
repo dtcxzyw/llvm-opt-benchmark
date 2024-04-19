@@ -1733,20 +1733,18 @@ if.end4:                                          ; preds = %if.end
 if.end7:                                          ; preds = %if.end4
   %inc = add i32 %5, 1
   store i32 %inc, ptr %func_state, align 8
-  %6 = load ptr, ptr %2, align 8
-  %interp.i.i = getelementptr inbounds i8, ptr %6, i64 16
-  %7 = load ptr, ptr %interp.i.i, align 8
-  %8 = load i32, ptr %func_version, align 8
-  %cmp.not.i = icmp eq i32 %8, 0
+  %6 = load ptr, ptr %interp.i, align 8
+  %7 = load i32, ptr %func_version, align 8
+  %cmp.not.i = icmp eq i32 %7, 0
   br i1 %cmp.not.i, label %_PyFunction_SetVersion.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end7
-  %func_version_cache.i = getelementptr inbounds i8, ptr %7, i64 270240
-  %rem.i = and i32 %8, 4095
+  %func_version_cache.i = getelementptr inbounds i8, ptr %6, i64 270240
+  %rem.i = and i32 %7, 4095
   %idx.ext.i = zext nneg i32 %rem.i to i64
   %add.ptr.i = getelementptr ptr, ptr %func_version_cache.i, i64 %idx.ext.i
-  %9 = load ptr, ptr %add.ptr.i, align 8
-  %cmp2.i = icmp eq ptr %9, %func
+  %8 = load ptr, ptr %add.ptr.i, align 8
+  %cmp2.i = icmp eq ptr %8, %func
   br i1 %cmp2.i, label %if.then3.i, label %_PyFunction_SetVersion.exit
 
 if.then3.i:                                       ; preds = %if.then.i
@@ -1755,7 +1753,7 @@ if.then3.i:                                       ; preds = %if.then.i
 
 _PyFunction_SetVersion.exit:                      ; preds = %if.then3.i, %if.then.i, %if.end7
   store i32 %5, ptr %func_version, align 8
-  %func_version_cache9.i = getelementptr inbounds i8, ptr %7, i64 270240
+  %func_version_cache9.i = getelementptr inbounds i8, ptr %6, i64 270240
   %rem10.i = and i32 %5, 4095
   %idxprom.i = zext nneg i32 %rem10.i to i64
   %arrayidx.i = getelementptr [4096 x ptr], ptr %func_version_cache9.i, i64 0, i64 %idxprom.i

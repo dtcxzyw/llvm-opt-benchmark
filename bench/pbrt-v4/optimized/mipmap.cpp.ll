@@ -3155,12 +3155,15 @@ for.body.i23:                                     ; preds = %for.body.i23, %for.
   %add.i.i.i = add i64 %43, %add.i5.i
   %add5.i.i.i = add i64 %add.i.i.i, %mul.i.i.i
   %add.i.i = add i64 %add5.i.i.i, %mul4.i.i.i
-  store i64 %add.i.i, ptr %42, align 8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__first.addr.04.i, i64 152
   %cmp.not.i = icmp eq ptr %incdec.ptr.i, %add.ptr.i21
-  br i1 %cmp.not.i, label %invoke.cont36, label %for.body.i23, !llvm.loop !14
+  br i1 %cmp.not.i, label %for.cond.for.end_crit_edge.i, label %for.body.i23, !llvm.loop !14
 
-invoke.cont36:                                    ; preds = %for.body.i23, %if.end
+for.cond.for.end_crit_edge.i:                     ; preds = %for.body.i23
+  store i64 %add.i.i, ptr %42, align 8
+  br label %invoke.cont36
+
+invoke.cont36:                                    ; preds = %for.cond.for.end_crit_edge.i, %if.end
   ret void
 
 ehcleanup37:                                      ; preds = %lpad24, %ehcleanup, %lpad

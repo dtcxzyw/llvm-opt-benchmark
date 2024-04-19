@@ -181,7 +181,7 @@ define void @_ZN4LIEF5MachO16RelocationObjectC2ERKNS0_7details15relocation_infoE
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = lshr i32 %5, 24
-  %7 = trunc i32 %6 to i8
+  %7 = trunc nuw i32 %6 to i8
   %8 = and i8 %7, 1
   store i8 %8, ptr %3, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 57
@@ -194,13 +194,13 @@ define void @_ZN4LIEF5MachO16RelocationObjectC2ERKNS0_7details15relocation_infoE
   store i64 %12, ptr %13, align 8
   %14 = load i32, ptr %4, align 4
   %15 = lshr i32 %14, 25
-  %16 = trunc i32 %15 to i8
+  %16 = trunc nuw nsw i32 %15 to i8
   %17 = and i8 %16, 3
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 %17, ptr %18, align 8
   %19 = load i32, ptr %4, align 4
   %20 = lshr i32 %19, 28
-  %21 = trunc i32 %20 to i8
+  %21 = trunc nuw nsw i32 %20 to i8
   %22 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 %21, ptr %22, align 8
   ret void
@@ -213,7 +213,7 @@ define void @_ZN4LIEF5MachO16RelocationObjectC2ERKNS0_7details25scattered_reloca
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load i32, ptr %1, align 4
   %5 = lshr i32 %4, 30
-  %6 = trunc i32 %5 to i8
+  %6 = trunc nuw nsw i32 %5 to i8
   %7 = and i8 %6, 1
   store i8 %7, ptr %3, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 57
@@ -229,13 +229,13 @@ define void @_ZN4LIEF5MachO16RelocationObjectC2ERKNS0_7details25scattered_reloca
   store i64 %14, ptr %15, align 8
   %16 = load i32, ptr %1, align 4
   %17 = lshr i32 %16, 28
-  %18 = trunc i32 %17 to i8
+  %18 = trunc nuw nsw i32 %17 to i8
   %19 = and i8 %18, 3
   %20 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 %19, ptr %20, align 8
   %21 = load i32, ptr %1, align 4
   %22 = lshr i32 %21, 24
-  %23 = trunc i32 %22 to i8
+  %23 = trunc nuw i32 %22 to i8
   %24 = and i8 %23, 15
   %25 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 %24, ptr %25, align 8
@@ -635,6 +635,7 @@ define linkonce_odr hidden void @_ZN6spdlog6logger3logIPKcEEvNS_5level10level_en
 
 ._crit_edge.i.i.i.i:                              ; preds = %14
   %.pre.i.i.i.i = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN6spdlog7details2os9thread_idEvE3tid)
+  %.pre.i.i.i = load i64, ptr %.pre.i.i.i.i, align 8
   br label %_ZN6spdlog7details7log_msgC2ENS_10source_locEN3fmt2v917basic_string_viewIcEENS_5level10level_enumES6_.exit.i
 
 23:                                               ; preds = %14
@@ -645,10 +646,9 @@ define linkonce_odr hidden void @_ZN6spdlog6logger3logIPKcEEvNS_5level10level_en
   br label %_ZN6spdlog7details7log_msgC2ENS_10source_locEN3fmt2v917basic_string_viewIcEENS_5level10level_enumES6_.exit.i
 
 _ZN6spdlog7details7log_msgC2ENS_10source_locEN3fmt2v917basic_string_viewIcEENS_5level10level_enumES6_.exit.i: ; preds = %23, %._crit_edge.i.i.i.i
-  %.pre-phi.i.i.i.i = phi ptr [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %25, %23 ]
-  %26 = getelementptr inbounds i8, ptr %4, i64 32
-  %27 = load i64, ptr %.pre-phi.i.i.i.i, align 8
-  store i64 %27, ptr %26, align 8
+  %26 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i.i ], [ %24, %23 ]
+  %27 = getelementptr inbounds i8, ptr %4, i64 32
+  store i64 %26, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %4, i64 40
   %29 = getelementptr inbounds i8, ptr %4, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %28, i8 0, i64 40, i1 false)

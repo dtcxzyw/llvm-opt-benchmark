@@ -50550,6 +50550,7 @@ define linkonce_odr hidden void @_ZN6spdlog6logger3logIPKcEEvNS_5level10level_en
 
 ._crit_edge.i.i.i.i:                              ; preds = %14
   %.pre.i.i.i.i = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN6spdlog7details2os9thread_idEvE3tid)
+  %.pre.i.i.i = load i64, ptr %.pre.i.i.i.i, align 8
   br label %_ZN6spdlog7details7log_msgC2ENS_10source_locEN3fmt2v917basic_string_viewIcEENS_5level10level_enumES6_.exit.i
 
 23:                                               ; preds = %14
@@ -50560,10 +50561,9 @@ define linkonce_odr hidden void @_ZN6spdlog6logger3logIPKcEEvNS_5level10level_en
   br label %_ZN6spdlog7details7log_msgC2ENS_10source_locEN3fmt2v917basic_string_viewIcEENS_5level10level_enumES6_.exit.i
 
 _ZN6spdlog7details7log_msgC2ENS_10source_locEN3fmt2v917basic_string_viewIcEENS_5level10level_enumES6_.exit.i: ; preds = %23, %._crit_edge.i.i.i.i
-  %.pre-phi.i.i.i.i = phi ptr [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %25, %23 ]
-  %26 = getelementptr inbounds i8, ptr %4, i64 32
-  %27 = load i64, ptr %.pre-phi.i.i.i.i, align 8
-  store i64 %27, ptr %26, align 8
+  %26 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i.i ], [ %24, %23 ]
+  %27 = getelementptr inbounds i8, ptr %4, i64 32
+  store i64 %26, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %4, i64 40
   %29 = getelementptr inbounds i8, ptr %4, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %28, i8 0, i64 40, i1 false)
@@ -51055,6 +51055,7 @@ _ZN3fmt2v910vformat_toINS0_8appenderETnNSt9enable_ifIXsr6detail18is_output_itera
 
 ._crit_edge.i.i.i:                                ; preds = %_ZN3fmt2v910vformat_toINS0_8appenderETnNSt9enable_ifIXsr6detail18is_output_iteratorIT_cEE5valueEiE4typeELi0EEES4_S4_NS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextIS2_cEEEE.exit
   %.pre.i.i.i = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN6spdlog7details2os9thread_idEvE3tid)
+  %.pre.i.i = load i64, ptr %.pre.i.i.i, align 8
   br label %38
 
 35:                                               ; preds = %_ZN3fmt2v910vformat_toINS0_8appenderETnNSt9enable_ifIXsr6detail18is_output_iteratorIT_cEE5valueEiE4typeELi0EEES4_S4_NS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextIS2_cEEEE.exit
@@ -51065,10 +51066,9 @@ _ZN3fmt2v910vformat_toINS0_8appenderETnNSt9enable_ifIXsr6detail18is_output_itera
   br label %38
 
 38:                                               ; preds = %35, %._crit_edge.i.i.i
-  %.pre-phi.i.i.i = phi ptr [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %37, %35 ]
-  %39 = getelementptr inbounds i8, ptr %10, i64 32
-  %40 = load i64, ptr %.pre-phi.i.i.i, align 8
-  store i64 %40, ptr %39, align 8
+  %39 = phi i64 [ %.pre.i.i, %._crit_edge.i.i.i ], [ %36, %35 ]
+  %40 = getelementptr inbounds i8, ptr %10, i64 32
+  store i64 %39, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %10, i64 40
   %42 = getelementptr inbounds i8, ptr %10, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
@@ -51264,6 +51264,7 @@ _ZN3fmt2v910vformat_toINS0_8appenderETnNSt9enable_ifIXsr6detail18is_output_itera
 
 ._crit_edge.i.i.i:                                ; preds = %_ZN3fmt2v910vformat_toINS0_8appenderETnNSt9enable_ifIXsr6detail18is_output_iteratorIT_cEE5valueEiE4typeELi0EEES4_S4_NS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextIS2_cEEEE.exit
   %.pre.i.i.i = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN6spdlog7details2os9thread_idEvE3tid)
+  %.pre.i.i = load i64, ptr %.pre.i.i.i, align 8
   br label %52
 
 49:                                               ; preds = %_ZN3fmt2v910vformat_toINS0_8appenderETnNSt9enable_ifIXsr6detail18is_output_iteratorIT_cEE5valueEiE4typeELi0EEES4_S4_NS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextIS2_cEEEE.exit
@@ -51274,10 +51275,9 @@ _ZN3fmt2v910vformat_toINS0_8appenderETnNSt9enable_ifIXsr6detail18is_output_itera
   br label %52
 
 52:                                               ; preds = %49, %._crit_edge.i.i.i
-  %.pre-phi.i.i.i = phi ptr [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %51, %49 ]
-  %53 = getelementptr inbounds i8, ptr %14, i64 32
-  %54 = load i64, ptr %.pre-phi.i.i.i, align 8
-  store i64 %54, ptr %53, align 8
+  %53 = phi i64 [ %.pre.i.i, %._crit_edge.i.i.i ], [ %50, %49 ]
+  %54 = getelementptr inbounds i8, ptr %14, i64 32
+  store i64 %53, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %14, i64 40
   %56 = getelementptr inbounds i8, ptr %14, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
@@ -51380,6 +51380,7 @@ _ZN3fmt2v910vformat_toINS0_8appenderETnNSt9enable_ifIXsr6detail18is_output_itera
 
 ._crit_edge.i.i.i:                                ; preds = %_ZN3fmt2v910vformat_toINS0_8appenderETnNSt9enable_ifIXsr6detail18is_output_iteratorIT_cEE5valueEiE4typeELi0EEES4_S4_NS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextIS2_cEEEE.exit
   %.pre.i.i.i = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN6spdlog7details2os9thread_idEvE3tid)
+  %.pre.i.i = load i64, ptr %.pre.i.i.i, align 8
   br label %38
 
 35:                                               ; preds = %_ZN3fmt2v910vformat_toINS0_8appenderETnNSt9enable_ifIXsr6detail18is_output_iteratorIT_cEE5valueEiE4typeELi0EEES4_S4_NS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextIS2_cEEEE.exit
@@ -51390,10 +51391,9 @@ _ZN3fmt2v910vformat_toINS0_8appenderETnNSt9enable_ifIXsr6detail18is_output_itera
   br label %38
 
 38:                                               ; preds = %35, %._crit_edge.i.i.i
-  %.pre-phi.i.i.i = phi ptr [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %37, %35 ]
-  %39 = getelementptr inbounds i8, ptr %10, i64 32
-  %40 = load i64, ptr %.pre-phi.i.i.i, align 8
-  store i64 %40, ptr %39, align 8
+  %39 = phi i64 [ %.pre.i.i, %._crit_edge.i.i.i ], [ %36, %35 ]
+  %40 = getelementptr inbounds i8, ptr %10, i64 32
+  store i64 %39, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %10, i64 40
   %42 = getelementptr inbounds i8, ptr %10, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
@@ -51512,6 +51512,7 @@ _ZN3fmt2v910vformat_toINS0_8appenderETnNSt9enable_ifIXsr6detail18is_output_itera
 
 ._crit_edge.i.i.i:                                ; preds = %_ZN3fmt2v910vformat_toINS0_8appenderETnNSt9enable_ifIXsr6detail18is_output_iteratorIT_cEE5valueEiE4typeELi0EEES4_S4_NS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextIS2_cEEEE.exit
   %.pre.i.i.i = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN6spdlog7details2os9thread_idEvE3tid)
+  %.pre.i.i = load i64, ptr %.pre.i.i.i, align 8
   br label %41
 
 38:                                               ; preds = %_ZN3fmt2v910vformat_toINS0_8appenderETnNSt9enable_ifIXsr6detail18is_output_iteratorIT_cEE5valueEiE4typeELi0EEES4_S4_NS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextIS2_cEEEE.exit
@@ -51522,10 +51523,9 @@ _ZN3fmt2v910vformat_toINS0_8appenderETnNSt9enable_ifIXsr6detail18is_output_itera
   br label %41
 
 41:                                               ; preds = %38, %._crit_edge.i.i.i
-  %.pre-phi.i.i.i = phi ptr [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %40, %38 ]
-  %42 = getelementptr inbounds i8, ptr %11, i64 32
-  %43 = load i64, ptr %.pre-phi.i.i.i, align 8
-  store i64 %43, ptr %42, align 8
+  %42 = phi i64 [ %.pre.i.i, %._crit_edge.i.i.i ], [ %39, %38 ]
+  %43 = getelementptr inbounds i8, ptr %11, i64 32
+  store i64 %42, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %11, i64 40
   %45 = getelementptr inbounds i8, ptr %11, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
@@ -53918,6 +53918,7 @@ _ZN3fmt2v910vformat_toINS0_8appenderETnNSt9enable_ifIXsr6detail18is_output_itera
 
 ._crit_edge.i.i.i:                                ; preds = %_ZN3fmt2v910vformat_toINS0_8appenderETnNSt9enable_ifIXsr6detail18is_output_iteratorIT_cEE5valueEiE4typeELi0EEES4_S4_NS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextIS2_cEEEE.exit
   %.pre.i.i.i = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN6spdlog7details2os9thread_idEvE3tid)
+  %.pre.i.i = load i64, ptr %.pre.i.i.i, align 8
   br label %42
 
 39:                                               ; preds = %_ZN3fmt2v910vformat_toINS0_8appenderETnNSt9enable_ifIXsr6detail18is_output_iteratorIT_cEE5valueEiE4typeELi0EEES4_S4_NS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextIS2_cEEEE.exit
@@ -53928,10 +53929,9 @@ _ZN3fmt2v910vformat_toINS0_8appenderETnNSt9enable_ifIXsr6detail18is_output_itera
   br label %42
 
 42:                                               ; preds = %39, %._crit_edge.i.i.i
-  %.pre-phi.i.i.i = phi ptr [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %41, %39 ]
-  %43 = getelementptr inbounds i8, ptr %11, i64 32
-  %44 = load i64, ptr %.pre-phi.i.i.i, align 8
-  store i64 %44, ptr %43, align 8
+  %43 = phi i64 [ %.pre.i.i, %._crit_edge.i.i.i ], [ %40, %39 ]
+  %44 = getelementptr inbounds i8, ptr %11, i64 32
+  store i64 %43, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %11, i64 40
   %46 = getelementptr inbounds i8, ptr %11, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)

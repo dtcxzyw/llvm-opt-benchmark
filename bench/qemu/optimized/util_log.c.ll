@@ -543,20 +543,14 @@ if.end58:                                         ; preds = %if.end54, %if.end42
   %logfile.0 = phi ptr [ null, %if.end42 ], [ %spec.select49, %if.end54 ]
   %.b3946 = load i1, ptr @log_per_thread, align 1
   %brmerge.not = and i1 %call32, %.b3946
-  br i1 %brmerge.not, label %if.then62, label %if.end63
-
-if.then62:                                        ; preds = %if.end58
   %13 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_file)
   %14 = load ptr, ptr %13, align 8
-  br label %if.end63
-
-if.end63:                                         ; preds = %if.end58, %if.then62
-  %logfile.1 = phi ptr [ %14, %if.then62 ], [ %logfile.0, %if.end58 ]
+  %logfile.1 = select i1 %brmerge.not, ptr %14, ptr %logfile.0
   %tobool64.not = icmp eq ptr %logfile.1, null
   %brmerge50.not = select i1 %tobool64.not, i1 %need_to_open_file.0.in, i1 false
   br i1 %brmerge50.not, label %if.then67, label %glib_autoptr_cleanup_QemuLockable.exit
 
-if.then67:                                        ; preds = %if.end63
+if.then67:                                        ; preds = %if.end58
   %tobool68.not = icmp eq ptr %filename.addr.0104, null
   br i1 %tobool68.not, label %if.else89, label %if.then69
 
@@ -640,18 +634,17 @@ if.end94:                                         ; preds = %if.end82
   br i1 %.b48, label %if.then98, label %while.end106
 
 if.then98:                                        ; preds = %if.end94
-  %20 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_file)
-  store ptr %19, ptr %20, align 8
+  store ptr %19, ptr %13, align 8
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
 while.end106:                                     ; preds = %if.end93, %if.end82, %if.end94
   %logfile.3116 = phi ptr [ %19, %if.end94 ], [ %18, %if.end93 ], [ %logfile.2, %if.end82 ]
-  %21 = ptrtoint ptr %logfile.3116 to i64
-  store atomic i64 %21, ptr @global_file release, align 8
+  %20 = ptrtoint ptr %logfile.3116 to i64
+  store atomic i64 %20, ptr @global_file release, align 8
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
-glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.end10.i67, %if.then6.i60, %if.then12.i, %if.then6.i, %while.end106, %if.then98, %if.end63, %if.then71, %if.then79, %if.then11
-  %retval.0 = phi i1 [ false, %if.then11 ], [ false, %if.then79 ], [ false, %if.then71 ], [ true, %if.end63 ], [ true, %if.then98 ], [ true, %while.end106 ], [ false, %if.then6.i ], [ false, %if.then12.i ], [ false, %if.then6.i60 ], [ false, %if.end10.i67 ]
+glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %if.end10.i67, %if.then6.i60, %if.then12.i, %if.then6.i, %while.end106, %if.then98, %if.end58, %if.then71, %if.then79, %if.then11
+  %retval.0 = phi i1 [ false, %if.then11 ], [ false, %if.then79 ], [ false, %if.then71 ], [ true, %if.end58 ], [ true, %if.then98 ], [ true, %while.end106 ], [ false, %if.then6.i ], [ false, %if.then12.i ], [ false, %if.then6.i60 ], [ false, %if.end10.i67 ]
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @global_mutex, ptr noundef nonnull @.str.62, i32 noundef 132) #15
   ret i1 %retval.0
 }

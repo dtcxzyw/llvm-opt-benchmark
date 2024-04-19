@@ -11600,7 +11600,11 @@ _ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20Si
   %4 = load i64, ptr %3, align 8
   %conv.i.i.i = zext i32 %1 to i64
   %cmp.i.not.i.i = icmp ugt i64 %4, %conv.i.i.i
-  br i1 %cmp.i.not.i.i, label %_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS2_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS_6detail11DefaultMakeIS4_EES6_E7WrapperES6_vE3getEv.exit.i, label %if.then.i.i.i
+  br i1 %cmp.i.not.i.i, label %entry._ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i, label %if.then.i.i.i
+
+entry._ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i: ; preds = %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS5_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS0_11DefaultMakeIS7_EES9_E7WrapperES9_vEES9_EERT_RNS1_3ArgE.exit
+  %.pre.i.i = load ptr, ptr %2, align 8
+  br label %_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS2_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS_6detail11DefaultMakeIS4_EES6_E7WrapperES6_vE3getEv.exit.i
 
 if.then.i.i.i:                                    ; preds = %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS5_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS0_11DefaultMakeIS7_EES9_E7WrapperES9_vEES9_EERT_RNS1_3ArgE.exit
   %5 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvEEvEERT_vE3arg acquire, align 8
@@ -11627,20 +11631,20 @@ if.then.i5.i.i:                                   ; preds = %_ZN5folly18threadlo
   tail call void @_ZN5folly18threadlocal_detail14StaticMetaBase7reserveEPNS1_7EntryIDE(ptr noundef nonnull align 8 dereferenceable(153) %cond.i.i.i.i.i, ptr noundef nonnull %cond.i)
   %8 = load atomic i32, ptr %cond.i acquire, align 4
   %.pre.i.i.i = load ptr, ptr %2, align 8
-  %.pre7.i.i = zext i32 %8 to i64
+  %.pre8.i.i = zext i32 %8 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i: ; preds = %if.then.i5.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE8instanceEv.exit.i.i.i
-  %.pre.pre-phi.i.i = phi i64 [ %conv.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE8instanceEv.exit.i.i.i ], [ %.pre7.i.i, %if.then.i5.i.i ]
+  %.pre7.pre-phi.i.i = phi i64 [ %conv.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE8instanceEv.exit.i.i.i ], [ %.pre8.i.i, %if.then.i5.i.i ]
   %9 = phi ptr [ %call1.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE8instanceEv.exit.i.i.i ], [ %.pre.i.i.i, %if.then.i5.i.i ]
   %elementsCapacity.i6.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load atomic i64, ptr %elementsCapacity.i6.i.i.i monotonic, align 8
   store i64 %10, ptr %3, align 8
   br label %_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS2_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS_6detail11DefaultMakeIS4_EES6_E7WrapperES6_vE3getEv.exit.i
 
-_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS2_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS_6detail11DefaultMakeIS4_EES6_E7WrapperES6_vE3getEv.exit.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i, %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS5_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS0_11DefaultMakeIS7_EES9_E7WrapperES9_vEES9_EERT_RNS1_3ArgE.exit
-  %idxprom.i.pre-phi.i.i = phi i64 [ %.pre.pre-phi.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i ], [ %conv.i.i.i, %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS5_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS0_11DefaultMakeIS7_EES9_E7WrapperES9_vEES9_EERT_RNS1_3ArgE.exit ]
-  %11 = load ptr, ptr %2, align 8
+_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS2_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS_6detail11DefaultMakeIS4_EES6_E7WrapperES6_vE3getEv.exit.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i
+  %idxprom.i.pre-phi.i.i = phi i64 [ %conv.i.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i ], [ %.pre7.pre-phi.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i ]
+  %11 = phi ptr [ %.pre.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i ], [ %9, %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i ]
   %12 = load ptr, ptr %11, align 8
   %arrayidx.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %12, i64 %idxprom.i.pre-phi.i.i
   %13 = load ptr, ptr %arrayidx.i.i.i, align 8
@@ -11651,9 +11655,9 @@ cond.false.i.i:                                   ; preds = %_ZNK5folly14ThreadL
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %cond.i, i64 24
   %14 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %14, null
-  br i1 %tobool.not.i.i.i.i, label %if.then.i.i2.i, label %_ZNKSt8functionIFPvvEEclEv.exit.i.i
+  br i1 %tobool.not.i.i.i.i, label %if.then.i.i3.i, label %_ZNKSt8functionIFPvvEEclEv.exit.i.i
 
-if.then.i.i2.i:                                   ; preds = %cond.false.i.i
+if.then.i.i3.i:                                   ; preds = %cond.false.i.i
   tail call void @_ZSt25__throw_bad_function_callv() #32
   unreachable
 
@@ -11682,7 +11686,11 @@ _ZN5folly14ThreadLocalPtrINS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113Fo
   %18 = load i64, ptr %3, align 8
   %conv.i17.i.i.i = zext i32 %17 to i64
   %cmp.i18.not.i.i.i = icmp ugt i64 %18, %conv.i17.i.i.i
-  br i1 %cmp.i18.not.i.i.i, label %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23.i.i.i, label %if.then.i21.i.i.i
+  br i1 %cmp.i18.not.i.i.i, label %_ZN5folly14ThreadLocalPtrINS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS2_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS_6detail11DefaultMakeIS4_EES6_E7WrapperES6_vE42getAccessAllThreadsLockReadHolderIfEnabledEv.exit._ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23_crit_edge.i.i.i, label %if.then.i21.i.i.i
+
+_ZN5folly14ThreadLocalPtrINS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS2_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS_6detail11DefaultMakeIS4_EES6_E7WrapperES6_vE42getAccessAllThreadsLockReadHolderIfEnabledEv.exit._ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23_crit_edge.i.i.i: ; preds = %_ZN5folly14ThreadLocalPtrINS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS2_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS_6detail11DefaultMakeIS4_EES6_E7WrapperES6_vE42getAccessAllThreadsLockReadHolderIfEnabledEv.exit.i.i.i
+  %.pre.i.i2.i = load ptr, ptr %2, align 8
+  br label %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23.i.i.i
 
 if.then.i21.i.i.i:                                ; preds = %_ZN5folly14ThreadLocalPtrINS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS2_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS_6detail11DefaultMakeIS4_EES6_E7WrapperES6_vE42getAccessAllThreadsLockReadHolderIfEnabledEv.exit.i.i.i
   %19 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvEEvEERT_vE3arg acquire, align 8
@@ -11715,20 +11723,20 @@ if.then.i16.i.i.i:                                ; preds = %call1.i.noexc.i.i.i
 .noexc.i.i.i:                                     ; preds = %if.then.i16.i.i.i
   %22 = load atomic i32, ptr %cond.i acquire, align 4
   %.pre.i.i.i.i = load ptr, ptr %2, align 8
-  %.pre58.i.i.i = zext i32 %22 to i64
+  %.pre60.i.i.i = zext i32 %22 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i: ; preds = %.noexc.i.i.i, %call1.i.noexc.i.i.i
-  %.pre.pre-phi.i.i.i = phi i64 [ %conv.i17.i.i.i, %call1.i.noexc.i.i.i ], [ %.pre58.i.i.i, %.noexc.i.i.i ]
+  %.pre56.pre-phi.i.i.i = phi i64 [ %conv.i17.i.i.i, %call1.i.noexc.i.i.i ], [ %.pre60.i.i.i, %.noexc.i.i.i ]
   %23 = phi ptr [ %call1.i20.i.i.i, %call1.i.noexc.i.i.i ], [ %.pre.i.i.i.i, %.noexc.i.i.i ]
   %elementsCapacity.i6.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 8
   %24 = load atomic i64, ptr %elementsCapacity.i6.i.i.i.i monotonic, align 8
   store i64 %24, ptr %3, align 8
   br label %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23.i.i.i
 
-_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i, %_ZN5folly14ThreadLocalPtrINS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS2_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS_6detail11DefaultMakeIS4_EES6_E7WrapperES6_vE42getAccessAllThreadsLockReadHolderIfEnabledEv.exit.i.i.i
-  %idxprom.i19.pre-phi.i.i.i = phi i64 [ %.pre.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i ], [ %conv.i17.i.i.i, %_ZN5folly14ThreadLocalPtrINS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS2_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS_6detail11DefaultMakeIS4_EES6_E7WrapperES6_vE42getAccessAllThreadsLockReadHolderIfEnabledEv.exit.i.i.i ]
-  %25 = load ptr, ptr %2, align 8
+_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i, %_ZN5folly14ThreadLocalPtrINS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS2_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS_6detail11DefaultMakeIS4_EES6_E7WrapperES6_vE42getAccessAllThreadsLockReadHolderIfEnabledEv.exit._ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23_crit_edge.i.i.i
+  %idxprom.i19.pre-phi.i.i.i = phi i64 [ %conv.i17.i.i.i, %_ZN5folly14ThreadLocalPtrINS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS2_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS_6detail11DefaultMakeIS4_EES6_E7WrapperES6_vE42getAccessAllThreadsLockReadHolderIfEnabledEv.exit._ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23_crit_edge.i.i.i ], [ %.pre56.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i ]
+  %25 = phi ptr [ %.pre.i.i2.i, %_ZN5folly14ThreadLocalPtrINS_20SingletonThreadLocalIN8proxygen12_GLOBAL__N_113FormattedDateEZNS2_11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagNS_6detail11DefaultMakeIS4_EES6_E7WrapperES6_vE42getAccessAllThreadsLockReadHolderIfEnabledEv.exit._ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23_crit_edge.i.i.i ], [ %23, %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i ]
   %26 = load ptr, ptr %25, align 8
   %arrayidx.i20.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %26, i64 %idxprom.i19.pre-phi.i.i.i
   %27 = load ptr, ptr %arrayidx.i20.i.i.i, align 8
@@ -11780,7 +11788,11 @@ invoke.cont2.i.i.i:                               ; preds = %cond.false11.i.i.i.
   %34 = load i64, ptr %3, align 8
   %conv.i.i.i.i = zext i32 %33 to i64
   %cmp.i.not.i.i.i = icmp ugt i64 %34, %conv.i.i.i.i
-  br i1 %cmp.i.not.i.i.i, label %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i, label %if.then.i.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i, label %if.then.i.i.i.i
+
+invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i: ; preds = %invoke.cont2.i.i.i
+  %.pre57.i.i.i = load ptr, ptr %2, align 8
+  br label %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont2.i.i.i
   %35 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvEEvEERT_vE3arg acquire, align 8
@@ -11813,20 +11825,20 @@ if.then.i32.i.i.i:                                ; preds = %call1.i.noexc38.i.i
 .noexc40.i.i.i:                                   ; preds = %if.then.i32.i.i.i
   %38 = load atomic i32, ptr %cond.i acquire, align 4
   %.pre.i33.i.i.i = load ptr, ptr %2, align 8
-  %.pre57.i.i.i = zext i32 %38 to i64
+  %.pre59.i.i.i = zext i32 %38 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit41.i.i.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit41.i.i.i: ; preds = %.noexc40.i.i.i, %call1.i.noexc38.i.i.i
-  %.pre56.pre-phi.i.i.i = phi i64 [ %conv.i.i.i.i, %call1.i.noexc38.i.i.i ], [ %.pre57.i.i.i, %.noexc40.i.i.i ]
+  %.pre58.pre-phi.i.i.i = phi i64 [ %conv.i.i.i.i, %call1.i.noexc38.i.i.i ], [ %.pre59.i.i.i, %.noexc40.i.i.i ]
   %39 = phi ptr [ %call1.i39.i.i.i, %call1.i.noexc38.i.i.i ], [ %.pre.i33.i.i.i, %.noexc40.i.i.i ]
   %elementsCapacity.i6.i34.i.i.i = getelementptr inbounds i8, ptr %39, i64 8
   %40 = load atomic i64, ptr %elementsCapacity.i6.i34.i.i.i monotonic, align 8
   store i64 %40, ptr %3, align 8
   br label %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i
 
-_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit41.i.i.i, %invoke.cont2.i.i.i
-  %idxprom.i.pre-phi.i.i.i = phi i64 [ %.pre56.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit41.i.i.i ], [ %conv.i.i.i.i, %invoke.cont2.i.i.i ]
-  %41 = load ptr, ptr %2, align 8
+_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit41.i.i.i, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i
+  %idxprom.i.pre-phi.i.i.i = phi i64 [ %conv.i.i.i.i, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i ], [ %.pre58.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit41.i.i.i ]
+  %41 = phi ptr [ %.pre57.i.i.i, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i ], [ %39, %_ZN5folly18threadlocal_detail10StaticMetaIZN8proxygen11HTTPMessage16formatDateHeaderB5cxx11EvE7DateTagvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit41.i.i.i ]
   %42 = load ptr, ptr %41, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %42, i64 %idxprom.i.pre-phi.i.i.i
   %ownsDeleter.i42.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 16

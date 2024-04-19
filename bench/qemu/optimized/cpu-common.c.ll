@@ -428,16 +428,13 @@ entry:
   %2 = load i32, ptr %exclusive_context_count, align 16
   %dec = add i32 %2, -1
   store i32 %dec, ptr %exclusive_context_count, align 16
-  %3 = load ptr, ptr %0, align 8
-  %exclusive_context_count1 = getelementptr inbounds i8, ptr %3, i64 208
-  %4 = load i32, ptr %exclusive_context_count1, align 16
-  %tobool.not = icmp eq i32 %4, 0
+  %tobool.not = icmp eq i32 %dec, 0
   br i1 %tobool.not, label %while.end, label %return
 
 while.end:                                        ; preds = %entry
-  %5 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %6 = inttoptr i64 %5 to ptr
-  tail call void %6(ptr noundef nonnull @qemu_cpu_list_lock, ptr noundef nonnull @.str, i32 noundef 239) #10
+  %3 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %4 = inttoptr i64 %3 to ptr
+  tail call void %4(ptr noundef nonnull @qemu_cpu_list_lock, ptr noundef nonnull @.str, i32 noundef 239) #10
   store atomic i32 0, ptr @pending_cpus monotonic, align 4
   tail call void @qemu_cond_broadcast(ptr noundef nonnull @exclusive_resume) #10
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @qemu_cpu_list_lock, ptr noundef nonnull @.str, i32 noundef 242) #10
@@ -618,16 +615,13 @@ if.then24:                                        ; preds = %if.end19
   %10 = load i32, ptr %exclusive_context_count.i, align 16
   %dec.i = add i32 %10, -1
   store i32 %dec.i, ptr %exclusive_context_count.i, align 16
-  %11 = load ptr, ptr %3, align 8
-  %exclusive_context_count1.i = getelementptr inbounds i8, ptr %11, i64 208
-  %12 = load i32, ptr %exclusive_context_count1.i, align 16
-  %tobool.not.i = icmp eq i32 %12, 0
+  %tobool.not.i = icmp eq i32 %dec.i, 0
   br i1 %tobool.not.i, label %while.end.i, label %end_exclusive.exit
 
 while.end.i:                                      ; preds = %if.then24
-  %13 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %14 = inttoptr i64 %13 to ptr
-  tail call void %14(ptr noundef nonnull @qemu_cpu_list_lock, ptr noundef nonnull @.str, i32 noundef 239) #10
+  %11 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %12 = inttoptr i64 %11 to ptr
+  tail call void %12(ptr noundef nonnull @qemu_cpu_list_lock, ptr noundef nonnull @.str, i32 noundef 239) #10
   store atomic i32 0, ptr @pending_cpus monotonic, align 4
   tail call void @qemu_cond_broadcast(ptr noundef nonnull @exclusive_resume) #10
   tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @qemu_cpu_list_lock, ptr noundef nonnull @.str, i32 noundef 242) #10
@@ -639,19 +633,19 @@ end_exclusive.exit:                               ; preds = %if.then24, %while.e
 
 if.else:                                          ; preds = %if.end19
   %func25 = getelementptr inbounds i8, ptr %4, i64 8
-  %15 = load ptr, ptr %func25, align 8
+  %13 = load ptr, ptr %func25, align 8
   %data26 = getelementptr inbounds i8, ptr %4, i64 16
-  %16 = load i64, ptr %data26, align 8
-  tail call void %15(ptr noundef nonnull %cpu, i64 %16) #10
+  %14 = load i64, ptr %data26, align 8
+  tail call void %13(ptr noundef nonnull %cpu, i64 %14) #10
   br label %while.end34
 
 while.end34:                                      ; preds = %if.else, %end_exclusive.exit
-  %17 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %18 = inttoptr i64 %17 to ptr
-  tail call void %18(ptr noundef nonnull %work_mutex, ptr noundef nonnull @.str, i32 noundef 362) #10
+  %15 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
+  %16 = inttoptr i64 %15 to ptr
+  tail call void %16(ptr noundef nonnull %work_mutex, ptr noundef nonnull @.str, i32 noundef 362) #10
   %free = getelementptr inbounds i8, ptr %4, i64 24
-  %19 = load i8, ptr %free, align 8
-  %tobool38 = trunc i8 %19 to i1
+  %17 = load i8, ptr %free, align 8
+  %tobool38 = trunc i8 %17 to i1
   br i1 %tobool38, label %if.then39, label %while.end46
 
 if.then39:                                        ; preds = %while.end34

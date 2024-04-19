@@ -350,8 +350,7 @@ invoke.cont:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN5folly22executor_blocking_listE)
   %1 = load ptr, ptr %0, align 8, !tbaa !23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !tbaa.struct !33
-  %2 = load ptr, ptr %0, align 8, !tbaa !23
-  store ptr %2, ptr %this, align 8, !tbaa !34
+  store ptr %1, ptr %this, align 8, !tbaa !34
   %curr = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %curr, align 8, !tbaa !36
   store ptr %this, ptr %0, align 8, !tbaa !23
@@ -366,8 +365,7 @@ invoke.cont:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN5folly22executor_blocking_listE)
   %1 = load ptr, ptr %0, align 8, !tbaa !23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !tbaa.struct !33
-  %2 = load ptr, ptr %0, align 8, !tbaa !23
-  store ptr %2, ptr %this, align 8, !tbaa !34
+  store ptr %1, ptr %this, align 8, !tbaa !34
   %curr = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %curr, align 8, !tbaa !36
   store ptr %ex, ptr %ex.i.i, align 8, !tbaa !37
@@ -394,8 +392,7 @@ invoke.cont:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN5folly22executor_blocking_listE)
   %1 = load ptr, ptr %0, align 8, !tbaa !23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false), !tbaa.struct !33
-  %2 = load ptr, ptr %0, align 8, !tbaa !23
-  store ptr %2, ptr %this, align 8, !tbaa !34
+  store ptr %1, ptr %this, align 8, !tbaa !34
   %curr = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %curr, align 8, !tbaa !36
   store ptr %ex, ptr %ex.i.i, align 8, !tbaa !37

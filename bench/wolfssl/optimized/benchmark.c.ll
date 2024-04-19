@@ -1659,24 +1659,18 @@ entry:
   %enc = alloca [1 x %struct.Aes], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(848) %enc, i8 0, i64 848, i1 false)
   %tobool.not = icmp eq i32 %useDeviceID, 0
-  br i1 %tobool.not, label %cond.end, label %cond.true
-
-cond.true:                                        ; preds = %entry
   %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
   %1 = load i32, ptr %0, align 4
-  br label %cond.end
-
-cond.end:                                         ; preds = %entry, %cond.true
-  %cond = phi i32 [ %1, %cond.true ], [ -2, %entry ]
+  %cond = select i1 %tobool.not, i32 -2, i32 %1
   %call = call i32 @wc_AesInit(ptr noundef nonnull %enc, ptr noundef null, i32 noundef %cond) #16
   %cmp1.not = icmp eq i32 %call, 0
   br i1 %cmp1.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %cond.end
+if.then:                                          ; preds = %entry
   %call2 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.123, i32 noundef %call)
   br label %exit
 
-if.end:                                           ; preds = %cond.end
+if.end:                                           ; preds = %entry
   %call5 = call i32 @wc_AesSetKey(ptr noundef nonnull %enc, ptr noundef %key, i32 noundef %keySz, ptr noundef %iv, i32 noundef 0) #16
   %cmp6.not = icmp eq i32 %call5, 0
   br i1 %cmp6.not, label %for.end, label %if.then7
@@ -1948,24 +1942,18 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %bench_additional, i8 0, i64 13, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %bench_tag, i8 0, i64 16, i1 false)
   %tobool.not = icmp eq i32 %useDeviceID, 0
-  br i1 %tobool.not, label %cond.end, label %cond.true
-
-cond.true:                                        ; preds = %entry
   %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
   %1 = load i32, ptr %0, align 4
-  br label %cond.end
-
-cond.end:                                         ; preds = %entry, %cond.true
-  %cond = phi i32 [ %1, %cond.true ], [ -2, %entry ]
+  %cond = select i1 %tobool.not, i32 -2, i32 %1
   %call = call i32 @wc_AesInit(ptr noundef nonnull %enc, ptr noundef null, i32 noundef %cond) #16
   %cmp3.not = icmp eq i32 %call, 0
   br i1 %cmp3.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %cond.end
+if.then:                                          ; preds = %entry
   %call4 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.123, i32 noundef %call)
   br label %exit
 
-if.end:                                           ; preds = %cond.end
+if.end:                                           ; preds = %entry
   %call7 = call i32 @wc_AesGcmSetKey(ptr noundef nonnull %enc, ptr noundef %key, i32 noundef %keySz) #16
   %cmp8.not = icmp eq i32 %call7, 0
   br i1 %cmp8.not, label %for.end, label %if.then9
@@ -2073,24 +2061,17 @@ exit_aes_gcm:                                     ; preds = %bench_stats_check.e
   %20 = load i32, ptr @bench_size, align 4
   call fastcc void @bench_stats_sym_finish(ptr noundef %encLabel, i32 noundef %storemerge, i32 noundef %20, double noundef %add.i.i, i32 noundef %ret.2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1696) %dec, i8 0, i64 1696, i1 false)
-  br i1 %tobool.not, label %cond.end54, label %cond.true52
-
-cond.true52:                                      ; preds = %exit_aes_gcm
-  %21 = call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
-  %22 = load i32, ptr %21, align 4
-  br label %cond.end54
-
-cond.end54:                                       ; preds = %exit_aes_gcm, %cond.true52
-  %cond55 = phi i32 [ %22, %cond.true52 ], [ -2, %exit_aes_gcm ]
+  %21 = load i32, ptr %0, align 4
+  %cond55 = select i1 %tobool.not, i32 -2, i32 %21
   %call56 = call i32 @wc_AesInit(ptr noundef nonnull %dec, ptr noundef null, i32 noundef %cond55) #16
   %cmp57.not = icmp eq i32 %call56, 0
   br i1 %cmp57.not, label %if.end60, label %if.then58
 
-if.then58:                                        ; preds = %cond.end54
+if.then58:                                        ; preds = %exit_aes_gcm
   %call59 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.123, i32 noundef %call56)
   br label %exit
 
-if.end60:                                         ; preds = %cond.end54
+if.end60:                                         ; preds = %exit_aes_gcm
   %call63 = call i32 @wc_AesGcmSetKey(ptr noundef nonnull %dec, ptr noundef %key, i32 noundef %keySz) #16
   %cmp64.not = icmp eq i32 %call63, 0
   br i1 %cmp64.not, label %for.end70, label %if.then65
@@ -2102,45 +2083,45 @@ if.then65:                                        ; preds = %if.end60
 for.end70:                                        ; preds = %if.end60
   call fastcc void @bench_stats_start(ptr noundef nonnull %count, ptr noundef nonnull %start)
   %count.promoted78 = load i32, ptr %count, align 4
-  %23 = load double, ptr %start, align 8
+  %22 = load double, ptr %start, align 8
   br label %do.body71
 
 do.body71:                                        ; preds = %for.end103, %for.end70
   %add10479 = phi i32 [ %count.promoted78, %for.end70 ], [ %add104, %for.end103 ]
   %ret.3 = phi i32 [ 0, %for.end70 ], [ %ret.4.lcssa, %for.end103 ]
-  %24 = load i32, ptr @numBlocks, align 4
-  %cmp7374 = icmp sgt i32 %24, 0
+  %23 = load i32, ptr @numBlocks, align 4
+  %cmp7374 = icmp sgt i32 %23, 0
   br i1 %cmp7374, label %for.body83, label %for.end103
 
 for.body83:                                       ; preds = %do.body71, %bench_async_handle.exit47
   %times.275 = phi i32 [ %inc.i46, %bench_async_handle.exit47 ], [ 0, %do.body71 ]
-  %25 = load ptr, ptr %9, align 8
-  %26 = load ptr, ptr %8, align 8
-  %27 = load i32, ptr @bench_size, align 4
-  %28 = load i32, ptr @aesAuthAddSz, align 4
-  %call91 = call i32 @wc_AesGcmDecrypt(ptr noundef nonnull %dec, ptr noundef %25, ptr noundef %26, i32 noundef %27, ptr noundef %iv, i32 noundef 12, ptr noundef nonnull %bench_tag, i32 noundef 16, ptr noundef nonnull %bench_additional, i32 noundef %28) #16
+  %24 = load ptr, ptr %9, align 8
+  %25 = load ptr, ptr %8, align 8
+  %26 = load i32, ptr @bench_size, align 4
+  %27 = load i32, ptr @aesAuthAddSz, align 4
+  %call91 = call i32 @wc_AesGcmDecrypt(ptr noundef nonnull %dec, ptr noundef %24, ptr noundef %25, i32 noundef %26, ptr noundef %iv, i32 noundef 12, ptr noundef nonnull %bench_tag, i32 noundef 16, ptr noundef nonnull %bench_additional, i32 noundef %27) #16
   %cmp.i43 = icmp sgt i32 %call91, -1
   br i1 %cmp.i43, label %bench_async_handle.exit47, label %exit_aes_gcm_dec
 
 bench_async_handle.exit47:                        ; preds = %for.body83
   %inc.i46 = add nuw nsw i32 %times.275, 1
-  %29 = load i32, ptr @numBlocks, align 4
-  %cmp73 = icmp slt i32 %inc.i46, %29
+  %28 = load i32, ptr @numBlocks, align 4
+  %cmp73 = icmp slt i32 %inc.i46, %28
   br i1 %cmp73, label %for.body83, label %for.end103
 
 for.end103:                                       ; preds = %bench_async_handle.exit47, %do.body71
   %times.2.lcssa = phi i32 [ 0, %do.body71 ], [ %inc.i46, %bench_async_handle.exit47 ]
   %ret.4.lcssa = phi i32 [ %ret.3, %do.body71 ], [ %call91, %bench_async_handle.exit47 ]
   %add104 = add nsw i32 %add10479, %times.2.lcssa
-  %call106 = call fastcc i32 @bench_stats_check(double noundef %23), !range !5
+  %call106 = call fastcc i32 @bench_stats_check(double noundef %22), !range !5
   %tobool107.not = icmp eq i32 %call106, 0
   br i1 %tobool107.not, label %exit_aes_gcm_dec, label %do.body71, !llvm.loop !16
 
 exit_aes_gcm_dec:                                 ; preds = %for.end103, %for.body83
   %storemerge80 = phi i32 [ %add10479, %for.body83 ], [ %add104, %for.end103 ]
   %ret.5 = phi i32 [ %call91, %for.body83 ], [ %ret.4.lcssa, %for.end103 ]
-  %30 = load i32, ptr @bench_size, align 4
-  call fastcc void @bench_stats_sym_finish(ptr noundef %decLabel, i32 noundef %storemerge80, i32 noundef %30, double noundef %23, i32 noundef %ret.5)
+  %29 = load i32, ptr @bench_size, align 4
+  call fastcc void @bench_stats_sym_finish(ptr noundef %decLabel, i32 noundef %storemerge80, i32 noundef %29, double noundef %22, i32 noundef %ret.5)
   br label %exit
 
 exit:                                             ; preds = %exit_aes_gcm_dec, %if.then65, %if.then58, %if.then9, %if.then
@@ -2173,15 +2154,9 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tag, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(848) %gmac, i8 0, i64 848, i1 false)
   %tobool.not = icmp eq i32 %useDeviceID, 0
-  br i1 %tobool.not, label %cond.end, label %cond.true
-
-cond.true:                                        ; preds = %entry
   %3 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
   %4 = load i32, ptr %3, align 4
-  br label %cond.end
-
-cond.end:                                         ; preds = %entry, %cond.true
-  %cond = phi i32 [ %4, %cond.true ], [ -2, %entry ]
+  %cond = select i1 %tobool.not, i32 -2, i32 %4
   %call = call i32 @wc_AesInit(ptr noundef nonnull %gmac, ptr noundef null, i32 noundef %cond) #16
   %5 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @bench_key)
   %6 = load ptr, ptr %5, align 8
@@ -2191,7 +2166,7 @@ cond.end:                                         ; preds = %entry, %cond.true
   %cmp.i.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %bench_stats_start.exit
 
-if.then.i.i:                                      ; preds = %cond.end
+if.then.i.i:                                      ; preds = %entry
   %call1.i.i = tail call ptr @__errno_location() #17
   %7 = load i32, ptr %call1.i.i, align 4
   %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %7, ptr noundef nonnull @.str.78)
@@ -2200,7 +2175,7 @@ if.then.i.i:                                      ; preds = %cond.end
   call void @_exit(i32 noundef 1) #18
   unreachable
 
-bench_stats_start.exit:                           ; preds = %cond.end
+bench_stats_start.exit:                           ; preds = %entry
   %9 = load i64, ptr %tv.i.i, align 8
   %conv.i.i = sitofp i64 %9 to double
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
@@ -2746,24 +2721,18 @@ entry:
 
 for.body:                                         ; preds = %entry
   %tobool1.not = icmp eq i32 %useDeviceID, 0
-  br i1 %tobool1.not, label %cond.end, label %cond.true
-
-cond.true:                                        ; preds = %for.body
   %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
   %1 = load i32, ptr %0, align 4
-  br label %cond.end
-
-cond.end:                                         ; preds = %for.body, %cond.true
-  %cond = phi i32 [ %1, %cond.true ], [ -2, %for.body ]
+  %cond = select i1 %tobool1.not, i32 -2, i32 %1
   %call = call i32 @wc_InitMd5_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %cond) #16
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %for.end, label %if.then3
 
-if.then3:                                         ; preds = %cond.end
+if.then3:                                         ; preds = %for.body
   %call4 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.38, i32 noundef %call)
   br label %do.end96
 
-for.end:                                          ; preds = %cond.end
+for.end:                                          ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i)
   %call.i.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i) #16
   %cmp.i.i = icmp slt i32 %call.i.i, 0
@@ -2983,24 +2952,18 @@ entry:
 
 for.body:                                         ; preds = %entry
   %tobool1.not = icmp eq i32 %useDeviceID, 0
-  br i1 %tobool1.not, label %cond.end, label %cond.true
-
-cond.true:                                        ; preds = %for.body
   %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
   %1 = load i32, ptr %0, align 4
-  br label %cond.end
-
-cond.end:                                         ; preds = %for.body, %cond.true
-  %cond = phi i32 [ %1, %cond.true ], [ -2, %for.body ]
+  %cond = select i1 %tobool1.not, i32 -2, i32 %1
   %call = call i32 @wc_InitSha_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %cond) #16
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %for.end, label %if.then3
 
-if.then3:                                         ; preds = %cond.end
+if.then3:                                         ; preds = %for.body
   %call4 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.40, i32 noundef %call)
   br label %exit
 
-for.end:                                          ; preds = %cond.end
+for.end:                                          ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i)
   %call.i.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i) #16
   %cmp.i.i = icmp slt i32 %call.i.i, 0
@@ -3276,24 +3239,18 @@ entry:
 
 for.body:                                         ; preds = %entry
   %tobool1.not = icmp eq i32 %useDeviceID, 0
-  br i1 %tobool1.not, label %cond.end, label %cond.true
-
-cond.true:                                        ; preds = %for.body
   %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
   %1 = load i32, ptr %0, align 4
-  br label %cond.end
-
-cond.end:                                         ; preds = %for.body, %cond.true
-  %cond = phi i32 [ %1, %cond.true ], [ -2, %for.body ]
+  %cond = select i1 %tobool1.not, i32 -2, i32 %1
   %call = call i32 @wc_InitSha224_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %cond) #16
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %for.end, label %if.then3
 
-if.then3:                                         ; preds = %cond.end
+if.then3:                                         ; preds = %for.body
   %call4 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef %call)
   br label %exit
 
-for.end:                                          ; preds = %cond.end
+for.end:                                          ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i)
   %call.i.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i) #16
   %cmp.i.i = icmp slt i32 %call.i.i, 0
@@ -3569,24 +3526,18 @@ entry:
 
 for.body:                                         ; preds = %entry
   %tobool1.not = icmp eq i32 %useDeviceID, 0
-  br i1 %tobool1.not, label %cond.end, label %cond.true
-
-cond.true:                                        ; preds = %for.body
   %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
   %1 = load i32, ptr %0, align 4
-  br label %cond.end
-
-cond.end:                                         ; preds = %for.body, %cond.true
-  %cond = phi i32 [ %1, %cond.true ], [ -2, %for.body ]
+  %cond = select i1 %tobool1.not, i32 -2, i32 %1
   %call = call i32 @wc_InitSha256_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %cond) #16
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %for.end, label %if.then3
 
-if.then3:                                         ; preds = %cond.end
+if.then3:                                         ; preds = %for.body
   %call4 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.44, i32 noundef %call)
   br label %exit
 
-for.end:                                          ; preds = %cond.end
+for.end:                                          ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i)
   %call.i.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i) #16
   %cmp.i.i = icmp slt i32 %call.i.i, 0
@@ -3862,24 +3813,18 @@ entry:
 
 for.body:                                         ; preds = %entry
   %tobool1.not = icmp eq i32 %useDeviceID, 0
-  br i1 %tobool1.not, label %cond.end, label %cond.true
-
-cond.true:                                        ; preds = %for.body
   %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
   %1 = load i32, ptr %0, align 4
-  br label %cond.end
-
-cond.end:                                         ; preds = %for.body, %cond.true
-  %cond = phi i32 [ %1, %cond.true ], [ -2, %for.body ]
+  %cond = select i1 %tobool1.not, i32 -2, i32 %1
   %call = call i32 @wc_InitSha384_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %cond) #16
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %for.end, label %if.then3
 
-if.then3:                                         ; preds = %cond.end
+if.then3:                                         ; preds = %for.body
   %call4 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.46, i32 noundef %call)
   br label %exit
 
-for.end:                                          ; preds = %cond.end
+for.end:                                          ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i)
   %call.i.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i) #16
   %cmp.i.i = icmp slt i32 %call.i.i, 0
@@ -4155,24 +4100,18 @@ entry:
 
 for.body:                                         ; preds = %entry
   %tobool1.not = icmp eq i32 %useDeviceID, 0
-  br i1 %tobool1.not, label %cond.end, label %cond.true
-
-cond.true:                                        ; preds = %for.body
   %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
   %1 = load i32, ptr %0, align 4
-  br label %cond.end
-
-cond.end:                                         ; preds = %for.body, %cond.true
-  %cond = phi i32 [ %1, %cond.true ], [ -2, %for.body ]
+  %cond = select i1 %tobool1.not, i32 -2, i32 %1
   %call = call i32 @wc_InitSha512_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %cond) #16
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %for.end, label %if.then3
 
-if.then3:                                         ; preds = %cond.end
+if.then3:                                         ; preds = %for.body
   %call4 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.48, i32 noundef %call)
   br label %exit
 
-for.end:                                          ; preds = %cond.end
+for.end:                                          ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i)
   %call.i.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i) #16
   %cmp.i.i = icmp slt i32 %call.i.i, 0
@@ -4448,24 +4387,18 @@ entry:
 
 for.body:                                         ; preds = %entry
   %tobool1.not = icmp eq i32 %useDeviceID, 0
-  br i1 %tobool1.not, label %cond.end, label %cond.true
-
-cond.true:                                        ; preds = %for.body
   %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
   %1 = load i32, ptr %0, align 4
-  br label %cond.end
-
-cond.end:                                         ; preds = %for.body, %cond.true
-  %cond = phi i32 [ %1, %cond.true ], [ -2, %for.body ]
+  %cond = select i1 %tobool1.not, i32 -2, i32 %1
   %call = call i32 @wc_InitSha512_224_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %cond) #16
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %for.end, label %if.then3
 
-if.then3:                                         ; preds = %cond.end
+if.then3:                                         ; preds = %for.body
   %call4 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.50, i32 noundef %call)
   br label %exit
 
-for.end:                                          ; preds = %cond.end
+for.end:                                          ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i)
   %call.i.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i) #16
   %cmp.i.i = icmp slt i32 %call.i.i, 0
@@ -4741,24 +4674,18 @@ entry:
 
 for.body:                                         ; preds = %entry
   %tobool1.not = icmp eq i32 %useDeviceID, 0
-  br i1 %tobool1.not, label %cond.end, label %cond.true
-
-cond.true:                                        ; preds = %for.body
   %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
   %1 = load i32, ptr %0, align 4
-  br label %cond.end
-
-cond.end:                                         ; preds = %for.body, %cond.true
-  %cond = phi i32 [ %1, %cond.true ], [ -2, %for.body ]
+  %cond = select i1 %tobool1.not, i32 -2, i32 %1
   %call = call i32 @wc_InitSha512_256_ex(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %cond) #16
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %for.end, label %if.then3
 
-if.then3:                                         ; preds = %cond.end
+if.then3:                                         ; preds = %for.body
   %call4 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.52, i32 noundef %call)
   br label %exit
 
-for.end:                                          ; preds = %cond.end
+for.end:                                          ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i)
   %call.i.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i) #16
   %cmp.i.i = icmp slt i32 %call.i.i, 0
@@ -5034,24 +4961,18 @@ entry:
 
 for.body:                                         ; preds = %entry
   %tobool1.not = icmp eq i32 %useDeviceID, 0
-  br i1 %tobool1.not, label %cond.end, label %cond.true
-
-cond.true:                                        ; preds = %for.body
   %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
   %1 = load i32, ptr %0, align 4
-  br label %cond.end
-
-cond.end:                                         ; preds = %for.body, %cond.true
-  %cond = phi i32 [ %1, %cond.true ], [ -2, %for.body ]
+  %cond = select i1 %tobool1.not, i32 -2, i32 %1
   %call = call i32 @wc_InitSha3_224(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %cond) #16
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %for.end, label %if.then3
 
-if.then3:                                         ; preds = %cond.end
+if.then3:                                         ; preds = %for.body
   %call4 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, i32 noundef %call)
   br label %exit
 
-for.end:                                          ; preds = %cond.end
+for.end:                                          ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i)
   %call.i.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i) #16
   %cmp.i.i = icmp slt i32 %call.i.i, 0
@@ -5327,24 +5248,18 @@ entry:
 
 for.body:                                         ; preds = %entry
   %tobool1.not = icmp eq i32 %useDeviceID, 0
-  br i1 %tobool1.not, label %cond.end, label %cond.true
-
-cond.true:                                        ; preds = %for.body
   %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
   %1 = load i32, ptr %0, align 4
-  br label %cond.end
-
-cond.end:                                         ; preds = %for.body, %cond.true
-  %cond = phi i32 [ %1, %cond.true ], [ -2, %for.body ]
+  %cond = select i1 %tobool1.not, i32 -2, i32 %1
   %call = call i32 @wc_InitSha3_256(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %cond) #16
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %for.end, label %if.then3
 
-if.then3:                                         ; preds = %cond.end
+if.then3:                                         ; preds = %for.body
   %call4 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.56, i32 noundef %call)
   br label %exit
 
-for.end:                                          ; preds = %cond.end
+for.end:                                          ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i)
   %call.i.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i) #16
   %cmp.i.i = icmp slt i32 %call.i.i, 0
@@ -5620,24 +5535,18 @@ entry:
 
 for.body:                                         ; preds = %entry
   %tobool1.not = icmp eq i32 %useDeviceID, 0
-  br i1 %tobool1.not, label %cond.end, label %cond.true
-
-cond.true:                                        ; preds = %for.body
   %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
   %1 = load i32, ptr %0, align 4
-  br label %cond.end
-
-cond.end:                                         ; preds = %for.body, %cond.true
-  %cond = phi i32 [ %1, %cond.true ], [ -2, %for.body ]
+  %cond = select i1 %tobool1.not, i32 -2, i32 %1
   %call = call i32 @wc_InitSha3_384(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %cond) #16
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %for.end, label %if.then3
 
-if.then3:                                         ; preds = %cond.end
+if.then3:                                         ; preds = %for.body
   %call4 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.58, i32 noundef %call)
   br label %exit
 
-for.end:                                          ; preds = %cond.end
+for.end:                                          ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i)
   %call.i.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i) #16
   %cmp.i.i = icmp slt i32 %call.i.i, 0
@@ -5913,24 +5822,18 @@ entry:
 
 for.body:                                         ; preds = %entry
   %tobool1.not = icmp eq i32 %useDeviceID, 0
-  br i1 %tobool1.not, label %cond.end, label %cond.true
-
-cond.true:                                        ; preds = %for.body
   %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
   %1 = load i32, ptr %0, align 4
-  br label %cond.end
-
-cond.end:                                         ; preds = %for.body, %cond.true
-  %cond = phi i32 [ %1, %cond.true ], [ -2, %for.body ]
+  %cond = select i1 %tobool1.not, i32 -2, i32 %1
   %call = call i32 @wc_InitSha3_512(ptr noundef nonnull %hash, ptr noundef null, i32 noundef %cond) #16
   %cmp2.not = icmp eq i32 %call, 0
   br i1 %cmp2.not, label %for.end, label %if.then3
 
-if.then3:                                         ; preds = %cond.end
+if.then3:                                         ; preds = %for.body
   %call4 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.60, i32 noundef %call)
   br label %exit
 
-for.end:                                          ; preds = %cond.end
+for.end:                                          ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i)
   %call.i.i = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %tv.i.i) #16
   %cmp.i.i = icmp slt i32 %call.i.i, 0
@@ -6212,24 +6115,18 @@ entry:
   %digest = alloca [1 x [64 x i8]], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(784) %hmac, i8 0, i64 784, i1 false)
   %tobool.not = icmp eq i32 %useDeviceID, 0
-  br i1 %tobool.not, label %cond.end, label %cond.true
-
-cond.true:                                        ; preds = %entry
   %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
   %1 = load i32, ptr %0, align 4
-  br label %cond.end
-
-cond.end:                                         ; preds = %entry, %cond.true
-  %cond = phi i32 [ %1, %cond.true ], [ -2, %entry ]
+  %cond = select i1 %tobool.not, i32 -2, i32 %1
   %call = call i32 @wc_HmacInit(ptr noundef nonnull %hmac, ptr noundef null, i32 noundef %cond) #16
   %cmp1.not = icmp eq i32 %call, 0
   br i1 %cmp1.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %cond.end
+if.then:                                          ; preds = %entry
   %call2 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.127, ptr noundef %label, i32 noundef %call)
   br label %exit
 
-if.end:                                           ; preds = %cond.end
+if.end:                                           ; preds = %entry
   %call5 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef %type, ptr noundef %key, i32 noundef %keySz) #16
   %cmp6.not = icmp eq i32 %call5, 0
   br i1 %cmp6.not, label %for.end, label %if.then7
@@ -6485,20 +6382,14 @@ entry:
   %idx = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8368) %rsaKey, i8 0, i64 8368, i1 false)
   %tobool.not = icmp eq i32 %useDeviceID, 0
-  br i1 %tobool.not, label %cond.end, label %cond.true
-
-cond.true:                                        ; preds = %entry
   %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
   %1 = load i32, ptr %0, align 4
-  br label %cond.end
-
-cond.end:                                         ; preds = %entry, %cond.true
-  %cond = phi i32 [ %1, %cond.true ], [ -2, %entry ]
+  %cond = select i1 %tobool.not, i32 -2, i32 %1
   %call = call i32 @wc_InitRsaKey_ex(ptr noundef nonnull %rsaKey, ptr noundef null, i32 noundef %cond) #16
   %cmp1 = icmp slt i32 %call, 0
   br i1 %cmp1, label %exit_bench_rsa, label %if.end
 
-if.end:                                           ; preds = %cond.end
+if.end:                                           ; preds = %entry
   %2 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gRng)
   %call4 = call i32 @wc_RsaSetRNG(ptr noundef nonnull %rsaKey, ptr noundef nonnull %2) #16
   %cmp5.not = icmp eq i32 %call4, 0
@@ -6896,7 +6787,7 @@ bench_rsa_helper.exit:                            ; preds = %for.end283.i, %if.t
   call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %message.i)
   br label %exit_bench_rsa
 
-exit_bench_rsa:                                   ; preds = %bench_rsa_helper.exit, %if.end, %cond.end, %if.then13
+exit_bench_rsa:                                   ; preds = %bench_rsa_helper.exit, %if.end, %entry, %if.then13
   %call27 = call i32 @wc_FreeRsaKey(ptr noundef nonnull %rsaKey) #16
   ret void
 }
@@ -6946,20 +6837,14 @@ if.end6:                                          ; preds = %entry, %if.then5
   %params.0 = phi ptr [ %call, %if.then5 ], [ null, %entry ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(3136) %dhKey, i8 0, i64 3136, i1 false)
   %tobool11.not = icmp eq i32 %useDeviceID, 0
-  br i1 %tobool11.not, label %cond.end, label %cond.true
-
-cond.true:                                        ; preds = %if.end6
   %1 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
   %2 = load i32, ptr %1, align 4
-  br label %cond.end
-
-cond.end:                                         ; preds = %if.end6, %cond.true
-  %cond = phi i32 [ %2, %cond.true ], [ -2, %if.end6 ]
+  %cond = select i1 %tobool11.not, i32 -2, i32 %2
   %call12 = call i32 @wc_InitDhKey_ex(ptr noundef nonnull %dhKey, ptr noundef null, i32 noundef %cond) #16
   %cmp13.not = icmp eq i32 %call12, 0
   br i1 %cmp13.not, label %if.end15, label %exit
 
-if.end15:                                         ; preds = %cond.end
+if.end15:                                         ; preds = %if.end6
   %.b = load i1, ptr @use_ffdhe, align 4
   br i1 %.b, label %if.else21, label %if.then17
 
@@ -7155,10 +7040,10 @@ bench_stats_check.exit89:                         ; preds = %for.end152
   %cmp.i83 = fcmp uge double %sub.i82, 1.000000e+00
   br i1 %cmp.i83, label %exit, label %do.body108, !llvm.loop !69
 
-exit:                                             ; preds = %bench_stats_check.exit89, %for.body123, %exit_dh_gen.thread, %cond.end, %if.then32
-  %count.3 = phi i32 [ 0, %if.then32 ], [ 0, %cond.end ], [ %count.0, %exit_dh_gen.thread ], [ %count.2, %for.body123 ], [ %add153, %bench_stats_check.exit89 ]
-  %ret.6 = phi i32 [ %ret.0, %if.then32 ], [ %call12, %cond.end ], [ %call69, %exit_dh_gen.thread ], [ %call140, %for.body123 ], [ %call140, %bench_stats_check.exit89 ]
-  %start.0 = phi double [ 0.000000e+00, %if.then32 ], [ 0.000000e+00, %cond.end ], [ %add.i.i, %exit_dh_gen.thread ], [ %add.i.i57, %for.body123 ], [ %add.i.i57, %bench_stats_check.exit89 ]
+exit:                                             ; preds = %bench_stats_check.exit89, %for.body123, %exit_dh_gen.thread, %if.end6, %if.then32
+  %count.3 = phi i32 [ 0, %if.then32 ], [ 0, %if.end6 ], [ %count.0, %exit_dh_gen.thread ], [ %count.2, %for.body123 ], [ %add153, %bench_stats_check.exit89 ]
+  %ret.6 = phi i32 [ %ret.0, %if.then32 ], [ %call12, %if.end6 ], [ %call69, %exit_dh_gen.thread ], [ %call140, %for.body123 ], [ %call140, %bench_stats_check.exit89 ]
+  %start.0 = phi double [ 0.000000e+00, %if.then32 ], [ 0.000000e+00, %if.end6 ], [ %add.i.i, %exit_dh_gen.thread ], [ %add.i.i57, %for.body123 ], [ %add.i.i57, %bench_stats_check.exit89 ]
   %arrayidx161 = getelementptr inbounds i8, ptr %arrayidx, i64 24
   %31 = load ptr, ptr %arrayidx161, align 8
   call fastcc void @bench_stats_asym_finish(ptr noundef nonnull @.str.72, i32 noundef 2048, ptr noundef %31, i32 noundef %count.3, double noundef %start.0, i32 noundef %ret.6)
@@ -7313,15 +7198,9 @@ entry:
   %name = alloca [24 x i8], align 16
   %0 = load i32, ptr @lng_index, align 4
   %tobool.not = icmp eq i32 %useDeviceID, 0
-  br i1 %tobool.not, label %cond.end, label %cond.true
-
-cond.true:                                        ; preds = %entry
   %1 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
   %2 = load i32, ptr %1, align 4
-  br label %cond.end
-
-cond.end:                                         ; preds = %entry, %cond.true
-  %cond = phi i32 [ %2, %cond.true ], [ -2, %entry ]
+  %cond = select i1 %tobool.not, i32 -2, i32 %2
   %call = tail call i32 @wc_ecc_get_curve_size_from_id(i32 noundef %curveId) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4200) %genKey, i8 0, i64 4200, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %tv.i.i)
@@ -7329,7 +7208,7 @@ cond.end:                                         ; preds = %entry, %cond.true
   %cmp.i.i = icmp slt i32 %call.i.i, 0
   br i1 %cmp.i.i, label %if.then.i.i, label %bench_stats_start.exit
 
-if.then.i.i:                                      ; preds = %cond.end
+if.then.i.i:                                      ; preds = %entry
   %call1.i.i = tail call ptr @__errno_location() #17
   %3 = load i32, ptr %call1.i.i, align 4
   %call2.i.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.76, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.77, i32 noundef 12507, i32 noundef %3, ptr noundef nonnull @.str.78)
@@ -7338,7 +7217,7 @@ if.then.i.i:                                      ; preds = %cond.end
   call void @_exit(i32 noundef 1) #18
   unreachable
 
-bench_stats_start.exit:                           ; preds = %cond.end
+bench_stats_start.exit:                           ; preds = %entry
   %5 = load i64, ptr %tv.i.i, align 8
   %conv.i.i = sitofp i64 %5 to double
   %tv_nsec.i.i = getelementptr inbounds i8, ptr %tv.i.i, i64 8
@@ -7444,15 +7323,9 @@ entry:
   %idxprom = sext i32 %0 to i64
   %arrayidx = getelementptr inbounds [2 x [15 x ptr]], ptr @bench_desc_words, i64 0, i64 %idxprom
   %tobool.not = icmp eq i32 %useDeviceID, 0
-  br i1 %tobool.not, label %cond.end, label %cond.true
-
-cond.true:                                        ; preds = %entry
   %1 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @devId)
   %2 = load i32, ptr %1, align 4
-  br label %cond.end
-
-cond.end:                                         ; preds = %entry, %cond.true
-  %cond = phi i32 [ %2, %cond.true ], [ -2, %entry ]
+  %cond = select i1 %tobool.not, i32 -2, i32 %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4200) %genKey, i8 0, i64 4200, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4200) %genKey2, i8 0, i64 4200, i1 false)
   %call = tail call i32 @wc_ecc_get_curve_size_from_id(i32 noundef %curveId) #16
@@ -7460,7 +7333,7 @@ cond.end:                                         ; preds = %entry, %cond.true
   %cmp10 = icmp slt i32 %call9, 0
   br i1 %cmp10, label %exit, label %if.end
 
-if.end:                                           ; preds = %cond.end
+if.end:                                           ; preds = %entry
   %3 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gRng)
   %call13 = call i32 @wc_ecc_make_key_ex(ptr noundef nonnull %3, i32 noundef %call, ptr noundef nonnull %genKey, i32 noundef %curveId) #16
   %cmp14 = icmp slt i32 %call13, 0
@@ -7780,7 +7653,7 @@ exit_ecdsa_verify:                                ; preds = %bench_stats_check.e
   call fastcc void @bench_stats_asym_finish(ptr noundef nonnull %name, i32 noundef %mul, ptr noundef %37, i32 noundef %count.5, double noundef %add.i.i124, i32 noundef %call217)
   br label %exit
 
-exit:                                             ; preds = %exit_ecdsa_sign, %exit_ecdhe, %if.end22, %if.end16, %if.end, %cond.end, %exit_ecdsa_verify
+exit:                                             ; preds = %exit_ecdsa_sign, %exit_ecdhe, %if.end22, %if.end16, %if.end, %entry, %exit_ecdsa_verify
   %call247 = call i32 @wc_ecc_free(ptr noundef nonnull %genKey) #16
   %call250 = call i32 @wc_ecc_free(ptr noundef nonnull %genKey2) #16
   ret void

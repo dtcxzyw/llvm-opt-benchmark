@@ -462,7 +462,7 @@ entry:
 
 entry.if.end_crit_edge.i:                         ; preds = %entry
   %.pre.i = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb16ThreadStatusUtil27thread_updater_local_cache_E)
-  %.pr = load ptr, ptr %.pre.i, align 8
+  %.pre = load ptr, ptr %.pre.i, align 8
   br label %_ZN7rocksdb16ThreadStatusUtil27MaybeInitThreadLocalUpdaterEPKNS_3EnvE.exit
 
 if.then.i:                                        ; preds = %entry
@@ -476,25 +476,23 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN7rocksdb16ThreadStatusUtil27MaybeInitThreadLocalUpdaterEPKNS_3EnvE.exit
 
 _ZN7rocksdb16ThreadStatusUtil27MaybeInitThreadLocalUpdaterEPKNS_3EnvE.exit: ; preds = %entry.if.end_crit_edge.i, %if.then.i
-  %4 = phi ptr [ %.pr, %entry.if.end_crit_edge.i ], [ %call.i, %if.then.i ]
-  %cmp1.i.not = icmp eq ptr %4, null
-  br i1 %cmp1.i.not, label %if.end3, label %if.end
+  %.pre-phi = phi ptr [ %.pre.i, %entry.if.end_crit_edge.i ], [ %3, %if.then.i ]
+  %4 = phi ptr [ %.pre, %entry.if.end_crit_edge.i ], [ %call.i, %if.then.i ]
+  %cmp1.i = icmp ne ptr %4, null
+  %5 = load ptr, ptr %.pre-phi, align 8
+  %tobool = icmp ne ptr %5, null
+  %or.cond = select i1 %cmp1.i, i1 %tobool, i1 false
+  br i1 %or.cond, label %if.then1, label %if.end3
 
-if.end:                                           ; preds = %_ZN7rocksdb16ThreadStatusUtil27MaybeInitThreadLocalUpdaterEPKNS_3EnvE.exit
-  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb16ThreadStatusUtil27thread_updater_local_cache_E)
-  %6 = load ptr, ptr %5, align 8
-  %tobool.not = icmp eq ptr %6, null
-  br i1 %tobool.not, label %if.end3, label %if.then1
-
-if.then1:                                         ; preds = %if.end
+if.then1:                                         ; preds = %_ZN7rocksdb16ThreadStatusUtil27MaybeInitThreadLocalUpdaterEPKNS_3EnvE.exit
   %vtable = load ptr, ptr %db, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 744
-  %7 = load ptr, ptr %vfn, align 8
-  %call2 = tail call noundef nonnull align 8 dereferenceable(32) ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %db)
-  tail call void @_ZN7rocksdb19ThreadStatusUpdater19NewColumnFamilyInfoEPKvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_SA_(ptr noundef nonnull align 8 dereferenceable(216) %6, ptr noundef nonnull %db, ptr noundef nonnull align 8 dereferenceable(32) %call2, ptr noundef %cfd, ptr noundef nonnull align 8 dereferenceable(32) %cf_name)
+  %6 = load ptr, ptr %vfn, align 8
+  %call2 = tail call noundef nonnull align 8 dereferenceable(32) ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %db)
+  tail call void @_ZN7rocksdb19ThreadStatusUpdater19NewColumnFamilyInfoEPKvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_SA_(ptr noundef nonnull align 8 dereferenceable(216) %5, ptr noundef nonnull %db, ptr noundef nonnull align 8 dereferenceable(32) %call2, ptr noundef %cfd, ptr noundef nonnull align 8 dereferenceable(32) %cf_name)
   br label %if.end3
 
-if.end3:                                          ; preds = %_ZN7rocksdb16ThreadStatusUtil27MaybeInitThreadLocalUpdaterEPKNS_3EnvE.exit, %if.then1, %if.end
+if.end3:                                          ; preds = %_ZN7rocksdb16ThreadStatusUtil27MaybeInitThreadLocalUpdaterEPKNS_3EnvE.exit, %if.then1
   ret void
 }
 

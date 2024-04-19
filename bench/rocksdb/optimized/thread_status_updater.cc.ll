@@ -408,37 +408,29 @@ entry:
 if.end.i.i:                                       ; preds = %entry
   %2 = load atomic i8, ptr %1 monotonic, align 1
   %tobool.i.i.i.i = trunc i8 %2 to i1
-  br i1 %tobool.i.i.i.i, label %_ZN7rocksdb19ThreadStatusUpdater16ClearThreadStateEv.exit, label %if.end.i.i2
+  br i1 %tobool.i.i.i.i, label %if.end.i, label %if.end.i.i2
 
-_ZN7rocksdb19ThreadStatusUpdater16ClearThreadStateEv.exit: ; preds = %if.end.i.i
+if.end.i:                                         ; preds = %if.end.i.i
   %state_type.i = getelementptr inbounds i8, ptr %1, i64 104
   store atomic i32 0, ptr %state_type.i monotonic, align 4
-  %.pr.pre = load ptr, ptr %0, align 8
-  %cmp.i.i1 = icmp eq ptr %.pr.pre, null
-  br i1 %cmp.i.i1, label %_ZN7rocksdb19ThreadStatusUpdater22SetColumnFamilyInfoKeyEPKv.exit, label %if.end.i.i2
+  br label %if.end.i.i2
 
-if.end.i.i2:                                      ; preds = %if.end.i.i, %_ZN7rocksdb19ThreadStatusUpdater16ClearThreadStateEv.exit
-  %.pr13 = phi ptr [ %.pr.pre, %_ZN7rocksdb19ThreadStatusUpdater16ClearThreadStateEv.exit ], [ %1, %if.end.i.i ]
-  %3 = load atomic i8, ptr %.pr13 monotonic, align 1
+if.end.i.i2:                                      ; preds = %if.end.i, %if.end.i.i
+  %3 = load atomic i8, ptr %1 monotonic, align 1
   %tobool.i.i.i.i3 = trunc i8 %3 to i1
-  br i1 %tobool.i.i.i.i3, label %if.end.i4, label %if.end.i5
+  br i1 %tobool.i.i.i.i3, label %if.end.i.i.i, label %if.end.i4
 
-if.end.i4:                                        ; preds = %if.end.i.i2
-  %operation_stage.i = getelementptr inbounds i8, ptr %.pr13, i64 48
+if.end.i.i.i:                                     ; preds = %if.end.i.i2
+  %operation_stage.i = getelementptr inbounds i8, ptr %1, i64 48
   store atomic i32 0, ptr %operation_stage.i monotonic, align 4
-  %operation_type.i = getelementptr inbounds i8, ptr %.pr13, i64 32
+  %operation_type.i = getelementptr inbounds i8, ptr %1, i64 32
   store atomic i32 0, ptr %operation_type.i monotonic, align 4
-  %4 = load ptr, ptr %0, align 8
-  %cmp.i.i.i = icmp eq ptr %4, null
-  br i1 %cmp.i.i.i, label %_ZN7rocksdb19ThreadStatusUpdater22SetColumnFamilyInfoKeyEPKv.exit, label %if.end.i.i.i
-
-if.end.i.i.i:                                     ; preds = %if.end.i4
-  %5 = load atomic i8, ptr %4 monotonic, align 1
-  %tobool.i.i.i.i.i = trunc i8 %5 to i1
-  br i1 %tobool.i.i.i.i.i, label %for.cond.preheader.i.i, label %if.end.i5
+  %4 = load atomic i8, ptr %1 monotonic, align 1
+  %tobool.i.i.i.i.i = trunc i8 %4 to i1
+  br i1 %tobool.i.i.i.i.i, label %for.cond.preheader.i.i, label %if.end.i4
 
 for.cond.preheader.i.i:                           ; preds = %if.end.i.i.i
-  %op_properties.i.i = getelementptr inbounds i8, ptr %4, i64 56
+  %op_properties.i.i = getelementptr inbounds i8, ptr %1, i64 56
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.cond.preheader.i.i
@@ -450,17 +442,17 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %exitcond.not.i.i, label %_ZN7rocksdb19ThreadStatusUpdater20ClearThreadOperationEv.exit, label %for.body.i.i, !llvm.loop !4
 
 _ZN7rocksdb19ThreadStatusUpdater20ClearThreadOperationEv.exit: ; preds = %for.body.i.i
-  %.pr7.pre = load ptr, ptr %0, align 8
-  %cmp.i = icmp eq ptr %.pr7.pre, null
-  br i1 %cmp.i, label %_ZN7rocksdb19ThreadStatusUpdater22SetColumnFamilyInfoKeyEPKv.exit, label %if.end.i5
+  %.pr6.pre = load ptr, ptr %0, align 8
+  %cmp.i = icmp eq ptr %.pr6.pre, null
+  br i1 %cmp.i, label %_ZN7rocksdb19ThreadStatusUpdater22SetColumnFamilyInfoKeyEPKv.exit, label %if.end.i4
 
-if.end.i5:                                        ; preds = %if.end.i.i.i, %if.end.i.i2, %_ZN7rocksdb19ThreadStatusUpdater20ClearThreadOperationEv.exit
-  %.pr716 = phi ptr [ %.pr7.pre, %_ZN7rocksdb19ThreadStatusUpdater20ClearThreadOperationEv.exit ], [ %4, %if.end.i.i.i ], [ %.pr13, %if.end.i.i2 ]
-  %cf_key2.i = getelementptr inbounds i8, ptr %.pr716, i64 24
+if.end.i4:                                        ; preds = %if.end.i.i.i, %if.end.i.i2, %_ZN7rocksdb19ThreadStatusUpdater20ClearThreadOperationEv.exit
+  %.pr611 = phi ptr [ %.pr6.pre, %_ZN7rocksdb19ThreadStatusUpdater20ClearThreadOperationEv.exit ], [ %1, %if.end.i.i2 ], [ %1, %if.end.i.i.i ]
+  %cf_key2.i = getelementptr inbounds i8, ptr %.pr611, i64 24
   store atomic i64 0, ptr %cf_key2.i monotonic, align 8
   br label %_ZN7rocksdb19ThreadStatusUpdater22SetColumnFamilyInfoKeyEPKv.exit
 
-_ZN7rocksdb19ThreadStatusUpdater22SetColumnFamilyInfoKeyEPKv.exit: ; preds = %entry, %if.end.i4, %_ZN7rocksdb19ThreadStatusUpdater16ClearThreadStateEv.exit, %_ZN7rocksdb19ThreadStatusUpdater20ClearThreadOperationEv.exit, %if.end.i5
+_ZN7rocksdb19ThreadStatusUpdater22SetColumnFamilyInfoKeyEPKv.exit: ; preds = %entry, %_ZN7rocksdb19ThreadStatusUpdater20ClearThreadOperationEv.exit, %if.end.i4
   ret void
 }
 
@@ -497,24 +489,19 @@ entry:
 if.end.i:                                         ; preds = %entry
   %2 = load atomic i8, ptr %1 monotonic, align 1
   %tobool.i.i.i = trunc i8 %2 to i1
-  br i1 %tobool.i.i.i, label %if.end, label %return
+  br i1 %tobool.i.i.i, label %if.end.i.i, label %return
 
-if.end:                                           ; preds = %if.end.i
+if.end.i.i:                                       ; preds = %if.end.i
   %operation_stage = getelementptr inbounds i8, ptr %1, i64 48
   store atomic i32 0, ptr %operation_stage monotonic, align 4
   %operation_type = getelementptr inbounds i8, ptr %1, i64 32
   store atomic i32 0, ptr %operation_type monotonic, align 4
-  %3 = load ptr, ptr %0, align 8
-  %cmp.i.i = icmp eq ptr %3, null
-  br i1 %cmp.i.i, label %return, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %if.end
-  %4 = load atomic i8, ptr %3 monotonic, align 1
-  %tobool.i.i.i.i = trunc i8 %4 to i1
+  %3 = load atomic i8, ptr %1 monotonic, align 1
+  %tobool.i.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i.i, label %for.cond.preheader.i, label %return
 
 for.cond.preheader.i:                             ; preds = %if.end.i.i
-  %op_properties.i = getelementptr inbounds i8, ptr %3, i64 56
+  %op_properties.i = getelementptr inbounds i8, ptr %1, i64 56
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.cond.preheader.i
@@ -525,7 +512,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.co
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !4
 
-return:                                           ; preds = %for.body.i, %if.end.i, %entry, %if.end.i.i, %if.end
+return:                                           ; preds = %for.body.i, %if.end.i, %entry, %if.end.i.i
   ret void
 }
 
@@ -624,22 +611,17 @@ if.end:                                           ; preds = %if.end.i
   %operation_type = getelementptr inbounds i8, ptr %1, i64 32
   store atomic i32 %type, ptr %operation_type release, align 4
   %cmp2 = icmp eq i32 %type, 0
-  br i1 %cmp2, label %if.then3, label %if.end4
+  br i1 %cmp2, label %if.end.i.i, label %if.end4
 
-if.then3:                                         ; preds = %if.end
+if.end.i.i:                                       ; preds = %if.end
   %operation_stage = getelementptr inbounds i8, ptr %1, i64 48
   store atomic i32 0, ptr %operation_stage monotonic, align 4
-  %3 = load ptr, ptr %0, align 8
-  %cmp.i.i = icmp eq ptr %3, null
-  br i1 %cmp.i.i, label %if.end4, label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %if.then3
-  %4 = load atomic i8, ptr %3 monotonic, align 1
-  %tobool.i.i.i.i = trunc i8 %4 to i1
+  %3 = load atomic i8, ptr %1 monotonic, align 1
+  %tobool.i.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i.i, label %for.cond.preheader.i, label %if.end4
 
 for.cond.preheader.i:                             ; preds = %if.end.i.i
-  %op_properties.i = getelementptr inbounds i8, ptr %3, i64 56
+  %op_properties.i = getelementptr inbounds i8, ptr %1, i64 56
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.cond.preheader.i
@@ -650,7 +632,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.co
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
   br i1 %exitcond.not.i, label %if.end4, label %for.body.i, !llvm.loop !4
 
-if.end4:                                          ; preds = %for.body.i, %if.end.i, %entry, %if.end.i.i, %if.then3, %if.end
+if.end4:                                          ; preds = %for.body.i, %if.end.i, %entry, %if.end.i.i, %if.end
   ret void
 }
 

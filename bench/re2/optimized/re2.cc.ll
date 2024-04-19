@@ -2285,7 +2285,7 @@ invoke.cont6.i:                                   ; preds = %invoke.cont4.i
           to label %_ZN10LogMessageC2EPKci.exit unwind label %lpad.i
 
 common.resume:                                    ; preds = %lpad, %lpad17, %lpad121, %lpad143, %lpad195, %lpad254, %lpad295, %lpad336, %lpad404, %lpad428, %lpad447, %lpad.i81, %lpad.i
-  %common.resume.op = phi { ptr, i32 } [ %1, %lpad.i ], [ %5, %lpad.i81 ], [ %6, %lpad17 ], [ %22, %lpad121 ], [ %63, %lpad404 ], [ %66, %lpad428 ], [ %68, %lpad447 ], [ %60, %lpad336 ], [ %31, %lpad143 ], [ %48, %lpad254 ], [ %49, %lpad295 ], [ %41, %lpad195 ], [ %3, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %1, %lpad.i ], [ %5, %lpad.i81 ], [ %6, %lpad17 ], [ %22, %lpad121 ], [ %61, %lpad404 ], [ %64, %lpad428 ], [ %66, %lpad447 ], [ %58, %lpad336 ], [ %30, %lpad143 ], [ %47, %lpad254 ], [ %48, %lpad295 ], [ %40, %lpad195 ], [ %3, %lpad ]
   resume { ptr, i32 } %common.resume.op
 
 lpad.i:                                           ; preds = %invoke.cont6.i, %invoke.cont4.i, %invoke.cont2.i, %if.then3
@@ -2540,10 +2540,9 @@ lpad121:                                          ; preds = %invoke.cont124, %sw
   br label %common.resume
 
 sw.bb:                                            ; preds = %if.end106
-  %23 = load ptr, ptr %prog_, align 8
-  %anchor_end_.i116 = getelementptr inbounds i8, ptr %23, i64 1
-  %24 = load i8, ptr %anchor_end_.i116, align 1
-  %tobool.i117 = trunc i8 %24 to i1
+  %anchor_end_.i116 = getelementptr inbounds i8, ptr %18, i64 1
+  %23 = load i8, ptr %anchor_end_.i116, align 1
+  %tobool.i117 = trunc i8 %23 to i1
   br i1 %tobool.i117, label %if.then130, label %if.end183
 
 if.then130:                                       ; preds = %sw.bb
@@ -2556,14 +2555,14 @@ if.end134:                                        ; preds = %if.then130
   br i1 %call136, label %if.end179, label %if.then137
 
 if.then137:                                       ; preds = %if.end134
-  %25 = load i8, ptr %dfa_failed, align 1
-  %tobool = trunc i8 %25 to i1
+  %24 = load i8, ptr %dfa_failed, align 1
+  %tobool = trunc i8 %24 to i1
   br i1 %tobool, label %if.then138, label %return
 
 if.then138:                                       ; preds = %if.then137
   %log_errors_.i118 = getelementptr inbounds i8, ptr %this, i64 22
-  %26 = load i8, ptr %log_errors_.i118, align 2
-  %tobool.i119 = trunc i8 %26 to i1
+  %25 = load i8, ptr %log_errors_.i118, align 2
+  %tobool.i119 = trunc i8 %25 to i1
   br i1 %tobool.i119, label %if.then141, label %if.else411
 
 if.then141:                                       ; preds = %if.then138
@@ -2577,8 +2576,8 @@ invoke.cont146:                                   ; preds = %if.then141
           to label %invoke.cont148 unwind label %lpad143
 
 invoke.cont148:                                   ; preds = %invoke.cont146
-  %27 = load ptr, ptr %this, align 8
-  %call150 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #28
+  %26 = load ptr, ptr %this, align 8
+  %call150 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %26) #28
   %call152 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call149, i64 noundef %call150)
           to label %invoke.cont151 unwind label %lpad143
 
@@ -2592,8 +2591,8 @@ invoke.cont153:                                   ; preds = %invoke.cont151
 
 invoke.cont155:                                   ; preds = %invoke.cont153
   %size_.i = getelementptr inbounds i8, ptr %call131, i64 16
-  %28 = load i32, ptr %size_.i, align 8
-  %call160 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call156, i32 noundef %28)
+  %27 = load i32, ptr %size_.i, align 8
+  %call160 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call156, i32 noundef %27)
           to label %invoke.cont159 unwind label %lpad143
 
 invoke.cont159:                                   ; preds = %invoke.cont155
@@ -2606,8 +2605,8 @@ invoke.cont161:                                   ; preds = %invoke.cont159
 
 invoke.cont163:                                   ; preds = %invoke.cont161
   %list_count_.i = getelementptr inbounds i8, ptr %call131, i64 48
-  %29 = load i32, ptr %list_count_.i, align 8
-  %call168 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call164, i32 noundef %29)
+  %28 = load i32, ptr %list_count_.i, align 8
+  %call168 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call164, i32 noundef %28)
           to label %invoke.cont167 unwind label %lpad143
 
 invoke.cont167:                                   ; preds = %invoke.cont163
@@ -2620,12 +2619,12 @@ invoke.cont169:                                   ; preds = %invoke.cont167
 
 invoke.cont171:                                   ; preds = %invoke.cont169
   %bytemap_range_.i = getelementptr inbounds i8, ptr %call131, i64 20
-  %30 = load i32, ptr %bytemap_range_.i, align 4
-  %call176 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call172, i32 noundef %30)
+  %29 = load i32, ptr %bytemap_range_.i, align 4
+  %call176 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call172, i32 noundef %29)
           to label %if.else411.sink.split unwind label %lpad143
 
 lpad143:                                          ; preds = %invoke.cont171, %invoke.cont169, %invoke.cont167, %invoke.cont163, %invoke.cont161, %invoke.cont159, %invoke.cont155, %invoke.cont153, %invoke.cont151, %invoke.cont148, %invoke.cont146, %if.then141
-  %31 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp142) #28
   br label %common.resume
@@ -2634,18 +2633,18 @@ if.end179:                                        ; preds = %if.end134
   br i1 %cmp44, label %return, label %sw.epilog
 
 if.end183:                                        ; preds = %sw.bb
-  %call187 = call noundef zeroext i1 @_ZN3re24Prog9SearchDFAEN4absl7debian211string_viewES3_NS0_6AnchorENS0_9MatchKindEPS3_PbPNS_10SparseSetTIvEE(ptr noundef nonnull align 8 dereferenceable(432) %23, ptr %subtext.sroa.0.0, i64 %subtext.sroa.11.0, ptr %text.coerce0, i64 %text.coerce1, i32 noundef 0, i32 noundef %.lobit, ptr noundef %spec.store.select, ptr noundef nonnull %dfa_failed, ptr noundef null)
+  %call187 = call noundef zeroext i1 @_ZN3re24Prog9SearchDFAEN4absl7debian211string_viewES3_NS0_6AnchorENS0_9MatchKindEPS3_PbPNS_10SparseSetTIvEE(ptr noundef nonnull align 8 dereferenceable(432) %18, ptr %subtext.sroa.0.0, i64 %subtext.sroa.11.0, ptr %text.coerce0, i64 %text.coerce1, i32 noundef 0, i32 noundef %.lobit, ptr noundef %spec.store.select, ptr noundef nonnull %dfa_failed, ptr noundef null)
   br i1 %call187, label %if.end235, label %if.then188
 
 if.then188:                                       ; preds = %if.end183
-  %32 = load i8, ptr %dfa_failed, align 1
-  %tobool189 = trunc i8 %32 to i1
+  %31 = load i8, ptr %dfa_failed, align 1
+  %tobool189 = trunc i8 %31 to i1
   br i1 %tobool189, label %if.then190, label %return
 
 if.then190:                                       ; preds = %if.then188
   %log_errors_.i121 = getelementptr inbounds i8, ptr %this, i64 22
-  %33 = load i8, ptr %log_errors_.i121, align 2
-  %tobool.i122 = trunc i8 %33 to i1
+  %32 = load i8, ptr %log_errors_.i121, align 2
+  %tobool.i122 = trunc i8 %32 to i1
   br i1 %tobool.i122, label %if.then193, label %if.else411
 
 if.then193:                                       ; preds = %if.then190
@@ -2659,8 +2658,8 @@ invoke.cont198:                                   ; preds = %if.then193
           to label %invoke.cont200 unwind label %lpad195
 
 invoke.cont200:                                   ; preds = %invoke.cont198
-  %34 = load ptr, ptr %this, align 8
-  %call203 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %34) #28
+  %33 = load ptr, ptr %this, align 8
+  %call203 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %33) #28
   %call205 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call201, i64 noundef %call203)
           to label %invoke.cont204 unwind label %lpad195
 
@@ -2673,10 +2672,10 @@ invoke.cont206:                                   ; preds = %invoke.cont204
           to label %invoke.cont208 unwind label %lpad195
 
 invoke.cont208:                                   ; preds = %invoke.cont206
-  %35 = load ptr, ptr %prog_, align 8
-  %size_.i124 = getelementptr inbounds i8, ptr %35, i64 16
-  %36 = load i32, ptr %size_.i124, align 8
-  %call214 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call209, i32 noundef %36)
+  %34 = load ptr, ptr %prog_, align 8
+  %size_.i124 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = load i32, ptr %size_.i124, align 8
+  %call214 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call209, i32 noundef %35)
           to label %invoke.cont213 unwind label %lpad195
 
 invoke.cont213:                                   ; preds = %invoke.cont208
@@ -2688,10 +2687,10 @@ invoke.cont215:                                   ; preds = %invoke.cont213
           to label %invoke.cont217 unwind label %lpad195
 
 invoke.cont217:                                   ; preds = %invoke.cont215
-  %37 = load ptr, ptr %prog_, align 8
-  %list_count_.i125 = getelementptr inbounds i8, ptr %37, i64 48
-  %38 = load i32, ptr %list_count_.i125, align 8
-  %call223 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call218, i32 noundef %38)
+  %36 = load ptr, ptr %prog_, align 8
+  %list_count_.i125 = getelementptr inbounds i8, ptr %36, i64 48
+  %37 = load i32, ptr %list_count_.i125, align 8
+  %call223 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call218, i32 noundef %37)
           to label %invoke.cont222 unwind label %lpad195
 
 invoke.cont222:                                   ; preds = %invoke.cont217
@@ -2703,14 +2702,14 @@ invoke.cont224:                                   ; preds = %invoke.cont222
           to label %invoke.cont226 unwind label %lpad195
 
 invoke.cont226:                                   ; preds = %invoke.cont224
-  %39 = load ptr, ptr %prog_, align 8
-  %bytemap_range_.i126 = getelementptr inbounds i8, ptr %39, i64 20
-  %40 = load i32, ptr %bytemap_range_.i126, align 4
-  %call232 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call227, i32 noundef %40)
+  %38 = load ptr, ptr %prog_, align 8
+  %bytemap_range_.i126 = getelementptr inbounds i8, ptr %38, i64 20
+  %39 = load i32, ptr %bytemap_range_.i126, align 4
+  %call232 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call227, i32 noundef %39)
           to label %if.else411.sink.split unwind label %lpad195
 
 lpad195:                                          ; preds = %invoke.cont226, %invoke.cont224, %invoke.cont222, %invoke.cont217, %invoke.cont215, %invoke.cont213, %invoke.cont208, %invoke.cont206, %invoke.cont204, %invoke.cont200, %invoke.cont198, %if.then193
-  %41 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp194) #28
   br label %common.resume
@@ -2731,11 +2730,11 @@ if.end243:                                        ; preds = %if.end238
   br i1 %call246, label %sw.epilog, label %if.then247
 
 if.then247:                                       ; preds = %if.end243
-  %42 = load i8, ptr %dfa_failed, align 1
-  %tobool248 = trunc i8 %42 to i1
+  %41 = load i8, ptr %dfa_failed, align 1
+  %tobool248 = trunc i8 %41 to i1
   %log_errors_.i127 = getelementptr inbounds i8, ptr %this, i64 22
-  %43 = load i8, ptr %log_errors_.i127, align 2
-  %tobool.i128 = trunc i8 %43 to i1
+  %42 = load i8, ptr %log_errors_.i127, align 2
+  %tobool.i128 = trunc i8 %42 to i1
   br i1 %tobool248, label %if.then249, label %if.end290
 
 if.then249:                                       ; preds = %if.then247
@@ -2752,8 +2751,8 @@ invoke.cont257:                                   ; preds = %if.then252
           to label %invoke.cont259 unwind label %lpad254
 
 invoke.cont259:                                   ; preds = %invoke.cont257
-  %44 = load ptr, ptr %this, align 8
-  %call262 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %44) #28
+  %43 = load ptr, ptr %this, align 8
+  %call262 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %43) #28
   %call264 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call260, i64 noundef %call262)
           to label %invoke.cont263 unwind label %lpad254
 
@@ -2767,8 +2766,8 @@ invoke.cont265:                                   ; preds = %invoke.cont263
 
 invoke.cont267:                                   ; preds = %invoke.cont265
   %size_.i130 = getelementptr inbounds i8, ptr %call240, i64 16
-  %45 = load i32, ptr %size_.i130, align 8
-  %call272 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call268, i32 noundef %45)
+  %44 = load i32, ptr %size_.i130, align 8
+  %call272 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call268, i32 noundef %44)
           to label %invoke.cont271 unwind label %lpad254
 
 invoke.cont271:                                   ; preds = %invoke.cont267
@@ -2781,8 +2780,8 @@ invoke.cont273:                                   ; preds = %invoke.cont271
 
 invoke.cont275:                                   ; preds = %invoke.cont273
   %list_count_.i131 = getelementptr inbounds i8, ptr %call240, i64 48
-  %46 = load i32, ptr %list_count_.i131, align 8
-  %call280 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call276, i32 noundef %46)
+  %45 = load i32, ptr %list_count_.i131, align 8
+  %call280 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call276, i32 noundef %45)
           to label %invoke.cont279 unwind label %lpad254
 
 invoke.cont279:                                   ; preds = %invoke.cont275
@@ -2795,12 +2794,12 @@ invoke.cont281:                                   ; preds = %invoke.cont279
 
 invoke.cont283:                                   ; preds = %invoke.cont281
   %bytemap_range_.i132 = getelementptr inbounds i8, ptr %call240, i64 20
-  %47 = load i32, ptr %bytemap_range_.i132, align 4
-  %call288 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call284, i32 noundef %47)
+  %46 = load i32, ptr %bytemap_range_.i132, align 4
+  %call288 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call284, i32 noundef %46)
           to label %if.else411.sink.split unwind label %lpad254
 
 lpad254:                                          ; preds = %invoke.cont283, %invoke.cont281, %invoke.cont279, %invoke.cont275, %invoke.cont273, %invoke.cont271, %invoke.cont267, %invoke.cont265, %invoke.cont263, %invoke.cont259, %invoke.cont257, %if.then252
-  %48 = landingpad { ptr, i32 }
+  %47 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp253) #28
   br label %common.resume
@@ -2815,7 +2814,7 @@ if.then293:                                       ; preds = %if.end290
           to label %return.sink.split unwind label %lpad295
 
 lpad295:                                          ; preds = %if.then293
-  %49 = landingpad { ptr, i32 }
+  %48 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp294) #28
   br label %common.resume
@@ -2845,19 +2844,18 @@ land.lhs.true318:                                 ; preds = %if.end316
   br i1 %or.cond3, label %if.end388, label %if.end324
 
 if.end324:                                        ; preds = %land.lhs.true318, %if.end316
-  %50 = load ptr, ptr %prog_, align 8
-  %call328 = call noundef zeroext i1 @_ZN3re24Prog9SearchDFAEN4absl7debian211string_viewES3_NS0_6AnchorENS0_9MatchKindEPS3_PbPNS_10SparseSetTIvEE(ptr noundef nonnull align 8 dereferenceable(432) %50, ptr %subtext.sroa.0.0, i64 %subtext.sroa.11.0, ptr %text.coerce0, i64 %text.coerce1, i32 noundef 1, i32 noundef %kind.0, ptr noundef nonnull %match, ptr noundef nonnull %dfa_failed, ptr noundef null)
+  %call328 = call noundef zeroext i1 @_ZN3re24Prog9SearchDFAEN4absl7debian211string_viewES3_NS0_6AnchorENS0_9MatchKindEPS3_PbPNS_10SparseSetTIvEE(ptr noundef nonnull align 8 dereferenceable(432) %18, ptr %subtext.sroa.0.0, i64 %subtext.sroa.11.0, ptr %text.coerce0, i64 %text.coerce1, i32 noundef 1, i32 noundef %kind.0, ptr noundef nonnull %match, ptr noundef nonnull %dfa_failed, ptr noundef null)
   br i1 %call328, label %sw.epilog, label %if.then329
 
 if.then329:                                       ; preds = %if.end324
-  %51 = load i8, ptr %dfa_failed, align 1
-  %tobool330 = trunc i8 %51 to i1
+  %49 = load i8, ptr %dfa_failed, align 1
+  %tobool330 = trunc i8 %49 to i1
   br i1 %tobool330, label %if.then331, label %return
 
 if.then331:                                       ; preds = %if.then329
   %log_errors_.i139 = getelementptr inbounds i8, ptr %this, i64 22
-  %52 = load i8, ptr %log_errors_.i139, align 2
-  %tobool.i140 = trunc i8 %52 to i1
+  %50 = load i8, ptr %log_errors_.i139, align 2
+  %tobool.i140 = trunc i8 %50 to i1
   br i1 %tobool.i140, label %if.then334, label %if.end388
 
 if.then334:                                       ; preds = %if.then331
@@ -2871,8 +2869,8 @@ invoke.cont339:                                   ; preds = %if.then334
           to label %invoke.cont341 unwind label %lpad336
 
 invoke.cont341:                                   ; preds = %invoke.cont339
-  %53 = load ptr, ptr %this, align 8
-  %call344 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %53) #28
+  %51 = load ptr, ptr %this, align 8
+  %call344 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %51) #28
   %call346 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8) %call342, i64 noundef %call344)
           to label %invoke.cont345 unwind label %lpad336
 
@@ -2885,10 +2883,10 @@ invoke.cont347:                                   ; preds = %invoke.cont345
           to label %invoke.cont349 unwind label %lpad336
 
 invoke.cont349:                                   ; preds = %invoke.cont347
-  %54 = load ptr, ptr %prog_, align 8
-  %size_.i142 = getelementptr inbounds i8, ptr %54, i64 16
-  %55 = load i32, ptr %size_.i142, align 8
-  %call355 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call350, i32 noundef %55)
+  %52 = load ptr, ptr %prog_, align 8
+  %size_.i142 = getelementptr inbounds i8, ptr %52, i64 16
+  %53 = load i32, ptr %size_.i142, align 8
+  %call355 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call350, i32 noundef %53)
           to label %invoke.cont354 unwind label %lpad336
 
 invoke.cont354:                                   ; preds = %invoke.cont349
@@ -2900,10 +2898,10 @@ invoke.cont356:                                   ; preds = %invoke.cont354
           to label %invoke.cont358 unwind label %lpad336
 
 invoke.cont358:                                   ; preds = %invoke.cont356
-  %56 = load ptr, ptr %prog_, align 8
-  %list_count_.i143 = getelementptr inbounds i8, ptr %56, i64 48
-  %57 = load i32, ptr %list_count_.i143, align 8
-  %call364 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call359, i32 noundef %57)
+  %54 = load ptr, ptr %prog_, align 8
+  %list_count_.i143 = getelementptr inbounds i8, ptr %54, i64 48
+  %55 = load i32, ptr %list_count_.i143, align 8
+  %call364 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call359, i32 noundef %55)
           to label %invoke.cont363 unwind label %lpad336
 
 invoke.cont363:                                   ; preds = %invoke.cont358
@@ -2915,10 +2913,10 @@ invoke.cont365:                                   ; preds = %invoke.cont363
           to label %invoke.cont367 unwind label %lpad336
 
 invoke.cont367:                                   ; preds = %invoke.cont365
-  %58 = load ptr, ptr %prog_, align 8
-  %bytemap_range_.i144 = getelementptr inbounds i8, ptr %58, i64 20
-  %59 = load i32, ptr %bytemap_range_.i144, align 4
-  %call373 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call368, i32 noundef %59)
+  %56 = load ptr, ptr %prog_, align 8
+  %bytemap_range_.i144 = getelementptr inbounds i8, ptr %56, i64 20
+  %57 = load i32, ptr %bytemap_range_.i144, align 4
+  %call373 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call368, i32 noundef %57)
           to label %invoke.cont372 unwind label %lpad336
 
 invoke.cont372:                                   ; preds = %invoke.cont367
@@ -2926,7 +2924,7 @@ invoke.cont372:                                   ; preds = %invoke.cont367
   br label %if.end388
 
 lpad336:                                          ; preds = %invoke.cont367, %invoke.cont365, %invoke.cont363, %invoke.cont358, %invoke.cont356, %invoke.cont354, %invoke.cont349, %invoke.cont347, %invoke.cont345, %invoke.cont341, %invoke.cont339, %if.then334
-  %60 = landingpad { ptr, i32 }
+  %58 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp335) #28
   br label %common.resume
@@ -2957,8 +2955,8 @@ if.end388:                                        ; preds = %if.then331, %invoke
   br i1 %17, label %if.then392, label %if.else411
 
 if.then392:                                       ; preds = %if.end388
-  %61 = load ptr, ptr %prog_, align 8
-  %call396 = call noundef zeroext i1 @_ZN3re24Prog13SearchOnePassEN4absl7debian211string_viewES3_NS0_6AnchorENS0_9MatchKindEPS3_i(ptr noundef nonnull align 8 dereferenceable(432) %61, ptr %subtext1.sroa.0.0, i64 %subtext1.sroa.6.0, ptr %text.coerce0, i64 %text.coerce1, i32 noundef 1, i32 noundef %kind.2, ptr noundef %submatch, i32 noundef %spec.select)
+  %59 = load ptr, ptr %prog_, align 8
+  %call396 = call noundef zeroext i1 @_ZN3re24Prog13SearchOnePassEN4absl7debian211string_viewES3_NS0_6AnchorENS0_9MatchKindEPS3_i(ptr noundef nonnull align 8 dereferenceable(432) %59, ptr %subtext1.sroa.0.0, i64 %subtext1.sroa.6.0, ptr %text.coerce0, i64 %text.coerce1, i32 noundef 1, i32 noundef %kind.2, ptr noundef %submatch, i32 noundef %spec.select)
   br i1 %call396, label %if.end456, label %if.then397
 
 if.then397:                                       ; preds = %if.then392
@@ -2966,8 +2964,8 @@ if.then397:                                       ; preds = %if.then392
 
 land.lhs.true399:                                 ; preds = %if.then397
   %log_errors_.i145 = getelementptr inbounds i8, ptr %this, i64 22
-  %62 = load i8, ptr %log_errors_.i145, align 2
-  %tobool.i146 = trunc i8 %62 to i1
+  %60 = load i8, ptr %log_errors_.i145, align 2
+  %tobool.i146 = trunc i8 %60 to i1
   br i1 %tobool.i146, label %if.then402, label %return
 
 if.then402:                                       ; preds = %land.lhs.true399
@@ -2977,7 +2975,7 @@ if.then402:                                       ; preds = %land.lhs.true399
           to label %return.sink.split unwind label %lpad404
 
 lpad404:                                          ; preds = %if.then402
-  %63 = landingpad { ptr, i32 }
+  %61 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp403) #28
   br label %common.resume
@@ -2995,11 +2993,11 @@ if.else411:                                       ; preds = %if.else411.sink.spl
   %skipped_test.0193201210 = phi i1 [ %skipped_test.0193201, %if.end388 ], [ true, %if.then249 ], [ true, %if.end238 ], [ true, %if.then190 ], [ true, %if.then138 ], [ true, %if.then130 ], [ true, %if.else411.sink.split ]
   %cmp415.not = icmp ugt i64 %subtext1.sroa.6.0212, %20
   %or.cond219 = select i1 %cmp.i114.not220, i1 true, i1 %cmp415.not
-  %64 = load ptr, ptr %prog_, align 8
+  %62 = load ptr, ptr %prog_, align 8
   br i1 %or.cond219, label %if.else435, label %if.then416
 
 if.then416:                                       ; preds = %if.else411
-  %call420 = call noundef zeroext i1 @_ZN3re24Prog14SearchBitStateEN4absl7debian211string_viewES3_NS0_6AnchorENS0_9MatchKindEPS3_i(ptr noundef nonnull align 8 dereferenceable(432) %64, ptr %subtext1.sroa.0.0211, i64 %subtext1.sroa.6.0212, ptr %text.coerce0, i64 %text.coerce1, i32 noundef %anchor.1214, i32 noundef %kind.2213, ptr noundef %submatch, i32 noundef %spec.select)
+  %call420 = call noundef zeroext i1 @_ZN3re24Prog14SearchBitStateEN4absl7debian211string_viewES3_NS0_6AnchorENS0_9MatchKindEPS3_i(ptr noundef nonnull align 8 dereferenceable(432) %62, ptr %subtext1.sroa.0.0211, i64 %subtext1.sroa.6.0212, ptr %text.coerce0, i64 %text.coerce1, i32 noundef %anchor.1214, i32 noundef %kind.2213, ptr noundef %submatch, i32 noundef %spec.select)
   br i1 %call420, label %if.end456, label %if.then421
 
 if.then421:                                       ; preds = %if.then416
@@ -3007,8 +3005,8 @@ if.then421:                                       ; preds = %if.then416
 
 land.lhs.true423:                                 ; preds = %if.then421
   %log_errors_.i149 = getelementptr inbounds i8, ptr %this, i64 22
-  %65 = load i8, ptr %log_errors_.i149, align 2
-  %tobool.i150 = trunc i8 %65 to i1
+  %63 = load i8, ptr %log_errors_.i149, align 2
+  %tobool.i150 = trunc i8 %63 to i1
   br i1 %tobool.i150, label %if.then426, label %return
 
 if.then426:                                       ; preds = %land.lhs.true423
@@ -3018,13 +3016,13 @@ if.then426:                                       ; preds = %land.lhs.true423
           to label %return.sink.split unwind label %lpad428
 
 lpad428:                                          ; preds = %if.then426
-  %66 = landingpad { ptr, i32 }
+  %64 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp427) #28
   br label %common.resume
 
 if.else435:                                       ; preds = %if.else411
-  %call439 = call noundef zeroext i1 @_ZN3re24Prog9SearchNFAEN4absl7debian211string_viewES3_NS0_6AnchorENS0_9MatchKindEPS3_i(ptr noundef nonnull align 8 dereferenceable(432) %64, ptr %subtext1.sroa.0.0211, i64 %subtext1.sroa.6.0212, ptr %text.coerce0, i64 %text.coerce1, i32 noundef %anchor.1214, i32 noundef %kind.2213, ptr noundef %submatch, i32 noundef %spec.select)
+  %call439 = call noundef zeroext i1 @_ZN3re24Prog9SearchNFAEN4absl7debian211string_viewES3_NS0_6AnchorENS0_9MatchKindEPS3_i(ptr noundef nonnull align 8 dereferenceable(432) %62, ptr %subtext1.sroa.0.0211, i64 %subtext1.sroa.6.0212, ptr %text.coerce0, i64 %text.coerce1, i32 noundef %anchor.1214, i32 noundef %kind.2213, ptr noundef %submatch, i32 noundef %spec.select)
   br i1 %call439, label %if.end456, label %if.then440
 
 if.then440:                                       ; preds = %if.else435
@@ -3032,8 +3030,8 @@ if.then440:                                       ; preds = %if.else435
 
 land.lhs.true442:                                 ; preds = %if.then440
   %log_errors_.i152 = getelementptr inbounds i8, ptr %this, i64 22
-  %67 = load i8, ptr %log_errors_.i152, align 2
-  %tobool.i153 = trunc i8 %67 to i1
+  %65 = load i8, ptr %log_errors_.i152, align 2
+  %tobool.i153 = trunc i8 %65 to i1
   br i1 %tobool.i153, label %if.then445, label %return
 
 if.then445:                                       ; preds = %land.lhs.true442
@@ -3043,7 +3041,7 @@ if.then445:                                       ; preds = %land.lhs.true442
           to label %return.sink.split unwind label %lpad447
 
 lpad447:                                          ; preds = %if.then445
-  %68 = landingpad { ptr, i32 }
+  %66 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN10LogMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %ref.tmp446) #28
   br label %common.resume
@@ -3056,8 +3054,8 @@ if.end456:                                        ; preds = %if.then392, %if.els
 
 if.then460:                                       ; preds = %if.end456
   %length_.i155 = getelementptr inbounds i8, ptr %submatch, i64 8
-  %69 = load i64, ptr %length_.i155, align 8
-  %add466 = add i64 %69, %prefixlen.0
+  %67 = load i64, ptr %length_.i155, align 8
+  %add466 = add i64 %67, %prefixlen.0
   %cmp.i.i = icmp sgt i64 %add466, -1
   br i1 %cmp.i.i, label %_ZN4absl7debian211string_viewC2EPKcm.exit, label %cond.false.i.i
 
@@ -3066,9 +3064,9 @@ cond.false.i.i:                                   ; preds = %if.then460
   unreachable
 
 _ZN4absl7debian211string_viewC2EPKcm.exit:        ; preds = %if.then460
-  %70 = load ptr, ptr %submatch, align 8
+  %68 = load ptr, ptr %submatch, align 8
   %idx.neg = sub i64 0, %prefixlen.0
-  %add.ptr = getelementptr inbounds i8, ptr %70, i64 %idx.neg
+  %add.ptr = getelementptr inbounds i8, ptr %68, i64 %idx.neg
   store ptr %add.ptr, ptr %submatch, align 8
   store i64 %add466, ptr %length_.i155, align 8
   br label %if.end468
@@ -3078,12 +3076,12 @@ if.end468:                                        ; preds = %_ZN4absl7debian211s
   br i1 %cmp469222, label %for.body.preheader, label %return
 
 for.body.preheader:                               ; preds = %if.end468
-  %71 = sext i32 %spec.select to i64
+  %69 = sext i32 %spec.select to i64
   %wide.trip.count = sext i32 %nsubmatch to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv = phi i64 [ %71, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
+  %indvars.iv = phi i64 [ %69, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %arrayidx471 = getelementptr inbounds %"class.absl::debian2::string_view", ptr %submatch, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx471, i8 0, i64 16, i1 false)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1

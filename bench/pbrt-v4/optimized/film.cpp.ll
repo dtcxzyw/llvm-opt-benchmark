@@ -8848,17 +8848,8 @@ invoke.cont31:                                    ; preds = %invoke.cont18
   %15 = load i64, ptr %14, align 8
   %add29 = add i64 %mul28, %15
   store i64 %add29, ptr %14, align 8
-  %agg.tmp.sroa.0.0.copyload.i30 = load i64, ptr %pixelBounds19, align 8
-  %p.sroa.0.0.extract.trunc.i.i31 = trunc i64 %agg.tmp.sroa.0.0.copyload.i30 to i32
-  %p.sroa.2.0.extract.shift.i.i32 = lshr i64 %agg.tmp.sroa.0.0.copyload.i30, 32
-  %p.sroa.2.0.extract.trunc.i.i33 = trunc nuw i64 %p.sroa.2.0.extract.shift.i.i32 to i32
-  %16 = load i32, ptr %pMax.i, align 8
-  %sub.i.i34 = sub nsw i32 %16, %p.sroa.0.0.extract.trunc.i.i31
-  %17 = load i32, ptr %y5.i, align 4
-  %sub4.i.i36 = sub nsw i32 %17, %p.sroa.2.0.extract.trunc.i.i33
-  %mul.i37 = mul nsw i32 %sub4.i.i36, %sub.i.i34
   %mul33 = shl nsw i32 %nBuckets, 1
-  %mul34 = mul nsw i32 %mul.i37, %mul33
+  %mul34 = mul nsw i32 %mul.i, %mul33
   %conv35 = sext i32 %mul34 to i64
   %mul.i38 = shl nsw i64 %conv35, 3
   %cmp.i.i.i = icmp eq i32 %mul34, 0
@@ -8867,14 +8858,14 @@ invoke.cont31:                                    ; preds = %invoke.cont18
 if.end.i.i.i:                                     ; preds = %invoke.cont31
   %vtable.i.i.i = load ptr, ptr %alloc.coerce, align 8
   %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 16
-  %18 = load ptr, ptr %vfn.i.i.i, align 8
-  %call.i.i.i39 = invoke noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef %mul.i38, i64 noundef 8)
+  %16 = load ptr, ptr %vfn.i.i.i, align 8
+  %call.i.i.i39 = invoke noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef %mul.i38, i64 noundef 8)
           to label %invoke.cont36 unwind label %lpad14
 
 invoke.cont36:                                    ; preds = %invoke.cont31, %if.end.i.i.i
   %retval.0.i.i.i = phi ptr [ null, %invoke.cont31 ], [ %call.i.i.i39, %if.end.i.i.i ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i, i8 0, i64 %mul.i38, i1 false)
-  %mul42 = mul nsw i32 %mul.i37, %nBuckets
+  %mul42 = mul nsw i32 %mul.i, %nBuckets
   %conv43 = sext i32 %mul42 to i64
   %mul.i40 = shl nsw i64 %conv43, 3
   %cmp.i.i.i41 = icmp eq i32 %mul42, 0
@@ -8883,22 +8874,22 @@ invoke.cont36:                                    ; preds = %invoke.cont31, %if.
 if.end.i.i.i42:                                   ; preds = %invoke.cont36
   %vtable.i.i.i43 = load ptr, ptr %alloc.coerce, align 8
   %vfn.i.i.i44 = getelementptr inbounds i8, ptr %vtable.i.i.i43, i64 16
-  %19 = load ptr, ptr %vfn.i.i.i44, align 8
-  %call.i.i.i47 = invoke noundef ptr %19(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef %mul.i40, i64 noundef 8)
+  %17 = load ptr, ptr %vfn.i.i.i44, align 8
+  %call.i.i.i47 = invoke noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(8) %alloc.coerce, i64 noundef %mul.i40, i64 noundef 8)
           to label %invoke.cont52 unwind label %lpad14
 
 invoke.cont52:                                    ; preds = %invoke.cont36, %if.end.i.i.i42
   %retval.0.i.i.i45 = phi ptr [ null, %invoke.cont36 ], [ %call.i.i.i47, %if.end.i.i.i42 ]
   call void @llvm.memset.p0.i64(ptr align 8 %retval.0.i.i.i45, i8 0, i64 %mul.i40, i1 false)
-  %20 = load i64, ptr %pixelBounds19, align 8
-  %__begin1.sroa.0.0.extract.trunc = trunc i64 %20 to i32
-  %__begin1.sroa.7.0.extract.shift = lshr i64 %20, 32
+  %18 = load i64, ptr %pixelBounds19, align 8
+  %__begin1.sroa.0.0.extract.trunc = trunc i64 %18 to i32
+  %__begin1.sroa.7.0.extract.shift = lshr i64 %18, 32
   %__begin1.sroa.7.0.extract.trunc = trunc nuw i64 %__begin1.sroa.7.0.extract.shift to i32
-  %21 = load i32, ptr %y5.i, align 4
-  %22 = load i32, ptr %pMax.i, align 8
-  %cmp.not.i50 = icmp sle i32 %22, %__begin1.sroa.0.0.extract.trunc
-  %23 = call i32 @llvm.smax.i32(i32 %21, i32 %__begin1.sroa.7.0.extract.trunc)
-  %cmp4.i.i76.not81 = icmp sle i32 %21, %__begin1.sroa.7.0.extract.trunc
+  %19 = load i32, ptr %y5.i, align 4
+  %20 = load i32, ptr %pMax.i, align 8
+  %cmp.not.i50 = icmp sle i32 %20, %__begin1.sroa.0.0.extract.trunc
+  %21 = call i32 @llvm.smax.i32(i32 %19, i32 %__begin1.sroa.7.0.extract.trunc)
+  %cmp4.i.i76.not81 = icmp sle i32 %19, %__begin1.sroa.7.0.extract.trunc
   %cmp4.i.i76.not = select i1 %cmp.not.i50, i1 true, i1 %cmp4.i.i76.not81
   br i1 %cmp4.i.i76.not, label %for.end, label %for.body.lr.ph
 
@@ -8913,17 +8904,17 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %splatBuffer.079 = phi ptr [ %retval.0.i.i.i45, %for.body.lr.ph ], [ %add.ptr67, %for.body ]
   %__begin1.sroa.7.078 = phi i32 [ %__begin1.sroa.7.0.extract.trunc, %for.body.lr.ph ], [ %__begin1.sroa.7.1, %for.body ]
   %__begin1.sroa.0.077 = phi i32 [ %__begin1.sroa.0.0.extract.trunc, %for.body.lr.ph ], [ %__begin1.sroa.0.1, %for.body ]
-  %24 = load i32, ptr %pixels, align 8
-  %sub.i = sub i32 %__begin1.sroa.0.077, %24
-  %25 = load i32, ptr %y.i55, align 4
-  %sub6.i = sub nsw i32 %__begin1.sroa.7.078, %25
-  %26 = load ptr, ptr %values.i56, align 8
-  %27 = load i32, ptr %extent.sroa.3.0.this.sroa_idx.i, align 8
-  %sub13.i = sub nsw i32 %27, %24
+  %22 = load i32, ptr %pixels, align 8
+  %sub.i = sub i32 %__begin1.sroa.0.077, %22
+  %23 = load i32, ptr %y.i55, align 4
+  %sub6.i = sub nsw i32 %__begin1.sroa.7.078, %23
+  %24 = load ptr, ptr %values.i56, align 8
+  %25 = load i32, ptr %extent.sroa.3.0.this.sroa_idx.i, align 8
+  %sub13.i = sub nsw i32 %25, %22
   %mul.i58 = mul nsw i32 %sub13.i, %sub6.i
   %add.i = add nsw i32 %sub.i, %mul.i58
   %idxprom.i = sext i32 %add.i to i64
-  %arrayidx.i = getelementptr inbounds %"struct.pbrt::SpectralFilm::Pixel", ptr %26, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds %"struct.pbrt::SpectralFilm::Pixel", ptr %24, i64 %idxprom.i
   %bucketSums = getelementptr inbounds i8, ptr %arrayidx.i, i64 56
   store ptr %bucketWeightBuffer.080, ptr %bucketSums, align 8
   %add.ptr = getelementptr inbounds double, ptr %bucketWeightBuffer.080, i64 %idx.ext
@@ -8932,18 +8923,18 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %bucketSplats = getelementptr inbounds i8, ptr %arrayidx.i, i64 72
   store ptr %splatBuffer.079, ptr %bucketSplats, align 8
   %inc.i.i = add nsw i32 %__begin1.sroa.0.077, 1
-  %28 = load i32, ptr %pMax.i, align 8
-  %cmp.i.i = icmp eq i32 %inc.i.i, %28
-  %29 = load i32, ptr %pixelBounds19, align 8
-  %__begin1.sroa.0.1 = select i1 %cmp.i.i, i32 %29, i32 %inc.i.i
+  %26 = load i32, ptr %pMax.i, align 8
+  %cmp.i.i = icmp eq i32 %inc.i.i, %26
+  %27 = load i32, ptr %pixelBounds19, align 8
+  %__begin1.sroa.0.1 = select i1 %cmp.i.i, i32 %27, i32 %inc.i.i
   %inc10.i.i = zext i1 %cmp.i.i to i32
   %__begin1.sroa.7.1 = add nsw i32 %__begin1.sroa.7.078, %inc10.i.i
   %add.ptr67 = getelementptr inbounds i8, ptr %splatBuffer.079, i64 32
   %add.ptr66 = getelementptr inbounds double, ptr %add.ptr, i64 %idx.ext
   %cmp.not.i.i = icmp ne i32 %__begin1.sroa.0.1, %__begin1.sroa.0.0.extract.trunc
-  %cmp4.i.i = icmp ne i32 %__begin1.sroa.7.1, %23
-  %30 = select i1 %cmp.not.i.i, i1 true, i1 %cmp4.i.i
-  br i1 %30, label %for.body, label %for.end
+  %cmp4.i.i = icmp ne i32 %__begin1.sroa.7.1, %21
+  %28 = select i1 %cmp.not.i.i, i1 true, i1 %cmp4.i.i
+  br i1 %28, label %for.body, label %for.end
 
 for.end:                                          ; preds = %for.body, %invoke.cont52
   ret void

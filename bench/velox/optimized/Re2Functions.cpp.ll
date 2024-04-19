@@ -18801,7 +18801,11 @@ _ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20Si
   %4 = load i64, ptr %3, align 8
   %conv.i.i.i = zext i32 %1 to i64
   %cmp.i.not.i.i = icmp ugt i64 %4, %conv.i.i.i
-  br i1 %cmp.i.not.i.i, label %_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i, label %if.then.i.i.i
+  br i1 %cmp.i.not.i.i, label %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i, label %if.then.i.i.i
+
+entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i: ; preds = %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit
+  %.pre.i.i = load ptr, ptr %2, align 8
+  br label %_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i
 
 if.then.i.i.i:                                    ; preds = %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit
   %5 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIvvEEvEERT_vE3arg acquire, align 8
@@ -18828,20 +18832,20 @@ if.then.i5.i.i:                                   ; preds = %_ZN5folly18threadlo
   tail call void @_ZN5folly18threadlocal_detail14StaticMetaBase7reserveEPNS1_7EntryIDE(ptr noundef nonnull align 8 dereferenceable(153) %cond.i.i.i.i.i, ptr noundef nonnull %cond.i)
   %8 = load atomic i32, ptr %cond.i acquire, align 4
   %.pre.i.i.i = load ptr, ptr %2, align 8
-  %.pre7.i.i = zext i32 %8 to i64
+  %.pre8.i.i = zext i32 %8 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i: ; preds = %if.then.i5.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i
-  %.pre.pre-phi.i.i = phi i64 [ %conv.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i ], [ %.pre7.i.i, %if.then.i5.i.i ]
+  %.pre7.pre-phi.i.i = phi i64 [ %conv.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i ], [ %.pre8.i.i, %if.then.i5.i.i ]
   %9 = phi ptr [ %call1.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i ], [ %.pre.i.i.i, %if.then.i5.i.i ]
   %elementsCapacity.i6.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load atomic i64, ptr %elementsCapacity.i6.i.i.i monotonic, align 8
   store i64 %10, ptr %3, align 8
   br label %_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i
 
-_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i, %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit
-  %idxprom.i.pre-phi.i.i = phi i64 [ %.pre.pre-phi.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i ], [ %conv.i.i.i, %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit ]
-  %11 = load ptr, ptr %2, align 8
+_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i
+  %idxprom.i.pre-phi.i.i = phi i64 [ %conv.i.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i ], [ %.pre7.pre-phi.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i ]
+  %11 = phi ptr [ %.pre.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i ], [ %9, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i ]
   %12 = load ptr, ptr %11, align 8
   %arrayidx.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %12, i64 %idxprom.i.pre-phi.i.i
   %13 = load ptr, ptr %arrayidx.i.i.i, align 8
@@ -18852,9 +18856,9 @@ cond.false.i.i:                                   ; preds = %_ZNK5folly14ThreadL
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %cond.i, i64 24
   %14 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %14, null
-  br i1 %tobool.not.i.i.i.i, label %if.then.i.i2.i, label %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
+  br i1 %tobool.not.i.i.i.i, label %if.then.i.i3.i, label %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
 
-if.then.i.i2.i:                                   ; preds = %cond.false.i.i
+if.then.i.i3.i:                                   ; preds = %cond.false.i.i
   tail call void @_ZSt25__throw_bad_function_callv() #37
   unreachable
 
@@ -18871,7 +18875,11 @@ _ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_G
   %17 = load i64, ptr %3, align 8
   %conv.i17.i.i.i = zext i32 %16 to i64
   %cmp.i18.not.i.i.i = icmp ugt i64 %17, %conv.i17.i.i.i
-  br i1 %cmp.i18.not.i.i.i, label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23.i.i.i, label %if.then.i21.i.i.i
+  br i1 %cmp.i18.not.i.i.i, label %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23_crit_edge.i.i.i, label %if.then.i21.i.i.i
+
+entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23_crit_edge.i.i.i: ; preds = %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
+  %.pre.i.i2.i = load ptr, ptr %2, align 8
+  br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23.i.i.i
 
 if.then.i21.i.i.i:                                ; preds = %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
   %18 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIvvEEvEERT_vE3arg acquire, align 8
@@ -18904,20 +18912,20 @@ if.then.i13.i.i.i:                                ; preds = %call1.i.noexc.i.i.i
 .noexc.i.i.i:                                     ; preds = %if.then.i13.i.i.i
   %21 = load atomic i32, ptr %cond.i acquire, align 4
   %.pre.i.i.i.i = load ptr, ptr %2, align 8
-  %.pre56.i.i.i = zext i32 %21 to i64
+  %.pre58.i.i.i = zext i32 %21 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i: ; preds = %.noexc.i.i.i, %call1.i.noexc.i.i.i
-  %.pre.pre-phi.i.i.i = phi i64 [ %conv.i17.i.i.i, %call1.i.noexc.i.i.i ], [ %.pre56.i.i.i, %.noexc.i.i.i ]
+  %.pre54.pre-phi.i.i.i = phi i64 [ %conv.i17.i.i.i, %call1.i.noexc.i.i.i ], [ %.pre58.i.i.i, %.noexc.i.i.i ]
   %22 = phi ptr [ %call1.i15.i.i.i, %call1.i.noexc.i.i.i ], [ %.pre.i.i.i.i, %.noexc.i.i.i ]
   %elementsCapacity.i6.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load atomic i64, ptr %elementsCapacity.i6.i.i.i.i monotonic, align 8
   store i64 %23, ptr %3, align 8
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23.i.i.i
 
-_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i, %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
-  %idxprom.i19.pre-phi.i.i.i = phi i64 [ %.pre.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i ], [ %conv.i17.i.i.i, %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i ]
-  %24 = load ptr, ptr %2, align 8
+_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23_crit_edge.i.i.i
+  %idxprom.i19.pre-phi.i.i.i = phi i64 [ %conv.i17.i.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23_crit_edge.i.i.i ], [ %.pre54.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i ]
+  %24 = phi ptr [ %.pre.i.i2.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit23_crit_edge.i.i.i ], [ %22, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i ]
   %25 = load ptr, ptr %24, align 8
   %arrayidx.i20.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %25, i64 %idxprom.i19.pre-phi.i.i.i
   %26 = load ptr, ptr %arrayidx.i20.i.i.i, align 8
@@ -18969,7 +18977,11 @@ invoke.cont2.i.i.i:                               ; preds = %cond.false12.i.i.i.
   %33 = load i64, ptr %3, align 8
   %conv.i.i.i.i = zext i32 %32 to i64
   %cmp.i.not.i.i.i = icmp ugt i64 %33, %conv.i.i.i.i
-  br i1 %cmp.i.not.i.i.i, label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i, label %if.then.i.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i, label %if.then.i.i.i.i
+
+invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i: ; preds = %invoke.cont2.i.i.i
+  %.pre55.i.i.i = load ptr, ptr %2, align 8
+  br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont2.i.i.i
   %34 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIvvEEvEERT_vE3arg acquire, align 8
@@ -19002,20 +19014,20 @@ if.then.i27.i.i.i:                                ; preds = %call1.i.noexc33.i.i
 .noexc35.i.i.i:                                   ; preds = %if.then.i27.i.i.i
   %37 = load atomic i32, ptr %cond.i acquire, align 4
   %.pre.i28.i.i.i = load ptr, ptr %2, align 8
-  %.pre55.i.i.i = zext i32 %37 to i64
+  %.pre57.i.i.i = zext i32 %37 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i: ; preds = %.noexc35.i.i.i, %call1.i.noexc33.i.i.i
-  %.pre54.pre-phi.i.i.i = phi i64 [ %conv.i.i.i.i, %call1.i.noexc33.i.i.i ], [ %.pre55.i.i.i, %.noexc35.i.i.i ]
+  %.pre56.pre-phi.i.i.i = phi i64 [ %conv.i.i.i.i, %call1.i.noexc33.i.i.i ], [ %.pre57.i.i.i, %.noexc35.i.i.i ]
   %38 = phi ptr [ %call1.i34.i.i.i, %call1.i.noexc33.i.i.i ], [ %.pre.i28.i.i.i, %.noexc35.i.i.i ]
   %elementsCapacity.i6.i29.i.i.i = getelementptr inbounds i8, ptr %38, i64 8
   %39 = load atomic i64, ptr %elementsCapacity.i6.i29.i.i.i monotonic, align 8
   store i64 %39, ptr %3, align 8
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i
 
-_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i, %invoke.cont2.i.i.i
-  %idxprom.i.pre-phi.i.i.i = phi i64 [ %.pre54.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i ], [ %conv.i.i.i.i, %invoke.cont2.i.i.i ]
-  %40 = load ptr, ptr %2, align 8
+_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i
+  %idxprom.i.pre-phi.i.i.i = phi i64 [ %conv.i.i.i.i, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i ], [ %.pre56.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i ]
+  %40 = phi ptr [ %.pre55.i.i.i, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i ], [ %38, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i ]
   %41 = load ptr, ptr %40, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %41, i64 %idxprom.i.pre-phi.i.i.i
   %ownsDeleter.i37.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 16
@@ -24838,7 +24850,11 @@ _ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20Si
   %4 = load i64, ptr %3, align 8
   %conv.i.i.i = zext i32 %1 to i64
   %cmp.i.not.i.i = icmp ugt i64 %4, %conv.i.i.i
-  br i1 %cmp.i.not.i.i, label %_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i, label %if.then.i.i.i
+  br i1 %cmp.i.not.i.i, label %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i, label %if.then.i.i.i
+
+entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i: ; preds = %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit
+  %.pre.i.i = load ptr, ptr %2, align 8
+  br label %_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i
 
 if.then.i.i.i:                                    ; preds = %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit
   %5 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIvvEEvEERT_vE3arg acquire, align 8
@@ -24865,20 +24881,20 @@ if.then.i5.i.i:                                   ; preds = %_ZN5folly18threadlo
   tail call void @_ZN5folly18threadlocal_detail14StaticMetaBase7reserveEPNS1_7EntryIDE(ptr noundef nonnull align 8 dereferenceable(153) %cond.i.i.i.i.i, ptr noundef nonnull %cond.i)
   %8 = load atomic i32, ptr %cond.i acquire, align 4
   %.pre.i.i.i = load ptr, ptr %2, align 8
-  %.pre7.i.i = zext i32 %8 to i64
+  %.pre8.i.i = zext i32 %8 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i: ; preds = %if.then.i5.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i
-  %.pre.pre-phi.i.i = phi i64 [ %conv.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i ], [ %.pre7.i.i, %if.then.i5.i.i ]
+  %.pre7.pre-phi.i.i = phi i64 [ %conv.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i ], [ %.pre8.i.i, %if.then.i5.i.i ]
   %9 = phi ptr [ %call1.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i ], [ %.pre.i.i.i, %if.then.i5.i.i ]
   %elementsCapacity.i6.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load atomic i64, ptr %elementsCapacity.i6.i.i.i monotonic, align 8
   store i64 %10, ptr %3, align 8
   br label %_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i
 
-_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i, %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit
-  %idxprom.i.pre-phi.i.i = phi i64 [ %.pre.pre-phi.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i ], [ %conv.i.i.i, %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit ]
-  %11 = load ptr, ptr %2, align 8
+_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i
+  %idxprom.i.pre-phi.i.i = phi i64 [ %conv.i.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i ], [ %.pre7.pre-phi.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i ]
+  %11 = phi ptr [ %.pre.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i ], [ %9, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i ]
   %12 = load ptr, ptr %11, align 8
   %arrayidx.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %12, i64 %idxprom.i.pre-phi.i.i
   %13 = load ptr, ptr %arrayidx.i.i.i, align 8
@@ -24889,9 +24905,9 @@ cond.false.i.i:                                   ; preds = %_ZNK5folly14ThreadL
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %cond.i, i64 24
   %14 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %14, null
-  br i1 %tobool.not.i.i.i.i, label %if.then.i.i2.i, label %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
+  br i1 %tobool.not.i.i.i.i, label %if.then.i.i3.i, label %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
 
-if.then.i.i2.i:                                   ; preds = %cond.false.i.i
+if.then.i.i3.i:                                   ; preds = %cond.false.i.i
   tail call void @_ZSt25__throw_bad_function_callv() #37
   unreachable
 
@@ -24908,7 +24924,11 @@ _ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_G
   %17 = load i64, ptr %3, align 8
   %conv.i16.i.i.i = zext i32 %16 to i64
   %cmp.i17.not.i.i.i = icmp ugt i64 %17, %conv.i16.i.i.i
-  br i1 %cmp.i17.not.i.i.i, label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i, label %if.then.i20.i.i.i
+  br i1 %cmp.i17.not.i.i.i, label %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i, label %if.then.i20.i.i.i
+
+entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i: ; preds = %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
+  %.pre.i.i2.i = load ptr, ptr %2, align 8
+  br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i
 
 if.then.i20.i.i.i:                                ; preds = %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
   %18 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIvvEEvEERT_vE3arg acquire, align 8
@@ -24941,20 +24961,20 @@ if.then.i13.i.i.i:                                ; preds = %call1.i.noexc.i.i.i
 .noexc.i.i.i:                                     ; preds = %if.then.i13.i.i.i
   %21 = load atomic i32, ptr %cond.i acquire, align 4
   %.pre.i.i.i.i = load ptr, ptr %2, align 8
-  %.pre56.i.i.i = zext i32 %21 to i64
+  %.pre58.i.i.i = zext i32 %21 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i: ; preds = %.noexc.i.i.i, %call1.i.noexc.i.i.i
-  %.pre.pre-phi.i.i.i = phi i64 [ %conv.i16.i.i.i, %call1.i.noexc.i.i.i ], [ %.pre56.i.i.i, %.noexc.i.i.i ]
+  %.pre54.pre-phi.i.i.i = phi i64 [ %conv.i16.i.i.i, %call1.i.noexc.i.i.i ], [ %.pre58.i.i.i, %.noexc.i.i.i ]
   %22 = phi ptr [ %call1.i15.i.i.i, %call1.i.noexc.i.i.i ], [ %.pre.i.i.i.i, %.noexc.i.i.i ]
   %elementsCapacity.i6.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load atomic i64, ptr %elementsCapacity.i6.i.i.i.i monotonic, align 8
   store i64 %23, ptr %3, align 8
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i
 
-_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i, %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
-  %idxprom.i18.pre-phi.i.i.i = phi i64 [ %.pre.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i ], [ %conv.i16.i.i.i, %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i ]
-  %24 = load ptr, ptr %2, align 8
+_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i
+  %idxprom.i18.pre-phi.i.i.i = phi i64 [ %conv.i16.i.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i ], [ %.pre54.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i ]
+  %24 = phi ptr [ %.pre.i.i2.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i ], [ %22, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i ]
   %25 = load ptr, ptr %24, align 8
   %arrayidx.i19.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %25, i64 %idxprom.i18.pre-phi.i.i.i
   %26 = load ptr, ptr %arrayidx.i19.i.i.i, align 8
@@ -25006,7 +25026,11 @@ invoke.cont2.i.i.i:                               ; preds = %cond.false12.i.i.i.
   %33 = load i64, ptr %3, align 8
   %conv.i.i.i.i = zext i32 %32 to i64
   %cmp.i.not.i.i.i = icmp ugt i64 %33, %conv.i.i.i.i
-  br i1 %cmp.i.not.i.i.i, label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i, label %if.then.i.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i, label %if.then.i.i.i.i
+
+invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i: ; preds = %invoke.cont2.i.i.i
+  %.pre55.i.i.i = load ptr, ptr %2, align 8
+  br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont2.i.i.i
   %34 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIvvEEvEERT_vE3arg acquire, align 8
@@ -25039,20 +25063,20 @@ if.then.i27.i.i.i:                                ; preds = %call1.i.noexc33.i.i
 .noexc35.i.i.i:                                   ; preds = %if.then.i27.i.i.i
   %37 = load atomic i32, ptr %cond.i acquire, align 4
   %.pre.i28.i.i.i = load ptr, ptr %2, align 8
-  %.pre55.i.i.i = zext i32 %37 to i64
+  %.pre57.i.i.i = zext i32 %37 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i: ; preds = %.noexc35.i.i.i, %call1.i.noexc33.i.i.i
-  %.pre54.pre-phi.i.i.i = phi i64 [ %conv.i.i.i.i, %call1.i.noexc33.i.i.i ], [ %.pre55.i.i.i, %.noexc35.i.i.i ]
+  %.pre56.pre-phi.i.i.i = phi i64 [ %conv.i.i.i.i, %call1.i.noexc33.i.i.i ], [ %.pre57.i.i.i, %.noexc35.i.i.i ]
   %38 = phi ptr [ %call1.i34.i.i.i, %call1.i.noexc33.i.i.i ], [ %.pre.i28.i.i.i, %.noexc35.i.i.i ]
   %elementsCapacity.i6.i29.i.i.i = getelementptr inbounds i8, ptr %38, i64 8
   %39 = load atomic i64, ptr %elementsCapacity.i6.i29.i.i.i monotonic, align 8
   store i64 %39, ptr %3, align 8
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i
 
-_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i, %invoke.cont2.i.i.i
-  %idxprom.i.pre-phi.i.i.i = phi i64 [ %.pre54.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i ], [ %conv.i.i.i.i, %invoke.cont2.i.i.i ]
-  %40 = load ptr, ptr %2, align 8
+_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i
+  %idxprom.i.pre-phi.i.i.i = phi i64 [ %conv.i.i.i.i, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i ], [ %.pre56.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i ]
+  %40 = phi ptr [ %.pre55.i.i.i, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i ], [ %38, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i ]
   %41 = load ptr, ptr %40, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %41, i64 %idxprom.i.pre-phi.i.i.i
   %ownsDeleter.i37.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 16
@@ -29057,7 +29081,11 @@ _ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20Si
   %4 = load i64, ptr %3, align 8
   %conv.i.i.i = zext i32 %1 to i64
   %cmp.i.not.i.i = icmp ugt i64 %4, %conv.i.i.i
-  br i1 %cmp.i.not.i.i, label %_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i, label %if.then.i.i.i
+  br i1 %cmp.i.not.i.i, label %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i, label %if.then.i.i.i
+
+entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i: ; preds = %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit
+  %.pre.i.i = load ptr, ptr %2, align 8
+  br label %_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i
 
 if.then.i.i.i:                                    ; preds = %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit
   %5 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIvvEEvEERT_vE3arg acquire, align 8
@@ -29084,20 +29112,20 @@ if.then.i5.i.i:                                   ; preds = %_ZN5folly18threadlo
   tail call void @_ZN5folly18threadlocal_detail14StaticMetaBase7reserveEPNS1_7EntryIDE(ptr noundef nonnull align 8 dereferenceable(153) %cond.i.i.i.i.i, ptr noundef nonnull %cond.i)
   %8 = load atomic i32, ptr %cond.i acquire, align 4
   %.pre.i.i.i = load ptr, ptr %2, align 8
-  %.pre7.i.i = zext i32 %8 to i64
+  %.pre8.i.i = zext i32 %8 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i: ; preds = %if.then.i5.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i
-  %.pre.pre-phi.i.i = phi i64 [ %conv.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i ], [ %.pre7.i.i, %if.then.i5.i.i ]
+  %.pre7.pre-phi.i.i = phi i64 [ %conv.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i ], [ %.pre8.i.i, %if.then.i5.i.i ]
   %9 = phi ptr [ %call1.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i ], [ %.pre.i.i.i, %if.then.i5.i.i ]
   %elementsCapacity.i6.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load atomic i64, ptr %elementsCapacity.i6.i.i.i monotonic, align 8
   store i64 %10, ptr %3, align 8
   br label %_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i
 
-_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i, %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit
-  %idxprom.i.pre-phi.i.i = phi i64 [ %.pre.pre-phi.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i ], [ %conv.i.i.i, %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit ]
-  %11 = load ptr, ptr %2, align 8
+_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i
+  %idxprom.i.pre-phi.i.i = phi i64 [ %conv.i.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i ], [ %.pre7.pre-phi.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i ]
+  %11 = phi ptr [ %.pre.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i ], [ %9, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i ]
   %12 = load ptr, ptr %11, align 8
   %arrayidx.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %12, i64 %idxprom.i.pre-phi.i.i
   %13 = load ptr, ptr %arrayidx.i.i.i, align 8
@@ -29108,9 +29136,9 @@ cond.false.i.i:                                   ; preds = %_ZNK5folly14ThreadL
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %cond.i, i64 24
   %14 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %14, null
-  br i1 %tobool.not.i.i.i.i, label %if.then.i.i2.i, label %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
+  br i1 %tobool.not.i.i.i.i, label %if.then.i.i3.i, label %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
 
-if.then.i.i2.i:                                   ; preds = %cond.false.i.i
+if.then.i.i3.i:                                   ; preds = %cond.false.i.i
   tail call void @_ZSt25__throw_bad_function_callv() #37
   unreachable
 
@@ -29127,7 +29155,11 @@ _ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_G
   %17 = load i64, ptr %3, align 8
   %conv.i16.i.i.i = zext i32 %16 to i64
   %cmp.i17.not.i.i.i = icmp ugt i64 %17, %conv.i16.i.i.i
-  br i1 %cmp.i17.not.i.i.i, label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i, label %if.then.i20.i.i.i
+  br i1 %cmp.i17.not.i.i.i, label %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i, label %if.then.i20.i.i.i
+
+entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i: ; preds = %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
+  %.pre.i.i2.i = load ptr, ptr %2, align 8
+  br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i
 
 if.then.i20.i.i.i:                                ; preds = %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
   %18 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIvvEEvEERT_vE3arg acquire, align 8
@@ -29160,20 +29192,20 @@ if.then.i13.i.i.i:                                ; preds = %call1.i.noexc.i.i.i
 .noexc.i.i.i:                                     ; preds = %if.then.i13.i.i.i
   %21 = load atomic i32, ptr %cond.i acquire, align 4
   %.pre.i.i.i.i = load ptr, ptr %2, align 8
-  %.pre56.i.i.i = zext i32 %21 to i64
+  %.pre58.i.i.i = zext i32 %21 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i: ; preds = %.noexc.i.i.i, %call1.i.noexc.i.i.i
-  %.pre.pre-phi.i.i.i = phi i64 [ %conv.i16.i.i.i, %call1.i.noexc.i.i.i ], [ %.pre56.i.i.i, %.noexc.i.i.i ]
+  %.pre54.pre-phi.i.i.i = phi i64 [ %conv.i16.i.i.i, %call1.i.noexc.i.i.i ], [ %.pre58.i.i.i, %.noexc.i.i.i ]
   %22 = phi ptr [ %call1.i15.i.i.i, %call1.i.noexc.i.i.i ], [ %.pre.i.i.i.i, %.noexc.i.i.i ]
   %elementsCapacity.i6.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load atomic i64, ptr %elementsCapacity.i6.i.i.i.i monotonic, align 8
   store i64 %23, ptr %3, align 8
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i
 
-_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i, %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
-  %idxprom.i18.pre-phi.i.i.i = phi i64 [ %.pre.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i ], [ %conv.i16.i.i.i, %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i ]
-  %24 = load ptr, ptr %2, align 8
+_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i
+  %idxprom.i18.pre-phi.i.i.i = phi i64 [ %conv.i16.i.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i ], [ %.pre54.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i ]
+  %24 = phi ptr [ %.pre.i.i2.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i ], [ %22, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i ]
   %25 = load ptr, ptr %24, align 8
   %arrayidx.i19.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %25, i64 %idxprom.i18.pre-phi.i.i.i
   %26 = load ptr, ptr %arrayidx.i19.i.i.i, align 8
@@ -29225,7 +29257,11 @@ invoke.cont2.i.i.i:                               ; preds = %cond.false12.i.i.i.
   %33 = load i64, ptr %3, align 8
   %conv.i.i.i.i = zext i32 %32 to i64
   %cmp.i.not.i.i.i = icmp ugt i64 %33, %conv.i.i.i.i
-  br i1 %cmp.i.not.i.i.i, label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i, label %if.then.i.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i, label %if.then.i.i.i.i
+
+invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i: ; preds = %invoke.cont2.i.i.i
+  %.pre55.i.i.i = load ptr, ptr %2, align 8
+  br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont2.i.i.i
   %34 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIvvEEvEERT_vE3arg acquire, align 8
@@ -29258,20 +29294,20 @@ if.then.i27.i.i.i:                                ; preds = %call1.i.noexc33.i.i
 .noexc35.i.i.i:                                   ; preds = %if.then.i27.i.i.i
   %37 = load atomic i32, ptr %cond.i acquire, align 4
   %.pre.i28.i.i.i = load ptr, ptr %2, align 8
-  %.pre55.i.i.i = zext i32 %37 to i64
+  %.pre57.i.i.i = zext i32 %37 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i: ; preds = %.noexc35.i.i.i, %call1.i.noexc33.i.i.i
-  %.pre54.pre-phi.i.i.i = phi i64 [ %conv.i.i.i.i, %call1.i.noexc33.i.i.i ], [ %.pre55.i.i.i, %.noexc35.i.i.i ]
+  %.pre56.pre-phi.i.i.i = phi i64 [ %conv.i.i.i.i, %call1.i.noexc33.i.i.i ], [ %.pre57.i.i.i, %.noexc35.i.i.i ]
   %38 = phi ptr [ %call1.i34.i.i.i, %call1.i.noexc33.i.i.i ], [ %.pre.i28.i.i.i, %.noexc35.i.i.i ]
   %elementsCapacity.i6.i29.i.i.i = getelementptr inbounds i8, ptr %38, i64 8
   %39 = load atomic i64, ptr %elementsCapacity.i6.i29.i.i.i monotonic, align 8
   store i64 %39, ptr %3, align 8
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i
 
-_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i, %invoke.cont2.i.i.i
-  %idxprom.i.pre-phi.i.i.i = phi i64 [ %.pre54.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i ], [ %conv.i.i.i.i, %invoke.cont2.i.i.i ]
-  %40 = load ptr, ptr %2, align 8
+_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i
+  %idxprom.i.pre-phi.i.i.i = phi i64 [ %conv.i.i.i.i, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i ], [ %.pre56.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i ]
+  %40 = phi ptr [ %.pre55.i.i.i, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i ], [ %38, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i ]
   %41 = load ptr, ptr %40, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %41, i64 %idxprom.i.pre-phi.i.i.i
   %ownsDeleter.i37.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 16
@@ -33229,7 +33265,11 @@ _ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20Si
   %4 = load i64, ptr %3, align 8
   %conv.i.i.i = zext i32 %1 to i64
   %cmp.i.not.i.i = icmp ugt i64 %4, %conv.i.i.i
-  br i1 %cmp.i.not.i.i, label %_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i, label %if.then.i.i.i
+  br i1 %cmp.i.not.i.i, label %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i, label %if.then.i.i.i
+
+entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i: ; preds = %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit
+  %.pre.i.i = load ptr, ptr %2, align 8
+  br label %_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i
 
 if.then.i.i.i:                                    ; preds = %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit
   %5 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIvvEEvEERT_vE3arg acquire, align 8
@@ -33256,20 +33296,20 @@ if.then.i5.i.i:                                   ; preds = %_ZN5folly18threadlo
   tail call void @_ZN5folly18threadlocal_detail14StaticMetaBase7reserveEPNS1_7EntryIDE(ptr noundef nonnull align 8 dereferenceable(153) %cond.i.i.i.i.i, ptr noundef nonnull %cond.i)
   %8 = load atomic i32, ptr %cond.i acquire, align 4
   %.pre.i.i.i = load ptr, ptr %2, align 8
-  %.pre7.i.i = zext i32 %8 to i64
+  %.pre8.i.i = zext i32 %8 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i: ; preds = %if.then.i5.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i
-  %.pre.pre-phi.i.i = phi i64 [ %conv.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i ], [ %.pre7.i.i, %if.then.i5.i.i ]
+  %.pre7.pre-phi.i.i = phi i64 [ %conv.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i ], [ %.pre8.i.i, %if.then.i5.i.i ]
   %9 = phi ptr [ %call1.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i ], [ %.pre.i.i.i, %if.then.i5.i.i ]
   %elementsCapacity.i6.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load atomic i64, ptr %elementsCapacity.i6.i.i.i monotonic, align 8
   store i64 %10, ptr %3, align 8
   br label %_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i
 
-_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i, %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit
-  %idxprom.i.pre-phi.i.i = phi i64 [ %.pre.pre-phi.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i ], [ %conv.i.i.i, %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit ]
-  %11 = load ptr, ptr %2, align 8
+_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i
+  %idxprom.i.pre-phi.i.i = phi i64 [ %conv.i.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i ], [ %.pre7.pre-phi.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i ]
+  %11 = phi ptr [ %.pre.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i ], [ %9, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i ]
   %12 = load ptr, ptr %11, align 8
   %arrayidx.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %12, i64 %idxprom.i.pre-phi.i.i
   %13 = load ptr, ptr %arrayidx.i.i.i, align 8
@@ -33280,9 +33320,9 @@ cond.false.i.i:                                   ; preds = %_ZNK5folly14ThreadL
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %cond.i, i64 24
   %14 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %14, null
-  br i1 %tobool.not.i.i.i.i, label %if.then.i.i2.i, label %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
+  br i1 %tobool.not.i.i.i.i, label %if.then.i.i3.i, label %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
 
-if.then.i.i2.i:                                   ; preds = %cond.false.i.i
+if.then.i.i3.i:                                   ; preds = %cond.false.i.i
   tail call void @_ZSt25__throw_bad_function_callv() #37
   unreachable
 
@@ -33299,7 +33339,11 @@ _ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_G
   %17 = load i64, ptr %3, align 8
   %conv.i16.i.i.i = zext i32 %16 to i64
   %cmp.i17.not.i.i.i = icmp ugt i64 %17, %conv.i16.i.i.i
-  br i1 %cmp.i17.not.i.i.i, label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i, label %if.then.i20.i.i.i
+  br i1 %cmp.i17.not.i.i.i, label %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i, label %if.then.i20.i.i.i
+
+entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i: ; preds = %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
+  %.pre.i.i2.i = load ptr, ptr %2, align 8
+  br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i
 
 if.then.i20.i.i.i:                                ; preds = %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
   %18 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIvvEEvEERT_vE3arg acquire, align 8
@@ -33332,20 +33376,20 @@ if.then.i13.i.i.i:                                ; preds = %call1.i.noexc.i.i.i
 .noexc.i.i.i:                                     ; preds = %if.then.i13.i.i.i
   %21 = load atomic i32, ptr %cond.i acquire, align 4
   %.pre.i.i.i.i = load ptr, ptr %2, align 8
-  %.pre56.i.i.i = zext i32 %21 to i64
+  %.pre58.i.i.i = zext i32 %21 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i: ; preds = %.noexc.i.i.i, %call1.i.noexc.i.i.i
-  %.pre.pre-phi.i.i.i = phi i64 [ %conv.i16.i.i.i, %call1.i.noexc.i.i.i ], [ %.pre56.i.i.i, %.noexc.i.i.i ]
+  %.pre54.pre-phi.i.i.i = phi i64 [ %conv.i16.i.i.i, %call1.i.noexc.i.i.i ], [ %.pre58.i.i.i, %.noexc.i.i.i ]
   %22 = phi ptr [ %call1.i15.i.i.i, %call1.i.noexc.i.i.i ], [ %.pre.i.i.i.i, %.noexc.i.i.i ]
   %elementsCapacity.i6.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load atomic i64, ptr %elementsCapacity.i6.i.i.i.i monotonic, align 8
   store i64 %23, ptr %3, align 8
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i
 
-_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i, %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
-  %idxprom.i18.pre-phi.i.i.i = phi i64 [ %.pre.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i ], [ %conv.i16.i.i.i, %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i ]
-  %24 = load ptr, ptr %2, align 8
+_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i
+  %idxprom.i18.pre-phi.i.i.i = phi i64 [ %conv.i16.i.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i ], [ %.pre54.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i ]
+  %24 = phi ptr [ %.pre.i.i2.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i ], [ %22, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i ]
   %25 = load ptr, ptr %24, align 8
   %arrayidx.i19.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %25, i64 %idxprom.i18.pre-phi.i.i.i
   %26 = load ptr, ptr %arrayidx.i19.i.i.i, align 8
@@ -33397,7 +33441,11 @@ invoke.cont2.i.i.i:                               ; preds = %cond.false12.i.i.i.
   %33 = load i64, ptr %3, align 8
   %conv.i.i.i.i = zext i32 %32 to i64
   %cmp.i.not.i.i.i = icmp ugt i64 %33, %conv.i.i.i.i
-  br i1 %cmp.i.not.i.i.i, label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i, label %if.then.i.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i, label %if.then.i.i.i.i
+
+invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i: ; preds = %invoke.cont2.i.i.i
+  %.pre55.i.i.i = load ptr, ptr %2, align 8
+  br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont2.i.i.i
   %34 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIvvEEvEERT_vE3arg acquire, align 8
@@ -33430,20 +33478,20 @@ if.then.i27.i.i.i:                                ; preds = %call1.i.noexc33.i.i
 .noexc35.i.i.i:                                   ; preds = %if.then.i27.i.i.i
   %37 = load atomic i32, ptr %cond.i acquire, align 4
   %.pre.i28.i.i.i = load ptr, ptr %2, align 8
-  %.pre55.i.i.i = zext i32 %37 to i64
+  %.pre57.i.i.i = zext i32 %37 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i: ; preds = %.noexc35.i.i.i, %call1.i.noexc33.i.i.i
-  %.pre54.pre-phi.i.i.i = phi i64 [ %conv.i.i.i.i, %call1.i.noexc33.i.i.i ], [ %.pre55.i.i.i, %.noexc35.i.i.i ]
+  %.pre56.pre-phi.i.i.i = phi i64 [ %conv.i.i.i.i, %call1.i.noexc33.i.i.i ], [ %.pre57.i.i.i, %.noexc35.i.i.i ]
   %38 = phi ptr [ %call1.i34.i.i.i, %call1.i.noexc33.i.i.i ], [ %.pre.i28.i.i.i, %.noexc35.i.i.i ]
   %elementsCapacity.i6.i29.i.i.i = getelementptr inbounds i8, ptr %38, i64 8
   %39 = load atomic i64, ptr %elementsCapacity.i6.i29.i.i.i monotonic, align 8
   store i64 %39, ptr %3, align 8
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i
 
-_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i, %invoke.cont2.i.i.i
-  %idxprom.i.pre-phi.i.i.i = phi i64 [ %.pre54.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i ], [ %conv.i.i.i.i, %invoke.cont2.i.i.i ]
-  %40 = load ptr, ptr %2, align 8
+_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i
+  %idxprom.i.pre-phi.i.i.i = phi i64 [ %conv.i.i.i.i, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i ], [ %.pre56.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i ]
+  %40 = phi ptr [ %.pre55.i.i.i, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i ], [ %38, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i ]
   %41 = load ptr, ptr %40, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %41, i64 %idxprom.i.pre-phi.i.i.i
   %ownsDeleter.i37.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 16
@@ -61118,7 +61166,11 @@ _ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20Si
   %4 = load i64, ptr %3, align 8
   %conv.i.i.i = zext i32 %1 to i64
   %cmp.i.not.i.i = icmp ugt i64 %4, %conv.i.i.i
-  br i1 %cmp.i.not.i.i, label %_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i, label %if.then.i.i.i
+  br i1 %cmp.i.not.i.i, label %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i, label %if.then.i.i.i
+
+entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i: ; preds = %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit
+  %.pre.i.i = load ptr, ptr %2, align 8
+  br label %_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i
 
 if.then.i.i.i:                                    ; preds = %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit
   %5 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIvvEEvEERT_vE3arg acquire, align 8
@@ -61145,20 +61197,20 @@ if.then.i5.i.i:                                   ; preds = %_ZN5folly18threadlo
   tail call void @_ZN5folly18threadlocal_detail14StaticMetaBase7reserveEPNS1_7EntryIDE(ptr noundef nonnull align 8 dereferenceable(153) %cond.i.i.i.i.i, ptr noundef nonnull %cond.i)
   %8 = load atomic i32, ptr %cond.i acquire, align 4
   %.pre.i.i.i = load ptr, ptr %2, align 8
-  %.pre7.i.i = zext i32 %8 to i64
+  %.pre8.i.i = zext i32 %8 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i: ; preds = %if.then.i5.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i
-  %.pre.pre-phi.i.i = phi i64 [ %conv.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i ], [ %.pre7.i.i, %if.then.i5.i.i ]
+  %.pre7.pre-phi.i.i = phi i64 [ %conv.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i ], [ %.pre8.i.i, %if.then.i5.i.i ]
   %9 = phi ptr [ %call1.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i ], [ %.pre.i.i.i, %if.then.i5.i.i ]
   %elementsCapacity.i6.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load atomic i64, ptr %elementsCapacity.i6.i.i.i monotonic, align 8
   store i64 %10, ptr %3, align 8
   br label %_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i
 
-_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i, %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit
-  %idxprom.i.pre-phi.i.i = phi i64 [ %.pre.pre-phi.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i ], [ %conv.i.i.i, %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit ]
-  %11 = load ptr, ptr %2, align 8
+_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i
+  %idxprom.i.pre-phi.i.i = phi i64 [ %conv.i.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i ], [ %.pre7.pre-phi.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i ]
+  %11 = phi ptr [ %.pre.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i ], [ %9, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i ]
   %12 = load ptr, ptr %11, align 8
   %arrayidx.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %12, i64 %idxprom.i.pre-phi.i.i
   %13 = load ptr, ptr %arrayidx.i.i.i, align 8
@@ -61169,9 +61221,9 @@ cond.false.i.i:                                   ; preds = %_ZNK5folly14ThreadL
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %cond.i, i64 24
   %14 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %14, null
-  br i1 %tobool.not.i.i.i.i, label %if.then.i.i2.i, label %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
+  br i1 %tobool.not.i.i.i.i, label %if.then.i.i3.i, label %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
 
-if.then.i.i2.i:                                   ; preds = %cond.false.i.i
+if.then.i.i3.i:                                   ; preds = %cond.false.i.i
   tail call void @_ZSt25__throw_bad_function_callv() #37
   unreachable
 
@@ -61188,7 +61240,11 @@ _ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_G
   %17 = load i64, ptr %3, align 8
   %conv.i16.i.i.i = zext i32 %16 to i64
   %cmp.i17.not.i.i.i = icmp ugt i64 %17, %conv.i16.i.i.i
-  br i1 %cmp.i17.not.i.i.i, label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i, label %if.then.i20.i.i.i
+  br i1 %cmp.i17.not.i.i.i, label %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i, label %if.then.i20.i.i.i
+
+entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i: ; preds = %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
+  %.pre.i.i2.i = load ptr, ptr %2, align 8
+  br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i
 
 if.then.i20.i.i.i:                                ; preds = %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
   %18 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIvvEEvEERT_vE3arg acquire, align 8
@@ -61221,20 +61277,20 @@ if.then.i13.i.i.i:                                ; preds = %call1.i.noexc.i.i.i
 .noexc.i.i.i:                                     ; preds = %if.then.i13.i.i.i
   %21 = load atomic i32, ptr %cond.i acquire, align 4
   %.pre.i.i.i.i = load ptr, ptr %2, align 8
-  %.pre56.i.i.i = zext i32 %21 to i64
+  %.pre58.i.i.i = zext i32 %21 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i: ; preds = %.noexc.i.i.i, %call1.i.noexc.i.i.i
-  %.pre.pre-phi.i.i.i = phi i64 [ %conv.i16.i.i.i, %call1.i.noexc.i.i.i ], [ %.pre56.i.i.i, %.noexc.i.i.i ]
+  %.pre54.pre-phi.i.i.i = phi i64 [ %conv.i16.i.i.i, %call1.i.noexc.i.i.i ], [ %.pre58.i.i.i, %.noexc.i.i.i ]
   %22 = phi ptr [ %call1.i15.i.i.i, %call1.i.noexc.i.i.i ], [ %.pre.i.i.i.i, %.noexc.i.i.i ]
   %elementsCapacity.i6.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load atomic i64, ptr %elementsCapacity.i6.i.i.i.i monotonic, align 8
   store i64 %23, ptr %3, align 8
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i
 
-_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i, %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
-  %idxprom.i18.pre-phi.i.i.i = phi i64 [ %.pre.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i ], [ %conv.i16.i.i.i, %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i ]
-  %24 = load ptr, ptr %2, align 8
+_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i
+  %idxprom.i18.pre-phi.i.i.i = phi i64 [ %conv.i16.i.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i ], [ %.pre54.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i ]
+  %24 = phi ptr [ %.pre.i.i2.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i ], [ %22, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i ]
   %25 = load ptr, ptr %24, align 8
   %arrayidx.i19.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %25, i64 %idxprom.i18.pre-phi.i.i.i
   %26 = load ptr, ptr %arrayidx.i19.i.i.i, align 8
@@ -61286,7 +61342,11 @@ invoke.cont2.i.i.i:                               ; preds = %cond.false12.i.i.i.
   %33 = load i64, ptr %3, align 8
   %conv.i.i.i.i = zext i32 %32 to i64
   %cmp.i.not.i.i.i = icmp ugt i64 %33, %conv.i.i.i.i
-  br i1 %cmp.i.not.i.i.i, label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i, label %if.then.i.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i, label %if.then.i.i.i.i
+
+invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i: ; preds = %invoke.cont2.i.i.i
+  %.pre55.i.i.i = load ptr, ptr %2, align 8
+  br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont2.i.i.i
   %34 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIvvEEvEERT_vE3arg acquire, align 8
@@ -61319,20 +61379,20 @@ if.then.i27.i.i.i:                                ; preds = %call1.i.noexc33.i.i
 .noexc35.i.i.i:                                   ; preds = %if.then.i27.i.i.i
   %37 = load atomic i32, ptr %cond.i acquire, align 4
   %.pre.i28.i.i.i = load ptr, ptr %2, align 8
-  %.pre55.i.i.i = zext i32 %37 to i64
+  %.pre57.i.i.i = zext i32 %37 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i: ; preds = %.noexc35.i.i.i, %call1.i.noexc33.i.i.i
-  %.pre54.pre-phi.i.i.i = phi i64 [ %conv.i.i.i.i, %call1.i.noexc33.i.i.i ], [ %.pre55.i.i.i, %.noexc35.i.i.i ]
+  %.pre56.pre-phi.i.i.i = phi i64 [ %conv.i.i.i.i, %call1.i.noexc33.i.i.i ], [ %.pre57.i.i.i, %.noexc35.i.i.i ]
   %38 = phi ptr [ %call1.i34.i.i.i, %call1.i.noexc33.i.i.i ], [ %.pre.i28.i.i.i, %.noexc35.i.i.i ]
   %elementsCapacity.i6.i29.i.i.i = getelementptr inbounds i8, ptr %38, i64 8
   %39 = load atomic i64, ptr %elementsCapacity.i6.i29.i.i.i monotonic, align 8
   store i64 %39, ptr %3, align 8
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i
 
-_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i, %invoke.cont2.i.i.i
-  %idxprom.i.pre-phi.i.i.i = phi i64 [ %.pre54.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i ], [ %conv.i.i.i.i, %invoke.cont2.i.i.i ]
-  %40 = load ptr, ptr %2, align 8
+_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i
+  %idxprom.i.pre-phi.i.i.i = phi i64 [ %conv.i.i.i.i, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i ], [ %.pre56.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i ]
+  %40 = phi ptr [ %.pre55.i.i.i, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i ], [ %38, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i ]
   %41 = load ptr, ptr %40, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %41, i64 %idxprom.i.pre-phi.i.i.i
   %ownsDeleter.i37.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 16
@@ -66464,7 +66524,11 @@ _ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20Si
   %4 = load i64, ptr %3, align 8
   %conv.i.i.i = zext i32 %1 to i64
   %cmp.i.not.i.i = icmp ugt i64 %4, %conv.i.i.i
-  br i1 %cmp.i.not.i.i, label %_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i, label %if.then.i.i.i
+  br i1 %cmp.i.not.i.i, label %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i, label %if.then.i.i.i
+
+entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i: ; preds = %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit
+  %.pre.i.i = load ptr, ptr %2, align 8
+  br label %_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i
 
 if.then.i.i.i:                                    ; preds = %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit
   %5 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIvvEEvEERT_vE3arg acquire, align 8
@@ -66491,20 +66555,20 @@ if.then.i5.i.i:                                   ; preds = %_ZN5folly18threadlo
   tail call void @_ZN5folly18threadlocal_detail14StaticMetaBase7reserveEPNS1_7EntryIDE(ptr noundef nonnull align 8 dereferenceable(153) %cond.i.i.i.i.i, ptr noundef nonnull %cond.i)
   %8 = load atomic i32, ptr %cond.i acquire, align 4
   %.pre.i.i.i = load ptr, ptr %2, align 8
-  %.pre7.i.i = zext i32 %8 to i64
+  %.pre8.i.i = zext i32 %8 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i: ; preds = %if.then.i5.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i
-  %.pre.pre-phi.i.i = phi i64 [ %conv.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i ], [ %.pre7.i.i, %if.then.i5.i.i ]
+  %.pre7.pre-phi.i.i = phi i64 [ %conv.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i ], [ %.pre8.i.i, %if.then.i5.i.i ]
   %9 = phi ptr [ %call1.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i ], [ %.pre.i.i.i, %if.then.i5.i.i ]
   %elementsCapacity.i6.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load atomic i64, ptr %elementsCapacity.i6.i.i.i monotonic, align 8
   store i64 %10, ptr %3, align 8
   br label %_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i
 
-_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i, %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit
-  %idxprom.i.pre-phi.i.i = phi i64 [ %.pre.pre-phi.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i ], [ %conv.i.i.i, %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit ]
-  %11 = load ptr, ptr %2, align 8
+_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i
+  %idxprom.i.pre-phi.i.i = phi i64 [ %conv.i.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i ], [ %.pre7.pre-phi.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i ]
+  %11 = phi ptr [ %.pre.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i ], [ %9, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i ]
   %12 = load ptr, ptr %11, align 8
   %arrayidx.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %12, i64 %idxprom.i.pre-phi.i.i
   %13 = load ptr, ptr %arrayidx.i.i.i, align 8
@@ -66515,9 +66579,9 @@ cond.false.i.i:                                   ; preds = %_ZNK5folly14ThreadL
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %cond.i, i64 24
   %14 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %14, null
-  br i1 %tobool.not.i.i.i.i, label %if.then.i.i2.i, label %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
+  br i1 %tobool.not.i.i.i.i, label %if.then.i.i3.i, label %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
 
-if.then.i.i2.i:                                   ; preds = %cond.false.i.i
+if.then.i.i3.i:                                   ; preds = %cond.false.i.i
   tail call void @_ZSt25__throw_bad_function_callv() #37
   unreachable
 
@@ -66534,7 +66598,11 @@ _ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_G
   %17 = load i64, ptr %3, align 8
   %conv.i16.i.i.i = zext i32 %16 to i64
   %cmp.i17.not.i.i.i = icmp ugt i64 %17, %conv.i16.i.i.i
-  br i1 %cmp.i17.not.i.i.i, label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i, label %if.then.i20.i.i.i
+  br i1 %cmp.i17.not.i.i.i, label %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i, label %if.then.i20.i.i.i
+
+entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i: ; preds = %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
+  %.pre.i.i2.i = load ptr, ptr %2, align 8
+  br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i
 
 if.then.i20.i.i.i:                                ; preds = %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
   %18 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIvvEEvEERT_vE3arg acquire, align 8
@@ -66567,20 +66635,20 @@ if.then.i13.i.i.i:                                ; preds = %call1.i.noexc.i.i.i
 .noexc.i.i.i:                                     ; preds = %if.then.i13.i.i.i
   %21 = load atomic i32, ptr %cond.i acquire, align 4
   %.pre.i.i.i.i = load ptr, ptr %2, align 8
-  %.pre56.i.i.i = zext i32 %21 to i64
+  %.pre58.i.i.i = zext i32 %21 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i: ; preds = %.noexc.i.i.i, %call1.i.noexc.i.i.i
-  %.pre.pre-phi.i.i.i = phi i64 [ %conv.i16.i.i.i, %call1.i.noexc.i.i.i ], [ %.pre56.i.i.i, %.noexc.i.i.i ]
+  %.pre54.pre-phi.i.i.i = phi i64 [ %conv.i16.i.i.i, %call1.i.noexc.i.i.i ], [ %.pre58.i.i.i, %.noexc.i.i.i ]
   %22 = phi ptr [ %call1.i15.i.i.i, %call1.i.noexc.i.i.i ], [ %.pre.i.i.i.i, %.noexc.i.i.i ]
   %elementsCapacity.i6.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load atomic i64, ptr %elementsCapacity.i6.i.i.i.i monotonic, align 8
   store i64 %23, ptr %3, align 8
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i
 
-_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i, %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
-  %idxprom.i18.pre-phi.i.i.i = phi i64 [ %.pre.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i ], [ %conv.i16.i.i.i, %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i ]
-  %24 = load ptr, ptr %2, align 8
+_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i
+  %idxprom.i18.pre-phi.i.i.i = phi i64 [ %conv.i16.i.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i ], [ %.pre54.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i ]
+  %24 = phi ptr [ %.pre.i.i2.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i ], [ %22, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i ]
   %25 = load ptr, ptr %24, align 8
   %arrayidx.i19.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %25, i64 %idxprom.i18.pre-phi.i.i.i
   %26 = load ptr, ptr %arrayidx.i19.i.i.i, align 8
@@ -66632,7 +66700,11 @@ invoke.cont2.i.i.i:                               ; preds = %cond.false12.i.i.i.
   %33 = load i64, ptr %3, align 8
   %conv.i.i.i.i = zext i32 %32 to i64
   %cmp.i.not.i.i.i = icmp ugt i64 %33, %conv.i.i.i.i
-  br i1 %cmp.i.not.i.i.i, label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i, label %if.then.i.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i, label %if.then.i.i.i.i
+
+invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i: ; preds = %invoke.cont2.i.i.i
+  %.pre55.i.i.i = load ptr, ptr %2, align 8
+  br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont2.i.i.i
   %34 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIvvEEvEERT_vE3arg acquire, align 8
@@ -66665,20 +66737,20 @@ if.then.i27.i.i.i:                                ; preds = %call1.i.noexc33.i.i
 .noexc35.i.i.i:                                   ; preds = %if.then.i27.i.i.i
   %37 = load atomic i32, ptr %cond.i acquire, align 4
   %.pre.i28.i.i.i = load ptr, ptr %2, align 8
-  %.pre55.i.i.i = zext i32 %37 to i64
+  %.pre57.i.i.i = zext i32 %37 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i: ; preds = %.noexc35.i.i.i, %call1.i.noexc33.i.i.i
-  %.pre54.pre-phi.i.i.i = phi i64 [ %conv.i.i.i.i, %call1.i.noexc33.i.i.i ], [ %.pre55.i.i.i, %.noexc35.i.i.i ]
+  %.pre56.pre-phi.i.i.i = phi i64 [ %conv.i.i.i.i, %call1.i.noexc33.i.i.i ], [ %.pre57.i.i.i, %.noexc35.i.i.i ]
   %38 = phi ptr [ %call1.i34.i.i.i, %call1.i.noexc33.i.i.i ], [ %.pre.i28.i.i.i, %.noexc35.i.i.i ]
   %elementsCapacity.i6.i29.i.i.i = getelementptr inbounds i8, ptr %38, i64 8
   %39 = load atomic i64, ptr %elementsCapacity.i6.i29.i.i.i monotonic, align 8
   store i64 %39, ptr %3, align 8
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i
 
-_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i, %invoke.cont2.i.i.i
-  %idxprom.i.pre-phi.i.i.i = phi i64 [ %.pre54.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i ], [ %conv.i.i.i.i, %invoke.cont2.i.i.i ]
-  %40 = load ptr, ptr %2, align 8
+_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i
+  %idxprom.i.pre-phi.i.i.i = phi i64 [ %conv.i.i.i.i, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i ], [ %.pre56.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i ]
+  %40 = phi ptr [ %.pre55.i.i.i, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i ], [ %38, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i ]
   %41 = load ptr, ptr %40, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %41, i64 %idxprom.i.pre-phi.i.i.i
   %ownsDeleter.i37.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 16
@@ -71092,7 +71164,11 @@ _ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20Si
   %4 = load i64, ptr %3, align 8
   %conv.i.i.i = zext i32 %1 to i64
   %cmp.i.not.i.i = icmp ugt i64 %4, %conv.i.i.i
-  br i1 %cmp.i.not.i.i, label %_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i, label %if.then.i.i.i
+  br i1 %cmp.i.not.i.i, label %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i, label %if.then.i.i.i
+
+entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i: ; preds = %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit
+  %.pre.i.i = load ptr, ptr %2, align 8
+  br label %_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i
 
 if.then.i.i.i:                                    ; preds = %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit
   %5 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIvvEEvEERT_vE3arg acquire, align 8
@@ -71119,20 +71195,20 @@ if.then.i5.i.i:                                   ; preds = %_ZN5folly18threadlo
   tail call void @_ZN5folly18threadlocal_detail14StaticMetaBase7reserveEPNS1_7EntryIDE(ptr noundef nonnull align 8 dereferenceable(153) %cond.i.i.i.i.i, ptr noundef nonnull %cond.i)
   %8 = load atomic i32, ptr %cond.i acquire, align 4
   %.pre.i.i.i = load ptr, ptr %2, align 8
-  %.pre7.i.i = zext i32 %8 to i64
+  %.pre8.i.i = zext i32 %8 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i: ; preds = %if.then.i5.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i
-  %.pre.pre-phi.i.i = phi i64 [ %conv.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i ], [ %.pre7.i.i, %if.then.i5.i.i ]
+  %.pre7.pre-phi.i.i = phi i64 [ %conv.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i ], [ %.pre8.i.i, %if.then.i5.i.i ]
   %9 = phi ptr [ %call1.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i ], [ %.pre.i.i.i, %if.then.i5.i.i ]
   %elementsCapacity.i6.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load atomic i64, ptr %elementsCapacity.i6.i.i.i monotonic, align 8
   store i64 %10, ptr %3, align 8
   br label %_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i
 
-_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i, %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit
-  %idxprom.i.pre-phi.i.i = phi i64 [ %.pre.pre-phi.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i ], [ %conv.i.i.i, %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit ]
-  %11 = load ptr, ptr %2, align 8
+_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i
+  %idxprom.i.pre-phi.i.i = phi i64 [ %conv.i.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i ], [ %.pre7.pre-phi.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i ]
+  %11 = phi ptr [ %.pre.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i ], [ %9, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i ]
   %12 = load ptr, ptr %11, align 8
   %arrayidx.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %12, i64 %idxprom.i.pre-phi.i.i
   %13 = load ptr, ptr %arrayidx.i.i.i, align 8
@@ -71143,9 +71219,9 @@ cond.false.i.i:                                   ; preds = %_ZNK5folly14ThreadL
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %cond.i, i64 24
   %14 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %14, null
-  br i1 %tobool.not.i.i.i.i, label %if.then.i.i2.i, label %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
+  br i1 %tobool.not.i.i.i.i, label %if.then.i.i3.i, label %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
 
-if.then.i.i2.i:                                   ; preds = %cond.false.i.i
+if.then.i.i3.i:                                   ; preds = %cond.false.i.i
   tail call void @_ZSt25__throw_bad_function_callv() #37
   unreachable
 
@@ -71162,7 +71238,11 @@ _ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_G
   %17 = load i64, ptr %3, align 8
   %conv.i16.i.i.i = zext i32 %16 to i64
   %cmp.i17.not.i.i.i = icmp ugt i64 %17, %conv.i16.i.i.i
-  br i1 %cmp.i17.not.i.i.i, label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i, label %if.then.i20.i.i.i
+  br i1 %cmp.i17.not.i.i.i, label %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i, label %if.then.i20.i.i.i
+
+entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i: ; preds = %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
+  %.pre.i.i2.i = load ptr, ptr %2, align 8
+  br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i
 
 if.then.i20.i.i.i:                                ; preds = %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
   %18 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIvvEEvEERT_vE3arg acquire, align 8
@@ -71195,20 +71275,20 @@ if.then.i13.i.i.i:                                ; preds = %call1.i.noexc.i.i.i
 .noexc.i.i.i:                                     ; preds = %if.then.i13.i.i.i
   %21 = load atomic i32, ptr %cond.i acquire, align 4
   %.pre.i.i.i.i = load ptr, ptr %2, align 8
-  %.pre56.i.i.i = zext i32 %21 to i64
+  %.pre58.i.i.i = zext i32 %21 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i: ; preds = %.noexc.i.i.i, %call1.i.noexc.i.i.i
-  %.pre.pre-phi.i.i.i = phi i64 [ %conv.i16.i.i.i, %call1.i.noexc.i.i.i ], [ %.pre56.i.i.i, %.noexc.i.i.i ]
+  %.pre54.pre-phi.i.i.i = phi i64 [ %conv.i16.i.i.i, %call1.i.noexc.i.i.i ], [ %.pre58.i.i.i, %.noexc.i.i.i ]
   %22 = phi ptr [ %call1.i15.i.i.i, %call1.i.noexc.i.i.i ], [ %.pre.i.i.i.i, %.noexc.i.i.i ]
   %elementsCapacity.i6.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load atomic i64, ptr %elementsCapacity.i6.i.i.i.i monotonic, align 8
   store i64 %23, ptr %3, align 8
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i
 
-_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i, %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
-  %idxprom.i18.pre-phi.i.i.i = phi i64 [ %.pre.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i ], [ %conv.i16.i.i.i, %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i ]
-  %24 = load ptr, ptr %2, align 8
+_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i
+  %idxprom.i18.pre-phi.i.i.i = phi i64 [ %conv.i16.i.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i ], [ %.pre54.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i ]
+  %24 = phi ptr [ %.pre.i.i2.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i ], [ %22, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i ]
   %25 = load ptr, ptr %24, align 8
   %arrayidx.i19.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %25, i64 %idxprom.i18.pre-phi.i.i.i
   %26 = load ptr, ptr %arrayidx.i19.i.i.i, align 8
@@ -71260,7 +71340,11 @@ invoke.cont2.i.i.i:                               ; preds = %cond.false12.i.i.i.
   %33 = load i64, ptr %3, align 8
   %conv.i.i.i.i = zext i32 %32 to i64
   %cmp.i.not.i.i.i = icmp ugt i64 %33, %conv.i.i.i.i
-  br i1 %cmp.i.not.i.i.i, label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i, label %if.then.i.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i, label %if.then.i.i.i.i
+
+invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i: ; preds = %invoke.cont2.i.i.i
+  %.pre55.i.i.i = load ptr, ptr %2, align 8
+  br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont2.i.i.i
   %34 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIvvEEvEERT_vE3arg acquire, align 8
@@ -71293,20 +71377,20 @@ if.then.i27.i.i.i:                                ; preds = %call1.i.noexc33.i.i
 .noexc35.i.i.i:                                   ; preds = %if.then.i27.i.i.i
   %37 = load atomic i32, ptr %cond.i acquire, align 4
   %.pre.i28.i.i.i = load ptr, ptr %2, align 8
-  %.pre55.i.i.i = zext i32 %37 to i64
+  %.pre57.i.i.i = zext i32 %37 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i: ; preds = %.noexc35.i.i.i, %call1.i.noexc33.i.i.i
-  %.pre54.pre-phi.i.i.i = phi i64 [ %conv.i.i.i.i, %call1.i.noexc33.i.i.i ], [ %.pre55.i.i.i, %.noexc35.i.i.i ]
+  %.pre56.pre-phi.i.i.i = phi i64 [ %conv.i.i.i.i, %call1.i.noexc33.i.i.i ], [ %.pre57.i.i.i, %.noexc35.i.i.i ]
   %38 = phi ptr [ %call1.i34.i.i.i, %call1.i.noexc33.i.i.i ], [ %.pre.i28.i.i.i, %.noexc35.i.i.i ]
   %elementsCapacity.i6.i29.i.i.i = getelementptr inbounds i8, ptr %38, i64 8
   %39 = load atomic i64, ptr %elementsCapacity.i6.i29.i.i.i monotonic, align 8
   store i64 %39, ptr %3, align 8
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i
 
-_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i, %invoke.cont2.i.i.i
-  %idxprom.i.pre-phi.i.i.i = phi i64 [ %.pre54.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i ], [ %conv.i.i.i.i, %invoke.cont2.i.i.i ]
-  %40 = load ptr, ptr %2, align 8
+_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i
+  %idxprom.i.pre-phi.i.i.i = phi i64 [ %conv.i.i.i.i, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i ], [ %.pre56.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i ]
+  %40 = phi ptr [ %.pre55.i.i.i, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i ], [ %38, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i ]
   %41 = load ptr, ptr %40, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %41, i64 %idxprom.i.pre-phi.i.i.i
   %ownsDeleter.i37.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 16
@@ -75712,7 +75796,11 @@ _ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20Si
   %4 = load i64, ptr %3, align 8
   %conv.i.i.i = zext i32 %1 to i64
   %cmp.i.not.i.i = icmp ugt i64 %4, %conv.i.i.i
-  br i1 %cmp.i.not.i.i, label %_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i, label %if.then.i.i.i
+  br i1 %cmp.i.not.i.i, label %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i, label %if.then.i.i.i
+
+entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i: ; preds = %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit
+  %.pre.i.i = load ptr, ptr %2, align 8
+  br label %_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i
 
 if.then.i.i.i:                                    ; preds = %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit
   %5 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIvvEEvEERT_vE3arg acquire, align 8
@@ -75739,20 +75827,20 @@ if.then.i5.i.i:                                   ; preds = %_ZN5folly18threadlo
   tail call void @_ZN5folly18threadlocal_detail14StaticMetaBase7reserveEPNS1_7EntryIDE(ptr noundef nonnull align 8 dereferenceable(153) %cond.i.i.i.i.i, ptr noundef nonnull %cond.i)
   %8 = load atomic i32, ptr %cond.i acquire, align 4
   %.pre.i.i.i = load ptr, ptr %2, align 8
-  %.pre7.i.i = zext i32 %8 to i64
+  %.pre8.i.i = zext i32 %8 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i: ; preds = %if.then.i5.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i
-  %.pre.pre-phi.i.i = phi i64 [ %conv.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i ], [ %.pre7.i.i, %if.then.i5.i.i ]
+  %.pre7.pre-phi.i.i = phi i64 [ %conv.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i ], [ %.pre8.i.i, %if.then.i5.i.i ]
   %9 = phi ptr [ %call1.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit.i.i.i ], [ %.pre.i.i.i, %if.then.i5.i.i ]
   %elementsCapacity.i6.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   %10 = load atomic i64, ptr %elementsCapacity.i6.i.i.i monotonic, align 8
   store i64 %10, ptr %3, align 8
   br label %_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i
 
-_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i, %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit
-  %idxprom.i.pre-phi.i.i = phi i64 [ %.pre.pre-phi.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i ], [ %conv.i.i.i, %_ZN5folly6detail30StaticSingletonManagerWithRtti6createINS_11ThreadLocalINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlE5applyERKNS6_17SelectivityVectorERSt6vectorISt10shared_ptrINS6_10BaseVectorEESaISH_EERKSF_IKNS6_4TypeEERNS6_4exec7EvalCtxERSH_E26__folly_reused_type_groupsNS0_10DefaultTagENS0_11DefaultMakeISU_EEvE7WrapperEvvEESV_EERT_RNS1_3ArgE.exit ]
-  %11 = load ptr, ptr %2, align 8
+_ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvvE3getEv.exit.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i
+  %idxprom.i.pre-phi.i.i = phi i64 [ %conv.i.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i ], [ %.pre7.pre-phi.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i ]
+  %11 = phi ptr [ %.pre.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i ], [ %9, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i ]
   %12 = load ptr, ptr %11, align 8
   %arrayidx.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %12, i64 %idxprom.i.pre-phi.i.i
   %13 = load ptr, ptr %arrayidx.i.i.i, align 8
@@ -75763,9 +75851,9 @@ cond.false.i.i:                                   ; preds = %_ZNK5folly14ThreadL
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %cond.i, i64 24
   %14 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %14, null
-  br i1 %tobool.not.i.i.i.i, label %if.then.i.i2.i, label %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
+  br i1 %tobool.not.i.i.i.i, label %if.then.i.i3.i, label %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
 
-if.then.i.i2.i:                                   ; preds = %cond.false.i.i
+if.then.i.i3.i:                                   ; preds = %cond.false.i.i
   tail call void @_ZSt25__throw_bad_function_callv() #37
   unreachable
 
@@ -75782,7 +75870,11 @@ _ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_G
   %17 = load i64, ptr %3, align 8
   %conv.i16.i.i.i = zext i32 %16 to i64
   %cmp.i17.not.i.i.i = icmp ugt i64 %17, %conv.i16.i.i.i
-  br i1 %cmp.i17.not.i.i.i, label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i, label %if.then.i20.i.i.i
+  br i1 %cmp.i17.not.i.i.i, label %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i, label %if.then.i20.i.i.i
+
+entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i: ; preds = %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
+  %.pre.i.i2.i = load ptr, ptr %2, align 8
+  br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i
 
 if.then.i20.i.i.i:                                ; preds = %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
   %18 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIvvEEvEERT_vE3arg acquire, align 8
@@ -75815,20 +75907,20 @@ if.then.i13.i.i.i:                                ; preds = %call1.i.noexc.i.i.i
 .noexc.i.i.i:                                     ; preds = %if.then.i13.i.i.i
   %21 = load atomic i32, ptr %cond.i acquire, align 4
   %.pre.i.i.i.i = load ptr, ptr %2, align 8
-  %.pre56.i.i.i = zext i32 %21 to i64
+  %.pre58.i.i.i = zext i32 %21 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i: ; preds = %.noexc.i.i.i, %call1.i.noexc.i.i.i
-  %.pre.pre-phi.i.i.i = phi i64 [ %conv.i16.i.i.i, %call1.i.noexc.i.i.i ], [ %.pre56.i.i.i, %.noexc.i.i.i ]
+  %.pre54.pre-phi.i.i.i = phi i64 [ %conv.i16.i.i.i, %call1.i.noexc.i.i.i ], [ %.pre58.i.i.i, %.noexc.i.i.i ]
   %22 = phi ptr [ %call1.i15.i.i.i, %call1.i.noexc.i.i.i ], [ %.pre.i.i.i.i, %.noexc.i.i.i ]
   %elementsCapacity.i6.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 8
   %23 = load atomic i64, ptr %elementsCapacity.i6.i.i.i.i monotonic, align 8
   store i64 %23, ptr %3, align 8
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i
 
-_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i, %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i
-  %idxprom.i18.pre-phi.i.i.i = phi i64 [ %.pre.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i ], [ %conv.i16.i.i.i, %_ZNKSt8functionIFPN5folly20SingletonThreadLocalIZNK8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlE5applyERKNS3_17SelectivityVectorERSt6vectorISt10shared_ptrINS3_10BaseVectorEESaISE_EERKSC_IKNS3_4TypeEERNS3_4exec7EvalCtxERSE_E26__folly_reused_type_groupsNS0_6detail10DefaultTagENSS_11DefaultMakeISR_EEvE7WrapperEvEEclEv.exit.i.i ]
-  %24 = load ptr, ptr %2, align 8
+_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i
+  %idxprom.i18.pre-phi.i.i.i = phi i64 [ %conv.i16.i.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i ], [ %.pre54.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i ]
+  %24 = phi ptr [ %.pre.i.i2.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge.i.i.i ], [ %22, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i.i.i ]
   %25 = load ptr, ptr %24, align 8
   %arrayidx.i19.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %25, i64 %idxprom.i18.pre-phi.i.i.i
   %26 = load ptr, ptr %arrayidx.i19.i.i.i, align 8
@@ -75880,7 +75972,11 @@ invoke.cont2.i.i.i:                               ; preds = %cond.false12.i.i.i.
   %33 = load i64, ptr %3, align 8
   %conv.i.i.i.i = zext i32 %32 to i64
   %cmp.i.not.i.i.i = icmp ugt i64 %33, %conv.i.i.i.i
-  br i1 %cmp.i.not.i.i.i, label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i, label %if.then.i.i.i.i
+  br i1 %cmp.i.not.i.i.i, label %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i, label %if.then.i.i.i.i
+
+invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i: ; preds = %invoke.cont2.i.i.i
+  %.pre55.i.i.i = load ptr, ptr %2, align 8
+  br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %invoke.cont2.i.i.i
   %34 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS_18threadlocal_detail10StaticMetaIvvEEvEERT_vE3arg acquire, align 8
@@ -75913,20 +76009,20 @@ if.then.i27.i.i.i:                                ; preds = %call1.i.noexc33.i.i
 .noexc35.i.i.i:                                   ; preds = %if.then.i27.i.i.i
   %37 = load atomic i32, ptr %cond.i acquire, align 4
   %.pre.i28.i.i.i = load ptr, ptr %2, align 8
-  %.pre55.i.i.i = zext i32 %37 to i64
+  %.pre57.i.i.i = zext i32 %37 to i64
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i
 
 _ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i: ; preds = %.noexc35.i.i.i, %call1.i.noexc33.i.i.i
-  %.pre54.pre-phi.i.i.i = phi i64 [ %conv.i.i.i.i, %call1.i.noexc33.i.i.i ], [ %.pre55.i.i.i, %.noexc35.i.i.i ]
+  %.pre56.pre-phi.i.i.i = phi i64 [ %conv.i.i.i.i, %call1.i.noexc33.i.i.i ], [ %.pre57.i.i.i, %.noexc35.i.i.i ]
   %38 = phi ptr [ %call1.i34.i.i.i, %call1.i.noexc33.i.i.i ], [ %.pre.i28.i.i.i, %.noexc35.i.i.i ]
   %elementsCapacity.i6.i29.i.i.i = getelementptr inbounds i8, ptr %38, i64 8
   %39 = load atomic i64, ptr %elementsCapacity.i6.i29.i.i.i monotonic, align 8
   store i64 %39, ptr %3, align 8
   br label %_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i
 
-_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i, %invoke.cont2.i.i.i
-  %idxprom.i.pre-phi.i.i.i = phi i64 [ %.pre54.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i ], [ %conv.i.i.i.i, %invoke.cont2.i.i.i ]
-  %40 = load ptr, ptr %2, align 8
+_ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit.i.i.i: ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i
+  %idxprom.i.pre-phi.i.i.i = phi i64 [ %conv.i.i.i.i, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i ], [ %.pre56.pre-phi.i.i.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i ]
+  %40 = phi ptr [ %.pre55.i.i.i, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i.i.i ], [ %38, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit36.i.i.i ]
   %41 = load ptr, ptr %40, align 8
   %arrayidx.i.i.i.i = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %41, i64 %idxprom.i.pre-phi.i.i.i
   %ownsDeleter.i37.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i, i64 16
