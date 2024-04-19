@@ -8757,8 +8757,8 @@ define internal fastcc noundef i32 @more_workspace(ptr nocapture noundef %0, i32
   %21 = zext i32 %.0 to i64
   %22 = shl i32 %.0, 8
   %23 = zext i32 %22 to i64
-  %24 = zext i32 %1 to i64
-  %25 = add nuw nsw i64 %24, 1004
+  %24 = sext i32 %1 to i64
+  %25 = add nsw i64 %24, 1004
   %26 = icmp ugt i64 %25, %23
   br i1 %26, label %43, label %27
 

@@ -157,7 +157,7 @@ lor.lhs.false70:                                  ; preds = %if.end65
   br i1 %cmp73, label %return, label %if.end76
 
 if.end76:                                         ; preds = %lor.lhs.false70
-  %20 = trunc i64 %indvars.iv122 to i32
+  %20 = trunc nuw nsw i64 %indvars.iv122 to i32
   switch i32 %20, label %for.inc [
     i32 0, label %sw.bb
     i32 1, label %sw.bb82
@@ -245,19 +245,18 @@ if.end138.us:                                     ; preds = %for.body125.us
 if.end156.us:                                     ; preds = %if.end138.us
   %conv146.us = zext nneg i8 %25 to i32
   %27 = mul i8 %23, 10
-  %narrow94.us = add nsw i8 %27, 32
-  %mul157.us = zext nneg i8 %narrow94.us to i32
-  %add161.us = add nsw i32 %mul157.us, -48
+  %28 = sext i8 %27 to i32
+  %add161.us = add nsw i32 %28, -16
   %sub162.us = add nsw i32 %add161.us, %conv146.us
   %arrayidx164.us = getelementptr inbounds [8 x i32], ptr @asn1_utctime_to_tm.min, i64 0, i64 %indvars.iv146
-  %28 = load i32, ptr %arrayidx164.us, align 4
-  %cmp165.us = icmp slt i32 %sub162.us, %28
+  %29 = load i32, ptr %arrayidx164.us, align 4
+  %cmp165.us = icmp slt i32 %sub162.us, %29
   br i1 %cmp165.us, label %return, label %lor.lhs.false167.us
 
 lor.lhs.false167.us:                              ; preds = %if.end156.us
   %arrayidx169.us = getelementptr inbounds [8 x i32], ptr @asn1_utctime_to_tm.max, i64 0, i64 %indvars.iv146
-  %29 = load i32, ptr %arrayidx169.us, align 4
-  %cmp170.us = icmp sgt i32 %sub162.us, %29
+  %30 = load i32, ptr %arrayidx169.us, align 4
+  %cmp170.us = icmp sgt i32 %sub162.us, %30
   br i1 %cmp170.us, label %return, label %if.end173.us
 
 if.end173.us:                                     ; preds = %lor.lhs.false167.us
@@ -275,34 +274,33 @@ for.body125:                                      ; preds = %if.end121, %if.end1
   %indvars.iv136 = phi i64 [ %indvars.iv.next137, %if.end173 ], [ %22, %if.end121 ]
   %offset.0108 = phi i32 [ %offset.1, %if.end173 ], [ 0, %if.end121 ]
   %arrayidx127 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv136
-  %30 = load i8, ptr %arrayidx127, align 1
-  %31 = add i8 %30, -58
-  %or.cond92 = icmp ult i8 %31, -10
+  %31 = load i8, ptr %arrayidx127, align 1
+  %32 = add i8 %31, -58
+  %or.cond92 = icmp ult i8 %32, -10
   br i1 %or.cond92, label %return, label %if.end138
 
 if.end138:                                        ; preds = %for.body125
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv136
-  %32 = load i8, ptr %gep, align 1
-  %33 = add i8 %32, -58
-  %or.cond93 = icmp ult i8 %33, -10
+  %33 = load i8, ptr %gep, align 1
+  %34 = add i8 %33, -58
+  %or.cond93 = icmp ult i8 %34, -10
   br i1 %or.cond93, label %return, label %if.end156
 
 if.end156:                                        ; preds = %if.end138
-  %conv146 = zext nneg i8 %32 to i32
-  %34 = mul i8 %30, 10
-  %narrow94 = add nsw i8 %34, 32
-  %mul157 = zext nneg i8 %narrow94 to i32
-  %add161 = add nsw i32 %mul157, -48
+  %conv146 = zext nneg i8 %33 to i32
+  %35 = mul i8 %31, 10
+  %36 = sext i8 %35 to i32
+  %add161 = add nsw i32 %36, -16
   %sub162 = add nsw i32 %add161, %conv146
   %arrayidx164 = getelementptr inbounds [8 x i32], ptr @asn1_utctime_to_tm.min, i64 0, i64 %indvars.iv138
-  %35 = load i32, ptr %arrayidx164, align 4
-  %cmp165 = icmp slt i32 %sub162, %35
+  %37 = load i32, ptr %arrayidx164, align 4
+  %cmp165 = icmp slt i32 %sub162, %37
   br i1 %cmp165, label %return, label %lor.lhs.false167
 
 lor.lhs.false167:                                 ; preds = %if.end156
   %arrayidx169 = getelementptr inbounds [8 x i32], ptr @asn1_utctime_to_tm.max, i64 0, i64 %indvars.iv138
-  %36 = load i32, ptr %arrayidx169, align 4
-  %cmp170 = icmp sgt i32 %sub162, %36
+  %38 = load i32, ptr %arrayidx169, align 4
+  %cmp170 = icmp sgt i32 %sub162, %38
   br i1 %cmp170, label %return, label %if.end173
 
 if.end173:                                        ; preds = %lor.lhs.false167
@@ -322,8 +320,8 @@ for.end192:                                       ; preds = %if.end173
   br i1 %tobool193.not, label %if.end201, label %land.lhs.true194
 
 land.lhs.true194:                                 ; preds = %for.end192
-  %37 = sub nsw i32 0, %offset.1
-  %mul195 = select i1 %cmp113, i32 %37, i32 %offset.1
+  %39 = sub nsw i32 0, %offset.1
+  %mul195 = select i1 %cmp113, i32 %39, i32 %offset.1
   %conv196 = sext i32 %mul195 to i64
   %call = tail call i32 @OPENSSL_gmtime_adj(ptr noundef nonnull %tm, i32 noundef 0, i64 noundef %conv196) #5
   %tobool197.not = icmp eq i32 %call, 0

@@ -71266,9 +71266,8 @@ sw.bb163:                                         ; preds = %stbtt__buf_get8.exi
   br i1 %cmp164, label %return, label %for.body173.preheader
 
 for.body173.preheader:                            ; preds = %sw.bb163
-  %sub170 = add nsw i32 %sp.0263, -2
-  %50 = zext nneg i32 %sub170 to i64
-  %invariant.op = add nsw i64 %50, -11
+  %50 = zext nneg i32 %sp.0263 to i64
+  %invariant.op = add nsw i64 %50, -13
   br label %for.body173
 
 for.body173:                                      ; preds = %for.body173.preheader, %for.body173

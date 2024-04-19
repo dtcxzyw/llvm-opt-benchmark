@@ -81489,7 +81489,7 @@ define internal fastcc void @js_dtoa1(ptr noundef %0, double noundef %1, i32 nou
 
 17:                                               ; preds = %15
   tail call void @pstrcpy(ptr noundef %0, i32 noundef 128, ptr noundef nonnull @.str.121) #42
-  br label %226
+  br label %224
 
 18:                                               ; preds = %15
   %19 = fcmp olt double %1, 0.000000e+00
@@ -81497,11 +81497,11 @@ define internal fastcc void @js_dtoa1(ptr noundef %0, double noundef %1, i32 nou
 
 20:                                               ; preds = %18
   tail call void @pstrcpy(ptr noundef %0, i32 noundef 128, ptr noundef nonnull @.str.122) #42
-  br label %226
+  br label %224
 
 21:                                               ; preds = %18
   tail call void @pstrcpy(ptr noundef %0, i32 noundef 128, ptr noundef nonnull @.str.119) #42
-  br label %226
+  br label %224
 
 22:                                               ; preds = %5
   %23 = icmp eq i32 %4, 0
@@ -81565,7 +81565,7 @@ define internal fastcc void @js_dtoa1(ptr noundef %0, double noundef %1, i32 nou
 i64toa.exit:                                      ; preds = %.loopexit.i, %45
   %.3.i = phi ptr [ %46, %45 ], [ %.2.i, %.loopexit.i ]
   call void @pstrcpy(ptr noundef %0, i32 noundef 128, ptr noundef %.3.i) #42
-  br label %226
+  br label %224
 
 47:                                               ; preds = %22
   %48 = fcmp oeq double %1, 0.000000e+00
@@ -81617,7 +81617,7 @@ i64toa.exit:                                      ; preds = %.loopexit.i, %45
 js_fcvt.exit:                                     ; preds = %69, %.thread.i.i
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10)
-  br label %226
+  br label %224
 
 .thread:                                          ; preds = %25, %24
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6)
@@ -81861,7 +81861,7 @@ js_ecvt.exit:                                     ; preds = %156, %162
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %181
   %.191.lcssa = phi ptr [ %182, %181 ], [ %scevgep, %.lr.ph.preheader ]
   store i8 0, ptr %.191.lcssa, align 1
-  br label %226
+  br label %224
 
 190:                                              ; preds = %180
   %191 = zext nneg i32 %173 to i64
@@ -81894,7 +81894,7 @@ js_ecvt.exit:                                     ; preds = %156, %162
 ._crit_edge133:                                   ; preds = %.lr.ph132, %190
   %.2.lcssa = phi ptr [ %.2128, %190 ], [ %.2, %.lr.ph132 ]
   store i8 0, ptr %.2.lcssa, align 1
-  br label %226
+  br label %224
 
 200:                                              ; preds = %178
   %or.cond3 = icmp ugt i32 %172, -7
@@ -81922,7 +81922,7 @@ js_ecvt.exit:                                     ; preds = %156, %162
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.3.lcssa, ptr nonnull align 16 %12, i64 %166, i1 false)
   %206 = getelementptr i8, ptr %.3.lcssa, i64 %166
   store i8 0, ptr %206, align 1
-  br label %226
+  br label %224
 
 207:                                              ; preds = %200, %176
   %208 = load i8, ptr %12, align 16
@@ -81937,34 +81937,33 @@ js_ecvt.exit:                                     ; preds = %156, %162
   %211 = add nsw i32 %.13647.i, -1
   %212 = zext nneg i32 %211 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %210, ptr nonnull align 1 %scevgep151, i64 %212, i1 false)
-  %213 = add nsw i32 %.13647.i, -2
-  %214 = zext nneg i32 %213 to i64
-  %215 = add nuw nsw i64 %214, 3
-  %scevgep154 = getelementptr i8, ptr %.090, i64 %215
+  %narrow161 = add nuw i32 %.13647.i, 1
+  %213 = zext i32 %narrow161 to i64
+  %scevgep154 = getelementptr i8, ptr %.090, i64 %213
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %207
   %.5 = phi ptr [ %209, %207 ], [ %scevgep154, %.loopexit.loopexit ]
-  %216 = getelementptr i8, ptr %.5, i64 1
+  %214 = getelementptr i8, ptr %.5, i64 1
   store i8 101, ptr %.5, align 1
-  %217 = icmp sgt i32 %172, -1
-  br i1 %217, label %218, label %220
+  %215 = icmp sgt i32 %172, -1
+  br i1 %215, label %216, label %218
 
-218:                                              ; preds = %.loopexit
-  %219 = getelementptr i8, ptr %.5, i64 2
-  store i8 43, ptr %216, align 1
-  br label %220
+216:                                              ; preds = %.loopexit
+  %217 = getelementptr i8, ptr %.5, i64 2
+  store i8 43, ptr %214, align 1
+  br label %218
 
-220:                                              ; preds = %218, %.loopexit
-  %.6 = phi ptr [ %219, %218 ], [ %216, %.loopexit ]
-  %221 = getelementptr i8, ptr %0, i64 128
-  %222 = ptrtoint ptr %221 to i64
-  %223 = ptrtoint ptr %.6 to i64
-  %224 = sub i64 %222, %223
-  %225 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.6, i64 noundef %224, ptr noundef nonnull @.str.63, i32 noundef %172) #42
-  br label %226
+218:                                              ; preds = %216, %.loopexit
+  %.6 = phi ptr [ %217, %216 ], [ %214, %.loopexit ]
+  %219 = getelementptr i8, ptr %0, i64 128
+  %220 = ptrtoint ptr %219 to i64
+  %221 = ptrtoint ptr %.6 to i64
+  %222 = sub i64 %220, %221
+  %223 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.6, i64 noundef %222, ptr noundef nonnull @.str.63, i32 noundef %172) #42
+  br label %224
 
-226:                                              ; preds = %i64toa.exit, %._crit_edge133, %._crit_edge, %220, %._crit_edge141, %js_fcvt.exit, %17, %21, %20
+224:                                              ; preds = %i64toa.exit, %._crit_edge133, %._crit_edge, %218, %._crit_edge141, %js_fcvt.exit, %17, %21, %20
   ret void
 }
 

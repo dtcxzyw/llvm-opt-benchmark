@@ -2941,8 +2941,8 @@ define noundef i32 @Gia_FormStrCount(ptr noundef %0, ptr nocapture noundef %1, p
   br i1 %.not, label %6, label %5
 
 5:                                                ; preds = %3
-  %puts82 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  br label %56
+  %puts81 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
+  br label %51
 
 6:                                                ; preds = %3
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #23
@@ -2953,8 +2953,8 @@ define noundef i32 @Gia_FormStrCount(ptr noundef %0, ptr nocapture noundef %1, p
   br i1 %.not75, label %.preheader, label %11
 
 11:                                               ; preds = %6
-  %puts81 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  br label %56
+  %puts80 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
+  br label %51
 
 .preheader:                                       ; preds = %6, %17
   %12 = phi i8 [ %.pre, %17 ], [ 40, %6 ]
@@ -2987,104 +2987,98 @@ define noundef i32 @Gia_FormStrCount(ptr noundef %0, ptr nocapture noundef %1, p
 
 19:                                               ; preds = %18
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %56
+  br label %51
 
 20:                                               ; preds = %18
   store i32 0, ptr %1, align 4
   store i32 0, ptr %2, align 4
   %21 = load i8, ptr %0, align 1
-  %.not7889 = icmp eq i8 %21, 0
-  br i1 %.not7889, label %._crit_edge, label %.lr.ph.preheader
+  %.not7888 = icmp eq i8 %21, 0
+  br i1 %.not7888, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %20
   %invariant.gep = getelementptr i8, ptr %0, i64 1
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %45
-  %indvars.iv95 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next96, %45 ]
-  %22 = phi i8 [ %21, %.lr.ph.preheader ], [ %47, %45 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %40
+  %indvars.iv94 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next95, %40 ]
+  %22 = phi i8 [ %21, %.lr.ph.preheader ], [ %42, %40 ]
   %23 = add i8 %22, -97
   %or.cond = icmp ult i8 %23, 2
-  br i1 %or.cond, label %24, label %29
+  br i1 %or.cond, label %.sink.split, label %24
 
 24:                                               ; preds = %.lr.ph
-  %25 = load i32, ptr %1, align 4
-  %26 = zext nneg i8 %22 to i32
-  %27 = add nsw i32 %26, -96
-  %28 = tail call noundef i32 @llvm.smax.i32(i32 %25, i32 %27)
-  store i32 %28, ptr %1, align 4
-  br label %45
+  %25 = and i8 %22, -4
+  %or.cond82 = icmp eq i8 %25, 112
+  br i1 %or.cond82, label %.sink.split, label %26
 
-29:                                               ; preds = %.lr.ph
-  %30 = and i8 %22, -4
-  %or.cond83 = icmp eq i8 %30, 112
-  br i1 %or.cond83, label %31, label %35
-
-31:                                               ; preds = %29
-  %32 = load i32, ptr %2, align 4
-  %narrow80 = add nsw i8 %22, -111
-  %33 = zext nneg i8 %narrow80 to i32
-  %34 = tail call noundef i32 @llvm.smax.i32(i32 %32, i32 %33)
-  store i32 %34, ptr %2, align 4
-  br label %45
-
-35:                                               ; preds = %29
-  switch i8 %22, label %42 [
-    i8 40, label %45
-    i8 41, label %45
-    i8 38, label %45
-    i8 124, label %45
-    i8 94, label %45
-    i8 63, label %45
-    i8 58, label %45
-    i8 126, label %36
+26:                                               ; preds = %24
+  switch i8 %22, label %33 [
+    i8 40, label %40
+    i8 41, label %40
+    i8 38, label %40
+    i8 124, label %40
+    i8 94, label %40
+    i8 63, label %40
+    i8 58, label %40
+    i8 126, label %27
   ]
 
-36:                                               ; preds = %35
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv95
-  %37 = load i8, ptr %gep, align 1
-  %38 = add i8 %37, -123
-  %or.cond84 = icmp ult i8 %38, -26
-  br i1 %or.cond84, label %39, label %45
+27:                                               ; preds = %26
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv94
+  %28 = load i8, ptr %gep, align 1
+  %29 = add i8 %28, -123
+  %or.cond83 = icmp ult i8 %29, -26
+  br i1 %or.cond83, label %30, label %40
 
-39:                                               ; preds = %36
-  %40 = sext i8 %37 to i32
-  %41 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %40)
-  br label %56
+30:                                               ; preds = %27
+  %31 = sext i8 %28 to i32
+  %32 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %31)
+  br label %51
 
-42:                                               ; preds = %35
-  %43 = sext i8 %22 to i32
-  %44 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %43, ptr noundef nonnull %0)
-  br label %56
+33:                                               ; preds = %26
+  %34 = sext i8 %22 to i32
+  %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %34, ptr noundef nonnull %0)
+  br label %51
 
-45:                                               ; preds = %36, %35, %35, %35, %35, %35, %35, %35, %24, %31
-  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
-  %46 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next96
-  %47 = load i8, ptr %46, align 1
-  %.not78 = icmp eq i8 %47, 0
+.sink.split:                                      ; preds = %24, %.lr.ph
+  %.sink = phi ptr [ %1, %.lr.ph ], [ %2, %24 ]
+  %.sink102 = phi i32 [ -96, %.lr.ph ], [ -111, %24 ]
+  %36 = load i32, ptr %.sink, align 4
+  %37 = zext nneg i8 %22 to i32
+  %38 = add nsw i32 %.sink102, %37
+  %39 = tail call noundef i32 @llvm.smax.i32(i32 %36, i32 %38)
+  store i32 %39, ptr %.sink, align 4
+  br label %40
+
+40:                                               ; preds = %.sink.split, %27, %26, %26, %26, %26, %26, %26, %26
+  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
+  %41 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next95
+  %42 = load i8, ptr %41, align 1
+  %.not78 = icmp eq i8 %42, 0
   br i1 %.not78, label %._crit_edge, label %.lr.ph, !llvm.loop !34
 
-._crit_edge:                                      ; preds = %45, %20
-  %48 = load i32, ptr %1, align 4
-  %.not79 = icmp eq i32 %48, 2
-  br i1 %.not79, label %51, label %49
+._crit_edge:                                      ; preds = %40, %20
+  %43 = load i32, ptr %1, align 4
+  %.not79 = icmp eq i32 %43, 2
+  br i1 %.not79, label %46, label %44
 
-49:                                               ; preds = %._crit_edge
-  %50 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %48)
-  br label %56
+44:                                               ; preds = %._crit_edge
+  %45 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %43)
+  br label %51
 
-51:                                               ; preds = %._crit_edge
-  %52 = load i32, ptr %2, align 4
-  %53 = add i32 %52, -9
-  %or.cond85 = icmp ult i32 %53, -8
-  br i1 %or.cond85, label %54, label %56
+46:                                               ; preds = %._crit_edge
+  %47 = load i32, ptr %2, align 4
+  %48 = add i32 %47, -9
+  %or.cond84 = icmp ult i32 %48, -8
+  br i1 %or.cond84, label %49, label %51
 
-54:                                               ; preds = %51
-  %55 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef 8)
-  br label %56
+49:                                               ; preds = %46
+  %50 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef 8)
+  br label %51
 
-56:                                               ; preds = %51, %54, %49, %42, %39, %19, %11, %5
-  %.065 = phi i32 [ 1, %5 ], [ 1, %11 ], [ 1, %19 ], [ 1, %39 ], [ 1, %42 ], [ 1, %49 ], [ 1, %54 ], [ 0, %51 ]
+51:                                               ; preds = %46, %49, %44, %33, %30, %19, %11, %5
+  %.065 = phi i32 [ 1, %5 ], [ 1, %11 ], [ 1, %19 ], [ 1, %30 ], [ 1, %33 ], [ 1, %44 ], [ 1, %49 ], [ 0, %46 ]
   ret i32 %.065
 }
 

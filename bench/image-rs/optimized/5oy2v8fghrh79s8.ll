@@ -22700,81 +22700,82 @@ define hidden void @"_ZN4core3ptr43drop_in_place$LT$tiff..error..TiffError$GT$17
   %2 = load i16, ptr %0, align 8, !range !9784, !noundef !4
   %3 = add nsw i16 %2, -21
   %4 = icmp ult i16 %3, 5
-  %5 = add nsw i16 %2, -20
-  %trunc = select i1 %4, i16 %5, i16 0
-  switch i16 %trunc, label %"_ZN4core3ptr54drop_in_place$LT$tiff..error..TiffUnsupportedError$GT$17hb131f2c2f6719c20E.llvm.9832446184049035033.exit" [
-    i16 0, label %6
-    i16 1, label %7
-    i16 2, label %31
+  %5 = zext nneg i16 %2 to i64
+  %6 = add nsw i64 %5, -20
+  %7 = select i1 %4, i64 %6, i64 0
+  switch i64 %7, label %"_ZN4core3ptr54drop_in_place$LT$tiff..error..TiffUnsupportedError$GT$17hb131f2c2f6719c20E.llvm.9832446184049035033.exit" [
+    i64 0, label %8
+    i64 1, label %9
+    i64 2, label %33
   ]
 
-"_ZN4core3ptr54drop_in_place$LT$tiff..error..TiffUnsupportedError$GT$17hb131f2c2f6719c20E.llvm.9832446184049035033.exit": ; preds = %27, %23, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033.exit.i.i1.i1.i", %19, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033.exit.i.i1.i.i", %13, %7, %31, %6, %1
+"_ZN4core3ptr54drop_in_place$LT$tiff..error..TiffUnsupportedError$GT$17hb131f2c2f6719c20E.llvm.9832446184049035033.exit": ; preds = %29, %25, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033.exit.i.i1.i1.i", %21, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033.exit.i.i1.i.i", %15, %9, %33, %8, %1
   ret void
 
-6:                                                ; preds = %1
+8:                                                ; preds = %1
   tail call void @"_ZN4core3ptr49drop_in_place$LT$tiff..error..TiffFormatError$GT$17h2ae7fc522ac7d9faE.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0)
   br label %"_ZN4core3ptr54drop_in_place$LT$tiff..error..TiffUnsupportedError$GT$17hb131f2c2f6719c20E.llvm.9832446184049035033.exit"
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9785)
-  %9 = load i64, ptr %8, align 8, !range !9788, !alias.scope !9785, !noundef !4
-  %10 = xor i64 %9, -9223372036854775808
-  %11 = icmp ult i64 %10, 15
-  %12 = select i1 %11, i64 %10, i64 3
-  switch i64 %12, label %"_ZN4core3ptr54drop_in_place$LT$tiff..error..TiffUnsupportedError$GT$17hb131f2c2f6719c20E.llvm.9832446184049035033.exit" [
-    i64 8, label %23
-    i64 3, label %19
-    i64 2, label %13
+  %11 = load i64, ptr %10, align 8, !range !9788, !alias.scope !9785, !noundef !4
+  %12 = xor i64 %11, -9223372036854775808
+  %13 = icmp ult i64 %12, 15
+  %14 = select i1 %13, i64 %12, i64 3
+  switch i64 %14, label %"_ZN4core3ptr54drop_in_place$LT$tiff..error..TiffUnsupportedError$GT$17hb131f2c2f6719c20E.llvm.9832446184049035033.exit" [
+    i64 8, label %25
+    i64 3, label %21
+    i64 2, label %15
   ]
 
-13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
+15:                                               ; preds = %9
+  %16 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9789)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9792)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9795)
-  %15 = load i64, ptr %14, align 8, !alias.scope !9798, !noalias !9801, !noundef !4
-  %16 = icmp eq i64 %15, 0
-  br i1 %16, label %"_ZN4core3ptr54drop_in_place$LT$tiff..error..TiffUnsupportedError$GT$17hb131f2c2f6719c20E.llvm.9832446184049035033.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033.exit.i.i1.i.i"
+  %17 = load i64, ptr %16, align 8, !alias.scope !9798, !noalias !9801, !noundef !4
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %"_ZN4core3ptr54drop_in_place$LT$tiff..error..TiffUnsupportedError$GT$17hb131f2c2f6719c20E.llvm.9832446184049035033.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033.exit.i.i1.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033.exit.i.i1.i.i": ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
-  %18 = load ptr, ptr %17, align 8, !alias.scope !9798, !noalias !9801, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %18, i64 noundef %15, i64 noundef 1) #44, !noalias !9803
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033.exit.i.i1.i.i": ; preds = %15
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = load ptr, ptr %19, align 8, !alias.scope !9798, !noalias !9801, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %20, i64 noundef %17, i64 noundef 1) #44, !noalias !9803
   br label %"_ZN4core3ptr54drop_in_place$LT$tiff..error..TiffUnsupportedError$GT$17hb131f2c2f6719c20E.llvm.9832446184049035033.exit"
 
-19:                                               ; preds = %7
+21:                                               ; preds = %9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9804)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9807)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9810)
-  %20 = icmp eq i64 %9, 0
-  br i1 %20, label %"_ZN4core3ptr54drop_in_place$LT$tiff..error..TiffUnsupportedError$GT$17hb131f2c2f6719c20E.llvm.9832446184049035033.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033.exit.i.i1.i1.i"
+  %22 = icmp eq i64 %11, 0
+  br i1 %22, label %"_ZN4core3ptr54drop_in_place$LT$tiff..error..TiffUnsupportedError$GT$17hb131f2c2f6719c20E.llvm.9832446184049035033.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033.exit.i.i1.i1.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033.exit.i.i1.i1.i": ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 16
-  %22 = load ptr, ptr %21, align 8, !alias.scope !9813, !noalias !9816, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %22, i64 noundef %9, i64 noundef 1) #44, !noalias !9818
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033.exit.i.i1.i1.i": ; preds = %21
+  %23 = getelementptr inbounds i8, ptr %0, i64 16
+  %24 = load ptr, ptr %23, align 8, !alias.scope !9813, !noalias !9816, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %24, i64 noundef %11, i64 noundef 1) #44, !noalias !9818
   br label %"_ZN4core3ptr54drop_in_place$LT$tiff..error..TiffUnsupportedError$GT$17hb131f2c2f6719c20E.llvm.9832446184049035033.exit"
 
-23:                                               ; preds = %7
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
+25:                                               ; preds = %9
+  %26 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9819)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9822)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9825)
-  %25 = load i64, ptr %24, align 8, !alias.scope !9828, !noalias !9831, !noundef !4
-  %26 = icmp eq i64 %25, 0
-  br i1 %26, label %"_ZN4core3ptr54drop_in_place$LT$tiff..error..TiffUnsupportedError$GT$17hb131f2c2f6719c20E.llvm.9832446184049035033.exit", label %27
+  %27 = load i64, ptr %26, align 8, !alias.scope !9828, !noalias !9831, !noundef !4
+  %28 = icmp eq i64 %27, 0
+  br i1 %28, label %"_ZN4core3ptr54drop_in_place$LT$tiff..error..TiffUnsupportedError$GT$17hb131f2c2f6719c20E.llvm.9832446184049035033.exit", label %29
 
-27:                                               ; preds = %23
-  %28 = shl nuw i64 %25, 2
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
-  %30 = load ptr, ptr %29, align 8, !alias.scope !9828, !noalias !9831, !nonnull !4, !noundef !4
-  tail call void @__rust_dealloc(ptr noundef nonnull %30, i64 noundef %28, i64 noundef 2) #44, !noalias !9833
+29:                                               ; preds = %25
+  %30 = shl nuw i64 %27, 2
+  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %32 = load ptr, ptr %31, align 8, !alias.scope !9828, !noalias !9831, !nonnull !4, !noundef !4
+  tail call void @__rust_dealloc(ptr noundef nonnull %32, i64 noundef %30, i64 noundef 2) #44, !noalias !9833
   br label %"_ZN4core3ptr54drop_in_place$LT$tiff..error..TiffUnsupportedError$GT$17hb131f2c2f6719c20E.llvm.9832446184049035033.exit"
 
-31:                                               ; preds = %1
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr57drop_in_place$LT$std..io..error..repr_bitpacked..Repr$GT$17hfb21484add2ebffaE.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(8) %32)
+33:                                               ; preds = %1
+  %34 = getelementptr inbounds i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr57drop_in_place$LT$std..io..error..repr_bitpacked..Repr$GT$17hfb21484add2ebffaE.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(8) %34)
   br label %"_ZN4core3ptr54drop_in_place$LT$tiff..error..TiffUnsupportedError$GT$17hb131f2c2f6719c20E.llvm.9832446184049035033.exit"
 }
 
