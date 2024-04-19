@@ -223,12 +223,12 @@ define void @dlaed9_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %145 = add nuw nsw i64 %144, 1
   %146 = getelementptr double, ptr %128, i64 %145
   %147 = load double, ptr %146, align 8, !tbaa !7
-  %148 = getelementptr inbounds double, ptr %21, i64 %145
+  %148 = getelementptr double, ptr %8, i64 %144
   %149 = load double, ptr %148, align 8, !tbaa !7
   %150 = load double, ptr %127, align 8, !tbaa !7
   %151 = fsub double %149, %150
   %152 = fdiv double %147, %151
-  %153 = getelementptr inbounds double, ptr %22, i64 %145
+  %153 = getelementptr double, ptr %9, i64 %144
   %154 = load double, ptr %153, align 8, !tbaa !7
   %155 = fmul double %154, %152
   store double %155, ptr %153, align 8, !tbaa !7

@@ -94,22 +94,22 @@ define void @dgttrf_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1
   store double %62, ptr %45, align 8, !tbaa !10
   %63 = getelementptr inbounds double, ptr %11, i64 %39
   %64 = load double, ptr %63, align 8, !tbaa !10
-  %65 = add nuw nsw i64 %39, 1
-  %66 = getelementptr inbounds double, ptr %12, i64 %65
-  %67 = load double, ptr %66, align 8, !tbaa !10
-  store double %67, ptr %63, align 8, !tbaa !10
-  %68 = fneg double %62
-  %69 = tail call double @llvm.fmuladd.f64(double %68, double %67, double %64)
-  store double %69, ptr %66, align 8, !tbaa !10
-  %70 = getelementptr inbounds double, ptr %11, i64 %65
-  %71 = load double, ptr %70, align 8, !tbaa !10
-  %72 = getelementptr inbounds double, ptr %10, i64 %39
-  store double %71, ptr %72, align 8, !tbaa !10
-  %73 = fmul double %71, %68
-  store double %73, ptr %70, align 8, !tbaa !10
-  %74 = getelementptr inbounds i32, ptr %9, i64 %39
-  %75 = trunc i64 %65 to i32
-  store i32 %75, ptr %74, align 4, !tbaa !3
+  %65 = getelementptr double, ptr %2, i64 %39
+  %66 = load double, ptr %65, align 8, !tbaa !10
+  store double %66, ptr %63, align 8, !tbaa !10
+  %67 = fneg double %62
+  %68 = tail call double @llvm.fmuladd.f64(double %67, double %66, double %64)
+  store double %68, ptr %65, align 8, !tbaa !10
+  %69 = getelementptr double, ptr %3, i64 %39
+  %70 = load double, ptr %69, align 8, !tbaa !10
+  %71 = getelementptr inbounds double, ptr %10, i64 %39
+  store double %70, ptr %71, align 8, !tbaa !10
+  %72 = fmul double %70, %67
+  store double %72, ptr %69, align 8, !tbaa !10
+  %73 = getelementptr inbounds i32, ptr %9, i64 %39
+  %74 = trunc i64 %39 to i32
+  %75 = add i32 %74, 1
+  store i32 %75, ptr %73, align 4, !tbaa !3
   br label %76
 
 76:                                               ; preds = %61, %53, %51

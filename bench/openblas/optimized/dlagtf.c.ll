@@ -77,7 +77,7 @@ define void @dlagtf_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1
   %53 = phi double [ %46, %49 ], [ %133, %145 ]
   %54 = load double, ptr %2, align 8, !tbaa !7
   %55 = add nuw nsw i64 %52, 1
-  %56 = getelementptr inbounds double, ptr %15, i64 %55
+  %56 = getelementptr double, ptr %1, i64 %52
   %57 = load double, ptr %56, align 8, !tbaa !7
   %58 = fsub double %57, %54
   store double %58, ptr %56, align 8, !tbaa !7
@@ -98,7 +98,7 @@ define void @dlagtf_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1
   br i1 %72, label %73, label %80
 
 73:                                               ; preds = %51
-  %74 = getelementptr inbounds double, ptr %14, i64 %55
+  %74 = getelementptr double, ptr %3, i64 %52
   %75 = load double, ptr %74, align 8, !tbaa !7
   %76 = fcmp oge double %75, 0.000000e+00
   %77 = fneg double %75
@@ -175,7 +175,7 @@ define void @dlagtf_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1
   br i1 %124, label %125, label %130
 
 125:                                              ; preds = %116
-  %126 = getelementptr inbounds double, ptr %14, i64 %55
+  %126 = getelementptr double, ptr %3, i64 %52
   %127 = load double, ptr %126, align 8, !tbaa !7
   %128 = getelementptr inbounds double, ptr %12, i64 %52
   store double %127, ptr %128, align 8, !tbaa !7

@@ -1259,7 +1259,7 @@ define internal fastcc noundef zeroext i1 @_ZN4core5slice4sort22partial_insertio
   %52 = icmp ugt i64 %.123.lcssa, 1
   %53 = trunc i64 %51 to i32
   %54 = lshr i64 %51, 32
-  %55 = trunc i64 %54 to i32
+  %55 = trunc nuw i64 %54 to i32
   br i1 %52, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h3e033052ea742854E.exit", label %_ZN4core5slice4sort26insertion_sort_shift_right17h9f39ba1626f28c2dE.exit
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h3e033052ea742854E.exit": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h61e69fa10aa7c9aeE.exit"
@@ -1802,7 +1802,7 @@ _ZN4core5slice4sort12choose_pivot17hb244ba6ab6f4f2faE.exit: ; preds = %"_ZN4core
   %167 = add i64 %.0.i51, -1
   %168 = icmp ult i64 %167, %151
   call void @llvm.assume(i1 %168)
-  %169 = getelementptr inbounds { i32, i16 }, ptr %150, i64 %167
+  %169 = getelementptr { i32, i16 }, ptr %.sroa.0.0122.lcssa148, i64 %.0.i51
   %.val.i = load i32, ptr %169, align 4, !alias.scope !161, !noundef !9
   %170 = getelementptr i8, ptr %169, i64 4
   %.val24.i = load i16, ptr %170, align 2, !alias.scope !161
@@ -2138,7 +2138,7 @@ _ZN4core5slice4sort12choose_pivot17hb244ba6ab6f4f2faE.exit: ; preds = %"_ZN4core
 310:                                              ; preds = %308
   %311 = icmp ult i64 %309, %297
   call void @llvm.assume(i1 %311)
-  %312 = getelementptr inbounds { i32, i16 }, ptr %296, i64 %309
+  %312 = getelementptr { i32, i16 }, ptr %.sroa.0.0122, i64 %.1.i58
   %.val29.i = load i32, ptr %312, align 4, !alias.scope !187, !noundef !9
   %313 = getelementptr i8, ptr %312, i64 4
   %.val30.i = load i16, ptr %313, align 2, !alias.scope !187
@@ -2684,7 +2684,7 @@ _ZN4core5slice4sort12choose_pivot17h96db4cefb14b0787E.exit: ; preds = %"_ZN4core
   %163 = add i64 %.0.i51, -1
   %164 = icmp ult i64 %163, %147
   call void @llvm.assume(i1 %164)
-  %165 = getelementptr inbounds { i32, i32 }, ptr %146, i64 %163
+  %165 = getelementptr { i32, i32 }, ptr %.sroa.0.0122.lcssa148, i64 %.0.i51
   %.val.i = load i32, ptr %165, align 4, !alias.scope !255, !noundef !9
   %166 = getelementptr i8, ptr %165, i64 4
   %.val24.i = load i32, ptr %166, align 4, !alias.scope !255
@@ -3016,7 +3016,7 @@ _ZN4core5slice4sort12choose_pivot17h96db4cefb14b0787E.exit: ; preds = %"_ZN4core
 304:                                              ; preds = %302
   %305 = icmp ult i64 %303, %291
   call void @llvm.assume(i1 %305)
-  %306 = getelementptr inbounds { i32, i32 }, ptr %290, i64 %303
+  %306 = getelementptr { i32, i32 }, ptr %.sroa.0.0122, i64 %.1.i58
   %.val29.i = load i32, ptr %306, align 4, !alias.scope !281, !noundef !9
   %307 = getelementptr i8, ptr %306, i64 4
   %.val30.i = load i32, ptr %307, align 4, !alias.scope !281
@@ -3568,7 +3568,7 @@ _ZN4core5slice4sort12choose_pivot17hccf106d57e647929E.exit: ; preds = %"_ZN4core
   %167 = add i64 %.0.i51, -1
   %168 = icmp ult i64 %167, %151
   call void @llvm.assume(i1 %168)
-  %169 = getelementptr inbounds { i32, i8 }, ptr %150, i64 %167
+  %169 = getelementptr { i32, i8 }, ptr %.sroa.0.0122.lcssa148, i64 %.0.i51
   %.val.i = load i32, ptr %169, align 4, !alias.scope !349, !noundef !9
   %170 = getelementptr i8, ptr %169, i64 4
   %.val24.i = load i8, ptr %170, align 1, !alias.scope !349
@@ -3904,7 +3904,7 @@ _ZN4core5slice4sort12choose_pivot17hccf106d57e647929E.exit: ; preds = %"_ZN4core
 310:                                              ; preds = %308
   %311 = icmp ult i64 %309, %297
   call void @llvm.assume(i1 %311)
-  %312 = getelementptr inbounds { i32, i8 }, ptr %296, i64 %309
+  %312 = getelementptr { i32, i8 }, ptr %.sroa.0.0122, i64 %.1.i58
   %.val29.i = load i32, ptr %312, align 4, !alias.scope !375, !noundef !9
   %313 = getelementptr i8, ptr %312, i64 4
   %.val30.i = load i8, ptr %313, align 1, !alias.scope !375
@@ -4460,7 +4460,7 @@ _ZN4core5slice4sort12choose_pivot17h665733fe8d2d3eabE.exit: ; preds = %"_ZN4core
   %170 = add i64 %.0.i51, -1
   %171 = icmp ult i64 %170, %155
   call void @llvm.assume(i1 %171)
-  %172 = getelementptr inbounds { i32, i64 }, ptr %154, i64 %170
+  %172 = getelementptr { i32, i64 }, ptr %.sroa.0.0112.lcssa138, i64 %.0.i51
   %.val.i = load i32, ptr %172, align 4, !alias.scope !443, !noundef !9
   %173 = getelementptr i8, ptr %172, i64 8
   %.val24.i = load i64, ptr %173, align 8, !alias.scope !443
@@ -4785,7 +4785,7 @@ _ZN4core5slice4sort12choose_pivot17h665733fe8d2d3eabE.exit: ; preds = %"_ZN4core
 301:                                              ; preds = %299
   %302 = icmp ult i64 %300, %288
   call void @llvm.assume(i1 %302)
-  %303 = getelementptr inbounds { i32, i64 }, ptr %287, i64 %300
+  %303 = getelementptr { i32, i64 }, ptr %.sroa.0.0112, i64 %.1.i58
   %.val29.i = load i32, ptr %303, align 4, !alias.scope !469, !noundef !9
   %304 = getelementptr i8, ptr %303, i64 8
   %.val30.i = load i64, ptr %304, align 8, !alias.scope !469
@@ -5643,7 +5643,7 @@ define internal fastcc void @_ZN4core5slice4sort8heapsort17hfc8f77243433ca4cE(pt
 define hidden void @_ZN4core5slice4sort9quicksort17h5afd0c390f157da1E(ptr noalias noundef nonnull align 4 %0, i64 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = tail call i64 @llvm.ctlz.i64(i64 %1, i1 false), !range !20
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw nsw i64 %4 to i32
   %6 = sub nuw nsw i32 64, %5
   call void @_ZN4core5slice4sort7recurse17h1629b3ea92772b9fE.llvm.17726792709170085280(ptr noalias noundef nonnull align 4 %0, i64 noundef %1, ptr noalias noundef nonnull align 1 %3, ptr noalias noundef readonly align 4 dereferenceable_or_null(8) null, i32 noundef %6)
   ret void
@@ -5653,7 +5653,7 @@ define hidden void @_ZN4core5slice4sort9quicksort17h5afd0c390f157da1E(ptr noalia
 define hidden void @_ZN4core5slice4sort9quicksort17hb6638b72059b88d1E(ptr noalias noundef nonnull align 4 %0, i64 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = tail call i64 @llvm.ctlz.i64(i64 %1, i1 false), !range !20
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw nsw i64 %4 to i32
   %6 = sub nuw nsw i32 64, %5
   call void @_ZN4core5slice4sort7recurse17haedf856a5ef88fdaE.llvm.17726792709170085280(ptr noalias noundef nonnull align 4 %0, i64 noundef %1, ptr noalias noundef nonnull align 1 %3, ptr noalias noundef readonly align 4 dereferenceable_or_null(8) null, i32 noundef %6)
   ret void
@@ -5663,7 +5663,7 @@ define hidden void @_ZN4core5slice4sort9quicksort17hb6638b72059b88d1E(ptr noalia
 define hidden void @_ZN4core5slice4sort9quicksort17hd0e71be46fb2f8d2E(ptr noalias noundef nonnull align 8 %0, i64 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = tail call i64 @llvm.ctlz.i64(i64 %1, i1 false), !range !20
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw nsw i64 %4 to i32
   %6 = sub nuw nsw i32 64, %5
   call void @_ZN4core5slice4sort7recurse17heba5381e1d7b8513E.llvm.17726792709170085280(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable_or_null(16) null, i32 noundef %6)
   ret void
@@ -5673,7 +5673,7 @@ define hidden void @_ZN4core5slice4sort9quicksort17hd0e71be46fb2f8d2E(ptr noalia
 define hidden void @_ZN4core5slice4sort9quicksort17hdb1cfa62c10589f9E(ptr noalias noundef nonnull align 4 %0, i64 noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = tail call i64 @llvm.ctlz.i64(i64 %1, i1 false), !range !20
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw nsw i64 %4 to i32
   %6 = sub nuw nsw i32 64, %5
   call void @_ZN4core5slice4sort7recurse17h436d847e6c837e4bE.llvm.17726792709170085280(ptr noalias noundef nonnull align 4 %0, i64 noundef %1, ptr noalias noundef nonnull align 1 %3, ptr noalias noundef readonly align 4 dereferenceable_or_null(8) null, i32 noundef %6)
   ret void
@@ -7295,7 +7295,7 @@ define void @"_ZN82_$LT$rustls..msgs..enums..ServerNameType$u20$as$u20$rustls..m
 
 "_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit": ; preds = %2, %10
   %11 = phi i64 [ %.pre.i.i, %10 ], [ %7, %2 ]
-  %12 = trunc i8 %3 to i1
+  %12 = trunc nuw i8 %3 to i1
   %..i = select i1 %12, i8 %5, i8 0
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !727, !noalias !732, !nonnull !9, !noundef !9
@@ -8996,7 +8996,7 @@ define i8 @_ZN6rustls4msgs5enums21CertificateStatusType8to_array17hf540da541197c
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @_ZN6rustls4msgs5enums21CertificateStatusType6as_str17hf2fa9f1e453b2704E(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0) unnamed_addr #8 {
   %2 = load i8, ptr %0, align 1, !range !726, !noundef !9
-  %trunc = trunc i8 %2 to i1
+  %trunc = trunc nuw i8 %2 to i1
   %anon.a568c7da4921ec2ed34cb4ede4839d57.85. = select i1 %trunc, ptr null, ptr @anon.a568c7da4921ec2ed34cb4ede4839d57.85
   %3 = insertvalue { ptr, i64 } poison, ptr %anon.a568c7da4921ec2ed34cb4ede4839d57.85., 0
   %4 = insertvalue { ptr, i64 } %3, i64 4, 1
@@ -9021,7 +9021,7 @@ define void @"_ZN89_$LT$rustls..msgs..enums..CertificateStatusType$u20$as$u20$ru
 
 "_ZN49_$LT$u8$u20$as$u20$rustls..msgs..codec..Codec$GT$6encode17h7f69f36909e1819dE.exit": ; preds = %2, %10
   %11 = phi i64 [ %.pre.i.i, %10 ], [ %7, %2 ]
-  %12 = trunc i8 %3 to i1
+  %12 = trunc nuw i8 %3 to i1
   %..i = select i1 %12, i8 %5, i8 1
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !903, !noalias !908, !nonnull !9, !noundef !9
@@ -9781,7 +9781,7 @@ define i16 @_ZN6rustls4msgs5enums10EchVersion8to_array17h066b4e56c9facc3fE(i16 n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @_ZN6rustls4msgs5enums10EchVersion6as_str17hae0e5dcbc92619f3E(ptr noalias nocapture noundef readonly align 2 dereferenceable(4) %0) unnamed_addr #8 {
   %2 = load i16, ptr %0, align 2, !range !1007, !noundef !9
-  %trunc = trunc i16 %2 to i1
+  %trunc = trunc nuw i16 %2 to i1
   %anon.a568c7da4921ec2ed34cb4ede4839d57.102. = select i1 %trunc, ptr null, ptr @anon.a568c7da4921ec2ed34cb4ede4839d57.102
   %3 = insertvalue { ptr, i64 } poison, ptr %anon.a568c7da4921ec2ed34cb4ede4839d57.102., 0
   %4 = insertvalue { ptr, i64 } %3, i64 3, 1

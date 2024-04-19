@@ -250,7 +250,7 @@ define void @dggbak_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 150:                                              ; preds = %163, %145
   %151 = phi i64 [ %146, %145 ], [ %152, %163 ]
   %152 = add nsw i64 %151, 1
-  %153 = getelementptr inbounds double, ptr %14, i64 %152
+  %153 = getelementptr double, ptr %6, i64 %151
   %154 = load double, ptr %153, align 8, !tbaa !11
   %155 = fptosi double %154 to i32
   %156 = trunc i64 %152 to i32
@@ -322,7 +322,7 @@ define void @dggbak_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
 195:                                              ; preds = %208, %190
   %196 = phi i64 [ %191, %190 ], [ %197, %208 ]
   %197 = add nsw i64 %196, 1
-  %198 = getelementptr inbounds double, ptr %13, i64 %197
+  %198 = getelementptr double, ptr %5, i64 %196
   %199 = load double, ptr %198, align 8, !tbaa !11
   %200 = fptosi double %199 to i32
   %201 = trunc i64 %197 to i32

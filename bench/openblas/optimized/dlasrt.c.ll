@@ -44,11 +44,11 @@ define void @dlasrt_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %21 = sub nsw i32 0, %20
   store i32 %21, ptr %5, align 4, !tbaa !3
   %22 = call i32 @xerbla_(ptr noundef nonnull @.str.2, ptr noundef nonnull %5, i32 noundef 6) #3
-  br label %.loopexit94
+  br label %.loopexit96
 
 23:                                               ; preds = %17
   %24 = icmp ult i32 %14, 2
-  br i1 %24, label %.loopexit94, label %25
+  br i1 %24, label %.loopexit96, label %25
 
 25:                                               ; preds = %23
   store i32 1, ptr %6, align 16, !tbaa !3
@@ -87,10 +87,10 @@ define void @dlasrt_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
 
 48:                                               ; preds = %.loopexit32, %46
   %49 = phi i64 [ %47, %46 ], [ %50, %.loopexit32 ]
-  %indvars70 = trunc i64 %49 to i32
+  %indvars72 = trunc i64 %49 to i32
   %50 = add nsw i64 %49, 1
   %indvars = trunc i64 %50 to i32
-  %51 = icmp sgt i32 %34, %indvars70
+  %51 = icmp sgt i32 %34, %indvars72
   br i1 %51, label %.loopexit32, label %.preheader31
 
 .preheader31:                                     ; preds = %48, %58
@@ -122,10 +122,10 @@ define void @dlasrt_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
 
 65:                                               ; preds = %.loopexit, %63
   %66 = phi i64 [ %64, %63 ], [ %67, %.loopexit ]
-  %indvars72 = trunc i64 %66 to i32
+  %indvars74 = trunc i64 %66 to i32
   %67 = add nsw i64 %66, 1
-  %indvars71 = trunc i64 %67 to i32
-  %68 = icmp sgt i32 %34, %indvars72
+  %indvars73 = trunc i64 %67 to i32
+  %68 = icmp sgt i32 %34, %indvars74
   br i1 %68, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %65, %75
@@ -145,7 +145,7 @@ define void @dlasrt_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   br i1 %77, label %.preheader, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %75, %.preheader, %65
-  %78 = icmp eq i32 %38, %indvars71
+  %78 = icmp eq i32 %38, %indvars73
   br i1 %78, label %.loopexit33, label %65, !llvm.loop !14
 
 79:                                               ; preds = %27
@@ -213,7 +213,7 @@ define void @dlasrt_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
 120:                                              ; preds = %120, %117
   %121 = phi i64 [ %119, %117 ], [ %122, %120 ]
   %122 = add nsw i64 %121, 1
-  %123 = getelementptr inbounds double, ptr %7, i64 %122
+  %123 = getelementptr double, ptr %2, i64 %121
   %124 = load double, ptr %123, align 8, !tbaa !7
   %125 = fcmp ogt double %124, %105
   br i1 %125, label %120, label %126
@@ -225,7 +225,7 @@ define void @dlasrt_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   br i1 %129, label %130, label %132
 
 130:                                              ; preds = %126
-  %131 = getelementptr inbounds double, ptr %7, i64 %122
+  %131 = getelementptr double, ptr %2, i64 %121
   store double %115, ptr %131, align 8, !tbaa !7
   store double %124, ptr %118, align 8, !tbaa !7
   br label %.preheader36
@@ -279,7 +279,7 @@ define void @dlasrt_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
 159:                                              ; preds = %159, %156
   %160 = phi i64 [ %158, %156 ], [ %161, %159 ]
   %161 = add nsw i64 %160, 1
-  %162 = getelementptr inbounds double, ptr %7, i64 %161
+  %162 = getelementptr double, ptr %2, i64 %160
   %163 = load double, ptr %162, align 8, !tbaa !7
   %164 = fcmp olt double %163, %105
   br i1 %164, label %159, label %165
@@ -291,7 +291,7 @@ define void @dlasrt_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   br i1 %168, label %169, label %171
 
 169:                                              ; preds = %165
-  %170 = getelementptr inbounds double, ptr %7, i64 %161
+  %170 = getelementptr double, ptr %2, i64 %160
   store double %154, ptr %170, align 8, !tbaa !7
   store double %163, ptr %157, align 8, !tbaa !7
   br label %.preheader35
@@ -327,9 +327,9 @@ define void @dlasrt_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %186 = phi i32 [ %28, %145 ], [ %28, %146 ], [ %28, %184 ], [ %28, %185 ], [ %28, %79 ], [ %38, %62 ], [ %38, %45 ], [ %38, %.loopexit ], [ %38, %.loopexit32 ]
   %187 = phi i32 [ %137, %145 ], [ %137, %146 ], [ %176, %184 ], [ %176, %185 ], [ %39, %79 ], [ %39, %62 ], [ %39, %45 ], [ %39, %.loopexit ], [ %39, %.loopexit32 ]
   %188 = icmp sgt i32 %187, 0
-  br i1 %188, label %27, label %.loopexit94
+  br i1 %188, label %27, label %.loopexit96
 
-.loopexit94:                                      ; preds = %.loopexit33, %23, %19
+.loopexit96:                                      ; preds = %.loopexit33, %23, %19
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
   ret void

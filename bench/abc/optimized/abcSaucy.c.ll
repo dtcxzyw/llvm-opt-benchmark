@@ -8353,7 +8353,7 @@ define internal fastcc void @introsort_loop(ptr nocapture noundef %0, i32 nounde
 6:                                                ; preds = %sift_up.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %sift_up.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %.phi.trans.insert10.i.i = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv.next.i
+  %.phi.trans.insert10.i.i = getelementptr i32, ptr %0, i64 %indvars.iv.i
   %.pre.i.i = load i32, ptr %.phi.trans.insert10.i.i, align 4
   %7 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   br label %8

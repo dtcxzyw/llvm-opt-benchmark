@@ -103748,8 +103748,6 @@ if.then.i.i.i:                                    ; preds = %if.then
   unreachable
 
 _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %if.then
-  %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store i64 0, ptr %3, align 8
   %cmp.not.i.i.i.i.i = icmp eq i32 %call.i, 0
   br i1 %cmp.not.i.i.i.i.i, label %invoke.cont.thread.i, label %if.then.i.i.i.i.i.i
 
@@ -103761,31 +103759,23 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt6vectorIiSaIiE
   %mul.i.i.i.i.i.i.i = shl nuw nsw i64 %conv.i, 2
   %call5.i.i.i.i2.i.i1.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #33, !noalias !2284
   store ptr %call5.i.i.i.i2.i.i1.i, ptr %ref.tmp, align 8, !alias.scope !2284
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i1.i, i64 %conv.i
+  %add.ptr.i.i.i.i = getelementptr i32, ptr %call5.i.i.i.i2.i.i1.i, i64 %conv.i
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !alias.scope !2284
   store i32 0, ptr %call5.i.i.i.i2.i.i1.i, align 4, !noalias !2284
   %incdec.ptr.i.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i1.i, i64 4
-  %sub.i.i.i.i.i.i = add nsw i64 %conv.i, -1
-  %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i.i.i, label %invoke.cont.thread5.i, label %invoke.cont.i
-
-invoke.cont.thread5.i:                            ; preds = %if.then.i.i.i.i.i.i
-  %_M_finish.i.i7.i7.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store ptr %incdec.ptr.i.i.i.i.i.i, ptr %_M_finish.i.i7.i7.i, align 8, !alias.scope !2284
-  br label %for.body.i.preheader.i
+  %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %call.i, 1
+  br i1 %cmp.i.i.i.i.i.i.i.i, label %for.body.i.preheader.i, label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.then.i.i.i.i.i.i
-  %4 = add nsw i64 %mul.i.i.i.i.i.i.i, -4
-  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i.i, i8 0, i64 %4, i1 false), !noalias !2284
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %incdec.ptr.i.i.i.i.i.i, i64 %sub.i.i.i.i.i.i
-  %_M_finish.i.i7.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  store ptr %add.ptr.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i, align 8, !alias.scope !2284
-  %cmp.i.not4.i.i = icmp eq ptr %call5.i.i.i.i2.i.i1.i, %add.ptr.i.i.i.i.i.i.i.i
-  br i1 %cmp.i.not4.i.i, label %_ZNK5arrow3ipc25RecordBatchFileReaderImpl10AllIndicesEv.exit, label %for.body.i.preheader.i
+  %3 = add nsw i64 %mul.i.i.i.i.i.i.i, -4
+  tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i.i, i8 0, i64 %3, i1 false), !noalias !2284
+  br label %for.body.i.preheader.i
 
-for.body.i.preheader.i:                           ; preds = %invoke.cont.i, %invoke.cont.thread5.i
-  %__first.addr.0.i.i.i.i.i9.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %invoke.cont.thread5.i ], [ %add.ptr.i.i.i.i.i.i.i.i, %invoke.cont.i ]
+for.body.i.preheader.i:                           ; preds = %if.then.i.i.i.i.i.i, %invoke.cont.i
+  %add.ptr.i.i.i.i.sink = phi ptr [ %add.ptr.i.i.i.i, %invoke.cont.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ]
+  %4 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  store ptr %add.ptr.i.i.i.i.sink, ptr %4, align 8
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.i.preheader.i
@@ -103794,10 +103784,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   store i32 %__value.addr.06.i.i, ptr %__first.sroa.0.05.i.i, align 4, !noalias !2284
   %inc.i.i = add nuw nsw i32 %__value.addr.06.i.i, 1
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.05.i.i, i64 4
-  %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__first.addr.0.i.i.i.i.i9.i
+  %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i.i.i.sink
   br i1 %cmp.i.not.i.i, label %_ZNK5arrow3ipc25RecordBatchFileReaderImpl10AllIndicesEv.exit, label %for.body.i.i, !llvm.loop !2287
 
-_ZNK5arrow3ipc25RecordBatchFileReaderImpl10AllIndicesEv.exit: ; preds = %for.body.i.i, %invoke.cont.thread.i, %invoke.cont.i
+_ZNK5arrow3ipc25RecordBatchFileReaderImpl10AllIndicesEv.exit: ; preds = %for.body.i.i, %invoke.cont.thread.i
   invoke void @_ZN5arrow3ipc25RecordBatchFileReaderImpl19DoPreBufferMetadataERKSt6vectorIiSaIiEE(ptr sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(505) %this, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 

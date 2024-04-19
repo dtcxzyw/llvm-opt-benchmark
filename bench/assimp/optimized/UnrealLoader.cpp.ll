@@ -685,29 +685,25 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont61
           to label %call5.i.i.i.i2.i.i.noexc unwind label %lpad71
 
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
+  %add.ptr.i.i.i = getelementptr %"struct.Assimp::Unreal::Triangle", ptr %call5.i.i.i.i2.i.i202, i64 %conv69
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %call5.i.i.i.i2.i.i202, i8 0, i64 20, i1 false)
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i2.i.i202, i64 20
-  %sub.i.i.i.i.i = add nsw i64 %conv69, -1
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i.i, label %for.cond79.preheader.lr.ph, label %if.end.i.i.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i = icmp eq i16 %16, 1
+  br i1 %cmp.i.i.i.i.i.i.i, label %for.cond79.preheader.lr.ph, label %for.body.i.i.i.i.i.i.i.i.i
 
-if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.noexc
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"struct.Assimp::Unreal::Triangle", ptr %incdec.ptr.i.i.i.i.i, i64 %sub.i.i.i.i.i
-  br label %for.body.i.i.i.i.i.i.i.i.i
-
-for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
+for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %call5.i.i.i.i2.i.i.noexc, %for.body.i.i.i.i.i.i.i.i.i
+  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %__first.addr.04.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(20) %call5.i.i.i.i2.i.i202, i64 20, i1 false)
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 20
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.cont72, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !4
 
 invoke.cont72:                                    ; preds = %for.body.i.i.i.i.i.i.i.i.i
-  %cmp.i203.not872 = icmp eq ptr %call5.i.i.i.i2.i.i202, %add.ptr.i.i.i.i.i.i.i
+  %cmp.i203.not872 = icmp eq i16 %16, 0
   br i1 %cmp.i203.not872, label %for.end146, label %for.cond79.preheader.lr.ph
 
 for.cond79.preheader.lr.ph:                       ; preds = %call5.i.i.i.i2.i.i.noexc, %invoke.cont72
-  %__first.addr.0.i.i.i.i.i927 = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %invoke.cont72 ], [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ]
+  %__first.addr.0.i.i.i.i.i927 = phi ptr [ %add.ptr.i.i.i, %invoke.cont72 ], [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ]
   %mConfigHandleFlags = getelementptr inbounds i8, ptr %this, i64 76
   br label %for.cond79.preheader
 
@@ -943,7 +939,7 @@ for.inc144:                                       ; preds = %invoke.cont136
 
 for.end146:                                       ; preds = %for.inc144, %invoke.cont72
   %cmp.i203.not872930 = phi i1 [ true, %invoke.cont72 ], [ false, %for.inc144 ]
-  %__first.addr.0.i.i.i.i.i928 = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %invoke.cont72 ], [ %__first.addr.0.i.i.i.i.i927, %for.inc144 ]
+  %__first.addr.0.i.i.i.i.i928 = phi ptr [ %add.ptr.i.i.i, %invoke.cont72 ], [ %__first.addr.0.i.i.i.i.i927, %for.inc144 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp148) #19
   %call.i275279 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp147)
           to label %call.i275.noexc unwind label %lpad149
@@ -2276,7 +2272,7 @@ arrayctor.cont584:                                ; preds = %new.ctorloop578, %i
   store ptr %call576, ptr %mTextureCoords, align 8
   %150 = load ptr, ptr %mMeshes544, align 8
   %arrayidx588 = getelementptr inbounds i32, ptr %150, i64 %indvars.iv914
-  %151 = trunc i64 %indvars.iv914 to i32
+  %151 = trunc nuw i64 %indvars.iv914 to i32
   store i32 %151, ptr %arrayidx588, align 4
   %call591 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
           to label %invoke.cont590 unwind label %lpad474.loopexit.split-lp.loopexit

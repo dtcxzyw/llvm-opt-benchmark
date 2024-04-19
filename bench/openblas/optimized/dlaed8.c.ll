@@ -154,7 +154,7 @@ define void @dlaed8_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1
   %111 = phi i64 [ %108, %107 ], [ %112, %110 ]
   %112 = add nsw i64 %111, 1
   %113 = load i32, ptr %9, align 4, !tbaa !3
-  %114 = getelementptr inbounds i32, ptr %34, i64 %112
+  %114 = getelementptr i32, ptr %7, i64 %111
   %115 = load i32, ptr %114, align 4, !tbaa !3
   %116 = add nsw i32 %115, %113
   store i32 %116, ptr %114, align 4, !tbaa !3
@@ -332,7 +332,7 @@ thread-pre-split22:                               ; preds = %110
   br label %250
 
 230:                                              ; preds = %259
-  %231 = getelementptr inbounds double, ptr %35, i64 %260
+  %231 = getelementptr double, ptr %10, i64 %252
   %232 = load double, ptr %231, align 8, !tbaa !7
   %233 = fcmp oge double %232, 0.000000e+00
   %234 = fneg double %232
@@ -384,7 +384,7 @@ thread-pre-split22:                               ; preds = %110
   %265 = phi i32 [ %243, %248 ], [ %395, %394 ]
   %266 = add nsw i64 %263, 1
   %267 = load double, ptr %8, align 8, !tbaa !7
-  %268 = getelementptr inbounds double, ptr %35, i64 %266
+  %268 = getelementptr double, ptr %10, i64 %263
   %269 = load double, ptr %268, align 8, !tbaa !7
   %270 = fcmp oge double %269, 0.000000e+00
   %271 = fneg double %269
@@ -408,7 +408,7 @@ thread-pre-split22:                               ; preds = %110
   store double %283, ptr %25, align 8, !tbaa !7
   store double %269, ptr %24, align 8, !tbaa !7
   %284 = call double @dlapy2_(ptr noundef nonnull %24, ptr noundef nonnull %25) #5
-  %285 = getelementptr inbounds double, ptr %29, i64 %266
+  %285 = getelementptr double, ptr %4, i64 %263
   %286 = load double, ptr %285, align 8, !tbaa !7
   %287 = getelementptr inbounds double, ptr %29, i64 %281
   %288 = load double, ptr %287, align 8, !tbaa !7
@@ -451,7 +451,7 @@ thread-pre-split22:                               ; preds = %110
   %317 = sext i32 %316 to i64
   %318 = getelementptr inbounds i32, ptr %43, i64 %317
   store i32 %314, ptr %318, align 4, !tbaa !3
-  %319 = getelementptr inbounds i32, ptr %46, i64 %266
+  %319 = getelementptr i32, ptr %20, i64 %263
   %320 = load i32, ptr %319, align 4, !tbaa !3
   %321 = sext i32 %320 to i64
   %322 = getelementptr inbounds i32, ptr %34, i64 %321

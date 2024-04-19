@@ -442,7 +442,7 @@ thread-pre-split:                                 ; preds = %33
 305:                                              ; preds = %298, %268
   %306 = phi i32 [ %249, %268 ], [ %304, %298 ]
   %307 = add nuw nsw i64 %248, 1
-  %308 = getelementptr inbounds i32, ptr %30, i64 %307
+  %308 = getelementptr i32, ptr %10, i64 %248
   %309 = load i32, ptr %308, align 4, !tbaa !3
   %310 = icmp sgt i32 %262, %309
   br i1 %310, label %.loopexit23, label %311

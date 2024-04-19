@@ -3600,24 +3600,18 @@ if.then.i.i.i.i.i1447:                            ; preds = %_ZNSt6vectorIiSaIiE
 
 call5.i.i.i.i2.i.i.noexc1456:                     ; preds = %if.then.i.i.i.i.i1447
   store ptr %call5.i.i.i.i2.i.i1457, ptr %verts890, align 8
-  %add.ptr.i.i.i1449 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i1457, i64 %mul891
+  %add.ptr.i.i.i1449 = getelementptr i32, ptr %call5.i.i.i.i2.i.i1457, i64 %mul891
   %_M_end_of_storage.i.i.i1450 = getelementptr inbounds i8, ptr %verts890, i64 16
   store ptr %add.ptr.i.i.i1449, ptr %_M_end_of_storage.i.i.i1450, align 8
   store i32 0, ptr %call5.i.i.i.i2.i.i1457, align 4
   %incdec.ptr.i.i.i.i.i1451 = getelementptr i8, ptr %call5.i.i.i.i2.i.i1457, i64 4
-  %sub.i.i.i.i.i = add nsw i64 %mul891, -1
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont894, label %if.end.i.i.i.i.i.i.i
-
-if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.noexc1456
   %362 = add nsw i64 %mul.i.i.i.i.i.i1448, -4
   call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i1451, i8 0, i64 %362, i1 false)
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %incdec.ptr.i.i.i.i.i1451, i64 %sub.i.i.i.i.i
   br label %invoke.cont894
 
-invoke.cont894:                                   ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %if.end.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc1456
-  %363 = phi ptr [ %call5.i.i.i.i2.i.i1457, %call5.i.i.i.i2.i.i.noexc1456 ], [ %call5.i.i.i.i2.i.i1457, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i1451, %call5.i.i.i.i2.i.i.noexc1456 ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+invoke.cont894:                                   ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %call5.i.i.i.i2.i.i.noexc1456
+  %363 = phi ptr [ %call5.i.i.i.i2.i.i1457, %call5.i.i.i.i2.i.i.noexc1456 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %add.ptr.i.i.i1449, %call5.i.i.i.i2.i.i.noexc1456 ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ]
   %_M_finish.i.i7.i1453 = getelementptr inbounds i8, ptr %verts890, i64 8
   store ptr %__first.addr.0.i.i.i.i.i, ptr %_M_finish.i.i7.i1453, align 8
   %364 = getelementptr inbounds i8, ptr %usedVerts, i64 8

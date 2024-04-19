@@ -238,7 +238,7 @@ thread-pre-split14:                               ; preds = %124
   store double %135, ptr %133, align 8, !tbaa !7
   %136 = load double, ptr %21, align 8, !tbaa !7
   %137 = add nuw nsw i64 %132, 1
-  %138 = getelementptr inbounds double, ptr %26, i64 %137
+  %138 = getelementptr double, ptr %3, i64 %132
   %139 = load double, ptr %138, align 8, !tbaa !7
   %140 = fmul double %136, %139
   store double %140, ptr %134, align 8, !tbaa !7

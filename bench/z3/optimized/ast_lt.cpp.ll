@@ -1248,7 +1248,6 @@ entry:
 
 for.body.preheader:                               ; preds = %entry
   %0 = zext i32 %num to i64
-  %invariant.gep = getelementptr i8, ptr %ns, i64 -8
   %1 = load ptr, ptr %ns, align 8
   %arrayidx211 = getelementptr inbounds i8, ptr %ns, i64 8
   %2 = load ptr, ptr %arrayidx211, align 8
@@ -1262,7 +1261,7 @@ for.cond:                                         ; preds = %for.body.preheader,
   br i1 %exitcond, label %return.loopexit, label %for.body, !llvm.loop !12
 
 for.body:                                         ; preds = %for.cond
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv.next
+  %gep = getelementptr ptr, ptr %ns, i64 %indvars.iv13
   %3 = load ptr, ptr %gep, align 8
   %arrayidx2 = getelementptr inbounds ptr, ptr %ns, i64 %indvars.iv.next
   %4 = load ptr, ptr %arrayidx2, align 8

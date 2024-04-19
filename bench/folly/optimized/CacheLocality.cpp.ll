@@ -1995,17 +1995,15 @@ if.then.i.i.i.i.i335:                             ; preds = %invoke.cont82
           to label %call5.i.i.i.i4.i.i.noexc unwind label %lpad85
 
 call5.i.i.i.i4.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i335
-  %add.ptr.i.i.i336 = getelementptr inbounds i8, ptr %call5.i.i.i.i4.i.i343, i64 %sub.ptr.sub.i.i.i
+  %add.ptr.i.i.i336 = getelementptr i8, ptr %call5.i.i.i.i4.i.i343, i64 %sub.ptr.sub.i.i.i
   store i64 0, ptr %call5.i.i.i.i4.i.i343, align 8, !tbaa !37
   %incdec.ptr.i.i.i.i.i337 = getelementptr i8, ptr %call5.i.i.i.i4.i.i343, i64 8
-  %sub.i.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i, -1
-  %cmp.i.i.i.i.i.i.i338 = icmp eq i64 %sub.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i.i.i338 = icmp eq i64 %sub.ptr.sub.i.i.i, 8
   br i1 %cmp.i.i.i.i.i.i.i338, label %for.body.epil.preheader, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %call5.i.i.i.i4.i.i.noexc
   %118 = add nsw i64 %sub.ptr.sub.i.i.i, -8
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i337, i8 0, i64 %118, i1 false), !tbaa !37
-  %add.ptr.i.i.i.i.i.i.i339 = getelementptr inbounds i64, ptr %incdec.ptr.i.i.i.i.i337, i64 %sub.i.i.i.i.i
   %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i.i.i, i64 1)
   %xtraiter = and i64 %umax, 3
   %119 = icmp ult i64 %sub.ptr.div.i.i.i, 4
@@ -2022,7 +2020,7 @@ _ZNSt6vectorImSaImEED2Ev.exit365.unr-lcssa:       ; preds = %for.body, %for.body
 
 for.body.epil.preheader:                          ; preds = %call5.i.i.i.i4.i.i.noexc, %_ZNSt6vectorImSaImEED2Ev.exit365.unr-lcssa
   %i.0632.unr211 = phi i64 [ %i.0632.unr, %_ZNSt6vectorImSaImEED2Ev.exit365.unr-lcssa ], [ 0, %call5.i.i.i.i4.i.i.noexc ]
-  %__first.addr.0.i.i.i.i.i52209 = phi ptr [ %add.ptr.i.i.i.i.i.i.i339, %_ZNSt6vectorImSaImEED2Ev.exit365.unr-lcssa ], [ %incdec.ptr.i.i.i.i.i337, %call5.i.i.i.i4.i.i.noexc ]
+  %__first.addr.0.i.i.i.i.i52209 = phi ptr [ %add.ptr.i.i.i336, %_ZNSt6vectorImSaImEED2Ev.exit365.unr-lcssa ], [ %incdec.ptr.i.i.i.i.i337, %call5.i.i.i.i4.i.i.noexc ]
   %xtraiter53208 = phi i64 [ %xtraiter, %_ZNSt6vectorImSaImEED2Ev.exit365.unr-lcssa ], [ 1, %call5.i.i.i.i4.i.i.noexc ]
   br label %for.body.epil
 
@@ -2039,7 +2037,7 @@ for.body.epil:                                    ; preds = %for.body.epil.prehe
   br i1 %epil.iter.cmp.not, label %_ZNSt6vectorImSaImEED2Ev.exit365, label %for.body.epil, !llvm.loop !90
 
 _ZNSt6vectorImSaImEED2Ev.exit365:                 ; preds = %for.body.epil, %_ZNSt6vectorImSaImEED2Ev.exit365.unr-lcssa
-  %__first.addr.0.i.i.i.i.i52210 = phi ptr [ %add.ptr.i.i.i.i.i.i.i339, %_ZNSt6vectorImSaImEED2Ev.exit365.unr-lcssa ], [ %__first.addr.0.i.i.i.i.i52209, %for.body.epil ]
+  %__first.addr.0.i.i.i.i.i52210 = phi ptr [ %add.ptr.i.i.i336, %_ZNSt6vectorImSaImEED2Ev.exit365.unr-lcssa ], [ %__first.addr.0.i.i.i.i.i52209, %for.body.epil ]
   store i64 %sub.ptr.div.i.i.i, ptr %agg.result, align 8, !tbaa !46
   %numCachesByLevel99 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %numCachesByLevel.sroa.0.5, ptr %numCachesByLevel99, align 8, !tbaa !10
@@ -3792,16 +3790,15 @@ if.then.i.i.i.i.i297:                             ; preds = %_ZNSt12_Vector_base
           to label %call5.i.i.i.i4.i.i.noexc unwind label %lpad101
 
 call5.i.i.i.i4.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i297
-  %add.ptr.i.i.i299 = getelementptr inbounds i64, ptr %call5.i.i.i.i4.i.i304, i64 %sub.ptr.div.i
+  %add.ptr.i.i.i299 = getelementptr i64, ptr %call5.i.i.i.i4.i.i304, i64 %sub.ptr.div.i
   store i64 0, ptr %call5.i.i.i.i4.i.i304, align 8, !tbaa !37
   %incdec.ptr.i.i.i.i.i300 = getelementptr i8, ptr %call5.i.i.i.i4.i.i304, i64 8
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %maxCpu.2, 0
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i, 24
   br i1 %cmp.i.i.i.i.i.i.i, label %for.body109.epil.preheader, label %for.body109.preheader
 
 for.body109.preheader:                            ; preds = %call5.i.i.i.i4.i.i.noexc
   %44 = add nsw i64 %mul.i.i.i.i.i.i298, -8
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i300, i8 0, i64 %44, i1 false), !tbaa !37
-  %add.ptr.i.i.i.i.i.i.i301 = getelementptr inbounds i64, ptr %incdec.ptr.i.i.i.i.i300, i64 %maxCpu.2
   %umax = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   %xtraiter = and i64 %umax, 3
   %45 = icmp ult i64 %sub.ptr.div.i, 4
@@ -3818,7 +3815,7 @@ _ZNSt6vectorImSaImEED2Ev.exit322.loopexit.unr-lcssa: ; preds = %for.body109, %fo
 
 for.body109.epil.preheader:                       ; preds = %call5.i.i.i.i4.i.i.noexc, %_ZNSt6vectorImSaImEED2Ev.exit322.loopexit.unr-lcssa
   %i.0405.unr54 = phi i64 [ %i.0405.unr, %_ZNSt6vectorImSaImEED2Ev.exit322.loopexit.unr-lcssa ], [ 0, %call5.i.i.i.i4.i.i.noexc ]
-  %__first.addr.0.i.i.i.i.i.ph3152 = phi ptr [ %add.ptr.i.i.i.i.i.i.i301, %_ZNSt6vectorImSaImEED2Ev.exit322.loopexit.unr-lcssa ], [ %incdec.ptr.i.i.i.i.i300, %call5.i.i.i.i4.i.i.noexc ]
+  %__first.addr.0.i.i.i.i.i.ph3152 = phi ptr [ %add.ptr.i.i.i299, %_ZNSt6vectorImSaImEED2Ev.exit322.loopexit.unr-lcssa ], [ %incdec.ptr.i.i.i.i.i300, %call5.i.i.i.i4.i.i.noexc ]
   %xtraiter3251 = phi i64 [ %xtraiter, %_ZNSt6vectorImSaImEED2Ev.exit322.loopexit.unr-lcssa ], [ 1, %call5.i.i.i.i4.i.i.noexc ]
   br label %for.body109.epil
 
@@ -3835,7 +3832,7 @@ for.body109.epil:                                 ; preds = %for.body109.epil.pr
   br i1 %epil.iter.cmp.not, label %_ZNSt6vectorImSaImEED2Ev.exit322, label %for.body109.epil, !llvm.loop !151
 
 _ZNSt6vectorImSaImEED2Ev.exit322:                 ; preds = %for.body109.epil, %_ZNSt6vectorImSaImEED2Ev.exit322.loopexit.unr-lcssa
-  %__first.addr.0.i.i.i.i.i.ph3153 = phi ptr [ %add.ptr.i.i.i.i.i.i.i301, %_ZNSt6vectorImSaImEED2Ev.exit322.loopexit.unr-lcssa ], [ %__first.addr.0.i.i.i.i.i.ph3152, %for.body109.epil ]
+  %__first.addr.0.i.i.i.i.i.ph3153 = phi ptr [ %add.ptr.i.i.i299, %_ZNSt6vectorImSaImEED2Ev.exit322.loopexit.unr-lcssa ], [ %__first.addr.0.i.i.i.i.i.ph3152, %for.body109.epil ]
   store i64 %sub.ptr.div.i, ptr %agg.result, align 8, !tbaa !46
   %numCachesByLevel118 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i.i.i.i288, ptr %numCachesByLevel118, align 8, !tbaa !10

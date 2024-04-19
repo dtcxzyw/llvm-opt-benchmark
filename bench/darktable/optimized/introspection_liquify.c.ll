@@ -4738,7 +4738,7 @@ define internal fastcc void @smooth_paths_linsys(ptr noundef %0) unnamed_addr #1
   %336 = fdiv reassoc nsz arcp contract afn float %335, %326
   %337 = getelementptr inbounds float, ptr %146, i64 %333
   %338 = load float, ptr %337, align 4, !tbaa !11
-  %339 = getelementptr float, ptr %156, i64 %333
+  %339 = getelementptr float, ptr %147, i64 %315
   %340 = load float, ptr %339, align 4, !tbaa !11
   %341 = fmul reassoc nsz arcp contract afn float %340, %336
   %342 = fsub reassoc nsz arcp contract afn float %338, %341

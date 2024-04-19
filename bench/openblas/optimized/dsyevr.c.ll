@@ -556,7 +556,7 @@ define void @dsyevr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %317 = phi double [ %310, %313 ], [ %325, %315 ]
   %318 = phi i32 [ 0, %313 ], [ %324, %315 ]
   %319 = add nsw i64 %316, 1
-  %320 = getelementptr inbounds double, ptr %41, i64 %319
+  %320 = getelementptr double, ptr %12, i64 %316
   %321 = load double, ptr %320, align 8, !tbaa !7
   %322 = fcmp olt double %321, %317
   %323 = trunc i64 %319 to i32

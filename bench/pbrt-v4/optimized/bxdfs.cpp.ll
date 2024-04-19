@@ -12910,19 +12910,18 @@ if.then.i.i.i.i.i:                                ; preds = %do.end168
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   store i64 0, ptr %call5.i.i.i.i2.i.i76, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i76, i64 8
-  %sub.i.i.i.i.i = add nsw i64 %conv169, -1
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i.i.i = icmp eq i16 %15, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont172, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.noexc
+  %add.ptr.i.i.i = getelementptr i64, ptr %call5.i.i.i.i2.i.i76, i64 %conv169
   %16 = add nsw i64 %mul.i.i.i.i.i.i, -8
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %16, i1 false)
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %incdec.ptr.i.i.i.i.i, i64 %sub.i.i.i.i.i
   br label %invoke.cont172
 
 invoke.cont172:                                   ; preds = %if.end.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc, %do.end168
   %shape.sroa.0.1 = phi ptr [ %call5.i.i.i.i2.i.i76, %call5.i.i.i.i2.i.i.noexc ], [ %call5.i.i.i.i2.i.i76, %if.end.i.i.i.i.i.i.i ], [ null, %do.end168 ]
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %do.end168 ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %do.end168 ]
   %conv173 = zext nneg i8 %12 to i32
   %switch.tableidx = add nsw i8 %12, -1
   %17 = icmp ult i8 %switch.tableidx, 11

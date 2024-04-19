@@ -40543,7 +40543,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h0d13743fe14fa6bfE.exit.th
 
 57:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17haf67bc638b31970fE.exit.i.i.i"
   call void @llvm.experimental.noalias.scope.decl(metadata !6240)
-  %58 = getelementptr inbounds i8, ptr %45, i64 %47
+  %58 = getelementptr i8, ptr %45, i64 %47
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.ithread-pre-split.i:                     ; preds = %122

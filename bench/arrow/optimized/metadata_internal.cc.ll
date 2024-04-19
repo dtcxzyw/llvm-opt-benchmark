@@ -16342,23 +16342,21 @@ if.then.i.i.i.i.i.i627:                           ; preds = %_ZNSt6vectorIiSaIiE
 
 call5.i.i.i.i2.i.i4.i.noexc:                      ; preds = %if.then.i.i.i.i.i.i627
   store ptr %call5.i.i.i.i2.i.i4.i635, ptr %agg.tmp309, align 8, !alias.scope !366
-  %add.ptr.i.i.i.i628 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i4.i635, i64 %conv.i
+  %add.ptr.i.i.i.i628 = getelementptr i32, ptr %call5.i.i.i.i2.i.i4.i635, i64 %conv.i
   %_M_end_of_storage.i.i.i.i629 = getelementptr inbounds i8, ptr %agg.tmp309, i64 16
   store ptr %add.ptr.i.i.i.i628, ptr %_M_end_of_storage.i.i.i.i629, align 8, !alias.scope !366
   store i32 0, ptr %call5.i.i.i.i2.i.i4.i635, align 4, !noalias !366
   %incdec.ptr.i.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i4.i635, i64 4
-  %sub.i.i.i.i.i.i = add nsw i64 %conv.i, -1
-  %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %182, 1
   br i1 %cmp.i.i.i.i.i.i.i.i, label %for.body.lr.ph.i, label %if.end.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %call5.i.i.i.i2.i.i4.i.noexc
   %183 = add nsw i64 %mul.i.i.i.i.i.i.i, -4
   call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i.i, i8 0, i64 %183, i1 false), !noalias !366
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %incdec.ptr.i.i.i.i.i.i, i64 %sub.i.i.i.i.i.i
   br label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i4.i.noexc
-  %__first.addr.0.i.i.i.i.i.ph.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %call5.i.i.i.i2.i.i4.i.noexc ]
+  %__first.addr.0.i.i.i.i.i.ph.i = phi ptr [ %add.ptr.i.i.i.i628, %if.end.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %call5.i.i.i.i2.i.i4.i.noexc ]
   %_M_finish.i.i7.i11.i = getelementptr inbounds i8, ptr %agg.tmp309, i64 8
   store ptr %__first.addr.0.i.i.i.i.i.ph.i, ptr %_M_finish.i.i7.i11.i, align 8, !alias.scope !366
   %184 = zext nneg i32 %182 to i64
@@ -19093,19 +19091,17 @@ if.then.i.i.i.i.i.i55:                            ; preds = %_ZNSt6vectorIiSaIiE
   %mul.i.i.i.i.i.i.i = shl nuw nsw i64 %conv.i, 2
   %call5.i.i.i.i2.i.i4.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #18, !noalias !432
   store ptr %call5.i.i.i.i2.i.i4.i, ptr %agg.tmp, align 8, !alias.scope !432
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i4.i, i64 %conv.i
+  %add.ptr.i.i.i.i = getelementptr i32, ptr %call5.i.i.i.i2.i.i4.i, i64 %conv.i
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !alias.scope !432
   store i32 0, ptr %call5.i.i.i.i2.i.i4.i, align 4, !noalias !432
   %incdec.ptr.i.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i4.i, i64 4
-  %sub.i.i.i.i.i.i = add nsw i64 %conv.i, -1
-  %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i.i.i.i = icmp eq i32 %9, 1
   br i1 %cmp.i.i.i.i.i.i.i.i, label %for.body.lr.ph.i, label %if.end.i.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i55
   %10 = add nsw i64 %mul.i.i.i.i.i.i.i, -4
   call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i.i, i8 0, i64 %10, i1 false), !noalias !432
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %incdec.ptr.i.i.i.i.i.i, i64 %sub.i.i.i.i.i.i
   br label %for.body.lr.ph.i
 
 invoke.cont.i:                                    ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i
@@ -19113,7 +19109,7 @@ invoke.cont.i:                                    ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNK5arrow3ipc8internal13FieldPosition4pathEv.exit
 
 for.body.lr.ph.i:                                 ; preds = %if.end.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i55
-  %__first.addr.0.i.i.i.i.i.ph.i = phi ptr [ %add.ptr.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i55 ]
+  %__first.addr.0.i.i.i.i.i.ph.i = phi ptr [ %add.ptr.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i55 ]
   %_M_finish.i.i7.i11.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   store ptr %__first.addr.0.i.i.i.i.i.ph.i, ptr %_M_finish.i.i7.i11.i, align 8, !alias.scope !432
   %11 = zext nneg i32 %9 to i64

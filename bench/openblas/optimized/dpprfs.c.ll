@@ -273,7 +273,7 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %197 = phi i64 [ %182, %193 ], [ %199, %195 ]
   %198 = phi double [ 0.000000e+00, %193 ], [ %217, %195 ]
   %199 = add nsw i64 %197, 1
-  %200 = getelementptr inbounds double, ptr %18, i64 %199
+  %200 = getelementptr double, ptr %3, i64 %197
   %201 = load double, ptr %200, align 8, !tbaa !7
   %202 = fcmp oge double %201, 0.000000e+00
   %203 = fneg double %201

@@ -87,7 +87,7 @@ define void @dlarra_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %65 = tail call double @sqrt(double noundef %64) #2
   %66 = fmul double %59, %65
   %67 = add nuw nsw i64 %53, 1
-  %68 = getelementptr inbounds double, ptr %13, i64 %67
+  %68 = getelementptr double, ptr %1, i64 %53
   %69 = load double, ptr %68, align 8, !tbaa !7
   %70 = fcmp oge double %69, 0.000000e+00
   %71 = fneg double %69

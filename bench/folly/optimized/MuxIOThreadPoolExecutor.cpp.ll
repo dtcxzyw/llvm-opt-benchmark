@@ -15283,12 +15283,11 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorI11epol
   %call5.i.i.i.i4.i.i90 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %call5.i.i.i.i4.i.i90, i8 0, i64 12, i1 false)
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i4.i.i90, i64 12
-  %sub.i.i.i.i.i = add nsw i64 %0, -1
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %0, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %struct.epoll_event, ptr %incdec.ptr.i.i.i.i.i, i64 %sub.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i.i = getelementptr %struct.epoll_event, ptr %call5.i.i.i.i4.i.i90, i64 %0
   br label %for.body.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i

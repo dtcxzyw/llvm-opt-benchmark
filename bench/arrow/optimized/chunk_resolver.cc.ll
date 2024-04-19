@@ -37,7 +37,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt6vectorIlSaIlE
   %mul.i.i.i.i.i.i.i = shl nuw nsw i64 %add.i, 3
   %call5.i.i.i.i2.i.i5.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #6, !noalias !4
   store ptr %call5.i.i.i.i2.i.i5.i, ptr %this, align 8, !alias.scope !4
-  %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i.i5.i, i64 %add.i
+  %add.ptr.i.i.i.i = getelementptr i64, ptr %call5.i.i.i.i2.i.i5.i, i64 %add.i
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !alias.scope !4
   store i64 0, ptr %call5.i.i.i.i2.i.i5.i, align 8, !noalias !4
@@ -48,12 +48,11 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt6vectorIlSaIlE
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   %2 = add nsw i64 %mul.i.i.i.i.i.i.i, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i.i, i8 0, i64 %2, i1 false), !noalias !4
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %incdec.ptr.i.i.i.i.i.i, i64 %sub.ptr.div.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.end.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i
   %3 = phi ptr [ %call5.i.i.i.i2.i.i5.i, %if.then.i.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i5.i, %if.end.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i ]
-  %__first.addr.0.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i ]
+  %__first.addr.0.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i ]
   %_M_finish.i.i7.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %__first.addr.0.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i, align 8, !alias.scope !4
   %cmp.i.not5.i.i = icmp eq ptr %1, %0
@@ -112,7 +111,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt6vectorIlSaIlE
   %mul.i.i.i.i.i.i.i = shl nuw nsw i64 %add.i, 3
   %call5.i.i.i.i2.i.i5.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #6, !noalias !9
   store ptr %call5.i.i.i.i2.i.i5.i, ptr %this, align 8, !alias.scope !9
-  %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i.i5.i, i64 %add.i
+  %add.ptr.i.i.i.i = getelementptr i64, ptr %call5.i.i.i.i2.i.i5.i, i64 %add.i
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !alias.scope !9
   store i64 0, ptr %call5.i.i.i.i2.i.i5.i, align 8, !noalias !9
@@ -123,12 +122,11 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt6vectorIlSaIlE
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   %2 = add nsw i64 %mul.i.i.i.i.i.i.i, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i.i, i8 0, i64 %2, i1 false), !noalias !9
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.end.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i
   %3 = phi ptr [ %call5.i.i.i.i2.i.i5.i, %if.then.i.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i5.i, %if.end.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i ]
-  %__first.addr.0.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i ]
+  %__first.addr.0.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i ]
   %_M_finish.i.i7.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %__first.addr.0.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i, align 8, !alias.scope !9
   %cmp.i.not5.i.i = icmp eq ptr %1, %0
@@ -187,7 +185,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt6vectorIlSaIlE
   %mul.i.i.i.i.i.i.i = shl nuw nsw i64 %add.i, 3
   %call5.i.i.i.i2.i.i5.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #6, !noalias !13
   store ptr %call5.i.i.i.i2.i.i5.i, ptr %this, align 8, !alias.scope !13
-  %add.ptr.i.i.i.i = getelementptr inbounds i64, ptr %call5.i.i.i.i2.i.i5.i, i64 %add.i
+  %add.ptr.i.i.i.i = getelementptr i64, ptr %call5.i.i.i.i2.i.i5.i, i64 %add.i
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !alias.scope !13
   store i64 0, ptr %call5.i.i.i.i2.i.i5.i, align 8, !noalias !13
@@ -198,12 +196,11 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZNSt6vectorIlSaIlE
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i.i.i.i.i
   %2 = add nsw i64 %mul.i.i.i.i.i.i.i, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i.i, i8 0, i64 %2, i1 false), !noalias !13
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %incdec.ptr.i.i.i.i.i.i, i64 %sub.ptr.div.i.i
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %if.end.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i
   %3 = phi ptr [ %call5.i.i.i.i2.i.i5.i, %if.then.i.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i5.i, %if.end.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i ]
-  %__first.addr.0.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i ]
+  %__first.addr.0.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %add.ptr.i.i.i.i, %if.end.i.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i.i ]
   %_M_finish.i.i7.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %__first.addr.0.i.i.i.i.i.i, ptr %_M_finish.i.i7.i.i, align 8, !alias.scope !13
   %cmp.i.not5.i.i = icmp eq ptr %1, %0

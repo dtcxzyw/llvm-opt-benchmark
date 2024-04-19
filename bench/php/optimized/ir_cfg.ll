@@ -3230,7 +3230,7 @@ define hidden noundef i32 @ir_find_loops(ptr nocapture noundef %0) local_unnamed
 113:                                              ; preds = %.lr.ph490, %.loopexit431
   %indvars.iv520 = phi i64 [ %101, %.lr.ph490 ], [ %114, %.loopexit431 ]
   %114 = add nsw i64 %indvars.iv520, -1
-  %115 = getelementptr inbounds i32, ptr %31, i64 %114
+  %115 = getelementptr i32, ptr %30, i64 %indvars.iv520
   %116 = load i32, ptr %115, align 4
   %117 = zext i32 %116 to i64
   %118 = getelementptr inbounds %struct._ir_block, ptr %3, i64 %117

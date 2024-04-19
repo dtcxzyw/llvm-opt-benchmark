@@ -371,7 +371,7 @@ thread-pre-split:                                 ; preds = %21, %34
   %283 = add nsw i64 %281, -1
   %284 = getelementptr inbounds double, ptr %26, i64 %283
   %285 = load double, ptr %284, align 8, !tbaa !7
-  %286 = trunc i64 %281 to i32
+  %286 = trunc nsw i64 %281 to i32
   %287 = add i32 %41, %286
   %288 = sext i32 %287 to i64
   %289 = getelementptr inbounds double, ptr %24, i64 %288
@@ -630,7 +630,7 @@ thread-pre-split:                                 ; preds = %21, %34
 .loopexit31:                                      ; preds = %448, %395
   %470 = phi i64 [ %396, %395 ], [ %428, %448 ]
   %471 = phi i64 [ %397, %395 ], [ %429, %448 ]
-  %472 = trunc i64 %470 to i32
+  %472 = trunc nsw i64 %470 to i32
   %473 = getelementptr inbounds double, ptr %25, i64 %471
   store double 0.000000e+00, ptr %473, align 8, !tbaa !7
   store i32 %472, ptr %16, align 4, !tbaa !3
@@ -668,7 +668,7 @@ thread-pre-split:                                 ; preds = %21, %34
   %489 = fmul double %486, %488
   %490 = fneg double %489
   %491 = add nsw i64 %484, 1
-  %492 = getelementptr inbounds double, ptr %25, i64 %491
+  %492 = getelementptr double, ptr %10, i64 %484
   store double %490, ptr %492, align 8, !tbaa !7
   %493 = fcmp oge double %488, 0.000000e+00
   %494 = fneg double %488

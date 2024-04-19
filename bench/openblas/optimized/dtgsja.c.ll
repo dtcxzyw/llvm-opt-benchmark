@@ -788,9 +788,9 @@ thread-pre-split20:                               ; preds = %.loopexit32
 526:                                              ; preds = %526, %523
   %527 = phi i64 [ %524, %523 ], [ %528, %526 ]
   %528 = add nsw i64 %527, 1
-  %529 = getelementptr inbounds double, ptr %53, i64 %528
+  %529 = getelementptr double, ptr %14, i64 %527
   store double 0.000000e+00, ptr %529, align 8, !tbaa !10
-  %530 = getelementptr inbounds double, ptr %54, i64 %528
+  %530 = getelementptr double, ptr %15, i64 %527
   store double 1.000000e+00, ptr %530, align 8, !tbaa !10
   %531 = icmp eq i64 %528, %525
   br i1 %531, label %.loopexit29, label %526, !llvm.loop !17
@@ -810,9 +810,9 @@ thread-pre-split20:                               ; preds = %.loopexit32
 539:                                              ; preds = %539, %534
   %540 = phi i64 [ %537, %534 ], [ %541, %539 ]
   %541 = add nsw i64 %540, 1
-  %542 = getelementptr inbounds double, ptr %53, i64 %541
+  %542 = getelementptr double, ptr %14, i64 %540
   store double 0.000000e+00, ptr %542, align 8, !tbaa !10
-  %543 = getelementptr inbounds double, ptr %54, i64 %541
+  %543 = getelementptr double, ptr %15, i64 %540
   store double 0.000000e+00, ptr %543, align 8, !tbaa !10
   %544 = icmp slt i64 %541, %538
   br i1 %544, label %539, label %.loopexit, !llvm.loop !18

@@ -2456,7 +2456,7 @@ if.then125:                                       ; preds = %if.then113
   %186 = trunc i64 %185 to i32
   %187 = bitcast i32 %186 to float
   %188 = lshr i64 %185, 32
-  %189 = trunc i64 %188 to i32
+  %189 = trunc nuw i64 %188 to i32
   %190 = bitcast i32 %189 to float
   br label %if.end131
 
@@ -2472,7 +2472,7 @@ if.end131:                                        ; preds = %if.then113, %if.the
   %195 = trunc i64 %191 to i32
   %196 = bitcast i32 %195 to float
   %197 = lshr i64 %191, 32
-  %198 = trunc i64 %197 to i32
+  %198 = trunc nuw i64 %197 to i32
   %199 = bitcast i32 %198 to float
   br i1 %or.cond1188, label %if.then138, label %if.else141
 
@@ -6201,7 +6201,7 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   br label %_ZNSt7__cxx119to_stringEj.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %9 = trunc i32 %__val.addr.0.lcssa.i.i to i8
+  %9 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %9, 48
   br label %_ZNSt7__cxx119to_stringEj.exit
 
@@ -9313,15 +9313,14 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   store i16 0, ptr %0, align 2, !tbaa !170
   %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 2
-  %sub.i.i.i = add nsw i64 %__n, -1
-  %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
+  %cmp.i.i.i.i.i = icmp eq i64 %__n, 1
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %3 = shl nuw nsw i64 %__n, 1
   %4 = add nsw i64 %3, -2
   tail call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false), !tbaa !170
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i16, ptr %incdec.ptr.i.i.i, i64 %sub.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr i16, ptr %0, i64 %__n
   br label %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i

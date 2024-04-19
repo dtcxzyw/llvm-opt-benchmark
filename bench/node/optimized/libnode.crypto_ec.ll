@@ -2785,21 +2785,17 @@ _ZNSt6vectorI16EC_builtin_curveSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; pred
 if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorI16EC_builtin_curveSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %call1, 4
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #25
+  %add.ptr.i.i.i = getelementptr %struct.EC_builtin_curve, ptr %call5.i.i.i.i.i.i, i64 %call1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 16
-  %sub.i.i.i.i.i = add nsw i64 %call1, -1
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit.thread, label %if.end.i.i.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %call1, 1
+  br i1 %cmp.i.i.i.i.i.i.i, label %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit.thread, label %for.body.i.i.i.i.i.i.i.i.i
 
-if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %struct.EC_builtin_curve, ptr %incdec.ptr.i.i.i.i.i, i64 %sub.i.i.i.i.i
-  br label %for.body.i.i.i.i.i.i.i.i.i
-
-for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i
-  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ]
+for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i
+  %__first.addr.04.i.i.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.04.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, i64 16, i1 false)
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 16
-  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i
+  %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !5
 
 _ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit: ; preds = %for.body.i.i.i.i.i.i.i.i.i
@@ -2826,7 +2822,7 @@ _ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i: 
   br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EEC2EmRKS4_.exit, label %for.body.preheader.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit.thread, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
-  %__first.addr.0.i.i.i.i.i3134 = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ], [ %incdec.ptr.i.i.i.i.i, %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit.thread ]
+  %__first.addr.0.i.i.i.i.i3134 = phi ptr [ %add.ptr.i.i.i, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ], [ %incdec.ptr.i.i.i.i.i, %_ZNSt6vectorI16EC_builtin_curveSaIS0_EEC2EmRKS1_.exit.thread ]
   %mul.i.i.i.i.i.i11 = shl nuw nsw i64 %call1, 3
   %call5.i.i.i.i.i.i12 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i11) #25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i.i12, i8 0, i64 %mul.i.i.i.i.i.i11, i1 false)
@@ -2835,7 +2831,7 @@ for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorI16EC_b
   br label %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EEC2EmRKS4_.exit
 
 _ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EEC2EmRKS4_.exit: ; preds = %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i, %for.body.preheader.i.i.i.i.i
-  %__first.addr.0.i.i.i.i.i3135 = phi ptr [ %__first.addr.0.i.i.i.i.i3134, %for.body.preheader.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
+  %__first.addr.0.i.i.i.i.i3135 = phi ptr [ %__first.addr.0.i.i.i.i.i3134, %for.body.preheader.i.i.i.i.i ], [ %add.ptr.i.i.i, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
   %arr.sroa.0.0 = phi ptr [ %call5.i.i.i.i.i.i12, %for.body.preheader.i.i.i.i.i ], [ null, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
   %__cur.0.lcssa.i.i.i.i.i = phi i64 [ %12, %for.body.preheader.i.i.i.i.i ], [ 0, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i ]
   %cmp.i.not5.i = icmp eq ptr %call5.i.i.i.i.i.i, %__first.addr.0.i.i.i.i.i3135

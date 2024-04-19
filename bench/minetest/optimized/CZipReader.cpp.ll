@@ -3180,12 +3180,11 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %0, i8 0, i64 36, i1 false)
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %0, i64 36
-  %sub.i.i.i = add nsw i64 %__n, -1
-  %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
+  %cmp.i.i.i.i.i = icmp eq i64 %__n, 1
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN3irr2io13SZipFileEntryEmS2_ET_S4_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %"struct.irr::io::SZipFileEntry", ptr %incdec.ptr.i.i.i, i64 %sub.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr %"struct.irr::io::SZipFileEntry", ptr %0, i64 %__n
   br label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.i.i, %if.end.i.i.i.i.i
@@ -3216,13 +3215,12 @@ _ZNKSt6vectorIN3irr2io13SZipFileEntryESaIS2_EE12_M_check_lenEmPKc.exit: ; preds 
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #25
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %add.ptr, i8 0, i64 36, i1 false)
-  %sub.i.i.i62 = add nsw i64 %__n, -1
-  %cmp.i.i.i.i.i63 = icmp eq i64 %sub.i.i.i62, 0
+  %cmp.i.i.i.i.i63 = icmp eq i64 %__n, 1
   br i1 %cmp.i.i.i.i.i63, label %_ZSt27__uninitialized_default_n_aIPN3irr2io13SZipFileEntryEmS2_ET_S4_T0_RSaIT1_E.exit71, label %if.end.i.i.i.i.i64
 
 if.end.i.i.i.i.i64:                               ; preds = %_ZNKSt6vectorIN3irr2io13SZipFileEntryESaIS2_EE12_M_check_lenEmPKc.exit
   %incdec.ptr.i.i.i61 = getelementptr inbounds i8, ptr %add.ptr, i64 36
-  %add.ptr.i.i.i.i.i65 = getelementptr inbounds %"struct.irr::io::SZipFileEntry", ptr %incdec.ptr.i.i.i61, i64 %sub.i.i.i62
+  %add.ptr.i.i.i.i.i65 = getelementptr %"struct.irr::io::SZipFileEntry", ptr %add.ptr, i64 %__n
   br label %for.body.i.i.i.i.i.i.i66
 
 for.body.i.i.i.i.i.i.i66:                         ; preds = %for.body.i.i.i.i.i.i.i66, %if.end.i.i.i.i.i64

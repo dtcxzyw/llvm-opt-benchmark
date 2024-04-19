@@ -332,7 +332,7 @@ if.then:                                          ; preds = %land.lhs.true
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.AbsoluteRect.sroa_idx.i, align 8, !tbaa.struct !27
   %pos.sroa.0.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.copyload.i to i32
   %pos.sroa.0.sroa.7.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i, 32
-  %pos.sroa.0.sroa.7.0.extract.trunc = trunc i64 %pos.sroa.0.sroa.7.0.extract.shift to i32
+  %pos.sroa.0.sroa.7.0.extract.trunc = trunc nuw i64 %pos.sroa.0.sroa.7.0.extract.shift to i32
   %call6 = tail call i32 @SDL_IsTextInputActive() #21
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %if.then9, label %lor.lhs.false
@@ -355,7 +355,7 @@ _ZNK3irr4core4rectIiEneERKS2_.exit:               ; preds = %lor.lhs.false
   %Y.i.i7.i = getelementptr inbounds i8, ptr %this, i64 340
   %6 = load i32, ptr %Y.i.i7.i, align 4
   %pos.sroa.10.12.extract.shift = lshr i64 %retval.sroa.2.0.copyload.i, 32
-  %pos.sroa.10.12.extract.trunc = trunc i64 %pos.sroa.10.12.extract.shift to i32
+  %pos.sroa.10.12.extract.trunc = trunc nuw i64 %pos.sroa.10.12.extract.shift to i32
   %cmp4.i.i9.i = icmp ne i32 %6, %pos.sroa.10.12.extract.trunc
   %.not.i10.i = select i1 %cmp.i.i6.i, i1 true, i1 %cmp4.i.i9.i
   br i1 %.not.i10.i, label %if.then9, label %if.end14
@@ -374,7 +374,7 @@ if.then9:                                         ; preds = %_ZNK3irr4core4rectI
   %w = getelementptr inbounds i8, ptr %rect, i64 8
   store i32 %sub.i, ptr %w, align 4, !tbaa !32
   %pos.sroa.10.12.extract.shift26 = lshr i64 %retval.sroa.2.0.copyload.i, 32
-  %pos.sroa.10.12.extract.trunc27 = trunc i64 %pos.sroa.10.12.extract.shift26 to i32
+  %pos.sroa.10.12.extract.trunc27 = trunc nuw i64 %pos.sroa.10.12.extract.shift26 to i32
   %sub.i18 = sub nsw i32 %pos.sroa.10.12.extract.trunc27, %pos.sroa.0.sroa.7.0.extract.trunc
   %h = getelementptr inbounds i8, ptr %rect, i64 12
   store i32 %sub.i18, ptr %h, align 4, !tbaa !33
@@ -16234,7 +16234,7 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   br label %_ZNSt7__cxx119to_stringEi.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
-  %8 = trunc i32 %__val.addr.0.lcssa.i.i to i8
+  %8 = trunc nuw nsw i32 %__val.addr.0.lcssa.i.i to i8
   %conv.i.i = or disjoint i8 %8, 48
   br label %_ZNSt7__cxx119to_stringEi.exit
 
@@ -21587,15 +21587,14 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   store ptr null, ptr %0, align 8, !tbaa !95
   %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 8
-  %sub.i.i.i = add nsw i64 %__n, -1
-  %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
+  %cmp.i.i.i.i.i = icmp eq i64 %__n, 1
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPP13_SDL_JoystickmS1_ET_S3_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %3 = shl nuw nsw i64 %__n, 3
   %4 = add nsw i64 %3, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false), !tbaa !95
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %incdec.ptr.i.i.i, i64 %sub.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr ptr, ptr %0, i64 %__n
   br label %_ZSt27__uninitialized_default_n_aIPP13_SDL_JoystickmS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPP13_SDL_JoystickmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i

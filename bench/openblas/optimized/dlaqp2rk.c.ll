@@ -281,7 +281,7 @@ define noundef i32 @dlaqp2rk_(ptr noundef %0, ptr nocapture noundef readonly %1,
   %199 = phi i32 [ %191, %194 ], [ %231, %230 ]
   %200 = phi i64 [ %55, %194 ], [ %201, %230 ]
   %201 = add nuw nsw i64 %200, 1
-  %202 = getelementptr inbounds double, ptr %30, i64 %201
+  %202 = getelementptr double, ptr %16, i64 %200
   %203 = load double, ptr %202, align 8, !tbaa !7
   %204 = fcmp une double %203, 0.000000e+00
   br i1 %204, label %205, label %230
@@ -298,7 +298,7 @@ define noundef i32 @dlaqp2rk_(ptr noundef %0, ptr nocapture noundef readonly %1,
   %214 = call double @llvm.fmuladd.f64(double %213, double %212, double 1.000000e+00)
   %215 = fcmp oge double %214, 0.000000e+00
   %216 = select i1 %215, double %214, double 0.000000e+00
-  %217 = getelementptr inbounds double, ptr %31, i64 %201
+  %217 = getelementptr double, ptr %17, i64 %200
   %218 = load double, ptr %217, align 8, !tbaa !7
   %219 = fdiv double %203, %218
   %220 = fmul double %219, %219

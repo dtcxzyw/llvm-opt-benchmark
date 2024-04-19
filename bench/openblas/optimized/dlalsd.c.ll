@@ -131,7 +131,7 @@ define void @dlalsd_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   store double %78, ptr %76, align 8, !tbaa !7
   %79 = load double, ptr %21, align 8, !tbaa !7
   %80 = add nuw nsw i64 %75, 1
-  %81 = getelementptr inbounds double, ptr %24, i64 %80
+  %81 = getelementptr double, ptr %4, i64 %75
   %82 = load double, ptr %81, align 8, !tbaa !7
   %83 = fmul double %79, %82
   store double %83, ptr %77, align 8, !tbaa !7

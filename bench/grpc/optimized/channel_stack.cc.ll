@@ -127,13 +127,12 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull ptr @_Z31grpc_channel_stack_last_elementP18grpc_channel_stack(ptr noundef readonly %channel_stack) local_unnamed_addr #5 {
+define noundef ptr @_Z31grpc_channel_stack_last_elementP18grpc_channel_stack(ptr noundef readonly %channel_stack) local_unnamed_addr #5 {
 entry:
   %count = getelementptr inbounds i8, ptr %channel_stack, i64 40
   %0 = load i64, ptr %count, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %channel_stack, i64 112
-  %1 = getelementptr %struct.grpc_channel_element, ptr %add.ptr.i, i64 %0
-  %add.ptr1.i = getelementptr i8, ptr %1, i64 -16
+  %1 = getelementptr i8, ptr %channel_stack, i64 96
+  %add.ptr1.i = getelementptr %struct.grpc_channel_element, ptr %1, i64 %0
   ret ptr %add.ptr1.i
 }
 
@@ -1046,9 +1045,8 @@ if.end.i:
   %agg.tmp = alloca %"struct.grpc_core::CallArgs", align 8
   %count = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %count, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 112
-  %1 = getelementptr %struct.grpc_channel_element, ptr %add.ptr.i, i64 %0
-  %add.ptr1.i = getelementptr i8, ptr %1, i64 -16
+  %1 = getelementptr inbounds i8, ptr %this, i64 96
+  %add.ptr1.i = getelementptr %struct.grpc_channel_element, ptr %1, i64 %0
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %_M_invoker.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %2 = getelementptr inbounds i8, ptr %ref.tmp, i64 8

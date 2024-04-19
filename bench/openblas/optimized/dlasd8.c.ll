@@ -203,13 +203,13 @@ define void @dlasd8_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %138 = add nsw i64 %137, 1
   %139 = getelementptr double, ptr %76, i64 %138
   %140 = load double, ptr %139, align 8, !tbaa !7
-  %141 = getelementptr inbounds double, ptr %26, i64 %138
+  %141 = getelementptr double, ptr %10, i64 %137
   %142 = load double, ptr %141, align 8, !tbaa !7
   %143 = fmul double %140, %142
   %144 = getelementptr double, ptr %77, i64 %138
   %145 = load double, ptr %144, align 8, !tbaa !7
   %146 = fmul double %143, %145
-  %147 = getelementptr inbounds double, ptr %25, i64 %138
+  %147 = getelementptr double, ptr %9, i64 %137
   %148 = load double, ptr %147, align 8, !tbaa !7
   %149 = load double, ptr %134, align 8, !tbaa !7
   %150 = fsub double %148, %149
@@ -350,16 +350,16 @@ define void @dlasd8_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 236:                                              ; preds = %236, %233
   %237 = phi i64 [ %234, %233 ], [ %238, %236 ]
   %238 = add nsw i64 %237, 1
-  %239 = getelementptr inbounds double, ptr %19, i64 %238
+  %239 = getelementptr double, ptr %3, i64 %237
   %240 = load double, ptr %239, align 8, !tbaa !7
-  %241 = getelementptr inbounds double, ptr %25, i64 %238
+  %241 = getelementptr double, ptr %9, i64 %237
   %242 = call double @dlamc3_(ptr noundef nonnull %241, ptr noundef nonnull %16) #4
   %243 = fadd double %205, %242
   %244 = fdiv double %240, %243
   %245 = load double, ptr %241, align 8, !tbaa !7
   %246 = fadd double %189, %245
   %247 = fdiv double %244, %246
-  %248 = getelementptr inbounds double, ptr %26, i64 %238
+  %248 = getelementptr double, ptr %10, i64 %237
   store double %247, ptr %248, align 8, !tbaa !7
   %249 = icmp eq i64 %238, %235
   br i1 %249, label %.loopexit, label %236, !llvm.loop !17

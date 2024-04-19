@@ -381,12 +381,12 @@ define void @dhgeqz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %251 = sext i32 %250 to i64
   %252 = getelementptr inbounds double, ptr %63, i64 %251
   %253 = load double, ptr %252, align 8, !tbaa !7
-  %254 = getelementptr inbounds double, ptr %68, i64 %213
+  %254 = getelementptr double, ptr %10, i64 %211
   store double %253, ptr %254, align 8, !tbaa !7
-  %255 = getelementptr inbounds double, ptr %69, i64 %213
+  %255 = getelementptr double, ptr %11, i64 %211
   store double 0.000000e+00, ptr %255, align 8, !tbaa !7
   %256 = load double, ptr %219, align 8, !tbaa !7
-  %257 = getelementptr inbounds double, ptr %70, i64 %213
+  %257 = getelementptr double, ptr %12, i64 %211
   store double %256, ptr %257, align 8, !tbaa !7
   %258 = add i32 %212, 1
   %259 = icmp eq i64 %213, %208
@@ -438,12 +438,12 @@ define void @dhgeqz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .loopexit86:                                      ; preds = %281, %.split, %277, %271
   %288 = getelementptr inbounds double, ptr %63, i64 %270
   %289 = load double, ptr %288, align 8, !tbaa !7
-  %290 = getelementptr inbounds double, ptr %68, i64 %261
+  %290 = getelementptr double, ptr %10, i64 %260
   store double %289, ptr %290, align 8, !tbaa !7
-  %291 = getelementptr inbounds double, ptr %69, i64 %261
+  %291 = getelementptr double, ptr %11, i64 %260
   store double 0.000000e+00, ptr %291, align 8, !tbaa !7
   %292 = load double, ptr %266, align 8, !tbaa !7
-  %293 = getelementptr inbounds double, ptr %70, i64 %261
+  %293 = getelementptr double, ptr %12, i64 %260
   store double %292, ptr %293, align 8, !tbaa !7
   %294 = icmp eq i64 %261, %208
   br i1 %294, label %.loopexit88, label %.split, !llvm.loop !13

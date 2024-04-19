@@ -193,9 +193,8 @@ if.then.i:                                        ; preds = %edu_check_range.exi
 
 edu_clamp_addr.exit:                              ; preds = %edu_check_range.exit, %if.then.i
   %10 = phi i64 [ %3, %edu_check_range.exit ], [ %.pre42, %if.then.i ]
-  %dma_buf = getelementptr inbounds i8, ptr %opaque, i64 3096
-  %11 = getelementptr i8, ptr %dma_buf, i64 %2
-  %add.ptr = getelementptr i8, ptr %11, i64 -262144
+  %11 = getelementptr i8, ptr %opaque, i64 -259048
+  %add.ptr = getelementptr i8, ptr %11, i64 %2
   %bus_master_as.i.i.i = getelementptr inbounds i8, ptr %opaque, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !5
   fence seq_cst
@@ -237,9 +236,8 @@ if.then.i35:                                      ; preds = %edu_check_range.exi
 
 edu_clamp_addr.exit38:                            ; preds = %edu_check_range.exit32, %if.then.i35
   %20 = phi i64 [ %13, %edu_check_range.exit32 ], [ %.pre, %if.then.i35 ]
-  %dma_buf22 = getelementptr inbounds i8, ptr %opaque, i64 3096
-  %21 = getelementptr i8, ptr %dma_buf22, i64 %12
-  %add.ptr24 = getelementptr i8, ptr %21, i64 -262144
+  %21 = getelementptr i8, ptr %opaque, i64 -259048
+  %add.ptr24 = getelementptr i8, ptr %21, i64 %12
   %bus_master_as.i.i.i39 = getelementptr inbounds i8, ptr %opaque, i64 576
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !5
   fence seq_cst

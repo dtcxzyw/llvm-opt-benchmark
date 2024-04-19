@@ -8192,12 +8192,11 @@ sw.bb33.i:                                        ; preds = %if.else116
   %44 = and i32 %43, 262140
   %mul42.i = sub nsw i32 131072, %44
   store i32 %mul42.i, ptr %bc_extent, align 8
-  %add.ptr45.i = getelementptr inbounds i8, ptr %5, i64 8
   %45 = load i32, ptr %arrayidx35.i, align 4
   %shr47.i = lshr i32 %45, 16
   %conv48.i = zext nneg i32 %shr47.i to i64
-  %46 = getelementptr i32, ptr %add.ptr45.i, i64 %conv48.i
-  %add.ptr50.i = getelementptr i8, ptr %46, i64 -131072
+  %46 = getelementptr i8, ptr %5, i64 -131064
+  %add.ptr50.i = getelementptr i32, ptr %46, i64 %conv48.i
   store ptr %add.ptr50.i, ptr %bc_min, align 8
   %state.i = getelementptr inbounds i8, ptr %J, i64 236
   store i32 18, ptr %state.i, align 4
@@ -8215,10 +8214,9 @@ sw.bb52.i:                                        ; preds = %if.else116
 
 if.then65.i:                                      ; preds = %sw.bb52.i
   %shr60.i = lshr i32 %48, 16
-  %50 = or disjoint i32 %shr60.i, -32768
-  %sub62.i = sext i32 %50 to i64
-  %add.ptr66.i = getelementptr i8, ptr %47, i64 -131068
-  %add.ptr70.i = getelementptr inbounds i32, ptr %add.ptr66.i, i64 %sub62.i
+  %conv61.i = zext nneg i32 %shr60.i to i64
+  %50 = getelementptr i8, ptr %47, i64 -262140
+  %add.ptr70.i = getelementptr i32, ptr %50, i64 %conv61.i
   store ptr %add.ptr70.i, ptr %bc_min, align 8
   %51 = shl nuw nsw i32 %shr60.i, 2
   %52 = sub nuw nsw i32 131072, %51

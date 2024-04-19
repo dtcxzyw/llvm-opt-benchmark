@@ -543,7 +543,7 @@ define void @dsyevx_2stage_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %310 = phi double [ %303, %306 ], [ %318, %308 ]
   %311 = phi i32 [ 0, %306 ], [ %317, %308 ]
   %312 = add nsw i64 %309, 1
-  %313 = getelementptr inbounds double, ptr %42, i64 %312
+  %313 = getelementptr double, ptr %12, i64 %309
   %314 = load double, ptr %313, align 8, !tbaa !7
   %315 = fcmp olt double %314, %310
   %316 = trunc i64 %312 to i32

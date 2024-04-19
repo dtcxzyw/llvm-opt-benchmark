@@ -711,7 +711,7 @@ define void @dorcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %461 = load i32, ptr %8, align 4, !tbaa !3
   %462 = trunc i64 %460 to i32
   %463 = sub nsw i32 %462, %461
-  %464 = getelementptr inbounds i32, ptr %59, i64 %460
+  %464 = getelementptr i32, ptr %28, i64 %459
   store i32 %463, ptr %464, align 4, !tbaa !3
   %465 = icmp slt i64 %460, %457
   br i1 %465, label %458, label %.loopexit42.loopexit, !llvm.loop !15
@@ -792,7 +792,7 @@ define void @dorcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %501 = load i32, ptr %7, align 4, !tbaa !3
   %502 = trunc i64 %500 to i32
   %503 = sub nsw i32 %502, %501
-  %504 = getelementptr inbounds i32, ptr %59, i64 %500
+  %504 = getelementptr i32, ptr %28, i64 %499
   store i32 %503, ptr %504, align 4, !tbaa !3
   %505 = icmp slt i64 %500, %497
   br i1 %505, label %498, label %.loopexit.loopexit, !llvm.loop !17

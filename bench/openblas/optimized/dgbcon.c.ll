@@ -180,7 +180,7 @@ define void @dgbcon_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef reado
   %105 = mul nsw i64 %87, %76
   %106 = getelementptr double, ptr %79, i64 %105
   %107 = add nuw nsw i64 %87, 1
-  %108 = getelementptr inbounds double, ptr %26, i64 %107
+  %108 = getelementptr double, ptr %9, i64 %87
   call void @daxpy_(ptr noundef nonnull %18, ptr noundef nonnull %14, ptr noundef %106, ptr noundef nonnull @c__1, ptr noundef nonnull %108, ptr noundef nonnull @c__1) #4
   %109 = load i32, ptr %13, align 4, !tbaa !3
   %110 = sext i32 %109 to i64

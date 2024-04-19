@@ -1719,7 +1719,7 @@ entry:
   %conv = ashr exact i32 %sext, 16
   %Z = getelementptr inbounds i8, ptr %this, i64 42
   %sh.diff = lshr i48 %chunksize.coerce, 16
-  %tr.sh.diff = trunc i48 %sh.diff to i32
+  %tr.sh.diff = trunc nuw i48 %sh.diff to i32
   %conv4 = ashr i32 %tr.sh.diff, 16
   invoke void @_ZN5NoiseC1EPK11NoiseParamsijjj(ptr noundef nonnull align 8 dereferenceable(88) %call, ptr noundef nonnull %np_heat, i32 noundef %0, i32 noundef %conv, i32 noundef %conv4, i32 noundef 1)
           to label %invoke.cont6 unwind label %lpad5
@@ -2291,7 +2291,7 @@ define dso_local noundef float @_ZNK16BiomeGenOriginal15calcHeatAtPointEN3irr4co
 entry:
   %pos.sroa.0.0.extract.trunc = trunc i48 %pos.coerce to i16
   %pos.sroa.313.0.extract.shift = lshr i48 %pos.coerce, 32
-  %pos.sroa.313.0.extract.trunc = trunc i48 %pos.sroa.313.0.extract.shift to i16
+  %pos.sroa.313.0.extract.trunc = trunc nuw i48 %pos.sroa.313.0.extract.shift to i16
   %m_params = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_params, align 8, !tbaa !71
   %np_heat = getelementptr inbounds i8, ptr %0, i64 12
@@ -2316,7 +2316,7 @@ define dso_local noundef float @_ZNK16BiomeGenOriginal19calcHumidityAtPointEN3ir
 entry:
   %pos.sroa.0.0.extract.trunc = trunc i48 %pos.coerce to i16
   %pos.sroa.313.0.extract.shift = lshr i48 %pos.coerce, 32
-  %pos.sroa.313.0.extract.trunc = trunc i48 %pos.sroa.313.0.extract.shift to i16
+  %pos.sroa.313.0.extract.trunc = trunc nuw i48 %pos.sroa.313.0.extract.shift to i16
   %m_params = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_params, align 8, !tbaa !71
   %np_humidity = getelementptr inbounds i8, ptr %0, i64 52
@@ -2339,7 +2339,7 @@ define dso_local noundef ptr @_ZNK16BiomeGenOriginal16calcBiomeAtPointEN3irr4cor
 entry:
   %pos.sroa.0.0.extract.trunc.i = trunc i48 %pos.coerce to i16
   %pos.sroa.313.0.extract.shift.i = lshr i48 %pos.coerce, 32
-  %pos.sroa.313.0.extract.trunc.i = trunc i48 %pos.sroa.313.0.extract.shift.i to i16
+  %pos.sroa.313.0.extract.trunc.i = trunc nuw i48 %pos.sroa.313.0.extract.shift.i to i16
   %m_params.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_params.i, align 8, !tbaa !71
   %np_heat.i = getelementptr inbounds i8, ptr %0, i64 12
@@ -2392,7 +2392,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %conv4 = sext i16 %pos.sroa.3.0.extract.trunc to i32
   %sext = shl i32 %pos.sroa.0.0.extract.trunc, 16
   %conv16 = ashr exact i32 %sext, 16
-  %tr.sh.diff = trunc i48 %pos.sroa.3.0.extract.shift to i32
+  %tr.sh.diff = trunc nuw i48 %pos.sroa.3.0.extract.shift to i32
   %conv29 = ashr i32 %tr.sh.diff, 16
   br label %for.body
 
@@ -2554,7 +2554,7 @@ entry:
   %pmin.sroa.6.0.extract.shift = lshr i48 %pmin.coerce, 16
   %pmin.sroa.6.0.extract.trunc = trunc i48 %pmin.sroa.6.0.extract.shift to i16
   %pmin.sroa.645.0.extract.shift = lshr i48 %pmin.coerce, 32
-  %pmin.sroa.645.0.extract.trunc = trunc i48 %pmin.sroa.645.0.extract.shift to i16
+  %pmin.sroa.645.0.extract.trunc = trunc nuw i48 %pmin.sroa.645.0.extract.shift to i16
   %m_pmin = getelementptr inbounds i8, ptr %this, i64 32
   store i16 %pmin.sroa.0.0.extract.trunc, ptr %m_pmin, align 8, !tbaa !45
   %pmin.sroa.6.0.m_pmin.sroa_idx = getelementptr inbounds i8, ptr %this, i64 34
@@ -2735,7 +2735,7 @@ for.cond3.preheader.lr.ph:                        ; preds = %entry
   %noise_heat = getelementptr inbounds i8, ptr %this, i64 72
   %noise_humidity = getelementptr inbounds i8, ptr %this, i64 80
   %sum.shift = lshr i48 %pmin.coerce, 32
-  %conv2647 = trunc i48 %sum.shift to i16
+  %conv2647 = trunc nuw i48 %sum.shift to i16
   %m_bmgr.i = getelementptr inbounds i8, ptr %this, i64 24
   %biomemap = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i16, ptr %m_csize, align 2, !tbaa !77
@@ -5085,15 +5085,14 @@ if.then:                                          ; preds = %entry
 if.then.i.i.i:                                    ; preds = %if.then
   store ptr null, ptr %0, align 8, !tbaa !48
   %incdec.ptr.i.i.i = getelementptr i8, ptr %0, i64 8
-  %sub.i.i.i = add nsw i64 %__n, -1
-  %cmp.i.i.i.i.i = icmp eq i64 %sub.i.i.i, 0
+  %cmp.i.i.i.i.i = icmp eq i64 %__n, 1
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPP6ObjDefmS1_ET_S3_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %3 = shl nuw nsw i64 %__n, 3
   %4 = add nsw i64 %3, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false), !tbaa !48
-  %add.ptr.i.i.i.i.i = getelementptr inbounds ptr, ptr %incdec.ptr.i.i.i, i64 %sub.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr ptr, ptr %0, i64 %__n
   br label %_ZSt27__uninitialized_default_n_aIPP6ObjDefmS1_ET_S3_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPP6ObjDefmS1_ET_S3_T0_RSaIT1_E.exit: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i

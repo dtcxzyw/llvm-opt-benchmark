@@ -199,7 +199,7 @@ define void @dlarrv_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
 
 156:                                              ; preds = %153
   %157 = add nuw nsw i64 %154, 1
-  %158 = getelementptr inbounds i32, ptr %60, i64 %157
+  %158 = getelementptr i32, ptr %16, i64 %154
   %159 = load i32, ptr %158, align 4, !tbaa !3
   %160 = zext i32 %159 to i64
   %161 = icmp eq i64 %138, %160

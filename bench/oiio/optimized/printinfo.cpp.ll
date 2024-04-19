@@ -2753,19 +2753,18 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIfSaIfE
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   store float 0.000000e+00, ptr %call5.i.i.i.i2.i.i97, align 4
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i97, i64 4
-  %sub.i.i.i.i.i = add nsw i64 %conv23, -1
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i.i.i = icmp eq i32 %139, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %cond.false.i, label %if.end.i.i.i.i.i.i.i93
 
 if.end.i.i.i.i.i.i.i93:                           ; preds = %call5.i.i.i.i2.i.i.noexc
+  %add.ptr.i.i.i = getelementptr float, ptr %call5.i.i.i.i2.i.i97, i64 %conv23
   %140 = add nsw i64 %mul.i.i.i.i.i.i, -4
   call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i, i8 0, i64 %140, i1 false)
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds float, ptr %incdec.ptr.i.i.i.i.i, i64 %sub.i.i.i.i.i
   br label %cond.false.i
 
 cond.false.i:                                     ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i, %call5.i.i.i.i2.i.i.noexc, %if.end.i.i.i.i.i.i.i93
   %constantValues.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i97, %call5.i.i.i.i2.i.i.noexc ], [ %call5.i.i.i.i2.i.i97, %if.end.i.i.i.i.i.i.i93 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i93 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ], [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i93 ], [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp2898)
   store i32 -2147483648, ptr %agg.tmp2898, align 8
   %agg.tmp28.sroa.2.0.agg.tmp2898.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp2898, i64 4

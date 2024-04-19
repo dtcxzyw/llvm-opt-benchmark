@@ -3118,7 +3118,6 @@ define void @Wlc_BlastDividerNR(ptr noundef %0, ptr nocapture noundef readonly %
 
 ._crit_edge:                                      ; preds = %20, %7
   %23 = add nsw i32 %2, -1
-  %invariant.gep = getelementptr i8, ptr %13, i64 4
   %24 = icmp sgt i32 %2, 0
   br i1 %24, label %.lr.ph80, label %._crit_edge81
 
@@ -3131,19 +3130,19 @@ define void @Wlc_BlastDividerNR(ptr noundef %0, ptr nocapture noundef readonly %
   %26 = add nuw i32 %4, 1
   %27 = zext nneg i32 %23 to i64
   %wide.trip.count91 = zext i32 %26 to i64
-  %invariant.gep107 = getelementptr i32, ptr %.val, i64 %25
+  %invariant.gep106 = getelementptr i32, ptr %.val, i64 %25
   br label %.lr.ph80.split
 
 .lr.ph80.split.us.preheader:                      ; preds = %.lr.ph80
   %28 = sext i32 %4 to i64
-  %invariant.gep109 = getelementptr i32, ptr %.val, i64 %28
+  %invariant.gep108 = getelementptr i32, ptr %.val, i64 %28
   br label %.lr.ph80.split.us
 
 .lr.ph80.split.us:                                ; preds = %.lr.ph80.split.us.preheader, %.lr.ph80.split.us
   %indvars.iv96.in = phi i64 [ %11, %.lr.ph80.split.us.preheader ], [ %indvars.iv96, %.lr.ph80.split.us ]
   %indvars.iv96 = add nsw i64 %indvars.iv96.in, -1
-  %gep110 = getelementptr i32, ptr %invariant.gep109, i64 %indvars.iv96
-  %29 = load i32, ptr %gep110, align 4
+  %gep109 = getelementptr i32, ptr %invariant.gep108, i64 %indvars.iv96
+  %29 = load i32, ptr %gep109, align 4
   %30 = xor i32 %29, 1
   %31 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv96
   store i32 %30, ptr %31, align 4
@@ -3157,13 +3156,13 @@ define void @Wlc_BlastDividerNR(ptr noundef %0, ptr nocapture noundef readonly %
   br i1 %33, label %.lr.ph76, label %34
 
 34:                                               ; preds = %.lr.ph80.split
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv93
+  %gep = getelementptr i32, ptr %13, i64 %indvars.iv93.in
   %35 = load i32, ptr %gep, align 4
   br label %.lr.ph76
 
 .lr.ph76:                                         ; preds = %.lr.ph80.split, %34
   %36 = phi i32 [ %35, %34 ], [ 1, %.lr.ph80.split ]
-  %invariant.gep105 = getelementptr i32, ptr %.val, i64 %indvars.iv93
+  %invariant.gep = getelementptr i32, ptr %.val, i64 %indvars.iv93
   br label %37
 
 37:                                               ; preds = %.lr.ph76, %Wlc_BlastFullAdder.exit
@@ -3179,8 +3178,8 @@ define void @Wlc_BlastDividerNR(ptr noundef %0, ptr nocapture noundef readonly %
 
 42:                                               ; preds = %37, %39
   %43 = phi i32 [ %41, %39 ], [ 0, %37 ]
-  %gep106 = getelementptr i32, ptr %invariant.gep105, i64 %indvars.iv88
-  %44 = load i32, ptr %gep106, align 4
+  %gep105 = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv88
+  %44 = load i32, ptr %gep105, align 4
   %45 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %43, i32 noundef %36) #21
   %46 = icmp eq i32 %45, 1
   %47 = icmp eq i32 %44, 1
@@ -3205,14 +3204,14 @@ define void @Wlc_BlastDividerNR(ptr noundef %0, ptr nocapture noundef readonly %
   %61 = xor i32 %57, 1
   %62 = xor i32 %60, 1
   %63 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %61, i32 noundef %62) #21
-  store i32 %63, ptr %gep106, align 4
+  store i32 %63, ptr %gep105, align 4
   %64 = tail call i32 @Gia_ManHashOr(ptr noundef %0, i32 noundef %50, i32 noundef %57) #21
   br i1 %spec.select.i, label %65, label %Wlc_BlastFullAdder.exit
 
 65:                                               ; preds = %42
-  %66 = load i32, ptr %gep106, align 4
+  %66 = load i32, ptr %gep105, align 4
   %67 = xor i32 %66, 1
-  store i32 %67, ptr %gep106, align 4
+  store i32 %67, ptr %gep105, align 4
   %68 = xor i32 %64, 1
   br label %Wlc_BlastFullAdder.exit
 
@@ -3223,8 +3222,8 @@ Wlc_BlastFullAdder.exit:                          ; preds = %42, %65
   br i1 %exitcond92.not, label %._crit_edge77, label %37, !llvm.loop !59
 
 ._crit_edge77:                                    ; preds = %Wlc_BlastFullAdder.exit
-  %gep108 = getelementptr i32, ptr %invariant.gep107, i64 %indvars.iv93
-  %69 = load i32, ptr %gep108, align 4
+  %gep107 = getelementptr i32, ptr %invariant.gep106, i64 %indvars.iv93
+  %69 = load i32, ptr %gep107, align 4
   %70 = xor i32 %69, 1
   %71 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv93
   store i32 %70, ptr %71, align 4

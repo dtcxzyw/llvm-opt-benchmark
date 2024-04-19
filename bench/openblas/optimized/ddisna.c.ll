@@ -181,7 +181,7 @@ define void @ddisna_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noca
   %103 = phi i64 [ %105, %.preheader ], [ 2, %93 ]
   %104 = phi double [ %113, %.preheader ], [ %100, %93 ]
   %105 = add nuw nsw i64 %103, 1
-  %106 = getelementptr inbounds double, ptr %9, i64 %105
+  %106 = getelementptr double, ptr %3, i64 %103
   %107 = load double, ptr %106, align 8, !tbaa !7
   %108 = getelementptr inbounds double, ptr %9, i64 %103
   %109 = load double, ptr %108, align 8, !tbaa !7

@@ -112,7 +112,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %63 = select i1 %61, double %60, double %62
   %64 = call double @sqrt(double noundef %63) #5
   %65 = add nsw i64 %49, 1
-  %66 = getelementptr inbounds double, ptr %14, i64 %65
+  %66 = getelementptr double, ptr %1, i64 %49
   %67 = load double, ptr %66, align 8, !tbaa !7
   %68 = fcmp oge double %67, 0.000000e+00
   %69 = fneg double %67
@@ -238,7 +238,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %142 = getelementptr inbounds double, ptr %14, i64 %134
   %143 = load double, ptr %142, align 8, !tbaa !7
   %144 = add nsw i64 %134, 1
-  %145 = getelementptr inbounds double, ptr %14, i64 %144
+  %145 = getelementptr double, ptr %1, i64 %134
   %146 = load double, ptr %145, align 8, !tbaa !7
   %147 = fmul double %143, %146
   %148 = fcmp oge double %147, 0.000000e+00
@@ -427,7 +427,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %274, label %255, label %275, !llvm.loop !15
 
 275:                                              ; preds = %258
-  %276 = trunc i64 %256 to i32
+  %276 = trunc nsw i64 %256 to i32
   %277 = icmp slt i32 %123, %276
   br i1 %277, label %278, label %.thread34
 
@@ -531,7 +531,7 @@ define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %343 = fdiv double %333, %337
   %344 = fdiv double %336, %337
   %345 = add nsw i64 %330, 1
-  %346 = getelementptr inbounds double, ptr %14, i64 %345
+  %346 = getelementptr double, ptr %1, i64 %330
   %347 = load double, ptr %346, align 8, !tbaa !7
   %348 = fsub double %347, %323
   %349 = fneg double %344

@@ -3850,7 +3850,7 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %2393 = getelementptr double, ptr %2390, i64 %2392
   %2394 = load double, ptr %2393, align 8, !tbaa !13
   %2395 = add nuw nsw i64 %2392, 1
-  %2396 = getelementptr inbounds double, ptr %44, i64 %2395
+  %2396 = getelementptr double, ptr %11, i64 %2392
   store double %2394, ptr %2396, align 8, !tbaa !13
   %2397 = icmp eq i64 %2395, %2389
   br i1 %2397, label %.loopexit, label %2391, !llvm.loop !20

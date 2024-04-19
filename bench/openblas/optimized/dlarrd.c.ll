@@ -817,19 +817,19 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocaptu
   %568 = add nuw nsw i64 %567, 1
   %569 = getelementptr inbounds double, ptr %40, i64 %566
   %570 = load double, ptr %569, align 8, !tbaa !7
-  %571 = getelementptr inbounds double, ptr %40, i64 %568
+  %571 = getelementptr double, ptr %16, i64 %567
   store double %570, ptr %571, align 8, !tbaa !7
   %572 = getelementptr inbounds double, ptr %39, i64 %566
   %573 = load double, ptr %572, align 8, !tbaa !7
-  %574 = getelementptr inbounds double, ptr %39, i64 %568
+  %574 = getelementptr double, ptr %17, i64 %567
   store double %573, ptr %574, align 8, !tbaa !7
   %575 = getelementptr inbounds i32, ptr %37, i64 %566
   %576 = load i32, ptr %575, align 4, !tbaa !3
-  %577 = getelementptr inbounds i32, ptr %37, i64 %568
+  %577 = getelementptr i32, ptr %21, i64 %567
   store i32 %576, ptr %577, align 4, !tbaa !3
   %578 = getelementptr inbounds i32, ptr %38, i64 %566
   %579 = load i32, ptr %578, align 4, !tbaa !3
-  %580 = getelementptr inbounds i32, ptr %38, i64 %568
+  %580 = getelementptr i32, ptr %20, i64 %567
   store i32 %579, ptr %580, align 4, !tbaa !3
   %581 = add nsw i64 %566, 1
   %582 = icmp eq i64 %568, %564

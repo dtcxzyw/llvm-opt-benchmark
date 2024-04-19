@@ -24501,7 +24501,7 @@ _ZN5alloc5alloc15exchange_malloc17hf73c64118470f50eE.exit139: ; preds = %_ZN15ru
   %106 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %105, ptr %106, align 8, !noalias !6619
   %107 = getelementptr inbounds i8, ptr %7, i64 16
-  %108 = getelementptr inbounds { { i64, [5 x i64] }, i8, [7 x i8] }, ptr %.sroa.093.0.i, i64 %.sroa.596.0.i
+  %108 = getelementptr { { i64, [5 x i64] }, i8, [7 x i8] }, ptr %.pn.i, i64 %.sroa.596.0.in.i
   %109 = icmp eq i64 %104, 0
   br i1 %109, label %.loopexit270, label %.lr.ph.i125
 

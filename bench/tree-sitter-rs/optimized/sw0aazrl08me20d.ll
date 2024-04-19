@@ -145,7 +145,7 @@ define hidden noundef i8 @_ZN4core4iter6traits12double_ended19DoubleEndedIterato
   br i1 %21, label %22, label %65
 
 22:                                               ; preds = %10
-  %trunc.i.i.i.i.i = trunc i64 %15 to i8
+  %trunc.i.i.i.i.i = trunc nuw i64 %15 to i8
   switch i8 %trunc.i.i.i.i.i, label %63 [
     i8 0, label %23
     i8 4, label %24
@@ -1232,7 +1232,7 @@ _ZN4core3ops8function5FnMut8call_mut17h4af8ed04e0d01e85E.exit.i: ; preds = %78
   %92 = add i64 %.030.i, -1
   %93 = icmp ult i64 %92, %76
   call void @llvm.assume(i1 %93)
-  %94 = getelementptr inbounds { i64, { { { i64, ptr }, i64 } } }, ptr %75, i64 %92
+  %94 = getelementptr { i64, { { { i64, ptr }, i64 } } }, ptr %.sroa.0.0134171, i64 %.030.i
   call void @llvm.experimental.noalias.scope.decl(metadata !331)
   call void @llvm.experimental.noalias.scope.decl(metadata !334)
   %.val.i.i27.i = load i64, ptr %94, align 8, !alias.scope !337, !noalias !338, !noundef !4
@@ -1658,7 +1658,7 @@ _ZN4core3ops8function5FnMut8call_mut17h4af8ed04e0d01e85E.exit: ; preds = %226
   %.022.lcssa.i61 = phi i64 [ %.022.ph.i, %.outer.i ], [ %.023.ph.i, %256 ], [ %.02228.i, %_ZN4core3ops8function5FnMut8call_mut17h4af8ed04e0d01e85E.exit.i65 ], [ %.02228.i, %246 ]
   %254 = add i64 %.023.ph.i, -1
   %.not2832.i = icmp ult i64 %.022.lcssa.i61, %254
-  br i1 %.not2832.i, label %.lr.ph34.i, label %_ZN4core5slice4sort15partition_equal17ha6d688a6599c5478E.exit
+  br i1 %.not2832.i, label %.lr.ph35.i, label %_ZN4core5slice4sort15partition_equal17ha6d688a6599c5478E.exit
 
 _ZN4core3ops8function5FnMut8call_mut17h4af8ed04e0d01e85E.exit.i65: ; preds = %.lr.ph.i63
   %255 = icmp ult i64 %242, %.val1.i.i.i
@@ -1669,18 +1669,19 @@ _ZN4core3ops8function5FnMut8call_mut17h4af8ed04e0d01e85E.exit.i65: ; preds = %.l
   %exitcond.not.i66 = icmp eq i64 %257, %.023.ph.i
   br i1 %exitcond.not.i66, label %._crit_edge.i60, label %.lr.ph.i63
 
-.lr.ph34.i:                                       ; preds = %._crit_edge.i60, %.backedge.i62
+.lr.ph35.i:                                       ; preds = %._crit_edge.i60, %.backedge.i62
   %258 = phi i64 [ %270, %.backedge.i62 ], [ %254, %._crit_edge.i60 ]
+  %.133.i = phi i64 [ %258, %.backedge.i62 ], [ %.023.ph.i, %._crit_edge.i60 ]
   %259 = icmp ult i64 %258, %239
   call void @llvm.assume(i1 %259)
-  %260 = getelementptr inbounds { i64, { { { i64, ptr }, i64 } } }, ptr %238, i64 %258
+  %260 = getelementptr { i64, { { { i64, ptr }, i64 } } }, ptr %.sroa.0.0134, i64 %.133.i
   call void @llvm.experimental.noalias.scope.decl(metadata !444)
   call void @llvm.experimental.noalias.scope.decl(metadata !447)
   %.val1.i.i35.i = load i64, ptr %260, align 8, !alias.scope !450, !noalias !451, !noundef !4
   %.not.i.i36.i = icmp eq i64 %243, %.val1.i.i35.i
   br i1 %.not.i.i36.i, label %261, label %_ZN4core3ops8function5FnMut8call_mut17h4af8ed04e0d01e85E.exit44.i
 
-261:                                              ; preds = %.lr.ph34.i
+261:                                              ; preds = %.lr.ph35.i
   call void @llvm.assume(i1 %241)
   %262 = getelementptr inbounds i8, ptr %260, i64 16
   %.val4.i.i40.i = load ptr, ptr %262, align 8, !alias.scope !450, !noalias !451, !nonnull !4, !noundef !4
@@ -1695,14 +1696,14 @@ _ZN4core3ops8function5FnMut8call_mut17h4af8ed04e0d01e85E.exit.i65: ; preds = %.l
   %268 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i43.i, 0
   br i1 %268, label %.backedge.i62, label %271
 
-_ZN4core3ops8function5FnMut8call_mut17h4af8ed04e0d01e85E.exit44.i: ; preds = %.lr.ph34.i
+_ZN4core3ops8function5FnMut8call_mut17h4af8ed04e0d01e85E.exit44.i: ; preds = %.lr.ph35.i
   %269 = icmp ult i64 %243, %.val1.i.i35.i
   br i1 %269, label %.backedge.i62, label %271
 
 .backedge.i62:                                    ; preds = %_ZN4core3ops8function5FnMut8call_mut17h4af8ed04e0d01e85E.exit44.i, %261
   %270 = add i64 %258, -1
   %.not28.i = icmp ult i64 %.022.lcssa.i61, %270
-  br i1 %.not28.i, label %.lr.ph34.i, label %_ZN4core5slice4sort15partition_equal17ha6d688a6599c5478E.exit
+  br i1 %.not28.i, label %.lr.ph35.i, label %_ZN4core5slice4sort15partition_equal17ha6d688a6599c5478E.exit
 
 271:                                              ; preds = %_ZN4core3ops8function5FnMut8call_mut17h4af8ed04e0d01e85E.exit44.i, %261
   %272 = getelementptr inbounds { i64, { { { i64, ptr }, i64 } } }, ptr %238, i64 %.022.lcssa.i61
@@ -1928,7 +1929,7 @@ define internal fastcc void @"_ZN4core5slice4sort8heapsort28_$u7b$$u7b$closure$u
 define hidden void @_ZN4core5slice4sort9quicksort17h79b9cc1f0f5bd5beE(ptr noalias noundef nonnull align 8 %0, i64 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = tail call i64 @llvm.ctlz.i64(i64 %1, i1 false), !range !168
-  %5 = trunc i64 %4 to i32
+  %5 = trunc nuw nsw i64 %4 to i32
   %6 = sub nuw nsw i32 64, %5
   call void @_ZN4core5slice4sort7recurse17h2c529d58b3164941E.llvm.10656028015950752036(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable_or_null(32) null, i32 noundef %6)
   ret void

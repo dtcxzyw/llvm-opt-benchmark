@@ -205,19 +205,17 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %num, 3
   %call5.i.i.i.i2.i.i5 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #16
   store ptr %call5.i.i.i.i2.i.i5, ptr %p, align 8
-  %add.ptr.i.i.i = getelementptr inbounds double, ptr %call5.i.i.i.i2.i.i5, i64 %num
+  %add.ptr.i.i.i = getelementptr double, ptr %call5.i.i.i.i2.i.i5, i64 %num
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %p, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i5, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i5, i64 8
-  %sub.i.i.i.i.i = add nsw i64 %num, -1
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %num, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i6, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %0 = add nsw i64 %mul.i.i.i.i.i.i, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %0, i1 false)
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %incdec.ptr.i.i.i.i.i, i64 %sub.i.i.i.i.i
   br label %if.then.i.i.i.i.i6
 
 invoke.cont:                                      ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
@@ -225,7 +223,7 @@ invoke.cont:                                      ; preds = %_ZNSt6vectorIdSaIdE
   br label %invoke.cont3
 
 if.then.i.i.i.i.i6:                               ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %__first.addr.0.i.i.i.i.i.ph = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ]
+  %__first.addr.0.i.i.i.i.i.ph = phi ptr [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ]
   %_M_finish.i.i7.i14 = getelementptr inbounds i8, ptr %p, i64 8
   store ptr %__first.addr.0.i.i.i.i.i.ph, ptr %_M_finish.i.i7.i14, align 8
   %add.ptr.idx = shl nuw nsw i64 %num, 3
@@ -770,19 +768,17 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIdSaIdE
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %num, 3
   %call5.i.i.i.i2.i.i4 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #16
   store ptr %call5.i.i.i.i2.i.i4, ptr %p, align 8
-  %add.ptr.i.i.i = getelementptr inbounds double, ptr %call5.i.i.i.i2.i.i4, i64 %num
+  %add.ptr.i.i.i = getelementptr double, ptr %call5.i.i.i.i2.i.i4, i64 %num
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %p, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i4, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i4, i64 8
-  %sub.i.i.i.i.i = add nsw i64 %num, -1
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %num, 1
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i5, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %if.then.i.i.i.i.i
   %0 = add nsw i64 %mul.i.i.i.i.i.i, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %0, i1 false)
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %incdec.ptr.i.i.i.i.i, i64 %sub.i.i.i.i.i
   br label %if.then.i.i.i.i.i5
 
 invoke.cont:                                      ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
@@ -790,7 +786,7 @@ invoke.cont:                                      ; preds = %_ZNSt6vectorIdSaIdE
   br label %invoke.cont4
 
 if.then.i.i.i.i.i5:                               ; preds = %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %__first.addr.0.i.i.i.i.i.ph = phi ptr [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ]
+  %__first.addr.0.i.i.i.i.i.ph = phi ptr [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ]
   %_M_finish.i.i7.i12 = getelementptr inbounds i8, ptr %p, i64 8
   store ptr %__first.addr.0.i.i.i.i.i.ph, ptr %_M_finish.i.i7.i12, align 8
   %add.ptr.idx = shl nuw nsw i64 %num, 3

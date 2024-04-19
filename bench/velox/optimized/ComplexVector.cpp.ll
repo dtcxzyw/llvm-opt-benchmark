@@ -10719,31 +10719,23 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIiSaIiE
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv, 2
   %call5.i.i.i.i2.i.i3 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #26
   store ptr %call5.i.i.i.i2.i.i3, ptr %agg.result, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i3, i64 %conv
+  %add.ptr.i.i.i = getelementptr i32, ptr %call5.i.i.i.i2.i.i3, i64 %conv
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store i32 0, ptr %call5.i.i.i.i2.i.i3, align 4
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i3, i64 4
-  %sub.i.i.i.i.i = add nsw i64 %conv, -1
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont.thread8, label %invoke.cont
-
-invoke.cont.thread8:                              ; preds = %if.then.i.i.i.i.i
-  %_M_finish.i.i7.i10 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i7.i10, align 8
-  br label %for.body.i.preheader
+  %cmp.i.i.i.i.i.i.i = icmp eq i32 %1, 1
+  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i.preheader, label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i.i
   %2 = add nsw i64 %mul.i.i.i.i.i.i, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i, i8 0, i64 %2, i1 false)
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %incdec.ptr.i.i.i.i.i, i64 %sub.i.i.i.i.i
-  %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %add.ptr.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
-  %cmp.i.not4.i = icmp eq ptr %call5.i.i.i.i2.i.i3, %add.ptr.i.i.i.i.i.i.i
-  br i1 %cmp.i.not4.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit, label %for.body.i.preheader
+  br label %for.body.i.preheader
 
-for.body.i.preheader:                             ; preds = %invoke.cont.thread8, %invoke.cont
-  %__first.addr.0.i.i.i.i.i12 = phi ptr [ %incdec.ptr.i.i.i.i.i, %invoke.cont.thread8 ], [ %add.ptr.i.i.i.i.i.i.i, %invoke.cont ]
+for.body.i.preheader:                             ; preds = %if.then.i.i.i.i.i, %invoke.cont
+  %add.ptr.i.i.i.sink = phi ptr [ %add.ptr.i.i.i, %invoke.cont ], [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ]
+  %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store ptr %add.ptr.i.i.i.sink, ptr %_M_finish.i.i7.i, align 8
   %rawOffsets_ = getelementptr inbounds i8, ptr %this, i64 112
   %3 = load ptr, ptr %rawOffsets_, align 8
   %arrayidx6 = getelementptr inbounds i32, ptr %3, i64 %idxprom
@@ -10756,10 +10748,10 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   store i32 %__value.addr.06.i, ptr %__first.sroa.0.05.i, align 4
   %inc.i = add nsw i32 %__value.addr.06.i, 1
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.05.i, i64 4
-  %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %__first.addr.0.i.i.i.i.i12
+  %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i.sink
   br i1 %cmp.i.not.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit, label %for.body.i, !llvm.loop !88
 
-_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit: ; preds = %for.body.i, %invoke.cont.thread, %invoke.cont
+_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit: ; preds = %for.body.i, %invoke.cont.thread
   %sortedKeys_ = getelementptr inbounds i8, ptr %this, i64 168
   %5 = load i8, ptr %sortedKeys_, align 8
   %tobool = trunc i8 %5 to i1
