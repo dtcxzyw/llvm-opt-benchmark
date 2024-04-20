@@ -321,7 +321,7 @@ define void @dlaed4_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %242 = fcmp olt double %235, 0.000000e+00
   %243 = fneg double %235
   %244 = select i1 %242, double %243, double %235
-  %245 = fcmp oeq double %244, 0.000000e+00
+  %245 = fcmp oeq double %235, 0.000000e+00
   br i1 %245, label %246, label %248
 
 246:                                              ; preds = %222

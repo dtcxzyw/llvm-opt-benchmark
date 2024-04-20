@@ -166,8 +166,8 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %85 = sext i32 %77 to i64
   br label %86
 
-86:                                               ; preds = %98, %84
-  %87 = phi i64 [ %105, %98 ], [ %85, %84 ]
+86:                                               ; preds = %95, %84
+  %87 = phi i64 [ %105, %95 ], [ %85, %84 ]
   %88 = load i32, ptr %9, align 4, !tbaa !3
   %89 = sext i32 %88 to i64
   %90 = icmp sgt i64 %87, %89
@@ -176,13 +176,13 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 91:                                               ; preds = %86
   %92 = getelementptr inbounds double, ptr %22, i64 %87
   %93 = load double, ptr %92, align 8, !tbaa !7
-  %94 = fcmp oge double %93, 0.000000e+00
-  %95 = fneg double %93
-  %96 = select i1 %94, double %93, double %95
-  %97 = fcmp oeq double %96, 0.000000e+00
-  br i1 %97, label %118, label %98
+  %94 = fcmp oeq double %93, 0.000000e+00
+  br i1 %94, label %118, label %95
 
-98:                                               ; preds = %91
+95:                                               ; preds = %91
+  %96 = fcmp oge double %93, 0.000000e+00
+  %97 = fneg double %93
+  %98 = select i1 %96, double %93, double %97
   %99 = getelementptr inbounds double, ptr %21, i64 %87
   %100 = load double, ptr %99, align 8, !tbaa !7
   %101 = fcmp oge double %100, 0.000000e+00
@@ -198,12 +198,12 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %111 = call double @sqrt(double noundef %110) #5
   %112 = fmul double %104, %111
   %113 = fmul double %56, %112
-  %114 = fcmp ugt double %96, %113
+  %114 = fcmp ugt double %98, %113
   br i1 %114, label %86, label %115, !llvm.loop !9
 
-115:                                              ; preds = %98
+115:                                              ; preds = %95
   %116 = getelementptr inbounds double, ptr %22, i64 %87
-  %117 = trunc i64 %87 to i32
+  %117 = trunc nsw i64 %87 to i32
   store double 0.000000e+00, ptr %116, align 8, !tbaa !7
   br label %.loopexit50
 
@@ -212,7 +212,7 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.loopexit50
 
 118:                                              ; preds = %91
-  %119 = trunc i64 %87 to i32
+  %119 = trunc nsw i64 %87 to i32
   br label %.loopexit50
 
 .loopexit50:                                      ; preds = %82, %.loopexit50.loopexit, %118, %115
@@ -562,7 +562,7 @@ define void @dsteqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %343, label %320, label %344, !llvm.loop !14
 
 344:                                              ; preds = %323
-  %345 = trunc i64 %321 to i32
+  %345 = trunc nsw i64 %321 to i32
   %346 = icmp slt i32 %155, %345
   br i1 %346, label %347, label %.thread41
 

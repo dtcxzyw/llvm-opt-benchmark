@@ -34973,7 +34973,7 @@ _ZNK4pbrt15SampledSpectrumcvbEv.exit.loopexit:    ; preds = %for.cond.i, %for.bo
 _ZNK4pbrt15SampledSpectrumcvbEv.exit:             ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit.loopexit, %for.body.i.preheader
   %cmp.lcssa.i = phi i1 [ true, %for.body.i.preheader ], [ %cmp.i12.le, %_ZNK4pbrt15SampledSpectrumcvbEv.exit.loopexit ]
   %or.cond.not = and i1 %cmp.lcssa.i, %18
-  %cmp22 = fcmp une float %wi.sroa.3.0.i, 0.000000e+00
+  %cmp22 = fcmp une float %sqrt.i.i.i, 0.000000e+00
   %or.cond.not66 = and i1 %cmp22, %or.cond.not
   br i1 %or.cond.not66, label %invoke.cont26, label %if.then23
 

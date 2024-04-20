@@ -31,7 +31,7 @@ define void @dlasv2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %27 = fcmp oge double %26, 0.000000e+00
   %28 = fneg double %26
   %29 = select i1 %27, double %26, double %28
-  %30 = fcmp oeq double %29, 0.000000e+00
+  %30 = fcmp oeq double %26, 0.000000e+00
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %20

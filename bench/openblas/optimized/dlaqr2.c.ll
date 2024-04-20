@@ -320,7 +320,7 @@ define void @dlaqr2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %223 = fcmp oge double %222, 0.000000e+00
   %224 = fneg double %222
   %225 = select i1 %223, double %222, double %224
-  %226 = fcmp oeq double %225, 0.000000e+00
+  %226 = fcmp oeq double %222, 0.000000e+00
   %227 = select i1 %226, double %204, double %225
   %228 = fmul double %99, %227
   %229 = mul nsw i32 %209, %56

@@ -247,7 +247,7 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   %157 = fcmp ult double %156, 0.000000e+00
   %158 = fneg double %156
   %159 = select i1 %157, double %158, double %156
-  %160 = fcmp une double %159, 0.000000e+00
+  %160 = fcmp une double %156, 0.000000e+00
   %.pre = load i32, ptr %3, align 4, !tbaa !3
   br i1 %160, label %161, label %.loopexit128
 

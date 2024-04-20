@@ -21740,7 +21740,7 @@ _ZN3vcg4math5ClampIfEET_RKS2_S4_S4_.exit37:       ; preds = %18
   br label %220
 
 _ZN3vcg4math5ClampIfEET_RKS2_S4_S4_.exit40:       ; preds = %18
-  %49 = fcmp oeq float %.025, 0.000000e+00
+  %49 = fcmp oeq float %23, 0.000000e+00
   %.026 = select i1 %49, float %21, float %.025
   %50 = getelementptr inbounds i8, ptr %0, i64 1496
   %51 = load float, ptr %50, align 8

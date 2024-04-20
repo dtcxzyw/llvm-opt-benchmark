@@ -17919,7 +17919,7 @@ for.body.i3082:                                   ; preds = %for.inc6.i, %for.bo
 for.body3.i:                                      ; preds = %call.i.i3084.noexc, %for.body.i3082
   %tt.08.i = phi i64 [ 1, %for.body.i3082 ], [ %inc.i3086, %call.i.i3084.noexc ]
   %count.17.i = phi i32 [ %count.012.i, %for.body.i3082 ], [ %spec.select.i, %call.i.i3084.noexc ]
-  %conv4.i = trunc i64 %tt.08.i to i32
+  %conv4.i = trunc nuw nsw i64 %tt.08.i to i32
   %call.i.i30843089 = invoke noundef i32 @aiGetMaterialTextureCount(ptr noundef nonnull %844, i32 noundef %conv4.i)
           to label %call.i.i3084.noexc unwind label %lpad22.loopexit
 
@@ -24916,7 +24916,7 @@ lpad.i1690:                                       ; preds = %.noexc1692
   br label %ehcleanup507
 
 invoke.cont501:                                   ; preds = %.noexc1692
-  %conv503 = trunc i64 %uvi.0 to i32
+  %conv503 = trunc nuw i64 %uvi.0 to i32
   store i32 %conv503, ptr %ref.tmp502, align 4
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %uv, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp498)
           to label %.noexc1699 unwind label %lpad504
@@ -26840,7 +26840,7 @@ while.body.i2391:                                 ; preds = %land.rhs.i2387
   br i1 %exitcond.not.i2393, label %_ZNK6aiMesh16GetNumUVChannelsEv.exit2396, label %land.rhs.i2387, !llvm.loop !27
 
 while.end.split.loop.exit6.i2395:                 ; preds = %land.rhs.i2387
-  %520 = trunc i64 %indvars.iv.i2388 to i32
+  %520 = trunc nuw nsw i64 %indvars.iv.i2388 to i32
   br label %_ZNK6aiMesh16GetNumUVChannelsEv.exit2396
 
 _ZNK6aiMesh16GetNumUVChannelsEv.exit2396:         ; preds = %while.body.i2391, %while.end.split.loop.exit6.i2395
@@ -29755,7 +29755,7 @@ for.body1325:                                     ; preds = %for.body1325.lr.ph,
 
 for.body1332:                                     ; preds = %for.body1325, %for.inc1369
   %tt.09659 = phi i64 [ 1, %for.body1325 ], [ %inc1370, %for.inc1369 ]
-  %conv1333 = trunc i64 %tt.09659 to i32
+  %conv1333 = trunc nuw nsw i64 %tt.09659 to i32
   %call.i32163217 = invoke noundef i32 @aiGetMaterialTextureCount(ptr noundef nonnull %825, i32 noundef %conv1333)
           to label %invoke.cont1335 unwind label %lpad1334.loopexit.split-lp
 
@@ -29766,7 +29766,7 @@ invoke.cont1335:                                  ; preds = %for.body1332
 
 for.body1340:                                     ; preds = %invoke.cont1335, %if.end1364
   %j.09658 = phi i64 [ %inc1367, %if.end1364 ], [ 0, %invoke.cont1335 ]
-  %conv1341 = trunc i64 %j.09658 to i32
+  %conv1341 = trunc nuw i64 %j.09658 to i32
   %call.i32183219 = invoke noundef i32 @aiGetMaterialTexture(ptr noundef nonnull %825, i32 noundef %conv1333, i32 noundef %conv1341, ptr noundef nonnull %texpath, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
           to label %invoke.cont1342 unwind label %lpad1334.loopexit
 
@@ -31104,7 +31104,7 @@ for.body1630:                                     ; preds = %for.body1630.lr.ph,
 
 for.body1640:                                     ; preds = %for.body1630, %for.inc1975
   %j1637.09666 = phi i64 [ 1, %for.body1630 ], [ %inc1976, %for.inc1975 ]
-  %conv1642 = trunc i64 %j1637.09666 to i32
+  %conv1642 = trunc nuw nsw i64 %j1637.09666 to i32
   %call.i35213522 = invoke noundef i32 @aiGetMaterialTextureCount(ptr noundef nonnull %932, i32 noundef %conv1642)
           to label %invoke.cont1645 unwind label %lpad1644.loopexit
 
@@ -35861,7 +35861,7 @@ invoke.cont2636:                                  ; preds = %if.else.i4861, %.no
   store ptr %1349, ptr %_M_left.i.i.i.i.i4872, align 8
   store ptr %1349, ptr %_M_right.i.i.i.i.i4873, align 8
   store i64 0, ptr %_M_node_count.i.i.i.i.i4874, align 8
-  %conv2640 = trunc i64 %mi2571.09724 to i32
+  %conv2640 = trunc nuw i64 %mi2571.09724 to i32
   %1379 = load ptr, ptr %mScene, align 8
   %mRootNode2642 = getelementptr inbounds i8, ptr %1379, i64 8
   %1380 = load ptr, ptr %mRootNode2642, align 8
@@ -40869,11 +40869,11 @@ invoke.cont3439:                                  ; preds = %_ZNSt6vectorIlSaIlE
   %fneg1.i.i6406 = fneg float %sqrt.i50.i6357
   %2129 = select i1 %cmp.i6363, float %fneg1.i.i6406, float %sqrt.i50.i6357
   %2130 = select i1 %cmp.i6363, float %fneg.i.i6405, float %sqrt.i.i6355
-  %or.cond.i6368 = fcmp oeq float %2130, 0.000000e+00
+  %or.cond.i6368 = fcmp oeq float %sqrt.i.i6355, 0.000000e+00
   %div.i.i6369 = fdiv float 1.000000e+00, %2130
   %mul3.i.i6370 = fmul float %2094, %div.i.i6369
   %vCols.sroa.10.1.i6371 = select i1 %or.cond.i6368, float %2094, float %mul3.i.i6370
-  %or.cond97.i6372 = fcmp oeq float %2129, 0.000000e+00
+  %or.cond97.i6372 = fcmp oeq float %sqrt.i50.i6357, 0.000000e+00
   %div.i61.i6373 = fdiv float 1.000000e+00, %2129
   %fneg.i6374 = fneg float %vCols.sroa.10.1.i6371
   %call.i.i6375 = call noundef float @asinf(float noundef %fneg.i6374) #29
@@ -40890,7 +40890,7 @@ if.then65.i6387:                                  ; preds = %invoke.cont3439
   %sqrt.i54.i6360 = call noundef float @llvm.sqrt.f32(float %2133)
   %fneg2.i.i6407 = fneg float %sqrt.i54.i6360
   %2134 = select i1 %cmp.i6363, float %fneg2.i.i6407, float %sqrt.i54.i6360
-  %or.cond98.i6388 = fcmp oeq float %2134, 0.000000e+00
+  %or.cond98.i6388 = fcmp oeq float %sqrt.i54.i6360, 0.000000e+00
   %div.i70.i6389 = fdiv float 1.000000e+00, %2134
   %mul3.i75.i6390 = fmul float %2078, %div.i70.i6389
   %vCols.sroa.38.1.i6391 = select i1 %or.cond98.i6388, float %2078, float %mul3.i75.i6390
@@ -44511,7 +44511,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 for.body3:                                        ; preds = %for.body, %for.inc20
   %tt.034 = phi i64 [ 1, %for.body ], [ %inc21, %for.inc20 ]
-  %conv4 = trunc i64 %tt.034 to i32
+  %conv4 = trunc nuw nsw i64 %tt.034 to i32
   %call.i12 = invoke noundef i32 @aiGetMaterialTextureCount(ptr noundef nonnull %2, i32 noundef %conv4)
           to label %for.cond6.preheader unwind label %lpad.loopexit.split-lp
 
@@ -44687,7 +44687,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 for.body3:                                        ; preds = %for.body, %for.body3
   %tt.08 = phi i64 [ 1, %for.body ], [ %inc, %for.body3 ]
   %count.17 = phi i64 [ %count.012, %for.body ], [ %spec.select, %for.body3 ]
-  %conv4 = trunc i64 %tt.08 to i32
+  %conv4 = trunc nuw nsw i64 %tt.08 to i32
   %call.i = tail call noundef i32 @aiGetMaterialTextureCount(ptr noundef nonnull %2, i32 noundef %conv4)
   %cmp5.not = icmp ne i32 %call.i, 0
   %add = zext i1 %cmp5.not to i64
@@ -57437,7 +57437,7 @@ for.inc:                                          ; preds = %_ZN7aiScene16GetSho
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !119
 
 return.loopexit.split.loop.exit39:                ; preds = %_ZN7aiScene16GetShortFilenameEPKc.exit25
-  %7 = trunc i64 %indvars.iv to i32
+  %7 = trunc nuw i64 %indvars.iv to i32
   br label %return
 
 return:                                           ; preds = %for.inc, %return.loopexit.split.loop.exit39, %_ZN7aiScene16GetShortFilenameEPKc.exit, %if.then5, %entry, %if.end12

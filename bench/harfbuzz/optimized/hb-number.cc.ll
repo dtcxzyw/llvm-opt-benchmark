@@ -319,11 +319,11 @@ if.end71.i:                                       ; preds = %_ZL6_pow10j.exit.i,
   br i1 %exp_overflow.1.i, label %if.then77.i, label %if.end88.i
 
 if.then77.i:                                      ; preds = %if.end71.i
-  %cmp78.i = fcmp oeq double %value.4.i, 0.000000e+00
+  %cmp78.i = fcmp oeq double %value.3.i, 0.000000e+00
   br i1 %cmp78.i, label %_ZL9strtod_rlPKcPS0_.exit, label %if.end80.i
 
 if.end80.i:                                       ; preds = %if.then77.i
-  %tobool81.i = trunc i8 %exp_neg.1.i to i1
+  %tobool81.i = trunc nuw i8 %exp_neg.1.i to i1
   br i1 %tobool81.i, label %if.then82.i, label %if.else85.i
 
 if.then82.i:                                      ; preds = %if.end80.i
@@ -339,7 +339,7 @@ if.end88.i:                                       ; preds = %if.end71.i
   br i1 %tobool89.not.i, label %_ZL9strtod_rlPKcPS0_.exit, label %if.then90.i
 
 if.then90.i:                                      ; preds = %if.end88.i
-  %tobool91.i = trunc i8 %exp_neg.1.i to i1
+  %tobool91.i = trunc nuw i8 %exp_neg.1.i to i1
   br i1 %tobool91.i, label %for.body.i43.i, label %for.body.i57.i
 
 for.body.i43.i:                                   ; preds = %if.then90.i, %for.inc.i51.i
