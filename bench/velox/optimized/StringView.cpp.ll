@@ -22,14 +22,10 @@ entry:
 
 arrayctor.loop.preheader:                         ; preds = %entry
   %2 = bitcast i64 %key.coerce0.fr to <2 x i32>
-  %key.sroa.0.0.vec.expand = shufflevector <2 x i32> %2, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %3 = bitcast i64 %0 to <2 x i32>
-  %key.sroa.0.8.vec.expand = shufflevector <2 x i32> %3, <2 x i32> poison, <4 x i32> <i32 poison, i32 poison, i32 0, i32 1>
-  %key.sroa.0.8.vecblend = shufflevector <4 x i32> %key.sroa.0.0.vec.expand, <4 x i32> %key.sroa.0.8.vec.expand, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %key.sroa.0.8.vecblend = shufflevector <2 x i32> %2, <2 x i32> %3, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %4 = bitcast <4 x i32> %key.sroa.0.8.vecblend to <2 x i64>
-  %key2.sroa.0.0.vec.expand = shufflevector <2 x i64> %4, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %key2.sroa.0.16.vec.expand = shufflevector <2 x i64> %4, <2 x i64> poison, <4 x i32> <i32 poison, i32 poison, i32 0, i32 1>
-  %key2.sroa.0.16.vecblend = shufflevector <4 x i64> %key2.sroa.0.0.vec.expand, <4 x i64> %key2.sroa.0.16.vec.expand, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %key2.sroa.0.16.vecblend = shufflevector <2 x i64> %4, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %cmp82222 = icmp sgt i32 %1, 0
   br i1 %cmp82222, label %for.body83.lr.ph, label %for.end154
 
@@ -61,7 +57,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   br i1 %tobool38.not.us, label %for.inc.us, label %if.end.us
 
 if.end.us:                                        ; preds = %for.body.us
-  %11 = trunc i64 %indvars.iv279 to i32
+  %11 = trunc nuw nsw i64 %indvars.iv279 to i32
   %12 = tail call i4 @llvm.cttz.i4(i4 %10, i1 true), !range !4
   %13 = zext nneg i4 %12 to i32
   %add = or disjoint i32 %11, %13
@@ -281,15 +277,15 @@ for.inc.i:                                        ; preds = %_ZNK8facebook5velox
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !11
 
 return.loopexit60.split.loop.exit.i:              ; preds = %if.then4.i.i
-  %55 = trunc i64 %indvars.iv.i to i32
+  %55 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %return
 
 return.loopexit60.split.loop.exit62.i:            ; preds = %if.end9.i.i
-  %56 = trunc i64 %indvars.iv.i to i32
+  %56 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %return
 
 return.loopexit60.split.loop.exit66.i:            ; preds = %_ZNK8facebook5velox10StringVieweqERKS1_.exit.i
-  %57 = trunc i64 %indvars.iv.i to i32
+  %57 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %return
 
 for.body83.lr.ph:                                 ; preds = %arrayctor.loop.preheader
@@ -456,23 +452,23 @@ for.inc13.i85:                                    ; preds = %_ZNK8facebook5velox
   br i1 %exitcond59.not.i87, label %return, label %for.body7.i81, !llvm.loop !14
 
 return.loopexit.split.loop.exit.i102:             ; preds = %if.then4.i23.i96
-  %75 = trunc i64 %indvars.iv55.i82 to i32
+  %75 = trunc nuw nsw i64 %indvars.iv55.i82 to i32
   br label %return
 
 return.loopexit.split.loop.exit70.i95:            ; preds = %if.end9.i14.i90
-  %76 = trunc i64 %indvars.iv55.i82 to i32
+  %76 = trunc nuw nsw i64 %indvars.iv55.i82 to i32
   br label %return
 
 return.loopexit.split.loop.exit74.i101:           ; preds = %_ZNK8facebook5velox10StringVieweqERKS1_.exit29.i98
-  %77 = trunc i64 %indvars.iv55.i82 to i32
+  %77 = trunc nuw nsw i64 %indvars.iv55.i82 to i32
   br label %return
 
 return.loopexit299:                               ; preds = %if.then.i67
-  %78 = trunc i64 %indvars.iv284 to i32
+  %78 = trunc nuw nsw i64 %indvars.iv284 to i32
   br label %return
 
 return.loopexit303:                               ; preds = %if.then132, %_ZN8facebook5velox4simd14memEqualUnsafeIN5xsimd4fma3INS3_4avx2EEEEEbPKvS8_i.exit72
-  %79 = trunc i64 %indvars.iv284 to i32
+  %79 = trunc nuw nsw i64 %indvars.iv284 to i32
   br label %return
 
 return:                                           ; preds = %for.inc.i, %while.body128.us209, %while.body128.us, %for.inc13.i85, %return.loopexit303, %return.loopexit299, %return.loopexit.split.loop.exit74.i101, %return.loopexit.split.loop.exit70.i95, %return.loopexit.split.loop.exit.i102, %for.end154, %return.loopexit60.split.loop.exit66.i, %return.loopexit60.split.loop.exit62.i, %return.loopexit60.split.loop.exit.i, %for.cond.preheader.i, %if.then62, %if.end.us

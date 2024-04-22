@@ -2949,11 +2949,8 @@ define weak_odr <4 x double> @_ZNK7mitsuba12BSplineCurveIfN5drjit6MatrixINS_8Spe
   %29 = fneg contract <4 x float> %27
   %30 = fmul contract <4 x float> %28, %29
   %31 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %25, <4 x float> %26, <4 x float> %30)
-  %32 = bitcast <4 x float> %24 to <2 x double>
-  %.sroa.0172.0.vec.expand = shufflevector <2 x double> %32, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %33 = bitcast <4 x float> %31 to <2 x double>
-  %.sroa.0172.16.vec.expand = shufflevector <2 x double> %33, <2 x double> poison, <4 x i32> <i32 poison, i32 poison, i32 0, i32 1>
-  %.sroa.0172.16.vecblend = shufflevector <4 x double> %.sroa.0172.0.vec.expand, <4 x double> %.sroa.0172.16.vec.expand, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %32 = shufflevector <4 x float> %24, <4 x float> %31, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %.sroa.0172.16.vecblend = bitcast <8 x float> %32 to <4 x double>
   ret <4 x double> %.sroa.0172.16.vecblend
 }
 

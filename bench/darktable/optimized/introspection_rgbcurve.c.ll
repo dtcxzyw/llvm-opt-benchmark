@@ -1360,67 +1360,53 @@ define internal fastcc void @_add_node_from_picker(ptr nocapture noundef %0, ptr
   br label %171
 
 171:                                              ; preds = %171, %169
-  %172 = phi i64 [ 0, %169 ], [ %195, %171 ]
+  %172 = phi i64 [ 0, %169 ], [ %181, %171 ]
   %173 = sub i64 %165, %172
   %174 = getelementptr %struct.dt_iop_rgbcurve_node_t, ptr %139, i64 %173
   %175 = getelementptr i8, ptr %174, i64 -64
   %176 = getelementptr i8, ptr %174, i64 -128
   %177 = load <16 x float>, ptr %175, align 4, !tbaa !13
   %178 = load <16 x float>, ptr %176, align 4, !tbaa !13
-  %179 = shufflevector <16 x float> %177, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %180 = shufflevector <8 x float> %179, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %181 = shufflevector <16 x float> %178, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %182 = shufflevector <8 x float> %181, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %183 = shufflevector <16 x float> %177, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %184 = shufflevector <8 x float> %183, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %185 = shufflevector <16 x float> %178, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %186 = shufflevector <8 x float> %185, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %187 = getelementptr inbounds i8, ptr %174, i64 -56
-  %188 = getelementptr i8, ptr %174, i64 -120
-  %189 = shufflevector <8 x float> %180, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %190 = shufflevector <8 x float> %184, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %191 = shufflevector <8 x float> %189, <8 x float> %190, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %191, ptr %187, align 4, !tbaa !13
-  %192 = shufflevector <8 x float> %182, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %193 = shufflevector <8 x float> %186, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %194 = shufflevector <8 x float> %192, <8 x float> %193, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %194, ptr %188, align 4, !tbaa !13
-  %195 = add nuw i64 %172, 16
-  %196 = icmp eq i64 %195, %170
-  br i1 %196, label %197, label %171, !llvm.loop !75
+  %179 = getelementptr inbounds i8, ptr %174, i64 -56
+  %180 = getelementptr i8, ptr %174, i64 -120
+  store <16 x float> %177, ptr %179, align 4, !tbaa !13
+  store <16 x float> %178, ptr %180, align 4, !tbaa !13
+  %181 = add nuw i64 %172, 16
+  %182 = icmp eq i64 %181, %170
+  br i1 %182, label %183, label %171, !llvm.loop !75
 
-197:                                              ; preds = %171
-  %198 = sub nsw i64 %165, %170
-  %199 = icmp eq i64 %167, %170
-  br i1 %199, label %.loopexit, label %.preheader
+183:                                              ; preds = %171
+  %184 = sub nsw i64 %165, %170
+  %185 = icmp eq i64 %167, %170
+  br i1 %185, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %197, %164
-  %.ph = phi i64 [ %198, %197 ], [ %165, %164 ]
-  br label %200
+.preheader:                                       ; preds = %183, %164
+  %.ph = phi i64 [ %184, %183 ], [ %165, %164 ]
+  br label %186
 
-200:                                              ; preds = %.preheader, %200
-  %201 = phi i64 [ %205, %200 ], [ %.ph, %.preheader ]
-  %202 = getelementptr %struct.dt_iop_rgbcurve_node_t, ptr %139, i64 %201
-  %203 = getelementptr i8, ptr %202, i64 -8
-  %204 = load <2 x float>, ptr %203, align 4, !tbaa !13
-  store <2 x float> %204, ptr %202, align 4, !tbaa !13
-  %205 = add nsw i64 %201, -1
-  %206 = icmp sgt i64 %205, %166
-  br i1 %206, label %200, label %.loopexit, !llvm.loop !78
+186:                                              ; preds = %.preheader, %186
+  %187 = phi i64 [ %191, %186 ], [ %.ph, %.preheader ]
+  %188 = getelementptr %struct.dt_iop_rgbcurve_node_t, ptr %139, i64 %187
+  %189 = getelementptr i8, ptr %188, i64 -8
+  %190 = load <2 x float>, ptr %189, align 4, !tbaa !13
+  store <2 x float> %190, ptr %188, align 4, !tbaa !13
+  %191 = add nsw i64 %187, -1
+  %192 = icmp sgt i64 %191, %166
+  br i1 %192, label %186, label %.loopexit, !llvm.loop !78
 
-.loopexit:                                        ; preds = %200, %197, %.loopexit12
-  %207 = phi i64 [ %163, %.loopexit12 ], [ %166, %197 ], [ %166, %200 ]
-  %208 = fadd reassoc nsz arcp contract afn float %132, %2
-  %209 = fcmp reassoc nsz arcp contract afn ult float %208, 0.000000e+00
-  %210 = fcmp reassoc nsz arcp contract afn ole float %208, 1.000000e+00
-  %211 = select reassoc nsz arcp contract afn i1 %210, float %208, float 1.000000e+00
-  %212 = select reassoc nsz arcp contract afn i1 %209, float 0.000000e+00, float %211
-  %213 = getelementptr inbounds %struct.dt_iop_rgbcurve_node_t, ptr %139, i64 %207
-  store float %137, ptr %213, align 4, !tbaa !37
-  %214 = getelementptr inbounds i8, ptr %213, i64 4
-  store float %212, ptr %214, align 4, !tbaa !19
-  %215 = add nsw i32 %144, 1
-  store i32 %215, ptr %141, align 4, !tbaa !6
+.loopexit:                                        ; preds = %186, %183, %.loopexit12
+  %193 = phi i64 [ %163, %.loopexit12 ], [ %166, %183 ], [ %166, %186 ]
+  %194 = fadd reassoc nsz arcp contract afn float %132, %2
+  %195 = fcmp reassoc nsz arcp contract afn ult float %194, 0.000000e+00
+  %196 = fcmp reassoc nsz arcp contract afn ole float %194, 1.000000e+00
+  %197 = select reassoc nsz arcp contract afn i1 %196, float %194, float 1.000000e+00
+  %198 = select reassoc nsz arcp contract afn i1 %195, float 0.000000e+00, float %197
+  %199 = getelementptr inbounds %struct.dt_iop_rgbcurve_node_t, ptr %139, i64 %193
+  store float %137, ptr %199, align 4, !tbaa !37
+  %200 = getelementptr inbounds i8, ptr %199, i64 4
+  store float %198, ptr %200, align 4, !tbaa !19
+  %201 = add nsw i32 %144, 1
+  store i32 %201, ptr %141, align 4, !tbaa !6
   ret void
 }
 
@@ -1472,69 +1458,55 @@ define internal fastcc i32 @_add_node(ptr nocapture noundef %0, ptr nocapture no
   %31 = icmp ult i64 %30, 16
   br i1 %31, label %.preheader, label %32
 
-.preheader:                                       ; preds = %60, %27
-  %.ph = phi i64 [ %61, %60 ], [ %28, %27 ]
-  br label %68
+.preheader:                                       ; preds = %46, %27
+  %.ph = phi i64 [ %47, %46 ], [ %28, %27 ]
+  br label %54
 
 32:                                               ; preds = %27
   %33 = and i64 %30, -16
   br label %34
 
 34:                                               ; preds = %34, %32
-  %35 = phi i64 [ 0, %32 ], [ %58, %34 ]
+  %35 = phi i64 [ 0, %32 ], [ %44, %34 ]
   %36 = sub i64 %28, %35
   %37 = getelementptr %struct.dt_iop_rgbcurve_node_t, ptr %0, i64 %36
   %38 = getelementptr i8, ptr %37, i64 -64
   %39 = getelementptr i8, ptr %37, i64 -128
   %40 = load <16 x float>, ptr %38, align 4, !tbaa !13
   %41 = load <16 x float>, ptr %39, align 4, !tbaa !13
-  %42 = shufflevector <16 x float> %40, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %43 = shufflevector <8 x float> %42, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %44 = shufflevector <16 x float> %41, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %45 = shufflevector <8 x float> %44, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %46 = shufflevector <16 x float> %40, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %47 = shufflevector <8 x float> %46, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %48 = shufflevector <16 x float> %41, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %49 = shufflevector <8 x float> %48, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %50 = getelementptr inbounds i8, ptr %37, i64 -56
-  %51 = getelementptr i8, ptr %37, i64 -120
-  %52 = shufflevector <8 x float> %43, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %53 = shufflevector <8 x float> %47, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %54 = shufflevector <8 x float> %52, <8 x float> %53, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %54, ptr %50, align 4, !tbaa !13
-  %55 = shufflevector <8 x float> %45, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %56 = shufflevector <8 x float> %49, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %57 = shufflevector <8 x float> %55, <8 x float> %56, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %57, ptr %51, align 4, !tbaa !13
-  %58 = add nuw i64 %35, 16
-  %59 = icmp eq i64 %58, %33
-  br i1 %59, label %60, label %34, !llvm.loop !79
+  %42 = getelementptr inbounds i8, ptr %37, i64 -56
+  %43 = getelementptr i8, ptr %37, i64 -120
+  store <16 x float> %40, ptr %42, align 4, !tbaa !13
+  store <16 x float> %41, ptr %43, align 4, !tbaa !13
+  %44 = add nuw i64 %35, 16
+  %45 = icmp eq i64 %44, %33
+  br i1 %45, label %46, label %34, !llvm.loop !79
 
-60:                                               ; preds = %34
-  %61 = sub nsw i64 %28, %33
-  %62 = icmp eq i64 %30, %33
-  br i1 %62, label %.loopexit, label %.preheader
+46:                                               ; preds = %34
+  %47 = sub nsw i64 %28, %33
+  %48 = icmp eq i64 %30, %33
+  br i1 %48, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %68, %60, %.loopexit8
-  %63 = phi i32 [ %25, %.loopexit8 ], [ %23, %60 ], [ %23, %68 ]
-  %64 = phi i64 [ %26, %.loopexit8 ], [ %29, %60 ], [ %29, %68 ]
-  %65 = getelementptr inbounds %struct.dt_iop_rgbcurve_node_t, ptr %0, i64 %64
-  store float %2, ptr %65, align 4, !tbaa !37
-  %66 = getelementptr inbounds i8, ptr %65, i64 4
-  store float %3, ptr %66, align 4, !tbaa !19
-  %67 = add nsw i32 %7, 1
-  store i32 %67, ptr %1, align 4, !tbaa !6
-  ret i32 %63
+.loopexit:                                        ; preds = %54, %46, %.loopexit8
+  %49 = phi i32 [ %25, %.loopexit8 ], [ %23, %46 ], [ %23, %54 ]
+  %50 = phi i64 [ %26, %.loopexit8 ], [ %29, %46 ], [ %29, %54 ]
+  %51 = getelementptr inbounds %struct.dt_iop_rgbcurve_node_t, ptr %0, i64 %50
+  store float %2, ptr %51, align 4, !tbaa !37
+  %52 = getelementptr inbounds i8, ptr %51, i64 4
+  store float %3, ptr %52, align 4, !tbaa !19
+  %53 = add nsw i32 %7, 1
+  store i32 %53, ptr %1, align 4, !tbaa !6
+  ret i32 %49
 
-68:                                               ; preds = %.preheader, %68
-  %69 = phi i64 [ %73, %68 ], [ %.ph, %.preheader ]
-  %70 = getelementptr %struct.dt_iop_rgbcurve_node_t, ptr %0, i64 %69
-  %71 = getelementptr i8, ptr %70, i64 -8
-  %72 = load <2 x float>, ptr %71, align 4, !tbaa !13
-  store <2 x float> %72, ptr %70, align 4, !tbaa !13
-  %73 = add nsw i64 %69, -1
-  %74 = icmp sgt i64 %73, %29
-  br i1 %74, label %68, label %.loopexit, !llvm.loop !80
+54:                                               ; preds = %.preheader, %54
+  %55 = phi i64 [ %59, %54 ], [ %.ph, %.preheader ]
+  %56 = getelementptr %struct.dt_iop_rgbcurve_node_t, ptr %0, i64 %55
+  %57 = getelementptr i8, ptr %56, i64 -8
+  %58 = load <2 x float>, ptr %57, align 4, !tbaa !13
+  store <2 x float> %58, ptr %56, align 4, !tbaa !13
+  %59 = add nsw i64 %55, -1
+  %60 = icmp sgt i64 %59, %29
+  br i1 %60, label %54, label %.loopexit, !llvm.loop !80
 }
 
 declare void @dt_dev_add_history_item(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3

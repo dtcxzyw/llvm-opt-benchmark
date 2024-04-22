@@ -718,7 +718,7 @@ _ZN7mitsuba11LinearCurveIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7advanceILb0
 _ZN7mitsuba11LinearCurveIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7advanceILb1ELj4EEEvPPKcS9_RAT0__S8_.exit: ; preds = %172
   store ptr %.012.i352, ptr %15, align 8
   %176 = icmp eq i8 %167, 0
-  %177 = trunc i8 %.0531571 to i1
+  %177 = trunc nuw i8 %.0531571 to i1
   br i1 %176, label %178, label %203
 
 178:                                              ; preds = %_ZN7mitsuba11LinearCurveIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7advanceILb1ELj4EEEvPPKcS9_RAT0__S8_.exit
@@ -1011,7 +1011,7 @@ _ZNSt3__114__split_bufferIfRNS_9allocatorIfEEE5clearB8ne190000Ev.exit.i.i.i: ; p
           to label %316 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 316:                                              ; preds = %315, %.outer._crit_edge
-  %317 = trunc i8 %.0531.lcssa to i1
+  %317 = trunc nuw i8 %.0531.lcssa to i1
   br i1 %317, label %_ZZN7mitsuba11LinearCurveIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC1ERKNS_10PropertiesEENKUlvE_clEv.exit375, label %318
 
 318:                                              ; preds = %316
@@ -1320,7 +1320,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit404.thread:    ; preds = %.noexc.i384
   %indvars.iv640 = phi i64 [ 0, %.lr.ph598 ], [ %indvars.iv.next641, %467 ]
   %468 = phi <4 x float> [ <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, %.lr.ph598 ], [ %512, %467 ]
   %469 = phi <4 x float> [ <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, %.lr.ph598 ], [ %513, %467 ]
-  %470 = trunc i64 %indvars.iv640 to i32
+  %470 = trunc nuw i64 %indvars.iv640 to i32
   %471 = mul i32 %470, 3
   %472 = zext i32 %471 to i64
   %473 = getelementptr inbounds float, ptr %388, i64 %472
@@ -2205,11 +2205,8 @@ define weak_odr <4 x double> @_ZNK7mitsuba11LinearCurveIfN5drjit6MatrixINS_8Spec
   %29 = fneg contract <4 x float> %27
   %30 = fmul contract <4 x float> %28, %29
   %31 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %25, <4 x float> %26, <4 x float> %30)
-  %32 = bitcast <4 x float> %24 to <2 x double>
-  %.sroa.0172.0.vec.expand = shufflevector <2 x double> %32, <2 x double> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %33 = bitcast <4 x float> %31 to <2 x double>
-  %.sroa.0172.16.vec.expand = shufflevector <2 x double> %33, <2 x double> poison, <4 x i32> <i32 poison, i32 poison, i32 0, i32 1>
-  %.sroa.0172.16.vecblend = shufflevector <4 x double> %.sroa.0172.0.vec.expand, <4 x double> %.sroa.0172.16.vec.expand, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %32 = shufflevector <4 x float> %24, <4 x float> %31, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %.sroa.0172.16.vecblend = bitcast <8 x float> %32 to <4 x double>
   ret <4 x double> %.sroa.0172.16.vecblend
 }
 
@@ -2314,7 +2311,7 @@ define weak_odr void @_ZN7mitsuba11LinearCurveIfN5drjit6MatrixINS_8SpectrumIfLm4
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %18 = phi <4 x float> [ <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, %.lr.ph.preheader.i ], [ %60, %.lr.ph.i ]
   %19 = phi <4 x float> [ <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, %.lr.ph.preheader.i ], [ %61, %.lr.ph.i ]
-  %20 = trunc i64 %indvars.iv.i to i32
+  %20 = trunc nuw i64 %indvars.iv.i to i32
   %21 = shl i32 %20, 2
   %22 = zext i32 %21 to i64
   %23 = getelementptr inbounds float, ptr %13, i64 %22
@@ -2442,7 +2439,7 @@ define weak_odr void @_ZN7mitsuba11LinearCurveIfN5drjit6MatrixINS_8SpectrumIfLm4
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %8 = phi <4 x float> [ <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, %.lr.ph.preheader ], [ %50, %.lr.ph ]
   %9 = phi <4 x float> [ <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, %.lr.ph.preheader ], [ %51, %.lr.ph ]
-  %10 = trunc i64 %indvars.iv to i32
+  %10 = trunc nuw i64 %indvars.iv to i32
   %11 = shl i32 %10, 2
   %12 = zext i32 %11 to i64
   %13 = getelementptr inbounds float, ptr %3, i64 %12

@@ -6692,7 +6692,7 @@ define internal noundef i32 @dt_iop_basecurve_motion_notify(ptr noundef %0, ptr 
   %85 = insertelement <2 x float> poison, float %44, i64 0
   %86 = insertelement <2 x float> %85, float %57, i64 1
   %87 = and i64 %79, 2147483644
-  br label %343
+  br label %329
 
 88:                                               ; preds = %78
   %89 = fadd reassoc nsz arcp contract afn float %59, 1.000000e+00
@@ -6844,13 +6844,13 @@ define internal noundef i32 @dt_iop_basecurve_motion_notify(ptr noundef %0, ptr 
   %215 = phi float [ %211, %191 ], [ %190, %180 ]
   %216 = fsub reassoc nsz arcp contract afn float %213, %215
   call fastcc void @_move_point_internal(ptr noundef nonnull %2, ptr noundef %0, float noundef %214, float noundef %216, i32 noundef %73)
-  br label %401
+  br label %387
 
 217:                                              ; preds = %140
   %218 = icmp slt i32 %10, 20
   %219 = icmp eq i32 %142, -1
   %220 = and i1 %218, %219
-  br i1 %220, label %221, label %400
+  br i1 %220, label %221, label %386
 
 221:                                              ; preds = %217
   %222 = load float, ptr %8, align 4, !tbaa !15
@@ -6904,203 +6904,189 @@ define internal noundef i32 @dt_iop_basecurve_motion_notify(ptr noundef %0, ptr 
   br label %251
 
 251:                                              ; preds = %251, %249
-  %252 = phi i64 [ 0, %249 ], [ %275, %251 ]
+  %252 = phi i64 [ 0, %249 ], [ %261, %251 ]
   %253 = sub i64 %245, %252
   %254 = getelementptr %struct.dt_iop_basecurve_node_t, ptr %8, i64 %253
   %255 = getelementptr i8, ptr %254, i64 -64
   %256 = getelementptr i8, ptr %254, i64 -128
   %257 = load <16 x float>, ptr %255, align 4, !tbaa !12
   %258 = load <16 x float>, ptr %256, align 4, !tbaa !12
-  %259 = shufflevector <16 x float> %257, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %260 = shufflevector <8 x float> %259, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %261 = shufflevector <16 x float> %258, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %262 = shufflevector <8 x float> %261, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %263 = shufflevector <16 x float> %257, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %264 = shufflevector <8 x float> %263, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %265 = shufflevector <16 x float> %258, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %266 = shufflevector <8 x float> %265, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %267 = getelementptr inbounds i8, ptr %254, i64 -56
-  %268 = getelementptr i8, ptr %254, i64 -120
-  %269 = shufflevector <8 x float> %260, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %270 = shufflevector <8 x float> %264, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %271 = shufflevector <8 x float> %269, <8 x float> %270, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %271, ptr %267, align 4, !tbaa !12
-  %272 = shufflevector <8 x float> %262, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %273 = shufflevector <8 x float> %266, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %274 = shufflevector <8 x float> %272, <8 x float> %273, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %274, ptr %268, align 4, !tbaa !12
-  %275 = add nuw i64 %252, 16
-  %276 = icmp eq i64 %275, %250
-  br i1 %276, label %277, label %251, !llvm.loop !284
+  %259 = getelementptr inbounds i8, ptr %254, i64 -56
+  %260 = getelementptr i8, ptr %254, i64 -120
+  store <16 x float> %257, ptr %259, align 4, !tbaa !12
+  store <16 x float> %258, ptr %260, align 4, !tbaa !12
+  %261 = add nuw i64 %252, 16
+  %262 = icmp eq i64 %261, %250
+  br i1 %262, label %263, label %251, !llvm.loop !284
 
-277:                                              ; preds = %251
-  %278 = sub nsw i64 %245, %250
-  %279 = icmp eq i64 %247, %250
-  br i1 %279, label %.loopexit26, label %.preheader
+263:                                              ; preds = %251
+  %264 = sub nsw i64 %245, %250
+  %265 = icmp eq i64 %247, %250
+  br i1 %265, label %.loopexit26, label %.preheader
 
-.preheader:                                       ; preds = %277, %244
-  %.ph = phi i64 [ %278, %277 ], [ %245, %244 ]
-  br label %280
+.preheader:                                       ; preds = %263, %244
+  %.ph = phi i64 [ %264, %263 ], [ %245, %244 ]
+  br label %266
 
-280:                                              ; preds = %.preheader, %280
-  %281 = phi i64 [ %285, %280 ], [ %.ph, %.preheader ]
-  %282 = getelementptr %struct.dt_iop_basecurve_node_t, ptr %8, i64 %281
-  %283 = getelementptr i8, ptr %282, i64 -8
-  %284 = load <2 x float>, ptr %283, align 4, !tbaa !12
-  store <2 x float> %284, ptr %282, align 4, !tbaa !12
-  %285 = add nsw i64 %281, -1
-  %286 = icmp sgt i64 %285, %246
-  br i1 %286, label %280, label %.loopexit26, !llvm.loop !285
+266:                                              ; preds = %.preheader, %266
+  %267 = phi i64 [ %271, %266 ], [ %.ph, %.preheader ]
+  %268 = getelementptr %struct.dt_iop_basecurve_node_t, ptr %8, i64 %267
+  %269 = getelementptr i8, ptr %268, i64 -8
+  %270 = load <2 x float>, ptr %269, align 4, !tbaa !12
+  store <2 x float> %270, ptr %268, align 4, !tbaa !12
+  %271 = add nsw i64 %267, -1
+  %272 = icmp sgt i64 %271, %246
+  br i1 %272, label %266, label %.loopexit26, !llvm.loop !285
 
-.loopexit26:                                      ; preds = %280, %277, %.loopexit27
-  %287 = phi i32 [ %242, %.loopexit27 ], [ %240, %277 ], [ %240, %280 ]
-  %288 = phi i64 [ %243, %.loopexit27 ], [ %246, %277 ], [ %246, %280 ]
-  %289 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %288
-  store float %70, ptr %289, align 4, !tbaa !15
-  %290 = getelementptr inbounds i8, ptr %289, i64 4
-  store float %71, ptr %290, align 4, !tbaa !17
-  %291 = add nsw i32 %224, 1
-  store i32 %291, ptr %9, align 4, !tbaa !10
-  store i32 %287, ptr %141, align 8, !tbaa !221
-  %292 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !273
-  call void @dt_dev_add_history_item_target(ptr noundef %292, ptr noundef %2, i32 noundef 1, ptr noundef %0) #27
-  %293 = load i32, ptr %141, align 8, !tbaa !221
-  br label %396
+.loopexit26:                                      ; preds = %266, %263, %.loopexit27
+  %273 = phi i32 [ %242, %.loopexit27 ], [ %240, %263 ], [ %240, %266 ]
+  %274 = phi i64 [ %243, %.loopexit27 ], [ %246, %263 ], [ %246, %266 ]
+  %275 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %274
+  store float %70, ptr %275, align 4, !tbaa !15
+  %276 = getelementptr inbounds i8, ptr %275, i64 4
+  store float %71, ptr %276, align 4, !tbaa !17
+  %277 = add nsw i32 %224, 1
+  store i32 %277, ptr %9, align 4, !tbaa !10
+  store i32 %273, ptr %141, align 8, !tbaa !221
+  %278 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !273
+  call void @dt_dev_add_history_item_target(ptr noundef %278, ptr noundef %2, i32 noundef 1, ptr noundef %0) #27
+  %279 = load i32, ptr %141, align 8, !tbaa !221
+  br label %382
 
 .loopexit:                                        ; preds = %103, %88
-  %294 = phi i32 [ undef, %88 ], [ %137, %103 ]
-  %295 = phi i64 [ 0, %88 ], [ %102, %103 ]
-  %296 = phi i32 [ -1, %88 ], [ %137, %103 ]
-  %297 = phi float [ 0x3F5A36E2E0000000, %88 ], [ %135, %103 ]
-  %298 = icmp eq i64 %97, 0
-  br i1 %298, label %.loopexit24, label %299
+  %280 = phi i32 [ undef, %88 ], [ %137, %103 ]
+  %281 = phi i64 [ 0, %88 ], [ %102, %103 ]
+  %282 = phi i32 [ -1, %88 ], [ %137, %103 ]
+  %283 = phi float [ 0x3F5A36E2E0000000, %88 ], [ %135, %103 ]
+  %284 = icmp eq i64 %97, 0
+  br i1 %284, label %.loopexit24, label %285
 
-299:                                              ; preds = %.loopexit
-  %300 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %295
-  %301 = load <2 x float>, ptr %300, align 4, !tbaa !12
-  %302 = fmul reassoc nsz arcp contract afn <2 x float> %301, %94
-  %303 = fadd reassoc nsz arcp contract afn <2 x float> %302, <float 1.000000e+00, float 1.000000e+00>
-  %304 = call reassoc nsz arcp contract afn <2 x float> @llvm.log.v2f32(<2 x float> %303)
-  %305 = fdiv reassoc nsz arcp contract afn <2 x float> %304, %96
-  %306 = fsub reassoc nsz arcp contract afn <2 x float> %92, %305
-  %307 = fmul reassoc nsz arcp contract afn <2 x float> %306, %306
-  %308 = shufflevector <2 x float> %307, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %309 = fadd reassoc nsz arcp contract afn <2 x float> %308, %307
-  %310 = extractelement <2 x float> %309, i64 0
-  %311 = fcmp reassoc nsz arcp contract afn olt float %310, %297
-  %312 = trunc nuw nsw i64 %295 to i32
-  %313 = select i1 %311, i32 %312, i32 %296
+285:                                              ; preds = %.loopexit
+  %286 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %281
+  %287 = load <2 x float>, ptr %286, align 4, !tbaa !12
+  %288 = fmul reassoc nsz arcp contract afn <2 x float> %287, %94
+  %289 = fadd reassoc nsz arcp contract afn <2 x float> %288, <float 1.000000e+00, float 1.000000e+00>
+  %290 = call reassoc nsz arcp contract afn <2 x float> @llvm.log.v2f32(<2 x float> %289)
+  %291 = fdiv reassoc nsz arcp contract afn <2 x float> %290, %96
+  %292 = fsub reassoc nsz arcp contract afn <2 x float> %92, %291
+  %293 = fmul reassoc nsz arcp contract afn <2 x float> %292, %292
+  %294 = shufflevector <2 x float> %293, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %295 = fadd reassoc nsz arcp contract afn <2 x float> %294, %293
+  %296 = extractelement <2 x float> %295, i64 0
+  %297 = fcmp reassoc nsz arcp contract afn olt float %296, %283
+  %298 = trunc nuw nsw i64 %281 to i32
+  %299 = select i1 %297, i32 %298, i32 %282
   br label %.loopexit24
 
-.loopexit25:                                      ; preds = %343, %80
-  %314 = phi i32 [ undef, %80 ], [ %393, %343 ]
-  %315 = phi i64 [ 0, %80 ], [ %87, %343 ]
-  %316 = phi i32 [ -1, %80 ], [ %393, %343 ]
-  %317 = phi float [ 0x3F5A36E2E0000000, %80 ], [ %391, %343 ]
-  %318 = icmp eq i64 %81, 0
-  br i1 %318, label %.loopexit24, label %319
+.loopexit25:                                      ; preds = %329, %80
+  %300 = phi i32 [ undef, %80 ], [ %379, %329 ]
+  %301 = phi i64 [ 0, %80 ], [ %87, %329 ]
+  %302 = phi i32 [ -1, %80 ], [ %379, %329 ]
+  %303 = phi float [ 0x3F5A36E2E0000000, %80 ], [ %377, %329 ]
+  %304 = icmp eq i64 %81, 0
+  br i1 %304, label %.loopexit24, label %305
 
-319:                                              ; preds = %.loopexit25
-  %320 = insertelement <2 x float> poison, float %44, i64 0
-  %321 = insertelement <2 x float> %320, float %57, i64 1
-  br label %322
+305:                                              ; preds = %.loopexit25
+  %306 = insertelement <2 x float> poison, float %44, i64 0
+  %307 = insertelement <2 x float> %306, float %57, i64 1
+  br label %308
 
-322:                                              ; preds = %322, %319
-  %323 = phi i64 [ %338, %322 ], [ %315, %319 ]
-  %324 = phi i32 [ %337, %322 ], [ %316, %319 ]
-  %325 = phi float [ %335, %322 ], [ %317, %319 ]
-  %326 = phi i64 [ %339, %322 ], [ 0, %319 ]
-  %327 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %323
-  %328 = load <2 x float>, ptr %327, align 4, !tbaa !12
-  %329 = fsub reassoc nsz arcp contract afn <2 x float> %321, %328
-  %330 = fmul reassoc nsz arcp contract afn <2 x float> %329, %329
-  %331 = shufflevector <2 x float> %330, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %332 = fadd reassoc nsz arcp contract afn <2 x float> %331, %330
-  %333 = extractelement <2 x float> %332, i64 0
-  %334 = fcmp reassoc nsz arcp contract afn olt float %333, %325
-  %335 = select i1 %334, float %333, float %325
-  %336 = trunc i64 %323 to i32
-  %337 = select i1 %334, i32 %336, i32 %324
-  %338 = add nuw nsw i64 %323, 1
-  %339 = add nuw nsw i64 %326, 1
-  %340 = icmp eq i64 %339, %81
-  br i1 %340, label %.loopexit24, label %322, !llvm.loop !286
+308:                                              ; preds = %308, %305
+  %309 = phi i64 [ %324, %308 ], [ %301, %305 ]
+  %310 = phi i32 [ %323, %308 ], [ %302, %305 ]
+  %311 = phi float [ %321, %308 ], [ %303, %305 ]
+  %312 = phi i64 [ %325, %308 ], [ 0, %305 ]
+  %313 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %309
+  %314 = load <2 x float>, ptr %313, align 4, !tbaa !12
+  %315 = fsub reassoc nsz arcp contract afn <2 x float> %307, %314
+  %316 = fmul reassoc nsz arcp contract afn <2 x float> %315, %315
+  %317 = shufflevector <2 x float> %316, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %318 = fadd reassoc nsz arcp contract afn <2 x float> %317, %316
+  %319 = extractelement <2 x float> %318, i64 0
+  %320 = fcmp reassoc nsz arcp contract afn olt float %319, %311
+  %321 = select i1 %320, float %319, float %311
+  %322 = trunc i64 %309 to i32
+  %323 = select i1 %320, i32 %322, i32 %310
+  %324 = add nuw nsw i64 %309, 1
+  %325 = add nuw nsw i64 %312, 1
+  %326 = icmp eq i64 %325, %81
+  br i1 %326, label %.loopexit24, label %308, !llvm.loop !286
 
-.loopexit24:                                      ; preds = %322, %.loopexit25, %299, %.loopexit, %76
-  %341 = phi i32 [ -1, %76 ], [ %294, %.loopexit ], [ %313, %299 ], [ %314, %.loopexit25 ], [ %337, %322 ]
-  %342 = getelementptr inbounds i8, ptr %6, i64 80
-  store i32 %341, ptr %342, align 8, !tbaa !221
-  br label %396
+.loopexit24:                                      ; preds = %308, %.loopexit25, %285, %.loopexit, %76
+  %327 = phi i32 [ -1, %76 ], [ %280, %.loopexit ], [ %299, %285 ], [ %300, %.loopexit25 ], [ %323, %308 ]
+  %328 = getelementptr inbounds i8, ptr %6, i64 80
+  store i32 %327, ptr %328, align 8, !tbaa !221
+  br label %382
 
-343:                                              ; preds = %343, %83
-  %344 = phi i64 [ 0, %83 ], [ %394, %343 ]
-  %345 = phi i32 [ -1, %83 ], [ %393, %343 ]
-  %346 = phi float [ 0x3F5A36E2E0000000, %83 ], [ %391, %343 ]
-  %347 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %344
-  %348 = load <2 x float>, ptr %347, align 4, !tbaa !12
-  %349 = fsub reassoc nsz arcp contract afn <2 x float> %86, %348
-  %350 = fmul reassoc nsz arcp contract afn <2 x float> %349, %349
-  %351 = shufflevector <2 x float> %350, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %352 = fadd reassoc nsz arcp contract afn <2 x float> %351, %350
-  %353 = extractelement <2 x float> %352, i64 0
-  %354 = fcmp reassoc nsz arcp contract afn olt float %353, %346
-  %355 = select i1 %354, float %353, float %346
-  %356 = trunc i64 %344 to i32
-  %357 = select i1 %354, i32 %356, i32 %345
-  %358 = or disjoint i64 %344, 1
-  %359 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %358
-  %360 = load <2 x float>, ptr %359, align 4, !tbaa !12
-  %361 = fsub reassoc nsz arcp contract afn <2 x float> %86, %360
-  %362 = fmul reassoc nsz arcp contract afn <2 x float> %361, %361
-  %363 = shufflevector <2 x float> %362, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %364 = fadd reassoc nsz arcp contract afn <2 x float> %363, %362
-  %365 = extractelement <2 x float> %364, i64 0
-  %366 = fcmp reassoc nsz arcp contract afn olt float %365, %355
-  %367 = select i1 %366, float %365, float %355
-  %368 = trunc i64 %358 to i32
-  %369 = select i1 %366, i32 %368, i32 %357
-  %370 = or disjoint i64 %344, 2
-  %371 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %370
-  %372 = load <2 x float>, ptr %371, align 4, !tbaa !12
-  %373 = fsub reassoc nsz arcp contract afn <2 x float> %86, %372
-  %374 = fmul reassoc nsz arcp contract afn <2 x float> %373, %373
-  %375 = shufflevector <2 x float> %374, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %376 = fadd reassoc nsz arcp contract afn <2 x float> %375, %374
-  %377 = extractelement <2 x float> %376, i64 0
-  %378 = fcmp reassoc nsz arcp contract afn olt float %377, %367
-  %379 = select i1 %378, float %377, float %367
-  %380 = trunc i64 %370 to i32
-  %381 = select i1 %378, i32 %380, i32 %369
-  %382 = or disjoint i64 %344, 3
-  %383 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %382
-  %384 = load <2 x float>, ptr %383, align 4, !tbaa !12
-  %385 = fsub reassoc nsz arcp contract afn <2 x float> %86, %384
-  %386 = fmul reassoc nsz arcp contract afn <2 x float> %385, %385
-  %387 = shufflevector <2 x float> %386, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %388 = fadd reassoc nsz arcp contract afn <2 x float> %387, %386
-  %389 = extractelement <2 x float> %388, i64 0
-  %390 = fcmp reassoc nsz arcp contract afn olt float %389, %379
-  %391 = select i1 %390, float %389, float %379
-  %392 = trunc i64 %382 to i32
-  %393 = select i1 %390, i32 %392, i32 %381
-  %394 = add nuw nsw i64 %344, 4
-  %395 = icmp eq i64 %394, %84
-  br i1 %395, label %.loopexit25, label %343
+329:                                              ; preds = %329, %83
+  %330 = phi i64 [ 0, %83 ], [ %380, %329 ]
+  %331 = phi i32 [ -1, %83 ], [ %379, %329 ]
+  %332 = phi float [ 0x3F5A36E2E0000000, %83 ], [ %377, %329 ]
+  %333 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %330
+  %334 = load <2 x float>, ptr %333, align 4, !tbaa !12
+  %335 = fsub reassoc nsz arcp contract afn <2 x float> %86, %334
+  %336 = fmul reassoc nsz arcp contract afn <2 x float> %335, %335
+  %337 = shufflevector <2 x float> %336, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %338 = fadd reassoc nsz arcp contract afn <2 x float> %337, %336
+  %339 = extractelement <2 x float> %338, i64 0
+  %340 = fcmp reassoc nsz arcp contract afn olt float %339, %332
+  %341 = select i1 %340, float %339, float %332
+  %342 = trunc i64 %330 to i32
+  %343 = select i1 %340, i32 %342, i32 %331
+  %344 = or disjoint i64 %330, 1
+  %345 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %344
+  %346 = load <2 x float>, ptr %345, align 4, !tbaa !12
+  %347 = fsub reassoc nsz arcp contract afn <2 x float> %86, %346
+  %348 = fmul reassoc nsz arcp contract afn <2 x float> %347, %347
+  %349 = shufflevector <2 x float> %348, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %350 = fadd reassoc nsz arcp contract afn <2 x float> %349, %348
+  %351 = extractelement <2 x float> %350, i64 0
+  %352 = fcmp reassoc nsz arcp contract afn olt float %351, %341
+  %353 = select i1 %352, float %351, float %341
+  %354 = trunc i64 %344 to i32
+  %355 = select i1 %352, i32 %354, i32 %343
+  %356 = or disjoint i64 %330, 2
+  %357 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %356
+  %358 = load <2 x float>, ptr %357, align 4, !tbaa !12
+  %359 = fsub reassoc nsz arcp contract afn <2 x float> %86, %358
+  %360 = fmul reassoc nsz arcp contract afn <2 x float> %359, %359
+  %361 = shufflevector <2 x float> %360, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %362 = fadd reassoc nsz arcp contract afn <2 x float> %361, %360
+  %363 = extractelement <2 x float> %362, i64 0
+  %364 = fcmp reassoc nsz arcp contract afn olt float %363, %353
+  %365 = select i1 %364, float %363, float %353
+  %366 = trunc i64 %356 to i32
+  %367 = select i1 %364, i32 %366, i32 %355
+  %368 = or disjoint i64 %330, 3
+  %369 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %8, i64 %368
+  %370 = load <2 x float>, ptr %369, align 4, !tbaa !12
+  %371 = fsub reassoc nsz arcp contract afn <2 x float> %86, %370
+  %372 = fmul reassoc nsz arcp contract afn <2 x float> %371, %371
+  %373 = shufflevector <2 x float> %372, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %374 = fadd reassoc nsz arcp contract afn <2 x float> %373, %372
+  %375 = extractelement <2 x float> %374, i64 0
+  %376 = fcmp reassoc nsz arcp contract afn olt float %375, %365
+  %377 = select i1 %376, float %375, float %365
+  %378 = trunc i64 %368 to i32
+  %379 = select i1 %376, i32 %378, i32 %367
+  %380 = add nuw nsw i64 %330, 4
+  %381 = icmp eq i64 %380, %84
+  br i1 %381, label %.loopexit25, label %329
 
-396:                                              ; preds = %.loopexit24, %.loopexit26
-  %397 = phi i32 [ %293, %.loopexit26 ], [ %341, %.loopexit24 ]
-  %398 = icmp sgt i32 %397, -1
-  br i1 %398, label %399, label %400
+382:                                              ; preds = %.loopexit24, %.loopexit26
+  %383 = phi i32 [ %279, %.loopexit26 ], [ %327, %.loopexit24 ]
+  %384 = icmp sgt i32 %383, -1
+  br i1 %384, label %385, label %386
 
-399:                                              ; preds = %396
+385:                                              ; preds = %382
   call void @gtk_widget_grab_focus(ptr noundef %0) #27
-  br label %400
+  br label %386
 
-400:                                              ; preds = %399, %396, %217
+386:                                              ; preds = %385, %382, %217
   call void @gtk_widget_queue_draw(ptr noundef %0) #27
-  br label %401
+  br label %387
 
-401:                                              ; preds = %400, %212
+387:                                              ; preds = %386, %212
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #27
   ret i32 1
 }
@@ -8772,69 +8758,55 @@ define internal fastcc i32 @_add_node(ptr nocapture noundef %0, ptr nocapture no
   %31 = icmp ult i64 %30, 16
   br i1 %31, label %.preheader, label %32
 
-.preheader:                                       ; preds = %60, %27
-  %.ph = phi i64 [ %61, %60 ], [ %28, %27 ]
-  br label %68
+.preheader:                                       ; preds = %46, %27
+  %.ph = phi i64 [ %47, %46 ], [ %28, %27 ]
+  br label %54
 
 32:                                               ; preds = %27
   %33 = and i64 %30, -16
   br label %34
 
 34:                                               ; preds = %34, %32
-  %35 = phi i64 [ 0, %32 ], [ %58, %34 ]
+  %35 = phi i64 [ 0, %32 ], [ %44, %34 ]
   %36 = sub i64 %28, %35
   %37 = getelementptr %struct.dt_iop_basecurve_node_t, ptr %0, i64 %36
   %38 = getelementptr i8, ptr %37, i64 -64
   %39 = getelementptr i8, ptr %37, i64 -128
   %40 = load <16 x float>, ptr %38, align 4, !tbaa !12
   %41 = load <16 x float>, ptr %39, align 4, !tbaa !12
-  %42 = shufflevector <16 x float> %40, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %43 = shufflevector <8 x float> %42, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %44 = shufflevector <16 x float> %41, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %45 = shufflevector <8 x float> %44, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %46 = shufflevector <16 x float> %40, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %47 = shufflevector <8 x float> %46, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %48 = shufflevector <16 x float> %41, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %49 = shufflevector <8 x float> %48, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %50 = getelementptr inbounds i8, ptr %37, i64 -56
-  %51 = getelementptr i8, ptr %37, i64 -120
-  %52 = shufflevector <8 x float> %43, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %53 = shufflevector <8 x float> %47, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %54 = shufflevector <8 x float> %52, <8 x float> %53, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %54, ptr %50, align 4, !tbaa !12
-  %55 = shufflevector <8 x float> %45, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %56 = shufflevector <8 x float> %49, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %57 = shufflevector <8 x float> %55, <8 x float> %56, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %57, ptr %51, align 4, !tbaa !12
-  %58 = add nuw i64 %35, 16
-  %59 = icmp eq i64 %58, %33
-  br i1 %59, label %60, label %34, !llvm.loop !298
+  %42 = getelementptr inbounds i8, ptr %37, i64 -56
+  %43 = getelementptr i8, ptr %37, i64 -120
+  store <16 x float> %40, ptr %42, align 4, !tbaa !12
+  store <16 x float> %41, ptr %43, align 4, !tbaa !12
+  %44 = add nuw i64 %35, 16
+  %45 = icmp eq i64 %44, %33
+  br i1 %45, label %46, label %34, !llvm.loop !298
 
-60:                                               ; preds = %34
-  %61 = sub nsw i64 %28, %33
-  %62 = icmp eq i64 %30, %33
-  br i1 %62, label %.loopexit, label %.preheader
+46:                                               ; preds = %34
+  %47 = sub nsw i64 %28, %33
+  %48 = icmp eq i64 %30, %33
+  br i1 %48, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %68, %60, %.loopexit8
-  %63 = phi i32 [ %25, %.loopexit8 ], [ %23, %60 ], [ %23, %68 ]
-  %64 = phi i64 [ %26, %.loopexit8 ], [ %29, %60 ], [ %29, %68 ]
-  %65 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %0, i64 %64
-  store float %2, ptr %65, align 4, !tbaa !15
-  %66 = getelementptr inbounds i8, ptr %65, i64 4
-  store float %3, ptr %66, align 4, !tbaa !17
-  %67 = add nsw i32 %7, 1
-  store i32 %67, ptr %1, align 4, !tbaa !10
-  ret i32 %63
+.loopexit:                                        ; preds = %54, %46, %.loopexit8
+  %49 = phi i32 [ %25, %.loopexit8 ], [ %23, %46 ], [ %23, %54 ]
+  %50 = phi i64 [ %26, %.loopexit8 ], [ %29, %46 ], [ %29, %54 ]
+  %51 = getelementptr inbounds %struct.dt_iop_basecurve_node_t, ptr %0, i64 %50
+  store float %2, ptr %51, align 4, !tbaa !15
+  %52 = getelementptr inbounds i8, ptr %51, i64 4
+  store float %3, ptr %52, align 4, !tbaa !17
+  %53 = add nsw i32 %7, 1
+  store i32 %53, ptr %1, align 4, !tbaa !10
+  ret i32 %49
 
-68:                                               ; preds = %.preheader, %68
-  %69 = phi i64 [ %73, %68 ], [ %.ph, %.preheader ]
-  %70 = getelementptr %struct.dt_iop_basecurve_node_t, ptr %0, i64 %69
-  %71 = getelementptr i8, ptr %70, i64 -8
-  %72 = load <2 x float>, ptr %71, align 4, !tbaa !12
-  store <2 x float> %72, ptr %70, align 4, !tbaa !12
-  %73 = add nsw i64 %69, -1
-  %74 = icmp sgt i64 %73, %29
-  br i1 %74, label %68, label %.loopexit, !llvm.loop !299
+54:                                               ; preds = %.preheader, %54
+  %55 = phi i64 [ %59, %54 ], [ %.ph, %.preheader ]
+  %56 = getelementptr %struct.dt_iop_basecurve_node_t, ptr %0, i64 %55
+  %57 = getelementptr i8, ptr %56, i64 -8
+  %58 = load <2 x float>, ptr %57, align 4, !tbaa !12
+  store <2 x float> %58, ptr %56, align 4, !tbaa !12
+  %59 = add nsw i64 %55, -1
+  %60 = icmp sgt i64 %59, %29
+  br i1 %60, label %54, label %.loopexit, !llvm.loop !299
 }
 
 declare void @dt_dev_add_history_item_target(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8

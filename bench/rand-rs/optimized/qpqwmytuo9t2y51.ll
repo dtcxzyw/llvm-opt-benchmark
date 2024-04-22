@@ -1325,10 +1325,10 @@ define hidden noundef i32 @"_ZN133_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S
   %.0.vec.extract6 = extractelement <2 x i64> %4, i64 1
   %5 = trunc i64 %.0.vec.extract to i32
   %6 = lshr i64 %.0.vec.extract, 32
-  %7 = trunc i64 %6 to i32
+  %7 = trunc nuw i64 %6 to i32
   %8 = trunc i64 %.0.vec.extract6 to i32
   %9 = lshr i64 %.0.vec.extract6, 32
-  %10 = trunc i64 %9 to i32
+  %10 = trunc nuw i64 %9 to i32
   store i32 %5, ptr %3, align 4, !alias.scope !155, !noalias !158
   %11 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %7, ptr %11, align 4, !alias.scope !155, !noalias !158
@@ -1414,10 +1414,10 @@ define hidden noundef i32 @"_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S
   %6 = call noundef i64 @_ZN4core9core_arch6x86_645sse4117_mm_extract_epi6417hb2c153d0d0936fbfE.llvm.17720110283109806325(ptr noalias nocapture noundef nonnull align 16 dereferenceable(16) %3), !noalias !164
   %7 = trunc i64 %.0.vec.extract to i32
   %8 = lshr i64 %.0.vec.extract, 32
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw i64 %8 to i32
   %10 = trunc i64 %6 to i32
   %11 = lshr i64 %6, 32
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw i64 %11 to i32
   store i32 %7, ptr %4, align 4, !alias.scope !161, !noalias !166
   %13 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 %9, ptr %13, align 4, !alias.scope !161, !noalias !166
@@ -1643,10 +1643,10 @@ define hidden void @"_ZN159_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv
   %.0.vec.extract5 = extractelement <2 x i64> %3, i64 1
   %4 = trunc i64 %.0.vec.extract to i32
   %5 = lshr i64 %.0.vec.extract, 32
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw i64 %5 to i32
   %7 = trunc i64 %.0.vec.extract5 to i32
   %8 = lshr i64 %.0.vec.extract5, 32
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw i64 %8 to i32
   store i32 %4, ptr %0, align 4
   %10 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %6, ptr %10, align 4
@@ -1706,10 +1706,10 @@ define hidden void @"_ZN160_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv
   %5 = call noundef i64 @_ZN4core9core_arch6x86_645sse4117_mm_extract_epi6417hb2c153d0d0936fbfE.llvm.17720110283109806325(ptr noalias nocapture noundef nonnull align 16 dereferenceable(16) %3)
   %6 = trunc i64 %.0.vec.extract to i32
   %7 = lshr i64 %.0.vec.extract, 32
-  %8 = trunc i64 %7 to i32
+  %8 = trunc nuw i64 %7 to i32
   %9 = trunc i64 %5 to i32
   %10 = lshr i64 %5, 32
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw i64 %10 to i32
   store i32 %6, ptr %0, align 4
   %12 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %8, ptr %12, align 4
@@ -5758,12 +5758,8 @@ define hidden void @_ZN11rand_chacha4guts5d012317h8b1b358de0d53713E.llvm.1772011
   %17 = add <2 x i64> %13, %11
   %18 = add <2 x i64> %14, %11
   %19 = add <2 x i64> %15, %11
-  %.sroa.018.0.vec.expand = shufflevector <2 x i64> %16, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %.sroa.018.16.vec.expand = shufflevector <2 x i64> %17, <2 x i64> poison, <4 x i32> <i32 poison, i32 poison, i32 0, i32 1>
-  %.sroa.018.16.vecblend = shufflevector <4 x i64> %.sroa.018.0.vec.expand, <4 x i64> %.sroa.018.16.vec.expand, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %.sroa.5.32.vec.expand = shufflevector <2 x i64> %18, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %.sroa.5.48.vec.expand = shufflevector <2 x i64> %19, <2 x i64> poison, <4 x i32> <i32 poison, i32 poison, i32 0, i32 1>
-  %.sroa.5.48.vecblend = shufflevector <4 x i64> %.sroa.5.32.vec.expand, <4 x i64> %.sroa.5.48.vec.expand, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %.sroa.018.16.vecblend = shufflevector <2 x i64> %16, <2 x i64> %17, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %.sroa.5.48.vecblend = shufflevector <2 x i64> %18, <2 x i64> %19, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   store <4 x i64> %.sroa.018.16.vecblend, ptr %0, align 32, !alias.scope !1146, !noalias !1149
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
   store <4 x i64> %.sroa.5.48.vecblend, ptr %.sroa.4.0..sroa_idx.i, align 32, !alias.scope !1146, !noalias !1149
@@ -7014,12 +7010,8 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h4d83210321d6bbf5E.
   %286 = add <2 x i64> %282, %.sroa.076.0.copyload
   %287 = add <2 x i64> %283, %.sroa.076.0.copyload
   %288 = add <2 x i64> %284, %.sroa.076.0.copyload
-  %.sroa.0662.0.vec.expand = shufflevector <2 x i64> %285, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %.sroa.0662.16.vec.expand = shufflevector <2 x i64> %286, <2 x i64> poison, <4 x i32> <i32 poison, i32 poison, i32 0, i32 1>
-  %.sroa.0662.16.vecblend = shufflevector <4 x i64> %.sroa.0662.0.vec.expand, <4 x i64> %.sroa.0662.16.vec.expand, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %.sroa.5664.32.vec.expand = shufflevector <2 x i64> %287, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %.sroa.5664.48.vec.expand = shufflevector <2 x i64> %288, <2 x i64> poison, <4 x i32> <i32 poison, i32 poison, i32 0, i32 1>
-  %.sroa.5664.48.vecblend = shufflevector <4 x i64> %.sroa.5664.32.vec.expand, <4 x i64> %.sroa.5664.48.vec.expand, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %.sroa.0662.16.vecblend = shufflevector <2 x i64> %285, <2 x i64> %286, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %.sroa.5664.48.vecblend = shufflevector <2 x i64> %287, <2 x i64> %288, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit52", label %.lr.ph
 
@@ -7123,12 +7115,8 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h4d83210321d6bbf5E.
   %294 = add <2 x i64> %290, %.sroa.0268.0.copyload
   %295 = add <2 x i64> %291, %.sroa.0268.0.copyload
   %296 = add <2 x i64> %292, %.sroa.0268.0.copyload
-  %.sroa.0601.0.vec.expand = shufflevector <2 x i64> %293, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %.sroa.0601.16.vec.expand = shufflevector <2 x i64> %294, <2 x i64> poison, <4 x i32> <i32 poison, i32 poison, i32 0, i32 1>
-  %.sroa.0601.16.vecblend = shufflevector <4 x i64> %.sroa.0601.0.vec.expand, <4 x i64> %.sroa.0601.16.vec.expand, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %.sroa.5603.32.vec.expand = shufflevector <2 x i64> %295, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %.sroa.5603.48.vec.expand = shufflevector <2 x i64> %296, <2 x i64> poison, <4 x i32> <i32 poison, i32 poison, i32 0, i32 1>
-  %.sroa.5603.48.vecblend = shufflevector <4 x i64> %.sroa.5603.32.vec.expand, <4 x i64> %.sroa.5603.48.vec.expand, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %.sroa.0601.16.vecblend = shufflevector <2 x i64> %293, <2 x i64> %294, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %.sroa.5603.48.vecblend = shufflevector <2 x i64> %295, <2 x i64> %296, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %209)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %210), !noalias !1482
   store <4 x i64> %.sroa.0134.0.lcssa, ptr %209, align 32, !noalias !1482
@@ -9293,12 +9281,8 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h6c1084766a1790c
   %286 = add <2 x i64> %282, %.sroa.041.0.copyload
   %287 = add <2 x i64> %283, %.sroa.041.0.copyload
   %288 = add <2 x i64> %284, %.sroa.041.0.copyload
-  %.sroa.0629.0.vec.expand = shufflevector <2 x i64> %285, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %.sroa.0629.16.vec.expand = shufflevector <2 x i64> %286, <2 x i64> poison, <4 x i32> <i32 poison, i32 poison, i32 0, i32 1>
-  %.sroa.0629.16.vecblend = shufflevector <4 x i64> %.sroa.0629.0.vec.expand, <4 x i64> %.sroa.0629.16.vec.expand, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %.sroa.5631.32.vec.expand = shufflevector <2 x i64> %287, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %.sroa.5631.48.vec.expand = shufflevector <2 x i64> %288, <2 x i64> poison, <4 x i32> <i32 poison, i32 poison, i32 0, i32 1>
-  %.sroa.5631.48.vecblend = shufflevector <4 x i64> %.sroa.5631.32.vec.expand, <4 x i64> %.sroa.5631.48.vec.expand, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %.sroa.0629.16.vecblend = shufflevector <2 x i64> %285, <2 x i64> %286, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %.sroa.5631.48.vecblend = shufflevector <2 x i64> %287, <2 x i64> %288, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17", label %.lr.ph
 
@@ -9964,12 +9948,8 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h6c1084766a1790c
   %339 = add <2 x i64> %335, %.sroa.0233.0.copyload
   %340 = add <2 x i64> %336, %.sroa.0233.0.copyload
   %341 = add <2 x i64> %337, %.sroa.0233.0.copyload
-  %.sroa.0568.0.vec.expand = shufflevector <2 x i64> %338, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %.sroa.0568.16.vec.expand = shufflevector <2 x i64> %339, <2 x i64> poison, <4 x i32> <i32 poison, i32 poison, i32 0, i32 1>
-  %.sroa.0568.16.vecblend = shufflevector <4 x i64> %.sroa.0568.0.vec.expand, <4 x i64> %.sroa.0568.16.vec.expand, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %.sroa.5570.32.vec.expand = shufflevector <2 x i64> %340, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %.sroa.5570.48.vec.expand = shufflevector <2 x i64> %341, <2 x i64> poison, <4 x i32> <i32 poison, i32 poison, i32 0, i32 1>
-  %.sroa.5570.48.vecblend = shufflevector <4 x i64> %.sroa.5570.32.vec.expand, <4 x i64> %.sroa.5570.48.vec.expand, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %.sroa.0568.16.vecblend = shufflevector <2 x i64> %338, <2 x i64> %339, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %.sroa.5570.48.vecblend = shufflevector <2 x i64> %340, <2 x i64> %341, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %209), !noalias !2198
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %210), !noalias !2688
   store <4 x i64> %.sroa.099.0.lcssa, ptr %209, align 32, !noalias !2688
@@ -10996,12 +10976,8 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide9impl_avx217h8171f6971b5b8
   %6 = add <2 x i64> %.sroa.041.0.copyload, <i64 1, i64 0>
   %7 = add <2 x i64> %.sroa.041.0.copyload, <i64 2, i64 0>
   %8 = add <2 x i64> %.sroa.041.0.copyload, <i64 3, i64 0>
-  %.sroa.01027.0.vec.expand = shufflevector <2 x i64> %.sroa.041.0.copyload, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %.sroa.01027.16.vec.expand = shufflevector <2 x i64> %6, <2 x i64> poison, <4 x i32> <i32 poison, i32 poison, i32 0, i32 1>
-  %.sroa.01027.16.vecblend = shufflevector <4 x i64> %.sroa.01027.0.vec.expand, <4 x i64> %.sroa.01027.16.vec.expand, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %.sroa.51029.32.vec.expand = shufflevector <2 x i64> %7, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %.sroa.51029.48.vec.expand = shufflevector <2 x i64> %8, <2 x i64> poison, <4 x i32> <i32 poison, i32 poison, i32 0, i32 1>
-  %.sroa.51029.48.vecblend = shufflevector <4 x i64> %.sroa.51029.32.vec.expand, <4 x i64> %.sroa.51029.48.vec.expand, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %.sroa.01027.16.vecblend = shufflevector <2 x i64> %.sroa.041.0.copyload, <2 x i64> %6, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %.sroa.51029.48.vecblend = shufflevector <2 x i64> %7, <2 x i64> %8, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %9 = shufflevector <4 x i32> %.sroa.020.0.copyload11461193, <4 x i32> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %10 = shufflevector <4 x i32> %.sroa.019.0.copyload11451192, <4 x i32> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %.not = icmp eq i32 %1, 0
@@ -12276,7 +12252,7 @@ _ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   %.sroa.0.0.copyload.i = load <2 x i64>, ptr %9, align 16, !alias.scope !3162
   %10 = lshr i64 %2, 32
-  %11 = trunc i64 %10 to i32
+  %11 = trunc nuw i64 %10 to i32
   %12 = shl i32 %1, 1
   %13 = or disjoint i32 %12, 1
   switch i32 %13, label %14 [
@@ -12359,7 +12335,7 @@ define hidden void @_ZN11rand_chacha4guts16set_stream_param7fn_impl17h2074b58e63
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   %.sroa.0.0.copyload = load <2 x i64>, ptr %10, align 16
   %11 = lshr i64 %2, 32
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw i64 %11 to i32
   %13 = shl i32 %1, 1
   %14 = or disjoint i32 %13, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -12426,7 +12402,7 @@ define hidden void @_ZN11rand_chacha4guts16set_stream_param7fn_impl17hf57bc4482f
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %.sroa.0.0.copyload = load <2 x i64>, ptr %4, align 16
   %5 = lshr i64 %2, 32
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw i64 %5 to i32
   %7 = shl i32 %1, 1
   %8 = or disjoint i32 %7, 1
   switch i32 %8, label %9 [
@@ -12527,7 +12503,7 @@ _ZN11rand_chacha4guts16set_stream_param7fn_impl17h2074b58e636a1d5eE.llvm.1772011
   %.sink = phi i64 [ 2, %10 ], [ 0, %"_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$S3$C$ppv_lite86..x86_64..YesS4$C$NI$GT$$u20$as$u20$ppv_lite86..types..Vec4$LT$u32$GT$$GT$6insert17h9fd919b22d929d18E.llvm.17720110283109806325.exit1.i" ]
   %11 = trunc i64 %2 to i32
   %12 = lshr i64 %2, 32
-  %13 = trunc i64 %12 to i32
+  %13 = trunc nuw i64 %12 to i32
   %14 = insertelement <4 x i32> %.sroa.0.0.copyload33, i32 %13, i64 %.sink32
   %15 = insertelement <4 x i32> %14, i32 %11, i64 %.sink
   store <4 x i32> %15, ptr %4, align 16
@@ -12539,7 +12515,7 @@ define hidden void @_ZN11rand_chacha4guts16set_stream_param9impl_sse217h91d2fed8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %.sroa.0.0.copyload = load <2 x i64>, ptr %4, align 16
   %5 = lshr i64 %2, 32
-  %6 = trunc i64 %5 to i32
+  %6 = trunc nuw i64 %5 to i32
   %7 = shl i32 %1, 1
   %8 = or disjoint i32 %7, 1
   switch i32 %8, label %9 [
@@ -12632,10 +12608,10 @@ _ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.
   %.0.vec.extract.i = extractelement <2 x i64> %.sroa.0.0.copyload.i, i64 0
   %.0.vec.extract10.i = extractelement <2 x i64> %.sroa.0.0.copyload.i, i64 1
   %13 = lshr i64 %.0.vec.extract.i, 32
-  %14 = trunc i64 %13 to i32
+  %14 = trunc nuw i64 %13 to i32
   %15 = trunc i64 %.0.vec.extract10.i to i32
   %16 = lshr i64 %.0.vec.extract10.i, 32
-  %17 = trunc i64 %16 to i32
+  %17 = trunc nuw i64 %16 to i32
   %18 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %14, ptr %18, align 4, !alias.scope !3219, !noalias !3222
   %19 = getelementptr inbounds i8, ptr %3, i64 8
@@ -12694,10 +12670,10 @@ define hidden noundef i64 @_ZN11rand_chacha4guts16get_stream_param7fn_impl17h08b
   %.0.vec.extract = extractelement <2 x i64> %.sroa.0.0.copyload, i64 0
   %.0.vec.extract11 = extractelement <2 x i64> %.sroa.0.0.copyload, i64 1
   %8 = lshr i64 %.0.vec.extract, 32
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw i64 %8 to i32
   %10 = trunc i64 %.0.vec.extract11 to i32
   %11 = lshr i64 %.0.vec.extract11, 32
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw i64 %11 to i32
   %13 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %9, ptr %13, align 4, !alias.scope !3235, !noalias !3238
   %14 = getelementptr inbounds i8, ptr %3, i64 8
@@ -12753,10 +12729,10 @@ define hidden noundef i64 @_ZN11rand_chacha4guts16get_stream_param7fn_impl17hb06
   store <2 x i64> %.sroa.0.0.copyload, ptr %4, align 16, !noalias !3254
   %10 = call noundef i64 @_ZN4core9core_arch6x86_645sse4117_mm_extract_epi6417hb2c153d0d0936fbfE.llvm.17720110283109806325(ptr noalias nocapture noundef nonnull align 16 dereferenceable(16) %4), !noalias !3254
   %11 = lshr i64 %.0.vec.extract, 32
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw i64 %11 to i32
   %13 = trunc i64 %10 to i32
   %14 = lshr i64 %10, 32
-  %15 = trunc i64 %14 to i32
+  %15 = trunc nuw i64 %14 to i32
   %16 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 %12, ptr %16, align 4, !alias.scope !3251, !noalias !3256
   %17 = getelementptr inbounds i8, ptr %5, i64 8
@@ -12786,7 +12762,7 @@ define hidden noundef i64 @_ZN11rand_chacha4guts16get_stream_param7fn_impl17hb06
   %27 = call noundef i64 @_ZN4core9core_arch6x86_645sse4117_mm_extract_epi6417hb2c153d0d0936fbfE.llvm.17720110283109806325(ptr noalias nocapture noundef nonnull align 16 dereferenceable(16) %3), !noalias !3263
   %28 = trunc i64 %27 to i32
   %29 = lshr i64 %27, 32
-  %30 = trunc i64 %29 to i32
+  %30 = trunc nuw i64 %29 to i32
   store i32 %22, ptr %6, align 4, !alias.scope !3260, !noalias !3265
   %31 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 %12, ptr %31, align 4, !alias.scope !3260, !noalias !3265
@@ -12816,10 +12792,10 @@ define hidden noundef i64 @_ZN11rand_chacha4guts16get_stream_param8impl_avx17h55
   %.0.vec.extract = extractelement <2 x i64> %.sroa.0.0.copyload, i64 0
   %.8.vec.extract = extractelement <2 x i64> %.sroa.0.0.copyload, i64 1
   %8 = lshr i64 %.0.vec.extract, 32
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw i64 %8 to i32
   %10 = trunc i64 %.8.vec.extract to i32
   %11 = lshr i64 %.8.vec.extract, 32
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw i64 %11 to i32
   %13 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %9, ptr %13, align 4, !alias.scope !3271, !noalias !3274
   %14 = getelementptr inbounds i8, ptr %3, i64 8
@@ -12870,10 +12846,10 @@ define hidden noundef i64 @_ZN11rand_chacha4guts16get_stream_param9impl_sse217hf
   %.0.vec.extract = extractelement <2 x i64> %.sroa.0.0.copyload, i64 0
   %.0.vec.extract10 = extractelement <2 x i64> %.sroa.0.0.copyload, i64 1
   %8 = lshr i64 %.0.vec.extract, 32
-  %9 = trunc i64 %8 to i32
+  %9 = trunc nuw i64 %8 to i32
   %10 = trunc i64 %.0.vec.extract10 to i32
   %11 = lshr i64 %.0.vec.extract10, 32
-  %12 = trunc i64 %11 to i32
+  %12 = trunc nuw i64 %11 to i32
   %13 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %9, ptr %13, align 4, !alias.scope !3289, !noalias !3292
   %14 = getelementptr inbounds i8, ptr %3, i64 8
@@ -12935,9 +12911,7 @@ _ZN10std_detect6detect5cache4test17h33e4ae1e0177e982E.llvm.17720110283109806325.
   %.sroa.0.0.copyload8.i = load <16 x i8>, ptr %1, align 16, !alias.scope !3305, !noalias !3310
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.01.0.copyload9.i = load <16 x i8>, ptr %8, align 16, !alias.scope !3305, !noalias !3310
-  %.sroa.0.0.vec.expand.i = shufflevector <16 x i8> %.sroa.0.0.copyload8.i, <16 x i8> poison, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %.sroa.0.16.vec.expand.i = shufflevector <16 x i8> %.sroa.01.0.copyload9.i, <16 x i8> poison, <32 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %.sroa.0.16.vecblend.i = shufflevector <32 x i8> %.sroa.0.0.vec.expand.i, <32 x i8> %.sroa.0.16.vec.expand.i, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
+  %.sroa.0.16.vecblend.i = shufflevector <16 x i8> %.sroa.0.0.copyload8.i, <16 x i8> %.sroa.01.0.copyload9.i, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   store <32 x i8> %.sroa.0.16.vecblend.i, ptr %0, align 1, !alias.scope !3310, !noalias !3311
   br label %10
 
@@ -12955,9 +12929,7 @@ define hidden void @_ZN11rand_chacha4guts8get_seed7fn_impl17h1921417d3c66a2c1E.l
   %.sroa.0.0.copyload9 = load <16 x i8>, ptr %1, align 16
   %2 = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.02.0.copyload10 = load <16 x i8>, ptr %2, align 16
-  %.sroa.0.0.vec.expand = shufflevector <16 x i8> %.sroa.0.0.copyload9, <16 x i8> poison, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %.sroa.0.16.vec.expand = shufflevector <16 x i8> %.sroa.02.0.copyload10, <16 x i8> poison, <32 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %.sroa.0.16.vecblend = shufflevector <32 x i8> %.sroa.0.0.vec.expand, <32 x i8> %.sroa.0.16.vec.expand, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
+  %.sroa.0.16.vecblend = shufflevector <16 x i8> %.sroa.0.0.copyload9, <16 x i8> %.sroa.02.0.copyload10, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   store <32 x i8> %.sroa.0.16.vecblend, ptr %0, align 1
   ret void
 }
@@ -12968,9 +12940,7 @@ define hidden void @_ZN11rand_chacha4guts8get_seed7fn_impl17hfe8d694cab7a719aE.l
   %.sroa.0.0.copyload9 = load <16 x i8>, ptr %1, align 16
   %2 = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.02.0.copyload10 = load <16 x i8>, ptr %2, align 16
-  %.sroa.0.0.vec.expand = shufflevector <16 x i8> %.sroa.0.0.copyload9, <16 x i8> poison, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %.sroa.0.16.vec.expand = shufflevector <16 x i8> %.sroa.02.0.copyload10, <16 x i8> poison, <32 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %.sroa.0.16.vecblend = shufflevector <32 x i8> %.sroa.0.0.vec.expand, <32 x i8> %.sroa.0.16.vec.expand, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
+  %.sroa.0.16.vecblend = shufflevector <16 x i8> %.sroa.0.0.copyload9, <16 x i8> %.sroa.02.0.copyload10, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   store <32 x i8> %.sroa.0.16.vecblend, ptr %0, align 1
   ret void
 }
@@ -12995,9 +12965,7 @@ _ZN11rand_chacha4guts8get_seed7fn_impl17h1921417d3c66a2c1E.llvm.1772011028310980
   %.sroa.0.0.copyload8 = load <16 x i8>, ptr %1, align 16, !noalias !3318
   %2 = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.01.0.copyload9 = load <16 x i8>, ptr %2, align 16, !noalias !3318
-  %.sroa.0.0.vec.expand = shufflevector <16 x i8> %.sroa.0.0.copyload8, <16 x i8> poison, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %.sroa.0.16.vec.expand = shufflevector <16 x i8> %.sroa.01.0.copyload9, <16 x i8> poison, <32 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %.sroa.0.16.vecblend = shufflevector <32 x i8> %.sroa.0.0.vec.expand, <32 x i8> %.sroa.0.16.vec.expand, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 58, i32 59, i32 60, i32 61, i32 62, i32 63>
+  %.sroa.0.16.vecblend = shufflevector <16 x i8> %.sroa.0.0.copyload8, <16 x i8> %.sroa.01.0.copyload9, <32 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   store <32 x i8> %.sroa.0.16.vecblend, ptr %0, align 1, !alias.scope !3318, !noalias !3321
   ret void
 }

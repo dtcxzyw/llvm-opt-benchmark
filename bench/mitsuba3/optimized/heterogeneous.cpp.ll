@@ -609,13 +609,10 @@ define weak_odr <6 x double> @_ZNK7mitsuba19HeterogeneousMediumIfN5drjit6MatrixI
   %38 = insertelement <4 x float> poison, float %37, i64 0
   %39 = shufflevector <4 x float> %38, <4 x float> poison, <4 x i32> zeroinitializer
   %40 = fsub contract <4 x float> %39, %.sroa.059.0
-  %41 = bitcast <4 x float> %35 to <2 x double>
-  %.sroa.062.0.vec.expand = shufflevector <2 x double> %41, <2 x double> poison, <6 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison>
-  %42 = bitcast <4 x float> %40 to <2 x double>
-  %.sroa.062.16.vec.expand = shufflevector <2 x double> %42, <2 x double> poison, <6 x i32> <i32 poison, i32 poison, i32 0, i32 1, i32 poison, i32 poison>
-  %.sroa.062.16.vecblend = shufflevector <6 x double> %.sroa.062.0.vec.expand, <6 x double> %.sroa.062.16.vec.expand, <6 x i32> <i32 0, i32 1, i32 8, i32 9, i32 poison, i32 poison>
-  %43 = bitcast <4 x float> %.sroa.059.0 to <2 x double>
-  %.sroa.062.32.vec.expand = shufflevector <2 x double> %43, <2 x double> poison, <6 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1>
+  %41 = shufflevector <4 x float> %35, <4 x float> %40, <12 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison, i32 poison, i32 poison, i32 poison>
+  %.sroa.062.16.vecblend = bitcast <12 x float> %41 to <6 x double>
+  %42 = bitcast <4 x float> %.sroa.059.0 to <2 x double>
+  %.sroa.062.32.vec.expand = shufflevector <2 x double> %42, <2 x double> poison, <6 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1>
   %.sroa.062.32.vecblend = shufflevector <6 x double> %.sroa.062.16.vecblend, <6 x double> %.sroa.062.32.vec.expand, <6 x i32> <i32 0, i32 1, i32 2, i32 3, i32 10, i32 11>
   ret <6 x double> %.sroa.062.32.vecblend
 }

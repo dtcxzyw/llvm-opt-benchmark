@@ -526,7 +526,7 @@ invoke.cont8.i:                                   ; preds = %for.body.i315
           to label %invoke.cont26.i unwind label %lpad14.i
 
 invoke.cont26.i:                                  ; preds = %invoke.cont8.i
-  %conv.i.i.i = trunc i64 %sub.ptr.sub.i50.i to i32
+  %conv.i.i.i = trunc nuw i64 %sub.ptr.sub.i50.i to i32
   %add.i = add i32 %conv.i.i.i, 32
   %conv.i = zext i32 %lit_id.064.i to i64
   %59 = load ptr, ptr %litToOffsetVal, align 8, !noalias !26
@@ -698,7 +698,7 @@ invoke.cont83:                                    ; preds = %if.end43.thread, %_
   %tobool.not.i291 = icmp eq i32 %shl.i, 0
   %sub.i294 = call i32 @llvm.cttz.i32(i32 %shl.i, i1 true), !range !29
   %retval.0.i295 = select i1 %tobool.not.i291, i32 0, i32 %sub.i294
-  %conv87 = trunc i32 %retval.0.i295 to i8
+  %conv87 = trunc nuw nsw i32 %retval.0.i295 to i8
   %sub.ptr.div.i383 = lshr exact i64 %sub.ptr.sub.i.i367, 3
   %83 = trunc i64 %sub.ptr.div.i383 to i32
   %sub.i384 = add i32 %83, 1
@@ -710,7 +710,7 @@ invoke.cont83:                                    ; preds = %if.end43.thread, %_
   %tobool.not.i285 = icmp eq i32 %shl.i387, 0
   %sub.i288 = call i32 @llvm.cttz.i32(i32 %shl.i387, i1 true), !range !29
   %retval.0.i289 = select i1 %tobool.not.i285, i32 0, i32 %sub.i288
-  %conv96 = trunc i32 %retval.0.i289 to i8
+  %conv96 = trunc nuw nsw i32 %retval.0.i289 to i8
   %add99 = add nuw nsw i32 %retval.0.i295, 7
   %add100 = add nuw nsw i32 %add99, %retval.0.i289
   %div260 = lshr i32 %add100, 3
@@ -745,7 +745,7 @@ lpad.i.i389:                                      ; preds = %if.then.i.i388
   br label %lpad104.body
 
 invoke.cont107:                                   ; preds = %invoke.cont103
-  %conv.i.i = trunc i64 %and79 to i32
+  %conv.i.i = trunc nuw i64 %and79 to i32
   store i32 %conv.i.i, ptr %87, align 4
   %cmp.not.i.i391 = icmp ult i64 %sub, 256
   br i1 %cmp.not.i.i391, label %invoke.cont109, label %if.then.i.i392
@@ -762,7 +762,7 @@ lpad.i.i394:                                      ; preds = %if.then.i.i392
   br label %lpad104.body
 
 invoke.cont109:                                   ; preds = %invoke.cont107
-  %conv.i.i396 = trunc i64 %sub to i8
+  %conv.i.i396 = trunc nuw i64 %sub to i8
   %maxLen = getelementptr inbounds i8, ptr %87, i64 29
   store i8 %conv.i.i396, ptr %maxLen, align 1
   %cmp.not.i.i400 = icmp ult i64 %add61, 4294967296
@@ -780,12 +780,12 @@ lpad.i.i403:                                      ; preds = %if.then.i.i401
   br label %lpad104.body
 
 invoke.cont111:                                   ; preds = %invoke.cont109
-  %conv.i.i405 = trunc i64 %add61 to i32
+  %conv.i.i405 = trunc nuw i64 %add61 to i32
   %caseful113 = getelementptr inbounds i8, ptr %87, i64 4
   store i32 %conv.i.i405, ptr %caseful113, align 4
   %tobool.not.i279 = icmp eq i32 %80, 0
   %92 = call i32 @llvm.ctlz.i32(i32 %80, i1 true), !range !28
-  %93 = trunc i32 %92 to i8
+  %93 = trunc nuw nsw i32 %92 to i8
   %94 = xor i8 %93, 31
   %conv118 = select i1 %tobool.not.i279, i8 0, i8 %94
   %hashBits = getelementptr inbounds i8, ptr %87, i64 12
@@ -807,14 +807,14 @@ lpad.i.i418:                                      ; preds = %if.then.i.i416
   br label %lpad104.body
 
 invoke.cont121:                                   ; preds = %invoke.cont111
-  %conv.i.i420 = trunc i64 %add69 to i32
+  %conv.i.i420 = trunc nuw i64 %add69 to i32
   %bloomOffset = getelementptr inbounds i8, ptr %87, i64 8
   store i32 %conv.i.i420, ptr %bloomOffset, align 4
   %call124.tr = trunc i64 %sub.ptr.sub.i.i371 to i32
   %conv125 = shl i32 %call124.tr, 3
   %tobool.not.i273 = icmp eq i32 %conv125, 0
   %96 = call i32 @llvm.ctlz.i32(i32 %conv125, i1 true), !range !28
-  %97 = trunc i32 %96 to i8
+  %97 = trunc nuw nsw i32 %96 to i8
   %98 = xor i8 %97, 31
   %conv128 = select i1 %tobool.not.i273, i8 0, i8 %98
   %bloomBits = getelementptr inbounds i8, ptr %87, i64 13
@@ -834,12 +834,12 @@ lpad.i.i432:                                      ; preds = %if.then.i.i430
   br label %lpad104.body
 
 invoke.cont130:                                   ; preds = %invoke.cont121
-  %conv.i.i434 = trunc i64 %add65 to i32
+  %conv.i.i434 = trunc nuw i64 %add65 to i32
   %nocase132 = getelementptr inbounds i8, ptr %87, i64 16
   store i32 %conv.i.i434, ptr %nocase132, align 4
   %tobool.not.i267 = icmp eq i32 %83, 0
   %100 = call i32 @llvm.ctlz.i32(i32 %83, i1 true), !range !28
-  %101 = trunc i32 %100 to i8
+  %101 = trunc nuw nsw i32 %100 to i8
   %102 = xor i8 %101, 31
   %conv138 = select i1 %tobool.not.i267, i8 0, i8 %102
   %hashBits140 = getelementptr inbounds i8, ptr %87, i64 24
@@ -861,19 +861,19 @@ lpad.i.i447:                                      ; preds = %if.then.i.i445
   br label %lpad104.body
 
 invoke.cont143:                                   ; preds = %invoke.cont130
-  %conv.i.i449 = trunc i64 %add73 to i32
+  %conv.i.i449 = trunc nuw i64 %add73 to i32
   %bloomOffset146 = getelementptr inbounds i8, ptr %87, i64 20
   store i32 %conv.i.i449, ptr %bloomOffset146, align 4
   %call147.tr = trunc i64 %sub.ptr.sub.i.i375 to i32
   %conv149 = shl i32 %call147.tr, 3
   %tobool.not.i = icmp eq i32 %conv149, 0
   %104 = call i32 @llvm.ctlz.i32(i32 %conv149, i1 true), !range !28
-  %105 = trunc i32 %104 to i8
+  %105 = trunc nuw nsw i32 %104 to i8
   %106 = xor i8 %105, 31
   %conv152 = select i1 %tobool.not.i, i8 0, i8 %106
   %bloomBits154 = getelementptr inbounds i8, ptr %87, i64 25
   store i8 %conv152, ptr %bloomBits154, align 1
-  %conv.i.i463 = trunc i32 %div260 to i8
+  %conv.i.i463 = trunc nuw nsw i32 %div260 to i8
   %streamStateBytes = getelementptr inbounds i8, ptr %87, i64 28
   store i8 %conv.i.i463, ptr %streamStateBytes, align 4
   %107 = load ptr, ptr %table, align 8
@@ -1188,7 +1188,7 @@ for.body17.i.us.us.us:                            ; preds = %for.cond12.preheade
   %and.i.i.i.i.us.us.us = and i64 %8, -2314885530818453537
   %mul.i.i.i.i.us.us.us = mul i64 %and.i.i.i.i.us.us.us, 814605021516865831
   %shr.i.i.i.i.us.us.us = lshr i64 %mul.i.i.i.i.us.us.us, 32
-  %conv.i.i20.i.i.us.us.us = trunc i64 %shr.i.i.i.i.us.us.us to i32
+  %conv.i.i20.i.i.us.us.us = trunc nuw i64 %shr.i.i.i.i.us.us.us to i32
   %and.i.i.us.us.us = and i32 %sub.i.i, %conv.i.i20.i.i.us.us.us
   %rem.i.i.us.us.us = and i32 %and.i.i.us.us.us, 7
   %shl6.i.i.us.us.us = shl nuw nsw i32 1, %rem.i.i.us.us.us
@@ -1196,7 +1196,7 @@ for.body17.i.us.us.us:                            ; preds = %for.cond12.preheade
   %conv7.i.i.us.us.us = zext nneg i32 %div16.i.i.us.us.us to i64
   %add.ptr.i17.i.i.us.us.us = getelementptr inbounds i8, ptr %call5.i.i.i.i3.i.i40.i8, i64 %conv7.i.i.us.us.us
   %9 = load i8, ptr %add.ptr.i17.i.i.us.us.us, align 1, !noalias !33
-  %10 = trunc i32 %shl6.i.i.us.us.us to i8
+  %10 = trunc nuw i32 %shl6.i.i.us.us.us to i8
   %conv10.i.i.us.us.us = or i8 %9, %10
   store i8 %conv10.i.i.us.us.us, ptr %add.ptr.i17.i.i.us.us.us, align 1, !noalias !33
   %add.ptr.i.i.i41.i.us.us.us = getelementptr inbounds i8, ptr %add.ptr.i.us.us.us, i64 4
@@ -1204,7 +1204,7 @@ for.body17.i.us.us.us:                            ; preds = %for.cond12.preheade
   %and.i.i22.i.i.us.us.us = and i64 %11, -2314885530818453537
   %mul.i.i24.i.i.us.us.us = mul i64 %and.i.i22.i.i.us.us.us, 1561142276182578161
   %shr.i.i25.i.i.us.us.us = lshr i64 %mul.i.i24.i.i.us.us.us, 32
-  %conv.i.i26.i.i.us.us.us = trunc i64 %shr.i.i25.i.i.us.us.us to i32
+  %conv.i.i26.i.i.us.us.us = trunc nuw i64 %shr.i.i25.i.i.us.us.us to i32
   %and.1.i.i.us.us.us = and i32 %sub.i.i, %conv.i.i26.i.i.us.us.us
   %rem.1.i.i.us.us.us = and i32 %and.1.i.i.us.us.us, 7
   %shl6.1.i.i.us.us.us = shl nuw nsw i32 1, %rem.1.i.i.us.us.us
@@ -1212,7 +1212,7 @@ for.body17.i.us.us.us:                            ; preds = %for.cond12.preheade
   %conv7.1.i.i.us.us.us = zext nneg i32 %div16.1.i.i.us.us.us to i64
   %add.ptr.i17.1.i.i.us.us.us = getelementptr inbounds i8, ptr %call5.i.i.i.i3.i.i40.i8, i64 %conv7.1.i.i.us.us.us
   %12 = load i8, ptr %add.ptr.i17.1.i.i.us.us.us, align 1, !noalias !33
-  %13 = trunc i32 %shl6.1.i.i.us.us.us to i8
+  %13 = trunc nuw i32 %shl6.1.i.i.us.us.us to i8
   %conv10.1.i.i.us.us.us = or i8 %12, %13
   store i8 %conv10.1.i.i.us.us.us, ptr %add.ptr.i17.1.i.i.us.us.us, align 1, !noalias !33
   %add.ptr.i.i27.i.i.us.us.us = getelementptr inbounds i8, ptr %add.ptr.i.us.us.us, i64 8
@@ -1220,7 +1220,7 @@ for.body17.i.us.us.us:                            ; preds = %for.cond12.preheade
   %and.i.i29.i.i.us.us.us = and i64 %14, -2314885530818453537
   %mul.i.i31.i.i.us.us.us = mul i64 %and.i.i29.i.i.us.us.us, -9046039763781739849
   %shr.i.i32.i.i.us.us.us = lshr i64 %mul.i.i31.i.i.us.us.us, 32
-  %conv.i.i33.i.i.us.us.us = trunc i64 %shr.i.i32.i.i.us.us.us to i32
+  %conv.i.i33.i.i.us.us.us = trunc nuw i64 %shr.i.i32.i.i.us.us.us to i32
   %and.2.i.i.us.us.us = and i32 %sub.i.i, %conv.i.i33.i.i.us.us.us
   %rem.2.i.i.us.us.us = and i32 %and.2.i.i.us.us.us, 7
   %shl6.2.i.i.us.us.us = shl nuw nsw i32 1, %rem.2.i.i.us.us.us
@@ -1228,7 +1228,7 @@ for.body17.i.us.us.us:                            ; preds = %for.cond12.preheade
   %conv7.2.i.i.us.us.us = zext nneg i32 %div16.2.i.i.us.us.us to i64
   %add.ptr.i17.2.i.i.us.us.us = getelementptr inbounds i8, ptr %call5.i.i.i.i3.i.i40.i8, i64 %conv7.2.i.i.us.us.us
   %15 = load i8, ptr %add.ptr.i17.2.i.i.us.us.us, align 1, !noalias !33
-  %16 = trunc i32 %shl6.2.i.i.us.us.us to i8
+  %16 = trunc nuw i32 %shl6.2.i.i.us.us.us to i8
   %conv10.2.i.i.us.us.us = or i8 %15, %16
   store i8 %conv10.2.i.i.us.us.us, ptr %add.ptr.i17.2.i.i.us.us.us, align 1, !noalias !33
   %inc.i.us.us.us = add i32 %offset.047.i.us.us.us, 1
@@ -1260,7 +1260,7 @@ for.body17.i.us6:                                 ; preds = %for.cond12.preheade
   %21 = load i64, ptr %add.ptr.i.us9, align 1, !noalias !33
   %mul.i.i.i.i.us10 = mul i64 %21, 814605021516865831
   %shr.i.i.i.i.us11 = lshr i64 %mul.i.i.i.i.us10, 32
-  %conv.i.i20.i.i.us12 = trunc i64 %shr.i.i.i.i.us11 to i32
+  %conv.i.i20.i.i.us12 = trunc nuw i64 %shr.i.i.i.i.us11 to i32
   %and.i.i.us13 = and i32 %sub.i.i, %conv.i.i20.i.i.us12
   %rem.i.i.us14 = and i32 %and.i.i.us13, 7
   %shl6.i.i.us15 = shl nuw nsw i32 1, %rem.i.i.us14
@@ -1268,14 +1268,14 @@ for.body17.i.us6:                                 ; preds = %for.cond12.preheade
   %conv7.i.i.us17 = zext nneg i32 %div16.i.i.us16 to i64
   %add.ptr.i17.i.i.us18 = getelementptr inbounds i8, ptr %call5.i.i.i.i3.i.i40.i8, i64 %conv7.i.i.us17
   %22 = load i8, ptr %add.ptr.i17.i.i.us18, align 1, !noalias !33
-  %23 = trunc i32 %shl6.i.i.us15 to i8
+  %23 = trunc nuw i32 %shl6.i.i.us15 to i8
   %conv10.i.i.us19 = or i8 %22, %23
   store i8 %conv10.i.i.us19, ptr %add.ptr.i17.i.i.us18, align 1, !noalias !33
   %add.ptr.i.i.i41.i.us20 = getelementptr inbounds i8, ptr %add.ptr.i.us9, i64 4
   %24 = load i64, ptr %add.ptr.i.i.i41.i.us20, align 1, !noalias !33
   %mul.i.i24.i.i.us21 = mul i64 %24, 1561142276182578161
   %shr.i.i25.i.i.us22 = lshr i64 %mul.i.i24.i.i.us21, 32
-  %conv.i.i26.i.i.us23 = trunc i64 %shr.i.i25.i.i.us22 to i32
+  %conv.i.i26.i.i.us23 = trunc nuw i64 %shr.i.i25.i.i.us22 to i32
   %and.1.i.i.us24 = and i32 %sub.i.i, %conv.i.i26.i.i.us23
   %rem.1.i.i.us25 = and i32 %and.1.i.i.us24, 7
   %shl6.1.i.i.us26 = shl nuw nsw i32 1, %rem.1.i.i.us25
@@ -1283,14 +1283,14 @@ for.body17.i.us6:                                 ; preds = %for.cond12.preheade
   %conv7.1.i.i.us28 = zext nneg i32 %div16.1.i.i.us27 to i64
   %add.ptr.i17.1.i.i.us29 = getelementptr inbounds i8, ptr %call5.i.i.i.i3.i.i40.i8, i64 %conv7.1.i.i.us28
   %25 = load i8, ptr %add.ptr.i17.1.i.i.us29, align 1, !noalias !33
-  %26 = trunc i32 %shl6.1.i.i.us26 to i8
+  %26 = trunc nuw i32 %shl6.1.i.i.us26 to i8
   %conv10.1.i.i.us30 = or i8 %25, %26
   store i8 %conv10.1.i.i.us30, ptr %add.ptr.i17.1.i.i.us29, align 1, !noalias !33
   %add.ptr.i.i27.i.i.us31 = getelementptr inbounds i8, ptr %add.ptr.i.us9, i64 8
   %27 = load i64, ptr %add.ptr.i.i27.i.i.us31, align 1, !noalias !33
   %mul.i.i31.i.i.us32 = mul i64 %27, -9046039763781739849
   %shr.i.i32.i.i.us33 = lshr i64 %mul.i.i31.i.i.us32, 32
-  %conv.i.i33.i.i.us34 = trunc i64 %shr.i.i32.i.i.us33 to i32
+  %conv.i.i33.i.i.us34 = trunc nuw i64 %shr.i.i32.i.i.us33 to i32
   %and.2.i.i.us35 = and i32 %sub.i.i, %conv.i.i33.i.i.us34
   %rem.2.i.i.us36 = and i32 %and.2.i.i.us35, 7
   %shl6.2.i.i.us37 = shl nuw nsw i32 1, %rem.2.i.i.us36
@@ -1298,7 +1298,7 @@ for.body17.i.us6:                                 ; preds = %for.cond12.preheade
   %conv7.2.i.i.us39 = zext nneg i32 %div16.2.i.i.us38 to i64
   %add.ptr.i17.2.i.i.us40 = getelementptr inbounds i8, ptr %call5.i.i.i.i3.i.i40.i8, i64 %conv7.2.i.i.us39
   %28 = load i8, ptr %add.ptr.i17.2.i.i.us40, align 1, !noalias !33
-  %29 = trunc i32 %shl6.2.i.i.us37 to i8
+  %29 = trunc nuw i32 %shl6.2.i.i.us37 to i8
   %conv10.2.i.i.us41 = or i8 %28, %29
   store i8 %conv10.2.i.i.us41, ptr %add.ptr.i17.2.i.i.us40, align 1, !noalias !33
   %inc.i.us42 = add i32 %offset.047.i.us8, 1
@@ -1610,7 +1610,7 @@ for.body13.i:                                     ; preds = %if.end.i, %invoke.c
   %shr22.i.i = xor i64 %mul6.i.i, %mul.i.i
   %xor23.i.i = xor i64 %shr22.i.i, %mul7.i.i
   %xor10.i.i = lshr i64 %xor23.i.i, 32
-  %conv.i.i = trunc i64 %xor10.i.i to i32
+  %conv.i.i = trunc nuw i64 %xor10.i.i to i32
   %14 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8, !alias.scope !43
   %cmp.not9.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %cmp.not9.i.i.i.i.i, label %if.then.i.i, label %while.body.i.i.i.i.i
@@ -1843,7 +1843,7 @@ if.then.i.i.i.i:                                  ; preds = %while.body.i.i.i.i1
 
 _ZNSt17_Temporary_bufferIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES4_EC2ES6_l.exit.thread45.i.i.i: ; preds = %if.then.i.i.i.i
   %42 = lshr i64 %41, 32
-  %43 = trunc i64 %42 to i32
+  %43 = trunc nuw i64 %42 to i32
   %44 = trunc i64 %41 to i32
   store i32 %44, ptr %40, align 4
   br label %if.else.sink.split.i.i.i
@@ -2081,7 +2081,7 @@ if.then.i.i.i156.i:                               ; preds = %while.body.i.i.i.i1
 
 _ZNSt17_Temporary_bufferIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES4_EC2ES6_l.exit.thread38.i.i.i: ; preds = %if.then.i.i.i156.i
   %71 = lshr i64 %70, 32
-  %72 = trunc i64 %71 to i32
+  %72 = trunc nuw i64 %71 to i32
   %73 = trunc i64 %70 to i32
   store i32 %73, ptr %68, align 4
   br label %if.else.sink.split.i.i170.i
@@ -3697,7 +3697,7 @@ if.then5:                                         ; preds = %_ZStltIcSt11char_tr
   %14 = load i64, ptr %__i.sroa.0.036, align 4
   %__val.sroa.0.0.extract.trunc = trunc i64 %14 to i32
   %__val.sroa.4.0.extract.shift = lshr i64 %14, 32
-  %__val.sroa.4.0.extract.trunc = trunc i64 %__val.sroa.4.0.extract.shift to i32
+  %__val.sroa.4.0.extract.trunc = trunc nuw i64 %__val.sroa.4.0.extract.shift to i32
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %__i.sroa.0.036 to i64
   %sub.ptr.rhs.cast.i.i.i.i.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
@@ -3721,15 +3721,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
   %16 = mul i64 %index, -8
   %gep = getelementptr i8, ptr %invariant.gep, i64 %16
-  %wide.vec = load <4 x i32>, ptr %gep, align 4, !noalias !93
-  %strided.vec = shufflevector <4 x i32> %wide.vec, <4 x i32> poison, <2 x i32> <i32 0, i32 2>
-  %reverse = shufflevector <2 x i32> %strided.vec, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %strided.vec44 = shufflevector <4 x i32> %wide.vec, <4 x i32> poison, <2 x i32> <i32 1, i32 3>
-  %reverse45 = shufflevector <2 x i32> %strided.vec44, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
+  %interleaved.vec = load <4 x i32>, ptr %gep, align 4, !noalias !93
   %gep50 = getelementptr i8, ptr %.pn35, i64 %16
-  %reverse46 = shufflevector <2 x i32> %reverse, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %reverse47 = shufflevector <2 x i32> %reverse45, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %interleaved.vec = shufflevector <2 x i32> %reverse46, <2 x i32> %reverse47, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
   store <4 x i32> %interleaved.vec, ptr %gep50, align 4, !noalias !93
   %index.next = add nuw i64 %index, 2
   %17 = icmp eq i64 %index.next, %n.vec
@@ -3765,7 +3758,7 @@ _ZSt13move_backwardIN5boost9container12vec_iteratorIPSt4pairIjjELb0EEES6_ET0_T_S
 if.else:                                          ; preds = %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread.i.i.i.i.i, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread28.i.i.i.i.i, %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i.i.i, %lor.rhs.i.i.i.i
   %21 = load i64, ptr %__i.sroa.0.036, align 4
   %__val.sroa.5.0.extract.shift.i = lshr i64 %21, 32
-  %__val.sroa.5.0.extract.trunc.i = trunc i64 %__val.sroa.5.0.extract.shift.i to i32
+  %__val.sroa.5.0.extract.trunc.i = trunc nuw i64 %__val.sroa.5.0.extract.shift.i to i32
   %conv.i.i.i = and i64 %21, 4294967295
   br label %while.cond.i
 
@@ -5012,15 +5005,8 @@ vector.body464:                                   ; preds = %vector.body464, %ve
   %index465 = phi i64 [ 0, %vector.ph454 ], [ %index.next476, %vector.body464 ]
   %43 = mul nsw i64 %index465, -8
   %gep509 = getelementptr i8, ptr %invariant.gep508, i64 %43
-  %wide.vec468 = load <4 x i32>, ptr %gep509, align 4, !noalias !170
-  %strided.vec469 = shufflevector <4 x i32> %wide.vec468, <4 x i32> poison, <2 x i32> <i32 0, i32 2>
-  %reverse470 = shufflevector <2 x i32> %strided.vec469, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %strided.vec471 = shufflevector <4 x i32> %wide.vec468, <4 x i32> poison, <2 x i32> <i32 1, i32 3>
-  %reverse472 = shufflevector <2 x i32> %strided.vec471, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
+  %interleaved.vec475 = load <4 x i32>, ptr %gep509, align 4, !noalias !170
   %gep511 = getelementptr i8, ptr %invariant.gep510, i64 %43
-  %reverse473 = shufflevector <2 x i32> %reverse470, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %reverse474 = shufflevector <2 x i32> %reverse472, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %interleaved.vec475 = shufflevector <2 x i32> %reverse473, <2 x i32> %reverse474, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
   store <4 x i32> %interleaved.vec475, ptr %gep511, align 4, !noalias !170
   %index.next476 = add nuw nsw i64 %index465, 2
   %44 = icmp eq i64 %index.next476, %n.vec456
@@ -5180,15 +5166,8 @@ vector.body433:                                   ; preds = %vector.body433, %ve
   %index434 = phi i64 [ 0, %vector.ph423 ], [ %index.next444, %vector.body433 ]
   %66 = mul nsw i64 %index434, -8
   %gep = getelementptr i8, ptr %invariant.gep, i64 %66
-  %wide.vec437 = load <4 x i32>, ptr %gep, align 4, !noalias !184
-  %strided.vec438 = shufflevector <4 x i32> %wide.vec437, <4 x i32> poison, <2 x i32> <i32 0, i32 2>
-  %reverse = shufflevector <2 x i32> %strided.vec438, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %strided.vec439 = shufflevector <4 x i32> %wide.vec437, <4 x i32> poison, <2 x i32> <i32 1, i32 3>
-  %reverse440 = shufflevector <2 x i32> %strided.vec439, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
+  %interleaved.vec443 = load <4 x i32>, ptr %gep, align 4, !noalias !184
   %gep507 = getelementptr i8, ptr %invariant.gep506, i64 %66
-  %reverse441 = shufflevector <2 x i32> %reverse, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %reverse442 = shufflevector <2 x i32> %reverse440, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %interleaved.vec443 = shufflevector <2 x i32> %reverse441, <2 x i32> %reverse442, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
   store <4 x i32> %interleaved.vec443, ptr %gep507, align 4, !noalias !184
   %index.next444 = add nuw nsw i64 %index434, 2
   %67 = icmp eq i64 %index.next444, %n.vec425
@@ -6115,15 +6094,8 @@ vector.body137:                                   ; preds = %vector.body137, %ve
   %index138 = phi i64 [ 0, %vector.ph127 ], [ %index.next148, %vector.body137 ]
   %13 = mul nsw i64 %index138, -8
   %gep = getelementptr i8, ptr %invariant.gep, i64 %13
-  %wide.vec141 = load <4 x i32>, ptr %gep, align 4, !noalias !242
-  %strided.vec142 = shufflevector <4 x i32> %wide.vec141, <4 x i32> poison, <2 x i32> <i32 0, i32 2>
-  %reverse = shufflevector <2 x i32> %strided.vec142, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %strided.vec143 = shufflevector <4 x i32> %wide.vec141, <4 x i32> poison, <2 x i32> <i32 1, i32 3>
-  %reverse144 = shufflevector <2 x i32> %strided.vec143, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
+  %interleaved.vec147 = load <4 x i32>, ptr %gep, align 4, !noalias !242
   %gep294 = getelementptr i8, ptr %invariant.gep293, i64 %13
-  %reverse145 = shufflevector <2 x i32> %reverse, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %reverse146 = shufflevector <2 x i32> %reverse144, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %interleaved.vec147 = shufflevector <2 x i32> %reverse145, <2 x i32> %reverse146, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
   store <4 x i32> %interleaved.vec147, ptr %gep294, align 4, !noalias !242
   %index.next148 = add nuw nsw i64 %index138, 2
   %14 = icmp eq i64 %index.next148, %n.vec129
@@ -6443,15 +6415,8 @@ vector.body270:                                   ; preds = %vector.body270, %ve
   %index271 = phi i64 [ 0, %vector.ph260 ], [ %index.next282, %vector.body270 ]
   %46 = mul nsw i64 %index271, -8
   %gep296 = getelementptr i8, ptr %invariant.gep295, i64 %46
-  %wide.vec274 = load <4 x i32>, ptr %gep296, align 4, !noalias !294
-  %strided.vec275 = shufflevector <4 x i32> %wide.vec274, <4 x i32> poison, <2 x i32> <i32 0, i32 2>
-  %reverse276 = shufflevector <2 x i32> %strided.vec275, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %strided.vec277 = shufflevector <4 x i32> %wide.vec274, <4 x i32> poison, <2 x i32> <i32 1, i32 3>
-  %reverse278 = shufflevector <2 x i32> %strided.vec277, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
+  %interleaved.vec281 = load <4 x i32>, ptr %gep296, align 4, !noalias !294
   %gep298 = getelementptr i8, ptr %invariant.gep297, i64 %46
-  %reverse279 = shufflevector <2 x i32> %reverse276, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %reverse280 = shufflevector <2 x i32> %reverse278, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %interleaved.vec281 = shufflevector <2 x i32> %reverse279, <2 x i32> %reverse280, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
   store <4 x i32> %interleaved.vec281, ptr %gep298, align 4, !noalias !294
   %index.next282 = add nuw nsw i64 %index271, 2
   %47 = icmp eq i64 %index.next282, %n.vec262
@@ -6560,7 +6525,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %6 = load i64, ptr %__i.sroa.0.027.i, align 4
   %__val.sroa.0.0.extract.trunc.i = trunc i64 %6 to i32
   %__val.sroa.4.0.extract.shift.i = lshr i64 %6, 32
-  %__val.sroa.4.0.extract.trunc.i = trunc i64 %__val.sroa.4.0.extract.shift.i to i32
+  %__val.sroa.4.0.extract.trunc.i = trunc nuw i64 %__val.sroa.4.0.extract.shift.i to i32
   br i1 %retval.0.i.i.i, label %if.then4.i, label %if.else.i
 
 if.then4.i:                                       ; preds = %for.body.i
@@ -6586,15 +6551,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
   %8 = mul i64 %index, -8
   %gep = getelementptr i8, ptr %invariant.gep, i64 %8
-  %wide.vec = load <4 x i32>, ptr %gep, align 4, !noalias !309
-  %strided.vec = shufflevector <4 x i32> %wide.vec, <4 x i32> poison, <2 x i32> <i32 0, i32 2>
-  %reverse = shufflevector <2 x i32> %strided.vec, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %strided.vec48 = shufflevector <4 x i32> %wide.vec, <4 x i32> poison, <2 x i32> <i32 1, i32 3>
-  %reverse49 = shufflevector <2 x i32> %strided.vec48, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
+  %interleaved.vec = load <4 x i32>, ptr %gep, align 4, !noalias !309
   %gep54 = getelementptr i8, ptr %.pn26.i, i64 %8
-  %reverse50 = shufflevector <2 x i32> %reverse, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %reverse51 = shufflevector <2 x i32> %reverse49, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %interleaved.vec = shufflevector <2 x i32> %reverse50, <2 x i32> %reverse51, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
   store <4 x i32> %interleaved.vec, ptr %gep54, align 4, !noalias !309
   %index.next = add nuw i64 %index, 2
   %9 = icmp eq i64 %index.next, %n.vec
@@ -6967,7 +6925,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %6 = load i64, ptr %__i.sroa.0.027.i.ptr.i, align 4
   %__val.sroa.0.0.extract.trunc.i.i = trunc i64 %6 to i32
   %__val.sroa.4.0.extract.shift.i.i = lshr i64 %6, 32
-  %__val.sroa.4.0.extract.trunc.i.i = trunc i64 %__val.sroa.4.0.extract.shift.i.i to i32
+  %__val.sroa.4.0.extract.trunc.i.i = trunc nuw i64 %__val.sroa.4.0.extract.shift.i.i to i32
   br i1 %retval.0.i.i.i.i, label %if.then4.i.i, label %if.else.i.i
 
 if.then4.i.i:                                     ; preds = %for.body.i.i
@@ -6993,15 +6951,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
   %8 = mul i64 %index, -8
   %gep = getelementptr i8, ptr %invariant.gep, i64 %8
-  %wide.vec = load <4 x i32>, ptr %gep, align 4, !noalias !334
-  %strided.vec = shufflevector <4 x i32> %wide.vec, <4 x i32> poison, <2 x i32> <i32 0, i32 2>
-  %reverse = shufflevector <2 x i32> %strided.vec, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %strided.vec98 = shufflevector <4 x i32> %wide.vec, <4 x i32> poison, <2 x i32> <i32 1, i32 3>
-  %reverse99 = shufflevector <2 x i32> %strided.vec98, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
+  %interleaved.vec = load <4 x i32>, ptr %gep, align 4, !noalias !334
   %gep406 = getelementptr i8, ptr %.pn26.i.i, i64 %8
-  %reverse100 = shufflevector <2 x i32> %reverse, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %reverse101 = shufflevector <2 x i32> %reverse99, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %interleaved.vec = shufflevector <2 x i32> %reverse100, <2 x i32> %reverse101, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
   store <4 x i32> %interleaved.vec, ptr %gep406, align 4, !noalias !334
   %index.next = add nuw i64 %index, 2
   %9 = icmp eq i64 %index.next, %n.vec
@@ -7097,7 +7048,7 @@ for.body.i15.i:                                   ; preds = %for.inc.i33.i, %for
   %23 = load i64, ptr %__i.sroa.0.027.i16.i, align 4
   %__val.sroa.0.0.extract.trunc.i24.i = trunc i64 %23 to i32
   %__val.sroa.4.0.extract.shift.i25.i = lshr i64 %23, 32
-  %__val.sroa.4.0.extract.trunc.i26.i = trunc i64 %__val.sroa.4.0.extract.shift.i25.i to i32
+  %__val.sroa.4.0.extract.trunc.i26.i = trunc nuw i64 %__val.sroa.4.0.extract.shift.i25.i to i32
   br i1 %retval.0.i.i.i23.i, label %if.then4.i47.i, label %if.else.i27.i
 
 if.then4.i47.i:                                   ; preds = %for.body.i15.i
@@ -7123,15 +7074,8 @@ vector.body115:                                   ; preds = %vector.body115, %ve
   %index116 = phi i64 [ 0, %vector.ph105 ], [ %index.next127, %vector.body115 ]
   %25 = mul i64 %index116, -8
   %gep408 = getelementptr i8, ptr %invariant.gep407, i64 %25
-  %wide.vec119 = load <4 x i32>, ptr %gep408, align 4, !noalias !347
-  %strided.vec120 = shufflevector <4 x i32> %wide.vec119, <4 x i32> poison, <2 x i32> <i32 0, i32 2>
-  %reverse121 = shufflevector <2 x i32> %strided.vec120, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %strided.vec122 = shufflevector <4 x i32> %wide.vec119, <4 x i32> poison, <2 x i32> <i32 1, i32 3>
-  %reverse123 = shufflevector <2 x i32> %strided.vec122, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
+  %interleaved.vec126 = load <4 x i32>, ptr %gep408, align 4, !noalias !347
   %gep410 = getelementptr i8, ptr %.pn26.i17.i, i64 %25
-  %reverse124 = shufflevector <2 x i32> %reverse121, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %reverse125 = shufflevector <2 x i32> %reverse123, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %interleaved.vec126 = shufflevector <2 x i32> %reverse124, <2 x i32> %reverse125, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
   store <4 x i32> %interleaved.vec126, ptr %gep410, align 4, !noalias !347
   %index.next127 = add nuw i64 %index116, 2
   %26 = icmp eq i64 %index.next127, %n.vec107
@@ -8339,15 +8283,8 @@ vector.body379:                                   ; preds = %vector.body379, %ve
   %index380 = phi i64 [ 0, %vector.ph369 ], [ %index.next391, %vector.body379 ]
   %34 = mul nsw i64 %index380, -8
   %gep426 = getelementptr i8, ptr %invariant.gep425, i64 %34
-  %wide.vec383 = load <4 x i32>, ptr %gep426, align 4, !noalias !448
-  %strided.vec384 = shufflevector <4 x i32> %wide.vec383, <4 x i32> poison, <2 x i32> <i32 0, i32 2>
-  %reverse385 = shufflevector <2 x i32> %strided.vec384, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %strided.vec386 = shufflevector <4 x i32> %wide.vec383, <4 x i32> poison, <2 x i32> <i32 1, i32 3>
-  %reverse387 = shufflevector <2 x i32> %strided.vec386, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
+  %interleaved.vec390 = load <4 x i32>, ptr %gep426, align 4, !noalias !448
   %gep428 = getelementptr i8, ptr %invariant.gep427, i64 %34
-  %reverse388 = shufflevector <2 x i32> %reverse385, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %reverse389 = shufflevector <2 x i32> %reverse387, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %interleaved.vec390 = shufflevector <2 x i32> %reverse388, <2 x i32> %reverse389, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
   store <4 x i32> %interleaved.vec390, ptr %gep428, align 4, !noalias !448
   %index.next391 = add nuw nsw i64 %index380, 2
   %35 = icmp eq i64 %index.next391, %n.vec371
@@ -8455,15 +8392,8 @@ vector.body348:                                   ; preds = %vector.body348, %ve
   %index349 = phi i64 [ 0, %vector.ph338 ], [ %index.next359, %vector.body348 ]
   %46 = mul nsw i64 %index349, -8
   %gep = getelementptr i8, ptr %invariant.gep, i64 %46
-  %wide.vec352 = load <4 x i32>, ptr %gep, align 4, !noalias !462
-  %strided.vec353 = shufflevector <4 x i32> %wide.vec352, <4 x i32> poison, <2 x i32> <i32 0, i32 2>
-  %reverse = shufflevector <2 x i32> %strided.vec353, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %strided.vec354 = shufflevector <4 x i32> %wide.vec352, <4 x i32> poison, <2 x i32> <i32 1, i32 3>
-  %reverse355 = shufflevector <2 x i32> %strided.vec354, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
+  %interleaved.vec358 = load <4 x i32>, ptr %gep, align 4, !noalias !462
   %gep424 = getelementptr i8, ptr %invariant.gep423, i64 %46
-  %reverse356 = shufflevector <2 x i32> %reverse, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %reverse357 = shufflevector <2 x i32> %reverse355, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
-  %interleaved.vec358 = shufflevector <2 x i32> %reverse356, <2 x i32> %reverse357, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
   store <4 x i32> %interleaved.vec358, ptr %gep424, align 4, !noalias !462
   %index.next359 = add nuw nsw i64 %index349, 2
   %47 = icmp eq i64 %index.next359, %n.vec340
@@ -9156,7 +9086,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i = sub i64 %5, %6
   %spec.select6.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i to i32
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue221buildLongLiteralTableERKNS2_13RoseBuildImplERNS2_14RoseEngineBlobERSt6vectorINS2_15ue2_case_stringESaIS9_EEmPmSD_E3$_0EclINS_17__normal_iteratorIPS9_SB_EESJ_EEbT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue221buildLongLiteralTableERKNS2_13RoseBuildImplERNS2_14RoseEngineBlobERSt6vectorINS2_15ue2_case_stringESaIS9_EEmPmSD_E3$_0EclINS_17__normal_iteratorIPS9_SB_EESJ_EEbT_T0_.exit": ; preds = %if.then.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -9474,7 +9404,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i = sub i64 %58, %59
   %spec.select6.i.i.i.i.i.i = call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i = call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i to i32
   br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3ue221buildLongLiteralTableERKNS2_13RoseBuildImplERNS2_14RoseEngineBlobERSt6vectorINS2_15ue2_case_stringESaIS9_EEmPmSD_E3$_0EclIS9_NS_17__normal_iteratorIPS9_SB_EEEEbRT_T0_.exit.i"
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3ue221buildLongLiteralTableERKNS2_13RoseBuildImplERNS2_14RoseEngineBlobERSt6vectorINS2_15ue2_case_stringESaIS9_EEmPmSD_E3$_0EclIS9_NS_17__normal_iteratorIPS9_SB_EEEEbRT_T0_.exit.i": ; preds = %if.then.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
@@ -9739,7 +9669,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i = sub i64 %2, %3
   %spec.select6.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i to i32
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue221buildLongLiteralTableERKNS2_13RoseBuildImplERNS2_14RoseEngineBlobERSt6vectorINS2_15ue2_case_stringESaIS9_EEmPmSD_E3$_0EclINS_17__normal_iteratorIPS9_SB_EESJ_EEbT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue221buildLongLiteralTableERKNS2_13RoseBuildImplERNS2_14RoseEngineBlobERSt6vectorINS2_15ue2_case_stringESaIS9_EEmPmSD_E3$_0EclINS_17__normal_iteratorIPS9_SB_EESJ_EEbT_T0_.exit": ; preds = %if.then.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -9803,7 +9733,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i = sub i64 %10, %7
   %spec.select6.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i to i32
   br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3ue221buildLongLiteralTableERKNS2_13RoseBuildImplERNS2_14RoseEngineBlobERSt6vectorINS2_15ue2_case_stringESaIS9_EEmPmSD_E3$_0EclINS_17__normal_iteratorIPS9_SB_EEKS9_EEbT_RT0_.exit.i"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3ue221buildLongLiteralTableERKNS2_13RoseBuildImplERNS2_14RoseEngineBlobERSt6vectorINS2_15ue2_case_stringESaIS9_EEmPmSD_E3$_0EclINS_17__normal_iteratorIPS9_SB_EEKS9_EEbT_RT0_.exit.i": ; preds = %if.then.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
@@ -9882,7 +9812,7 @@ if.then.i.i.i.i.i136:                             ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i137 = sub i64 %14, %17
   %spec.select6.i.i.i.i.i.i138 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i137, i64 -2147483648)
   %retval.07.i.i.i.i.i.i139 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i138, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i140 = trunc i64 %retval.07.i.i.i.i.i.i139 to i32
+  %retval.0.i12.i.i.i.i.i140 = trunc nsw i64 %retval.07.i.i.i.i.i.i139 to i32
   br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3ue221buildLongLiteralTableERKNS2_13RoseBuildImplERNS2_14RoseEngineBlobERSt6vectorINS2_15ue2_case_stringESaIS9_EEmPmSD_E3$_0EclIKS9_NS_17__normal_iteratorIPS9_SB_EEEEbRT_T0_.exit.i"
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3ue221buildLongLiteralTableERKNS2_13RoseBuildImplERNS2_14RoseEngineBlobERSt6vectorINS2_15ue2_case_stringESaIS9_EEmPmSD_E3$_0EclIKS9_NS_17__normal_iteratorIPS9_SB_EEEEbRT_T0_.exit.i": ; preds = %if.then.i.i.i.i.i136, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i131
@@ -10856,7 +10786,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i = sub i64 %22, %23
   %spec.select6.i.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i.i to i32
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue221buildLongLiteralTableERKNS2_13RoseBuildImplERNS2_14RoseEngineBlobERSt6vectorINS2_15ue2_case_stringESaIS9_EEmPmSD_E3$_0EclINS_17__normal_iteratorIPS9_SB_EESI_EEbT_T0_.exit.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue221buildLongLiteralTableERKNS2_13RoseBuildImplERNS2_14RoseEngineBlobERSt6vectorINS2_15ue2_case_stringESaIS9_EEmPmSD_E3$_0EclINS_17__normal_iteratorIPS9_SB_EESI_EEbT_T0_.exit.i": ; preds = %if.then.i.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i
@@ -11477,7 +11407,7 @@ if.then.i.i.i.i.i211:                             ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i212 = sub i64 %128, %129
   %spec.select6.i.i.i.i.i.i213 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i212, i64 -2147483648)
   %retval.07.i.i.i.i.i.i214 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i213, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i215 = trunc i64 %retval.07.i.i.i.i.i.i214 to i32
+  %retval.0.i12.i.i.i.i.i215 = trunc nsw i64 %retval.07.i.i.i.i.i.i214 to i32
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue221buildLongLiteralTableERKNS2_13RoseBuildImplERNS2_14RoseEngineBlobERSt6vectorINS2_15ue2_case_stringESaIS9_EEmPmSD_E3$_0EclIPS9_NS_17__normal_iteratorISH_SB_EEEEbT_T0_.exit.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue221buildLongLiteralTableERKNS2_13RoseBuildImplERNS2_14RoseEngineBlobERSt6vectorINS2_15ue2_case_stringESaIS9_EEmPmSD_E3$_0EclIPS9_NS_17__normal_iteratorISH_SB_EEEEbT_T0_.exit.i": ; preds = %if.then.i.i.i.i.i211, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i206
@@ -11850,7 +11780,7 @@ if.then.i.i.i.i.i276:                             ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i277 = sub i64 %196, %193
   %spec.select6.i.i.i.i.i.i278 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i277, i64 -2147483648)
   %retval.07.i.i.i.i.i.i279 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i278, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i280 = trunc i64 %retval.07.i.i.i.i.i.i279 to i32
+  %retval.0.i12.i.i.i.i.i280 = trunc nsw i64 %retval.07.i.i.i.i.i.i279 to i32
   br label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3ue221buildLongLiteralTableERKNS2_13RoseBuildImplERNS2_14RoseEngineBlobERSt6vectorINS2_15ue2_case_stringESaIS9_EEmPmSD_E3$_0EclINS_17__normal_iteratorIPS9_SB_EEKS9_EEbT_RT0_.exit.i"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3ue221buildLongLiteralTableERKNS2_13RoseBuildImplERNS2_14RoseEngineBlobERSt6vectorINS2_15ue2_case_stringESaIS9_EEmPmSD_E3$_0EclINS_17__normal_iteratorIPS9_SB_EEKS9_EEbT_RT0_.exit.i": ; preds = %if.then.i.i.i.i.i276, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i271
@@ -11929,7 +11859,7 @@ if.then.i.i.i.i.i331:                             ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i.i332 = sub i64 %200, %203
   %spec.select6.i.i.i.i.i.i333 = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i.i332, i64 -2147483648)
   %retval.07.i.i.i.i.i.i334 = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i.i333, i64 2147483647)
-  %retval.0.i12.i.i.i.i.i335 = trunc i64 %retval.07.i.i.i.i.i.i334 to i32
+  %retval.0.i12.i.i.i.i.i335 = trunc nsw i64 %retval.07.i.i.i.i.i.i334 to i32
   br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3ue221buildLongLiteralTableERKNS2_13RoseBuildImplERNS2_14RoseEngineBlobERSt6vectorINS2_15ue2_case_stringESaIS9_EEmPmSD_E3$_0EclIKS9_NS_17__normal_iteratorIPS9_SB_EEEEbRT_T0_.exit.i"
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN3ue221buildLongLiteralTableERKNS2_13RoseBuildImplERNS2_14RoseEngineBlobERSt6vectorINS2_15ue2_case_stringESaIS9_EEmPmSD_E3$_0EclIKS9_NS_17__normal_iteratorIPS9_SB_EEEEbRT_T0_.exit.i": ; preds = %if.then.i.i.i.i.i331, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i326
@@ -12021,7 +11951,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i = sub i64 %2, %3
   %spec.select6.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i to i32
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue221buildLongLiteralTableERKNS2_13RoseBuildImplERNS2_14RoseEngineBlobERSt6vectorINS2_15ue2_case_stringESaIS9_EEmPmSD_E3$_0EclINS_17__normal_iteratorIPS9_SB_EESJ_EEbT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue221buildLongLiteralTableERKNS2_13RoseBuildImplERNS2_14RoseEngineBlobERSt6vectorINS2_15ue2_case_stringESaIS9_EEmPmSD_E3$_0EclINS_17__normal_iteratorIPS9_SB_EESJ_EEbT_T0_.exit": ; preds = %if.then.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -12518,7 +12448,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt11char_traitsI
   %sub.i.i.i.i.i = sub i64 %3, %4
   %spec.select6.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %sub.i.i.i.i.i, i64 -2147483648)
   %retval.07.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select6.i.i.i.i.i, i64 2147483647)
-  %retval.0.i12.i.i.i.i = trunc i64 %retval.07.i.i.i.i.i to i32
+  %retval.0.i12.i.i.i.i = trunc nsw i64 %retval.07.i.i.i.i.i to i32
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue221buildLongLiteralTableERKNS2_13RoseBuildImplERNS2_14RoseEngineBlobERSt6vectorINS2_15ue2_case_stringESaIS9_EEmPmSD_E3$_0EclIPS9_SH_EEbT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3ue221buildLongLiteralTableERKNS2_13RoseBuildImplERNS2_14RoseEngineBlobERSt6vectorINS2_15ue2_case_stringESaIS9_EEmPmSD_E3$_0EclIPS9_SH_EEbT_T0_.exit": ; preds = %if.then.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -14060,7 +13990,7 @@ lpad.i.i:                                         ; preds = %if.then.i.i25
   resume { ptr, i32 } %5
 
 _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE6resizeEm.exit
-  %conv.i.i = trunc i64 %add to i32
+  %conv.i.i = trunc nuw i64 %add to i32
   ret i32 %conv.i.i
 }
 

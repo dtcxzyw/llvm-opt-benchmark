@@ -1334,7 +1334,7 @@ define noundef i32 @button_pressed(ptr nocapture noundef readonly %0, double nou
   %24 = getelementptr inbounds i8, ptr %10, i64 3400
   store <4 x float> %22, ptr %23, align 4, !tbaa !38
   tail call fastcc void @_snap_to_grid(ptr noundef nonnull %10, ptr noundef nonnull %23, ptr noundef nonnull %24)
-  br label %150
+  br label %148
 
 25:                                               ; preds = %7
   %26 = getelementptr inbounds i8, ptr %10, i64 3412
@@ -1343,7 +1343,7 @@ define noundef i32 @button_pressed(ptr nocapture noundef readonly %0, double nou
   br i1 %28, label %29, label %49
 
 29:                                               ; preds = %25
-  switch i32 %4, label %90 [
+  switch i32 %4, label %88 [
     i32 2, label %37
     i32 1, label %30
   ]
@@ -1374,14 +1374,14 @@ define noundef i32 @button_pressed(ptr nocapture noundef readonly %0, double nou
   %48 = getelementptr inbounds [20 x %struct._image_box], ptr %39, i64 0, i64 %47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %48, ptr noundef nonnull align 8 dereferenceable(96) %8, i64 96, i1 false)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8)
-  br label %150
+  br label %148
 
 49:                                               ; preds = %30, %25
   %50 = phi i32 [ %27, %25 ], [ %36, %30 ]
   %51 = icmp ne i32 %50, -1
   %52 = icmp eq i32 %4, 1
   %53 = and i1 %52, %51
-  br i1 %53, label %54, label %90
+  br i1 %53, label %54, label %88
 
 54:                                               ; preds = %49
   %55 = getelementptr inbounds i8, ptr %10, i64 1352
@@ -1403,150 +1403,148 @@ define noundef i32 @button_pressed(ptr nocapture noundef readonly %0, double nou
   %66 = getelementptr inbounds i8, ptr %10, i64 3420
   %67 = fsub reassoc nsz arcp contract afn <2 x float> %62, %13
   %68 = fadd reassoc nsz arcp contract afn <2 x float> %63, %67
-  %69 = shufflevector <2 x float> %68, <2 x float> poison, <4 x i32> <i32 1, i32 0, i32 poison, i32 poison>
-  %70 = shufflevector <2 x float> %67, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %71 = shufflevector <4 x float> %69, <4 x float> %70, <4 x i32> <i32 0, i32 1, i32 5, i32 4>
-  %72 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.fabs.v4f32(<4 x float> %71)
-  %73 = fcmp reassoc nsz arcp contract afn olt <4 x float> %72, <float 2.000000e+01, float 2.000000e+01, float 2.000000e+01, float 2.000000e+01>
-  %74 = extractelement <4 x i1> %73, i64 3
-  %75 = zext i1 %74 to i32
-  %76 = or disjoint i32 %75, 4
-  %77 = extractelement <4 x i1> %73, i64 2
-  %78 = select i1 %77, i32 %76, i32 %75
-  %79 = or disjoint i32 %78, 2
-  %80 = extractelement <4 x i1> %73, i64 1
-  %81 = select i1 %80, i32 %79, i32 %78
-  store i32 %81, ptr %66, align 4, !tbaa !61
-  %82 = extractelement <4 x i1> %73, i64 0
-  br i1 %82, label %83, label %85
+  %69 = shufflevector <2 x float> %68, <2 x float> %67, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %70 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.fabs.v4f32(<4 x float> %69)
+  %71 = fcmp reassoc nsz arcp contract afn olt <4 x float> %70, <float 2.000000e+01, float 2.000000e+01, float 2.000000e+01, float 2.000000e+01>
+  %72 = extractelement <4 x i1> %71, i64 3
+  %73 = zext i1 %72 to i32
+  %74 = or disjoint i32 %73, 4
+  %75 = extractelement <4 x i1> %71, i64 2
+  %76 = select i1 %75, i32 %74, i32 %73
+  %77 = or disjoint i32 %76, 2
+  %78 = extractelement <4 x i1> %71, i64 1
+  %79 = select i1 %78, i32 %77, i32 %76
+  store i32 %79, ptr %66, align 4, !tbaa !61
+  %80 = extractelement <4 x i1> %71, i64 0
+  br i1 %80, label %81, label %83
+
+81:                                               ; preds = %54
+  %82 = or disjoint i32 %79, 8
+  br label %85
 
 83:                                               ; preds = %54
-  %84 = or disjoint i32 %81, 8
+  %84 = icmp eq i32 %79, 0
+  br i1 %84, label %85, label %87
+
+85:                                               ; preds = %83, %81
+  %86 = phi i32 [ %82, %81 ], [ 15, %83 ]
+  store i32 %86, ptr %66, align 4, !tbaa !61
   br label %87
 
-85:                                               ; preds = %54
-  %86 = icmp eq i32 %81, 0
-  br i1 %86, label %87, label %89
-
 87:                                               ; preds = %85, %83
-  %88 = phi i32 [ %84, %83 ], [ 15, %85 ]
-  store i32 %88, ptr %66, align 4, !tbaa !61
-  br label %89
-
-89:                                               ; preds = %87, %85
   tail call void @dt_control_change_cursor(i32 noundef 58) #21
-  br label %150
+  br label %148
 
-90:                                               ; preds = %49, %29
-  %91 = phi i1 [ %51, %49 ], [ true, %29 ]
-  %92 = phi i32 [ %50, %49 ], [ %27, %29 ]
-  %93 = icmp eq i32 %4, 3
-  %94 = and i1 %93, %91
-  br i1 %94, label %95, label %150
+88:                                               ; preds = %49, %29
+  %89 = phi i1 [ %51, %49 ], [ true, %29 ]
+  %90 = phi i32 [ %50, %49 ], [ %27, %29 ]
+  %91 = icmp eq i32 %4, 3
+  %92 = and i1 %91, %89
+  br i1 %92, label %93, label %148
 
-95:                                               ; preds = %90
-  %96 = getelementptr inbounds i8, ptr %10, i64 1352
-  %97 = sext i32 %92 to i64
-  %98 = getelementptr inbounds [20 x %struct._image_box], ptr %96, i64 0, i64 %97
-  %99 = load i32, ptr %98, align 8, !tbaa !59
-  %100 = icmp sgt i32 %99, 0
-  br i1 %100, label %101, label %102
+93:                                               ; preds = %88
+  %94 = getelementptr inbounds i8, ptr %10, i64 1352
+  %95 = sext i32 %90 to i64
+  %96 = getelementptr inbounds [20 x %struct._image_box], ptr %94, i64 0, i64 %95
+  %97 = load i32, ptr %96, align 8, !tbaa !59
+  %98 = icmp sgt i32 %97, 0
+  br i1 %98, label %99, label %100
 
-101:                                              ; preds = %95
-  store i32 0, ptr %98, align 8, !tbaa !59
-  br label %147
+99:                                               ; preds = %93
+  store i32 0, ptr %96, align 8, !tbaa !59
+  br label %145
 
-102:                                              ; preds = %95
-  %103 = load ptr, ptr %9, align 8, !tbaa !49
-  %104 = icmp eq i32 %92, -1
-  br i1 %104, label %147, label %105
+100:                                              ; preds = %93
+  %101 = load ptr, ptr %9, align 8, !tbaa !49
+  %102 = icmp eq i32 %90, -1
+  br i1 %102, label %145, label %103
 
-105:                                              ; preds = %102
-  %106 = icmp slt i32 %92, 19
-  br i1 %106, label %107, label %.loopexit
+103:                                              ; preds = %100
+  %104 = icmp slt i32 %90, 19
+  br i1 %104, label %105, label %.loopexit
 
-107:                                              ; preds = %105
-  %108 = getelementptr inbounds i8, ptr %103, i64 1352
-  %109 = sub nsw i64 3, %97
-  %110 = and i64 %109, 3
-  %111 = icmp eq i64 %110, 0
-  br i1 %111, label %.loopexit4, label %.preheader3
+105:                                              ; preds = %103
+  %106 = getelementptr inbounds i8, ptr %101, i64 1352
+  %107 = sub nsw i64 3, %95
+  %108 = and i64 %107, 3
+  %109 = icmp eq i64 %108, 0
+  br i1 %109, label %.loopexit4, label %.preheader3
 
-.preheader3:                                      ; preds = %107, %.preheader3
-  %112 = phi i64 [ %115, %.preheader3 ], [ %97, %107 ]
-  %113 = phi i64 [ %117, %.preheader3 ], [ 0, %107 ]
-  %114 = getelementptr inbounds [20 x %struct._image_box], ptr %108, i64 0, i64 %112
-  %115 = add nsw i64 %112, 1
-  %116 = getelementptr inbounds [20 x %struct._image_box], ptr %108, i64 0, i64 %115
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %114, ptr noundef nonnull align 8 dereferenceable(96) %116, i64 96, i1 false)
-  %117 = add nuw nsw i64 %113, 1
-  %118 = icmp eq i64 %117, %110
-  br i1 %118, label %.loopexit4, label %.preheader3, !llvm.loop !85
+.preheader3:                                      ; preds = %105, %.preheader3
+  %110 = phi i64 [ %113, %.preheader3 ], [ %95, %105 ]
+  %111 = phi i64 [ %115, %.preheader3 ], [ 0, %105 ]
+  %112 = getelementptr inbounds [20 x %struct._image_box], ptr %106, i64 0, i64 %110
+  %113 = add nsw i64 %110, 1
+  %114 = getelementptr inbounds [20 x %struct._image_box], ptr %106, i64 0, i64 %113
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %112, ptr noundef nonnull align 8 dereferenceable(96) %114, i64 96, i1 false)
+  %115 = add nuw nsw i64 %111, 1
+  %116 = icmp eq i64 %115, %108
+  br i1 %116, label %.loopexit4, label %.preheader3, !llvm.loop !85
 
-.loopexit4:                                       ; preds = %.preheader3, %107
-  %119 = phi i64 [ %97, %107 ], [ %115, %.preheader3 ]
-  %120 = add nsw i64 %97, -16
-  %121 = icmp ult i64 %120, 3
-  br i1 %121, label %.loopexit, label %.preheader
+.loopexit4:                                       ; preds = %.preheader3, %105
+  %117 = phi i64 [ %95, %105 ], [ %113, %.preheader3 ]
+  %118 = add nsw i64 %95, -16
+  %119 = icmp ult i64 %118, 3
+  br i1 %119, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %.preheader, %.loopexit4, %105
-  %122 = getelementptr inbounds i8, ptr %103, i64 3416
-  store i32 -1, ptr %122, align 8, !tbaa !6
-  %123 = getelementptr inbounds i8, ptr %103, i64 3412
-  store i32 -1, ptr %123, align 4, !tbaa !60
-  %124 = getelementptr inbounds i8, ptr %103, i64 3176
-  tail call void @dt_printing_clear_box(ptr noundef nonnull %124) #21
-  %125 = getelementptr inbounds i8, ptr %103, i64 1344
-  %126 = load i32, ptr %125, align 8, !tbaa !52
-  %127 = add nsw i32 %126, -1
-  store i32 %127, ptr %125, align 8, !tbaa !52
-  %128 = icmp sgt i32 %126, 1
-  br i1 %128, label %140, label %141
+.loopexit:                                        ; preds = %.preheader, %.loopexit4, %103
+  %120 = getelementptr inbounds i8, ptr %101, i64 3416
+  store i32 -1, ptr %120, align 8, !tbaa !6
+  %121 = getelementptr inbounds i8, ptr %101, i64 3412
+  store i32 -1, ptr %121, align 4, !tbaa !60
+  %122 = getelementptr inbounds i8, ptr %101, i64 3176
+  tail call void @dt_printing_clear_box(ptr noundef nonnull %122) #21
+  %123 = getelementptr inbounds i8, ptr %101, i64 1344
+  %124 = load i32, ptr %123, align 8, !tbaa !52
+  %125 = add nsw i32 %124, -1
+  store i32 %125, ptr %123, align 8, !tbaa !52
+  %126 = icmp sgt i32 %124, 1
+  br i1 %126, label %138, label %139
 
 .preheader:                                       ; preds = %.loopexit4, %.preheader
-  %129 = phi i64 [ %137, %.preheader ], [ %119, %.loopexit4 ]
-  %130 = getelementptr inbounds [20 x %struct._image_box], ptr %108, i64 0, i64 %129
-  %131 = add nsw i64 %129, 1
-  %132 = getelementptr inbounds [20 x %struct._image_box], ptr %108, i64 0, i64 %131
+  %127 = phi i64 [ %135, %.preheader ], [ %117, %.loopexit4 ]
+  %128 = getelementptr inbounds [20 x %struct._image_box], ptr %106, i64 0, i64 %127
+  %129 = add nsw i64 %127, 1
+  %130 = getelementptr inbounds [20 x %struct._image_box], ptr %106, i64 0, i64 %129
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %128, ptr noundef nonnull align 8 dereferenceable(96) %130, i64 96, i1 false)
+  %131 = add nsw i64 %127, 2
+  %132 = getelementptr inbounds [20 x %struct._image_box], ptr %106, i64 0, i64 %131
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %130, ptr noundef nonnull align 8 dereferenceable(96) %132, i64 96, i1 false)
-  %133 = add nsw i64 %129, 2
-  %134 = getelementptr inbounds [20 x %struct._image_box], ptr %108, i64 0, i64 %133
+  %133 = add nsw i64 %127, 3
+  %134 = getelementptr inbounds [20 x %struct._image_box], ptr %106, i64 0, i64 %133
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %132, ptr noundef nonnull align 8 dereferenceable(96) %134, i64 96, i1 false)
-  %135 = add nsw i64 %129, 3
-  %136 = getelementptr inbounds [20 x %struct._image_box], ptr %108, i64 0, i64 %135
+  %135 = add nsw i64 %127, 4
+  %136 = getelementptr inbounds [20 x %struct._image_box], ptr %106, i64 0, i64 %135
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %134, ptr noundef nonnull align 8 dereferenceable(96) %136, i64 96, i1 false)
-  %137 = add nsw i64 %129, 4
-  %138 = getelementptr inbounds [20 x %struct._image_box], ptr %108, i64 0, i64 %137
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %136, ptr noundef nonnull align 8 dereferenceable(96) %138, i64 96, i1 false)
-  %139 = icmp eq i64 %137, 19
-  br i1 %139, label %.loopexit, label %.preheader
+  %137 = icmp eq i64 %135, 19
+  br i1 %137, label %.loopexit, label %.preheader
 
-140:                                              ; preds = %.loopexit
-  store i32 0, ptr %123, align 4, !tbaa !60
-  br label %144
+138:                                              ; preds = %.loopexit
+  store i32 0, ptr %121, align 4, !tbaa !60
+  br label %142
 
-141:                                              ; preds = %.loopexit
-  %142 = getelementptr inbounds i8, ptr %103, i64 144
-  %143 = load ptr, ptr %142, align 8, !tbaa !75
-  tail call void @gtk_widget_set_sensitive(ptr noundef %143, i32 noundef 0) #21
-  br label %144
+139:                                              ; preds = %.loopexit
+  %140 = getelementptr inbounds i8, ptr %101, i64 144
+  %141 = load ptr, ptr %140, align 8, !tbaa !75
+  tail call void @gtk_widget_set_sensitive(ptr noundef %141, i32 noundef 0) #21
+  br label %142
 
-144:                                              ; preds = %141, %140
-  tail call void @_fill_box_values(ptr noundef nonnull %103)
-  %145 = getelementptr inbounds i8, ptr %103, i64 3432
-  store i32 1, ptr %145, align 8, !tbaa !53
+142:                                              ; preds = %139, %138
+  tail call void @_fill_box_values(ptr noundef nonnull %101)
+  %143 = getelementptr inbounds i8, ptr %101, i64 3432
+  store i32 1, ptr %143, align 8, !tbaa !53
   tail call void (...) @dt_control_queue_redraw_center() #21
-  %146 = load i32, ptr %26, align 4, !tbaa !60
-  br label %147
+  %144 = load i32, ptr %26, align 4, !tbaa !60
+  br label %145
 
-147:                                              ; preds = %144, %102, %101
-  %148 = phi i32 [ %146, %144 ], [ -1, %102 ], [ %92, %101 ]
-  store i32 %148, ptr %15, align 8, !tbaa !6
-  %149 = getelementptr inbounds i8, ptr %10, i64 3432
-  store i32 1, ptr %149, align 8, !tbaa !53
-  br label %150
+145:                                              ; preds = %142, %100, %99
+  %146 = phi i32 [ %144, %142 ], [ -1, %100 ], [ %90, %99 ]
+  store i32 %146, ptr %15, align 8, !tbaa !6
+  %147 = getelementptr inbounds i8, ptr %10, i64 3432
+  store i32 1, ptr %147, align 8, !tbaa !53
+  br label %148
 
-150:                                              ; preds = %147, %90, %89, %37, %19
+148:                                              ; preds = %145, %88, %87, %37, %19
   ret i32 0
 }
 

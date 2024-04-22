@@ -7644,12 +7644,8 @@ if.then.i:                                        ; preds = %entry
   %bc.i = bitcast <4 x float> %0 to <2 x i64>
   %10 = extractelement <2 x i64> %bc.i, i64 1
   %11 = bitcast i64 %10 to <2 x float>
-  %12 = shufflevector <4 x float> %3, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %13 = shufflevector <4 x float> %2, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %14 = shufflevector <4 x float> %1, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %15 = shufflevector <4 x float> %0, <4 x float> poison, <2 x i32> <i32 0, i32 1>
-  %shuffle1.i73.i = shufflevector <2 x float> %15, <2 x float> %14, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %shuffle1.i67.i = shufflevector <2 x float> %13, <2 x float> %12, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %shuffle1.i73.i = shufflevector <4 x float> %0, <4 x float> %1, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %shuffle1.i67.i = shufflevector <4 x float> %2, <4 x float> %3, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %shufp.i.i = shufflevector <4 x float> %shuffle1.i73.i, <4 x float> %shuffle1.i67.i, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
   %shufp22.i.i = shufflevector <4 x float> %shuffle1.i67.i, <4 x float> %shuffle1.i73.i, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
   %shuffle1.i61.i = shufflevector <2 x float> %11, <2 x float> %9, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
@@ -7657,88 +7653,88 @@ if.then.i:                                        ; preds = %entry
   %shufp44.i.i = shufflevector <4 x float> %shuffle1.i61.i, <4 x float> %shuffle1.i.i, <4 x i32> <i32 0, i32 2, i32 4, i32 6>
   %shufp50.i.i = shufflevector <4 x float> %shuffle1.i.i, <4 x float> %shuffle1.i61.i, <4 x i32> <i32 1, i32 3, i32 5, i32 7>
   %mul.i.i537.i.i = fmul <4 x float> %shufp44.i.i, %shufp50.i.i
-  %16 = shufflevector <4 x float> %mul.i.i537.i.i, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %mul.i.i530.i.i = fmul <4 x float> %shufp22.i.i, %16
-  %mul.i.i523.i.i = fmul <4 x float> %shufp.i.i, %16
-  %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %mul.i.i516.i.i = fmul <4 x float> %shufp22.i.i, %17
+  %12 = shufflevector <4 x float> %mul.i.i537.i.i, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %mul.i.i530.i.i = fmul <4 x float> %shufp22.i.i, %12
+  %mul.i.i523.i.i = fmul <4 x float> %shufp.i.i, %12
+  %13 = shufflevector <4 x float> %12, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %mul.i.i516.i.i = fmul <4 x float> %shufp22.i.i, %13
   %sub.i.i.i = fsub <4 x float> %mul.i.i516.i.i, %mul.i.i530.i.i
-  %mul.i.i509.i.i = fmul <4 x float> %shufp.i.i, %17
+  %mul.i.i509.i.i = fmul <4 x float> %shufp.i.i, %13
   %sub.i262.i.i = fsub <4 x float> %mul.i.i509.i.i, %mul.i.i523.i.i
-  %18 = shufflevector <4 x float> %sub.i262.i.i, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %14 = shufflevector <4 x float> %sub.i262.i.i, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %mul.i.i502.i.i = fmul <4 x float> %shufp22.i.i, %shufp44.i.i
-  %19 = shufflevector <4 x float> %mul.i.i502.i.i, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %mul.i.i495.i.i = fmul <4 x float> %shufp50.i.i, %19
+  %15 = shufflevector <4 x float> %mul.i.i502.i.i, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %mul.i.i495.i.i = fmul <4 x float> %shufp50.i.i, %15
   %add.i.i.i = fadd <4 x float> %mul.i.i495.i.i, %sub.i.i.i
-  %mul.i.i488.i.i = fmul <4 x float> %shufp.i.i, %19
-  %20 = shufflevector <4 x float> %19, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %mul.i.i481.i.i = fmul <4 x float> %shufp50.i.i, %20
+  %mul.i.i488.i.i = fmul <4 x float> %shufp.i.i, %15
+  %16 = shufflevector <4 x float> %15, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %mul.i.i481.i.i = fmul <4 x float> %shufp50.i.i, %16
   %sub.i265.i.i = fsub <4 x float> %add.i.i.i, %mul.i.i481.i.i
-  %mul.i.i474.i.i = fmul <4 x float> %shufp.i.i, %20
+  %mul.i.i474.i.i = fmul <4 x float> %shufp.i.i, %16
   %sub.i268.i.i = fsub <4 x float> %mul.i.i474.i.i, %mul.i.i488.i.i
-  %21 = shufflevector <4 x float> %sub.i268.i.i, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %22 = shufflevector <4 x float> %shufp22.i.i, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %mul.i.i467.i.i = fmul <4 x float> %22, %shufp50.i.i
-  %23 = shufflevector <4 x float> %mul.i.i467.i.i, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %24 = shufflevector <4 x float> %shufp44.i.i, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %mul.i.i460.i.i = fmul <4 x float> %24, %23
+  %17 = shufflevector <4 x float> %sub.i268.i.i, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %18 = shufflevector <4 x float> %shufp22.i.i, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %mul.i.i467.i.i = fmul <4 x float> %18, %shufp50.i.i
+  %19 = shufflevector <4 x float> %mul.i.i467.i.i, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %20 = shufflevector <4 x float> %shufp44.i.i, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %mul.i.i460.i.i = fmul <4 x float> %20, %19
   %add.i581.i.i = fadd <4 x float> %mul.i.i460.i.i, %sub.i265.i.i
-  %mul.i.i453.i.i = fmul <4 x float> %shufp.i.i, %23
-  %25 = shufflevector <4 x float> %23, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %mul.i.i446.i.i = fmul <4 x float> %24, %25
+  %mul.i.i453.i.i = fmul <4 x float> %shufp.i.i, %19
+  %21 = shufflevector <4 x float> %19, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %mul.i.i446.i.i = fmul <4 x float> %20, %21
   %sub.i271.i.i = fsub <4 x float> %add.i581.i.i, %mul.i.i446.i.i
-  %mul.i.i439.i.i = fmul <4 x float> %shufp.i.i, %25
+  %mul.i.i439.i.i = fmul <4 x float> %shufp.i.i, %21
   %sub.i274.i.i = fsub <4 x float> %mul.i.i439.i.i, %mul.i.i453.i.i
-  %26 = shufflevector <4 x float> %sub.i274.i.i, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %22 = shufflevector <4 x float> %sub.i274.i.i, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %mul.i.i432.i.i = fmul <4 x float> %shufp.i.i, %shufp22.i.i
-  %27 = shufflevector <4 x float> %mul.i.i432.i.i, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %mul.i.i425.i.i = fmul <4 x float> %27, %shufp50.i.i
-  %add.i584.i.i = fadd <4 x float> %mul.i.i425.i.i, %26
-  %mul.i.i418.i.i = fmul <4 x float> %27, %24
-  %sub.i277.i.i = fsub <4 x float> %mul.i.i418.i.i, %21
-  %28 = shufflevector <4 x float> %27, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %mul.i.i411.i.i = fmul <4 x float> %shufp50.i.i, %28
+  %23 = shufflevector <4 x float> %mul.i.i432.i.i, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %mul.i.i425.i.i = fmul <4 x float> %23, %shufp50.i.i
+  %add.i584.i.i = fadd <4 x float> %mul.i.i425.i.i, %22
+  %mul.i.i418.i.i = fmul <4 x float> %23, %20
+  %sub.i277.i.i = fsub <4 x float> %mul.i.i418.i.i, %17
+  %24 = shufflevector <4 x float> %23, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %mul.i.i411.i.i = fmul <4 x float> %shufp50.i.i, %24
   %sub.i280.i.i = fsub <4 x float> %mul.i.i411.i.i, %add.i584.i.i
-  %mul.i.i404.i.i = fmul <4 x float> %28, %24
+  %mul.i.i404.i.i = fmul <4 x float> %24, %20
   %sub.i283.i.i = fsub <4 x float> %sub.i277.i.i, %mul.i.i404.i.i
   %mul.i.i397.i.i = fmul <4 x float> %shufp.i.i, %shufp50.i.i
-  %29 = shufflevector <4 x float> %mul.i.i397.i.i, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %mul.i.i390.i.i = fmul <4 x float> %24, %29
-  %sub.i286.i.i = fsub <4 x float> %18, %mul.i.i390.i.i
-  %mul.i.i383.i.i = fmul <4 x float> %shufp22.i.i, %29
+  %25 = shufflevector <4 x float> %mul.i.i397.i.i, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %mul.i.i390.i.i = fmul <4 x float> %20, %25
+  %sub.i286.i.i = fsub <4 x float> %14, %mul.i.i390.i.i
+  %mul.i.i383.i.i = fmul <4 x float> %shufp22.i.i, %25
   %add.i587.i.i = fadd <4 x float> %mul.i.i383.i.i, %sub.i280.i.i
-  %30 = shufflevector <4 x float> %29, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %mul.i.i376.i.i = fmul <4 x float> %24, %30
+  %26 = shufflevector <4 x float> %25, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %mul.i.i376.i.i = fmul <4 x float> %20, %26
   %add.i590.i.i = fadd <4 x float> %mul.i.i376.i.i, %sub.i286.i.i
-  %mul.i.i369.i.i = fmul <4 x float> %shufp22.i.i, %30
+  %mul.i.i369.i.i = fmul <4 x float> %shufp22.i.i, %26
   %sub.i289.i.i = fsub <4 x float> %add.i587.i.i, %mul.i.i369.i.i
-  %mul.i.i362.i.i = fmul <4 x float> %shufp.i.i, %24
-  %31 = shufflevector <4 x float> %mul.i.i362.i.i, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %mul.i.i355.i.i = fmul <4 x float> %shufp50.i.i, %31
+  %mul.i.i362.i.i = fmul <4 x float> %shufp.i.i, %20
+  %27 = shufflevector <4 x float> %mul.i.i362.i.i, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %mul.i.i355.i.i = fmul <4 x float> %shufp50.i.i, %27
   %add.i593.i.i = fadd <4 x float> %mul.i.i355.i.i, %add.i590.i.i
-  %mul.i.i348.i.i = fmul <4 x float> %shufp22.i.i, %31
+  %mul.i.i348.i.i = fmul <4 x float> %shufp22.i.i, %27
   %sub.i292.i.i = fsub <4 x float> %sub.i283.i.i, %mul.i.i348.i.i
-  %32 = shufflevector <4 x float> %31, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %mul.i.i341.i.i = fmul <4 x float> %shufp50.i.i, %32
+  %28 = shufflevector <4 x float> %27, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
+  %mul.i.i341.i.i = fmul <4 x float> %shufp50.i.i, %28
   %sub.i295.i.i = fsub <4 x float> %add.i593.i.i, %mul.i.i341.i.i
-  %mul.i.i334.i.i = fmul <4 x float> %shufp22.i.i, %32
+  %mul.i.i334.i.i = fmul <4 x float> %shufp22.i.i, %28
   %add.i596.i.i = fadd <4 x float> %mul.i.i334.i.i, %sub.i292.i.i
   %mul.i.i327.i.i = fmul <4 x float> %shufp.i.i, %sub.i271.i.i
-  %33 = shufflevector <4 x float> %mul.i.i327.i.i, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
-  %add.i599.i.i = fadd <4 x float> %mul.i.i327.i.i, %33
+  %29 = shufflevector <4 x float> %mul.i.i327.i.i, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
+  %add.i599.i.i = fadd <4 x float> %mul.i.i327.i.i, %29
   %shift = shufflevector <4 x float> %add.i599.i.i, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %34 = fadd <4 x float> %shift, %add.i599.i.i
-  %vecins.i197.i = shufflevector <4 x float> %34, <4 x float> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
-  %35 = tail call noundef <4 x float> @llvm.x86.sse.rcp.ss(<4 x float> %vecins.i197.i)
-  %36 = fadd <4 x float> %35, %35
-  %37 = fmul <4 x float> %35, %35
-  %38 = fmul <4 x float> %34, %37
-  %39 = fsub <4 x float> %36, %38
-  %40 = shufflevector <4 x float> %39, <4 x float> poison, <4 x i32> zeroinitializer
-  %mul.i.i320.i.i = fmul <4 x float> %sub.i271.i.i, %40
-  %mul.i.i313.i.i = fmul <4 x float> %sub.i295.i.i, %40
-  %mul.i.i306.i.i = fmul <4 x float> %sub.i289.i.i, %40
-  %mul.i.i.i.i = fmul <4 x float> %add.i596.i.i, %40
+  %30 = fadd <4 x float> %shift, %add.i599.i.i
+  %vecins.i197.i = shufflevector <4 x float> %30, <4 x float> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
+  %31 = tail call noundef <4 x float> @llvm.x86.sse.rcp.ss(<4 x float> %vecins.i197.i)
+  %32 = fadd <4 x float> %31, %31
+  %33 = fmul <4 x float> %31, %31
+  %34 = fmul <4 x float> %30, %33
+  %35 = fsub <4 x float> %32, %34
+  %36 = shufflevector <4 x float> %35, <4 x float> poison, <4 x i32> zeroinitializer
+  %mul.i.i320.i.i = fmul <4 x float> %sub.i271.i.i, %36
+  %mul.i.i313.i.i = fmul <4 x float> %sub.i295.i.i, %36
+  %mul.i.i306.i.i = fmul <4 x float> %sub.i289.i.i, %36
+  %mul.i.i.i.i = fmul <4 x float> %add.i596.i.i, %36
   store <4 x float> %mul.i.i320.i.i, ptr %m_M.i, align 16
   store <4 x float> %mul.i.i313.i.i, ptr %arrayidx2.i.i, align 16
   store <4 x float> %mul.i.i306.i.i, ptr %arrayidx4.i.i, align 16
@@ -7753,28 +7749,28 @@ invoke.cont:                                      ; preds = %if.then.i, %entry
           to label %_ZNSt10shared_ptrIN18OpenImageIO_v2_6_014ColorProcessorEEC2INS0_21ColorProcessor_MatrixEvEEPT_.exit unwind label %lpad.i.i.i.i
 
 lpad.i.i.i.i:                                     ; preds = %invoke.cont
-  %41 = landingpad { ptr, i32 }
+  %37 = landingpad { ptr, i32 }
           catch ptr null
-  %42 = extractvalue { ptr, i32 } %41, 0
-  %43 = tail call ptr @__cxa_begin_catch(ptr %42) #28
+  %38 = extractvalue { ptr, i32 } %37, 0
+  %39 = tail call ptr @__cxa_begin_catch(ptr %38) #28
   tail call void @_ZdlPv(ptr noundef nonnull %call) #29
   invoke void @__cxa_rethrow() #30
           to label %unreachable.i.i.i.i unwind label %lpad3.i.i.i.i
 
 lpad3.i.i.i.i:                                    ; preds = %lpad.i.i.i.i
-  %44 = landingpad { ptr, i32 }
+  %40 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume.i.i.i.i unwind label %terminate.lpad.i.i.i.i
 
 eh.resume.i.i.i.i:                                ; preds = %lpad3.i.i.i.i
-  resume { ptr, i32 } %44
+  resume { ptr, i32 } %40
 
 terminate.lpad.i.i.i.i:                           ; preds = %lpad3.i.i.i.i
-  %45 = landingpad { ptr, i32 }
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  tail call void @__clang_call_terminate(ptr %46) #32
+  %42 = extractvalue { ptr, i32 } %41, 0
+  tail call void @__clang_call_terminate(ptr %42) #32
   unreachable
 
 unreachable.i.i.i.i:                              ; preds = %lpad.i.i.i.i

@@ -1701,7 +1701,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %101 = shl nuw nsw i64 %95, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep, ptr align 4 %scevgep78, i64 %101, i1 false), !tbaa !13
   %102 = or disjoint i64 %93, %95
-  %103 = trunc i64 %95 to i8
+  %103 = trunc nuw nsw i64 %95 to i8
   %104 = add i8 %94, %103
   br label %.loopexit60
 
@@ -1957,7 +1957,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %286 = shl nuw nsw i64 %279, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep82, ptr align 4 %scevgep83, i64 %286, i1 false), !tbaa !13
   %287 = or disjoint i64 %277, %279
-  %288 = trunc i64 %279 to i8
+  %288 = trunc nuw nsw i64 %279 to i8
   %289 = add i8 %278, %288
   br label %.loopexit55
 
@@ -2253,7 +2253,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %495 = shl nuw nsw i64 %488, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %scevgep87, ptr align 4 %scevgep88, i64 %495, i1 false), !tbaa !13
   %496 = or disjoint i64 %486, %488
-  %497 = trunc i64 %488 to i8
+  %497 = trunc nuw nsw i64 %488 to i8
   %498 = add i8 %487, %497
   br label %.loopexit50
 
@@ -3215,7 +3215,7 @@ define void @init_pipe(ptr nocapture noundef readonly %0, ptr nocapture noundef 
   br i1 %62, label %.loopexit15.loopexit, label %.preheader14, !llvm.loop !104
 
 .loopexit15.loopexit:                             ; preds = %.preheader14
-  %63 = trunc i64 %indvars.iv.next to i8
+  %63 = trunc nuw i64 %indvars.iv.next to i8
   br label %.loopexit15
 
 .loopexit15:                                      ; preds = %.loopexit15.loopexit, %49
@@ -3319,7 +3319,7 @@ define void @init_pipe(ptr nocapture noundef readonly %0, ptr nocapture noundef 
   br i1 %124, label %.loopexit11.loopexit, label %.preheader10, !llvm.loop !107
 
 .loopexit11.loopexit:                             ; preds = %.preheader10
-  %125 = trunc i64 %indvars.iv.next36 to i8
+  %125 = trunc nuw i64 %indvars.iv.next36 to i8
   br label %.loopexit11
 
 .loopexit11:                                      ; preds = %.loopexit11.loopexit, %111
@@ -3485,7 +3485,7 @@ define void @init_pipe(ptr nocapture noundef readonly %0, ptr nocapture noundef 
   br i1 %237, label %.loopexit7.loopexit, label %.preheader6, !llvm.loop !110
 
 .loopexit7.loopexit:                              ; preds = %.preheader6
-  %238 = trunc i64 %indvars.iv.next40 to i8
+  %238 = trunc nuw i64 %indvars.iv.next40 to i8
   br label %.loopexit7
 
 .loopexit7:                                       ; preds = %.loopexit7.loopexit, %224
@@ -4042,7 +4042,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %66, label %.loopexit16.loopexit, label %.preheader15, !llvm.loop !133
 
 .loopexit16.loopexit:                             ; preds = %.preheader15
-  %67 = trunc i64 %indvars.iv.next to i8
+  %67 = trunc nuw i64 %indvars.iv.next to i8
   br label %.loopexit16
 
 .loopexit16:                                      ; preds = %.loopexit16.loopexit, %53
@@ -4148,7 +4148,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %130, label %.loopexit12.loopexit, label %.preheader11, !llvm.loop !135
 
 .loopexit12.loopexit:                             ; preds = %.preheader11
-  %131 = trunc i64 %indvars.iv.next37 to i8
+  %131 = trunc nuw i64 %indvars.iv.next37 to i8
   br label %.loopexit12
 
 .loopexit12:                                      ; preds = %.loopexit12.loopexit, %117
@@ -4316,7 +4316,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %245, label %.loopexit8.loopexit, label %.preheader7, !llvm.loop !138
 
 .loopexit8.loopexit:                              ; preds = %.preheader7
-  %246 = trunc i64 %indvars.iv.next41 to i8
+  %246 = trunc nuw i64 %indvars.iv.next41 to i8
   br label %.loopexit8
 
 .loopexit8:                                       ; preds = %.loopexit8.loopexit, %232
@@ -4838,7 +4838,7 @@ define internal noundef i32 @dt_iop_tonecurve_draw(ptr noundef %0, ptr noundef %
   br i1 %118, label %.loopexit69.loopexit, label %.preheader68, !llvm.loop !160
 
 .loopexit69.loopexit:                             ; preds = %.preheader68
-  %119 = trunc i64 %indvars.iv.next to i8
+  %119 = trunc nuw i64 %indvars.iv.next to i8
   br label %.loopexit69
 
 .loopexit69:                                      ; preds = %.loopexit69.loopexit, %105
@@ -7570,7 +7570,7 @@ define internal noundef i32 @dt_iop_tonecurve_motion_notify(ptr noundef %0, ptr 
   %18 = icmp ne i32 %17, 0
   %19 = icmp ne i32 %10, 0
   %20 = and i1 %19, %18
-  br i1 %20, label %409, label %21
+  br i1 %20, label %395, label %21
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 14), align 8, !tbaa !144
@@ -7686,7 +7686,7 @@ define internal noundef i32 @dt_iop_tonecurve_motion_notify(ptr noundef %0, ptr 
   %102 = insertelement <2 x float> poison, float %52, i64 0
   %103 = insertelement <2 x float> %102, float %63, i64 1
   %104 = and i64 %96, 2147483644
-  br label %356
+  br label %342
 
 105:                                              ; preds = %93
   %106 = fadd reassoc nsz arcp contract afn float %65, 1.000000e+00
@@ -7879,13 +7879,13 @@ define internal noundef i32 @dt_iop_tonecurve_motion_notify(ptr noundef %0, ptr 
   %248 = phi float [ %244, %235 ], [ %234, %224 ], [ %223, %221 ]
   %249 = fsub reassoc nsz arcp contract afn float %246, %248
   call fastcc void @_move_point_internal(ptr noundef nonnull %2, ptr noundef %0, float noundef %247, float noundef %249, i32 noundef %88)
-  br label %415
+  br label %401
 
 250:                                              ; preds = %147
   %251 = icmp slt i32 %14, 20
   %252 = icmp eq i32 %149, -1
   %253 = and i1 %251, %252
-  br i1 %253, label %254, label %409
+  br i1 %253, label %254, label %395
 
 254:                                              ; preds = %250
   %255 = load float, ptr %15, align 4, !tbaa !15
@@ -7939,179 +7939,165 @@ define internal noundef i32 @dt_iop_tonecurve_motion_notify(ptr noundef %0, ptr 
   br label %284
 
 284:                                              ; preds = %284, %282
-  %285 = phi i64 [ 0, %282 ], [ %308, %284 ]
+  %285 = phi i64 [ 0, %282 ], [ %294, %284 ]
   %286 = sub i64 %278, %285
   %287 = getelementptr %struct.dt_iop_tonecurve_node_t, ptr %15, i64 %286
   %288 = getelementptr i8, ptr %287, i64 -64
   %289 = getelementptr i8, ptr %287, i64 -128
   %290 = load <16 x float>, ptr %288, align 4, !tbaa !13
   %291 = load <16 x float>, ptr %289, align 4, !tbaa !13
-  %292 = shufflevector <16 x float> %290, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %293 = shufflevector <8 x float> %292, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %294 = shufflevector <16 x float> %291, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %295 = shufflevector <8 x float> %294, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %296 = shufflevector <16 x float> %290, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %297 = shufflevector <8 x float> %296, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %298 = shufflevector <16 x float> %291, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %299 = shufflevector <8 x float> %298, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %300 = getelementptr inbounds i8, ptr %287, i64 -56
-  %301 = getelementptr i8, ptr %287, i64 -120
-  %302 = shufflevector <8 x float> %293, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %303 = shufflevector <8 x float> %297, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %304 = shufflevector <8 x float> %302, <8 x float> %303, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %304, ptr %300, align 4, !tbaa !13
-  %305 = shufflevector <8 x float> %295, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %306 = shufflevector <8 x float> %299, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %307 = shufflevector <8 x float> %305, <8 x float> %306, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %307, ptr %301, align 4, !tbaa !13
-  %308 = add nuw i64 %285, 16
-  %309 = icmp eq i64 %308, %283
-  br i1 %309, label %310, label %284, !llvm.loop !222
+  %292 = getelementptr inbounds i8, ptr %287, i64 -56
+  %293 = getelementptr i8, ptr %287, i64 -120
+  store <16 x float> %290, ptr %292, align 4, !tbaa !13
+  store <16 x float> %291, ptr %293, align 4, !tbaa !13
+  %294 = add nuw i64 %285, 16
+  %295 = icmp eq i64 %294, %283
+  br i1 %295, label %296, label %284, !llvm.loop !222
 
-310:                                              ; preds = %284
-  %311 = sub nsw i64 %278, %283
-  %312 = icmp eq i64 %280, %283
-  br i1 %312, label %.loopexit29, label %.preheader
+296:                                              ; preds = %284
+  %297 = sub nsw i64 %278, %283
+  %298 = icmp eq i64 %280, %283
+  br i1 %298, label %.loopexit29, label %.preheader
 
-.preheader:                                       ; preds = %310, %277
-  %.ph = phi i64 [ %311, %310 ], [ %278, %277 ]
-  br label %313
+.preheader:                                       ; preds = %296, %277
+  %.ph = phi i64 [ %297, %296 ], [ %278, %277 ]
+  br label %299
 
-313:                                              ; preds = %.preheader, %313
-  %314 = phi i64 [ %318, %313 ], [ %.ph, %.preheader ]
-  %315 = getelementptr %struct.dt_iop_tonecurve_node_t, ptr %15, i64 %314
-  %316 = getelementptr i8, ptr %315, i64 -8
-  %317 = load <2 x float>, ptr %316, align 4, !tbaa !13
-  store <2 x float> %317, ptr %315, align 4, !tbaa !13
-  %318 = add nsw i64 %314, -1
-  %319 = icmp sgt i64 %318, %279
-  br i1 %319, label %313, label %.loopexit29, !llvm.loop !223
+299:                                              ; preds = %.preheader, %299
+  %300 = phi i64 [ %304, %299 ], [ %.ph, %.preheader ]
+  %301 = getelementptr %struct.dt_iop_tonecurve_node_t, ptr %15, i64 %300
+  %302 = getelementptr i8, ptr %301, i64 -8
+  %303 = load <2 x float>, ptr %302, align 4, !tbaa !13
+  store <2 x float> %303, ptr %301, align 4, !tbaa !13
+  %304 = add nsw i64 %300, -1
+  %305 = icmp sgt i64 %304, %279
+  br i1 %305, label %299, label %.loopexit29, !llvm.loop !223
 
-.loopexit29:                                      ; preds = %313, %310, %.loopexit30
-  %320 = phi i32 [ %275, %.loopexit30 ], [ %273, %310 ], [ %273, %313 ]
-  %321 = phi i64 [ %276, %.loopexit30 ], [ %279, %310 ], [ %279, %313 ]
-  %322 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %15, i64 %321
-  store float %85, ptr %322, align 4, !tbaa !15
-  %323 = getelementptr inbounds i8, ptr %322, i64 4
-  store float %86, ptr %323, align 4, !tbaa !17
-  %324 = add nsw i32 %257, 1
-  store i32 %324, ptr %13, align 4, !tbaa !10
-  store i32 %320, ptr %148, align 8, !tbaa !141
-  %325 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !211
-  %326 = getelementptr inbounds %struct._GtkWidget, ptr %0, i64 %12
-  call void @dt_dev_add_history_item_target(ptr noundef %325, ptr noundef %2, i32 noundef 1, ptr noundef %326) #22
-  br label %409
+.loopexit29:                                      ; preds = %299, %296, %.loopexit30
+  %306 = phi i32 [ %275, %.loopexit30 ], [ %273, %296 ], [ %273, %299 ]
+  %307 = phi i64 [ %276, %.loopexit30 ], [ %279, %296 ], [ %279, %299 ]
+  %308 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %15, i64 %307
+  store float %85, ptr %308, align 4, !tbaa !15
+  %309 = getelementptr inbounds i8, ptr %308, i64 4
+  store float %86, ptr %309, align 4, !tbaa !17
+  %310 = add nsw i32 %257, 1
+  store i32 %310, ptr %13, align 4, !tbaa !10
+  store i32 %306, ptr %148, align 8, !tbaa !141
+  %311 = load ptr, ptr getelementptr inbounds (%struct.darktable_t, ptr @darktable, i64 0, i32 9), align 8, !tbaa !211
+  %312 = getelementptr inbounds %struct._GtkWidget, ptr %0, i64 %12
+  call void @dt_dev_add_history_item_target(ptr noundef %311, ptr noundef %2, i32 noundef 1, ptr noundef %312) #22
+  br label %395
 
-.loopexit28:                                      ; preds = %356, %97
-  %327 = phi i32 [ undef, %97 ], [ %406, %356 ]
-  %328 = phi i64 [ 0, %97 ], [ %104, %356 ]
-  %329 = phi i32 [ -1, %97 ], [ %406, %356 ]
-  %330 = phi float [ 0x3F5A36E2E0000000, %97 ], [ %404, %356 ]
-  %331 = icmp eq i64 %98, 0
-  br i1 %331, label %.loopexit, label %332
+.loopexit28:                                      ; preds = %342, %97
+  %313 = phi i32 [ undef, %97 ], [ %392, %342 ]
+  %314 = phi i64 [ 0, %97 ], [ %104, %342 ]
+  %315 = phi i32 [ -1, %97 ], [ %392, %342 ]
+  %316 = phi float [ 0x3F5A36E2E0000000, %97 ], [ %390, %342 ]
+  %317 = icmp eq i64 %98, 0
+  br i1 %317, label %.loopexit, label %318
 
-332:                                              ; preds = %.loopexit28
-  %333 = insertelement <2 x float> poison, float %52, i64 0
-  %334 = insertelement <2 x float> %333, float %63, i64 1
-  br label %335
+318:                                              ; preds = %.loopexit28
+  %319 = insertelement <2 x float> poison, float %52, i64 0
+  %320 = insertelement <2 x float> %319, float %63, i64 1
+  br label %321
 
-335:                                              ; preds = %335, %332
-  %336 = phi i64 [ %351, %335 ], [ %328, %332 ]
-  %337 = phi i32 [ %350, %335 ], [ %329, %332 ]
-  %338 = phi float [ %348, %335 ], [ %330, %332 ]
-  %339 = phi i64 [ %352, %335 ], [ 0, %332 ]
-  %340 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %15, i64 %336
-  %341 = load <2 x float>, ptr %340, align 4, !tbaa !13
-  %342 = fsub reassoc nsz arcp contract afn <2 x float> %334, %341
-  %343 = fmul reassoc nsz arcp contract afn <2 x float> %342, %342
-  %344 = shufflevector <2 x float> %343, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %345 = fadd reassoc nsz arcp contract afn <2 x float> %344, %343
-  %346 = extractelement <2 x float> %345, i64 0
-  %347 = fcmp reassoc nsz arcp contract afn olt float %346, %338
-  %348 = select i1 %347, float %346, float %338
-  %349 = trunc i64 %336 to i32
-  %350 = select i1 %347, i32 %349, i32 %337
-  %351 = add nuw nsw i64 %336, 1
-  %352 = add nuw nsw i64 %339, 1
-  %353 = icmp eq i64 %352, %98
-  br i1 %353, label %.loopexit, label %335, !llvm.loop !224
+321:                                              ; preds = %321, %318
+  %322 = phi i64 [ %337, %321 ], [ %314, %318 ]
+  %323 = phi i32 [ %336, %321 ], [ %315, %318 ]
+  %324 = phi float [ %334, %321 ], [ %316, %318 ]
+  %325 = phi i64 [ %338, %321 ], [ 0, %318 ]
+  %326 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %15, i64 %322
+  %327 = load <2 x float>, ptr %326, align 4, !tbaa !13
+  %328 = fsub reassoc nsz arcp contract afn <2 x float> %320, %327
+  %329 = fmul reassoc nsz arcp contract afn <2 x float> %328, %328
+  %330 = shufflevector <2 x float> %329, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %331 = fadd reassoc nsz arcp contract afn <2 x float> %330, %329
+  %332 = extractelement <2 x float> %331, i64 0
+  %333 = fcmp reassoc nsz arcp contract afn olt float %332, %324
+  %334 = select i1 %333, float %332, float %324
+  %335 = trunc i64 %322 to i32
+  %336 = select i1 %333, i32 %335, i32 %323
+  %337 = add nuw nsw i64 %322, 1
+  %338 = add nuw nsw i64 %325, 1
+  %339 = icmp eq i64 %338, %98
+  br i1 %339, label %.loopexit, label %321, !llvm.loop !224
 
-.loopexit:                                        ; preds = %335, %135, %.loopexit28, %91
-  %354 = phi i32 [ -1, %91 ], [ %327, %.loopexit28 ], [ %144, %135 ], [ %350, %335 ]
-  %355 = getelementptr inbounds i8, ptr %6, i64 128
-  store i32 %354, ptr %355, align 8, !tbaa !141
-  br label %409
+.loopexit:                                        ; preds = %321, %135, %.loopexit28, %91
+  %340 = phi i32 [ -1, %91 ], [ %313, %.loopexit28 ], [ %144, %135 ], [ %336, %321 ]
+  %341 = getelementptr inbounds i8, ptr %6, i64 128
+  store i32 %340, ptr %341, align 8, !tbaa !141
+  br label %395
 
-356:                                              ; preds = %356, %100
-  %357 = phi i64 [ 0, %100 ], [ %407, %356 ]
-  %358 = phi i32 [ -1, %100 ], [ %406, %356 ]
-  %359 = phi float [ 0x3F5A36E2E0000000, %100 ], [ %404, %356 ]
-  %360 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %15, i64 %357
-  %361 = load <2 x float>, ptr %360, align 4, !tbaa !13
-  %362 = fsub reassoc nsz arcp contract afn <2 x float> %103, %361
-  %363 = fmul reassoc nsz arcp contract afn <2 x float> %362, %362
-  %364 = shufflevector <2 x float> %363, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %365 = fadd reassoc nsz arcp contract afn <2 x float> %364, %363
-  %366 = extractelement <2 x float> %365, i64 0
-  %367 = fcmp reassoc nsz arcp contract afn olt float %366, %359
-  %368 = select i1 %367, float %366, float %359
-  %369 = trunc i64 %357 to i32
-  %370 = select i1 %367, i32 %369, i32 %358
-  %371 = or disjoint i64 %357, 1
-  %372 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %15, i64 %371
-  %373 = load <2 x float>, ptr %372, align 4, !tbaa !13
-  %374 = fsub reassoc nsz arcp contract afn <2 x float> %103, %373
-  %375 = fmul reassoc nsz arcp contract afn <2 x float> %374, %374
-  %376 = shufflevector <2 x float> %375, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %377 = fadd reassoc nsz arcp contract afn <2 x float> %376, %375
-  %378 = extractelement <2 x float> %377, i64 0
-  %379 = fcmp reassoc nsz arcp contract afn olt float %378, %368
-  %380 = select i1 %379, float %378, float %368
-  %381 = trunc i64 %371 to i32
-  %382 = select i1 %379, i32 %381, i32 %370
-  %383 = or disjoint i64 %357, 2
-  %384 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %15, i64 %383
-  %385 = load <2 x float>, ptr %384, align 4, !tbaa !13
-  %386 = fsub reassoc nsz arcp contract afn <2 x float> %103, %385
-  %387 = fmul reassoc nsz arcp contract afn <2 x float> %386, %386
-  %388 = shufflevector <2 x float> %387, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %389 = fadd reassoc nsz arcp contract afn <2 x float> %388, %387
-  %390 = extractelement <2 x float> %389, i64 0
-  %391 = fcmp reassoc nsz arcp contract afn olt float %390, %380
-  %392 = select i1 %391, float %390, float %380
-  %393 = trunc i64 %383 to i32
-  %394 = select i1 %391, i32 %393, i32 %382
-  %395 = or disjoint i64 %357, 3
-  %396 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %15, i64 %395
-  %397 = load <2 x float>, ptr %396, align 4, !tbaa !13
-  %398 = fsub reassoc nsz arcp contract afn <2 x float> %103, %397
-  %399 = fmul reassoc nsz arcp contract afn <2 x float> %398, %398
-  %400 = shufflevector <2 x float> %399, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %401 = fadd reassoc nsz arcp contract afn <2 x float> %400, %399
-  %402 = extractelement <2 x float> %401, i64 0
-  %403 = fcmp reassoc nsz arcp contract afn olt float %402, %392
-  %404 = select i1 %403, float %402, float %392
-  %405 = trunc i64 %395 to i32
-  %406 = select i1 %403, i32 %405, i32 %394
-  %407 = add nuw nsw i64 %357, 4
-  %408 = icmp eq i64 %407, %101
-  br i1 %408, label %.loopexit28, label %356
+342:                                              ; preds = %342, %100
+  %343 = phi i64 [ 0, %100 ], [ %393, %342 ]
+  %344 = phi i32 [ -1, %100 ], [ %392, %342 ]
+  %345 = phi float [ 0x3F5A36E2E0000000, %100 ], [ %390, %342 ]
+  %346 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %15, i64 %343
+  %347 = load <2 x float>, ptr %346, align 4, !tbaa !13
+  %348 = fsub reassoc nsz arcp contract afn <2 x float> %103, %347
+  %349 = fmul reassoc nsz arcp contract afn <2 x float> %348, %348
+  %350 = shufflevector <2 x float> %349, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %351 = fadd reassoc nsz arcp contract afn <2 x float> %350, %349
+  %352 = extractelement <2 x float> %351, i64 0
+  %353 = fcmp reassoc nsz arcp contract afn olt float %352, %345
+  %354 = select i1 %353, float %352, float %345
+  %355 = trunc i64 %343 to i32
+  %356 = select i1 %353, i32 %355, i32 %344
+  %357 = or disjoint i64 %343, 1
+  %358 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %15, i64 %357
+  %359 = load <2 x float>, ptr %358, align 4, !tbaa !13
+  %360 = fsub reassoc nsz arcp contract afn <2 x float> %103, %359
+  %361 = fmul reassoc nsz arcp contract afn <2 x float> %360, %360
+  %362 = shufflevector <2 x float> %361, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %363 = fadd reassoc nsz arcp contract afn <2 x float> %362, %361
+  %364 = extractelement <2 x float> %363, i64 0
+  %365 = fcmp reassoc nsz arcp contract afn olt float %364, %354
+  %366 = select i1 %365, float %364, float %354
+  %367 = trunc i64 %357 to i32
+  %368 = select i1 %365, i32 %367, i32 %356
+  %369 = or disjoint i64 %343, 2
+  %370 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %15, i64 %369
+  %371 = load <2 x float>, ptr %370, align 4, !tbaa !13
+  %372 = fsub reassoc nsz arcp contract afn <2 x float> %103, %371
+  %373 = fmul reassoc nsz arcp contract afn <2 x float> %372, %372
+  %374 = shufflevector <2 x float> %373, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %375 = fadd reassoc nsz arcp contract afn <2 x float> %374, %373
+  %376 = extractelement <2 x float> %375, i64 0
+  %377 = fcmp reassoc nsz arcp contract afn olt float %376, %366
+  %378 = select i1 %377, float %376, float %366
+  %379 = trunc i64 %369 to i32
+  %380 = select i1 %377, i32 %379, i32 %368
+  %381 = or disjoint i64 %343, 3
+  %382 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %15, i64 %381
+  %383 = load <2 x float>, ptr %382, align 4, !tbaa !13
+  %384 = fsub reassoc nsz arcp contract afn <2 x float> %103, %383
+  %385 = fmul reassoc nsz arcp contract afn <2 x float> %384, %384
+  %386 = shufflevector <2 x float> %385, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %387 = fadd reassoc nsz arcp contract afn <2 x float> %386, %385
+  %388 = extractelement <2 x float> %387, i64 0
+  %389 = fcmp reassoc nsz arcp contract afn olt float %388, %378
+  %390 = select i1 %389, float %388, float %378
+  %391 = trunc i64 %381 to i32
+  %392 = select i1 %389, i32 %391, i32 %380
+  %393 = add nuw nsw i64 %343, 4
+  %394 = icmp eq i64 %393, %101
+  br i1 %394, label %.loopexit28, label %342
 
-409:                                              ; preds = %.loopexit, %.loopexit29, %250, %3
-  %410 = getelementptr inbounds i8, ptr %6, i64 128
-  %411 = load i32, ptr %410, align 8, !tbaa !141
-  %412 = icmp sgt i32 %411, -1
-  br i1 %412, label %413, label %414
+395:                                              ; preds = %.loopexit, %.loopexit29, %250, %3
+  %396 = getelementptr inbounds i8, ptr %6, i64 128
+  %397 = load i32, ptr %396, align 8, !tbaa !141
+  %398 = icmp sgt i32 %397, -1
+  br i1 %398, label %399, label %400
 
-413:                                              ; preds = %409
+399:                                              ; preds = %395
   call void @gtk_widget_grab_focus(ptr noundef %0) #22
-  br label %414
+  br label %400
 
-414:                                              ; preds = %413, %409
+400:                                              ; preds = %399, %395
   call void @gtk_widget_queue_draw(ptr noundef %0) #22
-  br label %415
+  br label %401
 
-415:                                              ; preds = %414, %245
+401:                                              ; preds = %400, %245
   ret i32 1
 }
 
@@ -8915,69 +8901,55 @@ define internal fastcc i32 @_add_node(ptr nocapture noundef %0, ptr nocapture no
   %31 = icmp ult i64 %30, 16
   br i1 %31, label %.preheader, label %32
 
-.preheader:                                       ; preds = %60, %27
-  %.ph = phi i64 [ %61, %60 ], [ %28, %27 ]
-  br label %68
+.preheader:                                       ; preds = %46, %27
+  %.ph = phi i64 [ %47, %46 ], [ %28, %27 ]
+  br label %54
 
 32:                                               ; preds = %27
   %33 = and i64 %30, -16
   br label %34
 
 34:                                               ; preds = %34, %32
-  %35 = phi i64 [ 0, %32 ], [ %58, %34 ]
+  %35 = phi i64 [ 0, %32 ], [ %44, %34 ]
   %36 = sub i64 %28, %35
   %37 = getelementptr %struct.dt_iop_tonecurve_node_t, ptr %0, i64 %36
   %38 = getelementptr i8, ptr %37, i64 -64
   %39 = getelementptr i8, ptr %37, i64 -128
   %40 = load <16 x float>, ptr %38, align 4, !tbaa !13
   %41 = load <16 x float>, ptr %39, align 4, !tbaa !13
-  %42 = shufflevector <16 x float> %40, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %43 = shufflevector <8 x float> %42, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %44 = shufflevector <16 x float> %41, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
-  %45 = shufflevector <8 x float> %44, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %46 = shufflevector <16 x float> %40, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %47 = shufflevector <8 x float> %46, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %48 = shufflevector <16 x float> %41, <16 x float> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
-  %49 = shufflevector <8 x float> %48, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %50 = getelementptr inbounds i8, ptr %37, i64 -56
-  %51 = getelementptr i8, ptr %37, i64 -120
-  %52 = shufflevector <8 x float> %43, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %53 = shufflevector <8 x float> %47, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %54 = shufflevector <8 x float> %52, <8 x float> %53, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %54, ptr %50, align 4, !tbaa !13
-  %55 = shufflevector <8 x float> %45, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %56 = shufflevector <8 x float> %49, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %57 = shufflevector <8 x float> %55, <8 x float> %56, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
-  store <16 x float> %57, ptr %51, align 4, !tbaa !13
-  %58 = add nuw i64 %35, 16
-  %59 = icmp eq i64 %58, %33
-  br i1 %59, label %60, label %34, !llvm.loop !236
+  %42 = getelementptr inbounds i8, ptr %37, i64 -56
+  %43 = getelementptr i8, ptr %37, i64 -120
+  store <16 x float> %40, ptr %42, align 4, !tbaa !13
+  store <16 x float> %41, ptr %43, align 4, !tbaa !13
+  %44 = add nuw i64 %35, 16
+  %45 = icmp eq i64 %44, %33
+  br i1 %45, label %46, label %34, !llvm.loop !236
 
-60:                                               ; preds = %34
-  %61 = sub nsw i64 %28, %33
-  %62 = icmp eq i64 %30, %33
-  br i1 %62, label %.loopexit, label %.preheader
+46:                                               ; preds = %34
+  %47 = sub nsw i64 %28, %33
+  %48 = icmp eq i64 %30, %33
+  br i1 %48, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %68, %60, %.loopexit8
-  %63 = phi i32 [ %25, %.loopexit8 ], [ %23, %60 ], [ %23, %68 ]
-  %64 = phi i64 [ %26, %.loopexit8 ], [ %29, %60 ], [ %29, %68 ]
-  %65 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %0, i64 %64
-  store float %2, ptr %65, align 4, !tbaa !15
-  %66 = getelementptr inbounds i8, ptr %65, i64 4
-  store float %3, ptr %66, align 4, !tbaa !17
-  %67 = add nsw i32 %7, 1
-  store i32 %67, ptr %1, align 4, !tbaa !10
-  ret i32 %63
+.loopexit:                                        ; preds = %54, %46, %.loopexit8
+  %49 = phi i32 [ %25, %.loopexit8 ], [ %23, %46 ], [ %23, %54 ]
+  %50 = phi i64 [ %26, %.loopexit8 ], [ %29, %46 ], [ %29, %54 ]
+  %51 = getelementptr inbounds %struct.dt_iop_tonecurve_node_t, ptr %0, i64 %50
+  store float %2, ptr %51, align 4, !tbaa !15
+  %52 = getelementptr inbounds i8, ptr %51, i64 4
+  store float %3, ptr %52, align 4, !tbaa !17
+  %53 = add nsw i32 %7, 1
+  store i32 %53, ptr %1, align 4, !tbaa !10
+  ret i32 %49
 
-68:                                               ; preds = %.preheader, %68
-  %69 = phi i64 [ %73, %68 ], [ %.ph, %.preheader ]
-  %70 = getelementptr %struct.dt_iop_tonecurve_node_t, ptr %0, i64 %69
-  %71 = getelementptr i8, ptr %70, i64 -8
-  %72 = load <2 x float>, ptr %71, align 4, !tbaa !13
-  store <2 x float> %72, ptr %70, align 4, !tbaa !13
-  %73 = add nsw i64 %69, -1
-  %74 = icmp sgt i64 %73, %29
-  br i1 %74, label %68, label %.loopexit, !llvm.loop !237
+54:                                               ; preds = %.preheader, %54
+  %55 = phi i64 [ %59, %54 ], [ %.ph, %.preheader ]
+  %56 = getelementptr %struct.dt_iop_tonecurve_node_t, ptr %0, i64 %55
+  %57 = getelementptr i8, ptr %56, i64 -8
+  %58 = load <2 x float>, ptr %57, align 4, !tbaa !13
+  store <2 x float> %58, ptr %56, align 4, !tbaa !13
+  %59 = add nsw i64 %55, -1
+  %60 = icmp sgt i64 %59, %29
+  br i1 %60, label %54, label %.loopexit, !llvm.loop !237
 }
 
 declare void @gtk_widget_grab_focus(ptr noundef) local_unnamed_addr #3
