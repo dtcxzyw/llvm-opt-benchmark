@@ -11405,17 +11405,18 @@ define hidden noundef double @_ZN4core3ops8function5FnMut8call_mut17h1c095964dd4
   %13 = icmp ne i64 %.mask.i.i.i.i.i.i, 0
   %.0.i.i.i.i.i.i = and i1 %12, %13
   %.0.i.i.i.i.i = select i1 %.0.i.i.i.i.i.i, double 0.000000e+00, double %9
-  %14 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i.i)
-  %15 = fcmp one double %14, 0x7FF0000000000000
-  %.0.i.i = select i1 %15, double %.0.i.i.i.i.i, double 0.000000e+00
-  %16 = fadd double %.0.i.i, %2
-  %17 = bitcast double %16 to i64
-  %18 = and i64 %17, 9218868437227405312
-  %19 = icmp eq i64 %18, 9218868437227405312
-  %.mask.i.i.i.i.i = and i64 %17, 4503599627370495
-  %20 = icmp ne i64 %.mask.i.i.i.i.i, 0
-  %.0.i.i.i.i1.i = and i1 %19, %20
-  %.0.i.i.i.i = select i1 %.0.i.i.i.i1.i, double 0.000000e+00, double %16
+  %14 = tail call double @llvm.fabs.f64(double %9)
+  %15 = select i1 %.0.i.i.i.i.i.i, double 0.000000e+00, double %14
+  %16 = fcmp one double %15, 0x7FF0000000000000
+  %.0.i.i = select i1 %16, double %.0.i.i.i.i.i, double 0.000000e+00
+  %17 = fadd double %.0.i.i, %2
+  %18 = bitcast double %17 to i64
+  %19 = and i64 %18, 9218868437227405312
+  %20 = icmp eq i64 %19, 9218868437227405312
+  %.mask.i.i.i.i.i = and i64 %18, 4503599627370495
+  %21 = icmp ne i64 %.mask.i.i.i.i.i, 0
+  %.0.i.i.i.i1.i = and i1 %20, %21
+  %.0.i.i.i.i = select i1 %.0.i.i.i.i1.i, double 0.000000e+00, double %17
   ret double %.0.i.i.i.i
 }
 
@@ -106866,70 +106867,72 @@ define hidden void @"_ZN5typst6layout4axes13Axes$LT$T$GT$7zip_map17h74476c29ed30
   %14 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i.i, 0
   %.0.i.i.i.i.i.i.i.i.i = and i1 %13, %14
   %.0.i.i.i.i.i.i.i.i = select i1 %.0.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %10
-  %15 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i.i.i.i.i)
-  %16 = fcmp one double %15, 0x7FF0000000000000
-  %.0.i.i.i.i.i = select i1 %16, double %.0.i.i.i.i.i.i.i.i, double 0.000000e+00
-  %17 = fadd double %.sroa.519.0.copyload, %.0.i.i.i.i.i
-  %18 = bitcast double %17 to i64
-  %19 = and i64 %18, 9218868437227405312
-  %20 = icmp eq i64 %19, 9218868437227405312
-  %.mask.i.i.i.i.i.i.i.i = and i64 %18, 4503599627370495
-  %21 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i, 0
-  %.0.i.i.i.i1.i.i.i.i = and i1 %20, %21
-  %.0.i.i.i.i.i.i.i = select i1 %.0.i.i.i.i1.i.i.i.i, double 0.000000e+00, double %17
+  %15 = tail call double @llvm.fabs.f64(double %10)
+  %16 = select i1 %.0.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %15
+  %17 = fcmp one double %16, 0x7FF0000000000000
+  %.0.i.i.i.i.i = select i1 %17, double %.0.i.i.i.i.i.i.i.i, double 0.000000e+00
+  %18 = fadd double %.sroa.519.0.copyload, %.0.i.i.i.i.i
+  %19 = bitcast double %18 to i64
+  %20 = and i64 %19, 9218868437227405312
+  %21 = icmp eq i64 %20, 9218868437227405312
+  %.mask.i.i.i.i.i.i.i.i = and i64 %19, 4503599627370495
+  %22 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i, 0
+  %.0.i.i.i.i1.i.i.i.i = and i1 %21, %22
+  %.0.i.i.i.i.i.i.i = select i1 %.0.i.i.i.i1.i.i.i.i, double 0.000000e+00, double %18
   br label %"_ZN5typst6layout9container94_$LT$impl$u20$typst..foundations..content..Packed$LT$typst..layout..container..BoxElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h27f4050d626b5d06E.llvm.2456044669961016091.exit"
 
 "_ZN5typst6layout9container94_$LT$impl$u20$typst..foundations..content..Packed$LT$typst..layout..container..BoxElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h27f4050d626b5d06E.llvm.2456044669961016091.exit": ; preds = %4, %5
   %.sroa.3.0.i.i = phi double [ %.0.i.i.i.i.i.i.i, %5 ], [ undef, %4 ]
   %.sroa.0.0.i.i = phi i64 [ 1, %5 ], [ 0, %4 ]
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
-  %.sroa.024.0.copyload = load i64, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.024.0.copyload = load i64, ptr %23, align 8
   %trunc.i.i3 = trunc nuw i64 %.sroa.024.0.copyload to i1
-  br i1 %trunc.i.i3, label %23, label %"_ZN5typst6layout9container94_$LT$impl$u20$typst..foundations..content..Packed$LT$typst..layout..container..BoxElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h27f4050d626b5d06E.llvm.2456044669961016091.exit16"
+  br i1 %trunc.i.i3, label %24, label %"_ZN5typst6layout9container94_$LT$impl$u20$typst..foundations..content..Packed$LT$typst..layout..container..BoxElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h27f4050d626b5d06E.llvm.2456044669961016091.exit16"
 
-23:                                               ; preds = %"_ZN5typst6layout9container94_$LT$impl$u20$typst..foundations..content..Packed$LT$typst..layout..container..BoxElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h27f4050d626b5d06E.llvm.2456044669961016091.exit"
+24:                                               ; preds = %"_ZN5typst6layout9container94_$LT$impl$u20$typst..foundations..content..Packed$LT$typst..layout..container..BoxElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h27f4050d626b5d06E.llvm.2456044669961016091.exit"
   %.sroa.526.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 40
   %.sroa.526.0.copyload = load double, ptr %.sroa.526.0..sroa_idx, align 8
   %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
   %.sroa.425.0.copyload = load double, ptr %.sroa.425.0..sroa_idx, align 8
-  %24 = bitcast double %.sroa.425.0.copyload to i64
-  %25 = and i64 %24, 9218868437227405312
-  %26 = icmp eq i64 %25, 9218868437227405312
-  %.mask.i.i.i.i.i.i.i.i.i.i.i6 = and i64 %24, 4503599627370495
-  %27 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i.i.i.i6, 0
-  %.0.i.i.i.i.i.i.i.i.i.i.i7 = and i1 %26, %27
+  %25 = bitcast double %.sroa.425.0.copyload to i64
+  %26 = and i64 %25, 9218868437227405312
+  %27 = icmp eq i64 %26, 9218868437227405312
+  %.mask.i.i.i.i.i.i.i.i.i.i.i6 = and i64 %25, 4503599627370495
+  %28 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i.i.i.i6, 0
+  %.0.i.i.i.i.i.i.i.i.i.i.i7 = and i1 %27, %28
   %.0.i.i.i.i.i.i.i.i.i.i8 = select i1 %.0.i.i.i.i.i.i.i.i.i.i.i7, double 0.000000e+00, double %.sroa.425.0.copyload
-  %28 = fmul double %.0.i.i.i.i.i.i.i.i.i.i8, %3
-  %29 = bitcast double %28 to i64
-  %30 = and i64 %29, 9218868437227405312
-  %31 = icmp eq i64 %30, 9218868437227405312
-  %.mask.i.i.i.i.i.i.i.i.i9 = and i64 %29, 4503599627370495
-  %32 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i.i9, 0
-  %.0.i.i.i.i.i.i.i.i.i10 = and i1 %31, %32
-  %.0.i.i.i.i.i.i.i.i11 = select i1 %.0.i.i.i.i.i.i.i.i.i10, double 0.000000e+00, double %28
-  %33 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i.i.i.i.i11)
-  %34 = fcmp one double %33, 0x7FF0000000000000
-  %.0.i.i.i.i.i12 = select i1 %34, double %.0.i.i.i.i.i.i.i.i11, double 0.000000e+00
-  %35 = fadd double %.sroa.526.0.copyload, %.0.i.i.i.i.i12
-  %36 = bitcast double %35 to i64
-  %37 = and i64 %36, 9218868437227405312
-  %38 = icmp eq i64 %37, 9218868437227405312
-  %.mask.i.i.i.i.i.i.i.i13 = and i64 %36, 4503599627370495
-  %39 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i13, 0
-  %.0.i.i.i.i1.i.i.i.i14 = and i1 %38, %39
-  %.0.i.i.i.i.i.i.i15 = select i1 %.0.i.i.i.i1.i.i.i.i14, double 0.000000e+00, double %35
+  %29 = fmul double %.0.i.i.i.i.i.i.i.i.i.i8, %3
+  %30 = bitcast double %29 to i64
+  %31 = and i64 %30, 9218868437227405312
+  %32 = icmp eq i64 %31, 9218868437227405312
+  %.mask.i.i.i.i.i.i.i.i.i9 = and i64 %30, 4503599627370495
+  %33 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i.i9, 0
+  %.0.i.i.i.i.i.i.i.i.i10 = and i1 %32, %33
+  %.0.i.i.i.i.i.i.i.i11 = select i1 %.0.i.i.i.i.i.i.i.i.i10, double 0.000000e+00, double %29
+  %34 = tail call double @llvm.fabs.f64(double %29)
+  %35 = select i1 %.0.i.i.i.i.i.i.i.i.i10, double 0.000000e+00, double %34
+  %36 = fcmp one double %35, 0x7FF0000000000000
+  %.0.i.i.i.i.i12 = select i1 %36, double %.0.i.i.i.i.i.i.i.i11, double 0.000000e+00
+  %37 = fadd double %.sroa.526.0.copyload, %.0.i.i.i.i.i12
+  %38 = bitcast double %37 to i64
+  %39 = and i64 %38, 9218868437227405312
+  %40 = icmp eq i64 %39, 9218868437227405312
+  %.mask.i.i.i.i.i.i.i.i13 = and i64 %38, 4503599627370495
+  %41 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i13, 0
+  %.0.i.i.i.i1.i.i.i.i14 = and i1 %40, %41
+  %.0.i.i.i.i.i.i.i15 = select i1 %.0.i.i.i.i1.i.i.i.i14, double 0.000000e+00, double %37
   br label %"_ZN5typst6layout9container94_$LT$impl$u20$typst..foundations..content..Packed$LT$typst..layout..container..BoxElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h27f4050d626b5d06E.llvm.2456044669961016091.exit16"
 
-"_ZN5typst6layout9container94_$LT$impl$u20$typst..foundations..content..Packed$LT$typst..layout..container..BoxElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h27f4050d626b5d06E.llvm.2456044669961016091.exit16": ; preds = %"_ZN5typst6layout9container94_$LT$impl$u20$typst..foundations..content..Packed$LT$typst..layout..container..BoxElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h27f4050d626b5d06E.llvm.2456044669961016091.exit", %23
-  %.sroa.3.0.i.i4 = phi double [ %.0.i.i.i.i.i.i.i15, %23 ], [ undef, %"_ZN5typst6layout9container94_$LT$impl$u20$typst..foundations..content..Packed$LT$typst..layout..container..BoxElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h27f4050d626b5d06E.llvm.2456044669961016091.exit" ]
-  %.sroa.0.0.i.i5 = phi i64 [ 1, %23 ], [ 0, %"_ZN5typst6layout9container94_$LT$impl$u20$typst..foundations..content..Packed$LT$typst..layout..container..BoxElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h27f4050d626b5d06E.llvm.2456044669961016091.exit" ]
+"_ZN5typst6layout9container94_$LT$impl$u20$typst..foundations..content..Packed$LT$typst..layout..container..BoxElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h27f4050d626b5d06E.llvm.2456044669961016091.exit16": ; preds = %"_ZN5typst6layout9container94_$LT$impl$u20$typst..foundations..content..Packed$LT$typst..layout..container..BoxElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h27f4050d626b5d06E.llvm.2456044669961016091.exit", %24
+  %.sroa.3.0.i.i4 = phi double [ %.0.i.i.i.i.i.i.i15, %24 ], [ undef, %"_ZN5typst6layout9container94_$LT$impl$u20$typst..foundations..content..Packed$LT$typst..layout..container..BoxElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h27f4050d626b5d06E.llvm.2456044669961016091.exit" ]
+  %.sroa.0.0.i.i5 = phi i64 [ 1, %24 ], [ 0, %"_ZN5typst6layout9container94_$LT$impl$u20$typst..foundations..content..Packed$LT$typst..layout..container..BoxElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h27f4050d626b5d06E.llvm.2456044669961016091.exit" ]
   store i64 %.sroa.0.0.i.i, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
-  store double %.sroa.3.0.i.i, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.i.i5, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 24
-  store double %.sroa.3.0.i.i4, ptr %42, align 8
+  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  store double %.sroa.3.0.i.i, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.0.0.i.i5, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %0, i64 24
+  store double %.sroa.3.0.i.i4, ptr %44, align 8
   ret void
 }
 
@@ -106967,28 +106970,29 @@ define hidden void @"_ZN5typst6layout4axes13Axes$LT$T$GT$7zip_map17h7454decaf601
   %18 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i.i, 0
   %.0.i.i.i.i.i.i.i.i.i = and i1 %17, %18
   %.0.i.i.i.i.i.i.i.i = select i1 %.0.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %14
-  %19 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i.i.i.i.i)
-  %20 = fcmp one double %19, 0x7FF0000000000000
-  %.0.i.i.i.i.i = select i1 %20, double %.0.i.i.i.i.i.i.i.i, double 0.000000e+00
-  %21 = fadd double %9, %.0.i.i.i.i.i
-  %22 = bitcast double %21 to i64
-  %23 = and i64 %22, 9218868437227405312
-  %24 = icmp eq i64 %23, 9218868437227405312
-  %.mask.i.i.i.i.i.i.i.i = and i64 %22, 4503599627370495
-  %25 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i, 0
-  %.0.i.i.i.i1.i.i.i.i = and i1 %24, %25
-  %.0.i.i.i.i.i.i.i = select i1 %.0.i.i.i.i1.i.i.i.i, double 0.000000e+00, double %21
+  %19 = tail call double @llvm.fabs.f64(double %14)
+  %20 = select i1 %.0.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %19
+  %21 = fcmp one double %20, 0x7FF0000000000000
+  %.0.i.i.i.i.i = select i1 %21, double %.0.i.i.i.i.i.i.i.i, double 0.000000e+00
+  %22 = fadd double %9, %.0.i.i.i.i.i
+  %23 = bitcast double %22 to i64
+  %24 = and i64 %23, 9218868437227405312
+  %25 = icmp eq i64 %24, 9218868437227405312
+  %.mask.i.i.i.i.i.i.i.i = and i64 %23, 4503599627370495
+  %26 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i, 0
+  %.0.i.i.i.i1.i.i.i.i = and i1 %25, %26
+  %.0.i.i.i.i.i.i.i = select i1 %.0.i.i.i.i1.i.i.i.i, double 0.000000e+00, double %22
   br label %"_ZN5typst9visualize5shape6layout28_$u7b$$u7b$closure$u7d$$u7d$17h8621773d2c643a71E.llvm.2456044669961016091.exit"
 
 "_ZN5typst9visualize5shape6layout28_$u7b$$u7b$closure$u7d$$u7d$17h8621773d2c643a71E.llvm.2456044669961016091.exit": ; preds = %5, %8
   %.sroa.3.0.i.i = phi double [ %.0.i.i.i.i.i.i.i, %8 ], [ undef, %5 ]
   %.sroa.0.0.i.i = phi i64 [ 1, %8 ], [ 0, %5 ]
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
-  %.sroa.032.0.copyload = load i64, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %1, i64 32
+  %.sroa.032.0.copyload = load i64, ptr %27, align 8
   %trunc.i.i3 = trunc nuw i64 %.sroa.032.0.copyload to i1
-  br i1 %trunc.i.i3, label %27, label %"_ZN5typst9visualize5shape6layout28_$u7b$$u7b$closure$u7d$$u7d$17h8621773d2c643a71E.llvm.2456044669961016091.exit21"
+  br i1 %trunc.i.i3, label %28, label %"_ZN5typst9visualize5shape6layout28_$u7b$$u7b$closure$u7d$$u7d$17h8621773d2c643a71E.llvm.2456044669961016091.exit21"
 
-27:                                               ; preds = %"_ZN5typst9visualize5shape6layout28_$u7b$$u7b$closure$u7d$$u7d$17h8621773d2c643a71E.llvm.2456044669961016091.exit"
+28:                                               ; preds = %"_ZN5typst9visualize5shape6layout28_$u7b$$u7b$closure$u7d$$u7d$17h8621773d2c643a71E.llvm.2456044669961016091.exit"
   %.sroa.635.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 56
   %.sroa.635.0.copyload = load double, ptr %.sroa.635.0..sroa_idx, align 8
   %.sroa.534.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 48
@@ -106997,46 +107001,47 @@ define hidden void @"_ZN5typst6layout4axes13Axes$LT$T$GT$7zip_map17h7454decaf601
   %.sroa.433.0.copyload = load double, ptr %.sroa.433.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !19034
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !19046
-  %28 = call noundef double @"_ZN85_$LT$typst..layout..length..Length$u20$as$u20$typst..foundations..styles..Resolve$GT$7resolve17hd2482b2e081d5c8fE"(double noundef %.sroa.433.0.copyload, double noundef %.sroa.534.0.copyload, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !19034
+  %29 = call noundef double @"_ZN85_$LT$typst..layout..length..Length$u20$as$u20$typst..foundations..styles..Resolve$GT$7resolve17hd2482b2e081d5c8fE"(double noundef %.sroa.433.0.copyload, double noundef %.sroa.534.0.copyload, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !19034
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !19034
-  %29 = bitcast double %.sroa.635.0.copyload to i64
-  %30 = and i64 %29, 9218868437227405312
-  %31 = icmp eq i64 %30, 9218868437227405312
-  %.mask.i.i.i.i.i.i.i.i.i.i.i11 = and i64 %29, 4503599627370495
-  %32 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i.i.i.i11, 0
-  %.0.i.i.i.i.i.i.i.i.i.i.i12 = and i1 %31, %32
+  %30 = bitcast double %.sroa.635.0.copyload to i64
+  %31 = and i64 %30, 9218868437227405312
+  %32 = icmp eq i64 %31, 9218868437227405312
+  %.mask.i.i.i.i.i.i.i.i.i.i.i11 = and i64 %30, 4503599627370495
+  %33 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i.i.i.i11, 0
+  %.0.i.i.i.i.i.i.i.i.i.i.i12 = and i1 %32, %33
   %.0.i.i.i.i.i.i.i.i.i.i13 = select i1 %.0.i.i.i.i.i.i.i.i.i.i.i12, double 0.000000e+00, double %.sroa.635.0.copyload
-  %33 = fmul double %.0.i.i.i.i.i.i.i.i.i.i13, %3
-  %34 = bitcast double %33 to i64
-  %35 = and i64 %34, 9218868437227405312
-  %36 = icmp eq i64 %35, 9218868437227405312
-  %.mask.i.i.i.i.i.i.i.i.i14 = and i64 %34, 4503599627370495
-  %37 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i.i14, 0
-  %.0.i.i.i.i.i.i.i.i.i15 = and i1 %36, %37
-  %.0.i.i.i.i.i.i.i.i16 = select i1 %.0.i.i.i.i.i.i.i.i.i15, double 0.000000e+00, double %33
-  %38 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i.i.i.i.i16)
-  %39 = fcmp one double %38, 0x7FF0000000000000
-  %.0.i.i.i.i.i17 = select i1 %39, double %.0.i.i.i.i.i.i.i.i16, double 0.000000e+00
-  %40 = fadd double %28, %.0.i.i.i.i.i17
-  %41 = bitcast double %40 to i64
-  %42 = and i64 %41, 9218868437227405312
-  %43 = icmp eq i64 %42, 9218868437227405312
-  %.mask.i.i.i.i.i.i.i.i18 = and i64 %41, 4503599627370495
-  %44 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i18, 0
-  %.0.i.i.i.i1.i.i.i.i19 = and i1 %43, %44
-  %.0.i.i.i.i.i.i.i20 = select i1 %.0.i.i.i.i1.i.i.i.i19, double 0.000000e+00, double %40
+  %34 = fmul double %.0.i.i.i.i.i.i.i.i.i.i13, %3
+  %35 = bitcast double %34 to i64
+  %36 = and i64 %35, 9218868437227405312
+  %37 = icmp eq i64 %36, 9218868437227405312
+  %.mask.i.i.i.i.i.i.i.i.i14 = and i64 %35, 4503599627370495
+  %38 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i.i14, 0
+  %.0.i.i.i.i.i.i.i.i.i15 = and i1 %37, %38
+  %.0.i.i.i.i.i.i.i.i16 = select i1 %.0.i.i.i.i.i.i.i.i.i15, double 0.000000e+00, double %34
+  %39 = tail call double @llvm.fabs.f64(double %34)
+  %40 = select i1 %.0.i.i.i.i.i.i.i.i.i15, double 0.000000e+00, double %39
+  %41 = fcmp one double %40, 0x7FF0000000000000
+  %.0.i.i.i.i.i17 = select i1 %41, double %.0.i.i.i.i.i.i.i.i16, double 0.000000e+00
+  %42 = fadd double %29, %.0.i.i.i.i.i17
+  %43 = bitcast double %42 to i64
+  %44 = and i64 %43, 9218868437227405312
+  %45 = icmp eq i64 %44, 9218868437227405312
+  %.mask.i.i.i.i.i.i.i.i18 = and i64 %43, 4503599627370495
+  %46 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i18, 0
+  %.0.i.i.i.i1.i.i.i.i19 = and i1 %45, %46
+  %.0.i.i.i.i.i.i.i20 = select i1 %.0.i.i.i.i1.i.i.i.i19, double 0.000000e+00, double %42
   br label %"_ZN5typst9visualize5shape6layout28_$u7b$$u7b$closure$u7d$$u7d$17h8621773d2c643a71E.llvm.2456044669961016091.exit21"
 
-"_ZN5typst9visualize5shape6layout28_$u7b$$u7b$closure$u7d$$u7d$17h8621773d2c643a71E.llvm.2456044669961016091.exit21": ; preds = %"_ZN5typst9visualize5shape6layout28_$u7b$$u7b$closure$u7d$$u7d$17h8621773d2c643a71E.llvm.2456044669961016091.exit", %27
-  %.sroa.3.0.i.i4 = phi double [ %.0.i.i.i.i.i.i.i20, %27 ], [ undef, %"_ZN5typst9visualize5shape6layout28_$u7b$$u7b$closure$u7d$$u7d$17h8621773d2c643a71E.llvm.2456044669961016091.exit" ]
-  %.sroa.0.0.i.i5 = phi i64 [ 1, %27 ], [ 0, %"_ZN5typst9visualize5shape6layout28_$u7b$$u7b$closure$u7d$$u7d$17h8621773d2c643a71E.llvm.2456044669961016091.exit" ]
+"_ZN5typst9visualize5shape6layout28_$u7b$$u7b$closure$u7d$$u7d$17h8621773d2c643a71E.llvm.2456044669961016091.exit21": ; preds = %"_ZN5typst9visualize5shape6layout28_$u7b$$u7b$closure$u7d$$u7d$17h8621773d2c643a71E.llvm.2456044669961016091.exit", %28
+  %.sroa.3.0.i.i4 = phi double [ %.0.i.i.i.i.i.i.i20, %28 ], [ undef, %"_ZN5typst9visualize5shape6layout28_$u7b$$u7b$closure$u7d$$u7d$17h8621773d2c643a71E.llvm.2456044669961016091.exit" ]
+  %.sroa.0.0.i.i5 = phi i64 [ 1, %28 ], [ 0, %"_ZN5typst9visualize5shape6layout28_$u7b$$u7b$closure$u7d$$u7d$17h8621773d2c643a71E.llvm.2456044669961016091.exit" ]
   store i64 %.sroa.0.0.i.i, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
-  store double %.sroa.3.0.i.i, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.i.i5, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 24
-  store double %.sroa.3.0.i.i4, ptr %47, align 8
+  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  store double %.sroa.3.0.i.i, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.0.0.i.i5, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %0, i64 24
+  store double %.sroa.3.0.i.i4, ptr %49, align 8
   ret void
 }
 
@@ -107060,50 +107065,52 @@ define hidden { double, double } @"_ZN5typst6layout4axes13Axes$LT$T$GT$7zip_map1
   %15 = icmp ne i64 %.mask.i.i.i.i.i.i.i, 0
   %.0.i.i.i.i.i.i.i = and i1 %14, %15
   %.0.i.i.i.i.i.i = select i1 %.0.i.i.i.i.i.i.i, double 0.000000e+00, double %11
-  %16 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i.i.i)
-  %17 = fcmp one double %16, 0x7FF0000000000000
-  %.0.i.i.i = select i1 %17, double %.0.i.i.i.i.i.i, double 0.000000e+00
-  %18 = fadd double %6, %.0.i.i.i
-  %19 = bitcast double %18 to i64
-  %20 = and i64 %19, 9218868437227405312
-  %21 = icmp eq i64 %20, 9218868437227405312
-  %.mask.i.i.i.i.i.i = and i64 %19, 4503599627370495
-  %22 = icmp ne i64 %.mask.i.i.i.i.i.i, 0
-  %.0.i.i.i.i1.i.i = and i1 %21, %22
-  %.0.i.i.i.i.i = select i1 %.0.i.i.i.i1.i.i, double 0.000000e+00, double %18
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
-  %24 = load double, ptr %23, align 8, !noundef !4
-  %25 = getelementptr inbounds i8, ptr %0, i64 24
-  %26 = load double, ptr %25, align 8, !noundef !4
-  %27 = bitcast double %24 to i64
-  %28 = and i64 %27, 9218868437227405312
-  %29 = icmp eq i64 %28, 9218868437227405312
-  %.mask.i.i.i.i.i.i.i.i.i10 = and i64 %27, 4503599627370495
-  %30 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i.i10, 0
-  %.0.i.i.i.i.i.i.i.i.i11 = and i1 %29, %30
-  %.0.i.i.i.i.i.i.i.i12 = select i1 %.0.i.i.i.i.i.i.i.i.i11, double 0.000000e+00, double %24
-  %31 = fmul double %.0.i.i.i.i.i.i.i.i12, %2
-  %32 = bitcast double %31 to i64
-  %33 = and i64 %32, 9218868437227405312
-  %34 = icmp eq i64 %33, 9218868437227405312
-  %.mask.i.i.i.i.i.i.i13 = and i64 %32, 4503599627370495
-  %35 = icmp ne i64 %.mask.i.i.i.i.i.i.i13, 0
-  %.0.i.i.i.i.i.i.i14 = and i1 %34, %35
-  %.0.i.i.i.i.i.i15 = select i1 %.0.i.i.i.i.i.i.i14, double 0.000000e+00, double %31
-  %36 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i.i.i15)
-  %37 = fcmp one double %36, 0x7FF0000000000000
-  %.0.i.i.i16 = select i1 %37, double %.0.i.i.i.i.i.i15, double 0.000000e+00
-  %38 = fadd double %26, %.0.i.i.i16
-  %39 = bitcast double %38 to i64
-  %40 = and i64 %39, 9218868437227405312
-  %41 = icmp eq i64 %40, 9218868437227405312
-  %.mask.i.i.i.i.i.i17 = and i64 %39, 4503599627370495
-  %42 = icmp ne i64 %.mask.i.i.i.i.i.i17, 0
-  %.0.i.i.i.i1.i.i18 = and i1 %41, %42
-  %.0.i.i.i.i.i19 = select i1 %.0.i.i.i.i1.i.i18, double 0.000000e+00, double %38
-  %43 = insertvalue { double, double } poison, double %.0.i.i.i.i.i, 0
-  %44 = insertvalue { double, double } %43, double %.0.i.i.i.i.i19, 1
-  ret { double, double } %44
+  %16 = tail call double @llvm.fabs.f64(double %11)
+  %17 = select i1 %.0.i.i.i.i.i.i.i, double 0.000000e+00, double %16
+  %18 = fcmp one double %17, 0x7FF0000000000000
+  %.0.i.i.i = select i1 %18, double %.0.i.i.i.i.i.i, double 0.000000e+00
+  %19 = fadd double %6, %.0.i.i.i
+  %20 = bitcast double %19 to i64
+  %21 = and i64 %20, 9218868437227405312
+  %22 = icmp eq i64 %21, 9218868437227405312
+  %.mask.i.i.i.i.i.i = and i64 %20, 4503599627370495
+  %23 = icmp ne i64 %.mask.i.i.i.i.i.i, 0
+  %.0.i.i.i.i1.i.i = and i1 %22, %23
+  %.0.i.i.i.i.i = select i1 %.0.i.i.i.i1.i.i, double 0.000000e+00, double %19
+  %24 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = load double, ptr %24, align 8, !noundef !4
+  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %27 = load double, ptr %26, align 8, !noundef !4
+  %28 = bitcast double %25 to i64
+  %29 = and i64 %28, 9218868437227405312
+  %30 = icmp eq i64 %29, 9218868437227405312
+  %.mask.i.i.i.i.i.i.i.i.i10 = and i64 %28, 4503599627370495
+  %31 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i.i10, 0
+  %.0.i.i.i.i.i.i.i.i.i11 = and i1 %30, %31
+  %.0.i.i.i.i.i.i.i.i12 = select i1 %.0.i.i.i.i.i.i.i.i.i11, double 0.000000e+00, double %25
+  %32 = fmul double %.0.i.i.i.i.i.i.i.i12, %2
+  %33 = bitcast double %32 to i64
+  %34 = and i64 %33, 9218868437227405312
+  %35 = icmp eq i64 %34, 9218868437227405312
+  %.mask.i.i.i.i.i.i.i13 = and i64 %33, 4503599627370495
+  %36 = icmp ne i64 %.mask.i.i.i.i.i.i.i13, 0
+  %.0.i.i.i.i.i.i.i14 = and i1 %35, %36
+  %.0.i.i.i.i.i.i15 = select i1 %.0.i.i.i.i.i.i.i14, double 0.000000e+00, double %32
+  %37 = tail call double @llvm.fabs.f64(double %32)
+  %38 = select i1 %.0.i.i.i.i.i.i.i14, double 0.000000e+00, double %37
+  %39 = fcmp one double %38, 0x7FF0000000000000
+  %.0.i.i.i16 = select i1 %39, double %.0.i.i.i.i.i.i15, double 0.000000e+00
+  %40 = fadd double %27, %.0.i.i.i16
+  %41 = bitcast double %40 to i64
+  %42 = and i64 %41, 9218868437227405312
+  %43 = icmp eq i64 %42, 9218868437227405312
+  %.mask.i.i.i.i.i.i17 = and i64 %41, 4503599627370495
+  %44 = icmp ne i64 %.mask.i.i.i.i.i.i17, 0
+  %.0.i.i.i.i1.i.i18 = and i1 %43, %44
+  %.0.i.i.i.i.i19 = select i1 %.0.i.i.i.i1.i.i18, double 0.000000e+00, double %40
+  %45 = insertvalue { double, double } poison, double %.0.i.i.i.i.i, 0
+  %46 = insertvalue { double, double } %45, double %.0.i.i.i.i.i19, 1
+  ret { double, double } %46
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -107140,28 +107147,29 @@ define hidden void @"_ZN5typst6layout4axes13Axes$LT$T$GT$7zip_map17h9b5eb248ca21
   %18 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i.i, 0
   %.0.i.i.i.i.i.i.i.i.i = and i1 %17, %18
   %.0.i.i.i.i.i.i.i.i = select i1 %.0.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %14
-  %19 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i.i.i.i.i)
-  %20 = fcmp one double %19, 0x7FF0000000000000
-  %.0.i.i.i.i.i = select i1 %20, double %.0.i.i.i.i.i.i.i.i, double 0.000000e+00
-  %21 = fadd double %9, %.0.i.i.i.i.i
-  %22 = bitcast double %21 to i64
-  %23 = and i64 %22, 9218868437227405312
-  %24 = icmp eq i64 %23, 9218868437227405312
-  %.mask.i.i.i.i.i.i.i.i = and i64 %22, 4503599627370495
-  %25 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i, 0
-  %.0.i.i.i.i1.i.i.i.i = and i1 %24, %25
-  %.0.i.i.i.i.i.i.i = select i1 %.0.i.i.i.i1.i.i.i.i, double 0.000000e+00, double %21
+  %19 = tail call double @llvm.fabs.f64(double %14)
+  %20 = select i1 %.0.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %19
+  %21 = fcmp one double %20, 0x7FF0000000000000
+  %.0.i.i.i.i.i = select i1 %21, double %.0.i.i.i.i.i.i.i.i, double 0.000000e+00
+  %22 = fadd double %9, %.0.i.i.i.i.i
+  %23 = bitcast double %22 to i64
+  %24 = and i64 %23, 9218868437227405312
+  %25 = icmp eq i64 %24, 9218868437227405312
+  %.mask.i.i.i.i.i.i.i.i = and i64 %23, 4503599627370495
+  %26 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i, 0
+  %.0.i.i.i.i1.i.i.i.i = and i1 %25, %26
+  %.0.i.i.i.i.i.i.i = select i1 %.0.i.i.i.i1.i.i.i.i, double 0.000000e+00, double %22
   br label %"_ZN5typst9visualize5image135_$LT$impl$u20$typst..layout..LayoutSingle$u20$for$u20$typst..foundations..content..Packed$LT$typst..visualize..image..ImageElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h1d06ced7d2b6d446E.llvm.2456044669961016091.exit"
 
 "_ZN5typst9visualize5image135_$LT$impl$u20$typst..layout..LayoutSingle$u20$for$u20$typst..foundations..content..Packed$LT$typst..visualize..image..ImageElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h1d06ced7d2b6d446E.llvm.2456044669961016091.exit": ; preds = %5, %8
   %.sroa.3.0.i.i = phi double [ %.0.i.i.i.i.i.i.i, %8 ], [ undef, %5 ]
   %.sroa.0.0.i.i = phi i64 [ 1, %8 ], [ 0, %5 ]
-  %26 = getelementptr inbounds i8, ptr %1, i64 32
-  %.sroa.032.0.copyload = load i64, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %1, i64 32
+  %.sroa.032.0.copyload = load i64, ptr %27, align 8
   %trunc.i.i3 = trunc nuw i64 %.sroa.032.0.copyload to i1
-  br i1 %trunc.i.i3, label %27, label %"_ZN5typst9visualize5image135_$LT$impl$u20$typst..layout..LayoutSingle$u20$for$u20$typst..foundations..content..Packed$LT$typst..visualize..image..ImageElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h1d06ced7d2b6d446E.llvm.2456044669961016091.exit21"
+  br i1 %trunc.i.i3, label %28, label %"_ZN5typst9visualize5image135_$LT$impl$u20$typst..layout..LayoutSingle$u20$for$u20$typst..foundations..content..Packed$LT$typst..visualize..image..ImageElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h1d06ced7d2b6d446E.llvm.2456044669961016091.exit21"
 
-27:                                               ; preds = %"_ZN5typst9visualize5image135_$LT$impl$u20$typst..layout..LayoutSingle$u20$for$u20$typst..foundations..content..Packed$LT$typst..visualize..image..ImageElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h1d06ced7d2b6d446E.llvm.2456044669961016091.exit"
+28:                                               ; preds = %"_ZN5typst9visualize5image135_$LT$impl$u20$typst..layout..LayoutSingle$u20$for$u20$typst..foundations..content..Packed$LT$typst..visualize..image..ImageElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h1d06ced7d2b6d446E.llvm.2456044669961016091.exit"
   %.sroa.635.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 56
   %.sroa.635.0.copyload = load double, ptr %.sroa.635.0..sroa_idx, align 8
   %.sroa.534.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 48
@@ -107170,46 +107178,47 @@ define hidden void @"_ZN5typst6layout4axes13Axes$LT$T$GT$7zip_map17h9b5eb248ca21
   %.sroa.433.0.copyload = load double, ptr %.sroa.433.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !19060
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !noalias !19072
-  %28 = call noundef double @"_ZN85_$LT$typst..layout..length..Length$u20$as$u20$typst..foundations..styles..Resolve$GT$7resolve17hd2482b2e081d5c8fE"(double noundef %.sroa.433.0.copyload, double noundef %.sroa.534.0.copyload, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !19060
+  %29 = call noundef double @"_ZN85_$LT$typst..layout..length..Length$u20$as$u20$typst..foundations..styles..Resolve$GT$7resolve17hd2482b2e081d5c8fE"(double noundef %.sroa.433.0.copyload, double noundef %.sroa.534.0.copyload, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6), !noalias !19060
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !19060
-  %29 = bitcast double %.sroa.635.0.copyload to i64
-  %30 = and i64 %29, 9218868437227405312
-  %31 = icmp eq i64 %30, 9218868437227405312
-  %.mask.i.i.i.i.i.i.i.i.i.i.i11 = and i64 %29, 4503599627370495
-  %32 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i.i.i.i11, 0
-  %.0.i.i.i.i.i.i.i.i.i.i.i12 = and i1 %31, %32
+  %30 = bitcast double %.sroa.635.0.copyload to i64
+  %31 = and i64 %30, 9218868437227405312
+  %32 = icmp eq i64 %31, 9218868437227405312
+  %.mask.i.i.i.i.i.i.i.i.i.i.i11 = and i64 %30, 4503599627370495
+  %33 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i.i.i.i11, 0
+  %.0.i.i.i.i.i.i.i.i.i.i.i12 = and i1 %32, %33
   %.0.i.i.i.i.i.i.i.i.i.i13 = select i1 %.0.i.i.i.i.i.i.i.i.i.i.i12, double 0.000000e+00, double %.sroa.635.0.copyload
-  %33 = fmul double %.0.i.i.i.i.i.i.i.i.i.i13, %3
-  %34 = bitcast double %33 to i64
-  %35 = and i64 %34, 9218868437227405312
-  %36 = icmp eq i64 %35, 9218868437227405312
-  %.mask.i.i.i.i.i.i.i.i.i14 = and i64 %34, 4503599627370495
-  %37 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i.i14, 0
-  %.0.i.i.i.i.i.i.i.i.i15 = and i1 %36, %37
-  %.0.i.i.i.i.i.i.i.i16 = select i1 %.0.i.i.i.i.i.i.i.i.i15, double 0.000000e+00, double %33
-  %38 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i.i.i.i.i16)
-  %39 = fcmp one double %38, 0x7FF0000000000000
-  %.0.i.i.i.i.i17 = select i1 %39, double %.0.i.i.i.i.i.i.i.i16, double 0.000000e+00
-  %40 = fadd double %28, %.0.i.i.i.i.i17
-  %41 = bitcast double %40 to i64
-  %42 = and i64 %41, 9218868437227405312
-  %43 = icmp eq i64 %42, 9218868437227405312
-  %.mask.i.i.i.i.i.i.i.i18 = and i64 %41, 4503599627370495
-  %44 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i18, 0
-  %.0.i.i.i.i1.i.i.i.i19 = and i1 %43, %44
-  %.0.i.i.i.i.i.i.i20 = select i1 %.0.i.i.i.i1.i.i.i.i19, double 0.000000e+00, double %40
+  %34 = fmul double %.0.i.i.i.i.i.i.i.i.i.i13, %3
+  %35 = bitcast double %34 to i64
+  %36 = and i64 %35, 9218868437227405312
+  %37 = icmp eq i64 %36, 9218868437227405312
+  %.mask.i.i.i.i.i.i.i.i.i14 = and i64 %35, 4503599627370495
+  %38 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i.i14, 0
+  %.0.i.i.i.i.i.i.i.i.i15 = and i1 %37, %38
+  %.0.i.i.i.i.i.i.i.i16 = select i1 %.0.i.i.i.i.i.i.i.i.i15, double 0.000000e+00, double %34
+  %39 = tail call double @llvm.fabs.f64(double %34)
+  %40 = select i1 %.0.i.i.i.i.i.i.i.i.i15, double 0.000000e+00, double %39
+  %41 = fcmp one double %40, 0x7FF0000000000000
+  %.0.i.i.i.i.i17 = select i1 %41, double %.0.i.i.i.i.i.i.i.i16, double 0.000000e+00
+  %42 = fadd double %29, %.0.i.i.i.i.i17
+  %43 = bitcast double %42 to i64
+  %44 = and i64 %43, 9218868437227405312
+  %45 = icmp eq i64 %44, 9218868437227405312
+  %.mask.i.i.i.i.i.i.i.i18 = and i64 %43, 4503599627370495
+  %46 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i18, 0
+  %.0.i.i.i.i1.i.i.i.i19 = and i1 %45, %46
+  %.0.i.i.i.i.i.i.i20 = select i1 %.0.i.i.i.i1.i.i.i.i19, double 0.000000e+00, double %42
   br label %"_ZN5typst9visualize5image135_$LT$impl$u20$typst..layout..LayoutSingle$u20$for$u20$typst..foundations..content..Packed$LT$typst..visualize..image..ImageElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h1d06ced7d2b6d446E.llvm.2456044669961016091.exit21"
 
-"_ZN5typst9visualize5image135_$LT$impl$u20$typst..layout..LayoutSingle$u20$for$u20$typst..foundations..content..Packed$LT$typst..visualize..image..ImageElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h1d06ced7d2b6d446E.llvm.2456044669961016091.exit21": ; preds = %"_ZN5typst9visualize5image135_$LT$impl$u20$typst..layout..LayoutSingle$u20$for$u20$typst..foundations..content..Packed$LT$typst..visualize..image..ImageElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h1d06ced7d2b6d446E.llvm.2456044669961016091.exit", %27
-  %.sroa.3.0.i.i4 = phi double [ %.0.i.i.i.i.i.i.i20, %27 ], [ undef, %"_ZN5typst9visualize5image135_$LT$impl$u20$typst..layout..LayoutSingle$u20$for$u20$typst..foundations..content..Packed$LT$typst..visualize..image..ImageElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h1d06ced7d2b6d446E.llvm.2456044669961016091.exit" ]
-  %.sroa.0.0.i.i5 = phi i64 [ 1, %27 ], [ 0, %"_ZN5typst9visualize5image135_$LT$impl$u20$typst..layout..LayoutSingle$u20$for$u20$typst..foundations..content..Packed$LT$typst..visualize..image..ImageElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h1d06ced7d2b6d446E.llvm.2456044669961016091.exit" ]
+"_ZN5typst9visualize5image135_$LT$impl$u20$typst..layout..LayoutSingle$u20$for$u20$typst..foundations..content..Packed$LT$typst..visualize..image..ImageElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h1d06ced7d2b6d446E.llvm.2456044669961016091.exit21": ; preds = %"_ZN5typst9visualize5image135_$LT$impl$u20$typst..layout..LayoutSingle$u20$for$u20$typst..foundations..content..Packed$LT$typst..visualize..image..ImageElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h1d06ced7d2b6d446E.llvm.2456044669961016091.exit", %28
+  %.sroa.3.0.i.i4 = phi double [ %.0.i.i.i.i.i.i.i20, %28 ], [ undef, %"_ZN5typst9visualize5image135_$LT$impl$u20$typst..layout..LayoutSingle$u20$for$u20$typst..foundations..content..Packed$LT$typst..visualize..image..ImageElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h1d06ced7d2b6d446E.llvm.2456044669961016091.exit" ]
+  %.sroa.0.0.i.i5 = phi i64 [ 1, %28 ], [ 0, %"_ZN5typst9visualize5image135_$LT$impl$u20$typst..layout..LayoutSingle$u20$for$u20$typst..foundations..content..Packed$LT$typst..visualize..image..ImageElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h1d06ced7d2b6d446E.llvm.2456044669961016091.exit" ]
   store i64 %.sroa.0.0.i.i, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 8
-  store double %.sroa.3.0.i.i, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.i.i5, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %0, i64 24
-  store double %.sroa.3.0.i.i4, ptr %47, align 8
+  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  store double %.sroa.3.0.i.i, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.0.0.i.i5, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %0, i64 24
+  store double %.sroa.3.0.i.i4, ptr %49, align 8
   ret void
 }
 
@@ -107230,30 +107239,32 @@ define hidden { double, double } @"_ZN5typst6layout4axes13Axes$LT$T$GT$7zip_map1
   %13 = icmp ne i64 %.mask.i.i.i.i.i.i, 0
   %.0.i.i.i.i.i.i = and i1 %12, %13
   %.0.i.i.i.i.i = select i1 %.0.i.i.i.i.i.i, double 0.000000e+00, double %9
-  %14 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i.i)
-  %15 = fcmp one double %14, 0x7FF0000000000000
-  %.0.i.i = select i1 %15, double %.0.i.i.i.i.i, double 0.000000e+00
-  %16 = bitcast double %3 to i64
-  %17 = and i64 %16, 9218868437227405312
-  %18 = icmp eq i64 %17, 9218868437227405312
-  %.mask.i.i.i.i.i.i.i.i10 = and i64 %16, 4503599627370495
-  %19 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i10, 0
-  %.0.i.i.i.i.i.i.i.i11 = and i1 %18, %19
+  %14 = tail call double @llvm.fabs.f64(double %9)
+  %15 = select i1 %.0.i.i.i.i.i.i, double 0.000000e+00, double %14
+  %16 = fcmp one double %15, 0x7FF0000000000000
+  %.0.i.i = select i1 %16, double %.0.i.i.i.i.i, double 0.000000e+00
+  %17 = bitcast double %3 to i64
+  %18 = and i64 %17, 9218868437227405312
+  %19 = icmp eq i64 %18, 9218868437227405312
+  %.mask.i.i.i.i.i.i.i.i10 = and i64 %17, 4503599627370495
+  %20 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i10, 0
+  %.0.i.i.i.i.i.i.i.i11 = and i1 %19, %20
   %.0.i.i.i.i.i.i.i12 = select i1 %.0.i.i.i.i.i.i.i.i11, double 0.000000e+00, double %3
-  %20 = fmul double %.0.i.i.i.i.i.i.i12, %1
-  %21 = bitcast double %20 to i64
-  %22 = and i64 %21, 9218868437227405312
-  %23 = icmp eq i64 %22, 9218868437227405312
-  %.mask.i.i.i.i.i.i13 = and i64 %21, 4503599627370495
-  %24 = icmp ne i64 %.mask.i.i.i.i.i.i13, 0
-  %.0.i.i.i.i.i.i14 = and i1 %23, %24
-  %.0.i.i.i.i.i15 = select i1 %.0.i.i.i.i.i.i14, double 0.000000e+00, double %20
-  %25 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i.i15)
-  %26 = fcmp one double %25, 0x7FF0000000000000
-  %.0.i.i16 = select i1 %26, double %.0.i.i.i.i.i15, double 0.000000e+00
-  %27 = insertvalue { double, double } poison, double %.0.i.i, 0
-  %28 = insertvalue { double, double } %27, double %.0.i.i16, 1
-  ret { double, double } %28
+  %21 = fmul double %.0.i.i.i.i.i.i.i12, %1
+  %22 = bitcast double %21 to i64
+  %23 = and i64 %22, 9218868437227405312
+  %24 = icmp eq i64 %23, 9218868437227405312
+  %.mask.i.i.i.i.i.i13 = and i64 %22, 4503599627370495
+  %25 = icmp ne i64 %.mask.i.i.i.i.i.i13, 0
+  %.0.i.i.i.i.i.i14 = and i1 %24, %25
+  %.0.i.i.i.i.i15 = select i1 %.0.i.i.i.i.i.i14, double 0.000000e+00, double %21
+  %26 = tail call double @llvm.fabs.f64(double %21)
+  %27 = select i1 %.0.i.i.i.i.i.i14, double 0.000000e+00, double %26
+  %28 = fcmp one double %27, 0x7FF0000000000000
+  %.0.i.i16 = select i1 %28, double %.0.i.i.i.i.i15, double 0.000000e+00
+  %29 = insertvalue { double, double } poison, double %.0.i.i, 0
+  %30 = insertvalue { double, double } %29, double %.0.i.i16, 1
+  ret { double, double } %30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -107383,70 +107394,72 @@ define hidden void @"_ZN5typst6layout4axes13Axes$LT$T$GT$7zip_map17he0ef55b9c613
   %14 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i.i, 0
   %.0.i.i.i.i.i.i.i.i.i = and i1 %13, %14
   %.0.i.i.i.i.i.i.i.i = select i1 %.0.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %10
-  %15 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i.i.i.i.i)
-  %16 = fcmp one double %15, 0x7FF0000000000000
-  %.0.i.i.i.i.i = select i1 %16, double %.0.i.i.i.i.i.i.i.i, double 0.000000e+00
-  %17 = fadd double %.sroa.519.0.copyload, %.0.i.i.i.i.i
-  %18 = bitcast double %17 to i64
-  %19 = and i64 %18, 9218868437227405312
-  %20 = icmp eq i64 %19, 9218868437227405312
-  %.mask.i.i.i.i.i.i.i.i = and i64 %18, 4503599627370495
-  %21 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i, 0
-  %.0.i.i.i.i1.i.i.i.i = and i1 %20, %21
-  %.0.i.i.i.i.i.i.i = select i1 %.0.i.i.i.i1.i.i.i.i, double 0.000000e+00, double %17
+  %15 = tail call double @llvm.fabs.f64(double %10)
+  %16 = select i1 %.0.i.i.i.i.i.i.i.i.i, double 0.000000e+00, double %15
+  %17 = fcmp one double %16, 0x7FF0000000000000
+  %.0.i.i.i.i.i = select i1 %17, double %.0.i.i.i.i.i.i.i.i, double 0.000000e+00
+  %18 = fadd double %.sroa.519.0.copyload, %.0.i.i.i.i.i
+  %19 = bitcast double %18 to i64
+  %20 = and i64 %19, 9218868437227405312
+  %21 = icmp eq i64 %20, 9218868437227405312
+  %.mask.i.i.i.i.i.i.i.i = and i64 %19, 4503599627370495
+  %22 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i, 0
+  %.0.i.i.i.i1.i.i.i.i = and i1 %21, %22
+  %.0.i.i.i.i.i.i.i = select i1 %.0.i.i.i.i1.i.i.i.i, double 0.000000e+00, double %18
   br label %"_ZN5typst6layout9container138_$LT$impl$u20$typst..layout..LayoutMultiple$u20$for$u20$typst..foundations..content..Packed$LT$typst..layout..container..BlockElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h19dc495276c6bb34E.llvm.2456044669961016091.exit"
 
 "_ZN5typst6layout9container138_$LT$impl$u20$typst..layout..LayoutMultiple$u20$for$u20$typst..foundations..content..Packed$LT$typst..layout..container..BlockElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h19dc495276c6bb34E.llvm.2456044669961016091.exit": ; preds = %4, %5
   %.sroa.3.0.i.i = phi double [ %.0.i.i.i.i.i.i.i, %5 ], [ undef, %4 ]
   %.sroa.0.0.i.i = phi i64 [ 1, %5 ], [ 0, %4 ]
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
-  %.sroa.024.0.copyload = load i64, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.024.0.copyload = load i64, ptr %23, align 8
   %trunc.i.i3 = trunc nuw i64 %.sroa.024.0.copyload to i1
-  br i1 %trunc.i.i3, label %23, label %"_ZN5typst6layout9container138_$LT$impl$u20$typst..layout..LayoutMultiple$u20$for$u20$typst..foundations..content..Packed$LT$typst..layout..container..BlockElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h19dc495276c6bb34E.llvm.2456044669961016091.exit16"
+  br i1 %trunc.i.i3, label %24, label %"_ZN5typst6layout9container138_$LT$impl$u20$typst..layout..LayoutMultiple$u20$for$u20$typst..foundations..content..Packed$LT$typst..layout..container..BlockElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h19dc495276c6bb34E.llvm.2456044669961016091.exit16"
 
-23:                                               ; preds = %"_ZN5typst6layout9container138_$LT$impl$u20$typst..layout..LayoutMultiple$u20$for$u20$typst..foundations..content..Packed$LT$typst..layout..container..BlockElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h19dc495276c6bb34E.llvm.2456044669961016091.exit"
+24:                                               ; preds = %"_ZN5typst6layout9container138_$LT$impl$u20$typst..layout..LayoutMultiple$u20$for$u20$typst..foundations..content..Packed$LT$typst..layout..container..BlockElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h19dc495276c6bb34E.llvm.2456044669961016091.exit"
   %.sroa.526.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 40
   %.sroa.526.0.copyload = load double, ptr %.sroa.526.0..sroa_idx, align 8
   %.sroa.425.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
   %.sroa.425.0.copyload = load double, ptr %.sroa.425.0..sroa_idx, align 8
-  %24 = bitcast double %.sroa.425.0.copyload to i64
-  %25 = and i64 %24, 9218868437227405312
-  %26 = icmp eq i64 %25, 9218868437227405312
-  %.mask.i.i.i.i.i.i.i.i.i.i.i6 = and i64 %24, 4503599627370495
-  %27 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i.i.i.i6, 0
-  %.0.i.i.i.i.i.i.i.i.i.i.i7 = and i1 %26, %27
+  %25 = bitcast double %.sroa.425.0.copyload to i64
+  %26 = and i64 %25, 9218868437227405312
+  %27 = icmp eq i64 %26, 9218868437227405312
+  %.mask.i.i.i.i.i.i.i.i.i.i.i6 = and i64 %25, 4503599627370495
+  %28 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i.i.i.i6, 0
+  %.0.i.i.i.i.i.i.i.i.i.i.i7 = and i1 %27, %28
   %.0.i.i.i.i.i.i.i.i.i.i8 = select i1 %.0.i.i.i.i.i.i.i.i.i.i.i7, double 0.000000e+00, double %.sroa.425.0.copyload
-  %28 = fmul double %.0.i.i.i.i.i.i.i.i.i.i8, %3
-  %29 = bitcast double %28 to i64
-  %30 = and i64 %29, 9218868437227405312
-  %31 = icmp eq i64 %30, 9218868437227405312
-  %.mask.i.i.i.i.i.i.i.i.i9 = and i64 %29, 4503599627370495
-  %32 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i.i9, 0
-  %.0.i.i.i.i.i.i.i.i.i10 = and i1 %31, %32
-  %.0.i.i.i.i.i.i.i.i11 = select i1 %.0.i.i.i.i.i.i.i.i.i10, double 0.000000e+00, double %28
-  %33 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i.i.i.i.i11)
-  %34 = fcmp one double %33, 0x7FF0000000000000
-  %.0.i.i.i.i.i12 = select i1 %34, double %.0.i.i.i.i.i.i.i.i11, double 0.000000e+00
-  %35 = fadd double %.sroa.526.0.copyload, %.0.i.i.i.i.i12
-  %36 = bitcast double %35 to i64
-  %37 = and i64 %36, 9218868437227405312
-  %38 = icmp eq i64 %37, 9218868437227405312
-  %.mask.i.i.i.i.i.i.i.i13 = and i64 %36, 4503599627370495
-  %39 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i13, 0
-  %.0.i.i.i.i1.i.i.i.i14 = and i1 %38, %39
-  %.0.i.i.i.i.i.i.i15 = select i1 %.0.i.i.i.i1.i.i.i.i14, double 0.000000e+00, double %35
+  %29 = fmul double %.0.i.i.i.i.i.i.i.i.i.i8, %3
+  %30 = bitcast double %29 to i64
+  %31 = and i64 %30, 9218868437227405312
+  %32 = icmp eq i64 %31, 9218868437227405312
+  %.mask.i.i.i.i.i.i.i.i.i9 = and i64 %30, 4503599627370495
+  %33 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i.i9, 0
+  %.0.i.i.i.i.i.i.i.i.i10 = and i1 %32, %33
+  %.0.i.i.i.i.i.i.i.i11 = select i1 %.0.i.i.i.i.i.i.i.i.i10, double 0.000000e+00, double %29
+  %34 = tail call double @llvm.fabs.f64(double %29)
+  %35 = select i1 %.0.i.i.i.i.i.i.i.i.i10, double 0.000000e+00, double %34
+  %36 = fcmp one double %35, 0x7FF0000000000000
+  %.0.i.i.i.i.i12 = select i1 %36, double %.0.i.i.i.i.i.i.i.i11, double 0.000000e+00
+  %37 = fadd double %.sroa.526.0.copyload, %.0.i.i.i.i.i12
+  %38 = bitcast double %37 to i64
+  %39 = and i64 %38, 9218868437227405312
+  %40 = icmp eq i64 %39, 9218868437227405312
+  %.mask.i.i.i.i.i.i.i.i13 = and i64 %38, 4503599627370495
+  %41 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i13, 0
+  %.0.i.i.i.i1.i.i.i.i14 = and i1 %40, %41
+  %.0.i.i.i.i.i.i.i15 = select i1 %.0.i.i.i.i1.i.i.i.i14, double 0.000000e+00, double %37
   br label %"_ZN5typst6layout9container138_$LT$impl$u20$typst..layout..LayoutMultiple$u20$for$u20$typst..foundations..content..Packed$LT$typst..layout..container..BlockElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h19dc495276c6bb34E.llvm.2456044669961016091.exit16"
 
-"_ZN5typst6layout9container138_$LT$impl$u20$typst..layout..LayoutMultiple$u20$for$u20$typst..foundations..content..Packed$LT$typst..layout..container..BlockElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h19dc495276c6bb34E.llvm.2456044669961016091.exit16": ; preds = %"_ZN5typst6layout9container138_$LT$impl$u20$typst..layout..LayoutMultiple$u20$for$u20$typst..foundations..content..Packed$LT$typst..layout..container..BlockElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h19dc495276c6bb34E.llvm.2456044669961016091.exit", %23
-  %.sroa.3.0.i.i4 = phi double [ %.0.i.i.i.i.i.i.i15, %23 ], [ undef, %"_ZN5typst6layout9container138_$LT$impl$u20$typst..layout..LayoutMultiple$u20$for$u20$typst..foundations..content..Packed$LT$typst..layout..container..BlockElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h19dc495276c6bb34E.llvm.2456044669961016091.exit" ]
-  %.sroa.0.0.i.i5 = phi i64 [ 1, %23 ], [ 0, %"_ZN5typst6layout9container138_$LT$impl$u20$typst..layout..LayoutMultiple$u20$for$u20$typst..foundations..content..Packed$LT$typst..layout..container..BlockElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h19dc495276c6bb34E.llvm.2456044669961016091.exit" ]
+"_ZN5typst6layout9container138_$LT$impl$u20$typst..layout..LayoutMultiple$u20$for$u20$typst..foundations..content..Packed$LT$typst..layout..container..BlockElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h19dc495276c6bb34E.llvm.2456044669961016091.exit16": ; preds = %"_ZN5typst6layout9container138_$LT$impl$u20$typst..layout..LayoutMultiple$u20$for$u20$typst..foundations..content..Packed$LT$typst..layout..container..BlockElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h19dc495276c6bb34E.llvm.2456044669961016091.exit", %24
+  %.sroa.3.0.i.i4 = phi double [ %.0.i.i.i.i.i.i.i15, %24 ], [ undef, %"_ZN5typst6layout9container138_$LT$impl$u20$typst..layout..LayoutMultiple$u20$for$u20$typst..foundations..content..Packed$LT$typst..layout..container..BlockElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h19dc495276c6bb34E.llvm.2456044669961016091.exit" ]
+  %.sroa.0.0.i.i5 = phi i64 [ 1, %24 ], [ 0, %"_ZN5typst6layout9container138_$LT$impl$u20$typst..layout..LayoutMultiple$u20$for$u20$typst..foundations..content..Packed$LT$typst..layout..container..BlockElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h19dc495276c6bb34E.llvm.2456044669961016091.exit" ]
   store i64 %.sroa.0.0.i.i, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
-  store double %.sroa.3.0.i.i, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.i.i5, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 24
-  store double %.sroa.3.0.i.i4, ptr %42, align 8
+  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  store double %.sroa.3.0.i.i, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.0.0.i.i5, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %0, i64 24
+  store double %.sroa.3.0.i.i4, ptr %44, align 8
   ret void
 }
 
@@ -107944,9 +107957,10 @@ define hidden noundef double @_ZN5typst6layout5ratio5Ratio2of17h01563bd6c24e0ab7
   %11 = icmp ne i64 %.mask.i.i.i.i, 0
   %.0.i.i.i.i = and i1 %10, %11
   %.0.i.i.i = select i1 %.0.i.i.i.i, double 0.000000e+00, double %7
-  %12 = tail call double @llvm.fabs.f64(double %.0.i.i.i)
-  %13 = fcmp one double %12, 0x7FF0000000000000
-  %.0 = select i1 %13, double %.0.i.i.i, double 0.000000e+00
+  %12 = tail call double @llvm.fabs.f64(double %7)
+  %13 = select i1 %.0.i.i.i.i, double 0.000000e+00, double %12
+  %14 = fcmp one double %13, 0x7FF0000000000000
+  %.0 = select i1 %14, double %.0.i.i.i, double 0.000000e+00
   ret double %.0
 }
 
@@ -107967,9 +107981,10 @@ define hidden noundef double @_ZN5typst6layout5ratio5Ratio2of17h09b8bba204c60514
   %11 = icmp ne i64 %.mask.i.i.i.i, 0
   %.0.i.i.i.i = and i1 %10, %11
   %.0.i.i.i = select i1 %.0.i.i.i.i, double 0.000000e+00, double %7
-  %12 = tail call double @llvm.fabs.f64(double %.0.i.i.i)
-  %13 = fcmp one double %12, 0x7FF0000000000000
-  %.0 = select i1 %13, double %.0.i.i.i, double 0.000000e+00
+  %12 = tail call double @llvm.fabs.f64(double %7)
+  %13 = select i1 %.0.i.i.i.i, double 0.000000e+00, double %12
+  %14 = fcmp one double %13, 0x7FF0000000000000
+  %.0 = select i1 %14, double %.0.i.i.i, double 0.000000e+00
   ret double %.0
 }
 
@@ -110438,25 +110453,26 @@ define hidden { i64, double } @"_ZN5typst9visualize5shape6layout28_$u7b$$u7b$clo
   %18 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i, 0
   %.0.i.i.i.i.i.i.i.i = and i1 %17, %18
   %.0.i.i.i.i.i.i.i = select i1 %.0.i.i.i.i.i.i.i.i, double 0.000000e+00, double %14
-  %19 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i.i.i.i)
-  %20 = fcmp one double %19, 0x7FF0000000000000
-  %.0.i.i.i.i = select i1 %20, double %.0.i.i.i.i.i.i.i, double 0.000000e+00
-  %21 = fadd double %9, %.0.i.i.i.i
-  %22 = bitcast double %21 to i64
-  %23 = and i64 %22, 9218868437227405312
-  %24 = icmp eq i64 %23, 9218868437227405312
-  %.mask.i.i.i.i.i.i.i = and i64 %22, 4503599627370495
-  %25 = icmp ne i64 %.mask.i.i.i.i.i.i.i, 0
-  %.0.i.i.i.i1.i.i.i = and i1 %24, %25
-  %.0.i.i.i.i.i.i = select i1 %.0.i.i.i.i1.i.i.i, double 0.000000e+00, double %21
+  %19 = tail call double @llvm.fabs.f64(double %14)
+  %20 = select i1 %.0.i.i.i.i.i.i.i.i, double 0.000000e+00, double %19
+  %21 = fcmp one double %20, 0x7FF0000000000000
+  %.0.i.i.i.i = select i1 %21, double %.0.i.i.i.i.i.i.i, double 0.000000e+00
+  %22 = fadd double %9, %.0.i.i.i.i
+  %23 = bitcast double %22 to i64
+  %24 = and i64 %23, 9218868437227405312
+  %25 = icmp eq i64 %24, 9218868437227405312
+  %.mask.i.i.i.i.i.i.i = and i64 %23, 4503599627370495
+  %26 = icmp ne i64 %.mask.i.i.i.i.i.i.i, 0
+  %.0.i.i.i.i1.i.i.i = and i1 %25, %26
+  %.0.i.i.i.i.i.i = select i1 %.0.i.i.i.i1.i.i.i, double 0.000000e+00, double %22
   br label %"_ZN5typst11foundations4auto14Smart$LT$T$GT$3map17h5c3d6b88403d191aE.exit"
 
 "_ZN5typst11foundations4auto14Smart$LT$T$GT$3map17h5c3d6b88403d191aE.exit": ; preds = %3, %7
   %.sroa.3.0.i = phi double [ %.0.i.i.i.i.i.i, %7 ], [ undef, %3 ]
   %.sroa.0.0.i = phi i64 [ 1, %7 ], [ 0, %3 ]
-  %26 = insertvalue { i64, double } poison, i64 %.sroa.0.0.i, 0
-  %27 = insertvalue { i64, double } %26, double %.sroa.3.0.i, 1
-  ret { i64, double } %27
+  %27 = insertvalue { i64, double } poison, i64 %.sroa.0.0.i, 0
+  %28 = insertvalue { i64, double } %27, double %.sroa.3.0.i, 1
+  ret { i64, double } %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
@@ -122758,25 +122774,26 @@ define hidden { i64, double } @"_ZN5typst6layout9container94_$LT$impl$u20$typst.
   %18 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i, 0
   %.0.i.i.i.i.i.i.i.i = and i1 %17, %18
   %.0.i.i.i.i.i.i.i = select i1 %.0.i.i.i.i.i.i.i.i, double 0.000000e+00, double %14
-  %19 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i.i.i.i)
-  %20 = fcmp one double %19, 0x7FF0000000000000
-  %.0.i.i.i.i = select i1 %20, double %.0.i.i.i.i.i.i.i, double 0.000000e+00
-  %21 = fadd double %9, %.0.i.i.i.i
-  %22 = bitcast double %21 to i64
-  %23 = and i64 %22, 9218868437227405312
-  %24 = icmp eq i64 %23, 9218868437227405312
-  %.mask.i.i.i.i.i.i.i = and i64 %22, 4503599627370495
-  %25 = icmp ne i64 %.mask.i.i.i.i.i.i.i, 0
-  %.0.i.i.i.i1.i.i.i = and i1 %24, %25
-  %.0.i.i.i.i.i.i = select i1 %.0.i.i.i.i1.i.i.i, double 0.000000e+00, double %21
+  %19 = tail call double @llvm.fabs.f64(double %14)
+  %20 = select i1 %.0.i.i.i.i.i.i.i.i, double 0.000000e+00, double %19
+  %21 = fcmp one double %20, 0x7FF0000000000000
+  %.0.i.i.i.i = select i1 %21, double %.0.i.i.i.i.i.i.i, double 0.000000e+00
+  %22 = fadd double %9, %.0.i.i.i.i
+  %23 = bitcast double %22 to i64
+  %24 = and i64 %23, 9218868437227405312
+  %25 = icmp eq i64 %24, 9218868437227405312
+  %.mask.i.i.i.i.i.i.i = and i64 %23, 4503599627370495
+  %26 = icmp ne i64 %.mask.i.i.i.i.i.i.i, 0
+  %.0.i.i.i.i1.i.i.i = and i1 %25, %26
+  %.0.i.i.i.i.i.i = select i1 %.0.i.i.i.i1.i.i.i, double 0.000000e+00, double %22
   br label %"_ZN5typst11foundations4auto14Smart$LT$T$GT$3map17h8e1f2d1f0e469806E.exit"
 
 "_ZN5typst11foundations4auto14Smart$LT$T$GT$3map17h8e1f2d1f0e469806E.exit": ; preds = %3, %5
   %.sroa.3.0.i = phi double [ %.0.i.i.i.i.i.i, %5 ], [ undef, %3 ]
   %.sroa.0.0.i = phi i64 [ 1, %5 ], [ 0, %3 ]
-  %26 = insertvalue { i64, double } poison, i64 %.sroa.0.0.i, 0
-  %27 = insertvalue { i64, double } %26, double %.sroa.3.0.i, 1
-  ret { i64, double } %27
+  %27 = insertvalue { i64, double } poison, i64 %.sroa.0.0.i, 0
+  %28 = insertvalue { i64, double } %27, double %.sroa.3.0.i, 1
+  ret { i64, double } %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -131118,25 +131135,26 @@ define hidden { i64, double } @"_ZN5typst6layout9container138_$LT$impl$u20$typst
   %18 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i, 0
   %.0.i.i.i.i.i.i.i.i = and i1 %17, %18
   %.0.i.i.i.i.i.i.i = select i1 %.0.i.i.i.i.i.i.i.i, double 0.000000e+00, double %14
-  %19 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i.i.i.i)
-  %20 = fcmp one double %19, 0x7FF0000000000000
-  %.0.i.i.i.i = select i1 %20, double %.0.i.i.i.i.i.i.i, double 0.000000e+00
-  %21 = fadd double %9, %.0.i.i.i.i
-  %22 = bitcast double %21 to i64
-  %23 = and i64 %22, 9218868437227405312
-  %24 = icmp eq i64 %23, 9218868437227405312
-  %.mask.i.i.i.i.i.i.i = and i64 %22, 4503599627370495
-  %25 = icmp ne i64 %.mask.i.i.i.i.i.i.i, 0
-  %.0.i.i.i.i1.i.i.i = and i1 %24, %25
-  %.0.i.i.i.i.i.i = select i1 %.0.i.i.i.i1.i.i.i, double 0.000000e+00, double %21
+  %19 = tail call double @llvm.fabs.f64(double %14)
+  %20 = select i1 %.0.i.i.i.i.i.i.i.i, double 0.000000e+00, double %19
+  %21 = fcmp one double %20, 0x7FF0000000000000
+  %.0.i.i.i.i = select i1 %21, double %.0.i.i.i.i.i.i.i, double 0.000000e+00
+  %22 = fadd double %9, %.0.i.i.i.i
+  %23 = bitcast double %22 to i64
+  %24 = and i64 %23, 9218868437227405312
+  %25 = icmp eq i64 %24, 9218868437227405312
+  %.mask.i.i.i.i.i.i.i = and i64 %23, 4503599627370495
+  %26 = icmp ne i64 %.mask.i.i.i.i.i.i.i, 0
+  %.0.i.i.i.i1.i.i.i = and i1 %25, %26
+  %.0.i.i.i.i.i.i = select i1 %.0.i.i.i.i1.i.i.i, double 0.000000e+00, double %22
   br label %"_ZN5typst11foundations4auto14Smart$LT$T$GT$3map17h50b3d510aecff57eE.exit"
 
 "_ZN5typst11foundations4auto14Smart$LT$T$GT$3map17h50b3d510aecff57eE.exit": ; preds = %3, %5
   %.sroa.3.0.i = phi double [ %.0.i.i.i.i.i.i, %5 ], [ undef, %3 ]
   %.sroa.0.0.i = phi i64 [ 1, %5 ], [ 0, %3 ]
-  %26 = insertvalue { i64, double } poison, i64 %.sroa.0.0.i, 0
-  %27 = insertvalue { i64, double } %26, double %.sroa.3.0.i, 1
-  ret { i64, double } %27
+  %27 = insertvalue { i64, double } poison, i64 %.sroa.0.0.i, 0
+  %28 = insertvalue { i64, double } %27, double %.sroa.3.0.i, 1
+  ret { i64, double } %28
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -139339,9 +139357,10 @@ define hidden noundef double @"_ZN5typst6layout9transform136_$LT$impl$u20$typst.
   %12 = icmp ne i64 %.mask.i.i.i.i.i, 0
   %.0.i.i.i.i.i = and i1 %11, %12
   %.0.i.i.i.i = select i1 %.0.i.i.i.i.i, double 0.000000e+00, double %8
-  %13 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i)
-  %14 = fcmp one double %13, 0x7FF0000000000000
-  %.0.i = select i1 %14, double %.0.i.i.i.i, double 0.000000e+00
+  %13 = tail call double @llvm.fabs.f64(double %8)
+  %14 = select i1 %.0.i.i.i.i.i, double 0.000000e+00, double %13
+  %15 = fcmp one double %14, 0x7FF0000000000000
+  %.0.i = select i1 %15, double %.0.i.i.i.i, double 0.000000e+00
   ret double %.0.i
 }
 
@@ -146113,25 +146132,26 @@ define hidden { i64, double } @"_ZN5typst9visualize5image135_$LT$impl$u20$typst.
   %18 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i, 0
   %.0.i.i.i.i.i.i.i.i = and i1 %17, %18
   %.0.i.i.i.i.i.i.i = select i1 %.0.i.i.i.i.i.i.i.i, double 0.000000e+00, double %14
-  %19 = tail call double @llvm.fabs.f64(double %.0.i.i.i.i.i.i.i)
-  %20 = fcmp one double %19, 0x7FF0000000000000
-  %.0.i.i.i.i = select i1 %20, double %.0.i.i.i.i.i.i.i, double 0.000000e+00
-  %21 = fadd double %9, %.0.i.i.i.i
-  %22 = bitcast double %21 to i64
-  %23 = and i64 %22, 9218868437227405312
-  %24 = icmp eq i64 %23, 9218868437227405312
-  %.mask.i.i.i.i.i.i.i = and i64 %22, 4503599627370495
-  %25 = icmp ne i64 %.mask.i.i.i.i.i.i.i, 0
-  %.0.i.i.i.i1.i.i.i = and i1 %24, %25
-  %.0.i.i.i.i.i.i = select i1 %.0.i.i.i.i1.i.i.i, double 0.000000e+00, double %21
+  %19 = tail call double @llvm.fabs.f64(double %14)
+  %20 = select i1 %.0.i.i.i.i.i.i.i.i, double 0.000000e+00, double %19
+  %21 = fcmp one double %20, 0x7FF0000000000000
+  %.0.i.i.i.i = select i1 %21, double %.0.i.i.i.i.i.i.i, double 0.000000e+00
+  %22 = fadd double %9, %.0.i.i.i.i
+  %23 = bitcast double %22 to i64
+  %24 = and i64 %23, 9218868437227405312
+  %25 = icmp eq i64 %24, 9218868437227405312
+  %.mask.i.i.i.i.i.i.i = and i64 %23, 4503599627370495
+  %26 = icmp ne i64 %.mask.i.i.i.i.i.i.i, 0
+  %.0.i.i.i.i1.i.i.i = and i1 %25, %26
+  %.0.i.i.i.i.i.i = select i1 %.0.i.i.i.i1.i.i.i, double 0.000000e+00, double %22
   br label %"_ZN5typst11foundations4auto14Smart$LT$T$GT$3map17h296de2e68c4ea1edE.exit"
 
 "_ZN5typst11foundations4auto14Smart$LT$T$GT$3map17h296de2e68c4ea1edE.exit": ; preds = %3, %7
   %.sroa.3.0.i = phi double [ %.0.i.i.i.i.i.i, %7 ], [ undef, %3 ]
   %.sroa.0.0.i = phi i64 [ 1, %7 ], [ 0, %3 ]
-  %26 = insertvalue { i64, double } poison, i64 %.sroa.0.0.i, 0
-  %27 = insertvalue { i64, double } %26, double %.sroa.3.0.i, 1
-  ret { i64, double } %27
+  %27 = insertvalue { i64, double } poison, i64 %.sroa.0.0.i, 0
+  %28 = insertvalue { i64, double } %27, double %.sroa.3.0.i, 1
+  ret { i64, double } %28
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable

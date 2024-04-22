@@ -12234,32 +12234,34 @@ if.then:                                          ; preds = %entry
   %cmp.i31.i.inv = fcmp oge float %add.i62.i, -1.000000e+00
   %val.i30.i.0 = select i1 %cmp.i31.i.inv, float %add.i62.i, float -1.000000e+00
   %cmp1.i34.i = fcmp ogt float %val.i30.i.0, 1.000000e+00
-  %val.i30.i.1 = select i1 %cmp1.i34.i, float 1.000000e+00, float %val.i30.i.0
   %cmp.i.i.inv = fcmp oge float %cu.i.0, -1.000000e+00
   %val.i.i.0 = select i1 %cmp.i.i.inv, float %cu.i.0, float -1.000000e+00
   %cmp1.i.i = fcmp ogt float %val.i.i.0, 1.000000e+00
-  %val.i.i.1 = select i1 %cmp1.i.i, float 1.000000e+00, float %val.i.i.0
-  %8 = tail call float @llvm.fabs.f32(float %val.i30.i.1)
-  %9 = tail call float @llvm.fabs.f32(float %val.i.i.1)
-  %mul1 = fmul float %8, %tblur
-  %10 = tail call float @llvm.fmuladd.f32(float %sblur, float %9, float %mul1)
-  %11 = load float, ptr %majorlength, align 4
-  %add2 = fadd float %11, %10
+  %8 = tail call float @llvm.fabs.f32(float %add.i62.i)
+  %9 = select i1 %cmp.i31.i.inv, float %8, float 1.000000e+00
+  %10 = select i1 %cmp1.i34.i, float 1.000000e+00, float %9
+  %11 = tail call float @llvm.fabs.f32(float %add.i.i)
+  %12 = select i1 %cmp.i.i.inv, float %11, float 1.000000e+00
+  %13 = select i1 %cmp1.i.i, float 1.000000e+00, float %12
+  %mul1 = fmul float %10, %tblur
+  %14 = tail call float @llvm.fmuladd.f32(float %sblur, float %13, float %mul1)
+  %15 = load float, ptr %majorlength, align 4
+  %add2 = fadd float %15, %14
   store float %add2, ptr %majorlength, align 4
-  %mul3 = fmul float %9, %tblur
-  %12 = tail call float @llvm.fmuladd.f32(float %sblur, float %8, float %mul3)
-  %13 = load float, ptr %minorlength, align 4
-  %add4 = fadd float %13, %12
+  %mul3 = fmul float %13, %tblur
+  %16 = tail call float @llvm.fmuladd.f32(float %sblur, float %10, float %mul3)
+  %17 = load float, ptr %minorlength, align 4
+  %add4 = fadd float %17, %16
   store float %add4, ptr %minorlength, align 4
-  %14 = load float, ptr %majorlength, align 4
-  %cmp5 = fcmp ogt float %add4, %14
+  %18 = load float, ptr %majorlength, align 4
+  %cmp5 = fcmp ogt float %add4, %18
   br i1 %cmp5, label %if.then6, label %if.end9
 
 if.then6:                                         ; preds = %if.then
-  store float %14, ptr %minorlength, align 4
+  store float %18, ptr %minorlength, align 4
   store float %add4, ptr %majorlength, align 4
-  %15 = load float, ptr %theta, align 4
-  %conv = fpext float %15 to double
+  %19 = load float, ptr %theta, align 4
+  %conv = fpext float %19 to double
   %add7 = fadd double %conv, 0x3FF921FB54442D18
   %conv8 = fptrunc double %add7 to float
   store float %conv8, ptr %theta, align 4

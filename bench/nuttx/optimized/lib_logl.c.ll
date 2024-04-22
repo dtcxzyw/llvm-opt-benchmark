@@ -5,34 +5,37 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind memory(write) uwtable
 define x86_fp80 @logl(x86_fp80 noundef %0) local_unnamed_addr #0 {
+  %2 = tail call x86_fp80 @llvm.fabs.f80(x86_fp80 0xKC008AF00000000000000)
   br label %.critedge
 
 .critedge:                                        ; preds = %1, %.critedge
   %.02225 = phi x86_fp80 [ 0xK00000000000000000000, %1 ], [ %.2, %.critedge ]
-  %2 = tail call x86_fp80 @expl(x86_fp80 noundef %.02225) #3
-  %3 = fsub x86_fp80 %2, %0
-  %4 = fdiv x86_fp80 %3, %2
-  %5 = fsub x86_fp80 %.02225, %4
-  %6 = fcmp ogt x86_fp80 %5, 0xK4008AF00000000000000
-  %.1 = select i1 %6, x86_fp80 0xK4008AF00000000000000, x86_fp80 %5
-  %7 = fcmp olt x86_fp80 %.1, 0xKC008AF00000000000000
-  %.2 = select i1 %7, x86_fp80 0xKC008AF00000000000000, x86_fp80 %.1
-  %8 = tail call x86_fp80 @llvm.fabs.f80(x86_fp80 %.2)
-  %9 = fcmp ogt x86_fp80 %8, 0xK3FFF8000000000000000
-  %10 = fmul x86_fp80 %8, 0xK3FCB8000000000000000
-  %11 = select i1 %9, x86_fp80 %10, x86_fp80 0xK3FCB8000000000000000
-  %12 = fadd x86_fp80 %.02225, %11
-  %13 = fcmp ogt x86_fp80 %.2, %12
-  %14 = fsub x86_fp80 %.02225, %11
-  %15 = fcmp olt x86_fp80 %.2, %14
-  %or.cond = or i1 %13, %15
-  br i1 %or.cond, label %.critedge, label %16, !llvm.loop !6
+  %3 = tail call x86_fp80 @expl(x86_fp80 noundef %.02225) #3
+  %4 = fsub x86_fp80 %3, %0
+  %5 = fdiv x86_fp80 %4, %3
+  %6 = fsub x86_fp80 %.02225, %5
+  %7 = fcmp ogt x86_fp80 %6, 0xK4008AF00000000000000
+  %.1 = select i1 %7, x86_fp80 0xK4008AF00000000000000, x86_fp80 %6
+  %8 = fcmp olt x86_fp80 %.1, 0xKC008AF00000000000000
+  %.2 = select i1 %8, x86_fp80 0xKC008AF00000000000000, x86_fp80 %.1
+  %9 = tail call x86_fp80 @llvm.fabs.f80(x86_fp80 %6)
+  %10 = select i1 %7, x86_fp80 0xK4008AF00000000000000, x86_fp80 %9
+  %11 = select i1 %8, x86_fp80 %2, x86_fp80 %10
+  %12 = fcmp ogt x86_fp80 %11, 0xK3FFF8000000000000000
+  %13 = fmul x86_fp80 %11, 0xK3FCB8000000000000000
+  %14 = select i1 %12, x86_fp80 %13, x86_fp80 0xK3FCB8000000000000000
+  %15 = fadd x86_fp80 %.02225, %14
+  %16 = fcmp ogt x86_fp80 %.2, %15
+  %17 = fsub x86_fp80 %.02225, %14
+  %18 = fcmp olt x86_fp80 %.2, %17
+  %or.cond = or i1 %16, %18
+  br i1 %or.cond, label %.critedge, label %19, !llvm.loop !6
 
-16:                                               ; preds = %.critedge
-  %17 = fcmp oeq x86_fp80 %.2, 0xK4008AF00000000000000
-  %18 = fcmp oeq x86_fp80 %.2, 0xKC008AF00000000000000
-  %19 = or i1 %17, %18
-  %.020 = select i1 %19, x86_fp80 0xK7FFF8000000000000000, x86_fp80 %.2
+19:                                               ; preds = %.critedge
+  %20 = fcmp oeq x86_fp80 %.2, 0xK4008AF00000000000000
+  %21 = fcmp oeq x86_fp80 %.2, 0xKC008AF00000000000000
+  %22 = or i1 %20, %21
+  %.020 = select i1 %22, x86_fp80 0xK7FFF8000000000000000, x86_fp80 %.2
   ret x86_fp80 %.020
 }
 

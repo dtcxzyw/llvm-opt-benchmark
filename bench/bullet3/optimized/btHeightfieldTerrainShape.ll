@@ -3252,12 +3252,16 @@ if.end:                                           ; preds = %entry
   %cond34 = sext i1 %32 to i32
   %cond36 = select i1 %cmp30, i32 %cond34, i32 1
   %cmp37.not = icmp eq i32 %cond29, 0
-  %33 = tail call float @llvm.fabs.f32(float %28)
-  %div40 = fdiv float 1.000000e+00, %33
+  %33 = extractelement <2 x float> %24, i64 1
+  %34 = tail call float @llvm.fabs.f32(float %33)
+  %35 = fdiv float 1.000000e+00, %34
+  %div40 = select i1 %cmp21, float 0x7FF0000000000000, float %35
   %cond43 = select i1 %cmp37.not, float 0x416312CFE0000000, float %div40
   %cmp44.not = icmp eq i32 %cond36, 0
-  %34 = tail call float @llvm.fabs.f32(float %31)
-  %div47 = fdiv float 1.000000e+00, %34
+  %36 = extractelement <2 x float> %24, i64 0
+  %37 = tail call float @llvm.fabs.f32(float %36)
+  %38 = fdiv float 1.000000e+00, %37
+  %div47 = select i1 %cmp21, float 0x7FF0000000000000, float %38
   %cond50 = select i1 %cmp44.not, float 0x416312CFE0000000, float %div47
   br i1 %cmp37.not, label %if.end79, label %if.then52
 
@@ -3265,14 +3269,14 @@ if.then52:                                        ; preds = %if.end
   br i1 %cmp27, label %if.else65, label %if.then54
 
 if.then54:                                        ; preds = %if.then52
-  %35 = tail call noundef float @llvm.ceil.f32(float %10)
-  %sub64 = fsub float %35, %10
+  %39 = tail call noundef float @llvm.ceil.f32(float %10)
+  %sub64 = fsub float %39, %10
   %mul = fmul float %div40, %sub64
   br label %if.end79
 
 if.else65:                                        ; preds = %if.then52
-  %36 = tail call noundef float @llvm.floor.f32(float %10)
-  %sub75 = fsub float %10, %36
+  %40 = tail call noundef float @llvm.floor.f32(float %10)
+  %sub75 = fsub float %10, %40
   %mul76 = fmul float %div40, %sub75
   br label %if.end79
 
@@ -3284,23 +3288,23 @@ if.then81:                                        ; preds = %if.end79
   br i1 %cmp30, label %if.else95, label %if.then83
 
 if.then83:                                        ; preds = %if.then81
-  %37 = tail call noundef float @llvm.ceil.f32(float %13)
-  %sub93 = fsub float %37, %13
+  %41 = tail call noundef float @llvm.ceil.f32(float %13)
+  %sub93 = fsub float %41, %13
   %mul94 = fmul float %div47, %sub93
   br label %if.end109
 
 if.else95:                                        ; preds = %if.then81
-  %38 = tail call noundef float @llvm.floor.f32(float %13)
-  %sub105 = fsub float %13, %38
+  %42 = tail call noundef float @llvm.floor.f32(float %13)
+  %sub105 = fsub float %13, %42
   %mul106 = fmul float %div47, %sub105
   br label %if.end109
 
 if.end109:                                        ; preds = %if.end79, %if.then83, %if.else95
   %paramCrossZ.0 = phi float [ %mul94, %if.then83 ], [ %mul106, %if.else95 ], [ 0x416312CFE0000000, %if.end79 ]
-  %39 = tail call noundef float @llvm.floor.f32(float %10)
-  %conv115 = fptosi float %39 to i32
-  %40 = tail call noundef float @llvm.floor.f32(float %13)
-  %conv121 = fptosi float %40 to i32
+  %43 = tail call noundef float @llvm.floor.f32(float %10)
+  %conv115 = fptosi float %43 to i32
+  %44 = tail call noundef float @llvm.floor.f32(float %13)
+  %conv121 = fptosi float %44 to i32
   %cmp123 = fcmp oeq float %paramCrossX.0, 0.000000e+00
   %add = fadd float %cond43, %paramCrossX.0
   %sub128 = add nsw i32 %conv115, -1
@@ -3423,12 +3427,16 @@ if.end:                                           ; preds = %entry
   %cond34 = sext i1 %32 to i32
   %cond36 = select i1 %cmp30, i32 %cond34, i32 1
   %cmp37.not = icmp eq i32 %cond29, 0
-  %33 = tail call float @llvm.fabs.f32(float %28)
-  %div40 = fdiv float 1.000000e+00, %33
+  %33 = extractelement <2 x float> %24, i64 1
+  %34 = tail call float @llvm.fabs.f32(float %33)
+  %35 = fdiv float 1.000000e+00, %34
+  %div40 = select i1 %cmp21, float 0x7FF0000000000000, float %35
   %cond43 = select i1 %cmp37.not, float 0x416312CFE0000000, float %div40
   %cmp44.not = icmp eq i32 %cond36, 0
-  %34 = tail call float @llvm.fabs.f32(float %31)
-  %div47 = fdiv float 1.000000e+00, %34
+  %36 = extractelement <2 x float> %24, i64 0
+  %37 = tail call float @llvm.fabs.f32(float %36)
+  %38 = fdiv float 1.000000e+00, %37
+  %div47 = select i1 %cmp21, float 0x7FF0000000000000, float %38
   %cond50 = select i1 %cmp44.not, float 0x416312CFE0000000, float %div47
   br i1 %cmp37.not, label %if.end79, label %if.then52
 
@@ -3436,14 +3444,14 @@ if.then52:                                        ; preds = %if.end
   br i1 %cmp27, label %if.else65, label %if.then54
 
 if.then54:                                        ; preds = %if.then52
-  %35 = tail call noundef float @llvm.ceil.f32(float %10)
-  %sub64 = fsub float %35, %10
+  %39 = tail call noundef float @llvm.ceil.f32(float %10)
+  %sub64 = fsub float %39, %10
   %mul = fmul float %div40, %sub64
   br label %if.end79
 
 if.else65:                                        ; preds = %if.then52
-  %36 = tail call noundef float @llvm.floor.f32(float %10)
-  %sub75 = fsub float %10, %36
+  %40 = tail call noundef float @llvm.floor.f32(float %10)
+  %sub75 = fsub float %10, %40
   %mul76 = fmul float %div40, %sub75
   br label %if.end79
 
@@ -3455,24 +3463,24 @@ if.then81:                                        ; preds = %if.end79
   br i1 %cmp30, label %if.else95, label %if.then83
 
 if.then83:                                        ; preds = %if.then81
-  %37 = tail call noundef float @llvm.ceil.f32(float %13)
-  %sub93 = fsub float %37, %13
+  %41 = tail call noundef float @llvm.ceil.f32(float %13)
+  %sub93 = fsub float %41, %13
   %mul94 = fmul float %div47, %sub93
   br label %if.end109
 
 if.else95:                                        ; preds = %if.then81
-  %38 = tail call noundef float @llvm.floor.f32(float %13)
-  %sub105 = fsub float %13, %38
+  %42 = tail call noundef float @llvm.floor.f32(float %13)
+  %sub105 = fsub float %13, %42
   %mul106 = fmul float %div47, %sub105
   br label %if.end109
 
 if.end109:                                        ; preds = %if.end79, %if.then83, %if.else95
   %paramCrossZ.0 = phi float [ %mul94, %if.then83 ], [ %mul106, %if.else95 ], [ 0x416312CFE0000000, %if.end79 ]
-  %39 = tail call noundef float @llvm.floor.f32(float %10)
-  %conv115 = fptosi float %39 to i32
+  %43 = tail call noundef float @llvm.floor.f32(float %10)
+  %conv115 = fptosi float %43 to i32
   store i32 %conv115, ptr %rs, align 4
-  %40 = tail call noundef float @llvm.floor.f32(float %13)
-  %conv121 = fptosi float %40 to i32
+  %44 = tail call noundef float @llvm.floor.f32(float %13)
+  %conv121 = fptosi float %44 to i32
   %z = getelementptr inbounds i8, ptr %rs, i64 4
   store i32 %conv121, ptr %z, align 4
   %cmp123 = fcmp oeq float %paramCrossX.0, 0.000000e+00
@@ -3512,14 +3520,14 @@ if.end140:                                        ; preds = %if.then133, %if.the
   br label %while.body
 
 while.body:                                       ; preds = %if.else166, %if.end140
-  %41 = phi float [ 0.000000e+00, %if.end140 ], [ %paramCrossZ.2.sink, %if.else166 ]
-  %42 = phi i32 [ %z.promoted, %if.end140 ], [ %43, %if.else166 ]
+  %45 = phi float [ 0.000000e+00, %if.end140 ], [ %paramCrossZ.2.sink, %if.else166 ]
+  %46 = phi i32 [ %z.promoted, %if.end140 ], [ %47, %if.else166 ]
   %add15162 = phi i32 [ %rs.promoted, %if.end140 ], [ %add15161, %if.else166 ]
   %paramCrossX.2 = phi float [ %paramCrossX.1, %if.end140 ], [ %paramCrossX.3, %if.else166 ]
   %paramCrossZ.2 = phi float [ %paramCrossZ.1, %if.end140 ], [ %paramCrossZ.3, %if.else166 ]
   store i32 %add15162, ptr %prev_x, align 4
-  store i32 %42, ptr %prev_z, align 4
-  store float %41, ptr %prevParam, align 4
+  store i32 %46, ptr %prev_z, align 4
+  store float %45, ptr %prevParam, align 4
   %cmp148 = fcmp olt float %paramCrossX.2, %paramCrossZ.2
   br i1 %cmp148, label %if.then149, label %if.else154
 
@@ -3530,14 +3538,14 @@ if.then149:                                       ; preds = %while.body
   br label %if.end159
 
 if.else154:                                       ; preds = %while.body
-  %add156 = add nsw i32 %42, %cond36
+  %add156 = add nsw i32 %46, %cond36
   store i32 %add156, ptr %z, align 4
   %add158 = fadd float %cond50, %paramCrossZ.2
   br label %if.end159
 
 if.end159:                                        ; preds = %if.else154, %if.then149
   %paramCrossZ.2.sink = phi float [ %paramCrossX.2, %if.then149 ], [ %paramCrossZ.2, %if.else154 ]
-  %43 = phi i32 [ %42, %if.then149 ], [ %add156, %if.else154 ]
+  %47 = phi i32 [ %46, %if.then149 ], [ %add156, %if.else154 ]
   %add15161 = phi i32 [ %add151, %if.then149 ], [ %add15162, %if.else154 ]
   %paramCrossX.3 = phi float [ %add153, %if.then149 ], [ %paramCrossX.2, %if.else154 ]
   %paramCrossZ.3 = phi float [ %paramCrossZ.2, %if.then149 ], [ %add158, %if.else154 ]
@@ -4077,12 +4085,16 @@ if.end:                                           ; preds = %entry
   %cond34 = sext i1 %32 to i32
   %cond36 = select i1 %cmp30, i32 %cond34, i32 1
   %cmp37.not = icmp eq i32 %cond29, 0
-  %33 = tail call float @llvm.fabs.f32(float %28)
-  %div40 = fdiv float 1.000000e+00, %33
+  %33 = extractelement <2 x float> %24, i64 1
+  %34 = tail call float @llvm.fabs.f32(float %33)
+  %35 = fdiv float 1.000000e+00, %34
+  %div40 = select i1 %cmp21, float 0x7FF0000000000000, float %35
   %cond43 = select i1 %cmp37.not, float 0x416312CFE0000000, float %div40
   %cmp44.not = icmp eq i32 %cond36, 0
-  %34 = tail call float @llvm.fabs.f32(float %31)
-  %div47 = fdiv float 1.000000e+00, %34
+  %36 = extractelement <2 x float> %24, i64 0
+  %37 = tail call float @llvm.fabs.f32(float %36)
+  %38 = fdiv float 1.000000e+00, %37
+  %div47 = select i1 %cmp21, float 0x7FF0000000000000, float %38
   %cond50 = select i1 %cmp44.not, float 0x416312CFE0000000, float %div47
   br i1 %cmp37.not, label %if.end79, label %if.then52
 
@@ -4090,14 +4102,14 @@ if.then52:                                        ; preds = %if.end
   br i1 %cmp27, label %if.else65, label %if.then54
 
 if.then54:                                        ; preds = %if.then52
-  %35 = tail call noundef float @llvm.ceil.f32(float %10)
-  %sub64 = fsub float %35, %10
+  %39 = tail call noundef float @llvm.ceil.f32(float %10)
+  %sub64 = fsub float %39, %10
   %mul = fmul float %div40, %sub64
   br label %if.end79
 
 if.else65:                                        ; preds = %if.then52
-  %36 = tail call noundef float @llvm.floor.f32(float %10)
-  %sub75 = fsub float %10, %36
+  %40 = tail call noundef float @llvm.floor.f32(float %10)
+  %sub75 = fsub float %10, %40
   %mul76 = fmul float %div40, %sub75
   br label %if.end79
 
@@ -4109,23 +4121,23 @@ if.then81:                                        ; preds = %if.end79
   br i1 %cmp30, label %if.else95, label %if.then83
 
 if.then83:                                        ; preds = %if.then81
-  %37 = tail call noundef float @llvm.ceil.f32(float %13)
-  %sub93 = fsub float %37, %13
+  %41 = tail call noundef float @llvm.ceil.f32(float %13)
+  %sub93 = fsub float %41, %13
   %mul94 = fmul float %div47, %sub93
   br label %if.end109
 
 if.else95:                                        ; preds = %if.then81
-  %38 = tail call noundef float @llvm.floor.f32(float %13)
-  %sub105 = fsub float %13, %38
+  %42 = tail call noundef float @llvm.floor.f32(float %13)
+  %sub105 = fsub float %13, %42
   %mul106 = fmul float %div47, %sub105
   br label %if.end109
 
 if.end109:                                        ; preds = %if.end79, %if.then83, %if.else95
   %paramCrossZ.0 = phi float [ %mul94, %if.then83 ], [ %mul106, %if.else95 ], [ 0x416312CFE0000000, %if.end79 ]
-  %39 = tail call noundef float @llvm.floor.f32(float %10)
-  %conv115 = fptosi float %39 to i32
-  %40 = tail call noundef float @llvm.floor.f32(float %13)
-  %conv121 = fptosi float %40 to i32
+  %43 = tail call noundef float @llvm.floor.f32(float %10)
+  %conv115 = fptosi float %43 to i32
+  %44 = tail call noundef float @llvm.floor.f32(float %13)
+  %conv121 = fptosi float %44 to i32
   %cmp123 = fcmp oeq float %paramCrossX.0, 0.000000e+00
   %add = fadd float %cond43, %paramCrossX.0
   %sub128 = add nsw i32 %conv115, -1

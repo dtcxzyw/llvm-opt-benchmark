@@ -19,30 +19,32 @@ define double @log(double noundef %0) local_unnamed_addr #0 {
   %.131 = select i1 %6, double 7.000000e+02, double %5
   %7 = fcmp olt double %.131, -7.000000e+02
   %.2 = select i1 %7, double -7.000000e+02, double %.131
-  %8 = tail call double @llvm.fabs.f64(double %.2)
-  %9 = fcmp ogt double %8, 1.000000e+00
-  %10 = fmul double %8, 0x3CB0000000000000
-  %11 = select i1 %9, double %10, double 0x3CB0000000000000
-  %12 = add nsw i32 %.037, 1
-  %13 = icmp sgt i32 %.037, 8
-  %14 = fmul double %.02436, 2.000000e+00
-  %.125 = select i1 %13, double %14, double %.02436
-  %.1 = select i1 %13, i32 0, i32 %12
-  %15 = fcmp ogt double %.125, 1.000000e+00
-  %16 = fmul double %.125, %11
-  %.127 = select i1 %15, double %16, double %11
-  %17 = fadd double %.03035, %.127
-  %18 = fcmp ogt double %.2, %17
-  %19 = fsub double %.03035, %.127
-  %20 = fcmp olt double %.2, %19
-  %or.cond = or i1 %18, %20
-  br i1 %or.cond, label %.critedge, label %21, !llvm.loop !6
+  %8 = tail call double @llvm.fabs.f64(double %5)
+  %9 = or i1 %6, %7
+  %10 = select i1 %9, double 7.000000e+02, double %8
+  %11 = fcmp ogt double %10, 1.000000e+00
+  %12 = fmul double %10, 0x3CB0000000000000
+  %13 = select i1 %11, double %12, double 0x3CB0000000000000
+  %14 = add nsw i32 %.037, 1
+  %15 = icmp sgt i32 %.037, 8
+  %16 = fmul double %.02436, 2.000000e+00
+  %.125 = select i1 %15, double %16, double %.02436
+  %.1 = select i1 %15, i32 0, i32 %14
+  %17 = fcmp ogt double %.125, 1.000000e+00
+  %18 = fmul double %.125, %13
+  %.127 = select i1 %17, double %18, double %13
+  %19 = fadd double %.03035, %.127
+  %20 = fcmp ogt double %.2, %19
+  %21 = fsub double %.03035, %.127
+  %22 = fcmp olt double %.2, %21
+  %or.cond = or i1 %20, %22
+  br i1 %or.cond, label %.critedge, label %23, !llvm.loop !6
 
-21:                                               ; preds = %.critedge
-  %22 = fcmp oeq double %.2, 7.000000e+02
-  %23 = fcmp oeq double %.2, -7.000000e+02
-  %24 = or i1 %22, %23
-  %.028 = select i1 %24, double 0x7FF0000000000000, double %.2
+23:                                               ; preds = %.critedge
+  %24 = fcmp oeq double %.2, 7.000000e+02
+  %25 = fcmp oeq double %.2, -7.000000e+02
+  %26 = or i1 %24, %25
+  %.028 = select i1 %26, double 0x7FF0000000000000, double %.2
   ret double %.028
 }
 

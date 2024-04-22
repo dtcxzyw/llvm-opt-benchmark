@@ -19,30 +19,32 @@ define float @logf(float noundef %0) local_unnamed_addr #0 {
   %.131 = select i1 %6, float 8.800000e+01, float %5
   %7 = fcmp olt float %.131, -8.800000e+01
   %.2 = select i1 %7, float -8.800000e+01, float %.131
-  %8 = tail call float @llvm.fabs.f32(float %.2)
-  %9 = fcmp ogt float %8, 1.000000e+00
-  %10 = fmul float %8, 0x3E80000000000000
-  %11 = select i1 %9, float %10, float 0x3E80000000000000
-  %12 = add nsw i32 %.037, 1
-  %13 = icmp sgt i32 %.037, 8
-  %14 = fmul float %.02436, 2.000000e+00
-  %.125 = select i1 %13, float %14, float %.02436
-  %.1 = select i1 %13, i32 0, i32 %12
-  %15 = fcmp ogt float %.125, 1.000000e+00
-  %16 = fmul float %.125, %11
-  %.127 = select i1 %15, float %16, float %11
-  %17 = fadd float %.03035, %.127
-  %18 = fcmp ogt float %.2, %17
-  %19 = fsub float %.03035, %.127
-  %20 = fcmp olt float %.2, %19
-  %or.cond = or i1 %18, %20
-  br i1 %or.cond, label %.critedge, label %21, !llvm.loop !6
+  %8 = tail call float @llvm.fabs.f32(float %5)
+  %9 = or i1 %6, %7
+  %10 = select i1 %9, float 8.800000e+01, float %8
+  %11 = fcmp ogt float %10, 1.000000e+00
+  %12 = fmul float %10, 0x3E80000000000000
+  %13 = select i1 %11, float %12, float 0x3E80000000000000
+  %14 = add nsw i32 %.037, 1
+  %15 = icmp sgt i32 %.037, 8
+  %16 = fmul float %.02436, 2.000000e+00
+  %.125 = select i1 %15, float %16, float %.02436
+  %.1 = select i1 %15, i32 0, i32 %14
+  %17 = fcmp ogt float %.125, 1.000000e+00
+  %18 = fmul float %.125, %13
+  %.127 = select i1 %17, float %18, float %13
+  %19 = fadd float %.03035, %.127
+  %20 = fcmp ogt float %.2, %19
+  %21 = fsub float %.03035, %.127
+  %22 = fcmp olt float %.2, %21
+  %or.cond = or i1 %20, %22
+  br i1 %or.cond, label %.critedge, label %23, !llvm.loop !6
 
-21:                                               ; preds = %.critedge
-  %22 = fcmp oeq float %.2, 8.800000e+01
-  %23 = fcmp oeq float %.2, -8.800000e+01
-  %24 = or i1 %22, %23
-  %.028 = select i1 %24, float 0x7FF0000000000000, float %.2
+23:                                               ; preds = %.critedge
+  %24 = fcmp oeq float %.2, 8.800000e+01
+  %25 = fcmp oeq float %.2, -8.800000e+01
+  %26 = or i1 %24, %25
+  %.028 = select i1 %26, float 0x7FF0000000000000, float %.2
   ret float %.028
 }
 
