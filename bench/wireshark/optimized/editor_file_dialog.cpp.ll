@@ -111,6 +111,7 @@ _ZN7QStringC2ERKS_.exit17:                        ; preds = %_ZN7QStringC2ERKS_.
 
 _ZN7QStringC2ERKS_.exit19:                        ; preds = %_ZN7QStringC2ERKS_.exit17, %48
   %50 = getelementptr inbounds i8, ptr %0, i64 152
+  store i32 0, ptr %50, align 8
   %51 = load i32, ptr %19, align 8
   %52 = icmp eq i32 %51, 1
   %spec.store.select = zext i1 %52 to i32
@@ -504,7 +505,7 @@ define void @_ZN16EditorFileDialog11resizeEventEP12QResizeEvent(ptr noundef nonn
   %25 = tail call { i64, i64 } @_ZNK7QWidget12contentsRectEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %26 = extractvalue { i64, i64 } %25, 0
   %.sroa.16.0.extract.shift = lshr i64 %26, 32
-  %.sroa.16.0.extract.trunc = trunc i64 %.sroa.16.0.extract.shift to i32
+  %.sroa.16.0.extract.trunc = trunc nuw i64 %.sroa.16.0.extract.shift to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store i32 %24, ptr %3, align 4
   %27 = getelementptr inbounds i8, ptr %3, i64 4
@@ -515,10 +516,10 @@ define void @_ZN16EditorFileDialog11resizeEventEP12QResizeEvent(ptr noundef nonn
   %29 = call { i64, i64 } @_ZNK7QWidget12contentsRectEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %30 = extractvalue { i64, i64 } %29, 0
   %.sroa.12.0.extract.shift = lshr i64 %30, 32
-  %.sroa.12.0.extract.trunc = trunc i64 %.sroa.12.0.extract.shift to i32
+  %.sroa.12.0.extract.trunc = trunc nuw i64 %.sroa.12.0.extract.shift to i32
   %31 = extractvalue { i64, i64 } %29, 1
   %.sroa.34.8.extract.shift = lshr i64 %31, 32
-  %.sroa.34.8.extract.trunc = trunc i64 %.sroa.34.8.extract.shift to i32
+  %.sroa.34.8.extract.trunc = trunc nuw i64 %.sroa.34.8.extract.shift to i32
   %32 = add i32 %.sroa.34.8.extract.trunc, 1
   %33 = sub i32 %32, %.sroa.12.0.extract.trunc
   call void @_ZN7QWidget16setMinimumHeightEi(ptr noundef nonnull align 8 dereferenceable(40) %28, i32 noundef %33)
@@ -526,10 +527,10 @@ define void @_ZN16EditorFileDialog11resizeEventEP12QResizeEvent(ptr noundef nonn
   %35 = call { i64, i64 } @_ZNK7QWidget12contentsRectEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
   %36 = extractvalue { i64, i64 } %35, 0
   %.sroa.1.0.extract.shift = lshr i64 %36, 32
-  %.sroa.1.0.extract.trunc = trunc i64 %.sroa.1.0.extract.shift to i32
+  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
   %37 = extractvalue { i64, i64 } %35, 1
   %.sroa.3.8.extract.shift = lshr i64 %37, 32
-  %.sroa.3.8.extract.trunc = trunc i64 %.sroa.3.8.extract.shift to i32
+  %.sroa.3.8.extract.trunc = trunc nuw i64 %.sroa.3.8.extract.shift to i32
   %38 = add i32 %.sroa.3.8.extract.trunc, 1
   %39 = sub i32 %38, %.sroa.1.0.extract.trunc
   call void @_ZN7QWidget16setMaximumHeightEi(ptr noundef nonnull align 8 dereferenceable(40) %34, i32 noundef %39)
