@@ -520,3 +520,6 @@
 [submodule "bench/tinyrenderer/tinyrenderer"]
 	path = bench/tinyrenderer/tinyrenderer
 	url = git@github.com:ssloy/tinyrenderer.git
+[submodule "bench/opencc/OpenCC"]
+	path = bench/opencc/OpenCC
+	url = git@github.com:BYVoid/OpenCC.git
