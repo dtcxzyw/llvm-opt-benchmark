@@ -517,3 +517,6 @@
 [submodule "bench/crow/Crow"]
 	path = bench/crow/Crow
 	url = git@github.com:CrowCpp/Crow.git
+[submodule "bench/tinyrenderer/tinyrenderer"]
+	path = bench/tinyrenderer/tinyrenderer
+	url = git@github.com:ssloy/tinyrenderer.git
