@@ -499,3 +499,6 @@
 [submodule "bench/ockam-rs/ockam"]
 	path = bench/ockam-rs/ockam
 	url = git@github.com:build-trust/ockam.git
+[submodule "bench/delta-rs/delta-rs"]
+	path = bench/delta-rs/delta-rs
+	url = git@github.com:delta-io/delta-rs.git
