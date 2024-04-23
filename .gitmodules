@@ -508,3 +508,6 @@
 [submodule "bench/jsonnet/jsonnet"]
 	path = bench/jsonnet/jsonnet
 	url = git@github.com:google/jsonnet.git
+[submodule "bench/tinygltf/tinygltf"]
+	path = bench/tinygltf/tinygltf
+	url = git@github.com:syoyo/tinygltf.git
