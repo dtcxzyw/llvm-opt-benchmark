@@ -502,3 +502,6 @@
 [submodule "bench/delta-rs/delta-rs"]
 	path = bench/delta-rs/delta-rs
 	url = git@github.com:delta-io/delta-rs.git
+[submodule "bench/proj/PROJ"]
+	path = bench/proj/PROJ
+	url = git@github.com:OSGeo/PROJ.git

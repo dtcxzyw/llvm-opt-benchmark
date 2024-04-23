@@ -1,0 +1,1145 @@
+; ModuleID = 'bench/proj/original/adams.cpp.ll'
+source_filename = "bench/proj/original/adams.cpp.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%union.PJ_COORD = type { [4 x double] }
+
+@_ZL9des_guyou = internal constant [23 x i8] c"Guyou\0A\09Misc Sph No inv\00", align 16
+@pj_s_guyou = hidden local_unnamed_addr constant ptr @_ZL9des_guyou, align 8
+@.str = private unnamed_addr constant [6 x i8] c"guyou\00", align 1
+@_ZL12des_peirce_q = internal constant [36 x i8] c"Peirce Quincuncial\0A\09Misc Sph No inv\00", align 16
+@pj_s_peirce_q = hidden local_unnamed_addr constant ptr @_ZL12des_peirce_q, align 8
+@.str.1 = private unnamed_addr constant [9 x i8] c"peirce_q\00", align 1
+@_ZL14des_adams_hemi = internal constant [46 x i8] c"Adams Hemisphere in a Square\0A\09Misc Sph No inv\00", align 16
+@pj_s_adams_hemi = hidden local_unnamed_addr constant ptr @_ZL14des_adams_hemi, align 8
+@.str.2 = private unnamed_addr constant [11 x i8] c"adams_hemi\00", align 1
+@_ZL13des_adams_ws1 = internal constant [43 x i8] c"Adams World in a Square I\0A\09Misc Sph No inv\00", align 16
+@pj_s_adams_ws1 = hidden local_unnamed_addr constant ptr @_ZL13des_adams_ws1, align 8
+@.str.3 = private unnamed_addr constant [10 x i8] c"adams_ws1\00", align 1
+@_ZL13des_adams_ws2 = internal constant [44 x i8] c"Adams World in a Square II\0A\09Misc Sph No inv\00", align 16
+@pj_s_adams_ws2 = hidden local_unnamed_addr constant ptr @_ZL13des_adams_ws2, align 8
+@.str.4 = private unnamed_addr constant [10 x i8] c"adams_ws2\00", align 1
+@.str.5 = private unnamed_addr constant [7 x i8] c"sshape\00", align 1
+@.str.6 = private unnamed_addr constant [8 x i8] c"diamond\00", align 1
+@.str.7 = private unnamed_addr constant [7 x i8] c"square\00", align 1
+@.str.8 = private unnamed_addr constant [12 x i8] c"nhemisphere\00", align 1
+@.str.9 = private unnamed_addr constant [12 x i8] c"shemisphere\00", align 1
+@.str.10 = private unnamed_addr constant [11 x i8] c"horizontal\00", align 1
+@.str.11 = private unnamed_addr constant [9 x i8] c"tscrollx\00", align 1
+@.str.12 = private unnamed_addr constant [9 x i8] c"dscrollx\00", align 1
+@.str.13 = private unnamed_addr constant [61 x i8] c"Invalid value for scrollx: |scrollx| should between -1 and 1\00", align 1
+@.str.14 = private unnamed_addr constant [9 x i8] c"vertical\00", align 1
+@.str.15 = private unnamed_addr constant [9 x i8] c"tscrolly\00", align 1
+@.str.16 = private unnamed_addr constant [9 x i8] c"dscrolly\00", align 1
+@.str.17 = private unnamed_addr constant [61 x i8] c"Invalid value for scrolly: |scrolly| should between -1 and 1\00", align 1
+@.str.18 = private unnamed_addr constant [46 x i8] c"peirce_q: invalid value for 'shape' parameter\00", align 1
+@_ZZL9ell_int_5dE1C = internal unnamed_addr constant [7 x double] [double 0xBEACD0197C801E71, double 0x3E8B3472B443B2B5, double 0x3F00687C061BD167, double 0x3F0BCED673156376, double 0xBF54FAA840E59820, double 0xBF779356F0180731, double 0x3FB767522D0A0ABA], align 16
+
+; Function Attrs: mustprogress uwtable
+define hidden noundef ptr @pj_guyou(ptr noundef %0) local_unnamed_addr #0 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %11, label %2
+
+2:                                                ; preds = %1
+  %3 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #7
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %5, label %7
+
+5:                                                ; preds = %2
+  %6 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 4096)
+  br label %_Z34pj_projection_specific_setup_guyouP8PJconsts.exit
+
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %3, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 216
+  store double 0.000000e+00, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 104
+  store ptr @_ZL13adams_forward5PJ_LPP8PJconsts, ptr %10, align 8
+  br label %_Z34pj_projection_specific_setup_guyouP8PJconsts.exit
+
+11:                                               ; preds = %1
+  %12 = tail call noundef ptr @_Z6pj_newv()
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %_Z34pj_projection_specific_setup_guyouP8PJconsts.exit, label %14
+
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr @.str, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %12, i64 16
+  store ptr @_ZL9des_guyou, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %12, i64 360
+  store i32 1, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %12, i64 380
+  store i32 4, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %12, i64 384
+  store i32 1, ptr %19, align 8
+  br label %_Z34pj_projection_specific_setup_guyouP8PJconsts.exit
+
+_Z34pj_projection_specific_setup_guyouP8PJconsts.exit: ; preds = %7, %5, %11, %14
+  %.0 = phi ptr [ %12, %14 ], [ null, %11 ], [ %6, %5 ], [ %0, %7 ]
+  ret ptr %.0
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden noundef ptr @_Z34pj_projection_specific_setup_guyouP8PJconsts(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #7
+  %3 = icmp eq ptr %2, null
+  br i1 %3, label %4, label %6
+
+4:                                                ; preds = %1
+  %5 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %0, i32 noundef 4096)
+  br label %_ZL14pj_adams_setupP8PJconstsN12_GLOBAL__N_115projection_typeE.exit
+
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 216
+  store double 0.000000e+00, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 104
+  store ptr @_ZL13adams_forward5PJ_LPP8PJconsts, ptr %9, align 8
+  br label %_ZL14pj_adams_setupP8PJconstsN12_GLOBAL__N_115projection_typeE.exit
+
+_ZL14pj_adams_setupP8PJconstsN12_GLOBAL__N_115projection_typeE.exit: ; preds = %4, %6
+  %.0.i = phi ptr [ %5, %4 ], [ %0, %6 ]
+  ret ptr %.0.i
+}
+
+declare noundef ptr @_Z6pj_newv() local_unnamed_addr #1
+
+; Function Attrs: mustprogress uwtable
+define internal fastcc noundef ptr @_ZL14pj_adams_setupP8PJconstsN12_GLOBAL__N_115projection_typeE(ptr noundef %0, i32 noundef %1) unnamed_addr #0 {
+  %3 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #7
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %5, label %7
+
+5:                                                ; preds = %2
+  %6 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %0, i32 noundef 4096)
+  br label %79
+
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %3, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 216
+  store double 0.000000e+00, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 104
+  store ptr @_ZL13adams_forward5PJ_LPP8PJconsts, ptr %10, align 8
+  store i32 %1, ptr %3, align 8
+  switch i32 %1, label %79 [
+    i32 4, label %11
+    i32 1, label %13
+  ]
+
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @_ZL13adams_inverse5PJ_XYP8PJconsts, ptr %12, align 8
+  br label %79
+
+13:                                               ; preds = %7
+  %14 = load ptr, ptr %0, align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %14, ptr noundef %16, ptr noundef nonnull @.str.5)
+  %.sroa.013.0..sroa.013.0..cast = inttoptr i64 %17 to ptr
+  %.not = icmp eq i64 %17, 0
+  %spec.store.select = select i1 %.not, ptr @.str.6, ptr %.sroa.013.0..sroa.013.0..cast
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select, ptr noundef nonnull dereferenceable(7) @.str.7) #8
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %20, label %23
+
+20:                                               ; preds = %13
+  %21 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 0, ptr %21, align 4
+  %22 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @_ZL23peirce_q_square_inverse5PJ_XYP8PJconsts, ptr %22, align 8
+  br label %79
+
+23:                                               ; preds = %13
+  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select, ptr noundef nonnull dereferenceable(8) @.str.6) #8
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %29
+
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 1, ptr %27, align 4
+  %28 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @_ZL24peirce_q_diamond_inverse5PJ_XYP8PJconsts, ptr %28, align 8
+  br label %79
+
+29:                                               ; preds = %23
+  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select, ptr noundef nonnull dereferenceable(12) @.str.8) #8
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %32, label %34
+
+32:                                               ; preds = %29
+  %33 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 2, ptr %33, align 4
+  br label %79
+
+34:                                               ; preds = %29
+  %35 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select, ptr noundef nonnull dereferenceable(12) @.str.9) #8
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %39
+
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 3, ptr %38, align 4
+  br label %79
+
+39:                                               ; preds = %34
+  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select, ptr noundef nonnull dereferenceable(11) @.str.10) #8
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %42, label %58
+
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 4, ptr %43, align 4
+  %44 = load ptr, ptr %0, align 8
+  %45 = load ptr, ptr %15, align 8
+  %46 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %44, ptr noundef %45, ptr noundef nonnull @.str.11)
+  %47 = and i64 %46, 4294967295
+  %.not63 = icmp eq i64 %47, 0
+  br i1 %.not63, label %79, label %48
+
+48:                                               ; preds = %42
+  %49 = load ptr, ptr %0, align 8
+  %50 = load ptr, ptr %15, align 8
+  %51 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %49, ptr noundef %50, ptr noundef nonnull @.str.12)
+  %52 = bitcast i64 %51 to double
+  %53 = tail call double @llvm.fabs.f64(double %52)
+  %or.cond = fcmp ogt double %53, 1.000000e+00
+  br i1 %or.cond, label %54, label %56
+
+54:                                               ; preds = %48
+  tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.13)
+  %55 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
+  br label %79
+
+56:                                               ; preds = %48
+  %57 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %51, ptr %57, align 8
+  br label %79
+
+58:                                               ; preds = %39
+  %59 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %spec.store.select, ptr noundef nonnull dereferenceable(9) @.str.14) #8
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %61, label %77
+
+61:                                               ; preds = %58
+  %62 = getelementptr inbounds i8, ptr %3, i64 4
+  store i32 5, ptr %62, align 4
+  %63 = load ptr, ptr %0, align 8
+  %64 = load ptr, ptr %15, align 8
+  %65 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %63, ptr noundef %64, ptr noundef nonnull @.str.15)
+  %66 = and i64 %65, 4294967295
+  %.not62 = icmp eq i64 %66, 0
+  br i1 %.not62, label %79, label %67
+
+67:                                               ; preds = %61
+  %68 = load ptr, ptr %0, align 8
+  %69 = load ptr, ptr %15, align 8
+  %70 = tail call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %68, ptr noundef %69, ptr noundef nonnull @.str.16)
+  %71 = bitcast i64 %70 to double
+  %72 = tail call double @llvm.fabs.f64(double %71)
+  %or.cond3 = fcmp ogt double %72, 1.000000e+00
+  br i1 %or.cond3, label %73, label %75
+
+73:                                               ; preds = %67
+  tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.17)
+  %74 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
+  br label %79
+
+75:                                               ; preds = %67
+  %76 = getelementptr inbounds i8, ptr %3, i64 16
+  store i64 %70, ptr %76, align 8
+  br label %79
+
+77:                                               ; preds = %58
+  tail call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.18)
+  %78 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 1027)
+  br label %79
+
+79:                                               ; preds = %11, %26, %37, %75, %61, %42, %56, %32, %20, %7, %77, %73, %54, %5
+  %.0 = phi ptr [ %6, %5 ], [ %55, %54 ], [ %74, %73 ], [ %78, %77 ], [ %0, %7 ], [ %0, %20 ], [ %0, %32 ], [ %0, %56 ], [ %0, %42 ], [ %0, %61 ], [ %0, %75 ], [ %0, %37 ], [ %0, %26 ], [ %0, %11 ]
+  ret ptr %.0
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden noundef ptr @pj_peirce_q(ptr noundef %0) local_unnamed_addr #0 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %4, label %2
+
+2:                                                ; preds = %1
+  %3 = tail call fastcc noundef ptr @_ZL14pj_adams_setupP8PJconstsN12_GLOBAL__N_115projection_typeE(ptr noundef nonnull %0, i32 noundef 1)
+  br label %13
+
+4:                                                ; preds = %1
+  %5 = tail call noundef ptr @_Z6pj_newv()
+  %6 = icmp eq ptr %5, null
+  br i1 %6, label %13, label %7
+
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr @.str.1, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr @_ZL12des_peirce_q, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %5, i64 360
+  store i32 1, ptr %10, align 8
+  %11 = getelementptr inbounds i8, ptr %5, i64 380
+  store i32 4, ptr %11, align 4
+  %12 = getelementptr inbounds i8, ptr %5, i64 384
+  store i32 1, ptr %12, align 8
+  br label %13
+
+13:                                               ; preds = %4, %7, %2
+  %.0 = phi ptr [ %3, %2 ], [ %5, %7 ], [ null, %4 ]
+  ret ptr %.0
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden noundef ptr @_Z37pj_projection_specific_setup_peirce_qP8PJconsts(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = tail call fastcc noundef ptr @_ZL14pj_adams_setupP8PJconstsN12_GLOBAL__N_115projection_typeE(ptr noundef %0, i32 noundef 1)
+  ret ptr %2
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden noundef ptr @pj_adams_hemi(ptr noundef %0) local_unnamed_addr #0 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %11, label %2
+
+2:                                                ; preds = %1
+  %3 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #7
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %5, label %7
+
+5:                                                ; preds = %2
+  %6 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 4096)
+  br label %_Z39pj_projection_specific_setup_adams_hemiP8PJconsts.exit
+
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %3, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 216
+  store double 0.000000e+00, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 104
+  store ptr @_ZL13adams_forward5PJ_LPP8PJconsts, ptr %10, align 8
+  store i32 2, ptr %3, align 8
+  br label %_Z39pj_projection_specific_setup_adams_hemiP8PJconsts.exit
+
+11:                                               ; preds = %1
+  %12 = tail call noundef ptr @_Z6pj_newv()
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %_Z39pj_projection_specific_setup_adams_hemiP8PJconsts.exit, label %14
+
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr @.str.2, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %12, i64 16
+  store ptr @_ZL14des_adams_hemi, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %12, i64 360
+  store i32 1, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %12, i64 380
+  store i32 4, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %12, i64 384
+  store i32 1, ptr %19, align 8
+  br label %_Z39pj_projection_specific_setup_adams_hemiP8PJconsts.exit
+
+_Z39pj_projection_specific_setup_adams_hemiP8PJconsts.exit: ; preds = %7, %5, %11, %14
+  %.0 = phi ptr [ %12, %14 ], [ null, %11 ], [ %6, %5 ], [ %0, %7 ]
+  ret ptr %.0
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden noundef ptr @_Z39pj_projection_specific_setup_adams_hemiP8PJconsts(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #7
+  %3 = icmp eq ptr %2, null
+  br i1 %3, label %4, label %6
+
+4:                                                ; preds = %1
+  %5 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %0, i32 noundef 4096)
+  br label %_ZL14pj_adams_setupP8PJconstsN12_GLOBAL__N_115projection_typeE.exit
+
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 216
+  store double 0.000000e+00, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 104
+  store ptr @_ZL13adams_forward5PJ_LPP8PJconsts, ptr %9, align 8
+  store i32 2, ptr %2, align 8
+  br label %_ZL14pj_adams_setupP8PJconstsN12_GLOBAL__N_115projection_typeE.exit
+
+_ZL14pj_adams_setupP8PJconstsN12_GLOBAL__N_115projection_typeE.exit: ; preds = %4, %6
+  %.0.i = phi ptr [ %5, %4 ], [ %0, %6 ]
+  ret ptr %.0.i
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden noundef ptr @pj_adams_ws1(ptr noundef %0) local_unnamed_addr #0 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %11, label %2
+
+2:                                                ; preds = %1
+  %3 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #7
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %5, label %7
+
+5:                                                ; preds = %2
+  %6 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 4096)
+  br label %_Z38pj_projection_specific_setup_adams_ws1P8PJconsts.exit
+
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %3, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 216
+  store double 0.000000e+00, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 104
+  store ptr @_ZL13adams_forward5PJ_LPP8PJconsts, ptr %10, align 8
+  store i32 3, ptr %3, align 8
+  br label %_Z38pj_projection_specific_setup_adams_ws1P8PJconsts.exit
+
+11:                                               ; preds = %1
+  %12 = tail call noundef ptr @_Z6pj_newv()
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %_Z38pj_projection_specific_setup_adams_ws1P8PJconsts.exit, label %14
+
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr @.str.3, ptr %15, align 8
+  %16 = getelementptr inbounds i8, ptr %12, i64 16
+  store ptr @_ZL13des_adams_ws1, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %12, i64 360
+  store i32 1, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %12, i64 380
+  store i32 4, ptr %18, align 4
+  %19 = getelementptr inbounds i8, ptr %12, i64 384
+  store i32 1, ptr %19, align 8
+  br label %_Z38pj_projection_specific_setup_adams_ws1P8PJconsts.exit
+
+_Z38pj_projection_specific_setup_adams_ws1P8PJconsts.exit: ; preds = %7, %5, %11, %14
+  %.0 = phi ptr [ %12, %14 ], [ null, %11 ], [ %6, %5 ], [ %0, %7 ]
+  ret ptr %.0
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden noundef ptr @_Z38pj_projection_specific_setup_adams_ws1P8PJconsts(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #7
+  %3 = icmp eq ptr %2, null
+  br i1 %3, label %4, label %6
+
+4:                                                ; preds = %1
+  %5 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %0, i32 noundef 4096)
+  br label %_ZL14pj_adams_setupP8PJconstsN12_GLOBAL__N_115projection_typeE.exit
+
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 216
+  store double 0.000000e+00, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 104
+  store ptr @_ZL13adams_forward5PJ_LPP8PJconsts, ptr %9, align 8
+  store i32 3, ptr %2, align 8
+  br label %_ZL14pj_adams_setupP8PJconstsN12_GLOBAL__N_115projection_typeE.exit
+
+_ZL14pj_adams_setupP8PJconstsN12_GLOBAL__N_115projection_typeE.exit: ; preds = %4, %6
+  %.0.i = phi ptr [ %5, %4 ], [ %0, %6 ]
+  ret ptr %.0.i
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden noundef ptr @pj_adams_ws2(ptr noundef %0) local_unnamed_addr #0 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %12, label %2
+
+2:                                                ; preds = %1
+  %3 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #7
+  %4 = icmp eq ptr %3, null
+  br i1 %4, label %5, label %7
+
+5:                                                ; preds = %2
+  %6 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 4096)
+  br label %_Z38pj_projection_specific_setup_adams_ws2P8PJconsts.exit
+
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %3, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 216
+  store double 0.000000e+00, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 104
+  store ptr @_ZL13adams_forward5PJ_LPP8PJconsts, ptr %10, align 8
+  store i32 4, ptr %3, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @_ZL13adams_inverse5PJ_XYP8PJconsts, ptr %11, align 8
+  br label %_Z38pj_projection_specific_setup_adams_ws2P8PJconsts.exit
+
+12:                                               ; preds = %1
+  %13 = tail call noundef ptr @_Z6pj_newv()
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %_Z38pj_projection_specific_setup_adams_ws2P8PJconsts.exit, label %15
+
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  store ptr @.str.4, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %13, i64 16
+  store ptr @_ZL13des_adams_ws2, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %13, i64 360
+  store i32 1, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %13, i64 380
+  store i32 4, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %13, i64 384
+  store i32 1, ptr %20, align 8
+  br label %_Z38pj_projection_specific_setup_adams_ws2P8PJconsts.exit
+
+_Z38pj_projection_specific_setup_adams_ws2P8PJconsts.exit: ; preds = %7, %5, %12, %15
+  %.0 = phi ptr [ %13, %15 ], [ null, %12 ], [ %6, %5 ], [ %0, %7 ]
+  ret ptr %.0
+}
+
+; Function Attrs: mustprogress uwtable
+define hidden noundef ptr @_Z38pj_projection_specific_setup_adams_ws2P8PJconsts(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #7
+  %3 = icmp eq ptr %2, null
+  br i1 %3, label %4, label %6
+
+4:                                                ; preds = %1
+  %5 = tail call noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef %0, i32 noundef 4096)
+  br label %_ZL14pj_adams_setupP8PJconstsN12_GLOBAL__N_115projection_typeE.exit
+
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds i8, ptr %0, i64 88
+  store ptr %2, ptr %7, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 216
+  store double 0.000000e+00, ptr %8, align 8
+  %9 = getelementptr inbounds i8, ptr %0, i64 104
+  store ptr @_ZL13adams_forward5PJ_LPP8PJconsts, ptr %9, align 8
+  store i32 4, ptr %2, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 112
+  store ptr @_ZL13adams_inverse5PJ_XYP8PJconsts, ptr %10, align 8
+  br label %_ZL14pj_adams_setupP8PJconstsN12_GLOBAL__N_115projection_typeE.exit
+
+_ZL14pj_adams_setupP8PJconstsN12_GLOBAL__N_115projection_typeE.exit: ; preds = %4, %6
+  %.0.i = phi ptr [ %5, %4 ], [ %0, %6 ]
+  ret ptr %.0.i
+}
+
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
+
+declare noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress uwtable
+define internal { double, double } @_ZL13adams_forward5PJ_LPP8PJconsts(double %0, double %1, ptr noundef %2) #0 {
+  %4 = alloca %union.PJ_COORD, align 8
+  %5 = alloca %union.PJ_COORD, align 8
+  %6 = alloca %union.PJ_COORD, align 8
+  %7 = alloca %union.PJ_COORD, align 8
+  %8 = getelementptr inbounds i8, ptr %2, i64 88
+  %9 = load ptr, ptr %8, align 8
+  %10 = load i32, ptr %9, align 8
+  switch i32 %10, label %122 [
+    i32 0, label %11
+    i32 1, label %40
+    i32 2, label %68
+    i32 3, label %86
+    i32 4, label %105
+  ]
+
+11:                                               ; preds = %3
+  %12 = tail call double @llvm.fabs.f64(double %0)
+  %13 = fadd double %12, -1.000000e-09
+  %14 = fcmp ogt double %13, 0x3FF921FB54442D18
+  br i1 %14, label %15, label %17
+
+15:                                               ; preds = %11
+  %16 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050)
+  call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %4)
+  %.sroa.0172.0.copyload = load double, ptr %4, align 8
+  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.7.0.copyload = load double, ptr %.sroa.7.0..sroa_idx, align 8
+  br label %.thread221
+
+17:                                               ; preds = %11
+  %18 = tail call double @llvm.fabs.f64(double %1)
+  %19 = fadd double %18, 0xBFF921FB54442D18
+  %20 = tail call double @llvm.fabs.f64(double %19)
+  %21 = fcmp olt double %20, 1.000000e-09
+  br i1 %21, label %22, label %25
+
+22:                                               ; preds = %17
+  %23 = fcmp olt double %1, 0.000000e+00
+  %24 = select i1 %23, double -1.854070e+00, double 1.854070e+00
+  br label %.thread221
+
+25:                                               ; preds = %17
+  %26 = tail call double @sin(double noundef %0) #9
+  %27 = tail call double @sin(double noundef %1) #9
+  %28 = tail call double @cos(double noundef %1) #9
+  %29 = load ptr, ptr %2, align 8
+  %30 = fneg double %27
+  %31 = tail call double @llvm.fmuladd.f64(double %28, double %26, double %30)
+  %32 = fmul double %31, 0x3FE6A09E667F3BCD
+  %33 = tail call noundef double @_Z5aacosP6pj_ctxd(ptr noundef %29, double noundef %32)
+  %34 = load ptr, ptr %2, align 8
+  %35 = tail call double @llvm.fmuladd.f64(double %28, double %26, double %27)
+  %36 = fmul double %35, 0x3FE6A09E667F3BCD
+  %37 = tail call noundef double @_Z5aacosP6pj_ctxd(ptr noundef %34, double noundef %36)
+  %38 = fcmp olt double %0, 0.000000e+00
+  %39 = fcmp olt double %1, 0.000000e+00
+  br label %122
+
+40:                                               ; preds = %3
+  %41 = getelementptr inbounds i8, ptr %9, i64 4
+  %42 = load i32, ptr %41, align 4
+  %43 = icmp eq i32 %42, 2
+  %44 = fcmp olt double %1, -1.000000e-09
+  %or.cond11 = select i1 %43, i1 %44, i1 false
+  br i1 %or.cond11, label %45, label %47
+
+45:                                               ; preds = %40
+  %46 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050)
+  call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %5)
+  %.sroa.0172.0.copyload173 = load double, ptr %5, align 8
+  %.sroa.7.0..sroa_idx176 = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.7.0.copyload177 = load double, ptr %.sroa.7.0..sroa_idx176, align 8
+  br label %.thread221
+
+47:                                               ; preds = %40
+  %48 = icmp eq i32 %42, 3
+  %49 = fcmp ogt double %1, -1.000000e-09
+  %or.cond14 = select i1 %48, i1 %49, i1 false
+  br i1 %or.cond14, label %50, label %52
+
+50:                                               ; preds = %47
+  %51 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050)
+  call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %6)
+  %.sroa.0172.0.copyload174 = load double, ptr %6, align 8
+  %.sroa.7.0..sroa_idx178 = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.7.0.copyload179 = load double, ptr %.sroa.7.0..sroa_idx178, align 8
+  br label %.thread221
+
+52:                                               ; preds = %47
+  %53 = tail call double @sin(double noundef %0) #9
+  %54 = tail call double @cos(double noundef %0) #9
+  %55 = tail call double @cos(double noundef %1) #9
+  %56 = load ptr, ptr %2, align 8
+  %57 = fadd double %53, %54
+  %58 = fmul double %55, %57
+  %59 = fmul double %58, 0x3FE6A09E667F3BCD
+  %60 = tail call noundef double @_Z5aacosP6pj_ctxd(ptr noundef %56, double noundef %59)
+  %61 = load ptr, ptr %2, align 8
+  %62 = fsub double %53, %54
+  %63 = fmul double %55, %62
+  %64 = fmul double %63, 0x3FE6A09E667F3BCD
+  %65 = tail call noundef double @_Z5aacosP6pj_ctxd(ptr noundef %61, double noundef %64)
+  %66 = fcmp olt double %53, 0.000000e+00
+  %67 = fcmp ogt double %54, 0.000000e+00
+  br label %122
+
+68:                                               ; preds = %3
+  %69 = tail call double @sin(double noundef %1) #9
+  %70 = tail call double @llvm.fabs.f64(double %0)
+  %71 = fadd double %70, -1.000000e-09
+  %72 = fcmp ogt double %71, 0x3FF921FB54442D18
+  br i1 %72, label %73, label %75
+
+73:                                               ; preds = %68
+  %74 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050)
+  call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %7)
+  %.sroa.0172.0.copyload175 = load double, ptr %7, align 8
+  %.sroa.7.0..sroa_idx180 = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.7.0.copyload181 = load double, ptr %.sroa.7.0..sroa_idx180, align 8
+  br label %.thread221
+
+75:                                               ; preds = %68
+  %76 = tail call double @cos(double noundef %1) #9
+  %77 = tail call double @sin(double noundef %0) #9
+  %78 = fmul double %76, %77
+  %79 = fadd double %69, %78
+  %80 = fcmp olt double %79, 0.000000e+00
+  %81 = fsub double %69, %78
+  %82 = fcmp olt double %81, 0.000000e+00
+  %83 = load ptr, ptr %2, align 8
+  %84 = tail call noundef double @_Z5aacosP6pj_ctxd(ptr noundef %83, double noundef %78)
+  %85 = fsub double 0x3FF921FB54442D18, %1
+  br label %122
+
+86:                                               ; preds = %3
+  %87 = fmul double %1, 5.000000e-01
+  %88 = tail call double @tan(double noundef %87) #9
+  %89 = load ptr, ptr %2, align 8
+  %90 = tail call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %89, double noundef %88)
+  %91 = tail call double @cos(double noundef %90) #9
+  %92 = fmul double %0, 5.000000e-01
+  %93 = tail call double @sin(double noundef %92) #9
+  %94 = fmul double %91, %93
+  %95 = load ptr, ptr %2, align 8
+  %96 = fsub double %94, %88
+  %97 = fmul double %96, 0x3FE6A09E667F3BCD
+  %98 = tail call noundef double @_Z5aacosP6pj_ctxd(ptr noundef %95, double noundef %97)
+  %99 = load ptr, ptr %2, align 8
+  %100 = fadd double %88, %94
+  %101 = fmul double %100, 0x3FE6A09E667F3BCD
+  %102 = tail call noundef double @_Z5aacosP6pj_ctxd(ptr noundef %99, double noundef %101)
+  %103 = fcmp olt double %0, 0.000000e+00
+  %104 = fcmp olt double %1, 0.000000e+00
+  br label %122
+
+105:                                              ; preds = %3
+  %106 = fmul double %1, 5.000000e-01
+  %107 = tail call double @tan(double noundef %106) #9
+  %108 = load ptr, ptr %2, align 8
+  %109 = tail call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %108, double noundef %107)
+  %110 = tail call double @cos(double noundef %109) #9
+  %111 = fmul double %0, 5.000000e-01
+  %112 = tail call double @sin(double noundef %111) #9
+  %113 = fmul double %110, %112
+  %114 = fadd double %107, %113
+  %115 = fcmp olt double %114, 0.000000e+00
+  %116 = fsub double %107, %113
+  %117 = fcmp olt double %116, 0.000000e+00
+  %118 = load ptr, ptr %2, align 8
+  %119 = tail call noundef double @_Z5aacosP6pj_ctxd(ptr noundef %118, double noundef %107)
+  %120 = load ptr, ptr %2, align 8
+  %121 = tail call noundef double @_Z5aacosP6pj_ctxd(ptr noundef %120, double noundef %113)
+  br label %122
+
+122:                                              ; preds = %105, %86, %75, %52, %25, %3
+  %.0184.shrunk = phi i1 [ false, %3 ], [ %117, %105 ], [ %104, %86 ], [ %82, %75 ], [ %67, %52 ], [ %39, %25 ]
+  %.0183.shrunk = phi i1 [ false, %3 ], [ %115, %105 ], [ %103, %86 ], [ %80, %75 ], [ %66, %52 ], [ %38, %25 ]
+  %.0182 = phi double [ 0.000000e+00, %3 ], [ %119, %105 ], [ %102, %86 ], [ %85, %75 ], [ %65, %52 ], [ %37, %25 ]
+  %.0 = phi double [ 0.000000e+00, %3 ], [ %121, %105 ], [ %98, %86 ], [ %84, %75 ], [ %60, %52 ], [ %33, %25 ]
+  %123 = load ptr, ptr %2, align 8
+  %124 = fadd double %.0182, %.0
+  %125 = tail call double @cos(double noundef %124) #9
+  %126 = fcmp olt double %125, 0.000000e+00
+  %.sroa.speculated203 = select i1 %126, double %125, double 0.000000e+00
+  %127 = fadd double %.sroa.speculated203, 1.000000e+00
+  %128 = tail call double @sqrt(double noundef %127) #9
+  %129 = tail call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %123, double noundef %128)
+  %130 = fneg double %129
+  %cond.fr207 = freeze i1 %.0183.shrunk
+  %131 = select i1 %cond.fr207, double %130, double %129
+  %132 = load ptr, ptr %2, align 8
+  %133 = fsub double %.0, %.0182
+  %134 = tail call double @cos(double noundef %133) #9
+  %135 = fcmp ogt double %134, 0.000000e+00
+  %.sroa.speculated = select i1 %135, double %134, double 0.000000e+00
+  %136 = fsub double 1.000000e+00, %.sroa.speculated
+  %137 = tail call double @llvm.fabs.f64(double %136)
+  %sqrt = tail call double @llvm.sqrt.f64(double %137)
+  %138 = tail call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %132, double noundef %sqrt)
+  %cond.fr = freeze i1 %.0184.shrunk
+  %139 = fmul double %131, 0x3FE45F306DC9C883
+  %140 = fmul double %139, 2.000000e+00
+  %141 = tail call double @llvm.fmuladd.f64(double %140, double %139, double -1.000000e+00)
+  %142 = fmul double %141, 2.000000e+00
+  br label %143
+
+143:                                              ; preds = %143, %122
+  %.022.i = phi double [ 0.000000e+00, %122 ], [ %147, %143 ]
+  %.01821.i = phi double [ 0.000000e+00, %122 ], [ %.022.i, %143 ]
+  %.019.idx20.i = phi i64 [ 0, %122 ], [ %.019.add.i, %143 ]
+  %.019.ptr.i = getelementptr inbounds i8, ptr @_ZZL9ell_int_5dE1C, i64 %.019.idx20.i
+  %144 = load double, ptr %.019.ptr.i, align 8
+  %145 = fneg double %.01821.i
+  %146 = tail call double @llvm.fmuladd.f64(double %142, double %.022.i, double %145)
+  %147 = fadd double %146, %144
+  %.019.add.i = add nuw nsw i64 %.019.idx20.i, 8
+  %.not.i = icmp eq i64 %.019.add.i, 56
+  br i1 %.not.i, label %_ZL9ell_int_5d.exit, label %143
+
+_ZL9ell_int_5d.exit:                              ; preds = %143
+  %148 = fneg double %138
+  %149 = select i1 %cond.fr, double %148, double %138
+  %150 = fneg double %.022.i
+  %151 = tail call double @llvm.fmuladd.f64(double %141, double %147, double %150)
+  %152 = fadd double %151, 0x3FF188B1F952BB44
+  %153 = fmul double %149, 0x3FE45F306DC9C883
+  %154 = fmul double %153, 2.000000e+00
+  %155 = tail call double @llvm.fmuladd.f64(double %154, double %153, double -1.000000e+00)
+  %156 = fmul double %155, 2.000000e+00
+  br label %157
+
+157:                                              ; preds = %157, %_ZL9ell_int_5d.exit
+  %.022.i195 = phi double [ 0.000000e+00, %_ZL9ell_int_5d.exit ], [ %161, %157 ]
+  %.01821.i196 = phi double [ 0.000000e+00, %_ZL9ell_int_5d.exit ], [ %.022.i195, %157 ]
+  %.019.idx20.i197 = phi i64 [ 0, %_ZL9ell_int_5d.exit ], [ %.019.add.i199, %157 ]
+  %.019.ptr.i198 = getelementptr inbounds i8, ptr @_ZZL9ell_int_5dE1C, i64 %.019.idx20.i197
+  %158 = load double, ptr %.019.ptr.i198, align 8
+  %159 = fneg double %.01821.i196
+  %160 = tail call double @llvm.fmuladd.f64(double %156, double %.022.i195, double %159)
+  %161 = fadd double %160, %158
+  %.019.add.i199 = add nuw nsw i64 %.019.idx20.i197, 8
+  %.not.i200 = icmp eq i64 %.019.add.i199, 56
+  br i1 %.not.i200, label %_ZL9ell_int_5d.exit201, label %157
+
+_ZL9ell_int_5d.exit201:                           ; preds = %157
+  %162 = fneg double %.022.i195
+  %163 = tail call double @llvm.fmuladd.f64(double %155, double %161, double %162)
+  %164 = fadd double %163, 0x3FF188B1F952BB44
+  %165 = insertelement <2 x double> poison, double %131, i64 0
+  %166 = insertelement <2 x double> %165, double %149, i64 1
+  %167 = insertelement <2 x double> poison, double %152, i64 0
+  %168 = insertelement <2 x double> %167, double %164, i64 1
+  %169 = fmul <2 x double> %166, %168
+  %170 = load i32, ptr %9, align 8
+  %171 = extractelement <2 x double> %169, i64 0
+  %172 = extractelement <2 x double> %169, i64 1
+  switch i32 %170, label %.thread221 [
+    i32 1, label %173
+    i32 2, label %241
+    i32 4, label %241
+  ]
+
+173:                                              ; preds = %_ZL9ell_int_5d.exit201
+  %174 = getelementptr inbounds i8, ptr %9, i64 4
+  %175 = load i32, ptr %174, align 4
+  %176 = icmp eq i32 %175, 0
+  br i1 %176, label %180, label %177
+
+177:                                              ; preds = %173
+  %178 = icmp eq i32 %175, 1
+  %179 = fcmp olt double %1, 0.000000e+00
+  %or.cond17 = select i1 %178, i1 %179, i1 false
+  br i1 %or.cond17, label %181, label %201
+
+180:                                              ; preds = %173
+  %.old16 = fcmp olt double %1, 0.000000e+00
+  br i1 %.old16, label %181, label %201
+
+181:                                              ; preds = %177, %180
+  %182 = fcmp olt double %0, 0xC002D97C7F3321D2
+  %183 = fsub <2 x double> <double 0xC00DAA4A35759E4B, double 0x400DAA4A35759E4B>, %169
+  %184 = fcmp olt double %0, 0xBFE921FB54442D18
+  %185 = fcmp oge double %0, 0xC002D97C7F3321D2
+  %or.cond = and i1 %184, %185
+  %186 = insertelement <2 x double> poison, double %0, i64 0
+  %187 = shufflevector <2 x double> %186, <2 x double> poison, <2 x i32> zeroinitializer
+  %188 = fcmp olt <2 x double> %187, <double 0x4002D97C7F3321D2, double 0x3FE921FB54442D18>
+  %189 = fcmp oge <2 x double> %187, <double 0x3FE921FB54442D18, double 0xBFE921FB54442D18>
+  %190 = insertelement <2 x i1> poison, i1 %or.cond, i64 0
+  %191 = insertelement <2 x i1> %190, i1 %182, i64 1
+  %192 = select <2 x i1> %191, <2 x double> %183, <2 x double> %169
+  %193 = and <2 x i1> %188, %189
+  %194 = fsub <2 x double> <double 0x400DAA4A35759E4B, double 0xC00DAA4A35759E4B>, %192
+  %195 = select <2 x i1> %193, <2 x double> %194, <2 x double> %192
+  %196 = fcmp ult double %0, 0x4002D97C7F3321D2
+  br i1 %196, label %201, label %197
+
+197:                                              ; preds = %181
+  %198 = extractelement <2 x double> %195, i64 1
+  %199 = fsub double 0x400DAA4A35759E4B, %198
+  %200 = insertelement <2 x double> %195, double %199, i64 1
+  br label %201
+
+201:                                              ; preds = %180, %197, %181, %177
+  %202 = phi <2 x double> [ %200, %197 ], [ %195, %181 ], [ %169, %180 ], [ %169, %177 ]
+  %203 = extractelement <2 x double> %202, i64 0
+  %204 = extractelement <2 x double> %202, i64 1
+  %205 = fsub double %203, %204
+  %206 = fmul double %205, 0x3FE6A09E667F3BCD
+  %207 = fadd double %203, %204
+  %208 = fmul double %207, 0x3FE6A09E667F3BCD
+  %.sroa.0.3 = select i1 %176, double %206, double %203
+  %.sroa.26.3 = select i1 %176, double %208, double %204
+  %.not = icmp eq i32 %175, 4
+  br i1 %.not, label %.thread210, label %209
+
+209:                                              ; preds = %201
+  %210 = icmp eq i32 %175, 5
+  br i1 %210, label %225, label %.thread221
+
+.thread210:                                       ; preds = %201
+  %211 = fcmp olt double %1, 0.000000e+00
+  %212 = fsub double 0x400DAA4A35759E4B, %203
+  %.sroa.0.4 = select i1 %211, double %212, double %203
+  %213 = fadd double %.sroa.0.4, 0xBFFDAA4A35759E4B
+  %214 = getelementptr inbounds i8, ptr %9, i64 8
+  %215 = load double, ptr %214, align 8
+  %216 = fcmp oeq double %215, 0.000000e+00
+  br i1 %216, label %.thread221, label %.thread216
+
+.thread216:                                       ; preds = %.thread210
+  %217 = tail call double @llvm.fmuladd.f64(double %215, double 0x401DAA4A35759E4B, double %213)
+  %218 = fcmp ult double %217, 0x400DAA4A35759E4B
+  br i1 %218, label %221, label %219
+
+219:                                              ; preds = %.thread216
+  %220 = fadd double %217, 0xC01DAA4A35759E4B
+  br label %.thread221
+
+221:                                              ; preds = %.thread216
+  %222 = fcmp olt double %217, 0xC00DAA4A35759E4B
+  br i1 %222, label %223, label %.thread221
+
+223:                                              ; preds = %221
+  %224 = fadd double %217, 0x401DAA4A35759E4B
+  br label %.thread221
+
+225:                                              ; preds = %209
+  %226 = fcmp olt double %1, 0.000000e+00
+  %227 = fsub double 0x400DAA4A35759E4B, %204
+  %.sroa.26.4 = select i1 %226, double %227, double %204
+  %228 = fadd double %.sroa.26.4, 0xBFFDAA4A35759E4B
+  %229 = getelementptr inbounds i8, ptr %9, i64 16
+  %230 = load double, ptr %229, align 8
+  %231 = fcmp une double %230, 0.000000e+00
+  %brmerge225.not = and i1 %210, %231
+  br i1 %brmerge225.not, label %232, label %.thread221
+
+232:                                              ; preds = %225
+  %233 = tail call double @llvm.fmuladd.f64(double %230, double 0x401DAA4A35759E4B, double %228)
+  %234 = fcmp ult double %233, 0x400DAA4A35759E4B
+  br i1 %234, label %237, label %235
+
+235:                                              ; preds = %232
+  %236 = fadd double %233, 0xC01DAA4A35759E4B
+  br label %.thread221
+
+237:                                              ; preds = %232
+  %238 = fcmp olt double %233, 0xC00DAA4A35759E4B
+  br i1 %238, label %239, label %.thread221
+
+239:                                              ; preds = %237
+  %240 = fadd double %233, 0x401DAA4A35759E4B
+  br label %.thread221
+
+241:                                              ; preds = %_ZL9ell_int_5d.exit201, %_ZL9ell_int_5d.exit201
+  %242 = fsub double %171, %172
+  %243 = fmul double %242, 0x3FE6A09E667F3BCD
+  %244 = fadd double %171, %172
+  %245 = fmul double %244, 0x3FE6A09E667F3BCD
+  br label %.thread221
+
+.thread221:                                       ; preds = %209, %.thread210, %221, %223, %219, %_ZL9ell_int_5d.exit201, %225, %235, %239, %237, %241, %73, %50, %45, %22, %15
+  %.sroa.0172.0 = phi double [ %.sroa.0172.0.copyload175, %73 ], [ %.sroa.0172.0.copyload173, %45 ], [ %.sroa.0172.0.copyload174, %50 ], [ %.sroa.0172.0.copyload, %15 ], [ 0.000000e+00, %22 ], [ %243, %241 ], [ %.sroa.0.3, %225 ], [ %.sroa.0.3, %237 ], [ %.sroa.0.3, %239 ], [ %.sroa.0.3, %235 ], [ %171, %_ZL9ell_int_5d.exit201 ], [ %.sroa.0.3, %209 ], [ %213, %.thread210 ], [ %217, %221 ], [ %224, %223 ], [ %220, %219 ]
+  %.sroa.7.0 = phi double [ %.sroa.7.0.copyload181, %73 ], [ %.sroa.7.0.copyload177, %45 ], [ %.sroa.7.0.copyload179, %50 ], [ %.sroa.7.0.copyload, %15 ], [ %24, %22 ], [ %245, %241 ], [ %228, %225 ], [ %233, %237 ], [ %240, %239 ], [ %236, %235 ], [ %172, %_ZL9ell_int_5d.exit201 ], [ %.sroa.26.3, %209 ], [ %.sroa.26.3, %.thread210 ], [ %.sroa.26.3, %221 ], [ %.sroa.26.3, %223 ], [ %.sroa.26.3, %219 ]
+  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.0172.0, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.7.0, 1
+  ret { double, double } %.fca.1.insert
+}
+
+; Function Attrs: mustprogress uwtable
+define internal { double, double } @_ZL13adams_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr noundef %2) #0 {
+  %4 = fdiv double %1, 0x4004F979572EE5F2
+  %5 = fcmp ogt double %4, 1.000000e+00
+  %.sroa.speculated20 = select i1 %5, double 1.000000e+00, double %4
+  %6 = fcmp olt double %.sroa.speculated20, -1.000000e+00
+  %.sroa.speculated16 = select i1 %6, double -1.000000e+00, double %.sroa.speculated20
+  %7 = fmul double %.sroa.speculated16, 0x3FF921FB54442D18
+  %8 = tail call double @llvm.fabs.f64(double %7)
+  %9 = fcmp ult double %8, 0x3FF921FB54442D18
+  br i1 %9, label %10, label %17
+
+10:                                               ; preds = %3
+  %11 = fdiv double %0, 0x4004F9F955C1D375
+  %12 = tail call double @cos(double noundef %7) #9
+  %13 = fdiv double %11, %12
+  %14 = fcmp ogt double %13, 1.000000e+00
+  %.sroa.speculated12 = select i1 %14, double 1.000000e+00, double %13
+  %15 = fcmp olt double %.sroa.speculated12, -1.000000e+00
+  %.sroa.speculated = select i1 %15, double -1.000000e+00, double %.sroa.speculated12
+  %16 = fmul double %.sroa.speculated, 0x400921FB54442D18
+  br label %17
+
+17:                                               ; preds = %3, %10
+  %18 = phi double [ %16, %10 ], [ 0.000000e+00, %3 ]
+  %19 = tail call { double, double } @_Z21pj_generic_inverse_2d5PJ_XYP8PJconsts5PJ_LPd(double %0, double %1, ptr noundef %2, double %18, double %7, double noundef 1.000000e-10)
+  ret { double, double } %19
+}
+
+declare i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+
+; Function Attrs: mustprogress uwtable
+define internal { double, double } @_ZL23peirce_q_square_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr noundef %2) #0 {
+  %4 = fcmp oeq double %0, 0.000000e+00
+  %5 = fcmp olt double %1, 0.000000e+00
+  %or.cond = select i1 %4, i1 %5, i1 false
+  br i1 %or.cond, label %6, label %10
+
+6:                                                ; preds = %3
+  %7 = tail call double @llvm.fabs.f64(double %1)
+  %8 = fcmp olt double %7, 0x4004F9F953203CD9
+  br i1 %8, label %9, label %33
+
+9:                                                ; preds = %6
+  br label %33
+
+10:                                               ; preds = %3
+  %11 = fcmp ogt double %0, 0.000000e+00
+  %12 = tail call double @llvm.fabs.f64(double %1)
+  %13 = fcmp olt double %12, 0x3E7AD7F29ABCAF48
+  %or.cond43 = select i1 %11, i1 %13, i1 false
+  br i1 %or.cond43, label %33, label %14
+
+14:                                               ; preds = %10
+  %15 = fcmp olt double %0, 0.000000e+00
+  %or.cond45 = select i1 %15, i1 %13, i1 false
+  br i1 %or.cond45, label %16, label %18
+
+16:                                               ; preds = %14
+  %17 = tail call double @llvm.fmuladd.f64(double %0, double 0x3FE32B9515D17E9A, double 0x3FF921FB54442D18)
+  br label %33
+
+18:                                               ; preds = %14
+  %19 = tail call double @llvm.fabs.f64(double %0)
+  %20 = fcmp olt double %19, 0x3E7AD7F29ABCAF48
+  %21 = fcmp ogt double %1, 0.000000e+00
+  %or.cond5 = select i1 %20, i1 %21, i1 false
+  br i1 %or.cond5, label %33, label %22
+
+22:                                               ; preds = %18
+  %23 = fcmp oge double %0, 0.000000e+00
+  %24 = fcmp ole double %1, 0.000000e+00
+  %or.cond8 = select i1 %23, i1 %24, i1 false
+  br i1 %or.cond8, label %25, label %27
+
+25:                                               ; preds = %22
+  %26 = fcmp oeq double %1, 0.000000e+00
+  %or.cond11 = select i1 %4, i1 %26, i1 false
+  br i1 %or.cond11, label %37, label %33
+
+27:                                               ; preds = %22
+  %28 = fcmp oge double %1, 0.000000e+00
+  %or.cond14 = select i1 %23, i1 %28, i1 false
+  br i1 %or.cond14, label %33, label %29
+
+29:                                               ; preds = %27
+  %30 = fcmp ole double %0, 0.000000e+00
+  %or.cond17 = select i1 %30, i1 %28, i1 false
+  br i1 %or.cond17, label %31, label %33
+
+31:                                               ; preds = %29
+  %32 = fcmp olt double %19, %12
+  %. = select i1 %32, double 0x40069E9565708EFC, double 0xC0069E9565708EFC
+  br label %33
+
+33:                                               ; preds = %29, %31, %27, %18, %10, %25, %16, %6, %9
+  %.sroa.020.0 = phi double [ 0xBFE921FB54442D18, %9 ], [ 0xBFE921FB54442D18, %6 ], [ 0xC002D97C7F3321D2, %16 ], [ 0.000000e+00, %25 ], [ 0x3FE921FB54442D18, %10 ], [ 0x4002D97C7F3321D2, %18 ], [ 0x3FF921FB54442D18, %27 ], [ %., %31 ], [ 0xBFF921FB54442D18, %29 ]
+  %.sroa.11.0 = phi double [ 0x3FE921FB54442D18, %9 ], [ 0.000000e+00, %6 ], [ %17, %16 ], [ 0.000000e+00, %25 ], [ 0.000000e+00, %10 ], [ 0.000000e+00, %18 ], [ 0.000000e+00, %27 ], [ 0.000000e+00, %31 ], [ 0.000000e+00, %29 ]
+  %34 = tail call { double, double } @_Z21pj_generic_inverse_2d5PJ_XYP8PJconsts5PJ_LPd(double %0, double %1, ptr noundef %2, double %.sroa.020.0, double %.sroa.11.0, double noundef 1.000000e-10)
+  %35 = extractvalue { double, double } %34, 0
+  %36 = extractvalue { double, double } %34, 1
+  br label %37
+
+37:                                               ; preds = %25, %33
+  %.sroa.040.0 = phi double [ %35, %33 ], [ 0.000000e+00, %25 ]
+  %.sroa.3.0 = phi double [ %36, %33 ], [ 0x3FF921FB54442D18, %25 ]
+  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.040.0, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.3.0, 1
+  ret { double, double } %.fca.1.insert
+}
+
+; Function Attrs: mustprogress uwtable
+define internal { double, double } @_ZL24peirce_q_diamond_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr noundef %2) #0 {
+  %4 = fcmp oge double %0, 0.000000e+00
+  %5 = fcmp ole double %1, 0.000000e+00
+  %or.cond = select i1 %4, i1 %5, i1 false
+  br i1 %or.cond, label %6, label %14
+
+6:                                                ; preds = %3
+  %7 = fcmp ogt double %0, 0.000000e+00
+  %8 = fcmp oeq double %1, 0.000000e+00
+  %or.cond5 = select i1 %7, i1 %8, i1 false
+  br i1 %or.cond5, label %18, label %9
+
+9:                                                ; preds = %6
+  %10 = fcmp oeq double %0, 0.000000e+00
+  %or.cond8 = select i1 %10, i1 %8, i1 false
+  br i1 %or.cond8, label %26, label %11
+
+11:                                               ; preds = %9
+  %12 = fcmp olt double %1, 0.000000e+00
+  %or.cond11 = select i1 %10, i1 %12, i1 false
+  br i1 %or.cond11, label %13, label %18
+
+13:                                               ; preds = %11
+  br label %18
+
+14:                                               ; preds = %3
+  %15 = fcmp oge double %1, 0.000000e+00
+  %or.cond14 = select i1 %4, i1 %15, i1 false
+  br i1 %or.cond14, label %18, label %16
+
+16:                                               ; preds = %14
+  %17 = fcmp ole double %0, 0.000000e+00
+  %or.cond17 = select i1 %17, i1 %15, i1 false
+  %. = select i1 %or.cond17, double 0xC002D97C7F3321D2, double 0xBFE921FB54442D18
+  br label %18
+
+18:                                               ; preds = %16, %14, %6, %11, %13
+  %.sroa.020.0 = phi double [ 0.000000e+00, %13 ], [ 0x3FE921FB54442D18, %11 ], [ 0x3FF921FB54442D18, %6 ], [ 0x4002D97C7F3321D2, %14 ], [ %., %16 ]
+  %.sroa.9.0 = phi double [ 0x3FE921FB54442D18, %13 ], [ 0.000000e+00, %11 ], [ 0.000000e+00, %6 ], [ 0.000000e+00, %14 ], [ 0.000000e+00, %16 ]
+  %19 = tail call double @llvm.fabs.f64(double %0)
+  %20 = fcmp ogt double %19, 0x3FFDAE62C8EA5AB5
+  %21 = tail call double @llvm.fabs.f64(double %1)
+  %22 = fcmp ogt double %21, 0x3FFDAE62C8EA5AB5
+  %or.cond38 = select i1 %20, i1 true, i1 %22
+  %.sroa.9.1 = select i1 %or.cond38, double 0xBFE921FB54442D18, double %.sroa.9.0
+  %23 = tail call { double, double } @_Z21pj_generic_inverse_2d5PJ_XYP8PJconsts5PJ_LPd(double %0, double %1, ptr noundef %2, double %.sroa.020.0, double %.sroa.9.1, double noundef 1.000000e-10)
+  %24 = extractvalue { double, double } %23, 0
+  %25 = extractvalue { double, double } %23, 1
+  br label %26
+
+26:                                               ; preds = %9, %18
+  %.sroa.035.0 = phi double [ %24, %18 ], [ 0.000000e+00, %9 ]
+  %.sroa.3.0 = phi double [ %25, %18 ], [ 0x3FF921FB54442D18, %9 ]
+  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.035.0, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.3.0, 1
+  ret { double, double } %.fca.1.insert
+}
+
+declare void @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fabs.f64(double) #4
+
+declare i32 @proj_errno_set(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @_Z16proj_coord_errorv(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+declare double @sin(double noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+declare double @cos(double noundef) local_unnamed_addr #5
+
+declare noundef double @_Z5aacosP6pj_ctxd(ptr noundef, double noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #4
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+declare double @tan(double noundef) local_unnamed_addr #5
+
+declare noundef double @_Z5aasinP6pj_ctxd(ptr noundef, double noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+declare double @sqrt(double noundef) local_unnamed_addr #5
+
+declare { double, double } @_Z21pj_generic_inverse_2d5PJ_XYP8PJconsts5PJ_LPd(double, double, ptr noundef, double, double, double noundef) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.sqrt.f64(double) #6
+
+attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind allocsize(0,1) }
+attributes #8 = { nounwind willreturn memory(read) }
+attributes #9 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
