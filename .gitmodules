@@ -496,3 +496,6 @@
 [submodule "bench/wasmtime-rs/wasmtime"]
 	path = bench/wasmtime-rs/wasmtime
 	url = git@github.com:bytecodealliance/wasmtime.git
+[submodule "bench/ockam-rs/ockam"]
+	path = bench/ockam-rs/ockam
+	url = git@github.com:build-trust/ockam.git
