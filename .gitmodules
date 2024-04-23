@@ -538,3 +538,6 @@
 [submodule "bench/nom-rs/nom"]
 	path = bench/nom-rs/nom
 	url = git@github.com:rust-bakery/nom.git
+[submodule "bench/ozz-animation/ozz-animation"]
+	path = bench/ozz-animation/ozz-animation
+	url = git@github.com:guillaumeblanc/ozz-animation.git
