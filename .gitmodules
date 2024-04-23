@@ -505,3 +505,6 @@
 [submodule "bench/proj/PROJ"]
 	path = bench/proj/PROJ
 	url = git@github.com:OSGeo/PROJ.git
+[submodule "bench/jsonnet/jsonnet"]
+	path = bench/jsonnet/jsonnet
+	url = git@github.com:google/jsonnet.git

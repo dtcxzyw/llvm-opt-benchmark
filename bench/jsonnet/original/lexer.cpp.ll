@@ -1,0 +1,15320 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%"class.std::ios_base::Init" = type { i8 }
+%"class.std::vector" = type { %"struct.std::_Vector_base" }
+%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
+%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::map" = type { %"class.std::_Rb_tree" }
+%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, jsonnet::internal::Token::Kind>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, jsonnet::internal::Token::Kind>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
+%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, jsonnet::internal::Token::Kind>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, jsonnet::internal::Token::Kind>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
+%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
+%"struct.std::less" = type { i8 }
+%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
+%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
+%"class.std::initializer_list" = type { ptr, i64 }
+%"struct.std::pair" = type <{ %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
+%"class.std::allocator.6" = type { i8 }
+%"class.std::allocator.3" = type { i8 }
+%"struct.std::_Rb_tree_const_iterator" = type { ptr }
+%"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
+%"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
+%"class.std::basic_istream.base" = type { ptr, i64 }
+%"class.std::basic_ostream.base" = type { ptr }
+%"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
+%"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
+%"class.std::locale" = type { ptr }
+%"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
+%"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
+%"struct.std::ios_base::_Words" = type { ptr, i64 }
+%"struct.jsonnet::internal::Location" = type { i64, i64 }
+%"struct.jsonnet::internal::StaticError" = type { %"struct.jsonnet::internal::LocationRange", %"class.std::__cxx11::basic_string" }
+%"struct.jsonnet::internal::LocationRange" = type { %"class.std::__cxx11::basic_string", %"struct.jsonnet::internal::Location", %"struct.jsonnet::internal::Location" }
+%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
+%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<jsonnet::internal::Token, std::allocator<jsonnet::internal::Token>>::_List_impl" }
+%"struct.std::__cxx11::_List_base<jsonnet::internal::Token, std::allocator<jsonnet::internal::Token>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
+%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
+%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
+%"class.std::vector.12" = type { %"struct.std::_Vector_base.13" }
+%"struct.std::_Vector_base.13" = type { %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl" }
+%"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl" = type { %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::allocator" = type { i8 }
+%"class.__gnu_cxx::__normal_iterator" = type { ptr }
+%"struct.jsonnet::internal::FodderElement" = type { i32, i32, i32, %"class.std::vector" }
+%"class.__gnu_cxx::__normal_iterator.19" = type { ptr }
+%"struct.std::_List_iterator" = type { ptr }
+%"struct.std::_List_const_iterator" = type { ptr }
+%"class.__gnu_cxx::__normal_iterator.17" = type { ptr }
+%"class.__gnu_cxx::__normal_iterator.18" = type { ptr }
+%"struct.jsonnet::internal::Token" = type { i32, %"class.std::vector.12", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"struct.jsonnet::internal::LocationRange" }
+%"struct.std::_Rb_tree_node" = type { %"struct.std::_Rb_tree_node_base", %"struct.__gnu_cxx::__aligned_membuf" }
+%"struct.__gnu_cxx::__aligned_membuf" = type { [40 x i8] }
+%"struct.std::_List_node" = type { %"struct.std::__detail::_List_node_base", %"struct.__gnu_cxx::__aligned_membuf.20" }
+%"struct.__gnu_cxx::__aligned_membuf.20" = type { [192 x i8] }
+%struct._Guard = type { ptr }
+%"class.std::allocator.0" = type { i8 }
+%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, jsonnet::internal::Token::Kind>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, jsonnet::internal::Token::Kind>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node" = type { ptr }
+%"struct.std::_Rb_tree_iterator" = type { ptr }
+%"struct.std::pair.21" = type { ptr, ptr }
+%"struct.std::_Select1st" = type { i8 }
+%"struct.std::__allocated_ptr" = type { ptr, ptr }
+%"class.std::allocator.14" = type { i8 }
+
+$_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev = comdat any
+
+$_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev = comdat any
+
+$_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA7_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_ = comdat any
+
+$_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA5_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_ = comdat any
+
+$_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA6_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_ = comdat any
+
+$_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA4_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_ = comdat any
+
+$_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA9_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_ = comdat any
+
+$_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA3_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_ = comdat any
+
+$_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA10_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_ = comdat any
+
+$_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA11_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_ = comdat any
+
+$_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEED2Ev = comdat any
+
+$_ZNSaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEC2Ev = comdat any
+
+$_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindESt4lessIS5_ESaISt4pairIKS5_S9_EEEC2ESt16initializer_listISE_ERKSB_RKSF_ = comdat any
+
+$_ZNSaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEED2Ev = comdat any
+
+$_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindESt4lessIS5_ESaISt4pairIKS5_S9_EEED2Ev = comdat any
+
+$_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_ = comdat any
+
+$_ZSteqRKSt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEESF_ = comdat any
+
+$_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindESt4lessIS5_ESaISt4pairIKS5_S9_EEE3endEv = comdat any
+
+$_ZNKSt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEptEv = comdat any
+
+$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
+
+$_ZN7jsonnet8internal11StaticErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationES9_ = comdat any
+
+$_ZN7jsonnet8internal11StaticErrorD2Ev = comdat any
+
+$_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EEC2Ev = comdat any
+
+$_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2Ev = comdat any
+
+$_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindERjS7_RKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEERS2_DpOT_ = comdat any
+
+$_ZN7jsonnet8internal8LocationC2Emm = comdat any
+
+$_ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev = comdat any
+
+$_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_ = comdat any
+
+$_ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev = comdat any
+
+$_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEixEm = comdat any
+
+$_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJRNS2_4KindERjS8_RS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEERS2_DpOT_ = comdat any
+
+$_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_ = comdat any
+
+$_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindEiiRS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEEERS2_DpOT_ = comdat any
+
+$_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindEjRjRKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEERS2_DpOT_ = comdat any
+
+$_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_ = comdat any
+
+$_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv = comdat any
+
+$_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv = comdat any
+
+$_ZN9__gnu_cxxneIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEEbRKNS_17__normal_iteratorIT_T0_EESG_ = comdat any
+
+$_ZNK9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEdeEv = comdat any
+
+$_ZN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEppEv = comdat any
+
+$_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_ = comdat any
+
+$_ZN7jsonnet8internal13FodderElementC2ENS1_4KindEjjRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE = comdat any
+
+$_ZN7jsonnet8internal13FodderElementD2Ev = comdat any
+
+$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_ = comdat any
+
+$_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_ = comdat any
+
+$_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE12emplace_backIJRNS3_4KindERSt6vectorINS2_13FodderElementESaISA_EERNS_12basic_stringIcSt11char_traitsIcESaIcEEESJ_SJ_NS2_13LocationRangeEEEERS3_DpOT_ = comdat any
+
+$_ZN7jsonnet8internal13LocationRangeC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationESC_ = comdat any
+
+$_ZN7jsonnet8internal13LocationRangeD2Ev = comdat any
+
+$_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE5clearEv = comdat any
+
+$_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE12emplace_backIJNS3_4KindERSt6vectorINS2_13FodderElementESaIS9_EERA1_KcSF_SF_NS2_13LocationRangeEEEERS3_DpOT_ = comdat any
+
+$_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev = comdat any
+
+$_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EED2Ev = comdat any
+
+$_ZNKSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE5beginEv = comdat any
+
+$_ZNKSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE3endEv = comdat any
+
+$_ZStneRKSt20_List_const_iteratorIN7jsonnet8internal5TokenEES5_ = comdat any
+
+$_ZNKSt20_List_const_iteratorIN7jsonnet8internal5TokenEEdeEv = comdat any
+
+$_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE5beginEv = comdat any
+
+$_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE3endEv = comdat any
+
+$_ZN9__gnu_cxxneIPKN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_ = comdat any
+
+$_ZNK9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEdeEv = comdat any
+
+$_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE4sizeEv = comdat any
+
+$_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEixEm = comdat any
+
+$_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv = comdat any
+
+$_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv = comdat any
+
+$_ZN9__gnu_cxxneIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEEbRKNS_17__normal_iteratorIT_T0_EESH_ = comdat any
+
+$_ZNK9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEdeEv = comdat any
+
+$_ZN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEppEv = comdat any
+
+$_ZN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEppEv = comdat any
+
+$_ZNSt20_List_const_iteratorIN7jsonnet8internal5TokenEEppEv = comdat any
+
+$_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev = comdat any
+
+$_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implC2Ev = comdat any
+
+$_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev = comdat any
+
+$_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EED2Ev = comdat any
+
+$_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E = comdat any
+
+$_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_beginEv = comdat any
+
+$__clang_call_terminate = comdat any
+
+$_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE13_Rb_tree_implISG_Lb1EED2Ev = comdat any
+
+$_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_S_rightEPSt18_Rb_tree_node_base = comdat any
+
+$_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE7_S_leftEPSt18_Rb_tree_node_base = comdat any
+
+$_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E = comdat any
+
+$_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeISC_E = comdat any
+
+$_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE11_M_put_nodeEPSt13_Rb_tree_nodeISC_E = comdat any
+
+$_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEEE7destroyISD_EEvRSF_PT_ = comdat any
+
+$_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE21_M_get_Node_allocatorEv = comdat any
+
+$_ZNSt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE9_M_valptrEv = comdat any
+
+$_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEE7destroyISD_EEvPT_ = comdat any
+
+$_ZN9__gnu_cxx16__aligned_membufISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE6_M_ptrEv = comdat any
+
+$_ZN9__gnu_cxx16__aligned_membufISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE7_M_addrEv = comdat any
+
+$_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEEE10deallocateERSF_PSE_m = comdat any
+
+$_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEE10deallocateEPSE_m = comdat any
+
+$_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE9_M_mbeginEv = comdat any
+
+$_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEED2Ev = comdat any
+
+$_ZNK7jsonnet8internal8Location9successorEv = comdat any
+
+$_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EEC2Ev = comdat any
+
+$_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EE10_List_implC2Ev = comdat any
+
+$_ZNSaISt10_List_nodeIN7jsonnet8internal5TokenEEEC2Ev = comdat any
+
+$_ZNSt8__detail17_List_node_headerC2Ev = comdat any
+
+$_ZNSt15__new_allocatorISt10_List_nodeIN7jsonnet8internal5TokenEEEC2Ev = comdat any
+
+$_ZNSt8__detail17_List_node_header7_M_initEv = comdat any
+
+$_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EEC2Ev = comdat any
+
+$_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE12_Vector_implC2Ev = comdat any
+
+$_ZNSaIN7jsonnet8internal13FodderElementEEC2Ev = comdat any
+
+$_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE17_Vector_impl_dataC2Ev = comdat any
+
+$_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEEC2Ev = comdat any
+
+$_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_ = comdat any
+
+$_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_ = comdat any
+
+$_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_ = comdat any
+
+$_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE4backEv = comdat any
+
+$_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIS5_JS5_EEEvPT_DpOT0_ = comdat any
+
+$_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc = comdat any
+
+$_ZN9__gnu_cxxmiIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSE_SH_ = comdat any
+
+$_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm = comdat any
+
+$_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_ = comdat any
+
+$_ZNK9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEE4baseEv = comdat any
+
+$_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE19_M_get_Tp_allocatorEv = comdat any
+
+$_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m = comdat any
+
+$_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE8max_sizeEv = comdat any
+
+$_ZSt3maxImERKT_S2_S2_ = comdat any
+
+$_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_max_sizeERKS6_ = comdat any
+
+$_ZNKSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE19_M_get_Tp_allocatorEv = comdat any
+
+$_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8max_sizeERKS6_ = comdat any
+
+$_ZSt3minImERKT_S2_S2_ = comdat any
+
+$_ZNKSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8max_sizeEv = comdat any
+
+$_ZNKSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11_M_max_sizeEv = comdat any
+
+$_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m = comdat any
+
+$_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8allocateEmPKv = comdat any
+
+$_ZSt12__relocate_aIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_SaIS5_EET0_T_S9_S8_RT1_ = comdat any
+
+$_ZSt14__relocate_a_1IPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_SaIS5_EET0_T_S9_S8_RT1_ = comdat any
+
+$_ZSt12__niter_baseIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_S7_ = comdat any
+
+$_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_ = comdat any
+
+$_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_ = comdat any
+
+$_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7destroyIS5_EEvPT_ = comdat any
+
+$_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE10deallocateERS6_PS5_m = comdat any
+
+$_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10deallocateEPS5_m = comdat any
+
+$_ZNK9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEmiEl = comdat any
+
+$_ZN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEC2ERKS7_ = comdat any
+
+$_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindERKjS8_RKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEERS2_DpOT_ = comdat any
+
+$_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE4backEv = comdat any
+
+$_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindEiRKjS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEERS2_DpOT_ = comdat any
+
+$_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE9push_backERKS2_ = comdat any
+
+$_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE5emptyEv = comdat any
+
+$_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE4backEv = comdat any
+
+$_ZN9__gnu_cxxeqIPKN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_ = comdat any
+
+$_ZNK9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEE4baseEv = comdat any
+
+$_ZNK9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEmiEl = comdat any
+
+$_ZN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEC2ERKS5_ = comdat any
+
+$_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindERKjS8_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEEvRS3_PT_DpOT0_ = comdat any
+
+$_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE17_M_realloc_insertIJNS2_4KindERKjS8_RKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_ = comdat any
+
+$_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE3endEv = comdat any
+
+$_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE9constructIS2_JNS2_4KindERKjS7_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvPT_DpOT0_ = comdat any
+
+$_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12_M_check_lenEmPKc = comdat any
+
+$_ZN9__gnu_cxxmiIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSB_SE_ = comdat any
+
+$_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE5beginEv = comdat any
+
+$_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE11_M_allocateEm = comdat any
+
+$_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_ = comdat any
+
+$_ZNK9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEE4baseEv = comdat any
+
+$_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE19_M_get_Tp_allocatorEv = comdat any
+
+$_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE7destroyIS2_EEvRS3_PT_ = comdat any
+
+$_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E = comdat any
+
+$_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE13_M_deallocateEPS2_m = comdat any
+
+$_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE8max_sizeEv = comdat any
+
+$_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE4sizeEv = comdat any
+
+$_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_max_sizeERKS3_ = comdat any
+
+$_ZNKSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE19_M_get_Tp_allocatorEv = comdat any
+
+$_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE8max_sizeERKS3_ = comdat any
+
+$_ZNKSt15__new_allocatorIN7jsonnet8internal13FodderElementEE8max_sizeEv = comdat any
+
+$_ZNKSt15__new_allocatorIN7jsonnet8internal13FodderElementEE11_M_max_sizeEv = comdat any
+
+$_ZN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEC2ERKS4_ = comdat any
+
+$_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE8allocateERS3_m = comdat any
+
+$_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE8allocateEmPKv = comdat any
+
+$_ZSt12__relocate_aIPN7jsonnet8internal13FodderElementES3_SaIS2_EET0_T_S6_S5_RT1_ = comdat any
+
+$_ZSt14__relocate_a_1IPN7jsonnet8internal13FodderElementES3_SaIS2_EET0_T_S6_S5_RT1_ = comdat any
+
+$_ZSt12__niter_baseIPN7jsonnet8internal13FodderElementEET_S4_ = comdat any
+
+$_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_ = comdat any
+
+$_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_ = comdat any
+
+$_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE9constructIS2_JS2_EEEvPT_DpOT0_ = comdat any
+
+$_ZN7jsonnet8internal13FodderElementC2EOS1_ = comdat any
+
+$_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EOS7_ = comdat any
+
+$_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EOS7_ = comdat any
+
+$_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implC2EOS8_ = comdat any
+
+$_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataC2EOS8_ = comdat any
+
+$_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_ = comdat any
+
+$_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE7destroyIS2_EEvPT_ = comdat any
+
+$_ZSt8_DestroyIPN7jsonnet8internal13FodderElementEEvT_S4_ = comdat any
+
+$_ZNSt12_Destroy_auxILb0EE9__destroyIPN7jsonnet8internal13FodderElementEEEvT_S6_ = comdat any
+
+$_ZSt8_DestroyIN7jsonnet8internal13FodderElementEEvPT_ = comdat any
+
+$_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE10deallocateERS3_PS2_m = comdat any
+
+$_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE10deallocateEPS2_m = comdat any
+
+$_ZNK9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEmiEl = comdat any
+
+$_ZNK9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEdeEv = comdat any
+
+$_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindEiRKjSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEEvRS3_PT_DpOT0_ = comdat any
+
+$_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE17_M_realloc_insertIJNS2_4KindEiRKjS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_ = comdat any
+
+$_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE9constructIS2_JNS2_4KindEiRKjSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvPT_DpOT0_ = comdat any
+
+$_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_ = comdat any
+
+$_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_ = comdat any
+
+$_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE9constructIS2_JRKS2_EEEvPT_DpOT0_ = comdat any
+
+$_ZN7jsonnet8internal13FodderElementC2ERKS1_ = comdat any
+
+$_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_ = comdat any
+
+$_ZN9__gnu_cxx14__alloc_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_E17_S_select_on_copyERKS7_ = comdat any
+
+$_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_ = comdat any
+
+$_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_S7_ET0_T_SG_SF_RSaIT1_E = comdat any
+
+$_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev = comdat any
+
+$_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE37select_on_container_copy_constructionERKS6_ = comdat any
+
+$_ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS5_ = comdat any
+
+$_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implC2ERKS6_ = comdat any
+
+$_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_create_storageEm = comdat any
+
+$_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implD2Ev = comdat any
+
+$_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev = comdat any
+
+$_ZSt18uninitialized_copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_ET0_T_SG_SF_ = comdat any
+
+$_ZNSt20__uninitialized_copyILb0EE13__uninit_copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEEPS9_EET0_T_SI_SH_ = comdat any
+
+$_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_ET0_T_SG_SF_ = comdat any
+
+$_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_ = comdat any
+
+$_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_ = comdat any
+
+$_ZNSt12_Destroy_auxILb0EE9__destroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvT_S9_ = comdat any
+
+$_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_ = comdat any
+
+$_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EED2Ev = comdat any
+
+$_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EE8_M_clearEv = comdat any
+
+$_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EE10_List_implD2Ev = comdat any
+
+$_ZNSt10_List_nodeIN7jsonnet8internal5TokenEE9_M_valptrEv = comdat any
+
+$_ZNSt16allocator_traitsISaISt10_List_nodeIN7jsonnet8internal5TokenEEEE7destroyIS3_EEvRS5_PT_ = comdat any
+
+$_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EE21_M_get_Node_allocatorEv = comdat any
+
+$_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EE11_M_put_nodeEPSt10_List_nodeIS3_E = comdat any
+
+$_ZN9__gnu_cxx16__aligned_membufIN7jsonnet8internal5TokenEE6_M_ptrEv = comdat any
+
+$_ZN9__gnu_cxx16__aligned_membufIN7jsonnet8internal5TokenEE7_M_addrEv = comdat any
+
+$_ZNSt15__new_allocatorISt10_List_nodeIN7jsonnet8internal5TokenEEE7destroyIS3_EEvPT_ = comdat any
+
+$_ZN7jsonnet8internal5TokenD2Ev = comdat any
+
+$_ZNSt16allocator_traitsISaISt10_List_nodeIN7jsonnet8internal5TokenEEEE10deallocateERS5_PS4_m = comdat any
+
+$_ZNSt15__new_allocatorISt10_List_nodeIN7jsonnet8internal5TokenEEE10deallocateEPS4_m = comdat any
+
+$_ZNSaISt10_List_nodeIN7jsonnet8internal5TokenEEED2Ev = comdat any
+
+$_ZNSt15__new_allocatorISt10_List_nodeIN7jsonnet8internal5TokenEEED2Ev = comdat any
+
+$_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E = comdat any
+
+$_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EED2Ev = comdat any
+
+$_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE12_Vector_implD2Ev = comdat any
+
+$_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEED2Ev = comdat any
+
+$_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE15_M_erase_at_endEPS2_ = comdat any
+
+$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
+
+$_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_ = comdat any
+
+$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev = comdat any
+
+$_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_ = comdat any
+
+$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_ = comdat any
+
+$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev = comdat any
+
+$_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag = comdat any
+
+$_ZNSt11char_traitsIcE6lengthEPKc = comdat any
+
+$_ZNSt15__new_allocatorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEC2Ev = comdat any
+
+$_ZNSt15__new_allocatorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEED2Ev = comdat any
+
+$_ZNSaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEC2ERKSC_ = comdat any
+
+$_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EEC2ERKSG_RKSH_ = comdat any
+
+$_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE22_M_insert_range_uniqueIPKSC_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESN_SN_ = comdat any
+
+$_ZNKSt16initializer_listISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE5beginEv = comdat any
+
+$_ZNKSt16initializer_listISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE3endEv = comdat any
+
+$_ZNSt15__new_allocatorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEC2ERKSD_ = comdat any
+
+$_ZNSaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEEC2ISC_EERKSaIT_E = comdat any
+
+$_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE13_Rb_tree_implISG_Lb1EEC2ERKSG_OSaISt13_Rb_tree_nodeISC_EE = comdat any
+
+$_ZNSaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEED2Ev = comdat any
+
+$_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEEC2Ev = comdat any
+
+$_ZNSaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEEC2ERKSE_ = comdat any
+
+$_ZNSt20_Rb_tree_key_compareISt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS7_ = comdat any
+
+$_ZNSt15_Rb_tree_headerC2Ev = comdat any
+
+$_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEEC2ERKSF_ = comdat any
+
+$_ZNSt15_Rb_tree_header8_M_resetEv = comdat any
+
+$_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE11_Alloc_nodeC2ERSI_ = comdat any
+
+$_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE17_M_insert_unique_IRKSC_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISC_ESt23_Rb_tree_const_iteratorISC_EOT_RT0_ = comdat any
+
+$_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE3endEv = comdat any
+
+$_ZNSt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEC2ERKSt17_Rb_tree_iteratorISC_E = comdat any
+
+$_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISC_ERS7_ = comdat any
+
+$_ZNKSt10_Select1stISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEclERKSC_ = comdat any
+
+$_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE10_M_insert_IRKSC_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISC_EPSt18_Rb_tree_node_baseSQ_OT_RT0_ = comdat any
+
+$_ZNSt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEC2EPSt18_Rb_tree_node_base = comdat any
+
+$_ZNKSt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE13_M_const_castEv = comdat any
+
+$_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE6_M_endEv = comdat any
+
+$_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE4sizeEv = comdat any
+
+$_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_ = comdat any
+
+$_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE6_S_keyEPKSt18_Rb_tree_node_base = comdat any
+
+$_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE12_M_rightmostEv = comdat any
+
+$_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_ = comdat any
+
+$_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE24_M_get_insert_unique_posERS7_ = comdat any
+
+$_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE11_M_leftmostEv = comdat any
+
+$_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRS1_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS6_S7_EEEbE4typeELb1EEEOS6_OS7_ = comdat any
+
+$_ZNSt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEmmEv = comdat any
+
+$_ZNSt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEppEv = comdat any
+
+$_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_ = comdat any
+
+$_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE6_S_keyEPKSt13_Rb_tree_nodeISC_E = comdat any
+
+$_ZNKSt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE9_M_valptrEv = comdat any
+
+$_ZNK9__gnu_cxx16__aligned_membufISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE6_M_ptrEv = comdat any
+
+$_ZNK9__gnu_cxx16__aligned_membufISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE7_M_addrEv = comdat any
+
+$_ZSteqRKSt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEESF_ = comdat any
+
+$_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE5beginEv = comdat any
+
+$_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRPSt13_Rb_tree_nodeIS_IKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEERS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISM_SN_EEEbE4typeELb1EEEOSM_OSN_ = comdat any
+
+$_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE11_Alloc_nodeclIRKSC_EEPSt13_Rb_tree_nodeISC_EOT_ = comdat any
+
+$_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_create_nodeIJRKSC_EEEPSt13_Rb_tree_nodeISC_EDpOT_ = comdat any
+
+$_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE11_M_get_nodeEv = comdat any
+
+$_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE17_M_construct_nodeIJRKSC_EEEvPSt13_Rb_tree_nodeISC_EDpOT_ = comdat any
+
+$_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEEE8allocateERSF_m = comdat any
+
+$_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEE8allocateEmPKv = comdat any
+
+$_ZNKSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEE11_M_max_sizeEv = comdat any
+
+$_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEEE9constructISD_JRKSD_EEEvRSF_PT_DpOT0_ = comdat any
+
+$_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEE9constructISD_JRKSD_EEEvPT_DpOT0_ = comdat any
+
+$_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2ERKSB_ = comdat any
+
+$_ZNKSt16initializer_listISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE4sizeEv = comdat any
+
+$_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE4findERS7_ = comdat any
+
+$_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_ = comdat any
+
+$_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_beginEv = comdat any
+
+$_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE6_M_endEv = comdat any
+
+$_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE3endEv = comdat any
+
+$_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE7_S_leftEPKSt18_Rb_tree_node_base = comdat any
+
+$_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_S_rightEPKSt18_Rb_tree_node_base = comdat any
+
+$_ZNSt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEC2EPKSt18_Rb_tree_node_base = comdat any
+
+$_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindERjS7_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvRS3_PT_DpOT0_ = comdat any
+
+$_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE17_M_realloc_insertIJNS2_4KindERjS7_RKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_ = comdat any
+
+$_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE9constructIS2_JNS2_4KindERjS6_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEEvPT_DpOT0_ = comdat any
+
+$_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_ = comdat any
+
+$_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE21_M_default_initializeEm = comdat any
+
+$_ZSt27__uninitialized_default_n_aIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmS5_ET_S7_T0_RSaIT1_E = comdat any
+
+$_ZSt25__uninitialized_default_nIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmET_S7_T0_ = comdat any
+
+$_ZNSt27__uninitialized_default_n_1ILb0EE18__uninit_default_nIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEET_S9_T0_ = comdat any
+
+$_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEvPT_DpOT0_ = comdat any
+
+$_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JRNS2_4KindERjS8_RSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEEvRS3_PT_DpOT0_ = comdat any
+
+$_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE17_M_realloc_insertIJRNS2_4KindERjS8_RS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_ = comdat any
+
+$_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE9constructIS2_JRNS2_4KindERjS7_RSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvPT_DpOT0_ = comdat any
+
+$_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_ = comdat any
+
+$_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_ = comdat any
+
+$_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIS5_JRKS5_EEEvPT_DpOT0_ = comdat any
+
+$_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindEiiRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEEvRS3_PT_DpOT0_ = comdat any
+
+$_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE17_M_realloc_insertIJNS2_4KindEiiRS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_ = comdat any
+
+$_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE9constructIS2_JNS2_4KindEiiRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEEEvPT_DpOT0_ = comdat any
+
+$_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindEjRjRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvRS3_PT_DpOT0_ = comdat any
+
+$_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE17_M_realloc_insertIJNS2_4KindEjRjRKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_ = comdat any
+
+$_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE9constructIS2_JNS2_4KindEjRjRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEEvPT_DpOT0_ = comdat any
+
+$_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE14_M_move_assignEOS7_St17integral_constantIbLb1EE = comdat any
+
+$_ZNKSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13get_allocatorEv = comdat any
+
+$_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS6_ = comdat any
+
+$_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_data12_M_swap_dataERS8_ = comdat any
+
+$_ZSt15__alloc_on_moveISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRT_S8_ = comdat any
+
+$_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS6_ = comdat any
+
+$_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataC2Ev = comdat any
+
+$_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_data12_M_copy_dataERKS8_ = comdat any
+
+$_ZN9__gnu_cxx14__alloc_traitsISaIcEcE17_S_select_on_copyERKS1_ = comdat any
+
+$_ZNSt16allocator_traitsISaIcEE37select_on_container_copy_constructionERKS0_ = comdat any
+
+$_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE9_M_insertIJRNS3_4KindERSt6vectorINS2_13FodderElementESaISA_EERNS_12basic_stringIcSt11char_traitsIcESaIcEEESJ_SJ_NS2_13LocationRangeEEEEvSt14_List_iteratorIS3_EDpOT_ = comdat any
+
+$_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE3endEv = comdat any
+
+$_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE4backEv = comdat any
+
+$_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE14_M_create_nodeIJRNS3_4KindERSt6vectorINS2_13FodderElementESaISA_EERNS_12basic_stringIcSt11char_traitsIcESaIcEEESJ_SJ_NS2_13LocationRangeEEEEPSt10_List_nodeIS3_EDpOT_ = comdat any
+
+$_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EE11_M_inc_sizeEm = comdat any
+
+$_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EE11_M_get_nodeEv = comdat any
+
+$_ZNSt15__allocated_ptrISaISt10_List_nodeIN7jsonnet8internal5TokenEEEEC2ERS5_PS4_ = comdat any
+
+$_ZNSt16allocator_traitsISaISt10_List_nodeIN7jsonnet8internal5TokenEEEE9constructIS3_JRNS3_4KindERSt6vectorINS2_13FodderElementESaISB_EERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_NS2_13LocationRangeEEEEvRS5_PT_DpOT0_ = comdat any
+
+$_ZNSt15__allocated_ptrISaISt10_List_nodeIN7jsonnet8internal5TokenEEEEaSEDn = comdat any
+
+$_ZNSt15__allocated_ptrISaISt10_List_nodeIN7jsonnet8internal5TokenEEEED2Ev = comdat any
+
+$_ZNSt16allocator_traitsISaISt10_List_nodeIN7jsonnet8internal5TokenEEEE8allocateERS5_m = comdat any
+
+$_ZNSt15__new_allocatorISt10_List_nodeIN7jsonnet8internal5TokenEEE8allocateEmPKv = comdat any
+
+$_ZNKSt15__new_allocatorISt10_List_nodeIN7jsonnet8internal5TokenEEE11_M_max_sizeEv = comdat any
+
+$_ZNSt15__new_allocatorISt10_List_nodeIN7jsonnet8internal5TokenEEE9constructIS3_JRNS3_4KindERSt6vectorINS2_13FodderElementESaISA_EERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESK_SK_NS2_13LocationRangeEEEEvPT_DpOT0_ = comdat any
+
+$_ZN7jsonnet8internal5TokenC2ENS1_4KindERKSt6vectorINS0_13FodderElementESaIS4_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_SG_RKNS0_13LocationRangeE = comdat any
+
+$_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_ = comdat any
+
+$_ZN7jsonnet8internal13LocationRangeC2ERKS1_ = comdat any
+
+$_ZN9__gnu_cxx14__alloc_traitsISaIN7jsonnet8internal13FodderElementEES3_E17_S_select_on_copyERKS4_ = comdat any
+
+$_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EEC2EmRKS3_ = comdat any
+
+$_ZNSaIN7jsonnet8internal13FodderElementEED2Ev = comdat any
+
+$_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E = comdat any
+
+$_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE37select_on_container_copy_constructionERKS3_ = comdat any
+
+$_ZNSaIN7jsonnet8internal13FodderElementEEC2ERKS2_ = comdat any
+
+$_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEEC2ERKS3_ = comdat any
+
+$_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE12_Vector_implC2ERKS3_ = comdat any
+
+$_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE17_M_create_storageEm = comdat any
+
+$_ZSt18uninitialized_copyIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS4_SaIS4_EEEEPS4_ET0_T_SD_SC_ = comdat any
+
+$_ZNSt20__uninitialized_copyILb0EE13__uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS6_SaIS6_EEEEPS6_EET0_T_SF_SE_ = comdat any
+
+$_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS4_SaIS4_EEEEPS4_ET0_T_SD_SC_ = comdat any
+
+$_ZSt10_ConstructIN7jsonnet8internal13FodderElementEJRKS2_EEvPT_DpOT0_ = comdat any
+
+$_ZNSt14_List_iteratorIN7jsonnet8internal5TokenEEC2EPNSt8__detail15_List_node_baseE = comdat any
+
+$_ZNSt14_List_iteratorIN7jsonnet8internal5TokenEEmmEv = comdat any
+
+$_ZNKSt14_List_iteratorIN7jsonnet8internal5TokenEEdeEv = comdat any
+
+$_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE9_M_insertIJNS3_4KindERSt6vectorINS2_13FodderElementESaIS9_EERA1_KcSF_SF_NS2_13LocationRangeEEEEvSt14_List_iteratorIS3_EDpOT_ = comdat any
+
+$_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE14_M_create_nodeIJNS3_4KindERSt6vectorINS2_13FodderElementESaIS9_EERA1_KcSF_SF_NS2_13LocationRangeEEEEPSt10_List_nodeIS3_EDpOT_ = comdat any
+
+$_ZNSt16allocator_traitsISaISt10_List_nodeIN7jsonnet8internal5TokenEEEE9constructIS3_JNS3_4KindERSt6vectorINS2_13FodderElementESaISA_EERA1_KcSG_SG_NS2_13LocationRangeEEEEvRS5_PT_DpOT0_ = comdat any
+
+$_ZNSt15__new_allocatorISt10_List_nodeIN7jsonnet8internal5TokenEEE9constructIS3_JNS3_4KindERSt6vectorINS2_13FodderElementESaIS9_EERA1_KcSF_SF_NS2_13LocationRangeEEEEvPT_DpOT0_ = comdat any
+
+$_ZNSt20_List_const_iteratorIN7jsonnet8internal5TokenEEC2EPKNSt8__detail15_List_node_baseE = comdat any
+
+$_ZNKSt10_List_nodeIN7jsonnet8internal5TokenEE9_M_valptrEv = comdat any
+
+$_ZNK9__gnu_cxx16__aligned_membufIN7jsonnet8internal5TokenEE6_M_ptrEv = comdat any
+
+$_ZNK9__gnu_cxx16__aligned_membufIN7jsonnet8internal5TokenEE7_M_addrEv = comdat any
+
+$_ZN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEC2ERKS8_ = comdat any
+
+$_ZNK9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEE4baseEv = comdat any
+
+$_ZTSN7jsonnet8internal11StaticErrorE = comdat any
+
+$_ZTIN7jsonnet8internal11StaticErrorE = comdat any
+
+@_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
+@__dso_handle = external hidden global i8
+@_ZN7jsonnet8internalL5EMPTYB5cxx11E = internal global %"class.std::vector" zeroinitializer, align 8
+@_ZN7jsonnet8internalL8keywordsB5cxx11E = internal global %"class.std::map" zeroinitializer, align 8
+@.str = private unnamed_addr constant [7 x i8] c"assert\00", align 1
+@.str.3 = private unnamed_addr constant [5 x i8] c"else\00", align 1
+@.str.4 = private unnamed_addr constant [6 x i8] c"error\00", align 1
+@.str.5 = private unnamed_addr constant [6 x i8] c"false\00", align 1
+@.str.6 = private unnamed_addr constant [4 x i8] c"for\00", align 1
+@.str.7 = private unnamed_addr constant [9 x i8] c"function\00", align 1
+@.str.8 = private unnamed_addr constant [3 x i8] c"if\00", align 1
+@.str.9 = private unnamed_addr constant [7 x i8] c"import\00", align 1
+@.str.10 = private unnamed_addr constant [10 x i8] c"importstr\00", align 1
+@.str.11 = private unnamed_addr constant [10 x i8] c"importbin\00", align 1
+@.str.12 = private unnamed_addr constant [3 x i8] c"in\00", align 1
+@.str.13 = private unnamed_addr constant [6 x i8] c"local\00", align 1
+@.str.14 = private unnamed_addr constant [5 x i8] c"null\00", align 1
+@.str.15 = private unnamed_addr constant [5 x i8] c"self\00", align 1
+@.str.16 = private unnamed_addr constant [6 x i8] c"super\00", align 1
+@.str.17 = private unnamed_addr constant [11 x i8] c"tailstrict\00", align 1
+@.str.18 = private unnamed_addr constant [5 x i8] c"then\00", align 1
+@.str.19 = private unnamed_addr constant [5 x i8] c"true\00", align 1
+@.str.20 = private unnamed_addr constant [20 x i8] c"couldn't lex number\00", align 1
+@_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
+@_ZTSN7jsonnet8internal11StaticErrorE = linkonce_odr constant [33 x i8] c"N7jsonnet8internal11StaticErrorE\00", comdat, align 1
+@_ZTIN7jsonnet8internal11StaticErrorE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN7jsonnet8internal11StaticErrorE }, comdat, align 8
+@.str.21 = private unnamed_addr constant [48 x i8] c"couldn't lex number, junk after decimal point: \00", align 1
+@.str.22 = private unnamed_addr constant [38 x i8] c"couldn't lex number, junk after 'E': \00", align 1
+@.str.23 = private unnamed_addr constant [48 x i8] c"couldn't lex number, junk after exponent sign: \00", align 1
+@.str.24 = private unnamed_addr constant [20 x i8] c"unterminated string\00", align 1
+@.str.25 = private unnamed_addr constant [47 x i8] c"couldn't lex verbatim string, junk after '@': \00", align 1
+@.str.26 = private unnamed_addr constant [29 x i8] c"unterminated verbatim string\00", align 1
+@.str.27 = private unnamed_addr constant [42 x i8] c"multi-line comment has no terminating */.\00", align 1
+@.str.28 = private unnamed_addr constant [2 x i8] c" \00", align 1
+@.str.29 = private unnamed_addr constant [47 x i8] c"text block syntax requires new line after |||.\00", align 1
+@.str.30 = private unnamed_addr constant [52 x i8] c"text block's first line must start with whitespace.\00", align 1
+@.str.31 = private unnamed_addr constant [15 x i8] c"unexpected EOF\00", align 1
+@.str.32 = private unnamed_addr constant [35 x i8] c"text block not terminated with |||\00", align 1
+@.str.33 = private unnamed_addr constant [2 x i8] c"$\00", align 1
+@.str.34 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.35 = private unnamed_addr constant [29 x i8] c"Could not lex the character \00", align 1
+@.str.36 = private unnamed_addr constant [6 x i8] c"code \00", align 1
+@.str.37 = private unnamed_addr constant [2 x i8] c"'\00", align 1
+@.str.38 = private unnamed_addr constant [48 x i8] c"internal lexing error:  pointer did not advance\00", align 1
+@.str.39 = private unnamed_addr constant [9 x i8] c"LineEnd(\00", align 1
+@.str.40 = private unnamed_addr constant [3 x i8] c", \00", align 1
+@.str.41 = private unnamed_addr constant [3 x i8] c")\0A\00", align 1
+@.str.42 = private unnamed_addr constant [14 x i8] c"Interstitial(\00", align 1
+@.str.43 = private unnamed_addr constant [12 x i8] c"Paragraph(\0A\00", align 1
+@.str.44 = private unnamed_addr constant [5 x i8] c"    \00", align 1
+@.str.45 = private unnamed_addr constant [2 x i8] c")\00", align 1
+@.str.46 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
+@.str.47 = private unnamed_addr constant [5 x i8] c"EOF\0A\00", align 1
+@.str.48 = private unnamed_addr constant [2 x i8] c"\22\00", align 1
+@.str.49 = private unnamed_addr constant [3 x i8] c"\22\0A\00", align 1
+@.str.50 = private unnamed_addr constant [3 x i8] c"'\0A\00", align 1
+@.str.51 = private unnamed_addr constant [5 x i8] c"|||\0A\00", align 1
+@.str.52 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
+@.str.53 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
+@.str.54 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
+@llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_lexer.cpp, ptr null }]
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init() #0 section ".text.startup" {
+  call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
+  %1 = call i32 @__cxa_atexit(ptr @_ZNSt8ios_base4InitD1Ev, ptr @_ZStL8__ioinit, ptr @__dso_handle) #3
+  ret void
+}
+
+declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
+
+; Function Attrs: nounwind
+declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
+
+; Function Attrs: nounwind
+declare i32 @__cxa_atexit(ptr, ptr, ptr) #3
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.1() #0 section ".text.startup" {
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) @_ZN7jsonnet8internalL5EMPTYB5cxx11E) #3
+  %1 = call i32 @__cxa_atexit(ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev, ptr @_ZN7jsonnet8internalL5EMPTYB5cxx11E, ptr @__dso_handle) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  invoke void @_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E(ptr noundef %6, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %11 unwind label %12
+
+11:                                               ; preds = %1
+  call void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  ret void
+
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #14
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define noundef zeroext i1 @_ZN7jsonnet8internal26allowed_at_end_of_operatorEc(i8 noundef signext %0) #4 {
+  %2 = alloca i1, align 1
+  %3 = alloca i8, align 1
+  store i8 %0, ptr %3, align 1
+  %4 = load i8, ptr %3, align 1
+  %5 = sext i8 %4 to i32
+  switch i32 %5, label %7 [
+    i32 43, label %6
+    i32 45, label %6
+    i32 126, label %6
+    i32 33, label %6
+    i32 36, label %6
+  ]
+
+6:                                                ; preds = %1, %1, %1, %1, %1
+  store i1 false, ptr %2, align 1
+  br label %8
+
+7:                                                ; preds = %1
+  store i1 true, ptr %2, align 1
+  br label %8
+
+8:                                                ; preds = %7, %6
+  %9 = load i1, ptr %2, align 1
+  ret i1 %9
+}
+
+; Function Attrs: uwtable
+define internal void @__cxx_global_var_init.2() #0 section ".text.startup" personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"class.std::initializer_list", align 8
+  %2 = alloca [18 x %"struct.std::pair"], align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i32, align 4
+  %13 = alloca i32, align 4
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  %23 = alloca i32, align 4
+  %24 = alloca %"struct.std::less", align 1
+  %25 = alloca %"class.std::allocator.6", align 1
+  %26 = getelementptr inbounds [18 x %"struct.std::pair"], ptr %2, i64 0, i64 0
+  store ptr %26, ptr %3, align 8
+  store i32 18, ptr %4, align 4
+  invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA7_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_(ptr noundef nonnull align 8 dereferenceable(36) %26, ptr noundef nonnull align 1 dereferenceable(7) @.str, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %27 unwind label %78
+
+27:                                               ; preds = %0
+  %28 = getelementptr inbounds %"struct.std::pair", ptr %26, i64 1
+  store ptr %28, ptr %3, align 8
+  store i32 19, ptr %7, align 4
+  invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA5_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_(ptr noundef nonnull align 8 dereferenceable(36) %28, ptr noundef nonnull align 1 dereferenceable(5) @.str.3, ptr noundef nonnull align 4 dereferenceable(4) %7)
+          to label %29 unwind label %78
+
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds %"struct.std::pair", ptr %28, i64 1
+  store ptr %30, ptr %3, align 8
+  store i32 20, ptr %8, align 4
+  invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA6_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_(ptr noundef nonnull align 8 dereferenceable(36) %30, ptr noundef nonnull align 1 dereferenceable(6) @.str.4, ptr noundef nonnull align 4 dereferenceable(4) %8)
+          to label %31 unwind label %78
+
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds %"struct.std::pair", ptr %30, i64 1
+  store ptr %32, ptr %3, align 8
+  store i32 21, ptr %9, align 4
+  invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA6_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_(ptr noundef nonnull align 8 dereferenceable(36) %32, ptr noundef nonnull align 1 dereferenceable(6) @.str.5, ptr noundef nonnull align 4 dereferenceable(4) %9)
+          to label %33 unwind label %78
+
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds %"struct.std::pair", ptr %32, i64 1
+  store ptr %34, ptr %3, align 8
+  store i32 22, ptr %10, align 4
+  invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA4_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_(ptr noundef nonnull align 8 dereferenceable(36) %34, ptr noundef nonnull align 1 dereferenceable(4) @.str.6, ptr noundef nonnull align 4 dereferenceable(4) %10)
+          to label %35 unwind label %78
+
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds %"struct.std::pair", ptr %34, i64 1
+  store ptr %36, ptr %3, align 8
+  store i32 23, ptr %11, align 4
+  invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA9_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_(ptr noundef nonnull align 8 dereferenceable(36) %36, ptr noundef nonnull align 1 dereferenceable(9) @.str.7, ptr noundef nonnull align 4 dereferenceable(4) %11)
+          to label %37 unwind label %78
+
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds %"struct.std::pair", ptr %36, i64 1
+  store ptr %38, ptr %3, align 8
+  store i32 24, ptr %12, align 4
+  invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA3_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_(ptr noundef nonnull align 8 dereferenceable(36) %38, ptr noundef nonnull align 1 dereferenceable(3) @.str.8, ptr noundef nonnull align 4 dereferenceable(4) %12)
+          to label %39 unwind label %78
+
+39:                                               ; preds = %37
+  %40 = getelementptr inbounds %"struct.std::pair", ptr %38, i64 1
+  store ptr %40, ptr %3, align 8
+  store i32 25, ptr %13, align 4
+  invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA7_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_(ptr noundef nonnull align 8 dereferenceable(36) %40, ptr noundef nonnull align 1 dereferenceable(7) @.str.9, ptr noundef nonnull align 4 dereferenceable(4) %13)
+          to label %41 unwind label %78
+
+41:                                               ; preds = %39
+  %42 = getelementptr inbounds %"struct.std::pair", ptr %40, i64 1
+  store ptr %42, ptr %3, align 8
+  store i32 26, ptr %14, align 4
+  invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA10_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_(ptr noundef nonnull align 8 dereferenceable(36) %42, ptr noundef nonnull align 1 dereferenceable(10) @.str.10, ptr noundef nonnull align 4 dereferenceable(4) %14)
+          to label %43 unwind label %78
+
+43:                                               ; preds = %41
+  %44 = getelementptr inbounds %"struct.std::pair", ptr %42, i64 1
+  store ptr %44, ptr %3, align 8
+  store i32 27, ptr %15, align 4
+  invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA10_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_(ptr noundef nonnull align 8 dereferenceable(36) %44, ptr noundef nonnull align 1 dereferenceable(10) @.str.11, ptr noundef nonnull align 4 dereferenceable(4) %15)
+          to label %45 unwind label %78
+
+45:                                               ; preds = %43
+  %46 = getelementptr inbounds %"struct.std::pair", ptr %44, i64 1
+  store ptr %46, ptr %3, align 8
+  store i32 28, ptr %16, align 4
+  invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA3_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_(ptr noundef nonnull align 8 dereferenceable(36) %46, ptr noundef nonnull align 1 dereferenceable(3) @.str.12, ptr noundef nonnull align 4 dereferenceable(4) %16)
+          to label %47 unwind label %78
+
+47:                                               ; preds = %45
+  %48 = getelementptr inbounds %"struct.std::pair", ptr %46, i64 1
+  store ptr %48, ptr %3, align 8
+  store i32 29, ptr %17, align 4
+  invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA6_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_(ptr noundef nonnull align 8 dereferenceable(36) %48, ptr noundef nonnull align 1 dereferenceable(6) @.str.13, ptr noundef nonnull align 4 dereferenceable(4) %17)
+          to label %49 unwind label %78
+
+49:                                               ; preds = %47
+  %50 = getelementptr inbounds %"struct.std::pair", ptr %48, i64 1
+  store ptr %50, ptr %3, align 8
+  store i32 30, ptr %18, align 4
+  invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA5_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_(ptr noundef nonnull align 8 dereferenceable(36) %50, ptr noundef nonnull align 1 dereferenceable(5) @.str.14, ptr noundef nonnull align 4 dereferenceable(4) %18)
+          to label %51 unwind label %78
+
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds %"struct.std::pair", ptr %50, i64 1
+  store ptr %52, ptr %3, align 8
+  store i32 33, ptr %19, align 4
+  invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA5_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_(ptr noundef nonnull align 8 dereferenceable(36) %52, ptr noundef nonnull align 1 dereferenceable(5) @.str.15, ptr noundef nonnull align 4 dereferenceable(4) %19)
+          to label %53 unwind label %78
+
+53:                                               ; preds = %51
+  %54 = getelementptr inbounds %"struct.std::pair", ptr %52, i64 1
+  store ptr %54, ptr %3, align 8
+  store i32 34, ptr %20, align 4
+  invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA6_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_(ptr noundef nonnull align 8 dereferenceable(36) %54, ptr noundef nonnull align 1 dereferenceable(6) @.str.16, ptr noundef nonnull align 4 dereferenceable(4) %20)
+          to label %55 unwind label %78
+
+55:                                               ; preds = %53
+  %56 = getelementptr inbounds %"struct.std::pair", ptr %54, i64 1
+  store ptr %56, ptr %3, align 8
+  store i32 31, ptr %21, align 4
+  invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA11_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_(ptr noundef nonnull align 8 dereferenceable(36) %56, ptr noundef nonnull align 1 dereferenceable(11) @.str.17, ptr noundef nonnull align 4 dereferenceable(4) %21)
+          to label %57 unwind label %78
+
+57:                                               ; preds = %55
+  %58 = getelementptr inbounds %"struct.std::pair", ptr %56, i64 1
+  store ptr %58, ptr %3, align 8
+  store i32 32, ptr %22, align 4
+  invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA5_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_(ptr noundef nonnull align 8 dereferenceable(36) %58, ptr noundef nonnull align 1 dereferenceable(5) @.str.18, ptr noundef nonnull align 4 dereferenceable(4) %22)
+          to label %59 unwind label %78
+
+59:                                               ; preds = %57
+  %60 = getelementptr inbounds %"struct.std::pair", ptr %58, i64 1
+  store ptr %60, ptr %3, align 8
+  store i32 35, ptr %23, align 4
+  invoke void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA5_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_(ptr noundef nonnull align 8 dereferenceable(36) %60, ptr noundef nonnull align 1 dereferenceable(5) @.str.19, ptr noundef nonnull align 4 dereferenceable(4) %23)
+          to label %61 unwind label %78
+
+61:                                               ; preds = %59
+  %62 = getelementptr inbounds %"class.std::initializer_list", ptr %1, i32 0, i32 0
+  %63 = getelementptr inbounds [18 x %"struct.std::pair"], ptr %2, i64 0, i64 0
+  store ptr %63, ptr %62, align 8
+  %64 = getelementptr inbounds %"class.std::initializer_list", ptr %1, i32 0, i32 1
+  store i64 18, ptr %64, align 8
+  call void @_ZNSaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #3
+  %65 = getelementptr inbounds { ptr, i64 }, ptr %1, i32 0, i32 0
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds { ptr, i64 }, ptr %1, i32 0, i32 1
+  %68 = load i64, ptr %67, align 8
+  invoke void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindESt4lessIS5_ESaISt4pairIKS5_S9_EEEC2ESt16initializer_listISE_ERKSB_RKSF_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN7jsonnet8internalL8keywordsB5cxx11E, ptr %66, i64 %68, ptr noundef nonnull align 1 dereferenceable(1) %24, ptr noundef nonnull align 1 dereferenceable(1) %25)
+          to label %69 unwind label %89
+
+69:                                               ; preds = %61
+  call void @_ZNSaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #3
+  %70 = getelementptr inbounds [18 x %"struct.std::pair"], ptr %2, i32 0, i32 0
+  %71 = getelementptr inbounds %"struct.std::pair", ptr %70, i64 18
+  br label %72
+
+72:                                               ; preds = %72, %69
+  %73 = phi ptr [ %71, %69 ], [ %74, %72 ]
+  %74 = getelementptr inbounds %"struct.std::pair", ptr %73, i64 -1
+  call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %74) #3
+  %75 = icmp eq ptr %74, %70
+  br i1 %75, label %76, label %72
+
+76:                                               ; preds = %72
+  %77 = call i32 @__cxa_atexit(ptr @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindESt4lessIS5_ESaISt4pairIKS5_S9_EEED2Ev, ptr @_ZN7jsonnet8internalL8keywordsB5cxx11E, ptr @__dso_handle) #3
+  ret void
+
+78:                                               ; preds = %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %0
+  %79 = landingpad { ptr, i32 }
+          cleanup
+  %80 = extractvalue { ptr, i32 } %79, 0
+  store ptr %80, ptr %5, align 8
+  %81 = extractvalue { ptr, i32 } %79, 1
+  store i32 %81, ptr %6, align 4
+  %82 = load ptr, ptr %3, align 8
+  %83 = icmp eq ptr %26, %82
+  br i1 %83, label %88, label %84
+
+84:                                               ; preds = %84, %78
+  %85 = phi ptr [ %82, %78 ], [ %86, %84 ]
+  %86 = getelementptr inbounds %"struct.std::pair", ptr %85, i64 -1
+  call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %86) #3
+  %87 = icmp eq ptr %86, %26
+  br i1 %87, label %88, label %84
+
+88:                                               ; preds = %84, %78
+  br label %100
+
+89:                                               ; preds = %61
+  %90 = landingpad { ptr, i32 }
+          cleanup
+  %91 = extractvalue { ptr, i32 } %90, 0
+  store ptr %91, ptr %5, align 8
+  %92 = extractvalue { ptr, i32 } %90, 1
+  store i32 %92, ptr %6, align 4
+  call void @_ZNSaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %25) #3
+  %93 = getelementptr inbounds [18 x %"struct.std::pair"], ptr %2, i32 0, i32 0
+  %94 = getelementptr inbounds %"struct.std::pair", ptr %93, i64 18
+  br label %95
+
+95:                                               ; preds = %95, %89
+  %96 = phi ptr [ %94, %89 ], [ %97, %95 ]
+  %97 = getelementptr inbounds %"struct.std::pair", ptr %96, i64 -1
+  call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %97) #3
+  %98 = icmp eq ptr %97, %93
+  br i1 %98, label %99, label %95
+
+99:                                               ; preds = %95
+  br label %100
+
+100:                                              ; preds = %99, %88
+  %101 = load ptr, ptr %5, align 8
+  %102 = load i32, ptr %6, align 4
+  %103 = insertvalue { ptr, i32 } poison, ptr %101, 0
+  %104 = insertvalue { ptr, i32 } %103, i32 %102, 1
+  resume { ptr, i32 } %104
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA7_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 1 dereferenceable(7) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.std::allocator.3", align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %"struct.std::pair", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8
+  %13 = getelementptr inbounds [7 x i8], ptr %12, i64 0, i64 0
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %14 unwind label %18
+
+14:                                               ; preds = %3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  %15 = getelementptr inbounds %"struct.std::pair", ptr %10, i32 0, i32 1
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i32, ptr %16, align 4
+  store i32 %17, ptr %15, align 8
+  ret void
+
+18:                                               ; preds = %3
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %8, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %9, align 4
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  br label %22
+
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %8, align 8
+  %24 = load i32, ptr %9, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
+}
+
+declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA5_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 1 dereferenceable(5) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.std::allocator.3", align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %"struct.std::pair", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8
+  %13 = getelementptr inbounds [5 x i8], ptr %12, i64 0, i64 0
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %14 unwind label %18
+
+14:                                               ; preds = %3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  %15 = getelementptr inbounds %"struct.std::pair", ptr %10, i32 0, i32 1
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i32, ptr %16, align 4
+  store i32 %17, ptr %15, align 8
+  ret void
+
+18:                                               ; preds = %3
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %8, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %9, align 4
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  br label %22
+
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %8, align 8
+  %24 = load i32, ptr %9, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA6_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 1 dereferenceable(6) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.std::allocator.3", align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %"struct.std::pair", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8
+  %13 = getelementptr inbounds [6 x i8], ptr %12, i64 0, i64 0
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %14 unwind label %18
+
+14:                                               ; preds = %3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  %15 = getelementptr inbounds %"struct.std::pair", ptr %10, i32 0, i32 1
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i32, ptr %16, align 4
+  store i32 %17, ptr %15, align 8
+  ret void
+
+18:                                               ; preds = %3
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %8, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %9, align 4
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  br label %22
+
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %8, align 8
+  %24 = load i32, ptr %9, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA4_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 1 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.std::allocator.3", align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %"struct.std::pair", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 0, i64 0
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %14 unwind label %18
+
+14:                                               ; preds = %3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  %15 = getelementptr inbounds %"struct.std::pair", ptr %10, i32 0, i32 1
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i32, ptr %16, align 4
+  store i32 %17, ptr %15, align 8
+  ret void
+
+18:                                               ; preds = %3
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %8, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %9, align 4
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  br label %22
+
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %8, align 8
+  %24 = load i32, ptr %9, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA9_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 1 dereferenceable(9) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.std::allocator.3", align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %"struct.std::pair", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8
+  %13 = getelementptr inbounds [9 x i8], ptr %12, i64 0, i64 0
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %14 unwind label %18
+
+14:                                               ; preds = %3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  %15 = getelementptr inbounds %"struct.std::pair", ptr %10, i32 0, i32 1
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i32, ptr %16, align 4
+  store i32 %17, ptr %15, align 8
+  ret void
+
+18:                                               ; preds = %3
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %8, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %9, align 4
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  br label %22
+
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %8, align 8
+  %24 = load i32, ptr %9, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA3_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 1 dereferenceable(3) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.std::allocator.3", align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %"struct.std::pair", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8
+  %13 = getelementptr inbounds [3 x i8], ptr %12, i64 0, i64 0
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %14 unwind label %18
+
+14:                                               ; preds = %3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  %15 = getelementptr inbounds %"struct.std::pair", ptr %10, i32 0, i32 1
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i32, ptr %16, align 4
+  store i32 %17, ptr %15, align 8
+  ret void
+
+18:                                               ; preds = %3
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %8, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %9, align 4
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  br label %22
+
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %8, align 8
+  %24 = load i32, ptr %9, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA10_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 1 dereferenceable(10) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.std::allocator.3", align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %"struct.std::pair", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8
+  %13 = getelementptr inbounds [10 x i8], ptr %12, i64 0, i64 0
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %14 unwind label %18
+
+14:                                               ; preds = %3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  %15 = getelementptr inbounds %"struct.std::pair", ptr %10, i32 0, i32 1
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i32, ptr %16, align 4
+  store i32 %17, ptr %15, align 8
+  ret void
+
+18:                                               ; preds = %3
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %8, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %9, align 4
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  br label %22
+
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %8, align 8
+  %24 = load i32, ptr %9, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2IRA11_KcSA_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISH_SI_EEEbE4typeELb1EEEOSH_OSI_(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 1 dereferenceable(11) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.std::allocator.3", align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %"struct.std::pair", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8
+  %13 = getelementptr inbounds [11 x i8], ptr %12, i64 0, i64 0
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %14 unwind label %18
+
+14:                                               ; preds = %3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  %15 = getelementptr inbounds %"struct.std::pair", ptr %10, i32 0, i32 1
+  %16 = load ptr, ptr %6, align 8
+  %17 = load i32, ptr %16, align 4
+  store i32 %17, ptr %15, align 8
+  ret void
+
+18:                                               ; preds = %3
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %8, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %9, align 4
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  br label %22
+
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %8, align 8
+  %24 = load i32, ptr %9, align 4
+  %25 = insertvalue { ptr, i32 } poison, ptr %23, 0
+  %26 = insertvalue { ptr, i32 } %25, i32 %24, 1
+  resume { ptr, i32 } %26
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::pair", ptr %3, i32 0, i32 0
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindESt4lessIS5_ESaISt4pairIKS5_S9_EEEC2ESt16initializer_listISE_ERKSB_RKSF_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, i64 %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %6 = alloca %"class.std::initializer_list", align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca %"class.std::allocator.6", align 1
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  %13 = getelementptr inbounds { ptr, i64 }, ptr %6, i32 0, i32 0
+  store ptr %1, ptr %13, align 8
+  %14 = getelementptr inbounds { ptr, i64 }, ptr %6, i32 0, i32 1
+  store i64 %2, ptr %14, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  store ptr %4, ptr %9, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = getelementptr inbounds %"class.std::map", ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %8, align 8
+  %18 = load ptr, ptr %9, align 8
+  call void @_ZNSaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEC2ERKSC_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %18) #3
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EEC2ERKSG_RKSH_(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %19 unwind label %24
+
+19:                                               ; preds = %5
+  call void @_ZNSaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
+  %20 = getelementptr inbounds %"class.std::map", ptr %15, i32 0, i32 0
+  %21 = call noundef ptr @_ZNKSt16initializer_listISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  %22 = call noundef ptr @_ZNKSt16initializer_listISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE22_M_insert_range_uniqueIPKSC_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESN_SN_(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef %21, ptr noundef %22)
+          to label %23 unwind label %28
+
+23:                                               ; preds = %19
+  ret void
+
+24:                                               ; preds = %5
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %11, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %12, align 4
+  call void @_ZNSaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
+  br label %32
+
+28:                                               ; preds = %19
+  %29 = landingpad { ptr, i32 }
+          cleanup
+  %30 = extractvalue { ptr, i32 } %29, 0
+  store ptr %30, ptr %11, align 8
+  %31 = extractvalue { ptr, i32 } %29, 1
+  store i32 %31, ptr %12, align 4
+  call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %16) #3
+  br label %32
+
+32:                                               ; preds = %28, %24
+  %33 = load ptr, ptr %11, align 8
+  %34 = load i32, ptr %12, align 4
+  %35 = insertvalue { ptr, i32 } poison, ptr %33, 0
+  %36 = insertvalue { ptr, i32 } %35, i32 %34, 1
+  resume { ptr, i32 } %36
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindESt4lessIS5_ESaISt4pairIKS5_S9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::map", ptr %3, i32 0, i32 0
+  call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef i32 @_ZN7jsonnet8internal20lex_get_keyword_kindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) #5 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %5 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  store ptr %0, ptr %3, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = call ptr @_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN7jsonnet8internalL8keywordsB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  %8 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %4, i32 0, i32 0
+  store ptr %7, ptr %8, align 8
+  %9 = call ptr @_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindESt4lessIS5_ESaISt4pairIKS5_S9_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) @_ZN7jsonnet8internalL8keywordsB5cxx11E) #3
+  %10 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %5, i32 0, i32 0
+  store ptr %9, ptr %10, align 8
+  %11 = call noundef zeroext i1 @_ZSteqRKSt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEESF_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  br i1 %11, label %12, label %13
+
+12:                                               ; preds = %1
+  store i32 10, ptr %2, align 4
+  br label %17
+
+13:                                               ; preds = %1
+  %14 = call noundef ptr @_ZNKSt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %15 = getelementptr inbounds %"struct.std::pair", ptr %14, i32 0, i32 1
+  %16 = load i32, ptr %15, align 8
+  store i32 %16, ptr %2, align 4
+  br label %17
+
+17:                                               ; preds = %13, %12
+  %18 = load i32, ptr %2, align 4
+  ret i32 %18
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #5 comdat align 2 {
+  %3 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds %"class.std::map", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %5, align 8
+  %9 = call ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE4findERS7_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  %10 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %3, i32 0, i32 0
+  store ptr %9, ptr %10, align 8
+  %11 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %3, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  ret ptr %12
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZSteqRKSt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEESF_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %7, %10
+  ret i1 %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindESt4lessIS5_ESaISt4pairIKS5_S9_EEE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #4 comdat align 2 {
+  %2 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::map", ptr %4, i32 0, i32 0
+  %6 = call ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
+  %7 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %2, i32 0, i32 0
+  store ptr %6, ptr %7, align 8
+  %8 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %2, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  ret ptr %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = call noundef ptr @_ZNKSt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(72) %5)
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN7jsonnet8internal10lex_numberERPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) #5 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca i1, align 1
+  %11 = alloca %"class.std::__cxx11::basic_string", align 8
+  %12 = alloca %"class.std::allocator.3", align 1
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i1, align 1
+  %16 = alloca %"class.std::__cxx11::basic_stringstream", align 8
+  %17 = alloca %"class.std::__cxx11::basic_string", align 8
+  %18 = alloca i1, align 1
+  %19 = alloca %"class.std::__cxx11::basic_stringstream", align 8
+  %20 = alloca %"class.std::__cxx11::basic_string", align 8
+  %21 = alloca i1, align 1
+  %22 = alloca %"class.std::__cxx11::basic_stringstream", align 8
+  %23 = alloca %"class.std::__cxx11::basic_string", align 8
+  %24 = alloca i1, align 1
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  store i1 false, ptr %10, align 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  store i32 0, ptr %9, align 4
+  br label %25
+
+25:                                               ; preds = %217, %4
+  br label %26
+
+26:                                               ; preds = %25
+  %27 = load i32, ptr %9, align 4
+  switch i32 %27, label %212 [
+    i32 0, label %28
+    i32 1, label %54
+    i32 2, label %63
+    i32 3, label %73
+    i32 4, label %116
+    i32 5, label %125
+    i32 6, label %165
+    i32 7, label %204
+  ]
+
+28:                                               ; preds = %26
+  %29 = load ptr, ptr %6, align 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = load i8, ptr %30, align 1
+  %32 = sext i8 %31 to i32
+  switch i32 %32, label %35 [
+    i32 48, label %33
+    i32 49, label %34
+    i32 50, label %34
+    i32 51, label %34
+    i32 52, label %34
+    i32 53, label %34
+    i32 54, label %34
+    i32 55, label %34
+    i32 56, label %34
+    i32 57, label %34
+  ]
+
+33:                                               ; preds = %28
+  store i32 1, ptr %9, align 4
+  br label %53
+
+34:                                               ; preds = %28, %28, %28, %28, %28, %28, %28, %28, %28
+  store i32 2, ptr %9, align 4
+  br label %53
+
+35:                                               ; preds = %28
+  store i1 true, ptr %15, align 1
+  %36 = call ptr @__cxa_allocate_exception(i64 96) #3
+  %37 = load ptr, ptr %7, align 8
+  %38 = load ptr, ptr %8, align 8
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef @.str.20, ptr noundef nonnull align 1 dereferenceable(1) %12)
+          to label %39 unwind label %41
+
+39:                                               ; preds = %35
+  invoke void @_ZN7jsonnet8internal11StaticErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationES9_(ptr noundef nonnull align 8 dereferenceable(96) %36, ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(32) %11)
+          to label %40 unwind label %45
+
+40:                                               ; preds = %39
+  store i1 false, ptr %15, align 1
+  invoke void @__cxa_throw(ptr %36, ptr @_ZTIN7jsonnet8internal11StaticErrorE, ptr @_ZN7jsonnet8internal11StaticErrorD2Ev) #15
+          to label %231 unwind label %45
+
+41:                                               ; preds = %35
+  %42 = landingpad { ptr, i32 }
+          cleanup
+  %43 = extractvalue { ptr, i32 } %42, 0
+  store ptr %43, ptr %13, align 8
+  %44 = extractvalue { ptr, i32 } %42, 1
+  store i32 %44, ptr %14, align 4
+  br label %49
+
+45:                                               ; preds = %40, %39
+  %46 = landingpad { ptr, i32 }
+          cleanup
+  %47 = extractvalue { ptr, i32 } %46, 0
+  store ptr %47, ptr %13, align 8
+  %48 = extractvalue { ptr, i32 } %46, 1
+  store i32 %48, ptr %14, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
+  br label %49
+
+49:                                               ; preds = %45, %41
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #3
+  %50 = load i1, ptr %15, align 1
+  br i1 %50, label %51, label %52
+
+51:                                               ; preds = %49
+  call void @__cxa_free_exception(ptr %36) #3
+  br label %52
+
+52:                                               ; preds = %51, %49
+  br label %225
+
+53:                                               ; preds = %34, %33
+  br label %212
+
+54:                                               ; preds = %26
+  %55 = load ptr, ptr %6, align 8
+  %56 = load ptr, ptr %55, align 8
+  %57 = load i8, ptr %56, align 1
+  %58 = sext i8 %57 to i32
+  switch i32 %58, label %61 [
+    i32 46, label %59
+    i32 101, label %60
+    i32 69, label %60
+  ]
+
+59:                                               ; preds = %54
+  store i32 3, ptr %9, align 4
+  br label %62
+
+60:                                               ; preds = %54, %54
+  store i32 5, ptr %9, align 4
+  br label %62
+
+61:                                               ; preds = %54
+  br label %221
+
+62:                                               ; preds = %60, %59
+  br label %212
+
+63:                                               ; preds = %26
+  %64 = load ptr, ptr %6, align 8
+  %65 = load ptr, ptr %64, align 8
+  %66 = load i8, ptr %65, align 1
+  %67 = sext i8 %66 to i32
+  switch i32 %67, label %71 [
+    i32 46, label %68
+    i32 101, label %69
+    i32 69, label %69
+    i32 48, label %70
+    i32 49, label %70
+    i32 50, label %70
+    i32 51, label %70
+    i32 52, label %70
+    i32 53, label %70
+    i32 54, label %70
+    i32 55, label %70
+    i32 56, label %70
+    i32 57, label %70
+  ]
+
+68:                                               ; preds = %63
+  store i32 3, ptr %9, align 4
+  br label %72
+
+69:                                               ; preds = %63, %63
+  store i32 5, ptr %9, align 4
+  br label %72
+
+70:                                               ; preds = %63, %63, %63, %63, %63, %63, %63, %63, %63, %63
+  store i32 2, ptr %9, align 4
+  br label %72
+
+71:                                               ; preds = %63
+  br label %221
+
+72:                                               ; preds = %70, %69, %68
+  br label %212
+
+73:                                               ; preds = %26
+  %74 = load ptr, ptr %6, align 8
+  %75 = load ptr, ptr %74, align 8
+  %76 = load i8, ptr %75, align 1
+  %77 = sext i8 %76 to i32
+  switch i32 %77, label %79 [
+    i32 48, label %78
+    i32 49, label %78
+    i32 50, label %78
+    i32 51, label %78
+    i32 52, label %78
+    i32 53, label %78
+    i32 54, label %78
+    i32 55, label %78
+    i32 56, label %78
+    i32 57, label %78
+  ]
+
+78:                                               ; preds = %73, %73, %73, %73, %73, %73, %73, %73, %73, %73
+  store i32 4, ptr %9, align 4
+  br label %115
+
+79:                                               ; preds = %73
+  invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %16)
+          to label %80 unwind label %94
+
+80:                                               ; preds = %79
+  %81 = getelementptr inbounds i8, ptr %16, i64 16
+  %82 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %81, ptr noundef @.str.21)
+          to label %83 unwind label %98
+
+83:                                               ; preds = %80
+  %84 = load ptr, ptr %6, align 8
+  %85 = load ptr, ptr %84, align 8
+  %86 = load i8, ptr %85, align 1
+  %87 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %82, i8 noundef signext %86)
+          to label %88 unwind label %98
+
+88:                                               ; preds = %83
+  store i1 true, ptr %18, align 1
+  %89 = call ptr @__cxa_allocate_exception(i64 96) #3
+  %90 = load ptr, ptr %7, align 8
+  %91 = load ptr, ptr %8, align 8
+  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %17, ptr noundef nonnull align 8 dereferenceable(128) %16)
+          to label %92 unwind label %102
+
+92:                                               ; preds = %88
+  invoke void @_ZN7jsonnet8internal11StaticErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationES9_(ptr noundef nonnull align 8 dereferenceable(96) %89, ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %93 unwind label %106
+
+93:                                               ; preds = %92
+  store i1 false, ptr %18, align 1
+  invoke void @__cxa_throw(ptr %89, ptr @_ZTIN7jsonnet8internal11StaticErrorE, ptr @_ZN7jsonnet8internal11StaticErrorD2Ev) #15
+          to label %231 unwind label %106
+
+94:                                               ; preds = %212, %171, %132, %79
+  %95 = landingpad { ptr, i32 }
+          cleanup
+  %96 = extractvalue { ptr, i32 } %95, 0
+  store ptr %96, ptr %13, align 8
+  %97 = extractvalue { ptr, i32 } %95, 1
+  store i32 %97, ptr %14, align 4
+  br label %225
+
+98:                                               ; preds = %83, %80
+  %99 = landingpad { ptr, i32 }
+          cleanup
+  %100 = extractvalue { ptr, i32 } %99, 0
+  store ptr %100, ptr %13, align 8
+  %101 = extractvalue { ptr, i32 } %99, 1
+  store i32 %101, ptr %14, align 4
+  br label %114
+
+102:                                              ; preds = %88
+  %103 = landingpad { ptr, i32 }
+          cleanup
+  %104 = extractvalue { ptr, i32 } %103, 0
+  store ptr %104, ptr %13, align 8
+  %105 = extractvalue { ptr, i32 } %103, 1
+  store i32 %105, ptr %14, align 4
+  br label %110
+
+106:                                              ; preds = %93, %92
+  %107 = landingpad { ptr, i32 }
+          cleanup
+  %108 = extractvalue { ptr, i32 } %107, 0
+  store ptr %108, ptr %13, align 8
+  %109 = extractvalue { ptr, i32 } %107, 1
+  store i32 %109, ptr %14, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #3
+  br label %110
+
+110:                                              ; preds = %106, %102
+  %111 = load i1, ptr %18, align 1
+  br i1 %111, label %112, label %113
+
+112:                                              ; preds = %110
+  call void @__cxa_free_exception(ptr %89) #3
+  br label %113
+
+113:                                              ; preds = %112, %110
+  br label %114
+
+114:                                              ; preds = %113, %98
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %16) #3
+  br label %225
+
+115:                                              ; preds = %78
+  br label %212
+
+116:                                              ; preds = %26
+  %117 = load ptr, ptr %6, align 8
+  %118 = load ptr, ptr %117, align 8
+  %119 = load i8, ptr %118, align 1
+  %120 = sext i8 %119 to i32
+  switch i32 %120, label %123 [
+    i32 101, label %121
+    i32 69, label %121
+    i32 48, label %122
+    i32 49, label %122
+    i32 50, label %122
+    i32 51, label %122
+    i32 52, label %122
+    i32 53, label %122
+    i32 54, label %122
+    i32 55, label %122
+    i32 56, label %122
+    i32 57, label %122
+  ]
+
+121:                                              ; preds = %116, %116
+  store i32 5, ptr %9, align 4
+  br label %124
+
+122:                                              ; preds = %116, %116, %116, %116, %116, %116, %116, %116, %116, %116
+  store i32 4, ptr %9, align 4
+  br label %124
+
+123:                                              ; preds = %116
+  br label %221
+
+124:                                              ; preds = %122, %121
+  br label %212
+
+125:                                              ; preds = %26
+  %126 = load ptr, ptr %6, align 8
+  %127 = load ptr, ptr %126, align 8
+  %128 = load i8, ptr %127, align 1
+  %129 = sext i8 %128 to i32
+  switch i32 %129, label %132 [
+    i32 43, label %130
+    i32 45, label %130
+    i32 48, label %131
+    i32 49, label %131
+    i32 50, label %131
+    i32 51, label %131
+    i32 52, label %131
+    i32 53, label %131
+    i32 54, label %131
+    i32 55, label %131
+    i32 56, label %131
+    i32 57, label %131
+  ]
+
+130:                                              ; preds = %125, %125
+  store i32 6, ptr %9, align 4
+  br label %164
+
+131:                                              ; preds = %125, %125, %125, %125, %125, %125, %125, %125, %125, %125
+  store i32 7, ptr %9, align 4
+  br label %164
+
+132:                                              ; preds = %125
+  invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %19)
+          to label %133 unwind label %94
+
+133:                                              ; preds = %132
+  %134 = getelementptr inbounds i8, ptr %19, i64 16
+  %135 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %134, ptr noundef @.str.22)
+          to label %136 unwind label %147
+
+136:                                              ; preds = %133
+  %137 = load ptr, ptr %6, align 8
+  %138 = load ptr, ptr %137, align 8
+  %139 = load i8, ptr %138, align 1
+  %140 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %135, i8 noundef signext %139)
+          to label %141 unwind label %147
+
+141:                                              ; preds = %136
+  store i1 true, ptr %21, align 1
+  %142 = call ptr @__cxa_allocate_exception(i64 96) #3
+  %143 = load ptr, ptr %7, align 8
+  %144 = load ptr, ptr %8, align 8
+  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %20, ptr noundef nonnull align 8 dereferenceable(128) %19)
+          to label %145 unwind label %151
+
+145:                                              ; preds = %141
+  invoke void @_ZN7jsonnet8internal11StaticErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationES9_(ptr noundef nonnull align 8 dereferenceable(96) %142, ptr noundef nonnull align 8 dereferenceable(32) %143, ptr noundef nonnull align 8 dereferenceable(16) %144, ptr noundef nonnull align 8 dereferenceable(32) %20)
+          to label %146 unwind label %155
+
+146:                                              ; preds = %145
+  store i1 false, ptr %21, align 1
+  invoke void @__cxa_throw(ptr %142, ptr @_ZTIN7jsonnet8internal11StaticErrorE, ptr @_ZN7jsonnet8internal11StaticErrorD2Ev) #15
+          to label %231 unwind label %155
+
+147:                                              ; preds = %136, %133
+  %148 = landingpad { ptr, i32 }
+          cleanup
+  %149 = extractvalue { ptr, i32 } %148, 0
+  store ptr %149, ptr %13, align 8
+  %150 = extractvalue { ptr, i32 } %148, 1
+  store i32 %150, ptr %14, align 4
+  br label %163
+
+151:                                              ; preds = %141
+  %152 = landingpad { ptr, i32 }
+          cleanup
+  %153 = extractvalue { ptr, i32 } %152, 0
+  store ptr %153, ptr %13, align 8
+  %154 = extractvalue { ptr, i32 } %152, 1
+  store i32 %154, ptr %14, align 4
+  br label %159
+
+155:                                              ; preds = %146, %145
+  %156 = landingpad { ptr, i32 }
+          cleanup
+  %157 = extractvalue { ptr, i32 } %156, 0
+  store ptr %157, ptr %13, align 8
+  %158 = extractvalue { ptr, i32 } %156, 1
+  store i32 %158, ptr %14, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #3
+  br label %159
+
+159:                                              ; preds = %155, %151
+  %160 = load i1, ptr %21, align 1
+  br i1 %160, label %161, label %162
+
+161:                                              ; preds = %159
+  call void @__cxa_free_exception(ptr %142) #3
+  br label %162
+
+162:                                              ; preds = %161, %159
+  br label %163
+
+163:                                              ; preds = %162, %147
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %19) #3
+  br label %225
+
+164:                                              ; preds = %131, %130
+  br label %212
+
+165:                                              ; preds = %26
+  %166 = load ptr, ptr %6, align 8
+  %167 = load ptr, ptr %166, align 8
+  %168 = load i8, ptr %167, align 1
+  %169 = sext i8 %168 to i32
+  switch i32 %169, label %171 [
+    i32 48, label %170
+    i32 49, label %170
+    i32 50, label %170
+    i32 51, label %170
+    i32 52, label %170
+    i32 53, label %170
+    i32 54, label %170
+    i32 55, label %170
+    i32 56, label %170
+    i32 57, label %170
+  ]
+
+170:                                              ; preds = %165, %165, %165, %165, %165, %165, %165, %165, %165, %165
+  store i32 7, ptr %9, align 4
+  br label %203
+
+171:                                              ; preds = %165
+  invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %22)
+          to label %172 unwind label %94
+
+172:                                              ; preds = %171
+  %173 = getelementptr inbounds i8, ptr %22, i64 16
+  %174 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %173, ptr noundef @.str.23)
+          to label %175 unwind label %186
+
+175:                                              ; preds = %172
+  %176 = load ptr, ptr %6, align 8
+  %177 = load ptr, ptr %176, align 8
+  %178 = load i8, ptr %177, align 1
+  %179 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %174, i8 noundef signext %178)
+          to label %180 unwind label %186
+
+180:                                              ; preds = %175
+  store i1 true, ptr %24, align 1
+  %181 = call ptr @__cxa_allocate_exception(i64 96) #3
+  %182 = load ptr, ptr %7, align 8
+  %183 = load ptr, ptr %8, align 8
+  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %23, ptr noundef nonnull align 8 dereferenceable(128) %22)
+          to label %184 unwind label %190
+
+184:                                              ; preds = %180
+  invoke void @_ZN7jsonnet8internal11StaticErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationES9_(ptr noundef nonnull align 8 dereferenceable(96) %181, ptr noundef nonnull align 8 dereferenceable(32) %182, ptr noundef nonnull align 8 dereferenceable(16) %183, ptr noundef nonnull align 8 dereferenceable(32) %23)
+          to label %185 unwind label %194
+
+185:                                              ; preds = %184
+  store i1 false, ptr %24, align 1
+  invoke void @__cxa_throw(ptr %181, ptr @_ZTIN7jsonnet8internal11StaticErrorE, ptr @_ZN7jsonnet8internal11StaticErrorD2Ev) #15
+          to label %231 unwind label %194
+
+186:                                              ; preds = %175, %172
+  %187 = landingpad { ptr, i32 }
+          cleanup
+  %188 = extractvalue { ptr, i32 } %187, 0
+  store ptr %188, ptr %13, align 8
+  %189 = extractvalue { ptr, i32 } %187, 1
+  store i32 %189, ptr %14, align 4
+  br label %202
+
+190:                                              ; preds = %180
+  %191 = landingpad { ptr, i32 }
+          cleanup
+  %192 = extractvalue { ptr, i32 } %191, 0
+  store ptr %192, ptr %13, align 8
+  %193 = extractvalue { ptr, i32 } %191, 1
+  store i32 %193, ptr %14, align 4
+  br label %198
+
+194:                                              ; preds = %185, %184
+  %195 = landingpad { ptr, i32 }
+          cleanup
+  %196 = extractvalue { ptr, i32 } %195, 0
+  store ptr %196, ptr %13, align 8
+  %197 = extractvalue { ptr, i32 } %195, 1
+  store i32 %197, ptr %14, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #3
+  br label %198
+
+198:                                              ; preds = %194, %190
+  %199 = load i1, ptr %24, align 1
+  br i1 %199, label %200, label %201
+
+200:                                              ; preds = %198
+  call void @__cxa_free_exception(ptr %181) #3
+  br label %201
+
+201:                                              ; preds = %200, %198
+  br label %202
+
+202:                                              ; preds = %201, %186
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %22) #3
+  br label %225
+
+203:                                              ; preds = %170
+  br label %212
+
+204:                                              ; preds = %26
+  %205 = load ptr, ptr %6, align 8
+  %206 = load ptr, ptr %205, align 8
+  %207 = load i8, ptr %206, align 1
+  %208 = sext i8 %207 to i32
+  switch i32 %208, label %210 [
+    i32 48, label %209
+    i32 49, label %209
+    i32 50, label %209
+    i32 51, label %209
+    i32 52, label %209
+    i32 53, label %209
+    i32 54, label %209
+    i32 55, label %209
+    i32 56, label %209
+    i32 57, label %209
+  ]
+
+209:                                              ; preds = %204, %204, %204, %204, %204, %204, %204, %204, %204, %204
+  store i32 7, ptr %9, align 4
+  br label %211
+
+210:                                              ; preds = %204
+  br label %221
+
+211:                                              ; preds = %209
+  br label %212
+
+212:                                              ; preds = %211, %203, %164, %124, %115, %72, %62, %53, %26
+  %213 = load ptr, ptr %6, align 8
+  %214 = load ptr, ptr %213, align 8
+  %215 = load i8, ptr %214, align 1
+  %216 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %215)
+          to label %217 unwind label %94
+
+217:                                              ; preds = %212
+  %218 = load ptr, ptr %6, align 8
+  %219 = load ptr, ptr %218, align 8
+  %220 = getelementptr inbounds i8, ptr %219, i32 1
+  store ptr %220, ptr %218, align 8
+  br label %25, !llvm.loop !4
+
+221:                                              ; preds = %210, %123, %71, %61
+  store i1 true, ptr %10, align 1
+  %222 = load i1, ptr %10, align 1
+  br i1 %222, label %224, label %223
+
+223:                                              ; preds = %221
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  br label %224
+
+224:                                              ; preds = %223, %221
+  ret void
+
+225:                                              ; preds = %202, %163, %114, %94, %52
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  br label %226
+
+226:                                              ; preds = %225
+  %227 = load ptr, ptr %13, align 8
+  %228 = load i32, ptr %14, align 4
+  %229 = insertvalue { ptr, i32 } poison, ptr %227, 0
+  %230 = insertvalue { ptr, i32 } %229, i32 %228, 1
+  resume { ptr, i32 } %230
+
+231:                                              ; preds = %185, %146, %93, %40
+  unreachable
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+
+declare ptr @__cxa_allocate_exception(i64)
+
+; Function Attrs: nounwind
+declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %10, i32 0, i32 0
+  %12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10)
+  %13 = load ptr, ptr %6, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+  %14 = load ptr, ptr %5, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %22
+
+16:                                               ; preds = %3
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef @.str.53) #15
+          to label %17 unwind label %18
+
+17:                                               ; preds = %16
+  unreachable
+
+18:                                               ; preds = %26, %22, %16
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %7, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %8, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #3
+  br label %31
+
+22:                                               ; preds = %3
+  %23 = load ptr, ptr %5, align 8
+  %24 = load ptr, ptr %5, align 8
+  %25 = invoke noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %24)
+          to label %26 unwind label %18
+
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %23, i64 %25
+  store ptr %27, ptr %9, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = load ptr, ptr %9, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %28, ptr noundef %29)
+          to label %30 unwind label %18
+
+30:                                               ; preds = %26
+  ret void
+
+31:                                               ; preds = %18
+  %32 = load ptr, ptr %7, align 8
+  %33 = load i32, ptr %8, align 4
+  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
+  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
+  resume { ptr, i32 } %35
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN7jsonnet8internal11StaticErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationES9_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %"struct.jsonnet::internal::Location", align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %12 = load ptr, ptr %5, align 8
+  %13 = getelementptr inbounds %"struct.jsonnet::internal::StaticError", ptr %12, i32 0, i32 0
+  %14 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %7, align 8
+  %17 = call { i64, i64 } @_ZNK7jsonnet8internal8Location9successorEv(ptr noundef nonnull align 8 dereferenceable(16) %16)
+  %18 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 0
+  %19 = extractvalue { i64, i64 } %17, 0
+  store i64 %19, ptr %18, align 8
+  %20 = getelementptr inbounds { i64, i64 }, ptr %9, i32 0, i32 1
+  %21 = extractvalue { i64, i64 } %17, 1
+  store i64 %21, ptr %20, align 8
+  call void @_ZN7jsonnet8internal13LocationRangeC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationESC_(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %9)
+  %22 = getelementptr inbounds %"struct.jsonnet::internal::StaticError", ptr %12, i32 0, i32 1
+  %23 = load ptr, ptr %8, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %23)
+          to label %24 unwind label %25
+
+24:                                               ; preds = %4
+  ret void
+
+25:                                               ; preds = %4
+  %26 = landingpad { ptr, i32 }
+          cleanup
+  %27 = extractvalue { ptr, i32 } %26, 0
+  store ptr %27, ptr %10, align 8
+  %28 = extractvalue { ptr, i32 } %26, 1
+  store i32 %28, ptr %11, align 4
+  call void @_ZN7jsonnet8internal13LocationRangeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %13) #3
+  br label %29
+
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %10, align 8
+  %31 = load i32, ptr %11, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN7jsonnet8internal11StaticErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.jsonnet::internal::StaticError", ptr %3, i32 0, i32 1
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  %5 = getelementptr inbounds %"struct.jsonnet::internal::StaticError", ptr %3, i32 0, i32 0
+  call void @_ZN7jsonnet8internal13LocationRangeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #3
+  ret void
+}
+
+declare void @__cxa_throw(ptr, ptr, ptr)
+
+; Function Attrs: nounwind
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+
+; Function Attrs: nounwind
+declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
+
+declare void @__cxa_free_exception(ptr)
+
+declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext) #1
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) #1
+
+declare void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(128)) #1
+
+; Function Attrs: nounwind
+declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #2
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext) #1
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN7jsonnet8internal11jsonnet_lexERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) #5 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i1, align 1
+  %10 = alloca ptr, align 8
+  %11 = alloca %"class.std::vector.12", align 8
+  %12 = alloca i8, align 1
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca %"class.std::__cxx11::basic_string", align 8
+  %16 = alloca %"class.std::__cxx11::basic_string", align 8
+  %17 = alloca %"class.std::__cxx11::basic_string", align 8
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  %20 = alloca ptr, align 8
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  %23 = alloca i32, align 4
+  %24 = alloca i32, align 4
+  %25 = alloca %"struct.jsonnet::internal::Location", align 8
+  %26 = alloca %"class.std::__cxx11::basic_string", align 8
+  %27 = alloca %"class.std::__cxx11::basic_string", align 8
+  %28 = alloca %"class.std::allocator.3", align 1
+  %29 = alloca i1, align 1
+  %30 = alloca %"class.std::__cxx11::basic_string", align 8
+  %31 = alloca %"class.std::allocator.3", align 1
+  %32 = alloca i1, align 1
+  %33 = alloca %"class.std::__cxx11::basic_stringstream", align 8
+  %34 = alloca %"class.std::__cxx11::basic_string", align 8
+  %35 = alloca i1, align 1
+  %36 = alloca i8, align 1
+  %37 = alloca %"class.std::__cxx11::basic_string", align 8
+  %38 = alloca %"class.std::allocator.3", align 1
+  %39 = alloca i1, align 1
+  %40 = alloca %"class.std::__cxx11::basic_string", align 8
+  %41 = alloca %"class.std::vector", align 8
+  %42 = alloca %"class.std::allocator", align 1
+  %43 = alloca i32, align 4
+  %44 = alloca i32, align 4
+  %45 = alloca i32, align 4
+  %46 = alloca i32, align 4
+  %47 = alloca ptr, align 8
+  %48 = alloca ptr, align 8
+  %49 = alloca %"class.std::__cxx11::basic_string", align 8
+  %50 = alloca %"class.std::allocator.3", align 1
+  %51 = alloca i1, align 1
+  %52 = alloca %"class.std::__cxx11::basic_string", align 8
+  %53 = alloca %"class.std::allocator.3", align 1
+  %54 = alloca i32, align 4
+  %55 = alloca i32, align 4
+  %56 = alloca %"class.std::vector", align 8
+  %57 = alloca i32, align 4
+  %58 = alloca i32, align 4
+  %59 = alloca i32, align 4
+  %60 = alloca i32, align 4
+  %61 = alloca i32, align 4
+  %62 = alloca %"class.std::vector", align 8
+  %63 = alloca i8, align 1
+  %64 = alloca ptr, align 8
+  %65 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %66 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %67 = alloca ptr, align 8
+  %68 = alloca ptr, align 8
+  %69 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %70 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %71 = alloca ptr, align 8
+  %72 = alloca %"class.std::__cxx11::basic_string", align 8
+  %73 = alloca %"struct.jsonnet::internal::FodderElement", align 8
+  %74 = alloca ptr, align 8
+  %75 = alloca %"class.std::__cxx11::basic_string", align 8
+  %76 = alloca %"class.std::allocator.3", align 1
+  %77 = alloca i1, align 1
+  %78 = alloca %"class.std::__cxx11::basic_stringstream", align 8
+  %79 = alloca ptr, align 8
+  %80 = alloca i32, align 4
+  %81 = alloca %"class.std::__cxx11::basic_string", align 8
+  %82 = alloca %"class.std::allocator.3", align 1
+  %83 = alloca ptr, align 8
+  %84 = alloca %"class.std::__cxx11::basic_string", align 8
+  %85 = alloca %"class.std::allocator.3", align 1
+  %86 = alloca i1, align 1
+  %87 = alloca %"class.std::__cxx11::basic_string", align 8
+  %88 = alloca %"class.std::allocator.3", align 1
+  %89 = alloca i1, align 1
+  %90 = alloca ptr, align 8
+  %91 = alloca %"class.std::__cxx11::basic_string", align 8
+  %92 = alloca %"class.std::allocator.3", align 1
+  %93 = alloca i1, align 1
+  %94 = alloca %"class.std::__cxx11::basic_string", align 8
+  %95 = alloca ptr, align 8
+  %96 = alloca %"class.std::__cxx11::basic_string", align 8
+  %97 = alloca %"class.std::allocator.3", align 1
+  %98 = alloca %"class.std::__cxx11::basic_stringstream", align 8
+  %99 = alloca i8, align 1
+  %100 = alloca %"class.std::__cxx11::basic_string", align 8
+  %101 = alloca i1, align 1
+  %102 = alloca %"class.std::__cxx11::basic_string", align 8
+  %103 = alloca %"class.std::allocator.3", align 1
+  %104 = alloca i1, align 1
+  %105 = alloca %"struct.jsonnet::internal::Location", align 8
+  %106 = alloca %"struct.jsonnet::internal::LocationRange", align 8
+  %107 = alloca %"struct.jsonnet::internal::Location", align 8
+  %108 = alloca %"struct.jsonnet::internal::Location", align 8
+  %109 = alloca i32, align 4
+  %110 = alloca %"struct.jsonnet::internal::LocationRange", align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  store i64 1, ptr %7, align 8
+  %111 = load ptr, ptr %6, align 8
+  store ptr %111, ptr %8, align 8
+  store i1 false, ptr %9, align 1
+  call void @_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #3
+  %112 = load ptr, ptr %6, align 8
+  store ptr %112, ptr %10, align 8
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  store i8 1, ptr %12, align 1
+  br label %113
+
+113:                                              ; preds = %1103, %1101, %3
+  %114 = load ptr, ptr %10, align 8
+  %115 = load i8, ptr %114, align 1
+  %116 = sext i8 %115 to i32
+  %117 = icmp ne i32 %116, 0
+  br i1 %117, label %118, label %1109
+
+118:                                              ; preds = %113
+  %119 = load ptr, ptr %10, align 8
+  store ptr %119, ptr %13, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #3
+  invoke void @_ZN7jsonnet8internalL6lex_wsERPKcRjS4_S3_Rm(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(4) %18, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %120 unwind label %126
+
+120:                                              ; preds = %118
+  %121 = load ptr, ptr %10, align 8
+  %122 = load i8, ptr %121, align 1
+  %123 = sext i8 %122 to i32
+  %124 = icmp eq i32 %123, 0
+  br i1 %124, label %125, label %130
+
+125:                                              ; preds = %120
+  store i32 3, ptr %22, align 4
+  br label %1101
+
+126:                                              ; preds = %1096, %1088, %1014, %1000, %997, %924, %728, %697, %455, %427, %410, %333, %310, %293, %240, %223, %177, %138, %133, %118
+  %127 = landingpad { ptr, i32 }
+          cleanup
+  %128 = extractvalue { ptr, i32 } %127, 0
+  store ptr %128, ptr %20, align 8
+  %129 = extractvalue { ptr, i32 } %127, 1
+  store i32 %129, ptr %21, align 4
+  br label %1108
+
+130:                                              ; preds = %120
+  %131 = load i32, ptr %18, align 4
+  %132 = icmp ugt i32 %131, 0
+  br i1 %132, label %133, label %138
+
+133:                                              ; preds = %130
+  %134 = load i32, ptr %18, align 4
+  %135 = sub i32 %134, 1
+  store i32 %135, ptr %23, align 4
+  store i32 0, ptr %24, align 4
+  %136 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindERjS7_RKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 4 dereferenceable(4) %24, ptr noundef nonnull align 4 dereferenceable(4) %23, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 8 dereferenceable(24) @_ZN7jsonnet8internalL5EMPTYB5cxx11E)
+          to label %137 unwind label %126
+
+137:                                              ; preds = %133
+  store i8 1, ptr %12, align 1
+  br label %138
+
+138:                                              ; preds = %137, %130
+  %139 = load i64, ptr %7, align 8
+  %140 = load ptr, ptr %10, align 8
+  %141 = load ptr, ptr %8, align 8
+  %142 = ptrtoint ptr %140 to i64
+  %143 = ptrtoint ptr %141 to i64
+  %144 = sub i64 %142, %143
+  %145 = add nsw i64 %144, 1
+  invoke void @_ZN7jsonnet8internal8LocationC2Emm(ptr noundef nonnull align 8 dereferenceable(16) %25, i64 noundef %139, i64 noundef %145)
+          to label %146 unwind label %126
+
+146:                                              ; preds = %138
+  %147 = load ptr, ptr %10, align 8
+  %148 = load i8, ptr %147, align 1
+  %149 = sext i8 %148 to i32
+  switch i32 %149, label %427 [
+    i32 123, label %150
+    i32 125, label %153
+    i32 91, label %156
+    i32 93, label %159
+    i32 44, label %162
+    i32 46, label %165
+    i32 40, label %168
+    i32 41, label %171
+    i32 59, label %174
+    i32 48, label %177
+    i32 49, label %177
+    i32 50, label %177
+    i32 51, label %177
+    i32 52, label %177
+    i32 53, label %177
+    i32 54, label %177
+    i32 55, label %177
+    i32 56, label %177
+    i32 57, label %177
+    i32 34, label %181
+    i32 39, label %251
+    i32 64, label %321
+  ]
+
+150:                                              ; preds = %146
+  store i32 0, ptr %14, align 4
+  %151 = load ptr, ptr %10, align 8
+  %152 = getelementptr inbounds i8, ptr %151, i32 1
+  store ptr %152, ptr %10, align 8
+  br label %1067
+
+153:                                              ; preds = %146
+  store i32 1, ptr %14, align 4
+  %154 = load ptr, ptr %10, align 8
+  %155 = getelementptr inbounds i8, ptr %154, i32 1
+  store ptr %155, ptr %10, align 8
+  br label %1067
+
+156:                                              ; preds = %146
+  store i32 2, ptr %14, align 4
+  %157 = load ptr, ptr %10, align 8
+  %158 = getelementptr inbounds i8, ptr %157, i32 1
+  store ptr %158, ptr %10, align 8
+  br label %1067
+
+159:                                              ; preds = %146
+  store i32 3, ptr %14, align 4
+  %160 = load ptr, ptr %10, align 8
+  %161 = getelementptr inbounds i8, ptr %160, i32 1
+  store ptr %161, ptr %10, align 8
+  br label %1067
+
+162:                                              ; preds = %146
+  store i32 4, ptr %14, align 4
+  %163 = load ptr, ptr %10, align 8
+  %164 = getelementptr inbounds i8, ptr %163, i32 1
+  store ptr %164, ptr %10, align 8
+  br label %1067
+
+165:                                              ; preds = %146
+  store i32 6, ptr %14, align 4
+  %166 = load ptr, ptr %10, align 8
+  %167 = getelementptr inbounds i8, ptr %166, i32 1
+  store ptr %167, ptr %10, align 8
+  br label %1067
+
+168:                                              ; preds = %146
+  store i32 7, ptr %14, align 4
+  %169 = load ptr, ptr %10, align 8
+  %170 = getelementptr inbounds i8, ptr %169, i32 1
+  store ptr %170, ptr %10, align 8
+  br label %1067
+
+171:                                              ; preds = %146
+  store i32 8, ptr %14, align 4
+  %172 = load ptr, ptr %10, align 8
+  %173 = getelementptr inbounds i8, ptr %172, i32 1
+  store ptr %173, ptr %10, align 8
+  br label %1067
+
+174:                                              ; preds = %146
+  store i32 9, ptr %14, align 4
+  %175 = load ptr, ptr %10, align 8
+  %176 = getelementptr inbounds i8, ptr %175, i32 1
+  store ptr %176, ptr %10, align 8
+  br label %1067
+
+177:                                              ; preds = %146, %146, %146, %146, %146, %146, %146, %146, %146, %146
+  store i32 11, ptr %14, align 4
+  %178 = load ptr, ptr %5, align 8
+  invoke void @_ZN7jsonnet8internal10lex_numberERPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %26, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(32) %178, ptr noundef nonnull align 8 dereferenceable(16) %25)
+          to label %179 unwind label %126
+
+179:                                              ; preds = %177
+  %180 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %26) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #3
+  br label %1067
+
+181:                                              ; preds = %146
+  %182 = load ptr, ptr %10, align 8
+  %183 = getelementptr inbounds i8, ptr %182, i32 1
+  store ptr %183, ptr %10, align 8
+  br label %184
+
+184:                                              ; preds = %245, %181
+  %185 = load ptr, ptr %10, align 8
+  %186 = load i8, ptr %185, align 1
+  %187 = sext i8 %186 to i32
+  %188 = icmp eq i32 %187, 0
+  br i1 %188, label %189, label %206
+
+189:                                              ; preds = %184
+  store i1 true, ptr %29, align 1
+  %190 = call ptr @__cxa_allocate_exception(i64 96) #3
+  %191 = load ptr, ptr %5, align 8
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef @.str.24, ptr noundef nonnull align 1 dereferenceable(1) %28)
+          to label %192 unwind label %194
+
+192:                                              ; preds = %189
+  invoke void @_ZN7jsonnet8internal11StaticErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationES9_(ptr noundef nonnull align 8 dereferenceable(96) %190, ptr noundef nonnull align 8 dereferenceable(32) %191, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(32) %27)
+          to label %193 unwind label %198
+
+193:                                              ; preds = %192
+  store i1 false, ptr %29, align 1
+  invoke void @__cxa_throw(ptr %190, ptr @_ZTIN7jsonnet8internal11StaticErrorE, ptr @_ZN7jsonnet8internal11StaticErrorD2Ev) #15
+          to label %1148 unwind label %198
+
+194:                                              ; preds = %189
+  %195 = landingpad { ptr, i32 }
+          cleanup
+  %196 = extractvalue { ptr, i32 } %195, 0
+  store ptr %196, ptr %20, align 8
+  %197 = extractvalue { ptr, i32 } %195, 1
+  store i32 %197, ptr %21, align 4
+  br label %202
+
+198:                                              ; preds = %193, %192
+  %199 = landingpad { ptr, i32 }
+          cleanup
+  %200 = extractvalue { ptr, i32 } %199, 0
+  store ptr %200, ptr %20, align 8
+  %201 = extractvalue { ptr, i32 } %199, 1
+  store i32 %201, ptr %21, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #3
+  br label %202
+
+202:                                              ; preds = %198, %194
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %28) #3
+  %203 = load i1, ptr %29, align 1
+  br i1 %203, label %204, label %205
+
+204:                                              ; preds = %202
+  call void @__cxa_free_exception(ptr %190) #3
+  br label %205
+
+205:                                              ; preds = %204, %202
+  br label %1108
+
+206:                                              ; preds = %184
+  %207 = load ptr, ptr %10, align 8
+  %208 = load i8, ptr %207, align 1
+  %209 = sext i8 %208 to i32
+  %210 = icmp eq i32 %209, 34
+  br i1 %210, label %211, label %212
+
+211:                                              ; preds = %206
+  br label %248
+
+212:                                              ; preds = %206
+  %213 = load ptr, ptr %10, align 8
+  %214 = load i8, ptr %213, align 1
+  %215 = sext i8 %214 to i32
+  %216 = icmp eq i32 %215, 92
+  br i1 %216, label %217, label %230
+
+217:                                              ; preds = %212
+  %218 = load ptr, ptr %10, align 8
+  %219 = getelementptr inbounds i8, ptr %218, i64 1
+  %220 = load i8, ptr %219, align 1
+  %221 = sext i8 %220 to i32
+  %222 = icmp ne i32 %221, 0
+  br i1 %222, label %223, label %230
+
+223:                                              ; preds = %217
+  %224 = load ptr, ptr %10, align 8
+  %225 = load i8, ptr %224, align 1
+  %226 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 noundef signext %225)
+          to label %227 unwind label %126
+
+227:                                              ; preds = %223
+  %228 = load ptr, ptr %10, align 8
+  %229 = getelementptr inbounds i8, ptr %228, i32 1
+  store ptr %229, ptr %10, align 8
+  br label %230
+
+230:                                              ; preds = %227, %217, %212
+  %231 = load ptr, ptr %10, align 8
+  %232 = load i8, ptr %231, align 1
+  %233 = sext i8 %232 to i32
+  %234 = icmp eq i32 %233, 10
+  br i1 %234, label %235, label %240
+
+235:                                              ; preds = %230
+  %236 = load i64, ptr %7, align 8
+  %237 = add i64 %236, 1
+  store i64 %237, ptr %7, align 8
+  %238 = load ptr, ptr %10, align 8
+  %239 = getelementptr inbounds i8, ptr %238, i64 1
+  store ptr %239, ptr %8, align 8
+  br label %240
+
+240:                                              ; preds = %235, %230
+  %241 = load ptr, ptr %10, align 8
+  %242 = load i8, ptr %241, align 1
+  %243 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 noundef signext %242)
+          to label %244 unwind label %126
+
+244:                                              ; preds = %240
+  br label %245
+
+245:                                              ; preds = %244
+  %246 = load ptr, ptr %10, align 8
+  %247 = getelementptr inbounds i8, ptr %246, i32 1
+  store ptr %247, ptr %10, align 8
+  br label %184, !llvm.loop !6
+
+248:                                              ; preds = %211
+  %249 = load ptr, ptr %10, align 8
+  %250 = getelementptr inbounds i8, ptr %249, i32 1
+  store ptr %250, ptr %10, align 8
+  store i32 13, ptr %14, align 4
+  br label %1067
+
+251:                                              ; preds = %146
+  %252 = load ptr, ptr %10, align 8
+  %253 = getelementptr inbounds i8, ptr %252, i32 1
+  store ptr %253, ptr %10, align 8
+  br label %254
+
+254:                                              ; preds = %315, %251
+  %255 = load ptr, ptr %10, align 8
+  %256 = load i8, ptr %255, align 1
+  %257 = sext i8 %256 to i32
+  %258 = icmp eq i32 %257, 0
+  br i1 %258, label %259, label %276
+
+259:                                              ; preds = %254
+  store i1 true, ptr %32, align 1
+  %260 = call ptr @__cxa_allocate_exception(i64 96) #3
+  %261 = load ptr, ptr %5, align 8
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef @.str.24, ptr noundef nonnull align 1 dereferenceable(1) %31)
+          to label %262 unwind label %264
+
+262:                                              ; preds = %259
+  invoke void @_ZN7jsonnet8internal11StaticErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationES9_(ptr noundef nonnull align 8 dereferenceable(96) %260, ptr noundef nonnull align 8 dereferenceable(32) %261, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(32) %30)
+          to label %263 unwind label %268
+
+263:                                              ; preds = %262
+  store i1 false, ptr %32, align 1
+  invoke void @__cxa_throw(ptr %260, ptr @_ZTIN7jsonnet8internal11StaticErrorE, ptr @_ZN7jsonnet8internal11StaticErrorD2Ev) #15
+          to label %1148 unwind label %268
+
+264:                                              ; preds = %259
+  %265 = landingpad { ptr, i32 }
+          cleanup
+  %266 = extractvalue { ptr, i32 } %265, 0
+  store ptr %266, ptr %20, align 8
+  %267 = extractvalue { ptr, i32 } %265, 1
+  store i32 %267, ptr %21, align 4
+  br label %272
+
+268:                                              ; preds = %263, %262
+  %269 = landingpad { ptr, i32 }
+          cleanup
+  %270 = extractvalue { ptr, i32 } %269, 0
+  store ptr %270, ptr %20, align 8
+  %271 = extractvalue { ptr, i32 } %269, 1
+  store i32 %271, ptr %21, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %30) #3
+  br label %272
+
+272:                                              ; preds = %268, %264
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %31) #3
+  %273 = load i1, ptr %32, align 1
+  br i1 %273, label %274, label %275
+
+274:                                              ; preds = %272
+  call void @__cxa_free_exception(ptr %260) #3
+  br label %275
+
+275:                                              ; preds = %274, %272
+  br label %1108
+
+276:                                              ; preds = %254
+  %277 = load ptr, ptr %10, align 8
+  %278 = load i8, ptr %277, align 1
+  %279 = sext i8 %278 to i32
+  %280 = icmp eq i32 %279, 39
+  br i1 %280, label %281, label %282
+
+281:                                              ; preds = %276
+  br label %318
+
+282:                                              ; preds = %276
+  %283 = load ptr, ptr %10, align 8
+  %284 = load i8, ptr %283, align 1
+  %285 = sext i8 %284 to i32
+  %286 = icmp eq i32 %285, 92
+  br i1 %286, label %287, label %300
+
+287:                                              ; preds = %282
+  %288 = load ptr, ptr %10, align 8
+  %289 = getelementptr inbounds i8, ptr %288, i64 1
+  %290 = load i8, ptr %289, align 1
+  %291 = sext i8 %290 to i32
+  %292 = icmp ne i32 %291, 0
+  br i1 %292, label %293, label %300
+
+293:                                              ; preds = %287
+  %294 = load ptr, ptr %10, align 8
+  %295 = load i8, ptr %294, align 1
+  %296 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 noundef signext %295)
+          to label %297 unwind label %126
+
+297:                                              ; preds = %293
+  %298 = load ptr, ptr %10, align 8
+  %299 = getelementptr inbounds i8, ptr %298, i32 1
+  store ptr %299, ptr %10, align 8
+  br label %300
+
+300:                                              ; preds = %297, %287, %282
+  %301 = load ptr, ptr %10, align 8
+  %302 = load i8, ptr %301, align 1
+  %303 = sext i8 %302 to i32
+  %304 = icmp eq i32 %303, 10
+  br i1 %304, label %305, label %310
+
+305:                                              ; preds = %300
+  %306 = load i64, ptr %7, align 8
+  %307 = add i64 %306, 1
+  store i64 %307, ptr %7, align 8
+  %308 = load ptr, ptr %10, align 8
+  %309 = getelementptr inbounds i8, ptr %308, i64 1
+  store ptr %309, ptr %8, align 8
+  br label %310
+
+310:                                              ; preds = %305, %300
+  %311 = load ptr, ptr %10, align 8
+  %312 = load i8, ptr %311, align 1
+  %313 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 noundef signext %312)
+          to label %314 unwind label %126
+
+314:                                              ; preds = %310
+  br label %315
+
+315:                                              ; preds = %314
+  %316 = load ptr, ptr %10, align 8
+  %317 = getelementptr inbounds i8, ptr %316, i32 1
+  store ptr %317, ptr %10, align 8
+  br label %254, !llvm.loop !7
+
+318:                                              ; preds = %281
+  %319 = load ptr, ptr %10, align 8
+  %320 = getelementptr inbounds i8, ptr %319, i32 1
+  store ptr %320, ptr %10, align 8
+  store i32 14, ptr %14, align 4
+  br label %1067
+
+321:                                              ; preds = %146
+  %322 = load ptr, ptr %10, align 8
+  %323 = getelementptr inbounds i8, ptr %322, i32 1
+  store ptr %323, ptr %10, align 8
+  %324 = load ptr, ptr %10, align 8
+  %325 = load i8, ptr %324, align 1
+  %326 = sext i8 %325 to i32
+  %327 = icmp ne i32 %326, 34
+  br i1 %327, label %328, label %363
+
+328:                                              ; preds = %321
+  %329 = load ptr, ptr %10, align 8
+  %330 = load i8, ptr %329, align 1
+  %331 = sext i8 %330 to i32
+  %332 = icmp ne i32 %331, 39
+  br i1 %332, label %333, label %363
+
+333:                                              ; preds = %328
+  invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %33)
+          to label %334 unwind label %126
+
+334:                                              ; preds = %333
+  %335 = getelementptr inbounds i8, ptr %33, i64 16
+  %336 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %335, ptr noundef @.str.25)
+          to label %337 unwind label %346
+
+337:                                              ; preds = %334
+  %338 = load ptr, ptr %10, align 8
+  %339 = load i8, ptr %338, align 1
+  %340 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %336, i8 noundef signext %339)
+          to label %341 unwind label %346
+
+341:                                              ; preds = %337
+  store i1 true, ptr %35, align 1
+  %342 = call ptr @__cxa_allocate_exception(i64 96) #3
+  %343 = load ptr, ptr %5, align 8
+  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %34, ptr noundef nonnull align 8 dereferenceable(128) %33)
+          to label %344 unwind label %350
+
+344:                                              ; preds = %341
+  invoke void @_ZN7jsonnet8internal11StaticErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationES9_(ptr noundef nonnull align 8 dereferenceable(96) %342, ptr noundef nonnull align 8 dereferenceable(32) %343, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(32) %34)
+          to label %345 unwind label %354
+
+345:                                              ; preds = %344
+  store i1 false, ptr %35, align 1
+  invoke void @__cxa_throw(ptr %342, ptr @_ZTIN7jsonnet8internal11StaticErrorE, ptr @_ZN7jsonnet8internal11StaticErrorD2Ev) #15
+          to label %1148 unwind label %354
+
+346:                                              ; preds = %337, %334
+  %347 = landingpad { ptr, i32 }
+          cleanup
+  %348 = extractvalue { ptr, i32 } %347, 0
+  store ptr %348, ptr %20, align 8
+  %349 = extractvalue { ptr, i32 } %347, 1
+  store i32 %349, ptr %21, align 4
+  br label %362
+
+350:                                              ; preds = %341
+  %351 = landingpad { ptr, i32 }
+          cleanup
+  %352 = extractvalue { ptr, i32 } %351, 0
+  store ptr %352, ptr %20, align 8
+  %353 = extractvalue { ptr, i32 } %351, 1
+  store i32 %353, ptr %21, align 4
+  br label %358
+
+354:                                              ; preds = %345, %344
+  %355 = landingpad { ptr, i32 }
+          cleanup
+  %356 = extractvalue { ptr, i32 } %355, 0
+  store ptr %356, ptr %20, align 8
+  %357 = extractvalue { ptr, i32 } %355, 1
+  store i32 %357, ptr %21, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #3
+  br label %358
+
+358:                                              ; preds = %354, %350
+  %359 = load i1, ptr %35, align 1
+  br i1 %359, label %360, label %361
+
+360:                                              ; preds = %358
+  call void @__cxa_free_exception(ptr %342) #3
+  br label %361
+
+361:                                              ; preds = %360, %358
+  br label %362
+
+362:                                              ; preds = %361, %346
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %33) #3
+  br label %1108
+
+363:                                              ; preds = %328, %321
+  %364 = load ptr, ptr %10, align 8
+  %365 = load i8, ptr %364, align 1
+  store i8 %365, ptr %36, align 1
+  %366 = load ptr, ptr %10, align 8
+  %367 = getelementptr inbounds i8, ptr %366, i32 1
+  store ptr %367, ptr %10, align 8
+  br label %368
+
+368:                                              ; preds = %415, %363
+  %369 = load ptr, ptr %10, align 8
+  %370 = load i8, ptr %369, align 1
+  %371 = sext i8 %370 to i32
+  %372 = icmp eq i32 %371, 0
+  br i1 %372, label %373, label %390
+
+373:                                              ; preds = %368
+  store i1 true, ptr %39, align 1
+  %374 = call ptr @__cxa_allocate_exception(i64 96) #3
+  %375 = load ptr, ptr %5, align 8
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef @.str.26, ptr noundef nonnull align 1 dereferenceable(1) %38)
+          to label %376 unwind label %378
+
+376:                                              ; preds = %373
+  invoke void @_ZN7jsonnet8internal11StaticErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationES9_(ptr noundef nonnull align 8 dereferenceable(96) %374, ptr noundef nonnull align 8 dereferenceable(32) %375, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(32) %37)
+          to label %377 unwind label %382
+
+377:                                              ; preds = %376
+  store i1 false, ptr %39, align 1
+  invoke void @__cxa_throw(ptr %374, ptr @_ZTIN7jsonnet8internal11StaticErrorE, ptr @_ZN7jsonnet8internal11StaticErrorD2Ev) #15
+          to label %1148 unwind label %382
+
+378:                                              ; preds = %373
+  %379 = landingpad { ptr, i32 }
+          cleanup
+  %380 = extractvalue { ptr, i32 } %379, 0
+  store ptr %380, ptr %20, align 8
+  %381 = extractvalue { ptr, i32 } %379, 1
+  store i32 %381, ptr %21, align 4
+  br label %386
+
+382:                                              ; preds = %377, %376
+  %383 = landingpad { ptr, i32 }
+          cleanup
+  %384 = extractvalue { ptr, i32 } %383, 0
+  store ptr %384, ptr %20, align 8
+  %385 = extractvalue { ptr, i32 } %383, 1
+  store i32 %385, ptr %21, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #3
+  br label %386
+
+386:                                              ; preds = %382, %378
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #3
+  %387 = load i1, ptr %39, align 1
+  br i1 %387, label %388, label %389
+
+388:                                              ; preds = %386
+  call void @__cxa_free_exception(ptr %374) #3
+  br label %389
+
+389:                                              ; preds = %388, %386
+  br label %1108
+
+390:                                              ; preds = %368
+  %391 = load ptr, ptr %10, align 8
+  %392 = load i8, ptr %391, align 1
+  %393 = sext i8 %392 to i32
+  %394 = load i8, ptr %36, align 1
+  %395 = sext i8 %394 to i32
+  %396 = icmp eq i32 %393, %395
+  br i1 %396, label %397, label %410
+
+397:                                              ; preds = %390
+  %398 = load ptr, ptr %10, align 8
+  %399 = getelementptr inbounds i8, ptr %398, i64 1
+  %400 = load i8, ptr %399, align 1
+  %401 = sext i8 %400 to i32
+  %402 = load i8, ptr %36, align 1
+  %403 = sext i8 %402 to i32
+  %404 = icmp eq i32 %401, %403
+  br i1 %404, label %405, label %408
+
+405:                                              ; preds = %397
+  %406 = load ptr, ptr %10, align 8
+  %407 = getelementptr inbounds i8, ptr %406, i32 1
+  store ptr %407, ptr %10, align 8
+  br label %409
+
+408:                                              ; preds = %397
+  br label %418
+
+409:                                              ; preds = %405
+  br label %410
+
+410:                                              ; preds = %409, %390
+  %411 = load ptr, ptr %10, align 8
+  %412 = load i8, ptr %411, align 1
+  %413 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 noundef signext %412)
+          to label %414 unwind label %126
+
+414:                                              ; preds = %410
+  br label %415
+
+415:                                              ; preds = %414
+  %416 = load ptr, ptr %10, align 8
+  %417 = getelementptr inbounds i8, ptr %416, i32 1
+  store ptr %417, ptr %10, align 8
+  br label %368, !llvm.loop !8
+
+418:                                              ; preds = %408
+  %419 = load ptr, ptr %10, align 8
+  %420 = getelementptr inbounds i8, ptr %419, i32 1
+  store ptr %420, ptr %10, align 8
+  %421 = load i8, ptr %36, align 1
+  %422 = sext i8 %421 to i32
+  %423 = icmp eq i32 %422, 34
+  br i1 %423, label %424, label %425
+
+424:                                              ; preds = %418
+  store i32 17, ptr %14, align 4
+  br label %426
+
+425:                                              ; preds = %418
+  store i32 16, ptr %14, align 4
+  br label %426
+
+426:                                              ; preds = %425, %424
+  br label %1067
+
+427:                                              ; preds = %146
+  %428 = load ptr, ptr %10, align 8
+  %429 = load i8, ptr %428, align 1
+  %430 = invoke noundef zeroext i1 @_ZN7jsonnet8internalL19is_identifier_firstEc(i8 noundef signext %429)
+          to label %431 unwind label %126
+
+431:                                              ; preds = %427
+  br i1 %430, label %432, label %455
+
+432:                                              ; preds = %431
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #3
+  br label %433
+
+433:                                              ; preds = %443, %432
+  %434 = load ptr, ptr %10, align 8
+  %435 = load i8, ptr %434, align 1
+  %436 = invoke noundef zeroext i1 @_ZN7jsonnet8internalL13is_identifierEc(i8 noundef signext %435)
+          to label %437 unwind label %446
+
+437:                                              ; preds = %433
+  br i1 %436, label %438, label %450
+
+438:                                              ; preds = %437
+  %439 = load ptr, ptr %10, align 8
+  %440 = load i8, ptr %439, align 1
+  %441 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %40, i8 noundef signext %440)
+          to label %442 unwind label %446
+
+442:                                              ; preds = %438
+  br label %443
+
+443:                                              ; preds = %442
+  %444 = load ptr, ptr %10, align 8
+  %445 = getelementptr inbounds i8, ptr %444, i32 1
+  store ptr %445, ptr %10, align 8
+  br label %433, !llvm.loop !9
+
+446:                                              ; preds = %452, %450, %438, %433
+  %447 = landingpad { ptr, i32 }
+          cleanup
+  %448 = extractvalue { ptr, i32 } %447, 0
+  store ptr %448, ptr %20, align 8
+  %449 = extractvalue { ptr, i32 } %447, 1
+  store i32 %449, ptr %21, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #3
+  br label %1108
+
+450:                                              ; preds = %437
+  %451 = invoke noundef i32 @_ZN7jsonnet8internal20lex_get_keyword_kindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %40)
+          to label %452 unwind label %446
+
+452:                                              ; preds = %450
+  store i32 %451, ptr %14, align 4
+  %453 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %40)
+          to label %454 unwind label %446
+
+454:                                              ; preds = %452
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #3
+  br label %1066
+
+455:                                              ; preds = %431
+  %456 = load ptr, ptr %10, align 8
+  %457 = load i8, ptr %456, align 1
+  %458 = invoke noundef zeroext i1 @_ZN7jsonnet8internalL9is_symbolEc(i8 noundef signext %457)
+          to label %459 unwind label %126
+
+459:                                              ; preds = %455
+  br i1 %458, label %465, label %460
+
+460:                                              ; preds = %459
+  %461 = load ptr, ptr %10, align 8
+  %462 = load i8, ptr %461, align 1
+  %463 = sext i8 %462 to i32
+  %464 = icmp eq i32 %463, 35
+  br i1 %464, label %465, label %1014
+
+465:                                              ; preds = %460, %459
+  %466 = load ptr, ptr %10, align 8
+  %467 = load i8, ptr %466, align 1
+  %468 = sext i8 %467 to i32
+  %469 = icmp eq i32 %468, 35
+  br i1 %469, label %481, label %470
+
+470:                                              ; preds = %465
+  %471 = load ptr, ptr %10, align 8
+  %472 = load i8, ptr %471, align 1
+  %473 = sext i8 %472 to i32
+  %474 = icmp eq i32 %473, 47
+  br i1 %474, label %475, label %498
+
+475:                                              ; preds = %470
+  %476 = load ptr, ptr %10, align 8
+  %477 = getelementptr inbounds i8, ptr %476, i64 1
+  %478 = load i8, ptr %477, align 1
+  %479 = sext i8 %478 to i32
+  %480 = icmp eq i32 %479, 47
+  br i1 %480, label %481, label %498
+
+481:                                              ; preds = %475, %465
+  call void @_ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #3
+  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_(ptr noundef nonnull align 8 dereferenceable(24) %41, i64 noundef 1, ptr noundef nonnull align 1 dereferenceable(1) %42)
+          to label %482 unwind label %490
+
+482:                                              ; preds = %481
+  call void @_ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #3
+  %483 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %41, i64 noundef 0) #3
+  invoke void @_ZN7jsonnet8internalL17lex_until_newlineERPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_S3_Rm(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(32) %483, ptr noundef nonnull align 4 dereferenceable(4) %43, ptr noundef nonnull align 4 dereferenceable(4) %44, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %484 unwind label %494
+
+484:                                              ; preds = %482
+  %485 = load i8, ptr %12, align 1
+  %486 = trunc i8 %485 to i1
+  %487 = select i1 %486, i32 2, i32 0
+  store i32 %487, ptr %45, align 4
+  %488 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJRNS2_4KindERjS8_RS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 4 dereferenceable(4) %45, ptr noundef nonnull align 4 dereferenceable(4) %43, ptr noundef nonnull align 4 dereferenceable(4) %44, ptr noundef nonnull align 8 dereferenceable(24) %41)
+          to label %489 unwind label %494
+
+489:                                              ; preds = %484
+  store i8 1, ptr %12, align 1
+  store i32 2, ptr %22, align 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #3
+  br label %1101
+
+490:                                              ; preds = %481
+  %491 = landingpad { ptr, i32 }
+          cleanup
+  %492 = extractvalue { ptr, i32 } %491, 0
+  store ptr %492, ptr %20, align 8
+  %493 = extractvalue { ptr, i32 } %491, 1
+  store i32 %493, ptr %21, align 4
+  call void @_ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #3
+  br label %1108
+
+494:                                              ; preds = %484, %482
+  %495 = landingpad { ptr, i32 }
+          cleanup
+  %496 = extractvalue { ptr, i32 } %495, 0
+  store ptr %496, ptr %20, align 8
+  %497 = extractvalue { ptr, i32 } %495, 1
+  store i32 %497, ptr %21, align 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %41) #3
+  br label %1108
+
+498:                                              ; preds = %475, %470
+  %499 = load ptr, ptr %10, align 8
+  %500 = load i8, ptr %499, align 1
+  %501 = sext i8 %500 to i32
+  %502 = icmp eq i32 %501, 47
+  br i1 %502, label %503, label %677
+
+503:                                              ; preds = %498
+  %504 = load ptr, ptr %10, align 8
+  %505 = getelementptr inbounds i8, ptr %504, i64 1
+  %506 = load i8, ptr %505, align 1
+  %507 = sext i8 %506 to i32
+  %508 = icmp eq i32 %507, 42
+  br i1 %508, label %509, label %677
+
+509:                                              ; preds = %503
+  %510 = load ptr, ptr %10, align 8
+  %511 = load ptr, ptr %8, align 8
+  %512 = ptrtoint ptr %510 to i64
+  %513 = ptrtoint ptr %511 to i64
+  %514 = sub i64 %512, %513
+  %515 = trunc i64 %514 to i32
+  store i32 %515, ptr %46, align 4
+  %516 = load ptr, ptr %10, align 8
+  store ptr %516, ptr %47, align 8
+  %517 = load ptr, ptr %10, align 8
+  %518 = getelementptr inbounds i8, ptr %517, i64 2
+  store ptr %518, ptr %10, align 8
+  br label %519
+
+519:                                              ; preds = %566, %509
+  %520 = load ptr, ptr %10, align 8
+  %521 = load i8, ptr %520, align 1
+  %522 = sext i8 %521 to i32
+  %523 = icmp eq i32 %522, 42
+  br i1 %523, label %524, label %530
+
+524:                                              ; preds = %519
+  %525 = load ptr, ptr %10, align 8
+  %526 = getelementptr inbounds i8, ptr %525, i64 1
+  %527 = load i8, ptr %526, align 1
+  %528 = sext i8 %527 to i32
+  %529 = icmp eq i32 %528, 47
+  br label %530
+
+530:                                              ; preds = %524, %519
+  %531 = phi i1 [ false, %519 ], [ %529, %524 ]
+  %532 = xor i1 %531, true
+  br i1 %532, label %533, label %569
+
+533:                                              ; preds = %530
+  %534 = load ptr, ptr %10, align 8
+  %535 = load i8, ptr %534, align 1
+  %536 = sext i8 %535 to i32
+  %537 = icmp eq i32 %536, 0
+  br i1 %537, label %538, label %556
+
+538:                                              ; preds = %533
+  store ptr @.str.27, ptr %48, align 8
+  store i1 true, ptr %51, align 1
+  %539 = call ptr @__cxa_allocate_exception(i64 96) #3
+  %540 = load ptr, ptr %5, align 8
+  %541 = load ptr, ptr %48, align 8
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %50) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %49, ptr noundef %541, ptr noundef nonnull align 1 dereferenceable(1) %50)
+          to label %542 unwind label %544
+
+542:                                              ; preds = %538
+  invoke void @_ZN7jsonnet8internal11StaticErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationES9_(ptr noundef nonnull align 8 dereferenceable(96) %539, ptr noundef nonnull align 8 dereferenceable(32) %540, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(32) %49)
+          to label %543 unwind label %548
+
+543:                                              ; preds = %542
+  store i1 false, ptr %51, align 1
+  invoke void @__cxa_throw(ptr %539, ptr @_ZTIN7jsonnet8internal11StaticErrorE, ptr @_ZN7jsonnet8internal11StaticErrorD2Ev) #15
+          to label %1148 unwind label %548
+
+544:                                              ; preds = %538
+  %545 = landingpad { ptr, i32 }
+          cleanup
+  %546 = extractvalue { ptr, i32 } %545, 0
+  store ptr %546, ptr %20, align 8
+  %547 = extractvalue { ptr, i32 } %545, 1
+  store i32 %547, ptr %21, align 4
+  br label %552
+
+548:                                              ; preds = %543, %542
+  %549 = landingpad { ptr, i32 }
+          cleanup
+  %550 = extractvalue { ptr, i32 } %549, 0
+  store ptr %550, ptr %20, align 8
+  %551 = extractvalue { ptr, i32 } %549, 1
+  store i32 %551, ptr %21, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %49) #3
+  br label %552
+
+552:                                              ; preds = %548, %544
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %50) #3
+  %553 = load i1, ptr %51, align 1
+  br i1 %553, label %554, label %555
+
+554:                                              ; preds = %552
+  call void @__cxa_free_exception(ptr %539) #3
+  br label %555
+
+555:                                              ; preds = %554, %552
+  br label %1108
+
+556:                                              ; preds = %533
+  %557 = load ptr, ptr %10, align 8
+  %558 = load i8, ptr %557, align 1
+  %559 = sext i8 %558 to i32
+  %560 = icmp eq i32 %559, 10
+  br i1 %560, label %561, label %566
+
+561:                                              ; preds = %556
+  %562 = load i64, ptr %7, align 8
+  %563 = add i64 %562, 1
+  store i64 %563, ptr %7, align 8
+  %564 = load ptr, ptr %10, align 8
+  %565 = getelementptr inbounds i8, ptr %564, i64 1
+  store ptr %565, ptr %8, align 8
+  br label %566
+
+566:                                              ; preds = %561, %556
+  %567 = load ptr, ptr %10, align 8
+  %568 = getelementptr inbounds i8, ptr %567, i32 1
+  store ptr %568, ptr %10, align 8
+  br label %519, !llvm.loop !10
+
+569:                                              ; preds = %530
+  %570 = load ptr, ptr %10, align 8
+  %571 = getelementptr inbounds i8, ptr %570, i64 2
+  store ptr %571, ptr %10, align 8
+  %572 = load ptr, ptr %47, align 8
+  %573 = load ptr, ptr %10, align 8
+  %574 = load ptr, ptr %47, align 8
+  %575 = ptrtoint ptr %573 to i64
+  %576 = ptrtoint ptr %574 to i64
+  %577 = sub i64 %575, %576
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef %572, i64 noundef %577, ptr noundef nonnull align 1 dereferenceable(1) %53)
+          to label %578 unwind label %594
+
+578:                                              ; preds = %569
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #3
+  invoke void @_ZN7jsonnet8internalL6lex_wsERPKcRjS4_S3_Rm(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 4 dereferenceable(4) %54, ptr noundef nonnull align 4 dereferenceable(4) %55, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %7)
+          to label %579 unwind label %598
+
+579:                                              ; preds = %578
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %56) #3
+  %580 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %52, i8 noundef signext 10, i64 noundef 0) #3
+  %581 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %52) #3
+  %582 = icmp uge i64 %580, %581
+  br i1 %582, label %583, label %607
+
+583:                                              ; preds = %579
+  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull align 8 dereferenceable(32) %52)
+          to label %584 unwind label %602
+
+584:                                              ; preds = %583
+  store i32 1, ptr %57, align 4
+  store i32 0, ptr %58, align 4
+  store i32 0, ptr %59, align 4
+  %585 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindEiiRS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 4 dereferenceable(4) %57, ptr noundef nonnull align 4 dereferenceable(4) %58, ptr noundef nonnull align 4 dereferenceable(4) %59, ptr noundef nonnull align 8 dereferenceable(24) %56)
+          to label %586 unwind label %602
+
+586:                                              ; preds = %584
+  %587 = load i32, ptr %54, align 4
+  %588 = icmp ugt i32 %587, 0
+  br i1 %588, label %589, label %606
+
+589:                                              ; preds = %586
+  store i32 0, ptr %60, align 4
+  %590 = load i32, ptr %54, align 4
+  %591 = sub i32 %590, 1
+  store i32 %591, ptr %61, align 4
+  %592 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindEjRjRKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 4 dereferenceable(4) %60, ptr noundef nonnull align 4 dereferenceable(4) %61, ptr noundef nonnull align 4 dereferenceable(4) %55, ptr noundef nonnull align 8 dereferenceable(24) @_ZN7jsonnet8internalL5EMPTYB5cxx11E)
+          to label %593 unwind label %602
+
+593:                                              ; preds = %589
+  store i8 1, ptr %12, align 1
+  br label %606
+
+594:                                              ; preds = %569
+  %595 = landingpad { ptr, i32 }
+          cleanup
+  %596 = extractvalue { ptr, i32 } %595, 0
+  store ptr %596, ptr %20, align 8
+  %597 = extractvalue { ptr, i32 } %595, 1
+  store i32 %597, ptr %21, align 4
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %53) #3
+  br label %1108
+
+598:                                              ; preds = %578
+  %599 = landingpad { ptr, i32 }
+          cleanup
+  %600 = extractvalue { ptr, i32 } %599, 0
+  store ptr %600, ptr %20, align 8
+  %601 = extractvalue { ptr, i32 } %599, 1
+  store i32 %601, ptr %21, align 4
+  br label %676
+
+602:                                              ; preds = %664, %651, %643, %619, %607, %589, %584, %583
+  %603 = landingpad { ptr, i32 }
+          cleanup
+  %604 = extractvalue { ptr, i32 } %603, 0
+  store ptr %604, ptr %20, align 8
+  %605 = extractvalue { ptr, i32 } %603, 1
+  store i32 %605, ptr %21, align 4
+  br label %675
+
+606:                                              ; preds = %593, %586
+  br label %674
+
+607:                                              ; preds = %579
+  %608 = load i32, ptr %46, align 4
+  invoke void @_ZN7jsonnet8internalL10line_splitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr dead_on_unwind writable sret(%"class.std::vector") align 8 %62, ptr noundef nonnull align 8 dereferenceable(32) %52, i32 noundef %608)
+          to label %609 unwind label %602
+
+609:                                              ; preds = %607
+  %610 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_(ptr noundef nonnull align 8 dereferenceable(24) %56, ptr noundef nonnull align 8 dereferenceable(24) %62) #3
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %62) #3
+  store i8 1, ptr %63, align 1
+  store ptr %56, ptr %64, align 8
+  %611 = load ptr, ptr %64, align 8
+  %612 = call ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %611) #3
+  %613 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %65, i32 0, i32 0
+  store ptr %612, ptr %613, align 8
+  %614 = load ptr, ptr %64, align 8
+  %615 = call ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %614) #3
+  %616 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %66, i32 0, i32 0
+  store ptr %615, ptr %616, align 8
+  br label %617
+
+617:                                              ; preds = %629, %609
+  %618 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEEbRKNS_17__normal_iteratorIT_T0_EESG_(ptr noundef nonnull align 8 dereferenceable(8) %65, ptr noundef nonnull align 8 dereferenceable(8) %66) #3
+  br i1 %618, label %619, label %631
+
+619:                                              ; preds = %617
+  %620 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %65) #3
+  store ptr %620, ptr %67, align 8
+  %621 = load ptr, ptr %67, align 8
+  %622 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %621, i64 noundef 0)
+          to label %623 unwind label %602
+
+623:                                              ; preds = %619
+  %624 = load i8, ptr %622, align 1
+  %625 = sext i8 %624 to i32
+  %626 = icmp ne i32 %625, 42
+  br i1 %626, label %627, label %628
+
+627:                                              ; preds = %623
+  store i8 0, ptr %63, align 1
+  br label %628
+
+628:                                              ; preds = %627, %623
+  br label %629
+
+629:                                              ; preds = %628
+  %630 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %65) #3
+  br label %617
+
+631:                                              ; preds = %617
+  %632 = load i8, ptr %63, align 1
+  %633 = trunc i8 %632 to i1
+  br i1 %633, label %634, label %660
+
+634:                                              ; preds = %631
+  store ptr %56, ptr %68, align 8
+  %635 = load ptr, ptr %68, align 8
+  %636 = call ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %635) #3
+  %637 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %69, i32 0, i32 0
+  store ptr %636, ptr %637, align 8
+  %638 = load ptr, ptr %68, align 8
+  %639 = call ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %638) #3
+  %640 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %70, i32 0, i32 0
+  store ptr %639, ptr %640, align 8
+  br label %641
+
+641:                                              ; preds = %657, %634
+  %642 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEEbRKNS_17__normal_iteratorIT_T0_EESG_(ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef nonnull align 8 dereferenceable(8) %70) #3
+  br i1 %642, label %643, label %659
+
+643:                                              ; preds = %641
+  %644 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %69) #3
+  store ptr %644, ptr %71, align 8
+  %645 = load ptr, ptr %71, align 8
+  %646 = invoke noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %645, i64 noundef 0)
+          to label %647 unwind label %602
+
+647:                                              ; preds = %643
+  %648 = load i8, ptr %646, align 1
+  %649 = sext i8 %648 to i32
+  %650 = icmp eq i32 %649, 42
+  br i1 %650, label %651, label %656
+
+651:                                              ; preds = %647
+  %652 = load ptr, ptr %71, align 8
+  invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %72, ptr noundef @.str.28, ptr noundef nonnull align 8 dereferenceable(32) %652)
+          to label %653 unwind label %602
+
+653:                                              ; preds = %651
+  %654 = load ptr, ptr %71, align 8
+  %655 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %654, ptr noundef nonnull align 8 dereferenceable(32) %72) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %72) #3
+  br label %656
+
+656:                                              ; preds = %653, %647
+  br label %657
+
+657:                                              ; preds = %656
+  %658 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %69) #3
+  br label %641
+
+659:                                              ; preds = %641
+  br label %660
+
+660:                                              ; preds = %659, %631
+  %661 = load i32, ptr %54, align 4
+  %662 = icmp eq i32 %661, 0
+  br i1 %662, label %663, label %664
+
+663:                                              ; preds = %660
+  store i32 1, ptr %54, align 4
+  store i32 0, ptr %55, align 4
+  br label %664
+
+664:                                              ; preds = %663, %660
+  %665 = load i32, ptr %54, align 4
+  %666 = sub i32 %665, 1
+  %667 = load i32, ptr %55, align 4
+  invoke void @_ZN7jsonnet8internal13FodderElementC2ENS1_4KindEjjRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(40) %73, i32 noundef 2, i32 noundef %666, i32 noundef %667, ptr noundef nonnull align 8 dereferenceable(24) %56)
+          to label %668 unwind label %602
+
+668:                                              ; preds = %664
+  invoke void @_ZN7jsonnet8internalL16fodder_push_backERSt6vectorINS0_13FodderElementESaIS2_EERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(40) %73)
+          to label %669 unwind label %670
+
+669:                                              ; preds = %668
+  call void @_ZN7jsonnet8internal13FodderElementD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %73) #3
+  store i8 1, ptr %12, align 1
+  br label %674
+
+670:                                              ; preds = %668
+  %671 = landingpad { ptr, i32 }
+          cleanup
+  %672 = extractvalue { ptr, i32 } %671, 0
+  store ptr %672, ptr %20, align 8
+  %673 = extractvalue { ptr, i32 } %671, 1
+  store i32 %673, ptr %21, align 4
+  call void @_ZN7jsonnet8internal13FodderElementD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %73) #3
+  br label %675
+
+674:                                              ; preds = %669, %606
+  store i32 2, ptr %22, align 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %56) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #3
+  br label %1101
+
+675:                                              ; preds = %670, %602
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %56) #3
+  br label %676
+
+676:                                              ; preds = %675, %598
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %52) #3
+  br label %1108
+
+677:                                              ; preds = %503, %498
+  %678 = load ptr, ptr %10, align 8
+  %679 = load i8, ptr %678, align 1
+  %680 = sext i8 %679 to i32
+  %681 = icmp eq i32 %680, 124
+  br i1 %681, label %682, label %922
+
+682:                                              ; preds = %677
+  %683 = load ptr, ptr %10, align 8
+  %684 = getelementptr inbounds i8, ptr %683, i64 1
+  %685 = load i8, ptr %684, align 1
+  %686 = sext i8 %685 to i32
+  %687 = icmp eq i32 %686, 124
+  br i1 %687, label %688, label %922
+
+688:                                              ; preds = %682
+  %689 = load ptr, ptr %10, align 8
+  %690 = getelementptr inbounds i8, ptr %689, i64 2
+  %691 = load i8, ptr %690, align 1
+  %692 = sext i8 %691 to i32
+  %693 = icmp eq i32 %692, 124
+  br i1 %693, label %694, label %922
+
+694:                                              ; preds = %688
+  %695 = load ptr, ptr %10, align 8
+  %696 = getelementptr inbounds i8, ptr %695, i64 3
+  store ptr %696, ptr %10, align 8
+  br label %697
+
+697:                                              ; preds = %702, %694
+  %698 = load ptr, ptr %10, align 8
+  %699 = load i8, ptr %698, align 1
+  %700 = invoke noundef zeroext i1 @_ZN7jsonnet8internalL10is_horz_wsEc(i8 noundef signext %699)
+          to label %701 unwind label %126
+
+701:                                              ; preds = %697
+  br i1 %700, label %702, label %705
+
+702:                                              ; preds = %701
+  %703 = load ptr, ptr %10, align 8
+  %704 = getelementptr inbounds i8, ptr %703, i32 1
+  store ptr %704, ptr %10, align 8
+  br label %697, !llvm.loop !11
+
+705:                                              ; preds = %701
+  %706 = load ptr, ptr %10, align 8
+  %707 = load i8, ptr %706, align 1
+  %708 = sext i8 %707 to i32
+  %709 = icmp ne i32 %708, 10
+  br i1 %709, label %710, label %728
+
+710:                                              ; preds = %705
+  store ptr @.str.29, ptr %74, align 8
+  store i1 true, ptr %77, align 1
+  %711 = call ptr @__cxa_allocate_exception(i64 96) #3
+  %712 = load ptr, ptr %5, align 8
+  %713 = load ptr, ptr %74, align 8
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %76) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef %713, ptr noundef nonnull align 1 dereferenceable(1) %76)
+          to label %714 unwind label %716
+
+714:                                              ; preds = %710
+  invoke void @_ZN7jsonnet8internal11StaticErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationES9_(ptr noundef nonnull align 8 dereferenceable(96) %711, ptr noundef nonnull align 8 dereferenceable(32) %712, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(32) %75)
+          to label %715 unwind label %720
+
+715:                                              ; preds = %714
+  store i1 false, ptr %77, align 1
+  invoke void @__cxa_throw(ptr %711, ptr @_ZTIN7jsonnet8internal11StaticErrorE, ptr @_ZN7jsonnet8internal11StaticErrorD2Ev) #15
+          to label %1148 unwind label %720
+
+716:                                              ; preds = %710
+  %717 = landingpad { ptr, i32 }
+          cleanup
+  %718 = extractvalue { ptr, i32 } %717, 0
+  store ptr %718, ptr %20, align 8
+  %719 = extractvalue { ptr, i32 } %717, 1
+  store i32 %719, ptr %21, align 4
+  br label %724
+
+720:                                              ; preds = %715, %714
+  %721 = landingpad { ptr, i32 }
+          cleanup
+  %722 = extractvalue { ptr, i32 } %721, 0
+  store ptr %722, ptr %20, align 8
+  %723 = extractvalue { ptr, i32 } %721, 1
+  store i32 %723, ptr %21, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %75) #3
+  br label %724
+
+724:                                              ; preds = %720, %716
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %76) #3
+  %725 = load i1, ptr %77, align 1
+  br i1 %725, label %726, label %727
+
+726:                                              ; preds = %724
+  call void @__cxa_free_exception(ptr %711) #3
+  br label %727
+
+727:                                              ; preds = %726, %724
+  br label %1108
+
+728:                                              ; preds = %705
+  invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %78)
+          to label %729 unwind label %126
+
+729:                                              ; preds = %728
+  %730 = load ptr, ptr %10, align 8
+  %731 = getelementptr inbounds i8, ptr %730, i32 1
+  store ptr %731, ptr %10, align 8
+  %732 = load i64, ptr %7, align 8
+  %733 = add i64 %732, 1
+  store i64 %733, ptr %7, align 8
+  br label %734
+
+734:                                              ; preds = %746, %729
+  %735 = load ptr, ptr %10, align 8
+  %736 = load i8, ptr %735, align 1
+  %737 = sext i8 %736 to i32
+  %738 = icmp eq i32 %737, 10
+  br i1 %738, label %739, label %751
+
+739:                                              ; preds = %734
+  %740 = load i64, ptr %7, align 8
+  %741 = add i64 %740, 1
+  store i64 %741, ptr %7, align 8
+  %742 = load ptr, ptr %10, align 8
+  %743 = getelementptr inbounds i8, ptr %742, i32 1
+  store ptr %743, ptr %10, align 8
+  %744 = getelementptr inbounds i8, ptr %78, i64 16
+  %745 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %744, i8 noundef signext 10)
+          to label %746 unwind label %747
+
+746:                                              ; preds = %739
+  br label %734, !llvm.loop !12
+
+747:                                              ; preds = %914, %872, %852, %844, %830, %821, %751, %739
+  %748 = landingpad { ptr, i32 }
+          cleanup
+  %749 = extractvalue { ptr, i32 } %748, 0
+  store ptr %749, ptr %20, align 8
+  %750 = extractvalue { ptr, i32 } %748, 1
+  store i32 %750, ptr %21, align 4
+  br label %921
+
+751:                                              ; preds = %734
+  %752 = load ptr, ptr %10, align 8
+  store ptr %752, ptr %8, align 8
+  %753 = load ptr, ptr %10, align 8
+  store ptr %753, ptr %79, align 8
+  %754 = load ptr, ptr %79, align 8
+  %755 = load ptr, ptr %10, align 8
+  %756 = invoke noundef i32 @_ZN7jsonnet8internalL16whitespace_checkEPKcS2_(ptr noundef %754, ptr noundef %755)
+          to label %757 unwind label %747
+
+757:                                              ; preds = %751
+  store i32 %756, ptr %80, align 4
+  %758 = load ptr, ptr %79, align 8
+  %759 = load i32, ptr %80, align 4
+  %760 = sext i32 %759 to i64
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %82) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %81, ptr noundef %758, i64 noundef %760, ptr noundef nonnull align 1 dereferenceable(1) %82)
+          to label %761 unwind label %771
+
+761:                                              ; preds = %757
+  %762 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %81) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %81) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %82) #3
+  %763 = load i32, ptr %80, align 4
+  %764 = icmp eq i32 %763, 0
+  br i1 %764, label %765, label %787
+
+765:                                              ; preds = %761
+  store ptr @.str.30, ptr %83, align 8
+  store i1 true, ptr %86, align 1
+  %766 = call ptr @__cxa_allocate_exception(i64 96) #3
+  %767 = load ptr, ptr %5, align 8
+  %768 = load ptr, ptr %83, align 8
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %85) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %84, ptr noundef %768, ptr noundef nonnull align 1 dereferenceable(1) %85)
+          to label %769 unwind label %775
+
+769:                                              ; preds = %765
+  invoke void @_ZN7jsonnet8internal11StaticErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationES9_(ptr noundef nonnull align 8 dereferenceable(96) %766, ptr noundef nonnull align 8 dereferenceable(32) %767, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(32) %84)
+          to label %770 unwind label %779
+
+770:                                              ; preds = %769
+  store i1 false, ptr %86, align 1
+  invoke void @__cxa_throw(ptr %766, ptr @_ZTIN7jsonnet8internal11StaticErrorE, ptr @_ZN7jsonnet8internal11StaticErrorD2Ev) #15
+          to label %1148 unwind label %779
+
+771:                                              ; preds = %757
+  %772 = landingpad { ptr, i32 }
+          cleanup
+  %773 = extractvalue { ptr, i32 } %772, 0
+  store ptr %773, ptr %20, align 8
+  %774 = extractvalue { ptr, i32 } %772, 1
+  store i32 %774, ptr %21, align 4
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %82) #3
+  br label %921
+
+775:                                              ; preds = %765
+  %776 = landingpad { ptr, i32 }
+          cleanup
+  %777 = extractvalue { ptr, i32 } %776, 0
+  store ptr %777, ptr %20, align 8
+  %778 = extractvalue { ptr, i32 } %776, 1
+  store i32 %778, ptr %21, align 4
+  br label %783
+
+779:                                              ; preds = %770, %769
+  %780 = landingpad { ptr, i32 }
+          cleanup
+  %781 = extractvalue { ptr, i32 } %780, 0
+  store ptr %781, ptr %20, align 8
+  %782 = extractvalue { ptr, i32 } %780, 1
+  store i32 %782, ptr %21, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %84) #3
+  br label %783
+
+783:                                              ; preds = %779, %775
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %85) #3
+  %784 = load i1, ptr %86, align 1
+  br i1 %784, label %785, label %786
+
+785:                                              ; preds = %783
+  call void @__cxa_free_exception(ptr %766) #3
+  br label %786
+
+786:                                              ; preds = %785, %783
+  br label %921
+
+787:                                              ; preds = %761
+  br label %788
+
+788:                                              ; preds = %919, %787
+  br label %789
+
+789:                                              ; preds = %788
+  %790 = load ptr, ptr %10, align 8
+  %791 = load i32, ptr %80, align 4
+  %792 = sext i32 %791 to i64
+  %793 = getelementptr inbounds i8, ptr %790, i64 %792
+  store ptr %793, ptr %10, align 8
+  br label %794
+
+794:                                              ; preds = %827, %789
+  %795 = load ptr, ptr %10, align 8
+  %796 = load i8, ptr %795, align 1
+  %797 = sext i8 %796 to i32
+  %798 = icmp ne i32 %797, 10
+  br i1 %798, label %799, label %830
+
+799:                                              ; preds = %794
+  %800 = load ptr, ptr %10, align 8
+  %801 = load i8, ptr %800, align 1
+  %802 = sext i8 %801 to i32
+  %803 = icmp eq i32 %802, 0
+  br i1 %803, label %804, label %821
+
+804:                                              ; preds = %799
+  store i1 true, ptr %89, align 1
+  %805 = call ptr @__cxa_allocate_exception(i64 96) #3
+  %806 = load ptr, ptr %5, align 8
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %88) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef @.str.31, ptr noundef nonnull align 1 dereferenceable(1) %88)
+          to label %807 unwind label %809
+
+807:                                              ; preds = %804
+  invoke void @_ZN7jsonnet8internal11StaticErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationES9_(ptr noundef nonnull align 8 dereferenceable(96) %805, ptr noundef nonnull align 8 dereferenceable(32) %806, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(32) %87)
+          to label %808 unwind label %813
+
+808:                                              ; preds = %807
+  store i1 false, ptr %89, align 1
+  invoke void @__cxa_throw(ptr %805, ptr @_ZTIN7jsonnet8internal11StaticErrorE, ptr @_ZN7jsonnet8internal11StaticErrorD2Ev) #15
+          to label %1148 unwind label %813
+
+809:                                              ; preds = %804
+  %810 = landingpad { ptr, i32 }
+          cleanup
+  %811 = extractvalue { ptr, i32 } %810, 0
+  store ptr %811, ptr %20, align 8
+  %812 = extractvalue { ptr, i32 } %810, 1
+  store i32 %812, ptr %21, align 4
+  br label %817
+
+813:                                              ; preds = %808, %807
+  %814 = landingpad { ptr, i32 }
+          cleanup
+  %815 = extractvalue { ptr, i32 } %814, 0
+  store ptr %815, ptr %20, align 8
+  %816 = extractvalue { ptr, i32 } %814, 1
+  store i32 %816, ptr %21, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %87) #3
+  br label %817
+
+817:                                              ; preds = %813, %809
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %88) #3
+  %818 = load i1, ptr %89, align 1
+  br i1 %818, label %819, label %820
+
+819:                                              ; preds = %817
+  call void @__cxa_free_exception(ptr %805) #3
+  br label %820
+
+820:                                              ; preds = %819, %817
+  br label %921
+
+821:                                              ; preds = %799
+  %822 = getelementptr inbounds i8, ptr %78, i64 16
+  %823 = load ptr, ptr %10, align 8
+  %824 = load i8, ptr %823, align 1
+  %825 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %822, i8 noundef signext %824)
+          to label %826 unwind label %747
+
+826:                                              ; preds = %821
+  br label %827
+
+827:                                              ; preds = %826
+  %828 = load ptr, ptr %10, align 8
+  %829 = getelementptr inbounds i8, ptr %828, i32 1
+  store ptr %829, ptr %10, align 8
+  br label %794, !llvm.loop !13
+
+830:                                              ; preds = %794
+  %831 = getelementptr inbounds i8, ptr %78, i64 16
+  %832 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %831, i8 noundef signext 10)
+          to label %833 unwind label %747
+
+833:                                              ; preds = %830
+  %834 = load ptr, ptr %10, align 8
+  %835 = getelementptr inbounds i8, ptr %834, i32 1
+  store ptr %835, ptr %10, align 8
+  %836 = load i64, ptr %7, align 8
+  %837 = add i64 %836, 1
+  store i64 %837, ptr %7, align 8
+  %838 = load ptr, ptr %10, align 8
+  store ptr %838, ptr %8, align 8
+  br label %839
+
+839:                                              ; preds = %851, %833
+  %840 = load ptr, ptr %10, align 8
+  %841 = load i8, ptr %840, align 1
+  %842 = sext i8 %841 to i32
+  %843 = icmp eq i32 %842, 10
+  br i1 %843, label %844, label %852
+
+844:                                              ; preds = %839
+  %845 = load i64, ptr %7, align 8
+  %846 = add i64 %845, 1
+  store i64 %846, ptr %7, align 8
+  %847 = load ptr, ptr %10, align 8
+  %848 = getelementptr inbounds i8, ptr %847, i32 1
+  store ptr %848, ptr %10, align 8
+  %849 = getelementptr inbounds i8, ptr %78, i64 16
+  %850 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %849, i8 noundef signext 10)
+          to label %851 unwind label %747
+
+851:                                              ; preds = %844
+  br label %839, !llvm.loop !14
+
+852:                                              ; preds = %839
+  %853 = load ptr, ptr %79, align 8
+  %854 = load ptr, ptr %10, align 8
+  %855 = invoke noundef i32 @_ZN7jsonnet8internalL16whitespace_checkEPKcS2_(ptr noundef %853, ptr noundef %854)
+          to label %856 unwind label %747
+
+856:                                              ; preds = %852
+  store i32 %855, ptr %80, align 4
+  %857 = load i32, ptr %80, align 4
+  %858 = icmp eq i32 %857, 0
+  br i1 %858, label %859, label %919
+
+859:                                              ; preds = %856
+  br label %860
+
+860:                                              ; preds = %876, %859
+  %861 = load ptr, ptr %10, align 8
+  %862 = load i8, ptr %861, align 1
+  %863 = sext i8 %862 to i32
+  %864 = icmp eq i32 %863, 32
+  br i1 %864, label %870, label %865
+
+865:                                              ; preds = %860
+  %866 = load ptr, ptr %10, align 8
+  %867 = load i8, ptr %866, align 1
+  %868 = sext i8 %867 to i32
+  %869 = icmp eq i32 %868, 9
+  br label %870
+
+870:                                              ; preds = %865, %860
+  %871 = phi i1 [ true, %860 ], [ %869, %865 ]
+  br i1 %871, label %872, label %879
+
+872:                                              ; preds = %870
+  %873 = load ptr, ptr %10, align 8
+  %874 = load i8, ptr %873, align 1
+  %875 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %17, i8 noundef signext %874)
+          to label %876 unwind label %747
+
+876:                                              ; preds = %872
+  %877 = load ptr, ptr %10, align 8
+  %878 = getelementptr inbounds i8, ptr %877, i32 1
+  store ptr %878, ptr %10, align 8
+  br label %860, !llvm.loop !15
+
+879:                                              ; preds = %870
+  %880 = load ptr, ptr %10, align 8
+  %881 = load i8, ptr %880, align 1
+  %882 = sext i8 %881 to i32
+  %883 = icmp eq i32 %882, 124
+  br i1 %883, label %884, label %896
+
+884:                                              ; preds = %879
+  %885 = load ptr, ptr %10, align 8
+  %886 = getelementptr inbounds i8, ptr %885, i64 1
+  %887 = load i8, ptr %886, align 1
+  %888 = sext i8 %887 to i32
+  %889 = icmp eq i32 %888, 124
+  br i1 %889, label %890, label %896
+
+890:                                              ; preds = %884
+  %891 = load ptr, ptr %10, align 8
+  %892 = getelementptr inbounds i8, ptr %891, i64 2
+  %893 = load i8, ptr %892, align 1
+  %894 = sext i8 %893 to i32
+  %895 = icmp eq i32 %894, 124
+  br i1 %895, label %914, label %896
+
+896:                                              ; preds = %890, %884, %879
+  store ptr @.str.32, ptr %90, align 8
+  store i1 true, ptr %93, align 1
+  %897 = call ptr @__cxa_allocate_exception(i64 96) #3
+  %898 = load ptr, ptr %5, align 8
+  %899 = load ptr, ptr %90, align 8
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %92) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %91, ptr noundef %899, ptr noundef nonnull align 1 dereferenceable(1) %92)
+          to label %900 unwind label %902
+
+900:                                              ; preds = %896
+  invoke void @_ZN7jsonnet8internal11StaticErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationES9_(ptr noundef nonnull align 8 dereferenceable(96) %897, ptr noundef nonnull align 8 dereferenceable(32) %898, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(32) %91)
+          to label %901 unwind label %906
+
+901:                                              ; preds = %900
+  store i1 false, ptr %93, align 1
+  invoke void @__cxa_throw(ptr %897, ptr @_ZTIN7jsonnet8internal11StaticErrorE, ptr @_ZN7jsonnet8internal11StaticErrorD2Ev) #15
+          to label %1148 unwind label %906
+
+902:                                              ; preds = %896
+  %903 = landingpad { ptr, i32 }
+          cleanup
+  %904 = extractvalue { ptr, i32 } %903, 0
+  store ptr %904, ptr %20, align 8
+  %905 = extractvalue { ptr, i32 } %903, 1
+  store i32 %905, ptr %21, align 4
+  br label %910
+
+906:                                              ; preds = %901, %900
+  %907 = landingpad { ptr, i32 }
+          cleanup
+  %908 = extractvalue { ptr, i32 } %907, 0
+  store ptr %908, ptr %20, align 8
+  %909 = extractvalue { ptr, i32 } %907, 1
+  store i32 %909, ptr %21, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %91) #3
+  br label %910
+
+910:                                              ; preds = %906, %902
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %92) #3
+  %911 = load i1, ptr %93, align 1
+  br i1 %911, label %912, label %913
+
+912:                                              ; preds = %910
+  call void @__cxa_free_exception(ptr %897) #3
+  br label %913
+
+913:                                              ; preds = %912, %910
+  br label %921
+
+914:                                              ; preds = %890
+  %915 = load ptr, ptr %10, align 8
+  %916 = getelementptr inbounds i8, ptr %915, i64 3
+  store ptr %916, ptr %10, align 8
+  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %94, ptr noundef nonnull align 8 dereferenceable(128) %78)
+          to label %917 unwind label %747
+
+917:                                              ; preds = %914
+  %918 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %94) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %94) #3
+  store i32 15, ptr %14, align 4
+  br label %920
+
+919:                                              ; preds = %856
+  br label %788, !llvm.loop !16
+
+920:                                              ; preds = %917
+  store i32 4, ptr %22, align 4
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %78) #3
+  br label %1067
+
+921:                                              ; preds = %913, %820, %786, %771, %747
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %78) #3
+  br label %1108
+
+922:                                              ; preds = %688, %682, %677
+  %923 = load ptr, ptr %10, align 8
+  store ptr %923, ptr %95, align 8
+  br label %924
+
+924:                                              ; preds = %972, %922
+  %925 = load ptr, ptr %10, align 8
+  %926 = load i8, ptr %925, align 1
+  %927 = invoke noundef zeroext i1 @_ZN7jsonnet8internalL9is_symbolEc(i8 noundef signext %926)
+          to label %928 unwind label %126
+
+928:                                              ; preds = %924
+  br i1 %927, label %929, label %975
+
+929:                                              ; preds = %928
+  %930 = load ptr, ptr %10, align 8
+  %931 = load i8, ptr %930, align 1
+  %932 = sext i8 %931 to i32
+  %933 = icmp eq i32 %932, 47
+  br i1 %933, label %934, label %941
+
+934:                                              ; preds = %929
+  %935 = load ptr, ptr %10, align 8
+  %936 = getelementptr inbounds i8, ptr %935, i64 1
+  %937 = load i8, ptr %936, align 1
+  %938 = sext i8 %937 to i32
+  %939 = icmp eq i32 %938, 47
+  br i1 %939, label %940, label %941
+
+940:                                              ; preds = %934
+  br label %975
+
+941:                                              ; preds = %934, %929
+  %942 = load ptr, ptr %10, align 8
+  %943 = load i8, ptr %942, align 1
+  %944 = sext i8 %943 to i32
+  %945 = icmp eq i32 %944, 47
+  br i1 %945, label %946, label %953
+
+946:                                              ; preds = %941
+  %947 = load ptr, ptr %10, align 8
+  %948 = getelementptr inbounds i8, ptr %947, i64 1
+  %949 = load i8, ptr %948, align 1
+  %950 = sext i8 %949 to i32
+  %951 = icmp eq i32 %950, 42
+  br i1 %951, label %952, label %953
+
+952:                                              ; preds = %946
+  br label %975
+
+953:                                              ; preds = %946, %941
+  %954 = load ptr, ptr %10, align 8
+  %955 = load i8, ptr %954, align 1
+  %956 = sext i8 %955 to i32
+  %957 = icmp eq i32 %956, 124
+  br i1 %957, label %958, label %971
+
+958:                                              ; preds = %953
+  %959 = load ptr, ptr %10, align 8
+  %960 = getelementptr inbounds i8, ptr %959, i64 1
+  %961 = load i8, ptr %960, align 1
+  %962 = sext i8 %961 to i32
+  %963 = icmp eq i32 %962, 124
+  br i1 %963, label %964, label %971
+
+964:                                              ; preds = %958
+  %965 = load ptr, ptr %10, align 8
+  %966 = getelementptr inbounds i8, ptr %965, i64 2
+  %967 = load i8, ptr %966, align 1
+  %968 = sext i8 %967 to i32
+  %969 = icmp eq i32 %968, 124
+  br i1 %969, label %970, label %971
+
+970:                                              ; preds = %964
+  br label %975
+
+971:                                              ; preds = %964, %958, %953
+  br label %972
+
+972:                                              ; preds = %971
+  %973 = load ptr, ptr %10, align 8
+  %974 = getelementptr inbounds i8, ptr %973, i32 1
+  store ptr %974, ptr %10, align 8
+  br label %924, !llvm.loop !17
+
+975:                                              ; preds = %970, %952, %940, %928
+  br label %976
+
+976:                                              ; preds = %989, %975
+  %977 = load ptr, ptr %10, align 8
+  %978 = load ptr, ptr %95, align 8
+  %979 = getelementptr inbounds i8, ptr %978, i64 1
+  %980 = icmp ugt ptr %977, %979
+  br i1 %980, label %981, label %987
+
+981:                                              ; preds = %976
+  %982 = load ptr, ptr %10, align 8
+  %983 = getelementptr inbounds i8, ptr %982, i64 -1
+  %984 = load i8, ptr %983, align 1
+  %985 = call noundef zeroext i1 @_ZN7jsonnet8internal26allowed_at_end_of_operatorEc(i8 noundef signext %984)
+  %986 = xor i1 %985, true
+  br label %987
+
+987:                                              ; preds = %981, %976
+  %988 = phi i1 [ false, %976 ], [ %986, %981 ]
+  br i1 %988, label %989, label %992
+
+989:                                              ; preds = %987
+  %990 = load ptr, ptr %10, align 8
+  %991 = getelementptr inbounds i8, ptr %990, i32 -1
+  store ptr %991, ptr %10, align 8
+  br label %976, !llvm.loop !18
+
+992:                                              ; preds = %987
+  %993 = load ptr, ptr %95, align 8
+  %994 = load ptr, ptr %10, align 8
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %97) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %96, ptr noundef %993, ptr noundef %994, ptr noundef nonnull align 1 dereferenceable(1) %97)
+          to label %995 unwind label %1003
+
+995:                                              ; preds = %992
+  %996 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %96)
+          to label %997 unwind label %1007
+
+997:                                              ; preds = %995
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %96) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %97) #3
+  %998 = invoke noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef @.str.33)
+          to label %999 unwind label %126
+
+999:                                              ; preds = %997
+  br i1 %998, label %1000, label %1012
+
+1000:                                             ; preds = %999
+  store i32 5, ptr %14, align 4
+  %1001 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef @.str.34)
+          to label %1002 unwind label %126
+
+1002:                                             ; preds = %1000
+  br label %1013
+
+1003:                                             ; preds = %992
+  %1004 = landingpad { ptr, i32 }
+          cleanup
+  %1005 = extractvalue { ptr, i32 } %1004, 0
+  store ptr %1005, ptr %20, align 8
+  %1006 = extractvalue { ptr, i32 } %1004, 1
+  store i32 %1006, ptr %21, align 4
+  br label %1011
+
+1007:                                             ; preds = %995
+  %1008 = landingpad { ptr, i32 }
+          cleanup
+  %1009 = extractvalue { ptr, i32 } %1008, 0
+  store ptr %1009, ptr %20, align 8
+  %1010 = extractvalue { ptr, i32 } %1008, 1
+  store i32 %1010, ptr %21, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %96) #3
+  br label %1011
+
+1011:                                             ; preds = %1007, %1003
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %97) #3
+  br label %1108
+
+1012:                                             ; preds = %999
+  store i32 12, ptr %14, align 4
+  br label %1013
+
+1013:                                             ; preds = %1012, %1002
+  br label %1065
+
+1014:                                             ; preds = %460
+  invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %98)
+          to label %1015 unwind label %126
+
+1015:                                             ; preds = %1014
+  %1016 = getelementptr inbounds i8, ptr %98, i64 16
+  %1017 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1016, ptr noundef @.str.35)
+          to label %1018 unwind label %1033
+
+1018:                                             ; preds = %1015
+  %1019 = load ptr, ptr %10, align 8
+  %1020 = load i8, ptr %1019, align 1
+  store i8 %1020, ptr %99, align 1
+  %1021 = load ptr, ptr %10, align 8
+  %1022 = load i8, ptr %1021, align 1
+  %1023 = sext i8 %1022 to i32
+  %1024 = icmp slt i32 %1023, 32
+  br i1 %1024, label %1025, label %1037
+
+1025:                                             ; preds = %1018
+  %1026 = getelementptr inbounds i8, ptr %98, i64 16
+  %1027 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1026, ptr noundef @.str.36)
+          to label %1028 unwind label %1033
+
+1028:                                             ; preds = %1025
+  %1029 = load i8, ptr %99, align 1
+  %1030 = zext i8 %1029 to i32
+  %1031 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %1027, i32 noundef %1030)
+          to label %1032 unwind label %1033
+
+1032:                                             ; preds = %1028
+  br label %1047
+
+1033:                                             ; preds = %1044, %1040, %1037, %1028, %1025, %1015
+  %1034 = landingpad { ptr, i32 }
+          cleanup
+  %1035 = extractvalue { ptr, i32 } %1034, 0
+  store ptr %1035, ptr %20, align 8
+  %1036 = extractvalue { ptr, i32 } %1034, 1
+  store i32 %1036, ptr %21, align 4
+  br label %1064
+
+1037:                                             ; preds = %1018
+  %1038 = getelementptr inbounds i8, ptr %98, i64 16
+  %1039 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1038, ptr noundef @.str.37)
+          to label %1040 unwind label %1033
+
+1040:                                             ; preds = %1037
+  %1041 = load ptr, ptr %10, align 8
+  %1042 = load i8, ptr %1041, align 1
+  %1043 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %1039, i8 noundef signext %1042)
+          to label %1044 unwind label %1033
+
+1044:                                             ; preds = %1040
+  %1045 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1043, ptr noundef @.str.37)
+          to label %1046 unwind label %1033
+
+1046:                                             ; preds = %1044
+  br label %1047
+
+1047:                                             ; preds = %1046, %1032
+  store i1 true, ptr %101, align 1
+  %1048 = call ptr @__cxa_allocate_exception(i64 96) #3
+  %1049 = load ptr, ptr %5, align 8
+  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %100, ptr noundef nonnull align 8 dereferenceable(128) %98)
+          to label %1050 unwind label %1052
+
+1050:                                             ; preds = %1047
+  invoke void @_ZN7jsonnet8internal11StaticErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationES9_(ptr noundef nonnull align 8 dereferenceable(96) %1048, ptr noundef nonnull align 8 dereferenceable(32) %1049, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(32) %100)
+          to label %1051 unwind label %1056
+
+1051:                                             ; preds = %1050
+  store i1 false, ptr %101, align 1
+  invoke void @__cxa_throw(ptr %1048, ptr @_ZTIN7jsonnet8internal11StaticErrorE, ptr @_ZN7jsonnet8internal11StaticErrorD2Ev) #15
+          to label %1148 unwind label %1056
+
+1052:                                             ; preds = %1047
+  %1053 = landingpad { ptr, i32 }
+          cleanup
+  %1054 = extractvalue { ptr, i32 } %1053, 0
+  store ptr %1054, ptr %20, align 8
+  %1055 = extractvalue { ptr, i32 } %1053, 1
+  store i32 %1055, ptr %21, align 4
+  br label %1060
+
+1056:                                             ; preds = %1051, %1050
+  %1057 = landingpad { ptr, i32 }
+          cleanup
+  %1058 = extractvalue { ptr, i32 } %1057, 0
+  store ptr %1058, ptr %20, align 8
+  %1059 = extractvalue { ptr, i32 } %1057, 1
+  store i32 %1059, ptr %21, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %100) #3
+  br label %1060
+
+1060:                                             ; preds = %1056, %1052
+  %1061 = load i1, ptr %101, align 1
+  br i1 %1061, label %1062, label %1063
+
+1062:                                             ; preds = %1060
+  call void @__cxa_free_exception(ptr %1048) #3
+  br label %1063
+
+1063:                                             ; preds = %1062, %1060
+  br label %1064
+
+1064:                                             ; preds = %1063, %1033
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %98) #3
+  br label %1108
+
+1065:                                             ; preds = %1013
+  br label %1066
+
+1066:                                             ; preds = %1065, %454
+  br label %1067
+
+1067:                                             ; preds = %1066, %920, %426, %318, %248, %179, %174, %171, %168, %165, %162, %159, %156, %153, %150
+  %1068 = load ptr, ptr %10, align 8
+  %1069 = load ptr, ptr %13, align 8
+  %1070 = icmp eq ptr %1068, %1069
+  br i1 %1070, label %1071, label %1088
+
+1071:                                             ; preds = %1067
+  store i1 true, ptr %104, align 1
+  %1072 = call ptr @__cxa_allocate_exception(i64 96) #3
+  %1073 = load ptr, ptr %5, align 8
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %103) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef @.str.38, ptr noundef nonnull align 1 dereferenceable(1) %103)
+          to label %1074 unwind label %1076
+
+1074:                                             ; preds = %1071
+  invoke void @_ZN7jsonnet8internal11StaticErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationES9_(ptr noundef nonnull align 8 dereferenceable(96) %1072, ptr noundef nonnull align 8 dereferenceable(32) %1073, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(32) %102)
+          to label %1075 unwind label %1080
+
+1075:                                             ; preds = %1074
+  store i1 false, ptr %104, align 1
+  invoke void @__cxa_throw(ptr %1072, ptr @_ZTIN7jsonnet8internal11StaticErrorE, ptr @_ZN7jsonnet8internal11StaticErrorD2Ev) #15
+          to label %1148 unwind label %1080
+
+1076:                                             ; preds = %1071
+  %1077 = landingpad { ptr, i32 }
+          cleanup
+  %1078 = extractvalue { ptr, i32 } %1077, 0
+  store ptr %1078, ptr %20, align 8
+  %1079 = extractvalue { ptr, i32 } %1077, 1
+  store i32 %1079, ptr %21, align 4
+  br label %1084
+
+1080:                                             ; preds = %1075, %1074
+  %1081 = landingpad { ptr, i32 }
+          cleanup
+  %1082 = extractvalue { ptr, i32 } %1081, 0
+  store ptr %1082, ptr %20, align 8
+  %1083 = extractvalue { ptr, i32 } %1081, 1
+  store i32 %1083, ptr %21, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %102) #3
+  br label %1084
+
+1084:                                             ; preds = %1080, %1076
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %103) #3
+  %1085 = load i1, ptr %104, align 1
+  br i1 %1085, label %1086, label %1087
+
+1086:                                             ; preds = %1084
+  call void @__cxa_free_exception(ptr %1072) #3
+  br label %1087
+
+1087:                                             ; preds = %1086, %1084
+  br label %1108
+
+1088:                                             ; preds = %1067
+  %1089 = load i64, ptr %7, align 8
+  %1090 = load ptr, ptr %10, align 8
+  %1091 = getelementptr inbounds i8, ptr %1090, i64 1
+  %1092 = load ptr, ptr %8, align 8
+  %1093 = ptrtoint ptr %1091 to i64
+  %1094 = ptrtoint ptr %1092 to i64
+  %1095 = sub i64 %1093, %1094
+  invoke void @_ZN7jsonnet8internal8LocationC2Emm(ptr noundef nonnull align 8 dereferenceable(16) %105, i64 noundef %1089, i64 noundef %1095)
+          to label %1096 unwind label %126
+
+1096:                                             ; preds = %1088
+  %1097 = load ptr, ptr %5, align 8
+  invoke void @_ZN7jsonnet8internal13LocationRangeC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationESC_(ptr noundef nonnull align 8 dereferenceable(64) %106, ptr noundef nonnull align 8 dereferenceable(32) %1097, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %105)
+          to label %1098 unwind label %126
+
+1098:                                             ; preds = %1096
+  %1099 = invoke noundef nonnull align 8 dereferenceable(192) ptr @_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE12emplace_backIJRNS3_4KindERSt6vectorINS2_13FodderElementESaISA_EERNS_12basic_stringIcSt11char_traitsIcESaIcEEESJ_SJ_NS2_13LocationRangeEEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(64) %106)
+          to label %1100 unwind label %1104
+
+1100:                                             ; preds = %1098
+  call void @_ZN7jsonnet8internal13LocationRangeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %106) #3
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  store i8 0, ptr %12, align 1
+  store i32 0, ptr %22, align 4
+  br label %1101
+
+1101:                                             ; preds = %1100, %674, %489, %125
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
+  %1102 = load i32, ptr %22, align 4
+  switch i32 %1102, label %1148 [
+    i32 0, label %1103
+    i32 3, label %1109
+    i32 2, label %113
+  ]
+
+1103:                                             ; preds = %1101
+  br label %113, !llvm.loop !19
+
+1104:                                             ; preds = %1098
+  %1105 = landingpad { ptr, i32 }
+          cleanup
+  %1106 = extractvalue { ptr, i32 } %1105, 0
+  store ptr %1106, ptr %20, align 8
+  %1107 = extractvalue { ptr, i32 } %1105, 1
+  store i32 %1107, ptr %21, align 4
+  call void @_ZN7jsonnet8internal13LocationRangeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %106) #3
+  br label %1108
+
+1108:                                             ; preds = %1104, %1087, %1064, %1011, %921, %727, %676, %594, %555, %494, %490, %446, %389, %362, %275, %205, %126
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
+  br label %1140
+
+1109:                                             ; preds = %1101, %113
+  %1110 = load i64, ptr %7, align 8
+  %1111 = load ptr, ptr %10, align 8
+  %1112 = load ptr, ptr %8, align 8
+  %1113 = ptrtoint ptr %1111 to i64
+  %1114 = ptrtoint ptr %1112 to i64
+  %1115 = sub i64 %1113, %1114
+  %1116 = add nsw i64 %1115, 1
+  invoke void @_ZN7jsonnet8internal8LocationC2Emm(ptr noundef nonnull align 8 dereferenceable(16) %107, i64 noundef %1110, i64 noundef %1116)
+          to label %1117 unwind label %1132
+
+1117:                                             ; preds = %1109
+  %1118 = load i64, ptr %7, align 8
+  %1119 = load ptr, ptr %10, align 8
+  %1120 = getelementptr inbounds i8, ptr %1119, i64 1
+  %1121 = load ptr, ptr %8, align 8
+  %1122 = ptrtoint ptr %1120 to i64
+  %1123 = ptrtoint ptr %1121 to i64
+  %1124 = sub i64 %1122, %1123
+  %1125 = add nsw i64 %1124, 1
+  invoke void @_ZN7jsonnet8internal8LocationC2Emm(ptr noundef nonnull align 8 dereferenceable(16) %108, i64 noundef %1118, i64 noundef %1125)
+          to label %1126 unwind label %1132
+
+1126:                                             ; preds = %1117
+  store i32 36, ptr %109, align 4
+  %1127 = load ptr, ptr %5, align 8
+  invoke void @_ZN7jsonnet8internal13LocationRangeC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationESC_(ptr noundef nonnull align 8 dereferenceable(64) %110, ptr noundef nonnull align 8 dereferenceable(32) %1127, ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef nonnull align 8 dereferenceable(16) %108)
+          to label %1128 unwind label %1132
+
+1128:                                             ; preds = %1126
+  %1129 = invoke noundef nonnull align 8 dereferenceable(192) ptr @_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE12emplace_backIJNS3_4KindERSt6vectorINS2_13FodderElementESaIS9_EERA1_KcSF_SF_NS2_13LocationRangeEEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %109, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 1 dereferenceable(1) @.str.34, ptr noundef nonnull align 1 dereferenceable(1) @.str.34, ptr noundef nonnull align 1 dereferenceable(1) @.str.34, ptr noundef nonnull align 8 dereferenceable(64) %110)
+          to label %1130 unwind label %1136
+
+1130:                                             ; preds = %1128
+  call void @_ZN7jsonnet8internal13LocationRangeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %110) #3
+  store i1 true, ptr %9, align 1
+  store i32 1, ptr %22, align 4
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  %1131 = load i1, ptr %9, align 1
+  br i1 %1131, label %1142, label %1141
+
+1132:                                             ; preds = %1126, %1117, %1109
+  %1133 = landingpad { ptr, i32 }
+          cleanup
+  %1134 = extractvalue { ptr, i32 } %1133, 0
+  store ptr %1134, ptr %20, align 8
+  %1135 = extractvalue { ptr, i32 } %1133, 1
+  store i32 %1135, ptr %21, align 4
+  br label %1140
+
+1136:                                             ; preds = %1128
+  %1137 = landingpad { ptr, i32 }
+          cleanup
+  %1138 = extractvalue { ptr, i32 } %1137, 0
+  store ptr %1138, ptr %20, align 8
+  %1139 = extractvalue { ptr, i32 } %1137, 1
+  store i32 %1139, ptr %21, align 4
+  call void @_ZN7jsonnet8internal13LocationRangeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %110) #3
+  br label %1140
+
+1140:                                             ; preds = %1136, %1132, %1108
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  call void @_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #3
+  br label %1143
+
+1141:                                             ; preds = %1130
+  call void @_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #3
+  br label %1142
+
+1142:                                             ; preds = %1141, %1130
+  ret void
+
+1143:                                             ; preds = %1140
+  %1144 = load ptr, ptr %20, align 8
+  %1145 = load i32, ptr %21, align 4
+  %1146 = insertvalue { ptr, i32 } poison, ptr %1144, 0
+  %1147 = insertvalue { ptr, i32 } %1146, i32 %1145, 1
+  resume { ptr, i32 } %1147
+
+1148:                                             ; preds = %1101, %1075, %1051, %901, %808, %770, %715, %543, %377, %345, %263, %193
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZN7jsonnet8internalL6lex_wsERPKcRjS4_S3_Rm(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) #5 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr %8, align 8
+  store i32 0, ptr %11, align 4
+  %12 = load ptr, ptr %7, align 8
+  store i32 0, ptr %12, align 4
+  br label %13
+
+13:                                               ; preds = %53, %5
+  %14 = load ptr, ptr %6, align 8
+  %15 = load ptr, ptr %14, align 8
+  %16 = load i8, ptr %15, align 1
+  %17 = sext i8 %16 to i32
+  %18 = icmp ne i32 %17, 0
+  br i1 %18, label %19, label %24
+
+19:                                               ; preds = %13
+  %20 = load ptr, ptr %6, align 8
+  %21 = load ptr, ptr %20, align 8
+  %22 = load i8, ptr %21, align 1
+  %23 = call noundef zeroext i1 @_ZN7jsonnet8internalL5is_wsEc(i8 noundef signext %22)
+  br label %24
+
+24:                                               ; preds = %19, %13
+  %25 = phi i1 [ false, %13 ], [ %23, %19 ]
+  br i1 %25, label %26, label %57
+
+26:                                               ; preds = %24
+  %27 = load ptr, ptr %6, align 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = load i8, ptr %28, align 1
+  %30 = sext i8 %29 to i32
+  switch i32 %30, label %52 [
+    i32 13, label %31
+    i32 10, label %32
+    i32 32, label %44
+    i32 9, label %48
+  ]
+
+31:                                               ; preds = %26
+  br label %52
+
+32:                                               ; preds = %26
+  %33 = load ptr, ptr %8, align 8
+  store i32 0, ptr %33, align 4
+  %34 = load ptr, ptr %7, align 8
+  %35 = load i32, ptr %34, align 4
+  %36 = add i32 %35, 1
+  store i32 %36, ptr %34, align 4
+  %37 = load ptr, ptr %10, align 8
+  %38 = load i64, ptr %37, align 8
+  %39 = add i64 %38, 1
+  store i64 %39, ptr %37, align 8
+  %40 = load ptr, ptr %6, align 8
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %41, i64 1
+  %43 = load ptr, ptr %9, align 8
+  store ptr %42, ptr %43, align 8
+  br label %52
+
+44:                                               ; preds = %26
+  %45 = load ptr, ptr %8, align 8
+  %46 = load i32, ptr %45, align 4
+  %47 = add i32 %46, 1
+  store i32 %47, ptr %45, align 4
+  br label %52
+
+48:                                               ; preds = %26
+  %49 = load ptr, ptr %8, align 8
+  %50 = load i32, ptr %49, align 4
+  %51 = add i32 %50, 8
+  store i32 %51, ptr %49, align 4
+  br label %52
+
+52:                                               ; preds = %48, %44, %32, %31, %26
+  br label %53
+
+53:                                               ; preds = %52
+  %54 = load ptr, ptr %6, align 8
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i32 1
+  store ptr %56, ptr %54, align 8
+  br label %13, !llvm.loop !20
+
+57:                                               ; preds = %24
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindERjS7_RKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) #5 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca %"class.__gnu_cxx::__normal_iterator.19", align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %12, i32 0, i32 0
+  %14 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %12, i32 0, i32 0
+  %17 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %16, i32 0, i32 2
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp ne ptr %15, %18
+  br i1 %19, label %20, label %33
+
+20:                                               ; preds = %5
+  %21 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %12, i32 0, i32 0
+  %22 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %12, i32 0, i32 0
+  %23 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8
+  %25 = load ptr, ptr %7, align 8
+  %26 = load ptr, ptr %8, align 8
+  %27 = load ptr, ptr %9, align 8
+  %28 = load ptr, ptr %10, align 8
+  call void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindERjS7_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvRS3_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef %24, ptr noundef nonnull align 4 dereferenceable(4) %25, ptr noundef nonnull align 4 dereferenceable(4) %26, ptr noundef nonnull align 4 dereferenceable(4) %27, ptr noundef nonnull align 8 dereferenceable(24) %28)
+  %29 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %12, i32 0, i32 0
+  %30 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %29, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %31, i32 1
+  store ptr %32, ptr %30, align 8
+  br label %42
+
+33:                                               ; preds = %5
+  %34 = call ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  %35 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %11, i32 0, i32 0
+  store ptr %34, ptr %35, align 8
+  %36 = load ptr, ptr %7, align 8
+  %37 = load ptr, ptr %8, align 8
+  %38 = load ptr, ptr %9, align 8
+  %39 = load ptr, ptr %10, align 8
+  %40 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %11, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE17_M_realloc_insertIJNS2_4KindERjS7_RKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr %41, ptr noundef nonnull align 4 dereferenceable(4) %36, ptr noundef nonnull align 4 dereferenceable(4) %37, ptr noundef nonnull align 4 dereferenceable(4) %38, ptr noundef nonnull align 8 dereferenceable(24) %39)
+  br label %42
+
+42:                                               ; preds = %33, %20
+  %43 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  ret ptr %43
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN7jsonnet8internal8LocationC2Emm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds %"struct.jsonnet::internal::Location", ptr %7, i32 0, i32 0
+  %9 = load i64, ptr %5, align 8
+  store i64 %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"struct.jsonnet::internal::Location", ptr %7, i32 0, i32 1
+  %11 = load i64, ptr %6, align 8
+  store i64 %11, ptr %10, align 8
+  ret void
+}
+
+; Function Attrs: nounwind
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) #2
+
+; Function Attrs: mustprogress uwtable
+define internal noundef zeroext i1 @_ZN7jsonnet8internalL19is_identifier_firstEc(i8 noundef signext %0) #5 {
+  %2 = alloca i8, align 1
+  store i8 %0, ptr %2, align 1
+  %3 = load i8, ptr %2, align 1
+  %4 = call noundef zeroext i1 @_ZN7jsonnet8internalL8is_upperEc(i8 noundef signext %3)
+  br i1 %4, label %12, label %5
+
+5:                                                ; preds = %1
+  %6 = load i8, ptr %2, align 1
+  %7 = call noundef zeroext i1 @_ZN7jsonnet8internalL8is_lowerEc(i8 noundef signext %6)
+  br i1 %7, label %12, label %8
+
+8:                                                ; preds = %5
+  %9 = load i8, ptr %2, align 1
+  %10 = sext i8 %9 to i32
+  %11 = icmp eq i32 %10, 95
+  br label %12
+
+12:                                               ; preds = %8, %5, %1
+  %13 = phi i1 [ true, %5 ], [ true, %1 ], [ %11, %8 ]
+  ret i1 %13
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef zeroext i1 @_ZN7jsonnet8internalL13is_identifierEc(i8 noundef signext %0) #5 {
+  %2 = alloca i8, align 1
+  store i8 %0, ptr %2, align 1
+  %3 = load i8, ptr %2, align 1
+  %4 = call noundef zeroext i1 @_ZN7jsonnet8internalL19is_identifier_firstEc(i8 noundef signext %3)
+  br i1 %4, label %8, label %5
+
+5:                                                ; preds = %1
+  %6 = load i8, ptr %2, align 1
+  %7 = call noundef zeroext i1 @_ZN7jsonnet8internalL9is_numberEc(i8 noundef signext %6)
+  br label %8
+
+8:                                                ; preds = %5, %1
+  %9 = phi i1 [ true, %1 ], [ %7, %5 ]
+  ret i1 %9
+}
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @_ZN7jsonnet8internalL9is_symbolEc(i8 noundef signext %0) #4 {
+  %2 = alloca i1, align 1
+  %3 = alloca i8, align 1
+  store i8 %0, ptr %3, align 1
+  %4 = load i8, ptr %3, align 1
+  %5 = sext i8 %4 to i32
+  switch i32 %5, label %7 [
+    i32 33, label %6
+    i32 36, label %6
+    i32 58, label %6
+    i32 126, label %6
+    i32 43, label %6
+    i32 45, label %6
+    i32 38, label %6
+    i32 124, label %6
+    i32 94, label %6
+    i32 61, label %6
+    i32 60, label %6
+    i32 62, label %6
+    i32 42, label %6
+    i32 47, label %6
+    i32 37, label %6
+  ]
+
+6:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
+  store i1 true, ptr %2, align 1
+  br label %8
+
+7:                                                ; preds = %1
+  store i1 false, ptr %2, align 1
+  br label %8
+
+8:                                                ; preds = %7, %6
+  %9 = load i1, ptr %2, align 1
+  ret i1 %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = load i64, ptr %5, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = call noundef i64 @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_(i64 noundef %10, ptr noundef nonnull align 1 dereferenceable(1) %11)
+  %13 = load ptr, ptr %6, align 8
+  call void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+  %14 = load i64, ptr %5, align 8
+  invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE21_M_default_initializeEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %14)
+          to label %15 unwind label %16
+
+15:                                               ; preds = %3
+  ret void
+
+16:                                               ; preds = %3
+  %17 = landingpad { ptr, i32 }
+          cleanup
+  %18 = extractvalue { ptr, i32 } %17, 0
+  store ptr %18, ptr %7, align 8
+  %19 = extractvalue { ptr, i32 } %17, 1
+  store i32 %19, ptr %8, align 4
+  call void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  br label %20
+
+20:                                               ; preds = %16
+  %21 = load ptr, ptr %7, align 8
+  %22 = load i32, ptr %8, align 4
+  %23 = insertvalue { ptr, i32 } poison, ptr %21, 0
+  %24 = insertvalue { ptr, i32 } %23, i32 %22, 1
+  resume { ptr, i32 } %24
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZN7jsonnet8internalL17lex_until_newlineERPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjSB_S3_Rm(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #5 personality ptr @__gxx_personality_v0 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca %"class.std::__cxx11::basic_string", align 8
+  %16 = alloca %"class.std::allocator.3", align 1
+  %17 = alloca ptr, align 8
+  %18 = alloca i32, align 4
+  %19 = alloca i32, align 4
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %20 = load ptr, ptr %7, align 8
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %13, align 8
+  %22 = load ptr, ptr %7, align 8
+  %23 = load ptr, ptr %22, align 8
+  store ptr %23, ptr %14, align 8
+  br label %24
+
+24:                                               ; preds = %47, %6
+  %25 = load ptr, ptr %7, align 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = load i8, ptr %26, align 1
+  %28 = sext i8 %27 to i32
+  %29 = icmp ne i32 %28, 0
+  br i1 %29, label %30, label %36
+
+30:                                               ; preds = %24
+  %31 = load ptr, ptr %7, align 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = load i8, ptr %32, align 1
+  %34 = sext i8 %33 to i32
+  %35 = icmp ne i32 %34, 10
+  br label %36
+
+36:                                               ; preds = %30, %24
+  %37 = phi i1 [ false, %24 ], [ %35, %30 ]
+  br i1 %37, label %38, label %51
+
+38:                                               ; preds = %36
+  %39 = load ptr, ptr %7, align 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = load i8, ptr %40, align 1
+  %42 = call noundef zeroext i1 @_ZN7jsonnet8internalL10is_horz_wsEc(i8 noundef signext %41)
+  br i1 %42, label %46, label %43
+
+43:                                               ; preds = %38
+  %44 = load ptr, ptr %7, align 8
+  %45 = load ptr, ptr %44, align 8
+  store ptr %45, ptr %14, align 8
+  br label %46
+
+46:                                               ; preds = %43, %38
+  br label %47
+
+47:                                               ; preds = %46
+  %48 = load ptr, ptr %7, align 8
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %49, i32 1
+  store ptr %50, ptr %48, align 8
+  br label %24, !llvm.loop !21
+
+51:                                               ; preds = %36
+  %52 = load ptr, ptr %13, align 8
+  %53 = load ptr, ptr %14, align 8
+  %54 = load ptr, ptr %13, align 8
+  %55 = ptrtoint ptr %53 to i64
+  %56 = ptrtoint ptr %54 to i64
+  %57 = sub i64 %55, %56
+  %58 = add nsw i64 %57, 1
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef %52, i64 noundef %58, ptr noundef nonnull align 1 dereferenceable(1) %16)
+          to label %59 unwind label %75
+
+59:                                               ; preds = %51
+  %60 = load ptr, ptr %8, align 8
+  %61 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull align 8 dereferenceable(32) %15) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
+  %62 = load ptr, ptr %7, align 8
+  %63 = load ptr, ptr %10, align 8
+  %64 = load ptr, ptr %11, align 8
+  %65 = load ptr, ptr %12, align 8
+  call void @_ZN7jsonnet8internalL6lex_wsERPKcRjS4_S3_Rm(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 4 dereferenceable(4) %63, ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef nonnull align 8 dereferenceable(8) %65)
+  %66 = load i32, ptr %19, align 4
+  %67 = icmp eq i32 %66, 0
+  br i1 %67, label %68, label %69
+
+68:                                               ; preds = %59
+  br label %72
+
+69:                                               ; preds = %59
+  %70 = load i32, ptr %19, align 4
+  %71 = sub i32 %70, 1
+  br label %72
+
+72:                                               ; preds = %69, %68
+  %73 = phi i32 [ 0, %68 ], [ %71, %69 ]
+  %74 = load ptr, ptr %9, align 8
+  store i32 %73, ptr %74, align 4
+  ret void
+
+75:                                               ; preds = %51
+  %76 = landingpad { ptr, i32 }
+          cleanup
+  %77 = extractvalue { ptr, i32 } %76, 0
+  store ptr %77, ptr %17, align 8
+  %78 = extractvalue { ptr, i32 } %76, 1
+  store i32 %78, ptr %18, align 4
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #3
+  br label %79
+
+79:                                               ; preds = %75
+  %80 = load ptr, ptr %17, align 8
+  %81 = load i32, ptr %18, align 4
+  %82 = insertvalue { ptr, i32 } poison, ptr %80, 0
+  %83 = insertvalue { ptr, i32 } %82, i32 %81, 1
+  resume { ptr, i32 } %83
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  %9 = load i64, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %8, i64 %9
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJRNS2_4KindERjS8_RS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) #5 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca %"class.__gnu_cxx::__normal_iterator.19", align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %12, i32 0, i32 0
+  %14 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %12, i32 0, i32 0
+  %17 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %16, i32 0, i32 2
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp ne ptr %15, %18
+  br i1 %19, label %20, label %33
+
+20:                                               ; preds = %5
+  %21 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %12, i32 0, i32 0
+  %22 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %12, i32 0, i32 0
+  %23 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8
+  %25 = load ptr, ptr %7, align 8
+  %26 = load ptr, ptr %8, align 8
+  %27 = load ptr, ptr %9, align 8
+  %28 = load ptr, ptr %10, align 8
+  call void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JRNS2_4KindERjS8_RSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEEvRS3_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef %24, ptr noundef nonnull align 4 dereferenceable(4) %25, ptr noundef nonnull align 4 dereferenceable(4) %26, ptr noundef nonnull align 4 dereferenceable(4) %27, ptr noundef nonnull align 8 dereferenceable(24) %28)
+  %29 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %12, i32 0, i32 0
+  %30 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %29, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %31, i32 1
+  store ptr %32, ptr %30, align 8
+  br label %42
+
+33:                                               ; preds = %5
+  %34 = call ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  %35 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %11, i32 0, i32 0
+  store ptr %34, ptr %35, align 8
+  %36 = load ptr, ptr %7, align 8
+  %37 = load ptr, ptr %8, align 8
+  %38 = load ptr, ptr %9, align 8
+  %39 = load ptr, ptr %10, align 8
+  %40 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %11, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE17_M_realloc_insertIJRNS2_4KindERjS8_RS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr %41, ptr noundef nonnull align 4 dereferenceable(4) %36, ptr noundef nonnull align 4 dereferenceable(4) %37, ptr noundef nonnull align 4 dereferenceable(4) %38, ptr noundef nonnull align 8 dereferenceable(24) %39)
+  br label %42
+
+42:                                               ; preds = %33, %20
+  %43 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  ret ptr %43
+}
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
+
+; Function Attrs: nounwind
+declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext, i64 noundef) #2
+
+; Function Attrs: nounwind
+declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) #2
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %11 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %10, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp ne ptr %9, %12
+  br i1 %13, label %14, label %24
+
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %16 = getelementptr inbounds %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %17 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %16, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8
+  %19 = load ptr, ptr %4, align 8
+  call void @_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(32) %19)
+  %20 = getelementptr inbounds %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %21 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %22, i32 1
+  store ptr %23, ptr %21, align 8
+  br label %30
+
+24:                                               ; preds = %2
+  %25 = call ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %26 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  store ptr %25, ptr %26, align 8
+  %27 = load ptr, ptr %4, align 8
+  %28 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %29, ptr noundef nonnull align 8 dereferenceable(32) %27)
+  br label %30
+
+30:                                               ; preds = %24, %14
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindEiiRS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) #5 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca %"class.__gnu_cxx::__normal_iterator.19", align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %12, i32 0, i32 0
+  %14 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %12, i32 0, i32 0
+  %17 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %16, i32 0, i32 2
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp ne ptr %15, %18
+  br i1 %19, label %20, label %33
+
+20:                                               ; preds = %5
+  %21 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %12, i32 0, i32 0
+  %22 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %12, i32 0, i32 0
+  %23 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8
+  %25 = load ptr, ptr %7, align 8
+  %26 = load ptr, ptr %8, align 8
+  %27 = load ptr, ptr %9, align 8
+  %28 = load ptr, ptr %10, align 8
+  call void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindEiiRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEEvRS3_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef %24, ptr noundef nonnull align 4 dereferenceable(4) %25, ptr noundef nonnull align 4 dereferenceable(4) %26, ptr noundef nonnull align 4 dereferenceable(4) %27, ptr noundef nonnull align 8 dereferenceable(24) %28)
+  %29 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %12, i32 0, i32 0
+  %30 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %29, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %31, i32 1
+  store ptr %32, ptr %30, align 8
+  br label %42
+
+33:                                               ; preds = %5
+  %34 = call ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  %35 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %11, i32 0, i32 0
+  store ptr %34, ptr %35, align 8
+  %36 = load ptr, ptr %7, align 8
+  %37 = load ptr, ptr %8, align 8
+  %38 = load ptr, ptr %9, align 8
+  %39 = load ptr, ptr %10, align 8
+  %40 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %11, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE17_M_realloc_insertIJNS2_4KindEiiRS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr %41, ptr noundef nonnull align 4 dereferenceable(4) %36, ptr noundef nonnull align 4 dereferenceable(4) %37, ptr noundef nonnull align 4 dereferenceable(4) %38, ptr noundef nonnull align 8 dereferenceable(24) %39)
+  br label %42
+
+42:                                               ; preds = %33, %20
+  %43 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  ret ptr %43
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindEjRjRKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) #5 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca %"class.__gnu_cxx::__normal_iterator.19", align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %12, i32 0, i32 0
+  %14 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %12, i32 0, i32 0
+  %17 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %16, i32 0, i32 2
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp ne ptr %15, %18
+  br i1 %19, label %20, label %33
+
+20:                                               ; preds = %5
+  %21 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %12, i32 0, i32 0
+  %22 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %12, i32 0, i32 0
+  %23 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8
+  %25 = load ptr, ptr %7, align 8
+  %26 = load ptr, ptr %8, align 8
+  %27 = load ptr, ptr %9, align 8
+  %28 = load ptr, ptr %10, align 8
+  call void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindEjRjRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvRS3_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef %24, ptr noundef nonnull align 4 dereferenceable(4) %25, ptr noundef nonnull align 4 dereferenceable(4) %26, ptr noundef nonnull align 4 dereferenceable(4) %27, ptr noundef nonnull align 8 dereferenceable(24) %28)
+  %29 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %12, i32 0, i32 0
+  %30 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %29, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %31, i32 1
+  store ptr %32, ptr %30, align 8
+  br label %42
+
+33:                                               ; preds = %5
+  %34 = call ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  %35 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %11, i32 0, i32 0
+  store ptr %34, ptr %35, align 8
+  %36 = load ptr, ptr %7, align 8
+  %37 = load ptr, ptr %8, align 8
+  %38 = load ptr, ptr %9, align 8
+  %39 = load ptr, ptr %10, align 8
+  %40 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %11, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE17_M_realloc_insertIJNS2_4KindEjRjRKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr %41, ptr noundef nonnull align 4 dereferenceable(4) %36, ptr noundef nonnull align 4 dereferenceable(4) %37, ptr noundef nonnull align 4 dereferenceable(4) %38, ptr noundef nonnull align 8 dereferenceable(24) %39)
+  br label %42
+
+42:                                               ; preds = %33, %20
+  %43 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  ret ptr %43
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZN7jsonnet8internalL10line_splitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) #5 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i1, align 1
+  %8 = alloca %"class.std::__cxx11::basic_stringstream", align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i64, align 8
+  %12 = alloca %"class.std::__cxx11::basic_string", align 8
+  %13 = alloca %"class.std::__cxx11::basic_string", align 8
+  %14 = alloca %"class.std::__cxx11::basic_string", align 8
+  %15 = alloca %"class.std::allocator.3", align 1
+  %16 = alloca %"class.std::__cxx11::basic_string", align 8
+  %17 = alloca %"class.std::__cxx11::basic_string", align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i32 %2, ptr %6, align 4
+  store i1 false, ptr %7, align 1
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #3
+  invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %8)
+          to label %18 unwind label %39
+
+18:                                               ; preds = %3
+  store i64 0, ptr %11, align 8
+  br label %19
+
+19:                                               ; preds = %74, %18
+  %20 = load i64, ptr %11, align 8
+  %21 = load ptr, ptr %5, align 8
+  %22 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #3
+  %23 = icmp ult i64 %20, %22
+  br i1 %23, label %24, label %77
+
+24:                                               ; preds = %19
+  %25 = load ptr, ptr %5, align 8
+  %26 = load i64, ptr %11, align 8
+  %27 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %25, i64 noundef %26) #3
+  %28 = load i8, ptr %27, align 1
+  %29 = sext i8 %28 to i32
+  %30 = icmp eq i32 %29, 10
+  br i1 %30, label %31, label %65
+
+31:                                               ; preds = %24
+  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %13, ptr noundef nonnull align 8 dereferenceable(128) %8)
+          to label %32 unwind label %43
+
+32:                                               ; preds = %31
+  %33 = load i32, ptr %6, align 4
+  invoke void @_ZN7jsonnet8internalL8strip_wsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef %33)
+          to label %34 unwind label %47
+
+34:                                               ; preds = %32
+  %35 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %36 unwind label %51
+
+36:                                               ; preds = %34
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef @.str.34, ptr noundef nonnull align 1 dereferenceable(1) %15)
+          to label %37 unwind label %56
+
+37:                                               ; preds = %36
+  invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strERKNS_12basic_stringIcS2_S3_EE(ptr noundef nonnull align 8 dereferenceable(128) %8, ptr noundef nonnull align 8 dereferenceable(32) %14)
+          to label %38 unwind label %60
+
+38:                                               ; preds = %37
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #3
+  br label %73
+
+39:                                               ; preds = %3
+  %40 = landingpad { ptr, i32 }
+          cleanup
+  %41 = extractvalue { ptr, i32 } %40, 0
+  store ptr %41, ptr %9, align 8
+  %42 = extractvalue { ptr, i32 } %40, 1
+  store i32 %42, ptr %10, align 4
+  br label %96
+
+43:                                               ; preds = %77, %65, %31
+  %44 = landingpad { ptr, i32 }
+          cleanup
+  %45 = extractvalue { ptr, i32 } %44, 0
+  store ptr %45, ptr %9, align 8
+  %46 = extractvalue { ptr, i32 } %44, 1
+  store i32 %46, ptr %10, align 4
+  br label %93
+
+47:                                               ; preds = %32
+  %48 = landingpad { ptr, i32 }
+          cleanup
+  %49 = extractvalue { ptr, i32 } %48, 0
+  store ptr %49, ptr %9, align 8
+  %50 = extractvalue { ptr, i32 } %48, 1
+  store i32 %50, ptr %10, align 4
+  br label %55
+
+51:                                               ; preds = %34
+  %52 = landingpad { ptr, i32 }
+          cleanup
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %9, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %10, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
+  br label %55
+
+55:                                               ; preds = %51, %47
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #3
+  br label %93
+
+56:                                               ; preds = %36
+  %57 = landingpad { ptr, i32 }
+          cleanup
+  %58 = extractvalue { ptr, i32 } %57, 0
+  store ptr %58, ptr %9, align 8
+  %59 = extractvalue { ptr, i32 } %57, 1
+  store i32 %59, ptr %10, align 4
+  br label %64
+
+60:                                               ; preds = %37
+  %61 = landingpad { ptr, i32 }
+          cleanup
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %9, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %10, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #3
+  br label %64
+
+64:                                               ; preds = %60, %56
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #3
+  br label %93
+
+65:                                               ; preds = %24
+  %66 = getelementptr inbounds i8, ptr %8, i64 16
+  %67 = load ptr, ptr %5, align 8
+  %68 = load i64, ptr %11, align 8
+  %69 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %67, i64 noundef %68) #3
+  %70 = load i8, ptr %69, align 1
+  %71 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %66, i8 noundef signext %70)
+          to label %72 unwind label %43
+
+72:                                               ; preds = %65
+  br label %73
+
+73:                                               ; preds = %72, %38
+  br label %74
+
+74:                                               ; preds = %73
+  %75 = load i64, ptr %11, align 8
+  %76 = add i64 %75, 1
+  store i64 %76, ptr %11, align 8
+  br label %19, !llvm.loop !22
+
+77:                                               ; preds = %19
+  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %17, ptr noundef nonnull align 8 dereferenceable(128) %8)
+          to label %78 unwind label %43
+
+78:                                               ; preds = %77
+  %79 = load i32, ptr %6, align 4
+  invoke void @_ZN7jsonnet8internalL8strip_wsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef %79)
+          to label %80 unwind label %84
+
+80:                                               ; preds = %78
+  %81 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %16)
+          to label %82 unwind label %88
+
+82:                                               ; preds = %80
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #3
+  store i1 true, ptr %7, align 1
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %8) #3
+  %83 = load i1, ptr %7, align 1
+  br i1 %83, label %95, label %94
+
+84:                                               ; preds = %78
+  %85 = landingpad { ptr, i32 }
+          cleanup
+  %86 = extractvalue { ptr, i32 } %85, 0
+  store ptr %86, ptr %9, align 8
+  %87 = extractvalue { ptr, i32 } %85, 1
+  store i32 %87, ptr %10, align 4
+  br label %92
+
+88:                                               ; preds = %80
+  %89 = landingpad { ptr, i32 }
+          cleanup
+  %90 = extractvalue { ptr, i32 } %89, 0
+  store ptr %90, ptr %9, align 8
+  %91 = extractvalue { ptr, i32 } %89, 1
+  store i32 %91, ptr %10, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
+  br label %92
+
+92:                                               ; preds = %88, %84
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #3
+  br label %93
+
+93:                                               ; preds = %92, %64, %55, %43
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %8) #3
+  br label %96
+
+94:                                               ; preds = %82
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #3
+  br label %95
+
+95:                                               ; preds = %94, %82
+  ret void
+
+96:                                               ; preds = %93, %39
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #3
+  br label %97
+
+97:                                               ; preds = %96
+  %98 = load ptr, ptr %9, align 8
+  %99 = load i32, ptr %10, align 4
+  %100 = insertvalue { ptr, i32 } poison, ptr %98, 0
+  %101 = insertvalue { ptr, i32 } %100, i32 %99, 1
+  resume { ptr, i32 } %101
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEaSEOS7_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  store i8 1, ptr %5, align 1
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE14_M_move_assignEOS7_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxneIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEEbRKNS_17__normal_iteratorIT_T0_EESG_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp ne ptr %7, %10
+  ret i1 %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %5, i32 1
+  store ptr %6, ptr %4, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #5 comdat personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i1, align 1
+  %9 = alloca %"class.std::allocator.3", align 1
+  %10 = alloca %"class.std::allocator.3", align 1
+  %11 = alloca ptr, align 8
+  %12 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %13 = load ptr, ptr %5, align 8
+  %14 = call noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %13)
+  store i64 %14, ptr %7, align 8
+  store i1 false, ptr %8, align 1
+  %15 = load ptr, ptr %6, align 8
+  call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13get_allocatorEv(ptr dead_on_unwind writable sret(%"class.std::allocator.3") align 1 %10, ptr noundef nonnull align 8 dereferenceable(32) %15) #3
+  invoke void @_ZN9__gnu_cxx14__alloc_traitsISaIcEcE17_S_select_on_copyERKS1_(ptr dead_on_unwind writable sret(%"class.std::allocator.3") align 1 %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %16 unwind label %30
+
+16:                                               ; preds = %3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 dereferenceable(1) %9) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
+  %17 = load i64, ptr %7, align 8
+  %18 = load ptr, ptr %6, align 8
+  %19 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #3
+  %20 = add i64 %17, %19
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %20)
+          to label %21 unwind label %34
+
+21:                                               ; preds = %16
+  %22 = load ptr, ptr %5, align 8
+  %23 = load i64, ptr %7, align 8
+  %24 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %22, i64 noundef %23)
+          to label %25 unwind label %34
+
+25:                                               ; preds = %21
+  %26 = load ptr, ptr %6, align 8
+  %27 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %26)
+          to label %28 unwind label %34
+
+28:                                               ; preds = %25
+  store i1 true, ptr %8, align 1
+  %29 = load i1, ptr %8, align 1
+  br i1 %29, label %39, label %38
+
+30:                                               ; preds = %3
+  %31 = landingpad { ptr, i32 }
+          cleanup
+  %32 = extractvalue { ptr, i32 } %31, 0
+  store ptr %32, ptr %11, align 8
+  %33 = extractvalue { ptr, i32 } %31, 1
+  store i32 %33, ptr %12, align 4
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
+  br label %40
+
+34:                                               ; preds = %25, %21, %16
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %11, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %12, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  br label %40
+
+38:                                               ; preds = %28
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #3
+  br label %39
+
+39:                                               ; preds = %38, %28
+  ret void
+
+40:                                               ; preds = %34, %30
+  %41 = load ptr, ptr %11, align 8
+  %42 = load i32, ptr %12, align 4
+  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
+  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
+  resume { ptr, i32 } %44
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZN7jsonnet8internalL16fodder_push_backERSt6vectorINS0_13FodderElementESaIS2_EERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) #5 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  %8 = alloca %"class.std::vector", align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %11 = load ptr, ptr %3, align 8
+  %12 = call noundef zeroext i1 @_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %11)
+  br i1 %12, label %13, label %48
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %14, i32 0, i32 0
+  %16 = load i32, ptr %15, align 8
+  %17 = icmp eq i32 %16, 0
+  br i1 %17, label %18, label %48
+
+18:                                               ; preds = %13
+  %19 = load ptr, ptr %4, align 8
+  %20 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %19, i32 0, i32 3
+  %21 = call noundef i64 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %20) #3
+  %22 = icmp ugt i64 %21, 0
+  br i1 %22, label %23, label %32
+
+23:                                               ; preds = %18
+  %24 = load ptr, ptr %3, align 8
+  store i32 2, ptr %5, align 4
+  %25 = load ptr, ptr %4, align 8
+  %26 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %25, i32 0, i32 1
+  %27 = load ptr, ptr %4, align 8
+  %28 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %27, i32 0, i32 2
+  %29 = load ptr, ptr %4, align 8
+  %30 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %29, i32 0, i32 3
+  %31 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindERKjS8_RKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %26, ptr noundef nonnull align 4 dereferenceable(4) %28, ptr noundef nonnull align 8 dereferenceable(24) %30)
+  br label %47
+
+32:                                               ; preds = %18
+  %33 = load ptr, ptr %4, align 8
+  %34 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %33, i32 0, i32 2
+  %35 = load i32, ptr %34, align 8
+  %36 = load ptr, ptr %3, align 8
+  %37 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %36) #3
+  %38 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %37, i32 0, i32 2
+  store i32 %35, ptr %38, align 8
+  %39 = load ptr, ptr %4, align 8
+  %40 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %39, i32 0, i32 1
+  %41 = load i32, ptr %40, align 4
+  %42 = load ptr, ptr %3, align 8
+  %43 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %42) #3
+  %44 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %43, i32 0, i32 1
+  %45 = load i32, ptr %44, align 4
+  %46 = add i32 %45, %41
+  store i32 %46, ptr %44, align 4
+  br label %47
+
+47:                                               ; preds = %32, %23
+  br label %69
+
+48:                                               ; preds = %13, %2
+  %49 = load ptr, ptr %3, align 8
+  %50 = call noundef zeroext i1 @_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %49)
+  br i1 %50, label %66, label %51
+
+51:                                               ; preds = %48
+  %52 = load ptr, ptr %4, align 8
+  %53 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %52, i32 0, i32 0
+  %54 = load i32, ptr %53, align 8
+  %55 = icmp eq i32 %54, 2
+  br i1 %55, label %56, label %66
+
+56:                                               ; preds = %51
+  %57 = load ptr, ptr %3, align 8
+  store i32 0, ptr %6, align 4
+  store i32 0, ptr %7, align 4
+  %58 = load ptr, ptr %4, align 8
+  %59 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %58, i32 0, i32 2
+  call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 24, i1 false)
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  %60 = invoke noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindEiRKjS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %59, ptr noundef nonnull align 8 dereferenceable(24) %8)
+          to label %61 unwind label %62
+
+61:                                               ; preds = %56
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  br label %66
+
+62:                                               ; preds = %56
+  %63 = landingpad { ptr, i32 }
+          cleanup
+  %64 = extractvalue { ptr, i32 } %63, 0
+  store ptr %64, ptr %9, align 8
+  %65 = extractvalue { ptr, i32 } %63, 1
+  store i32 %65, ptr %10, align 4
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  br label %70
+
+66:                                               ; preds = %61, %51, %48
+  %67 = load ptr, ptr %3, align 8
+  %68 = load ptr, ptr %4, align 8
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %67, ptr noundef nonnull align 8 dereferenceable(40) %68)
+  br label %69
+
+69:                                               ; preds = %66, %47
+  ret void
+
+70:                                               ; preds = %62
+  %71 = load ptr, ptr %9, align 8
+  %72 = load i32, ptr %10, align 4
+  %73 = insertvalue { ptr, i32 } poison, ptr %71, 0
+  %74 = insertvalue { ptr, i32 } %73, i32 %72, 1
+  resume { ptr, i32 } %74
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN7jsonnet8internal13FodderElementC2ENS1_4KindEjjRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #5 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store i32 %1, ptr %7, align 4
+  store i32 %2, ptr %8, align 4
+  store i32 %3, ptr %9, align 4
+  store ptr %4, ptr %10, align 8
+  %11 = load ptr, ptr %6, align 8
+  %12 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %11, i32 0, i32 0
+  %13 = load i32, ptr %7, align 4
+  store i32 %13, ptr %12, align 8
+  %14 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %11, i32 0, i32 1
+  %15 = load i32, ptr %8, align 4
+  store i32 %15, ptr %14, align 4
+  %16 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %11, i32 0, i32 2
+  %17 = load i32, ptr %9, align 4
+  store i32 %17, ptr %16, align 8
+  %18 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %11, i32 0, i32 3
+  %19 = load ptr, ptr %10, align 8
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %19)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN7jsonnet8internal13FodderElementD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %3, i32 0, i32 3
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @_ZN7jsonnet8internalL10is_horz_wsEc(i8 noundef signext %0) #4 {
+  %2 = alloca i8, align 1
+  store i8 %0, ptr %2, align 1
+  %3 = load i8, ptr %2, align 1
+  %4 = sext i8 %3 to i32
+  %5 = icmp eq i32 %4, 32
+  br i1 %5, label %14, label %6
+
+6:                                                ; preds = %1
+  %7 = load i8, ptr %2, align 1
+  %8 = sext i8 %7 to i32
+  %9 = icmp eq i32 %8, 9
+  br i1 %9, label %14, label %10
+
+10:                                               ; preds = %6
+  %11 = load i8, ptr %2, align 1
+  %12 = sext i8 %11 to i32
+  %13 = icmp eq i32 %12, 13
+  br label %14
+
+14:                                               ; preds = %10, %6, %1
+  %15 = phi i1 [ true, %6 ], [ true, %1 ], [ %13, %10 ]
+  ret i1 %15
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef i32 @_ZN7jsonnet8internalL16whitespace_checkEPKcS2_(ptr noundef %0, ptr noundef %1) #4 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i32 0, ptr %6, align 4
+  br label %7
+
+7:                                                ; preds = %40, %2
+  %8 = load ptr, ptr %4, align 8
+  %9 = load i32, ptr %6, align 4
+  %10 = sext i32 %9 to i64
+  %11 = getelementptr inbounds i8, ptr %8, i64 %10
+  %12 = load i8, ptr %11, align 1
+  %13 = sext i8 %12 to i32
+  %14 = icmp eq i32 %13, 32
+  br i1 %14, label %23, label %15
+
+15:                                               ; preds = %7
+  %16 = load ptr, ptr %4, align 8
+  %17 = load i32, ptr %6, align 4
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr inbounds i8, ptr %16, i64 %18
+  %20 = load i8, ptr %19, align 1
+  %21 = sext i8 %20 to i32
+  %22 = icmp eq i32 %21, 9
+  br label %23
+
+23:                                               ; preds = %15, %7
+  %24 = phi i1 [ true, %7 ], [ %22, %15 ]
+  br i1 %24, label %25, label %43
+
+25:                                               ; preds = %23
+  %26 = load ptr, ptr %5, align 8
+  %27 = load i32, ptr %6, align 4
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds i8, ptr %26, i64 %28
+  %30 = load i8, ptr %29, align 1
+  %31 = sext i8 %30 to i32
+  %32 = load ptr, ptr %4, align 8
+  %33 = load i32, ptr %6, align 4
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds i8, ptr %32, i64 %34
+  %36 = load i8, ptr %35, align 1
+  %37 = sext i8 %36 to i32
+  %38 = icmp ne i32 %31, %37
+  br i1 %38, label %39, label %40
+
+39:                                               ; preds = %25
+  store i32 0, ptr %3, align 4
+  br label %45
+
+40:                                               ; preds = %25
+  %41 = load i32, ptr %6, align 4
+  %42 = add nsw i32 %41, 1
+  store i32 %42, ptr %6, align 4
+  br label %7, !llvm.loop !23
+
+43:                                               ; preds = %23
+  %44 = load i32, ptr %6, align 4
+  store i32 %44, ptr %3, align 4
+  br label %45
+
+45:                                               ; preds = %43, %39
+  %46 = load i32, ptr %3, align 4
+  ret i32 %46
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %11 = load ptr, ptr %5, align 8
+  %12 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %11, i32 0, i32 0
+  %13 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %14 = load ptr, ptr %8, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %14)
+  %15 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %11, i32 0, i32 1
+  store i64 0, ptr %15, align 8
+  %16 = load ptr, ptr %6, align 8
+  %17 = load ptr, ptr %7, align 8
+  invoke void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %6)
+          to label %18 unwind label %20
+
+18:                                               ; preds = %4
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %16, ptr noundef %17)
+          to label %19 unwind label %20
+
+19:                                               ; preds = %18
+  ret void
+
+20:                                               ; preds = %18, %4
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %9, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %10, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
+  br label %24
+
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %9, align 8
+  %26 = load i32, ptr %10, align 4
+  %27 = insertvalue { ptr, i32 } poison, ptr %25, 0
+  %28 = insertvalue { ptr, i32 } %27, i32 %26, 1
+  resume { ptr, i32 } %28
+}
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %6) #3
+  %8 = icmp eq i32 %7, 0
+  ret i1 %8
+}
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) #1
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(192) ptr @_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE12emplace_backIJRNS3_4KindERSt6vectorINS2_13FodderElementESaISA_EERNS_12basic_stringIcSt11char_traitsIcESaIcEEESJ_SJ_NS2_13LocationRangeEEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(64) %6) #5 comdat align 2 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca %"struct.std::_List_iterator", align 8
+  store ptr %0, ptr %8, align 8
+  store ptr %1, ptr %9, align 8
+  store ptr %2, ptr %10, align 8
+  store ptr %3, ptr %11, align 8
+  store ptr %4, ptr %12, align 8
+  store ptr %5, ptr %13, align 8
+  store ptr %6, ptr %14, align 8
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
+  %18 = getelementptr inbounds %"struct.std::_List_iterator", ptr %15, i32 0, i32 0
+  store ptr %17, ptr %18, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = load ptr, ptr %10, align 8
+  %21 = load ptr, ptr %11, align 8
+  %22 = load ptr, ptr %12, align 8
+  %23 = load ptr, ptr %13, align 8
+  %24 = load ptr, ptr %14, align 8
+  %25 = getelementptr inbounds %"struct.std::_List_iterator", ptr %15, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8
+  call void @_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE9_M_insertIJRNS3_4KindERSt6vectorINS2_13FodderElementESaISA_EERNS_12basic_stringIcSt11char_traitsIcESaIcEEESJ_SJ_NS2_13LocationRangeEEEEvSt14_List_iteratorIS3_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr %26, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(64) %24)
+  %27 = call noundef nonnull align 8 dereferenceable(192) ptr @_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
+  ret ptr %27
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN7jsonnet8internal13LocationRangeC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8LocationESC_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #5 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = getelementptr inbounds %"struct.jsonnet::internal::LocationRange", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %12 = getelementptr inbounds %"struct.jsonnet::internal::LocationRange", ptr %9, i32 0, i32 1
+  %13 = load ptr, ptr %7, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %13, i64 16, i1 false)
+  %14 = getelementptr inbounds %"struct.jsonnet::internal::LocationRange", ptr %9, i32 0, i32 2
+  %15 = load ptr, ptr %8, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %15, i64 16, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN7jsonnet8internal13LocationRangeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.jsonnet::internal::LocationRange", ptr %3, i32 0, i32 0
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE15_M_erase_at_endEPS2_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6) #3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(192) ptr @_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE12emplace_backIJNS3_4KindERSt6vectorINS2_13FodderElementESaIS9_EERA1_KcSF_SF_NS2_13LocationRangeEEEERS3_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(64) %6) #5 comdat align 2 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca %"struct.std::_List_iterator", align 8
+  store ptr %0, ptr %8, align 8
+  store ptr %1, ptr %9, align 8
+  store ptr %2, ptr %10, align 8
+  store ptr %3, ptr %11, align 8
+  store ptr %4, ptr %12, align 8
+  store ptr %5, ptr %13, align 8
+  store ptr %6, ptr %14, align 8
+  %16 = load ptr, ptr %8, align 8
+  %17 = call ptr @_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
+  %18 = getelementptr inbounds %"struct.std::_List_iterator", ptr %15, i32 0, i32 0
+  store ptr %17, ptr %18, align 8
+  %19 = load ptr, ptr %9, align 8
+  %20 = load ptr, ptr %10, align 8
+  %21 = load ptr, ptr %11, align 8
+  %22 = load ptr, ptr %12, align 8
+  %23 = load ptr, ptr %13, align 8
+  %24 = load ptr, ptr %14, align 8
+  %25 = getelementptr inbounds %"struct.std::_List_iterator", ptr %15, i32 0, i32 0
+  %26 = load ptr, ptr %25, align 8
+  call void @_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE9_M_insertIJNS3_4KindERSt6vectorINS2_13FodderElementESaIS9_EERA1_KcSF_SF_NS2_13LocationRangeEEEEvSt14_List_iteratorIS3_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr %26, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull align 8 dereferenceable(64) %24)
+  %27 = call noundef nonnull align 8 dereferenceable(192) ptr @_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
+  ret ptr %27
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  invoke void @_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E(ptr noundef %6, ptr noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
+          to label %11 unwind label %12
+
+11:                                               ; preds = %1
+  call void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  ret void
+
+12:                                               ; preds = %1
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #14
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN7jsonnet8internal13jsonnet_unlexERKNSt7__cxx114listINS0_5TokenESaIS3_EEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #5 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::__cxx11::basic_stringstream", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"struct.std::_List_const_iterator", align 8
+  %8 = alloca %"struct.std::_List_const_iterator", align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca %"class.__gnu_cxx::__normal_iterator.17", align 8
+  %12 = alloca %"class.__gnu_cxx::__normal_iterator.17", align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = alloca ptr, align 8
+  %17 = alloca %"class.__gnu_cxx::__normal_iterator.18", align 8
+  %18 = alloca %"class.__gnu_cxx::__normal_iterator.18", align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %5)
+  %21 = load ptr, ptr %4, align 8
+  store ptr %21, ptr %6, align 8
+  %22 = load ptr, ptr %6, align 8
+  %23 = call ptr @_ZNKSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %22) #3
+  %24 = getelementptr inbounds %"struct.std::_List_const_iterator", ptr %7, i32 0, i32 0
+  store ptr %23, ptr %24, align 8
+  %25 = load ptr, ptr %6, align 8
+  %26 = call ptr @_ZNKSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %25) #3
+  %27 = getelementptr inbounds %"struct.std::_List_const_iterator", ptr %8, i32 0, i32 0
+  store ptr %26, ptr %27, align 8
+  br label %28
+
+28:                                               ; preds = %263, %2
+  %29 = call noundef zeroext i1 @_ZStneRKSt20_List_const_iteratorIN7jsonnet8internal5TokenEES5_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  br i1 %29, label %30, label %265
+
+30:                                               ; preds = %28
+  %31 = call noundef nonnull align 8 dereferenceable(192) ptr @_ZNKSt20_List_const_iteratorIN7jsonnet8internal5TokenEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  store ptr %31, ptr %9, align 8
+  %32 = load ptr, ptr %9, align 8
+  %33 = getelementptr inbounds %"struct.jsonnet::internal::Token", ptr %32, i32 0, i32 1
+  store ptr %33, ptr %10, align 8
+  %34 = load ptr, ptr %10, align 8
+  %35 = call ptr @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %34) #3
+  %36 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %11, i32 0, i32 0
+  store ptr %35, ptr %36, align 8
+  %37 = load ptr, ptr %10, align 8
+  %38 = call ptr @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %37) #3
+  %39 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %12, i32 0, i32 0
+  store ptr %38, ptr %39, align 8
+  br label %40
+
+40:                                               ; preds = %149, %30
+  %41 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12) #3
+  br i1 %41, label %42, label %151
+
+42:                                               ; preds = %40
+  %43 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %11) #3
+  store ptr %43, ptr %13, align 8
+  %44 = load ptr, ptr %13, align 8
+  %45 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %44, i32 0, i32 0
+  %46 = load i32, ptr %45, align 8
+  switch i32 %46, label %148 [
+    i32 0, label %47
+    i32 1, label %100
+    i32 2, label %111
+  ]
+
+47:                                               ; preds = %42
+  %48 = load ptr, ptr %13, align 8
+  %49 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %48, i32 0, i32 3
+  %50 = call noundef i64 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %49) #3
+  %51 = icmp ugt i64 %50, 0
+  br i1 %51, label %52, label %81
+
+52:                                               ; preds = %47
+  %53 = getelementptr inbounds i8, ptr %5, i64 16
+  %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef @.str.39)
+          to label %55 unwind label %77
+
+55:                                               ; preds = %52
+  %56 = load ptr, ptr %13, align 8
+  %57 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %56, i32 0, i32 1
+  %58 = load i32, ptr %57, align 4
+  %59 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %54, i32 noundef %58)
+          to label %60 unwind label %77
+
+60:                                               ; preds = %55
+  %61 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef @.str.40)
+          to label %62 unwind label %77
+
+62:                                               ; preds = %60
+  %63 = load ptr, ptr %13, align 8
+  %64 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %63, i32 0, i32 2
+  %65 = load i32, ptr %64, align 8
+  %66 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %61, i32 noundef %65)
+          to label %67 unwind label %77
+
+67:                                               ; preds = %62
+  %68 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef @.str.40)
+          to label %69 unwind label %77
+
+69:                                               ; preds = %67
+  %70 = load ptr, ptr %13, align 8
+  %71 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %70, i32 0, i32 3
+  %72 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %71, i64 noundef 0) #3
+  %73 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull align 8 dereferenceable(32) %72)
+          to label %74 unwind label %77
+
+74:                                               ; preds = %69
+  %75 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr noundef @.str.41)
+          to label %76 unwind label %77
+
+76:                                               ; preds = %74
+  br label %99
+
+77:                                               ; preds = %265, %257, %252, %249, %244, %234, %212, %198, %195, %187, %183, %180, %172, %168, %165, %156, %145, %140, %137, %132, %129, %125, %111, %108, %103, %100, %96, %91, %89, %84, %81, %74, %69, %67, %62, %60, %55, %52
+  %78 = landingpad { ptr, i32 }
+          cleanup
+  %79 = extractvalue { ptr, i32 } %78, 0
+  store ptr %79, ptr %14, align 8
+  %80 = extractvalue { ptr, i32 } %78, 1
+  store i32 %80, ptr %15, align 4
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %5) #3
+  br label %267
+
+81:                                               ; preds = %47
+  %82 = getelementptr inbounds i8, ptr %5, i64 16
+  %83 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %82, ptr noundef @.str.39)
+          to label %84 unwind label %77
+
+84:                                               ; preds = %81
+  %85 = load ptr, ptr %13, align 8
+  %86 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %85, i32 0, i32 1
+  %87 = load i32, ptr %86, align 4
+  %88 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %83, i32 noundef %87)
+          to label %89 unwind label %77
+
+89:                                               ; preds = %84
+  %90 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %88, ptr noundef @.str.40)
+          to label %91 unwind label %77
+
+91:                                               ; preds = %89
+  %92 = load ptr, ptr %13, align 8
+  %93 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %92, i32 0, i32 2
+  %94 = load i32, ptr %93, align 8
+  %95 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %90, i32 noundef %94)
+          to label %96 unwind label %77
+
+96:                                               ; preds = %91
+  %97 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %95, ptr noundef @.str.41)
+          to label %98 unwind label %77
+
+98:                                               ; preds = %96
+  br label %99
+
+99:                                               ; preds = %98, %76
+  br label %148
+
+100:                                              ; preds = %42
+  %101 = getelementptr inbounds i8, ptr %5, i64 16
+  %102 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %101, ptr noundef @.str.42)
+          to label %103 unwind label %77
+
+103:                                              ; preds = %100
+  %104 = load ptr, ptr %13, align 8
+  %105 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %104, i32 0, i32 3
+  %106 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %105, i64 noundef 0) #3
+  %107 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %102, ptr noundef nonnull align 8 dereferenceable(32) %106)
+          to label %108 unwind label %77
+
+108:                                              ; preds = %103
+  %109 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %107, ptr noundef @.str.41)
+          to label %110 unwind label %77
+
+110:                                              ; preds = %108
+  br label %148
+
+111:                                              ; preds = %42
+  %112 = getelementptr inbounds i8, ptr %5, i64 16
+  %113 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %112, ptr noundef @.str.43)
+          to label %114 unwind label %77
+
+114:                                              ; preds = %111
+  %115 = load ptr, ptr %13, align 8
+  %116 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %115, i32 0, i32 3
+  store ptr %116, ptr %16, align 8
+  %117 = load ptr, ptr %16, align 8
+  %118 = call ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %117) #3
+  %119 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.18", ptr %17, i32 0, i32 0
+  store ptr %118, ptr %119, align 8
+  %120 = load ptr, ptr %16, align 8
+  %121 = call ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %120) #3
+  %122 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.18", ptr %18, i32 0, i32 0
+  store ptr %121, ptr %122, align 8
+  br label %123
+
+123:                                              ; preds = %135, %114
+  %124 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEEbRKNS_17__normal_iteratorIT_T0_EESH_(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18) #3
+  br i1 %124, label %125, label %137
+
+125:                                              ; preds = %123
+  %126 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %17) #3
+  store ptr %126, ptr %19, align 8
+  %127 = getelementptr inbounds i8, ptr %5, i64 16
+  %128 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %127, ptr noundef @.str.44)
+          to label %129 unwind label %77
+
+129:                                              ; preds = %125
+  %130 = load ptr, ptr %19, align 8
+  %131 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %128, ptr noundef nonnull align 8 dereferenceable(32) %130)
+          to label %132 unwind label %77
+
+132:                                              ; preds = %129
+  %133 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %131, i8 noundef signext 10)
+          to label %134 unwind label %77
+
+134:                                              ; preds = %132
+  br label %135
+
+135:                                              ; preds = %134
+  %136 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %17) #3
+  br label %123
+
+137:                                              ; preds = %123
+  %138 = getelementptr inbounds i8, ptr %5, i64 16
+  %139 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %138, ptr noundef @.str.45)
+          to label %140 unwind label %77
+
+140:                                              ; preds = %137
+  %141 = load ptr, ptr %13, align 8
+  %142 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %141, i32 0, i32 1
+  %143 = load i32, ptr %142, align 4
+  %144 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %139, i32 noundef %143)
+          to label %145 unwind label %77
+
+145:                                              ; preds = %140
+  %146 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %144, ptr noundef @.str.46)
+          to label %147 unwind label %77
+
+147:                                              ; preds = %145
+  br label %148
+
+148:                                              ; preds = %147, %110, %99, %42
+  br label %149
+
+149:                                              ; preds = %148
+  %150 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %11) #3
+  br label %40
+
+151:                                              ; preds = %40
+  %152 = load ptr, ptr %9, align 8
+  %153 = getelementptr inbounds %"struct.jsonnet::internal::Token", ptr %152, i32 0, i32 0
+  %154 = load i32, ptr %153, align 8
+  %155 = icmp eq i32 %154, 36
+  br i1 %155, label %156, label %160
+
+156:                                              ; preds = %151
+  %157 = getelementptr inbounds i8, ptr %5, i64 16
+  %158 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %157, ptr noundef @.str.47)
+          to label %159 unwind label %77
+
+159:                                              ; preds = %156
+  br label %265
+
+160:                                              ; preds = %151
+  %161 = load ptr, ptr %9, align 8
+  %162 = getelementptr inbounds %"struct.jsonnet::internal::Token", ptr %161, i32 0, i32 0
+  %163 = load i32, ptr %162, align 8
+  %164 = icmp eq i32 %163, 13
+  br i1 %164, label %165, label %175
+
+165:                                              ; preds = %160
+  %166 = getelementptr inbounds i8, ptr %5, i64 16
+  %167 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %166, ptr noundef @.str.48)
+          to label %168 unwind label %77
+
+168:                                              ; preds = %165
+  %169 = load ptr, ptr %9, align 8
+  %170 = getelementptr inbounds %"struct.jsonnet::internal::Token", ptr %169, i32 0, i32 2
+  %171 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %167, ptr noundef nonnull align 8 dereferenceable(32) %170)
+          to label %172 unwind label %77
+
+172:                                              ; preds = %168
+  %173 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %171, ptr noundef @.str.49)
+          to label %174 unwind label %77
+
+174:                                              ; preds = %172
+  br label %262
+
+175:                                              ; preds = %160
+  %176 = load ptr, ptr %9, align 8
+  %177 = getelementptr inbounds %"struct.jsonnet::internal::Token", ptr %176, i32 0, i32 0
+  %178 = load i32, ptr %177, align 8
+  %179 = icmp eq i32 %178, 14
+  br i1 %179, label %180, label %190
+
+180:                                              ; preds = %175
+  %181 = getelementptr inbounds i8, ptr %5, i64 16
+  %182 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %181, ptr noundef @.str.37)
+          to label %183 unwind label %77
+
+183:                                              ; preds = %180
+  %184 = load ptr, ptr %9, align 8
+  %185 = getelementptr inbounds %"struct.jsonnet::internal::Token", ptr %184, i32 0, i32 2
+  %186 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %182, ptr noundef nonnull align 8 dereferenceable(32) %185)
+          to label %187 unwind label %77
+
+187:                                              ; preds = %183
+  %188 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %186, ptr noundef @.str.50)
+          to label %189 unwind label %77
+
+189:                                              ; preds = %187
+  br label %261
+
+190:                                              ; preds = %175
+  %191 = load ptr, ptr %9, align 8
+  %192 = getelementptr inbounds %"struct.jsonnet::internal::Token", ptr %191, i32 0, i32 0
+  %193 = load i32, ptr %192, align 8
+  %194 = icmp eq i32 %193, 15
+  br i1 %194, label %195, label %252
+
+195:                                              ; preds = %190
+  %196 = getelementptr inbounds i8, ptr %5, i64 16
+  %197 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %196, ptr noundef @.str.51)
+          to label %198 unwind label %77
+
+198:                                              ; preds = %195
+  %199 = getelementptr inbounds i8, ptr %5, i64 16
+  %200 = load ptr, ptr %9, align 8
+  %201 = getelementptr inbounds %"struct.jsonnet::internal::Token", ptr %200, i32 0, i32 3
+  %202 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %199, ptr noundef nonnull align 8 dereferenceable(32) %201)
+          to label %203 unwind label %77
+
+203:                                              ; preds = %198
+  %204 = load ptr, ptr %9, align 8
+  %205 = getelementptr inbounds %"struct.jsonnet::internal::Token", ptr %204, i32 0, i32 2
+  %206 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %205) #3
+  store ptr %206, ptr %20, align 8
+  br label %207
+
+207:                                              ; preds = %241, %203
+  %208 = load ptr, ptr %20, align 8
+  %209 = load i8, ptr %208, align 1
+  %210 = sext i8 %209 to i32
+  %211 = icmp ne i32 %210, 0
+  br i1 %211, label %212, label %244
+
+212:                                              ; preds = %207
+  %213 = getelementptr inbounds i8, ptr %5, i64 16
+  %214 = load ptr, ptr %20, align 8
+  %215 = load i8, ptr %214, align 1
+  %216 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %213, i8 noundef signext %215)
+          to label %217 unwind label %77
+
+217:                                              ; preds = %212
+  %218 = load ptr, ptr %20, align 8
+  %219 = load i8, ptr %218, align 1
+  %220 = sext i8 %219 to i32
+  %221 = icmp eq i32 %220, 10
+  br i1 %221, label %222, label %240
+
+222:                                              ; preds = %217
+  %223 = load ptr, ptr %20, align 8
+  %224 = getelementptr inbounds i8, ptr %223, i64 1
+  %225 = load i8, ptr %224, align 1
+  %226 = sext i8 %225 to i32
+  %227 = icmp ne i32 %226, 10
+  br i1 %227, label %228, label %240
+
+228:                                              ; preds = %222
+  %229 = load ptr, ptr %20, align 8
+  %230 = getelementptr inbounds i8, ptr %229, i64 1
+  %231 = load i8, ptr %230, align 1
+  %232 = sext i8 %231 to i32
+  %233 = icmp ne i32 %232, 0
+  br i1 %233, label %234, label %240
+
+234:                                              ; preds = %228
+  %235 = getelementptr inbounds i8, ptr %5, i64 16
+  %236 = load ptr, ptr %9, align 8
+  %237 = getelementptr inbounds %"struct.jsonnet::internal::Token", ptr %236, i32 0, i32 3
+  %238 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %235, ptr noundef nonnull align 8 dereferenceable(32) %237)
+          to label %239 unwind label %77
+
+239:                                              ; preds = %234
+  br label %240
+
+240:                                              ; preds = %239, %228, %222, %217
+  br label %241
+
+241:                                              ; preds = %240
+  %242 = load ptr, ptr %20, align 8
+  %243 = getelementptr inbounds i8, ptr %242, i32 1
+  store ptr %243, ptr %20, align 8
+  br label %207, !llvm.loop !24
+
+244:                                              ; preds = %207
+  %245 = getelementptr inbounds i8, ptr %5, i64 16
+  %246 = load ptr, ptr %9, align 8
+  %247 = getelementptr inbounds %"struct.jsonnet::internal::Token", ptr %246, i32 0, i32 4
+  %248 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %245, ptr noundef nonnull align 8 dereferenceable(32) %247)
+          to label %249 unwind label %77
+
+249:                                              ; preds = %244
+  %250 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %248, ptr noundef @.str.51)
+          to label %251 unwind label %77
+
+251:                                              ; preds = %249
+  br label %260
+
+252:                                              ; preds = %190
+  %253 = getelementptr inbounds i8, ptr %5, i64 16
+  %254 = load ptr, ptr %9, align 8
+  %255 = getelementptr inbounds %"struct.jsonnet::internal::Token", ptr %254, i32 0, i32 2
+  %256 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %253, ptr noundef nonnull align 8 dereferenceable(32) %255)
+          to label %257 unwind label %77
+
+257:                                              ; preds = %252
+  %258 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %256, ptr noundef @.str.46)
+          to label %259 unwind label %77
+
+259:                                              ; preds = %257
+  br label %260
+
+260:                                              ; preds = %259, %251
+  br label %261
+
+261:                                              ; preds = %260, %189
+  br label %262
+
+262:                                              ; preds = %261, %174
+  br label %263
+
+263:                                              ; preds = %262
+  %264 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt20_List_const_iteratorIN7jsonnet8internal5TokenEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br label %28
+
+265:                                              ; preds = %159, %28
+  invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %5)
+          to label %266 unwind label %77
+
+266:                                              ; preds = %265
+  call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %5) #3
+  ret void
+
+267:                                              ; preds = %77
+  %268 = load ptr, ptr %14, align 8
+  %269 = load i32, ptr %15, align 4
+  %270 = insertvalue { ptr, i32 } poison, ptr %268, 0
+  %271 = insertvalue { ptr, i32 } %270, i32 %269, 1
+  resume { ptr, i32 } %271
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNKSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca %"struct.std::_List_const_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::__cxx11::_List_base", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds %"struct.std::__cxx11::_List_base<jsonnet::internal::Token, std::allocator<jsonnet::internal::Token>>::_List_impl", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds %"struct.std::__detail::_List_node_base", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  call void @_ZNSt20_List_const_iteratorIN7jsonnet8internal5TokenEEC2EPKNSt8__detail15_List_node_baseE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %8) #3
+  %9 = getelementptr inbounds %"struct.std::_List_const_iterator", ptr %2, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNKSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca %"struct.std::_List_const_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::__cxx11::_List_base", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds %"struct.std::__cxx11::_List_base<jsonnet::internal::Token, std::allocator<jsonnet::internal::Token>>::_List_impl", ptr %5, i32 0, i32 0
+  call void @_ZNSt20_List_const_iteratorIN7jsonnet8internal5TokenEEC2EPKNSt8__detail15_List_node_baseE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %6) #3
+  %7 = getelementptr inbounds %"struct.std::_List_const_iterator", ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZStneRKSt20_List_const_iteratorIN7jsonnet8internal5TokenEES5_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"struct.std::_List_const_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds %"struct.std::_List_const_iterator", ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp ne ptr %7, %10
+  ret i1 %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(192) ptr @_ZNKSt20_List_const_iteratorIN7jsonnet8internal5TokenEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_List_const_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = invoke noundef ptr @_ZNKSt10_List_nodeIN7jsonnet8internal5TokenEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(208) %5)
+          to label %7 unwind label %8
+
+7:                                                ; preds = %1
+  ret ptr %6
+
+8:                                                ; preds = %1
+  %9 = landingpad { ptr, i32 }
+          catch ptr null
+  %10 = extractvalue { ptr, i32 } %9, 0
+  call void @__clang_call_terminate(ptr %10) #14
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator.17", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator.17", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxneIPKN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp ne ptr %7, %10
+  ret i1 %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  %10 = ptrtoint ptr %6 to i64
+  %11 = ptrtoint ptr %9 to i64
+  %12 = sub i64 %10, %11
+  %13 = sdiv exact i64 %12, 32
+  ret i64 %13
+}
+
+declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  %9 = load i64, ptr %4, align 8
+  %10 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %8, i64 %9
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator.18", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.18", ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator.18", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.std::_Vector_base", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.18", ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxneIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEEbRKNS_17__normal_iteratorIT_T0_EESH_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp ne ptr %7, %10
+  ret i1 %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.18", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.18", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %5, i32 1
+  store ptr %6, ptr %4, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %5, i32 1
+  store ptr %6, ptr %4, align 8
+  ret ptr %3
+}
+
+; Function Attrs: nounwind
+declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt20_List_const_iteratorIN7jsonnet8internal5TokenEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_List_const_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds %"struct.std::__detail::_List_node_base", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds %"struct.std::_List_const_iterator", ptr %3, i32 0, i32 0
+  store ptr %7, ptr %8, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  call void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #3
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %4)
+          to label %5 unwind label %7
+
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
+  call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE13_Rb_tree_implISG_Lb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #3
+  ret void
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #14
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  br label %7
+
+7:                                                ; preds = %10, %2
+  %8 = load ptr, ptr %4, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %17
+
+10:                                               ; preds = %7
+  %11 = load ptr, ptr %4, align 8
+  %12 = call noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %11) #3
+  call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_eraseEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %12)
+  %13 = load ptr, ptr %4, align 8
+  %14 = call noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE7_S_leftEPSt18_Rb_tree_node_base(ptr noundef %13) #3
+  store ptr %14, ptr %5, align 8
+  %15 = load ptr, ptr %4, align 8
+  call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %15) #3
+  %16 = load ptr, ptr %5, align 8
+  store ptr %16, ptr %4, align 8
+  br label %7, !llvm.loop !25
+
+17:                                               ; preds = %7
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE9_M_mbeginEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #3
+  ret ptr %4
+}
+
+; Function Attrs: noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #6 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #3
+  call void @_ZSt9terminatev() #14
+  unreachable
+}
+
+declare ptr @__cxa_begin_catch(ptr)
+
+declare void @_ZSt9terminatev()
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE13_Rb_tree_implISG_Lb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %3, i32 0, i32 3
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE7_S_leftEPSt18_Rb_tree_node_base(ptr noundef %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %6) #3
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE11_M_put_nodeEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %7) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
+  %7 = load ptr, ptr %4, align 8
+  %8 = invoke noundef ptr @_ZNSt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(72) %7)
+          to label %9 unwind label %10
+
+9:                                                ; preds = %2
+  call void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEEE7destroyISD_EEvRSF_PT_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %8) #3
+  ret void
+
+10:                                               ; preds = %2
+  %11 = landingpad { ptr, i32 }
+          catch ptr null
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #14
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE11_M_put_nodeEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
+  %7 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEEE10deallocateERSF_PSE_m(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %7, i64 noundef 1)
+          to label %8 unwind label %9
+
+8:                                                ; preds = %2
+  ret void
+
+9:                                                ; preds = %2
+  %10 = landingpad { ptr, i32 }
+          catch ptr null
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #14
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEEE7destroyISD_EEvRSF_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEE7destroyISD_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %3, i32 0, i32 1
+  %5 = call noundef ptr @_ZN9__gnu_cxx16__aligned_membufISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(40) %4) #3
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEE7destroyISD_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN9__gnu_cxx16__aligned_membufISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZN9__gnu_cxx16__aligned_membufISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN9__gnu_cxx16__aligned_membufISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.__gnu_cxx::__aligned_membuf", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEEE10deallocateERSF_PSE_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEE10deallocateEPSE_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEE10deallocateEPSE_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  call void @_ZdlPv(ptr noundef %7) #16
+  ret void
+}
+
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPv(ptr noundef) #7
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE9_M_mbeginEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds %"struct.std::_Rb_tree_header", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %6, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr { i64, i64 } @_ZNK7jsonnet8internal8Location9successorEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #5 comdat align 2 {
+  %2 = alloca %"struct.jsonnet::internal::Location", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.jsonnet::internal::Location", ptr %4, i32 0, i32 0
+  %6 = load i64, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.jsonnet::internal::Location", ptr %4, i32 0, i32 1
+  %8 = load i64, ptr %7, align 8
+  %9 = add i64 %8, 1
+  call void @_ZN7jsonnet8internal8LocationC2Emm(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %6, i64 noundef %9)
+  %10 = load { i64, i64 }, ptr %2, align 8
+  ret { i64, i64 } %10
+}
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__cxx11::_List_base", ptr %3, i32 0, i32 0
+  call void @_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EE10_List_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EE10_List_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSaISt10_List_nodeIN7jsonnet8internal5TokenEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  %4 = getelementptr inbounds %"struct.std::__cxx11::_List_base<jsonnet::internal::Token, std::allocator<jsonnet::internal::Token>>::_List_impl", ptr %3, i32 0, i32 0
+  call void @_ZNSt8__detail17_List_node_headerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSaISt10_List_nodeIN7jsonnet8internal5TokenEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorISt10_List_nodeIN7jsonnet8internal5TokenEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail17_List_node_headerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt8__detail17_List_node_header7_M_initEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorISt10_List_nodeIN7jsonnet8internal5TokenEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8__detail17_List_node_header7_M_initEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::__detail::_List_node_base", ptr %3, i32 0, i32 1
+  store ptr %3, ptr %4, align 8
+  %5 = getelementptr inbounds %"struct.std::__detail::_List_node_base", ptr %3, i32 0, i32 0
+  store ptr %3, ptr %5, align 8
+  %6 = getelementptr inbounds %"struct.std::__detail::_List_node_header", ptr %3, i32 0, i32 1
+  store i64 0, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %3, i32 0, i32 0
+  call void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE12_Vector_implC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSaIN7jsonnet8internal13FodderElementEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  call void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSaIN7jsonnet8internal13FodderElementEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8
+  %5 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8
+  %6 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %3, i32 0, i32 2
+  store ptr null, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef zeroext i1 @_ZN7jsonnet8internalL5is_wsEc(i8 noundef signext %0) #5 {
+  %2 = alloca i8, align 1
+  store i8 %0, ptr %2, align 1
+  %3 = load i8, ptr %2, align 1
+  %4 = sext i8 %3 to i32
+  %5 = icmp eq i32 %4, 10
+  br i1 %5, label %9, label %6
+
+6:                                                ; preds = %1
+  %7 = load i8, ptr %2, align 1
+  %8 = call noundef zeroext i1 @_ZN7jsonnet8internalL10is_horz_wsEc(i8 noundef signext %7)
+  br label %9
+
+9:                                                ; preds = %6, %1
+  %10 = phi i1 [ true, %1 ], [ %8, %6 ]
+  ret i1 %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @_ZN7jsonnet8internalL8is_upperEc(i8 noundef signext %0) #4 {
+  %2 = alloca i8, align 1
+  store i8 %0, ptr %2, align 1
+  %3 = load i8, ptr %2, align 1
+  %4 = sext i8 %3 to i32
+  %5 = icmp sge i32 %4, 65
+  br i1 %5, label %6, label %10
+
+6:                                                ; preds = %1
+  %7 = load i8, ptr %2, align 1
+  %8 = sext i8 %7 to i32
+  %9 = icmp sle i32 %8, 90
+  br label %10
+
+10:                                               ; preds = %6, %1
+  %11 = phi i1 [ false, %1 ], [ %9, %6 ]
+  ret i1 %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @_ZN7jsonnet8internalL8is_lowerEc(i8 noundef signext %0) #4 {
+  %2 = alloca i8, align 1
+  store i8 %0, ptr %2, align 1
+  %3 = load i8, ptr %2, align 1
+  %4 = sext i8 %3 to i32
+  %5 = icmp sge i32 %4, 97
+  br i1 %5, label %6, label %10
+
+6:                                                ; preds = %1
+  %7 = load i8, ptr %2, align 1
+  %8 = sext i8 %7 to i32
+  %9 = icmp sle i32 %8, 122
+  br label %10
+
+10:                                               ; preds = %6, %1
+  %11 = phi i1 [ false, %1 ], [ %9, %6 ]
+  ret i1 %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @_ZN7jsonnet8internalL9is_numberEc(i8 noundef signext %0) #4 {
+  %2 = alloca i8, align 1
+  store i8 %0, ptr %2, align 1
+  %3 = load i8, ptr %2, align 1
+  %4 = sext i8 %3 to i32
+  %5 = icmp sge i32 %4, 48
+  br i1 %5, label %6, label %10
+
+6:                                                ; preds = %1
+  %7 = load i8, ptr %2, align 1
+  %8 = sext i8 %7 to i32
+  %9 = icmp sle i32 %8, 57
+  br label %10
+
+10:                                               ; preds = %6, %1
+  %11 = phi i1 [ false, %1 ], [ %9, %6 ]
+  ret i1 %11
+}
+
+; Function Attrs: nounwind
+declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #2
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %11 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %10, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp ne ptr %9, %12
+  br i1 %13, label %14, label %24
+
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %16 = getelementptr inbounds %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %17 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %16, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8
+  %19 = load ptr, ptr %4, align 8
+  call void @_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(32) %19) #3
+  %20 = getelementptr inbounds %"struct.std::_Vector_base", ptr %6, i32 0, i32 0
+  %21 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %22, i32 1
+  store ptr %23, ptr %21, align 8
+  br label %30
+
+24:                                               ; preds = %2
+  %25 = call ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %26 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  store ptr %25, ptr %26, align 8
+  %27 = load ptr, ptr %4, align 8
+  %28 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %29, ptr noundef nonnull align 8 dereferenceable(32) %27)
+  br label %30
+
+30:                                               ; preds = %24, %14
+  %31 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  ret ptr %31
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZN7jsonnet8internalL8strip_wsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) #5 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i32, align 4
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca %"class.std::allocator.3", align 1
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i32 %2, ptr %6, align 4
+  %12 = load ptr, ptr %5, align 8
+  %13 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
+  %14 = icmp eq i64 %13, 0
+  br i1 %14, label %15, label %17
+
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %5, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %16)
+  br label %70
+
+17:                                               ; preds = %3
+  store i64 0, ptr %7, align 8
+  br label %18
+
+18:                                               ; preds = %36, %17
+  %19 = load i64, ptr %7, align 8
+  %20 = load ptr, ptr %5, align 8
+  %21 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #3
+  %22 = icmp ult i64 %19, %21
+  br i1 %22, label %23, label %34
+
+23:                                               ; preds = %18
+  %24 = load ptr, ptr %5, align 8
+  %25 = load i64, ptr %7, align 8
+  %26 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %24, i64 noundef %25) #3
+  %27 = load i8, ptr %26, align 1
+  %28 = call noundef zeroext i1 @_ZN7jsonnet8internalL10is_horz_wsEc(i8 noundef signext %27)
+  br i1 %28, label %29, label %34
+
+29:                                               ; preds = %23
+  %30 = load i64, ptr %7, align 8
+  %31 = load i32, ptr %6, align 4
+  %32 = zext i32 %31 to i64
+  %33 = icmp ult i64 %30, %32
+  br label %34
+
+34:                                               ; preds = %29, %23, %18
+  %35 = phi i1 [ false, %23 ], [ false, %18 ], [ %33, %29 ]
+  br i1 %35, label %36, label %39
+
+36:                                               ; preds = %34
+  %37 = load i64, ptr %7, align 8
+  %38 = add i64 %37, 1
+  store i64 %38, ptr %7, align 8
+  br label %18, !llvm.loop !26
+
+39:                                               ; preds = %34
+  %40 = load ptr, ptr %5, align 8
+  %41 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %40) #3
+  store i64 %41, ptr %8, align 8
+  br label %42
+
+42:                                               ; preds = %55, %39
+  %43 = load i64, ptr %8, align 8
+  %44 = load i64, ptr %7, align 8
+  %45 = icmp ugt i64 %43, %44
+  br i1 %45, label %46, label %53
+
+46:                                               ; preds = %42
+  %47 = load ptr, ptr %5, align 8
+  %48 = load i64, ptr %8, align 8
+  %49 = sub i64 %48, 1
+  %50 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %47, i64 noundef %49) #3
+  %51 = load i8, ptr %50, align 1
+  %52 = call noundef zeroext i1 @_ZN7jsonnet8internalL10is_horz_wsEc(i8 noundef signext %51)
+  br label %53
+
+53:                                               ; preds = %46, %42
+  %54 = phi i1 [ false, %42 ], [ %52, %46 ]
+  br i1 %54, label %55, label %58
+
+55:                                               ; preds = %53
+  %56 = load i64, ptr %8, align 8
+  %57 = add i64 %56, -1
+  store i64 %57, ptr %8, align 8
+  br label %42, !llvm.loop !27
+
+58:                                               ; preds = %53
+  %59 = load ptr, ptr %5, align 8
+  %60 = load i64, ptr %7, align 8
+  %61 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %59, i64 noundef %60) #3
+  %62 = load ptr, ptr %5, align 8
+  %63 = load i64, ptr %8, align 8
+  %64 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %62, i64 noundef %63) #3
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %61, ptr noundef %64, ptr noundef nonnull align 1 dereferenceable(1) %9)
+          to label %65 unwind label %66
+
+65:                                               ; preds = %58
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
+  br label %70
+
+66:                                               ; preds = %58
+  %67 = landingpad { ptr, i32 }
+          cleanup
+  %68 = extractvalue { ptr, i32 } %67, 0
+  store ptr %68, ptr %10, align 8
+  %69 = extractvalue { ptr, i32 } %67, 1
+  store i32 %69, ptr %11, align 4
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
+  br label %71
+
+70:                                               ; preds = %65, %15
+  ret void
+
+71:                                               ; preds = %66
+  %72 = load ptr, ptr %10, align 8
+  %73 = load i32, ptr %11, align 4
+  %74 = insertvalue { ptr, i32 } poison, ptr %72, 0
+  %75 = insertvalue { ptr, i32 } %74, i32 %73, 1
+  resume { ptr, i32 } %75
+}
+
+declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strERKNS_12basic_stringIcS2_S3_EE(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(32)) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  call void @_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIS5_JS5_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #5 comdat align 2 {
+  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  store ptr %1, ptr %14, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %15 = load ptr, ptr %5, align 8
+  %16 = call noundef i64 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef 1, ptr noundef @.str.52)
+  store i64 %16, ptr %7, align 8
+  %17 = getelementptr inbounds %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
+  %18 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %17, i32 0, i32 0
+  %19 = load ptr, ptr %18, align 8
+  store ptr %19, ptr %8, align 8
+  %20 = getelementptr inbounds %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
+  %21 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %9, align 8
+  %23 = call ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
+  %24 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %11, i32 0, i32 0
+  store ptr %23, ptr %24, align 8
+  %25 = call noundef i64 @_ZN9__gnu_cxxmiIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSE_SH_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %11) #3
+  store i64 %25, ptr %10, align 8
+  %26 = load i64, ptr %7, align 8
+  %27 = call noundef ptr @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %15, i64 noundef %26)
+  store ptr %27, ptr %12, align 8
+  %28 = load ptr, ptr %12, align 8
+  store ptr %28, ptr %13, align 8
+  %29 = getelementptr inbounds %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
+  %30 = load ptr, ptr %12, align 8
+  %31 = load i64, ptr %10, align 8
+  %32 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %30, i64 %31
+  %33 = load ptr, ptr %6, align 8
+  call void @_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(32) %33) #3
+  store ptr null, ptr %13, align 8
+  %34 = load ptr, ptr %8, align 8
+  %35 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %36 = load ptr, ptr %35, align 8
+  %37 = load ptr, ptr %12, align 8
+  %38 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
+  %39 = call noundef ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_(ptr noundef %34, ptr noundef %36, ptr noundef %37, ptr noundef nonnull align 1 dereferenceable(1) %38) #3
+  store ptr %39, ptr %13, align 8
+  %40 = load ptr, ptr %13, align 8
+  %41 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %40, i32 1
+  store ptr %41, ptr %13, align 8
+  %42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %43 = load ptr, ptr %42, align 8
+  %44 = load ptr, ptr %9, align 8
+  %45 = load ptr, ptr %13, align 8
+  %46 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
+  %47 = call noundef ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_(ptr noundef %43, ptr noundef %44, ptr noundef %45, ptr noundef nonnull align 1 dereferenceable(1) %46) #3
+  store ptr %47, ptr %13, align 8
+  %48 = load ptr, ptr %8, align 8
+  %49 = getelementptr inbounds %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
+  %50 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %49, i32 0, i32 2
+  %51 = load ptr, ptr %50, align 8
+  %52 = load ptr, ptr %8, align 8
+  %53 = ptrtoint ptr %51 to i64
+  %54 = ptrtoint ptr %52 to i64
+  %55 = sub i64 %53, %54
+  %56 = sdiv exact i64 %55, 32
+  call void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef %48, i64 noundef %56)
+  %57 = load ptr, ptr %12, align 8
+  %58 = getelementptr inbounds %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
+  %59 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %58, i32 0, i32 0
+  store ptr %57, ptr %59, align 8
+  %60 = load ptr, ptr %13, align 8
+  %61 = getelementptr inbounds %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
+  %62 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %61, i32 0, i32 1
+  store ptr %60, ptr %62, align 8
+  %63 = load ptr, ptr %12, align 8
+  %64 = load i64, ptr %7, align 8
+  %65 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %63, i64 %64
+  %66 = getelementptr inbounds %"struct.std::_Vector_base", ptr %15, i32 0, i32 0
+  %67 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %66, i32 0, i32 2
+  store ptr %65, ptr %67, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  store ptr %0, ptr %2, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  store ptr %6, ptr %7, align 8
+  %8 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 1) #3
+  %9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  store ptr %8, ptr %9, align 8
+  %10 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIS5_JS5_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %6, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = call noundef i64 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %11 = call noundef i64 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %12 = sub i64 %10, %11
+  %13 = load i64, ptr %5, align 8
+  %14 = icmp ult i64 %12, %13
+  br i1 %14, label %15, label %17
+
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %6, align 8
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #15
+  unreachable
+
+17:                                               ; preds = %3
+  %18 = call noundef i64 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %19 = call noundef i64 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  store i64 %19, ptr %8, align 8
+  %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %21 = load i64, ptr %20, align 8
+  %22 = add i64 %18, %21
+  store i64 %22, ptr %7, align 8
+  %23 = load i64, ptr %7, align 8
+  %24 = call noundef i64 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %25 = icmp ult i64 %23, %24
+  br i1 %25, label %30, label %26
+
+26:                                               ; preds = %17
+  %27 = load i64, ptr %7, align 8
+  %28 = call noundef i64 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %29 = icmp ugt i64 %27, %28
+  br i1 %29, label %30, label %32
+
+30:                                               ; preds = %26, %17
+  %31 = call noundef i64 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  br label %34
+
+32:                                               ; preds = %26
+  %33 = load i64, ptr %7, align 8
+  br label %34
+
+34:                                               ; preds = %32, %30
+  %35 = phi i64 [ %31, %30 ], [ %33, %32 ]
+  ret i64 %35
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN9__gnu_cxxmiIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSE_SH_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  %10 = load ptr, ptr %9, align 8
+  %11 = ptrtoint ptr %7 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  %14 = sdiv exact i64 %13, 32
+  ret i64 %14
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = icmp ne i64 %6, 0
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %10 = load i64, ptr %4, align 8
+  %11 = call noundef ptr @_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m(ptr noundef nonnull align 1 dereferenceable(1) %9, i64 noundef %10)
+  br label %13
+
+12:                                               ; preds = %2
+  br label %13
+
+13:                                               ; preds = %12, %8
+  %14 = phi ptr [ %11, %8 ], [ null, %12 ]
+  ret ptr %14
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #4 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8
+  %11 = load ptr, ptr %7, align 8
+  %12 = load ptr, ptr %8, align 8
+  %13 = call noundef ptr @_ZSt12__relocate_aIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_SaIS5_EET0_T_S9_S8_RT1_(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12) #3
+  ret ptr %13
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %14
+
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds %"struct.std::_Vector_base", ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8
+  %13 = load i64, ptr %6, align 8
+  call void @_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE10deallocateERS6_PS5_m(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13)
+  br label %14
+
+14:                                               ; preds = %10, %3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  %5 = call noundef i64 @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_max_sizeERKS6_(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
+  ret i64 %5
+}
+
+; Function Attrs: noreturn
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) #8
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = load i64, ptr %6, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %8, align 8
+  %10 = icmp ult i64 %7, %9
+  br i1 %10, label %11, label %13
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8
+  store ptr %12, ptr %3, align 8
+  br label %15
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8
+  store ptr %14, ptr %3, align 8
+  br label %15
+
+15:                                               ; preds = %13, %11
+  %16 = load ptr, ptr %3, align 8
+  ret ptr %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_max_sizeERKS6_(ptr noundef nonnull align 1 dereferenceable(1) %0) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8
+  store i64 288230376151711743, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call noundef i64 @_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8max_sizeERKS6_(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  store i64 %6, ptr %4, align 8
+  %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %8 unwind label %10
+
+8:                                                ; preds = %1
+  %9 = load i64, ptr %7, align 8
+  ret i64 %9
+
+10:                                               ; preds = %1
+  %11 = landingpad { ptr, i32 }
+          catch ptr null
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #14
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8max_sizeERKS6_(ptr noundef nonnull align 1 dereferenceable(1) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret i64 %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i64, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = load i64, ptr %8, align 8
+  %10 = icmp ult i64 %7, %9
+  br i1 %10, label %11, label %13
+
+11:                                               ; preds = %2
+  %12 = load ptr, ptr %5, align 8
+  store ptr %12, ptr %3, align 8
+  br label %15
+
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %4, align 8
+  store ptr %14, ptr %3, align 8
+  br label %15
+
+15:                                               ; preds = %13, %11
+  %16 = load ptr, ptr %3, align 8
+  ret ptr %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret i64 %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret i64 288230376151711743
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = call noundef ptr @_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  %10 = icmp ugt i64 %8, %9
+  br i1 %10, label %11, label %16
+
+11:                                               ; preds = %3
+  %12 = load i64, ptr %5, align 8
+  %13 = icmp ugt i64 %12, 576460752303423487
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %11
+  call void @_ZSt28__throw_bad_array_new_lengthv() #15
+  unreachable
+
+15:                                               ; preds = %11
+  call void @_ZSt17__throw_bad_allocv() #15
+  unreachable
+
+16:                                               ; preds = %3
+  %17 = load i64, ptr %5, align 8
+  %18 = mul i64 %17, 32
+  %19 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #17
+  ret ptr %19
+}
+
+; Function Attrs: noreturn
+declare void @_ZSt28__throw_bad_array_new_lengthv() #8
+
+; Function Attrs: noreturn
+declare void @_ZSt17__throw_bad_allocv() #8
+
+; Function Attrs: nobuiltin allocsize(0)
+declare noundef nonnull ptr @_Znwm(i64 noundef) #9
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__relocate_aIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_SaIS5_EET0_T_S9_S8_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #4 comdat {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = call noundef ptr @_ZSt12__niter_baseIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_S7_(ptr noundef %9) #3
+  %11 = load ptr, ptr %6, align 8
+  %12 = call noundef ptr @_ZSt12__niter_baseIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_S7_(ptr noundef %11) #3
+  %13 = load ptr, ptr %7, align 8
+  %14 = call noundef ptr @_ZSt12__niter_baseIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_S7_(ptr noundef %13) #3
+  %15 = load ptr, ptr %8, align 8
+  %16 = call noundef ptr @_ZSt14__relocate_a_1IPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_SaIS5_EET0_T_S9_S8_RT1_(ptr noundef %10, ptr noundef %12, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %15) #3
+  ret ptr %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt14__relocate_a_1IPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_SaIS5_EET0_T_S9_S8_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #4 comdat {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %10 = load ptr, ptr %7, align 8
+  store ptr %10, ptr %9, align 8
+  br label %11
+
+11:                                               ; preds = %19, %4
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  %14 = icmp ne ptr %12, %13
+  br i1 %14, label %15, label %24
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %9, align 8
+  %17 = load ptr, ptr %5, align 8
+  %18 = load ptr, ptr %8, align 8
+  call void @_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_(ptr noundef %16, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %18) #3
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %5, align 8
+  %21 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %20, i32 1
+  store ptr %21, ptr %5, align 8
+  %22 = load ptr, ptr %9, align 8
+  %23 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %22, i32 1
+  store ptr %23, ptr %9, align 8
+  br label %11, !llvm.loop !28
+
+24:                                               ; preds = %11
+  %25 = load ptr, ptr %9, align 8
+  ret ptr %25
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__niter_baseIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEET_S7_(ptr noundef %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt19__relocate_object_aINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_EEvPT_PT0_RT1_(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #4 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %5, align 8
+  call void @_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JS5_EEEvRS6_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(32) %9) #3
+  %10 = load ptr, ptr %6, align 8
+  %11 = load ptr, ptr %5, align 8
+  call void @_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %11) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7destroyIS5_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7destroyIS5_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE10deallocateERS6_PS5_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  call void @_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10deallocateEPS5_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10deallocateEPS5_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  call void @_ZdlPv(ptr noundef %7) #16
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) #4 comdat align 2 {
+  %3 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  %10 = load i64, ptr %5, align 8
+  %11 = sub i64 0, %10
+  %12 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %9, i64 %11
+  store ptr %12, ptr %6, align 8
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %13 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %3, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  ret ptr %14
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %7, align 8
+  store ptr %8, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: nounwind
+declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @_ZN7jsonnet8internalL24fodder_has_clean_endlineERKSt6vectorINS0_13FodderElementESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef zeroext i1 @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  br i1 %4, label %11, label %5
+
+5:                                                ; preds = %1
+  %6 = load ptr, ptr %2, align 8
+  %7 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %8 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %7, i32 0, i32 0
+  %9 = load i32, ptr %8, align 8
+  %10 = icmp ne i32 %9, 1
+  br label %11
+
+11:                                               ; preds = %5, %1
+  %12 = phi i1 [ false, %1 ], [ %10, %5 ]
+  ret i1 %12
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindERKjS8_RKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) #5 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca %"class.__gnu_cxx::__normal_iterator.19", align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %12, i32 0, i32 0
+  %14 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %12, i32 0, i32 0
+  %17 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %16, i32 0, i32 2
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp ne ptr %15, %18
+  br i1 %19, label %20, label %33
+
+20:                                               ; preds = %5
+  %21 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %12, i32 0, i32 0
+  %22 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %12, i32 0, i32 0
+  %23 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8
+  %25 = load ptr, ptr %7, align 8
+  %26 = load ptr, ptr %8, align 8
+  %27 = load ptr, ptr %9, align 8
+  %28 = load ptr, ptr %10, align 8
+  call void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindERKjS8_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEEvRS3_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef %24, ptr noundef nonnull align 4 dereferenceable(4) %25, ptr noundef nonnull align 4 dereferenceable(4) %26, ptr noundef nonnull align 4 dereferenceable(4) %27, ptr noundef nonnull align 8 dereferenceable(24) %28)
+  %29 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %12, i32 0, i32 0
+  %30 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %29, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %31, i32 1
+  store ptr %32, ptr %30, align 8
+  br label %42
+
+33:                                               ; preds = %5
+  %34 = call ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  %35 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %11, i32 0, i32 0
+  store ptr %34, ptr %35, align 8
+  %36 = load ptr, ptr %7, align 8
+  %37 = load ptr, ptr %8, align 8
+  %38 = load ptr, ptr %9, align 8
+  %39 = load ptr, ptr %10, align 8
+  %40 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %11, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE17_M_realloc_insertIJNS2_4KindERKjS8_RKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr %41, ptr noundef nonnull align 4 dereferenceable(4) %36, ptr noundef nonnull align 4 dereferenceable(4) %37, ptr noundef nonnull align 4 dereferenceable(4) %38, ptr noundef nonnull align 8 dereferenceable(24) %39)
+  br label %42
+
+42:                                               ; preds = %33, %20
+  %43 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  ret ptr %43
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.__gnu_cxx::__normal_iterator.19", align 8
+  %4 = alloca %"class.__gnu_cxx::__normal_iterator.19", align 8
+  store ptr %0, ptr %2, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %4, i32 0, i32 0
+  store ptr %6, ptr %7, align 8
+  %8 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 1) #3
+  %9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %3, i32 0, i32 0
+  store ptr %8, ptr %9, align 8
+  %10 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12emplace_backIJNS2_4KindEiRKjS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) #5 comdat align 2 {
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca %"class.__gnu_cxx::__normal_iterator.19", align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  store ptr %4, ptr %10, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %12, i32 0, i32 0
+  %14 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %13, i32 0, i32 1
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %12, i32 0, i32 0
+  %17 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %16, i32 0, i32 2
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp ne ptr %15, %18
+  br i1 %19, label %20, label %33
+
+20:                                               ; preds = %5
+  %21 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %12, i32 0, i32 0
+  %22 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %12, i32 0, i32 0
+  %23 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8
+  %25 = load ptr, ptr %7, align 8
+  %26 = load ptr, ptr %8, align 8
+  %27 = load ptr, ptr %9, align 8
+  %28 = load ptr, ptr %10, align 8
+  call void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindEiRKjSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEEvRS3_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef %24, ptr noundef nonnull align 4 dereferenceable(4) %25, ptr noundef nonnull align 4 dereferenceable(4) %26, ptr noundef nonnull align 4 dereferenceable(4) %27, ptr noundef nonnull align 8 dereferenceable(24) %28)
+  %29 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %12, i32 0, i32 0
+  %30 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %29, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %31, i32 1
+  store ptr %32, ptr %30, align 8
+  br label %42
+
+33:                                               ; preds = %5
+  %34 = call ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  %35 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %11, i32 0, i32 0
+  store ptr %34, ptr %35, align 8
+  %36 = load ptr, ptr %7, align 8
+  %37 = load ptr, ptr %8, align 8
+  %38 = load ptr, ptr %9, align 8
+  %39 = load ptr, ptr %10, align 8
+  %40 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %11, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE17_M_realloc_insertIJNS2_4KindEiRKjS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr %41, ptr noundef nonnull align 4 dereferenceable(4) %36, ptr noundef nonnull align 4 dereferenceable(4) %37, ptr noundef nonnull align 4 dereferenceable(4) %38, ptr noundef nonnull align 8 dereferenceable(24) %39)
+  br label %42
+
+42:                                               ; preds = %33, %20
+  %43 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %12) #3
+  ret ptr %43
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.__gnu_cxx::__normal_iterator.19", align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %6, i32 0, i32 0
+  %11 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %10, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8
+  %13 = icmp ne ptr %9, %12
+  br i1 %13, label %14, label %24
+
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %6, i32 0, i32 0
+  %16 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %6, i32 0, i32 0
+  %17 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %16, i32 0, i32 1
+  %18 = load ptr, ptr %17, align 8
+  %19 = load ptr, ptr %4, align 8
+  call void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef %18, ptr noundef nonnull align 8 dereferenceable(40) %19)
+  %20 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %6, i32 0, i32 0
+  %21 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %20, i32 0, i32 1
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %22, i32 1
+  store ptr %23, ptr %21, align 8
+  br label %30
+
+24:                                               ; preds = %2
+  %25 = call ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %26 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %5, i32 0, i32 0
+  store ptr %25, ptr %26, align 8
+  %27 = load ptr, ptr %4, align 8
+  %28 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %5, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr %29, ptr noundef nonnull align 8 dereferenceable(40) %27)
+  br label %30
+
+30:                                               ; preds = %24, %14
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.__gnu_cxx::__normal_iterator.17", align 8
+  %4 = alloca %"class.__gnu_cxx::__normal_iterator.17", align 8
+  store ptr %0, ptr %2, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call ptr @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %3, i32 0, i32 0
+  store ptr %6, ptr %7, align 8
+  %8 = call ptr @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %4, i32 0, i32 0
+  store ptr %8, ptr %9, align 8
+  %10 = call noundef zeroext i1 @_ZN9__gnu_cxxeqIPKN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  ret i1 %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"class.__gnu_cxx::__normal_iterator.17", align 8
+  %4 = alloca %"class.__gnu_cxx::__normal_iterator.17", align 8
+  store ptr %0, ptr %2, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call ptr @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %4, i32 0, i32 0
+  store ptr %6, ptr %7, align 8
+  %8 = call ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 1) #3
+  %9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %3, i32 0, i32 0
+  store ptr %8, ptr %9, align 8
+  %10 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZN9__gnu_cxxeqIPKN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %7, %10
+  ret i1 %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) #4 comdat align 2 {
+  %3 = alloca %"class.__gnu_cxx::__normal_iterator.17", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  %10 = load i64, ptr %5, align 8
+  %11 = sub i64 0, %10
+  %12 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %9, i64 %11
+  store ptr %12, ptr %6, align 8
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %13 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %3, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  ret ptr %14
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %7, align 8
+  store ptr %8, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindERKjS8_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEEvRS3_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) #5 comdat align 2 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load ptr, ptr %8, align 8
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  call void @_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE9constructIS2_JNS2_4KindERKjS7_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(24) %18)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE17_M_realloc_insertIJNS2_4KindERKjS8_RKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %7 = alloca %"class.__gnu_cxx::__normal_iterator.19", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca %"class.__gnu_cxx::__normal_iterator.19", align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca i32, align 4
+  %22 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %7, i32 0, i32 0
+  store ptr %1, ptr %22, align 8
+  store ptr %0, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %23 = load ptr, ptr %8, align 8
+  %24 = call noundef i64 @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef 1, ptr noundef @.str.52)
+  store i64 %24, ptr %13, align 8
+  %25 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %26 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8
+  store ptr %27, ptr %14, align 8
+  %28 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %29 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %28, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8
+  store ptr %30, ptr %15, align 8
+  %31 = call ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  %32 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %17, i32 0, i32 0
+  store ptr %31, ptr %32, align 8
+  %33 = call noundef i64 @_ZN9__gnu_cxxmiIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %17) #3
+  store i64 %33, ptr %16, align 8
+  %34 = load i64, ptr %13, align 8
+  %35 = call noundef ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %34)
+  store ptr %35, ptr %18, align 8
+  %36 = load ptr, ptr %18, align 8
+  store ptr %36, ptr %19, align 8
+  %37 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %38 = load ptr, ptr %18, align 8
+  %39 = load i64, ptr %16, align 8
+  %40 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %38, i64 %39
+  %41 = load ptr, ptr %9, align 8
+  %42 = load ptr, ptr %10, align 8
+  %43 = load ptr, ptr %11, align 8
+  %44 = load ptr, ptr %12, align 8
+  invoke void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindERKjS8_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEEvRS3_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef %40, ptr noundef nonnull align 4 dereferenceable(4) %41, ptr noundef nonnull align 4 dereferenceable(4) %42, ptr noundef nonnull align 4 dereferenceable(4) %43, ptr noundef nonnull align 8 dereferenceable(24) %44)
+          to label %45 unwind label %60
+
+45:                                               ; preds = %6
+  store ptr null, ptr %19, align 8
+  %46 = load ptr, ptr %14, align 8
+  %47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  %48 = load ptr, ptr %47, align 8
+  %49 = load ptr, ptr %18, align 8
+  %50 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  %51 = call noundef ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_(ptr noundef %46, ptr noundef %48, ptr noundef %49, ptr noundef nonnull align 1 dereferenceable(1) %50) #3
+  store ptr %51, ptr %19, align 8
+  %52 = load ptr, ptr %19, align 8
+  %53 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %52, i32 1
+  store ptr %53, ptr %19, align 8
+  %54 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  %55 = load ptr, ptr %54, align 8
+  %56 = load ptr, ptr %15, align 8
+  %57 = load ptr, ptr %19, align 8
+  %58 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  %59 = call noundef ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_(ptr noundef %55, ptr noundef %56, ptr noundef %57, ptr noundef nonnull align 1 dereferenceable(1) %58) #3
+  store ptr %59, ptr %19, align 8
+  br label %88
+
+60:                                               ; preds = %6
+  %61 = landingpad { ptr, i32 }
+          catch ptr null
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %20, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %21, align 4
+  br label %64
+
+64:                                               ; preds = %60
+  %65 = load ptr, ptr %20, align 8
+  %66 = call ptr @__cxa_begin_catch(ptr %65) #3
+  %67 = load ptr, ptr %19, align 8
+  %68 = icmp ne ptr %67, null
+  br i1 %68, label %74, label %69
+
+69:                                               ; preds = %64
+  %70 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %71 = load ptr, ptr %18, align 8
+  %72 = load i64, ptr %16, align 8
+  %73 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %71, i64 %72
+  call void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull align 1 dereferenceable(1) %70, ptr noundef %73) #3
+  br label %83
+
+74:                                               ; preds = %64
+  %75 = load ptr, ptr %18, align 8
+  %76 = load ptr, ptr %19, align 8
+  %77 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  invoke void @_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E(ptr noundef %75, ptr noundef %76, ptr noundef nonnull align 1 dereferenceable(1) %77)
+          to label %78 unwind label %79
+
+78:                                               ; preds = %74
+  br label %83
+
+79:                                               ; preds = %86, %83, %74
+  %80 = landingpad { ptr, i32 }
+          cleanup
+  %81 = extractvalue { ptr, i32 } %80, 0
+  store ptr %81, ptr %20, align 8
+  %82 = extractvalue { ptr, i32 } %80, 1
+  store i32 %82, ptr %21, align 4
+  invoke void @__cxa_end_catch()
+          to label %87 unwind label %114
+
+83:                                               ; preds = %78, %69
+  %84 = load ptr, ptr %18, align 8
+  %85 = load i64, ptr %13, align 8
+  invoke void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE13_M_deallocateEPS2_m(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef %84, i64 noundef %85)
+          to label %86 unwind label %79
+
+86:                                               ; preds = %83
+  invoke void @__cxa_rethrow() #15
+          to label %117 unwind label %79
+
+87:                                               ; preds = %79
+  br label %109
+
+88:                                               ; preds = %45
+  %89 = load ptr, ptr %14, align 8
+  %90 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %91 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %90, i32 0, i32 2
+  %92 = load ptr, ptr %91, align 8
+  %93 = load ptr, ptr %14, align 8
+  %94 = ptrtoint ptr %92 to i64
+  %95 = ptrtoint ptr %93 to i64
+  %96 = sub i64 %94, %95
+  %97 = sdiv exact i64 %96, 40
+  call void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE13_M_deallocateEPS2_m(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef %89, i64 noundef %97)
+  %98 = load ptr, ptr %18, align 8
+  %99 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %100 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %99, i32 0, i32 0
+  store ptr %98, ptr %100, align 8
+  %101 = load ptr, ptr %19, align 8
+  %102 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %103 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %102, i32 0, i32 1
+  store ptr %101, ptr %103, align 8
+  %104 = load ptr, ptr %18, align 8
+  %105 = load i64, ptr %13, align 8
+  %106 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %104, i64 %105
+  %107 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %108 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %107, i32 0, i32 2
+  store ptr %106, ptr %108, align 8
+  ret void
+
+109:                                              ; preds = %87
+  %110 = load ptr, ptr %20, align 8
+  %111 = load i32, ptr %21, align 4
+  %112 = insertvalue { ptr, i32 } poison, ptr %110, 0
+  %113 = insertvalue { ptr, i32 } %112, i32 %111, 1
+  resume { ptr, i32 } %113
+
+114:                                              ; preds = %79
+  %115 = landingpad { ptr, i32 }
+          catch ptr null
+  %116 = extractvalue { ptr, i32 } %115, 0
+  call void @__clang_call_terminate(ptr %116) #14
+  unreachable
+
+117:                                              ; preds = %86
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator.19", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE9constructIS2_JNS2_4KindERKjS7_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) #5 comdat align 2 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %8, align 8
+  %14 = load ptr, ptr %9, align 8
+  %15 = load i32, ptr %14, align 4
+  %16 = load ptr, ptr %10, align 8
+  %17 = load i32, ptr %16, align 4
+  %18 = load ptr, ptr %11, align 8
+  %19 = load i32, ptr %18, align 4
+  %20 = load ptr, ptr %12, align 8
+  call void @_ZN7jsonnet8internal13FodderElementC2ENS1_4KindEjjRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef %15, i32 noundef %17, i32 noundef %19, ptr noundef nonnull align 8 dereferenceable(24) %20)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = call noundef i64 @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %11 = call noundef i64 @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %12 = sub i64 %10, %11
+  %13 = load i64, ptr %5, align 8
+  %14 = icmp ult i64 %12, %13
+  br i1 %14, label %15, label %17
+
+15:                                               ; preds = %3
+  %16 = load ptr, ptr %6, align 8
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef %16) #15
+  unreachable
+
+17:                                               ; preds = %3
+  %18 = call noundef i64 @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %19 = call noundef i64 @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  store i64 %19, ptr %8, align 8
+  %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3maxImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  %21 = load i64, ptr %20, align 8
+  %22 = add i64 %18, %21
+  store i64 %22, ptr %7, align 8
+  %23 = load i64, ptr %7, align 8
+  %24 = call noundef i64 @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %25 = icmp ult i64 %23, %24
+  br i1 %25, label %30, label %26
+
+26:                                               ; preds = %17
+  %27 = load i64, ptr %7, align 8
+  %28 = call noundef i64 @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  %29 = icmp ugt i64 %27, %28
+  br i1 %29, label %30, label %32
+
+30:                                               ; preds = %26, %17
+  %31 = call noundef i64 @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
+  br label %34
+
+32:                                               ; preds = %26
+  %33 = load i64, ptr %7, align 8
+  br label %34
+
+34:                                               ; preds = %32, %30
+  %35 = phi i64 [ %31, %30 ], [ %33, %32 ]
+  ret i64 %35
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZN9__gnu_cxxmiIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
+  %10 = load ptr, ptr %9, align 8
+  %11 = ptrtoint ptr %7 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  %14 = sdiv exact i64 %13, 40
+  ret i64 %14
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca %"class.__gnu_cxx::__normal_iterator.19", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %7 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = icmp ne i64 %6, 0
+  br i1 %7, label %8, label %12
+
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %5, i32 0, i32 0
+  %10 = load i64, ptr %4, align 8
+  %11 = call noundef ptr @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE8allocateERS3_m(ptr noundef nonnull align 1 dereferenceable(1) %9, i64 noundef %10)
+  br label %13
+
+12:                                               ; preds = %2
+  br label %13
+
+13:                                               ; preds = %12, %8
+  %14 = phi ptr [ %11, %8 ], [ null, %12 ]
+  ret ptr %14
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #4 comdat align 2 {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %6, align 8
+  %11 = load ptr, ptr %7, align 8
+  %12 = load ptr, ptr %8, align 8
+  %13 = call noundef ptr @_ZSt12__relocate_aIPN7jsonnet8internal13FodderElementES3_SaIS2_EET0_T_S6_S5_RT1_(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 1 dereferenceable(1) %12) #3
+  ret ptr %13
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE7destroyIS2_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #5 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  call void @_ZSt8_DestroyIPN7jsonnet8internal13FodderElementEEvT_S4_(ptr noundef %7, ptr noundef %8)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE13_M_deallocateEPS2_m(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = icmp ne ptr %8, null
+  br i1 %9, label %10, label %14
+
+10:                                               ; preds = %3
+  %11 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %7, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8
+  %13 = load i64, ptr %6, align 8
+  call void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE10deallocateERS3_PS2_m(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef %12, i64 noundef %13)
+  br label %14
+
+14:                                               ; preds = %10, %3
+  ret void
+}
+
+declare void @__cxa_rethrow()
+
+declare void @__cxa_end_catch()
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE8max_sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  %5 = call noundef i64 @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_max_sizeERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %4, i32 0, i32 1
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  %10 = ptrtoint ptr %6 to i64
+  %11 = ptrtoint ptr %9 to i64
+  %12 = sub i64 %10, %11
+  %13 = sdiv exact i64 %12, 40
+  ret i64 %13
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_max_sizeERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8
+  store i64 230584300921369395, ptr %3, align 8
+  %5 = load ptr, ptr %2, align 8
+  %6 = call noundef i64 @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE8max_sizeERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  store i64 %6, ptr %4, align 8
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt3minImERKT_S2_S2_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %8 = load i64, ptr %7, align 8
+  ret i64 %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE8max_sizeERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN7jsonnet8internal13FodderElementEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret i64 %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorIN7jsonnet8internal13FodderElementEE8max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef i64 @_ZNKSt15__new_allocatorIN7jsonnet8internal13FodderElementEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret i64 %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorIN7jsonnet8internal13FodderElementEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret i64 230584300921369395
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %7, align 8
+  store ptr %8, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE8allocateERS3_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = call noundef ptr @_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorIN7jsonnet8internal13FodderElementEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  %10 = icmp ugt i64 %8, %9
+  br i1 %10, label %11, label %16
+
+11:                                               ; preds = %3
+  %12 = load i64, ptr %5, align 8
+  %13 = icmp ugt i64 %12, 461168601842738790
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %11
+  call void @_ZSt28__throw_bad_array_new_lengthv() #15
+  unreachable
+
+15:                                               ; preds = %11
+  call void @_ZSt17__throw_bad_allocv() #15
+  unreachable
+
+16:                                               ; preds = %3
+  %17 = load i64, ptr %5, align 8
+  %18 = mul i64 %17, 40
+  %19 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #17
+  ret ptr %19
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__relocate_aIPN7jsonnet8internal13FodderElementES3_SaIS2_EET0_T_S6_S5_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #4 comdat {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %9 = load ptr, ptr %5, align 8
+  %10 = call noundef ptr @_ZSt12__niter_baseIPN7jsonnet8internal13FodderElementEET_S4_(ptr noundef %9) #3
+  %11 = load ptr, ptr %6, align 8
+  %12 = call noundef ptr @_ZSt12__niter_baseIPN7jsonnet8internal13FodderElementEET_S4_(ptr noundef %11) #3
+  %13 = load ptr, ptr %7, align 8
+  %14 = call noundef ptr @_ZSt12__niter_baseIPN7jsonnet8internal13FodderElementEET_S4_(ptr noundef %13) #3
+  %15 = load ptr, ptr %8, align 8
+  %16 = call noundef ptr @_ZSt14__relocate_a_1IPN7jsonnet8internal13FodderElementES3_SaIS2_EET0_T_S6_S5_RT1_(ptr noundef %10, ptr noundef %12, ptr noundef %14, ptr noundef nonnull align 1 dereferenceable(1) %15) #3
+  ret ptr %16
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt14__relocate_a_1IPN7jsonnet8internal13FodderElementES3_SaIS2_EET0_T_S6_S5_RT1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #4 comdat {
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  %10 = load ptr, ptr %7, align 8
+  store ptr %10, ptr %9, align 8
+  br label %11
+
+11:                                               ; preds = %19, %4
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  %14 = icmp ne ptr %12, %13
+  br i1 %14, label %15, label %24
+
+15:                                               ; preds = %11
+  %16 = load ptr, ptr %9, align 8
+  %17 = load ptr, ptr %5, align 8
+  %18 = load ptr, ptr %8, align 8
+  call void @_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_(ptr noundef %16, ptr noundef %17, ptr noundef nonnull align 1 dereferenceable(1) %18) #3
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %5, align 8
+  %21 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %20, i32 1
+  store ptr %21, ptr %5, align 8
+  %22 = load ptr, ptr %9, align 8
+  %23 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %22, i32 1
+  store ptr %23, ptr %9, align 8
+  br label %11, !llvm.loop !29
+
+24:                                               ; preds = %11
+  %25 = load ptr, ptr %9, align 8
+  ret ptr %25
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZSt12__niter_baseIPN7jsonnet8internal13FodderElementEET_S4_(ptr noundef %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt19__relocate_object_aIN7jsonnet8internal13FodderElementES2_SaIS2_EEvPT_PT0_RT1_(ptr noalias noundef %0, ptr noalias noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #4 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = load ptr, ptr %5, align 8
+  call void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(40) %9) #3
+  %10 = load ptr, ptr %6, align 8
+  %11 = load ptr, ptr %5, align 8
+  call void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %11) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JS2_EEEvRS3_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  call void @_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE9constructIS2_JS2_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(40) %9) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE9constructIS2_JS2_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %6, align 8
+  call void @_ZN7jsonnet8internal13FodderElementC2EOS1_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %8) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN7jsonnet8internal13FodderElementC2EOS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %7, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %8, i64 12, i1 false)
+  %9 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %5, i32 0, i32 3
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %10, i32 0, i32 3
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  ret void
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds %"struct.std::_Vector_base", ptr %7, i32 0, i32 0
+  call void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implC2EOS8_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implC2EOS8_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #3
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataC2EOS8_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataC2EOS8_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  store ptr %9, ptr %6, align 8
+  %10 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  %11 = load ptr, ptr %4, align 8
+  %12 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %11, i32 0, i32 1
+  %13 = load ptr, ptr %12, align 8
+  store ptr %13, ptr %10, align 8
+  %14 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %5, i32 0, i32 2
+  %15 = load ptr, ptr %4, align 8
+  %16 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %15, i32 0, i32 2
+  %17 = load ptr, ptr %16, align 8
+  store ptr %17, ptr %14, align 8
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %18, i32 0, i32 2
+  store ptr null, ptr %19, align 8
+  %20 = load ptr, ptr %4, align 8
+  %21 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %20, i32 0, i32 1
+  store ptr null, ptr %21, align 8
+  %22 = load ptr, ptr %4, align 8
+  %23 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %22, i32 0, i32 0
+  store ptr null, ptr %23, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE7destroyIS2_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZN7jsonnet8internal13FodderElementD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZSt8_DestroyIPN7jsonnet8internal13FodderElementEEvT_S4_(ptr noundef %0, ptr noundef %1) #5 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN7jsonnet8internal13FodderElementEEEvT_S6_(ptr noundef %5, ptr noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN7jsonnet8internal13FodderElementEEEvT_S6_(ptr noundef %0, ptr noundef %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  br label %5
+
+5:                                                ; preds = %11, %2
+  %6 = load ptr, ptr %3, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = icmp ne ptr %6, %7
+  br i1 %8, label %9, label %14
+
+9:                                                ; preds = %5
+  %10 = load ptr, ptr %3, align 8
+  call void @_ZSt8_DestroyIN7jsonnet8internal13FodderElementEEvPT_(ptr noundef %10)
+  br label %11
+
+11:                                               ; preds = %9
+  %12 = load ptr, ptr %3, align 8
+  %13 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %12, i32 1
+  store ptr %13, ptr %3, align 8
+  br label %5, !llvm.loop !30
+
+14:                                               ; preds = %5
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt8_DestroyIN7jsonnet8internal13FodderElementEEvPT_(ptr noundef %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZN7jsonnet8internal13FodderElementD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE10deallocateERS3_PS2_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  call void @_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE10deallocateEPS2_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE10deallocateEPS2_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  call void @_ZdlPv(ptr noundef %7) #16
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEmiEl(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) #4 comdat align 2 {
+  %3 = alloca %"class.__gnu_cxx::__normal_iterator.19", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  %10 = load i64, ptr %5, align 8
+  %11 = sub i64 0, %10
+  %12 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %9, i64 %11
+  store ptr %12, ptr %6, align 8
+  call void @_ZN9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
+  %13 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %3, i32 0, i32 0
+  %14 = load ptr, ptr %13, align 8
+  ret ptr %14
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindEiRKjSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEEvRS3_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) #5 comdat align 2 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load ptr, ptr %8, align 8
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  call void @_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE9constructIS2_JNS2_4KindEiRKjSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(24) %18)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE17_M_realloc_insertIJNS2_4KindEiRKjS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %7 = alloca %"class.__gnu_cxx::__normal_iterator.19", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca %"class.__gnu_cxx::__normal_iterator.19", align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca i32, align 4
+  %22 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %7, i32 0, i32 0
+  store ptr %1, ptr %22, align 8
+  store ptr %0, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %23 = load ptr, ptr %8, align 8
+  %24 = call noundef i64 @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef 1, ptr noundef @.str.52)
+  store i64 %24, ptr %13, align 8
+  %25 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %26 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8
+  store ptr %27, ptr %14, align 8
+  %28 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %29 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %28, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8
+  store ptr %30, ptr %15, align 8
+  %31 = call ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  %32 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %17, i32 0, i32 0
+  store ptr %31, ptr %32, align 8
+  %33 = call noundef i64 @_ZN9__gnu_cxxmiIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %17) #3
+  store i64 %33, ptr %16, align 8
+  %34 = load i64, ptr %13, align 8
+  %35 = call noundef ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %34)
+  store ptr %35, ptr %18, align 8
+  %36 = load ptr, ptr %18, align 8
+  store ptr %36, ptr %19, align 8
+  %37 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %38 = load ptr, ptr %18, align 8
+  %39 = load i64, ptr %16, align 8
+  %40 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %38, i64 %39
+  %41 = load ptr, ptr %9, align 8
+  %42 = load ptr, ptr %10, align 8
+  %43 = load ptr, ptr %11, align 8
+  %44 = load ptr, ptr %12, align 8
+  invoke void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindEiRKjSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEEvRS3_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef %40, ptr noundef nonnull align 4 dereferenceable(4) %41, ptr noundef nonnull align 4 dereferenceable(4) %42, ptr noundef nonnull align 4 dereferenceable(4) %43, ptr noundef nonnull align 8 dereferenceable(24) %44)
+          to label %45 unwind label %60
+
+45:                                               ; preds = %6
+  store ptr null, ptr %19, align 8
+  %46 = load ptr, ptr %14, align 8
+  %47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  %48 = load ptr, ptr %47, align 8
+  %49 = load ptr, ptr %18, align 8
+  %50 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  %51 = call noundef ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_(ptr noundef %46, ptr noundef %48, ptr noundef %49, ptr noundef nonnull align 1 dereferenceable(1) %50) #3
+  store ptr %51, ptr %19, align 8
+  %52 = load ptr, ptr %19, align 8
+  %53 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %52, i32 1
+  store ptr %53, ptr %19, align 8
+  %54 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  %55 = load ptr, ptr %54, align 8
+  %56 = load ptr, ptr %15, align 8
+  %57 = load ptr, ptr %19, align 8
+  %58 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  %59 = call noundef ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_(ptr noundef %55, ptr noundef %56, ptr noundef %57, ptr noundef nonnull align 1 dereferenceable(1) %58) #3
+  store ptr %59, ptr %19, align 8
+  br label %88
+
+60:                                               ; preds = %6
+  %61 = landingpad { ptr, i32 }
+          catch ptr null
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %20, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %21, align 4
+  br label %64
+
+64:                                               ; preds = %60
+  %65 = load ptr, ptr %20, align 8
+  %66 = call ptr @__cxa_begin_catch(ptr %65) #3
+  %67 = load ptr, ptr %19, align 8
+  %68 = icmp ne ptr %67, null
+  br i1 %68, label %74, label %69
+
+69:                                               ; preds = %64
+  %70 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %71 = load ptr, ptr %18, align 8
+  %72 = load i64, ptr %16, align 8
+  %73 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %71, i64 %72
+  call void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull align 1 dereferenceable(1) %70, ptr noundef %73) #3
+  br label %83
+
+74:                                               ; preds = %64
+  %75 = load ptr, ptr %18, align 8
+  %76 = load ptr, ptr %19, align 8
+  %77 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  invoke void @_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E(ptr noundef %75, ptr noundef %76, ptr noundef nonnull align 1 dereferenceable(1) %77)
+          to label %78 unwind label %79
+
+78:                                               ; preds = %74
+  br label %83
+
+79:                                               ; preds = %86, %83, %74
+  %80 = landingpad { ptr, i32 }
+          cleanup
+  %81 = extractvalue { ptr, i32 } %80, 0
+  store ptr %81, ptr %20, align 8
+  %82 = extractvalue { ptr, i32 } %80, 1
+  store i32 %82, ptr %21, align 4
+  invoke void @__cxa_end_catch()
+          to label %87 unwind label %114
+
+83:                                               ; preds = %78, %69
+  %84 = load ptr, ptr %18, align 8
+  %85 = load i64, ptr %13, align 8
+  invoke void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE13_M_deallocateEPS2_m(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef %84, i64 noundef %85)
+          to label %86 unwind label %79
+
+86:                                               ; preds = %83
+  invoke void @__cxa_rethrow() #15
+          to label %117 unwind label %79
+
+87:                                               ; preds = %79
+  br label %109
+
+88:                                               ; preds = %45
+  %89 = load ptr, ptr %14, align 8
+  %90 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %91 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %90, i32 0, i32 2
+  %92 = load ptr, ptr %91, align 8
+  %93 = load ptr, ptr %14, align 8
+  %94 = ptrtoint ptr %92 to i64
+  %95 = ptrtoint ptr %93 to i64
+  %96 = sub i64 %94, %95
+  %97 = sdiv exact i64 %96, 40
+  call void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE13_M_deallocateEPS2_m(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef %89, i64 noundef %97)
+  %98 = load ptr, ptr %18, align 8
+  %99 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %100 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %99, i32 0, i32 0
+  store ptr %98, ptr %100, align 8
+  %101 = load ptr, ptr %19, align 8
+  %102 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %103 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %102, i32 0, i32 1
+  store ptr %101, ptr %103, align 8
+  %104 = load ptr, ptr %18, align 8
+  %105 = load i64, ptr %13, align 8
+  %106 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %104, i64 %105
+  %107 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %108 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %107, i32 0, i32 2
+  store ptr %106, ptr %108, align 8
+  ret void
+
+109:                                              ; preds = %87
+  %110 = load ptr, ptr %20, align 8
+  %111 = load i32, ptr %21, align 4
+  %112 = insertvalue { ptr, i32 } poison, ptr %110, 0
+  %113 = insertvalue { ptr, i32 } %112, i32 %111, 1
+  resume { ptr, i32 } %113
+
+114:                                              ; preds = %79
+  %115 = landingpad { ptr, i32 }
+          catch ptr null
+  %116 = extractvalue { ptr, i32 } %115, 0
+  call void @__clang_call_terminate(ptr %116) #14
+  unreachable
+
+117:                                              ; preds = %86
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE9constructIS2_JNS2_4KindEiRKjSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) #5 comdat align 2 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %8, align 8
+  %14 = load ptr, ptr %9, align 8
+  %15 = load i32, ptr %14, align 4
+  %16 = load ptr, ptr %10, align 8
+  %17 = load i32, ptr %16, align 4
+  %18 = load ptr, ptr %11, align 8
+  %19 = load i32, ptr %18, align 4
+  %20 = load ptr, ptr %12, align 8
+  call void @_ZN7jsonnet8internal13FodderElementC2ENS1_4KindEjjRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef %15, i32 noundef %17, i32 noundef %19, ptr noundef nonnull align 8 dereferenceable(24) %20)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  call void @_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE9constructIS2_JRKS2_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(40) %9)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(40) %2) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.__gnu_cxx::__normal_iterator.19", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca %"class.__gnu_cxx::__normal_iterator.19", align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %4, i32 0, i32 0
+  store ptr %1, ptr %16, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %17 = load ptr, ptr %5, align 8
+  %18 = call noundef i64 @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef 1, ptr noundef @.str.52)
+  store i64 %18, ptr %7, align 8
+  %19 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %17, i32 0, i32 0
+  %20 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %8, align 8
+  %22 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %17, i32 0, i32 0
+  %23 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr %9, align 8
+  %25 = call ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+  %26 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %11, i32 0, i32 0
+  store ptr %25, ptr %26, align 8
+  %27 = call noundef i64 @_ZN9__gnu_cxxmiIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %11) #3
+  store i64 %27, ptr %10, align 8
+  %28 = load i64, ptr %7, align 8
+  %29 = call noundef ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %28)
+  store ptr %29, ptr %12, align 8
+  %30 = load ptr, ptr %12, align 8
+  store ptr %30, ptr %13, align 8
+  %31 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %17, i32 0, i32 0
+  %32 = load ptr, ptr %12, align 8
+  %33 = load i64, ptr %10, align 8
+  %34 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %32, i64 %33
+  %35 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %31, ptr noundef %34, ptr noundef nonnull align 8 dereferenceable(40) %35)
+          to label %36 unwind label %51
+
+36:                                               ; preds = %3
+  store ptr null, ptr %13, align 8
+  %37 = load ptr, ptr %8, align 8
+  %38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %39 = load ptr, ptr %38, align 8
+  %40 = load ptr, ptr %12, align 8
+  %41 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+  %42 = call noundef ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_(ptr noundef %37, ptr noundef %39, ptr noundef %40, ptr noundef nonnull align 1 dereferenceable(1) %41) #3
+  store ptr %42, ptr %13, align 8
+  %43 = load ptr, ptr %13, align 8
+  %44 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %43, i32 1
+  store ptr %44, ptr %13, align 8
+  %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %46 = load ptr, ptr %45, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load ptr, ptr %13, align 8
+  %49 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+  %50 = call noundef ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_(ptr noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef nonnull align 1 dereferenceable(1) %49) #3
+  store ptr %50, ptr %13, align 8
+  br label %79
+
+51:                                               ; preds = %3
+  %52 = landingpad { ptr, i32 }
+          catch ptr null
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %14, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %15, align 4
+  br label %55
+
+55:                                               ; preds = %51
+  %56 = load ptr, ptr %14, align 8
+  %57 = call ptr @__cxa_begin_catch(ptr %56) #3
+  %58 = load ptr, ptr %13, align 8
+  %59 = icmp ne ptr %58, null
+  br i1 %59, label %65, label %60
+
+60:                                               ; preds = %55
+  %61 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %17, i32 0, i32 0
+  %62 = load ptr, ptr %12, align 8
+  %63 = load i64, ptr %10, align 8
+  %64 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %62, i64 %63
+  call void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull align 1 dereferenceable(1) %61, ptr noundef %64) #3
+  br label %74
+
+65:                                               ; preds = %55
+  %66 = load ptr, ptr %12, align 8
+  %67 = load ptr, ptr %13, align 8
+  %68 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+  invoke void @_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E(ptr noundef %66, ptr noundef %67, ptr noundef nonnull align 1 dereferenceable(1) %68)
+          to label %69 unwind label %70
+
+69:                                               ; preds = %65
+  br label %74
+
+70:                                               ; preds = %77, %74, %65
+  %71 = landingpad { ptr, i32 }
+          cleanup
+  %72 = extractvalue { ptr, i32 } %71, 0
+  store ptr %72, ptr %14, align 8
+  %73 = extractvalue { ptr, i32 } %71, 1
+  store i32 %73, ptr %15, align 4
+  invoke void @__cxa_end_catch()
+          to label %78 unwind label %105
+
+74:                                               ; preds = %69, %60
+  %75 = load ptr, ptr %12, align 8
+  %76 = load i64, ptr %7, align 8
+  invoke void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE13_M_deallocateEPS2_m(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef %75, i64 noundef %76)
+          to label %77 unwind label %70
+
+77:                                               ; preds = %74
+  invoke void @__cxa_rethrow() #15
+          to label %108 unwind label %70
+
+78:                                               ; preds = %70
+  br label %100
+
+79:                                               ; preds = %36
+  %80 = load ptr, ptr %8, align 8
+  %81 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %17, i32 0, i32 0
+  %82 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %81, i32 0, i32 2
+  %83 = load ptr, ptr %82, align 8
+  %84 = load ptr, ptr %8, align 8
+  %85 = ptrtoint ptr %83 to i64
+  %86 = ptrtoint ptr %84 to i64
+  %87 = sub i64 %85, %86
+  %88 = sdiv exact i64 %87, 40
+  call void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE13_M_deallocateEPS2_m(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef %80, i64 noundef %88)
+  %89 = load ptr, ptr %12, align 8
+  %90 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %17, i32 0, i32 0
+  %91 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %90, i32 0, i32 0
+  store ptr %89, ptr %91, align 8
+  %92 = load ptr, ptr %13, align 8
+  %93 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %17, i32 0, i32 0
+  %94 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %93, i32 0, i32 1
+  store ptr %92, ptr %94, align 8
+  %95 = load ptr, ptr %12, align 8
+  %96 = load i64, ptr %7, align 8
+  %97 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %95, i64 %96
+  %98 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %17, i32 0, i32 0
+  %99 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %98, i32 0, i32 2
+  store ptr %97, ptr %99, align 8
+  ret void
+
+100:                                              ; preds = %78
+  %101 = load ptr, ptr %14, align 8
+  %102 = load i32, ptr %15, align 4
+  %103 = insertvalue { ptr, i32 } poison, ptr %101, 0
+  %104 = insertvalue { ptr, i32 } %103, i32 %102, 1
+  resume { ptr, i32 } %104
+
+105:                                              ; preds = %70
+  %106 = landingpad { ptr, i32 }
+          catch ptr null
+  %107 = extractvalue { ptr, i32 } %106, 0
+  call void @__clang_call_terminate(ptr %107) #14
+  unreachable
+
+108:                                              ; preds = %77
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE9constructIS2_JRKS2_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %6, align 8
+  call void @_ZN7jsonnet8internal13FodderElementC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull align 8 dereferenceable(40) %8)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN7jsonnet8internal13FodderElementC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %7, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %8, i64 12, i1 false)
+  %9 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %5, i32 0, i32 3
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %10, i32 0, i32 3
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::allocator", align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca %"class.__gnu_cxx::__normal_iterator.18", align 8
+  %9 = alloca %"class.__gnu_cxx::__normal_iterator.18", align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = load ptr, ptr %4, align 8
+  %12 = call noundef i64 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  %13 = load ptr, ptr %4, align 8
+  %14 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
+  call void @_ZN9__gnu_cxx14__alloc_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_E17_S_select_on_copyERKS7_(ptr dead_on_unwind writable sret(%"class.std::allocator") align 1 %5, ptr noundef nonnull align 1 dereferenceable(1) %14)
+  invoke void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %15 unwind label %34
+
+15:                                               ; preds = %2
+  call void @_ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  %16 = load ptr, ptr %4, align 8
+  %17 = call ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
+  %18 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.18", ptr %8, i32 0, i32 0
+  store ptr %17, ptr %18, align 8
+  %19 = load ptr, ptr %4, align 8
+  %20 = call ptr @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #3
+  %21 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.18", ptr %9, i32 0, i32 0
+  store ptr %20, ptr %21, align 8
+  %22 = getelementptr inbounds %"struct.std::_Vector_base", ptr %10, i32 0, i32 0
+  %23 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  %26 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.18", ptr %8, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.18", ptr %9, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8
+  %30 = invoke noundef ptr @_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_S7_ET0_T_SG_SF_RSaIT1_E(ptr %27, ptr %29, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %25)
+          to label %31 unwind label %38
+
+31:                                               ; preds = %15
+  %32 = getelementptr inbounds %"struct.std::_Vector_base", ptr %10, i32 0, i32 0
+  %33 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %32, i32 0, i32 1
+  store ptr %30, ptr %33, align 8
+  ret void
+
+34:                                               ; preds = %2
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %6, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %7, align 4
+  call void @_ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  br label %42
+
+38:                                               ; preds = %15
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %6, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %7, align 4
+  call void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  br label %42
+
+42:                                               ; preds = %38, %34
+  %43 = load ptr, ptr %6, align 8
+  %44 = load i32, ptr %7, align 4
+  %45 = insertvalue { ptr, i32 } poison, ptr %43, 0
+  %46 = insertvalue { ptr, i32 } %45, i32 %44, 1
+  resume { ptr, i32 } %46
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN9__gnu_cxx14__alloc_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_E17_S_select_on_copyERKS7_(ptr dead_on_unwind noalias writable sret(%"class.std::allocator") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE37select_on_container_copy_constructionERKS6_(ptr dead_on_unwind writable sret(%"class.std::allocator") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"struct.std::_Vector_base", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8
+  call void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #3
+  %12 = load i64, ptr %5, align 8
+  invoke void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_create_storageEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %12)
+          to label %13 unwind label %14
+
+13:                                               ; preds = %3
+  ret void
+
+14:                                               ; preds = %3
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %7, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %8, align 4
+  call void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %7, align 8
+  %20 = load i32, ptr %8, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_S7_ET0_T_SG_SF_RSaIT1_E(ptr %0, ptr %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #5 comdat {
+  %5 = alloca %"class.__gnu_cxx::__normal_iterator.18", align 8
+  %6 = alloca %"class.__gnu_cxx::__normal_iterator.18", align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %"class.__gnu_cxx::__normal_iterator.18", align 8
+  %10 = alloca %"class.__gnu_cxx::__normal_iterator.18", align 8
+  %11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.18", ptr %5, i32 0, i32 0
+  store ptr %0, ptr %11, align 8
+  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.18", ptr %6, i32 0, i32 0
+  store ptr %1, ptr %12, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %5, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %6, i64 8, i1 false)
+  %13 = load ptr, ptr %7, align 8
+  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.18", ptr %9, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.18", ptr %10, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8
+  %18 = call noundef ptr @_ZSt18uninitialized_copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_ET0_T_SG_SF_(ptr %15, ptr %17, ptr noundef %13)
+  ret ptr %18
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %7, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = ptrtoint ptr %9 to i64
+  %14 = ptrtoint ptr %12 to i64
+  %15 = sub i64 %13, %14
+  %16 = sdiv exact i64 %15, 32
+  invoke void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6, i64 noundef %16)
+          to label %17 unwind label %19
+
+17:                                               ; preds = %1
+  %18 = getelementptr inbounds %"struct.std::_Vector_base", ptr %3, i32 0, i32 0
+  call void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
+  ret void
+
+19:                                               ; preds = %1
+  %20 = landingpad { ptr, i32 }
+          catch ptr null
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #14
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE37select_on_container_copy_constructionERKS6_(ptr dead_on_unwind noalias writable sret(%"class.std::allocator") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #3
+  call void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_create_storageEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = call noundef ptr @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %6)
+  %8 = getelementptr inbounds %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %9 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %8, i32 0, i32 0
+  store ptr %7, ptr %9, align 8
+  %10 = getelementptr inbounds %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %11 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %14 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %13, i32 0, i32 1
+  store ptr %12, ptr %14, align 8
+  %15 = getelementptr inbounds %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %16 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8
+  %18 = load i64, ptr %4, align 8
+  %19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %17, i64 %18
+  %20 = getelementptr inbounds %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %21 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %20, i32 0, i32 2
+  store ptr %19, ptr %21, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt18uninitialized_copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_ET0_T_SG_SF_(ptr %0, ptr %1, ptr noundef %2) #5 comdat {
+  %4 = alloca %"class.__gnu_cxx::__normal_iterator.18", align 8
+  %5 = alloca %"class.__gnu_cxx::__normal_iterator.18", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i8, align 1
+  %8 = alloca i8, align 1
+  %9 = alloca %"class.__gnu_cxx::__normal_iterator.18", align 8
+  %10 = alloca %"class.__gnu_cxx::__normal_iterator.18", align 8
+  %11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.18", ptr %4, i32 0, i32 0
+  store ptr %0, ptr %11, align 8
+  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.18", ptr %5, i32 0, i32 0
+  store ptr %1, ptr %12, align 8
+  store ptr %2, ptr %6, align 8
+  store i8 0, ptr %7, align 1
+  store i8 0, ptr %8, align 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %4, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %5, i64 8, i1 false)
+  %13 = load ptr, ptr %6, align 8
+  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.18", ptr %9, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.18", ptr %10, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8
+  %18 = call noundef ptr @_ZNSt20__uninitialized_copyILb0EE13__uninit_copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEEPS9_EET0_T_SI_SH_(ptr %15, ptr %17, ptr noundef %13)
+  ret ptr %18
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt20__uninitialized_copyILb0EE13__uninit_copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEEPS9_EET0_T_SI_SH_(ptr %0, ptr %1, ptr noundef %2) #5 comdat align 2 {
+  %4 = alloca %"class.__gnu_cxx::__normal_iterator.18", align 8
+  %5 = alloca %"class.__gnu_cxx::__normal_iterator.18", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.__gnu_cxx::__normal_iterator.18", align 8
+  %8 = alloca %"class.__gnu_cxx::__normal_iterator.18", align 8
+  %9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.18", ptr %4, i32 0, i32 0
+  store ptr %0, ptr %9, align 8
+  %10 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.18", ptr %5, i32 0, i32 0
+  store ptr %1, ptr %10, align 8
+  store ptr %2, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %5, i64 8, i1 false)
+  %11 = load ptr, ptr %6, align 8
+  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.18", ptr %7, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.18", ptr %8, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8
+  %16 = call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_ET0_T_SG_SF_(ptr %13, ptr %15, ptr noundef %11)
+  ret ptr %16
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEPS7_ET0_T_SG_SF_(ptr %0, ptr %1, ptr noundef %2) #5 comdat personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.__gnu_cxx::__normal_iterator.18", align 8
+  %5 = alloca %"class.__gnu_cxx::__normal_iterator.18", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.18", ptr %4, i32 0, i32 0
+  store ptr %0, ptr %10, align 8
+  %11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.18", ptr %5, i32 0, i32 0
+  store ptr %1, ptr %11, align 8
+  store ptr %2, ptr %6, align 8
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %7, align 8
+  br label %13
+
+13:                                               ; preds = %19, %3
+  %14 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEEbRKNS_17__normal_iteratorIT_T0_EESH_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  br i1 %14, label %15, label %33
+
+15:                                               ; preds = %13
+  %16 = load ptr, ptr %7, align 8
+  %17 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  invoke void @_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
+          to label %18 unwind label %23
+
+18:                                               ; preds = %15
+  br label %19
+
+19:                                               ; preds = %18
+  %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %21, i32 1
+  store ptr %22, ptr %7, align 8
+  br label %13, !llvm.loop !31
+
+23:                                               ; preds = %15
+  %24 = landingpad { ptr, i32 }
+          catch ptr null
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %8, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %9, align 4
+  br label %27
+
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %8, align 8
+  %29 = call ptr @__cxa_begin_catch(ptr %28) #3
+  %30 = load ptr, ptr %6, align 8
+  %31 = load ptr, ptr %7, align 8
+  invoke void @_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_(ptr noundef %30, ptr noundef %31)
+          to label %32 unwind label %35
+
+32:                                               ; preds = %27
+  invoke void @__cxa_rethrow() #15
+          to label %49 unwind label %35
+
+33:                                               ; preds = %13
+  %34 = load ptr, ptr %7, align 8
+  ret ptr %34
+
+35:                                               ; preds = %32, %27
+  %36 = landingpad { ptr, i32 }
+          cleanup
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %8, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %9, align 4
+  invoke void @__cxa_end_catch()
+          to label %39 unwind label %46
+
+39:                                               ; preds = %35
+  br label %41
+
+40:                                               ; No predecessors!
+  call void @llvm.trap()
+  unreachable
+
+41:                                               ; preds = %39
+  %42 = load ptr, ptr %8, align 8
+  %43 = load i32, ptr %9, align 4
+  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
+  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
+  resume { ptr, i32 } %45
+
+46:                                               ; preds = %35
+  %47 = landingpad { ptr, i32 }
+          catch ptr null
+  %48 = extractvalue { ptr, i32 } %47, 0
+  call void @__clang_call_terminate(ptr %48) #14
+  unreachable
+
+49:                                               ; preds = %32
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #5 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_(ptr noundef %0, ptr noundef %1) #5 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt12_Destroy_auxILb0EE9__destroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvT_S9_(ptr noundef %5, ptr noundef %6)
+  ret void
+}
+
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
+declare void @llvm.trap() #12
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt12_Destroy_auxILb0EE9__destroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvT_S9_(ptr noundef %0, ptr noundef %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  br label %5
+
+5:                                                ; preds = %11, %2
+  %6 = load ptr, ptr %3, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = icmp ne ptr %6, %7
+  br i1 %8, label %9, label %14
+
+9:                                                ; preds = %5
+  %10 = load ptr, ptr %3, align 8
+  call void @_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_(ptr noundef %10)
+  br label %11
+
+11:                                               ; preds = %9
+  %12 = load ptr, ptr %3, align 8
+  %13 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %12, i32 1
+  store ptr %13, ptr %3, align 8
+  br label %5, !llvm.loop !32
+
+14:                                               ; preds = %5
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_(ptr noundef %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EE8_M_clearEv(ptr noundef nonnull align 8 dereferenceable(24) %3) #3
+  %4 = getelementptr inbounds %"class.std::__cxx11::_List_base", ptr %3, i32 0, i32 0
+  call void @_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EE10_List_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EE8_M_clearEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %6 = load ptr, ptr %2, align 8
+  %7 = getelementptr inbounds %"class.std::__cxx11::_List_base", ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds %"struct.std::__cxx11::_List_base<jsonnet::internal::Token, std::allocator<jsonnet::internal::Token>>::_List_impl", ptr %7, i32 0, i32 0
+  %9 = getelementptr inbounds %"struct.std::__detail::_List_node_base", ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  store ptr %10, ptr %3, align 8
+  br label %11
+
+11:                                               ; preds = %23, %1
+  %12 = load ptr, ptr %3, align 8
+  %13 = getelementptr inbounds %"class.std::__cxx11::_List_base", ptr %6, i32 0, i32 0
+  %14 = getelementptr inbounds %"struct.std::__cxx11::_List_base<jsonnet::internal::Token, std::allocator<jsonnet::internal::Token>>::_List_impl", ptr %13, i32 0, i32 0
+  %15 = icmp ne ptr %12, %14
+  br i1 %15, label %16, label %27
+
+16:                                               ; preds = %11
+  %17 = load ptr, ptr %3, align 8
+  store ptr %17, ptr %4, align 8
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds %"struct.std::__detail::_List_node_base", ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %19, align 8
+  store ptr %20, ptr %3, align 8
+  %21 = load ptr, ptr %4, align 8
+  %22 = invoke noundef ptr @_ZNSt10_List_nodeIN7jsonnet8internal5TokenEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(208) %21)
+          to label %23 unwind label %28
+
+23:                                               ; preds = %16
+  store ptr %22, ptr %5, align 8
+  %24 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %25 = load ptr, ptr %5, align 8
+  call void @_ZNSt16allocator_traitsISaISt10_List_nodeIN7jsonnet8internal5TokenEEEE7destroyIS3_EEvRS5_PT_(ptr noundef nonnull align 1 dereferenceable(1) %24, ptr noundef %25) #3
+  %26 = load ptr, ptr %4, align 8
+  call void @_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EE11_M_put_nodeEPSt10_List_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef %26) #3
+  br label %11, !llvm.loop !33
+
+27:                                               ; preds = %11
+  ret void
+
+28:                                               ; preds = %16
+  %29 = landingpad { ptr, i32 }
+          catch ptr null
+  %30 = extractvalue { ptr, i32 } %29, 0
+  call void @__clang_call_terminate(ptr %30) #14
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EE10_List_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSaISt10_List_nodeIN7jsonnet8internal5TokenEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt10_List_nodeIN7jsonnet8internal5TokenEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(208) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_List_node", ptr %3, i32 0, i32 1
+  %5 = call noundef ptr @_ZN9__gnu_cxx16__aligned_membufIN7jsonnet8internal5TokenEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(192) %4) #3
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaISt10_List_nodeIN7jsonnet8internal5TokenEEEE7destroyIS3_EEvRS5_PT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt15__new_allocatorISt10_List_nodeIN7jsonnet8internal5TokenEEE7destroyIS3_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %6) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__cxx11::_List_base", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EE11_M_put_nodeEPSt10_List_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"class.std::__cxx11::_List_base", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  invoke void @_ZNSt16allocator_traitsISaISt10_List_nodeIN7jsonnet8internal5TokenEEEE10deallocateERS5_PS4_m(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef %7, i64 noundef 1)
+          to label %8 unwind label %9
+
+8:                                                ; preds = %2
+  ret void
+
+9:                                                ; preds = %2
+  %10 = landingpad { ptr, i32 }
+          catch ptr null
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #14
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN9__gnu_cxx16__aligned_membufIN7jsonnet8internal5TokenEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(192) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZN9__gnu_cxx16__aligned_membufIN7jsonnet8internal5TokenEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(192) %3) #3
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZN9__gnu_cxx16__aligned_membufIN7jsonnet8internal5TokenEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(192) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.__gnu_cxx::__aligned_membuf.20", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorISt10_List_nodeIN7jsonnet8internal5TokenEEE7destroyIS3_EEvPT_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZN7jsonnet8internal5TokenD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %5) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN7jsonnet8internal5TokenD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.jsonnet::internal::Token", ptr %3, i32 0, i32 5
+  call void @_ZN7jsonnet8internal13LocationRangeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #3
+  %5 = getelementptr inbounds %"struct.jsonnet::internal::Token", ptr %3, i32 0, i32 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
+  %6 = getelementptr inbounds %"struct.jsonnet::internal::Token", ptr %3, i32 0, i32 3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
+  %7 = getelementptr inbounds %"struct.jsonnet::internal::Token", ptr %3, i32 0, i32 2
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
+  %8 = getelementptr inbounds %"struct.jsonnet::internal::Token", ptr %3, i32 0, i32 1
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaISt10_List_nodeIN7jsonnet8internal5TokenEEEE10deallocateERS5_PS4_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load i64, ptr %6, align 8
+  call void @_ZNSt15__new_allocatorISt10_List_nodeIN7jsonnet8internal5TokenEEE10deallocateEPS4_m(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, i64 noundef %9)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorISt10_List_nodeIN7jsonnet8internal5TokenEEE10deallocateEPS4_m(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  call void @_ZdlPv(ptr noundef %7) #16
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSaISt10_List_nodeIN7jsonnet8internal5TokenEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorISt10_List_nodeIN7jsonnet8internal5TokenEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorISt10_List_nodeIN7jsonnet8internal5TokenEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #5 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  call void @_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_(ptr noundef %7, ptr noundef %8)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %7, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = ptrtoint ptr %9 to i64
+  %14 = ptrtoint ptr %12 to i64
+  %15 = sub i64 %13, %14
+  %16 = sdiv exact i64 %15, 40
+  invoke void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE13_M_deallocateEPS2_m(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %6, i64 noundef %16)
+          to label %17 unwind label %19
+
+17:                                               ; preds = %1
+  %18 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %3, i32 0, i32 0
+  call void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #3
+  ret void
+
+19:                                               ; preds = %1
+  %20 = landingpad { ptr, i32 }
+          catch ptr null
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #14
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSaIN7jsonnet8internal13FodderElementEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE15_M_erase_at_endEPS2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = ptrtoint ptr %9 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  %14 = sdiv exact i64 %13, 40
+  store i64 %14, ptr %5, align 8
+  %15 = load i64, ptr %5, align 8
+  %16 = icmp ne i64 %15, 0
+  br i1 %16, label %17, label %27
+
+17:                                               ; preds = %2
+  %18 = load ptr, ptr %4, align 8
+  %19 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %6, i32 0, i32 0
+  %20 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %19, i32 0, i32 1
+  %21 = load ptr, ptr %20, align 8
+  %22 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  invoke void @_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E(ptr noundef %18, ptr noundef %21, ptr noundef nonnull align 1 dereferenceable(1) %22)
+          to label %23 unwind label %28
+
+23:                                               ; preds = %17
+  %24 = load ptr, ptr %4, align 8
+  %25 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %6, i32 0, i32 0
+  %26 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %25, i32 0, i32 1
+  store ptr %24, ptr %26, align 8
+  br label %27
+
+27:                                               ; preds = %23, %2
+  ret void
+
+28:                                               ; preds = %17
+  %29 = landingpad { ptr, i32 }
+          catch ptr null
+  %30 = extractvalue { ptr, i32 } %29, 0
+  call void @__clang_call_terminate(ptr %30) #14
+  unreachable
+}
+
+; Function Attrs: nounwind
+declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) #2
+
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #1
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca %struct._Guard, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = call noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %13, ptr noundef %14)
+  store i64 %15, ptr %8, align 8
+  %16 = load i64, ptr %8, align 8
+  %17 = icmp ugt i64 %16, 15
+  br i1 %17, label %18, label %21
+
+18:                                               ; preds = %3
+  %19 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 0)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %19)
+  %20 = load i64, ptr %8, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef %20)
+  br label %28
+
+21:                                               ; preds = %3
+  store ptr %12, ptr %4, align 8
+  %22 = load ptr, ptr %4, align 8
+  %23 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %22)
+          to label %27 unwind label %24
+
+24:                                               ; preds = %21
+  %25 = landingpad { ptr, i32 }
+          catch ptr null
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #14
+  unreachable
+
+27:                                               ; preds = %21
+  br label %28
+
+28:                                               ; preds = %27, %18
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %12)
+  %29 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %30 unwind label %36
+
+30:                                               ; preds = %28
+  %31 = load ptr, ptr %6, align 8
+  %32 = load ptr, ptr %7, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %29, ptr noundef %31, ptr noundef %32) #3
+  %33 = getelementptr inbounds %struct._Guard, ptr %9, i32 0, i32 0
+  store ptr null, ptr %33, align 8
+  %34 = load i64, ptr %8, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef %34)
+          to label %35 unwind label %36
+
+35:                                               ; preds = %30
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  ret void
+
+36:                                               ; preds = %30, %28
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %10, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %11, align 4
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %40
+
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %10, align 8
+  %42 = load i32, ptr %11, align 4
+  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
+  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
+  resume { ptr, i32 } %44
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %0, ptr noundef %1) #5 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %7 = call noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %5, ptr noundef %6)
+  ret i64 %7
+}
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) #1
+
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) #1
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %struct._Guard, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef, ptr noundef, ptr noundef) #2
+
+declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #1
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %struct._Guard, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %11
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds %struct._Guard, ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %10 unwind label %12
+
+10:                                               ; preds = %7
+  br label %11
+
+11:                                               ; preds = %10, %1
+  ret void
+
+12:                                               ; preds = %7
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #14
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = ptrtoint ptr %5 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = sub i64 %7, %8
+  ret i64 %9
+}
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32)) #1
+
+; Function Attrs: nounwind
+declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
+
+; Function Attrs: noreturn
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #8
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call i64 @strlen(ptr noundef %3) #3
+  ret i64 %4
+}
+
+; Function Attrs: nounwind
+declare i64 @strlen(ptr noundef) #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSaISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEC2ERKSC_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt15__new_allocatorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEC2ERKSD_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EEC2ERKSG_RKSH_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.std::allocator.0", align 1
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %"class.std::_Rb_tree", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  call void @_ZNSaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEEC2ISC_EERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %13) #3
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE13_Rb_tree_implISG_Lb1EEC2ERKSG_OSaISt13_Rb_tree_nodeISC_EE(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %14 unwind label %15
+
+14:                                               ; preds = %3
+  call void @_ZNSaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  ret void
+
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          cleanup
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %8, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %9, align 4
+  call void @_ZNSaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %8, align 8
+  %21 = load i32, ptr %9, align 4
+  %22 = insertvalue { ptr, i32 } poison, ptr %20, 0
+  %23 = insertvalue { ptr, i32 } %22, i32 %21, 1
+  resume { ptr, i32 } %23
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE22_M_insert_range_uniqueIPKSC_EENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESN_SN_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, jsonnet::internal::Token::Kind>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, jsonnet::internal::Token::Kind>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
+  %8 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %9 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %10 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %11 = load ptr, ptr %4, align 8
+  call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE11_Alloc_nodeC2ERSI_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(48) %11)
+  br label %12
+
+12:                                               ; preds = %24, %3
+  %13 = load ptr, ptr %5, align 8
+  %14 = load ptr, ptr %6, align 8
+  %15 = icmp ne ptr %13, %14
+  br i1 %15, label %16, label %27
+
+16:                                               ; preds = %12
+  %17 = call ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %11) #3
+  %18 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %9, i32 0, i32 0
+  store ptr %17, ptr %18, align 8
+  call void @_ZNSt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEC2ERKSt17_Rb_tree_iteratorISC_E(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  %19 = load ptr, ptr %5, align 8
+  %20 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %8, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  %22 = call ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE17_M_insert_unique_IRKSC_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISC_ESt23_Rb_tree_const_iteratorISC_EOT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr %21, ptr noundef nonnull align 8 dereferenceable(36) %19, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %23 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %10, i32 0, i32 0
+  store ptr %22, ptr %23, align 8
+  br label %24
+
+24:                                               ; preds = %16
+  %25 = load ptr, ptr %5, align 8
+  %26 = getelementptr inbounds %"struct.std::pair", ptr %25, i32 1
+  store ptr %26, ptr %5, align 8
+  br label %12, !llvm.loop !34
+
+27:                                               ; preds = %12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt16initializer_listISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::initializer_list", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt16initializer_listISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNKSt16initializer_listISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  %5 = call noundef i64 @_ZNKSt16initializer_listISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
+  %6 = getelementptr inbounds %"struct.std::pair", ptr %4, i64 %5
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEC2ERKSD_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEEC2ISC_EERKSaIT_E(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE13_Rb_tree_implISG_Lb1EEC2ERKSG_OSaISt13_Rb_tree_nodeISC_EE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = load ptr, ptr %6, align 8
+  call void @_ZNSaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEEC2ERKSE_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10) #3
+  %11 = load ptr, ptr %5, align 8
+  invoke void @_ZNSt20_Rb_tree_key_compareISt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %11)
+          to label %12 unwind label %14
+
+12:                                               ; preds = %3
+  %13 = getelementptr inbounds i8, ptr %9, i64 8
+  call void @_ZNSt15_Rb_tree_headerC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #3
+  ret void
+
+14:                                               ; preds = %3
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %7, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %8, align 4
+  call void @_ZNSaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #3
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %7, align 8
+  %20 = load i32, ptr %8, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEEC2ERKSE_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEEC2ERKSF_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt20_Rb_tree_key_compareISt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEC2ERKS7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Rb_tree_headerC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_Rb_tree_header", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %4, i32 0, i32 0
+  store i32 0, ptr %5, align 8
+  invoke void @_ZNSt15_Rb_tree_header8_M_resetEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
+          to label %6 unwind label %7
+
+6:                                                ; preds = %1
+  ret void
+
+7:                                                ; preds = %1
+  %8 = landingpad { ptr, i32 }
+          catch ptr null
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #14
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEEC2ERKSF_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15_Rb_tree_header8_M_resetEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_Rb_tree_header", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %4, i32 0, i32 1
+  store ptr null, ptr %5, align 8
+  %6 = getelementptr inbounds %"struct.std::_Rb_tree_header", ptr %3, i32 0, i32 0
+  %7 = getelementptr inbounds %"struct.std::_Rb_tree_header", ptr %3, i32 0, i32 0
+  %8 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %7, i32 0, i32 2
+  store ptr %6, ptr %8, align 8
+  %9 = getelementptr inbounds %"struct.std::_Rb_tree_header", ptr %3, i32 0, i32 0
+  %10 = getelementptr inbounds %"struct.std::_Rb_tree_header", ptr %3, i32 0, i32 0
+  %11 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %10, i32 0, i32 3
+  store ptr %9, ptr %11, align 8
+  %12 = getelementptr inbounds %"struct.std::_Rb_tree_header", ptr %3, i32 0, i32 1
+  store i64 0, ptr %12, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE11_Alloc_nodeC2ERSI_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, jsonnet::internal::Token::Kind>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, jsonnet::internal::Token::Kind>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE17_M_insert_unique_IRKSC_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISC_ESt23_Rb_tree_const_iteratorISC_EOT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(36) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) #5 comdat align 2 {
+  %5 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %6 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca %"struct.std::pair.21", align 8
+  %11 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %12 = alloca %"struct.std::_Select1st", align 1
+  %13 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %6, i32 0, i32 0
+  store ptr %1, ptr %13, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  %14 = load ptr, ptr %7, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %11, ptr align 8 %6, i64 8, i1 false)
+  %15 = load ptr, ptr %8, align 8
+  %16 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt10_Select1stISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEclERKSC_(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 8 dereferenceable(36) %15)
+  %17 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %11, i32 0, i32 0
+  %18 = load ptr, ptr %17, align 8
+  %19 = call { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISC_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr %18, ptr noundef nonnull align 8 dereferenceable(32) %16)
+  %20 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 0
+  %21 = extractvalue { ptr, ptr } %19, 0
+  store ptr %21, ptr %20, align 8
+  %22 = getelementptr inbounds { ptr, ptr }, ptr %10, i32 0, i32 1
+  %23 = extractvalue { ptr, ptr } %19, 1
+  store ptr %23, ptr %22, align 8
+  %24 = getelementptr inbounds %"struct.std::pair.21", ptr %10, i32 0, i32 1
+  %25 = load ptr, ptr %24, align 8
+  %26 = icmp ne ptr %25, null
+  br i1 %26, label %27, label %36
+
+27:                                               ; preds = %4
+  %28 = getelementptr inbounds %"struct.std::pair.21", ptr %10, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds %"struct.std::pair.21", ptr %10, i32 0, i32 1
+  %31 = load ptr, ptr %30, align 8
+  %32 = load ptr, ptr %8, align 8
+  %33 = load ptr, ptr %9, align 8
+  %34 = call ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE10_M_insert_IRKSC_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISC_EPSt18_Rb_tree_node_baseSQ_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %29, ptr noundef %31, ptr noundef nonnull align 8 dereferenceable(36) %32, ptr noundef nonnull align 8 dereferenceable(8) %33)
+  %35 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %5, i32 0, i32 0
+  store ptr %34, ptr %35, align 8
+  br label %39
+
+36:                                               ; preds = %4
+  %37 = getelementptr inbounds %"struct.std::pair.21", ptr %10, i32 0, i32 0
+  %38 = load ptr, ptr %37, align 8
+  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %38) #3
+  br label %39
+
+39:                                               ; preds = %36, %27
+  %40 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %5, i32 0, i32 0
+  %41 = load ptr, ptr %40, align 8
+  ret ptr %41
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #4 comdat align 2 {
+  %2 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Rb_tree", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds %"struct.std::_Rb_tree_header", ptr %6, i32 0, i32 0
+  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %7) #3
+  %8 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %2, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  ret ptr %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEC2ERKSt17_Rb_tree_iteratorISC_E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  store ptr %9, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISC_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #5 comdat align 2 {
+  %4 = alloca %"struct.std::pair.21", align 8
+  %5 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %5, i32 0, i32 0
+  store ptr %1, ptr %16, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  %17 = load ptr, ptr %6, align 8
+  %18 = call ptr @_ZNKSt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE13_M_const_castEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  %19 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
+  store ptr %18, ptr %19, align 8
+  %20 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  %22 = call noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE6_M_endEv(ptr noundef nonnull align 8 dereferenceable(48) %17) #3
+  %23 = icmp eq ptr %21, %22
+  br i1 %23, label %24, label %44
+
+24:                                               ; preds = %3
+  %25 = call noundef i64 @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %17) #3
+  %26 = icmp ugt i64 %25, 0
+  br i1 %26, label %27, label %37
+
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds %"class.std::_Rb_tree", ptr %17, i32 0, i32 0
+  %29 = getelementptr inbounds %"struct.std::_Rb_tree_key_compare", ptr %28, i32 0, i32 0
+  %30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE12_M_rightmostEv(ptr noundef nonnull align 8 dereferenceable(48) %17) #3
+  %31 = load ptr, ptr %30, align 8
+  %32 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %31)
+  %33 = load ptr, ptr %7, align 8
+  %34 = call noundef zeroext i1 @_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(32) %33)
+  br i1 %34, label %35, label %37
+
+35:                                               ; preds = %27
+  store ptr null, ptr %9, align 8
+  %36 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE12_M_rightmostEv(ptr noundef nonnull align 8 dereferenceable(48) %17) #3
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %36)
+  br label %131
+
+37:                                               ; preds = %27, %24
+  %38 = load ptr, ptr %7, align 8
+  %39 = call { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE24_M_get_insert_unique_posERS7_(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(32) %38)
+  %40 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 0
+  %41 = extractvalue { ptr, ptr } %39, 0
+  store ptr %41, ptr %40, align 8
+  %42 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 1
+  %43 = extractvalue { ptr, ptr } %39, 1
+  store ptr %43, ptr %42, align 8
+  br label %131
+
+44:                                               ; preds = %3
+  %45 = getelementptr inbounds %"class.std::_Rb_tree", ptr %17, i32 0, i32 0
+  %46 = getelementptr inbounds %"struct.std::_Rb_tree_key_compare", ptr %45, i32 0, i32 0
+  %47 = load ptr, ptr %7, align 8
+  %48 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8
+  %50 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %49)
+  %51 = call noundef zeroext i1 @_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_(ptr noundef nonnull align 1 dereferenceable(1) %46, ptr noundef nonnull align 8 dereferenceable(32) %47, ptr noundef nonnull align 8 dereferenceable(32) %50)
+  br i1 %51, label %52, label %87
+
+52:                                               ; preds = %44
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %8, i64 8, i1 false)
+  %53 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
+  %54 = load ptr, ptr %53, align 8
+  %55 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE11_M_leftmostEv(ptr noundef nonnull align 8 dereferenceable(48) %17) #3
+  %56 = load ptr, ptr %55, align 8
+  %57 = icmp eq ptr %54, %56
+  br i1 %57, label %58, label %61
+
+58:                                               ; preds = %52
+  %59 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE11_M_leftmostEv(ptr noundef nonnull align 8 dereferenceable(48) %17) #3
+  %60 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE11_M_leftmostEv(ptr noundef nonnull align 8 dereferenceable(48) %17) #3
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRS1_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS6_S7_EEEbE4typeELb1EEEOS6_OS7_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull align 8 dereferenceable(8) %60)
+  br label %131
+
+61:                                               ; preds = %52
+  %62 = getelementptr inbounds %"class.std::_Rb_tree", ptr %17, i32 0, i32 0
+  %63 = getelementptr inbounds %"struct.std::_Rb_tree_key_compare", ptr %62, i32 0, i32 0
+  %64 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEmmEv(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  %65 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %64, i32 0, i32 0
+  %66 = load ptr, ptr %65, align 8
+  %67 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %66)
+  %68 = load ptr, ptr %7, align 8
+  %69 = call noundef zeroext i1 @_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_(ptr noundef nonnull align 1 dereferenceable(1) %63, ptr noundef nonnull align 8 dereferenceable(32) %67, ptr noundef nonnull align 8 dereferenceable(32) %68)
+  br i1 %69, label %70, label %80
+
+70:                                               ; preds = %61
+  %71 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %10, i32 0, i32 0
+  %72 = load ptr, ptr %71, align 8
+  %73 = call noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %72) #3
+  %74 = icmp eq ptr %73, null
+  br i1 %74, label %75, label %77
+
+75:                                               ; preds = %70
+  store ptr null, ptr %11, align 8
+  %76 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %10, i32 0, i32 0
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %76)
+  br label %131
+
+77:                                               ; preds = %70
+  %78 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
+  %79 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRS1_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS6_S7_EEEbE4typeELb1EEEOS6_OS7_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %78, ptr noundef nonnull align 8 dereferenceable(8) %79)
+  br label %131
+
+80:                                               ; preds = %61
+  %81 = load ptr, ptr %7, align 8
+  %82 = call { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE24_M_get_insert_unique_posERS7_(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(32) %81)
+  %83 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 0
+  %84 = extractvalue { ptr, ptr } %82, 0
+  store ptr %84, ptr %83, align 8
+  %85 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 1
+  %86 = extractvalue { ptr, ptr } %82, 1
+  store ptr %86, ptr %85, align 8
+  br label %131
+
+87:                                               ; preds = %44
+  %88 = getelementptr inbounds %"class.std::_Rb_tree", ptr %17, i32 0, i32 0
+  %89 = getelementptr inbounds %"struct.std::_Rb_tree_key_compare", ptr %88, i32 0, i32 0
+  %90 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
+  %91 = load ptr, ptr %90, align 8
+  %92 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %91)
+  %93 = load ptr, ptr %7, align 8
+  %94 = call noundef zeroext i1 @_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_(ptr noundef nonnull align 1 dereferenceable(1) %89, ptr noundef nonnull align 8 dereferenceable(32) %92, ptr noundef nonnull align 8 dereferenceable(32) %93)
+  br i1 %94, label %95, label %129
+
+95:                                               ; preds = %87
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %8, i64 8, i1 false)
+  %96 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
+  %97 = load ptr, ptr %96, align 8
+  %98 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE12_M_rightmostEv(ptr noundef nonnull align 8 dereferenceable(48) %17) #3
+  %99 = load ptr, ptr %98, align 8
+  %100 = icmp eq ptr %97, %99
+  br i1 %100, label %101, label %103
+
+101:                                              ; preds = %95
+  store ptr null, ptr %13, align 8
+  %102 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE12_M_rightmostEv(ptr noundef nonnull align 8 dereferenceable(48) %17) #3
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %102)
+  br label %131
+
+103:                                              ; preds = %95
+  %104 = getelementptr inbounds %"class.std::_Rb_tree", ptr %17, i32 0, i32 0
+  %105 = getelementptr inbounds %"struct.std::_Rb_tree_key_compare", ptr %104, i32 0, i32 0
+  %106 = load ptr, ptr %7, align 8
+  %107 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
+  %108 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %107, i32 0, i32 0
+  %109 = load ptr, ptr %108, align 8
+  %110 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %109)
+  %111 = call noundef zeroext i1 @_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_(ptr noundef nonnull align 1 dereferenceable(1) %105, ptr noundef nonnull align 8 dereferenceable(32) %106, ptr noundef nonnull align 8 dereferenceable(32) %110)
+  br i1 %111, label %112, label %122
+
+112:                                              ; preds = %103
+  %113 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
+  %114 = load ptr, ptr %113, align 8
+  %115 = call noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %114) #3
+  %116 = icmp eq ptr %115, null
+  br i1 %116, label %117, label %119
+
+117:                                              ; preds = %112
+  store ptr null, ptr %14, align 8
+  %118 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %118)
+  br label %131
+
+119:                                              ; preds = %112
+  %120 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %12, i32 0, i32 0
+  %121 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %12, i32 0, i32 0
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRS1_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS6_S7_EEEbE4typeELb1EEEOS6_OS7_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %120, ptr noundef nonnull align 8 dereferenceable(8) %121)
+  br label %131
+
+122:                                              ; preds = %103
+  %123 = load ptr, ptr %7, align 8
+  %124 = call { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE24_M_get_insert_unique_posERS7_(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(32) %123)
+  %125 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 0
+  %126 = extractvalue { ptr, ptr } %124, 0
+  store ptr %126, ptr %125, align 8
+  %127 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 1
+  %128 = extractvalue { ptr, ptr } %124, 1
+  store ptr %128, ptr %127, align 8
+  br label %131
+
+129:                                              ; preds = %87
+  %130 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
+  store ptr null, ptr %15, align 8
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %130, ptr noundef nonnull align 8 dereferenceable(8) %15)
+  br label %131
+
+131:                                              ; preds = %129, %122, %119, %117, %101, %80, %77, %75, %58, %37, %35
+  %132 = load { ptr, ptr }, ptr %4, align 8
+  ret { ptr, ptr } %132
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt10_Select1stISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEclERKSC_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds %"struct.std::pair", ptr %5, i32 0, i32 0
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE10_M_insert_IRKSC_NSI_11_Alloc_nodeEEESt17_Rb_tree_iteratorISC_EPSt18_Rb_tree_node_baseSQ_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) #5 comdat align 2 {
+  %6 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca i8, align 1
+  %13 = alloca %"struct.std::_Select1st", align 1
+  %14 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  %15 = load ptr, ptr %7, align 8
+  %16 = load ptr, ptr %8, align 8
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %30, label %18
+
+18:                                               ; preds = %5
+  %19 = load ptr, ptr %9, align 8
+  %20 = call noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE6_M_endEv(ptr noundef nonnull align 8 dereferenceable(48) %15) #3
+  %21 = icmp eq ptr %19, %20
+  br i1 %21, label %30, label %22
+
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds %"class.std::_Rb_tree", ptr %15, i32 0, i32 0
+  %24 = getelementptr inbounds %"struct.std::_Rb_tree_key_compare", ptr %23, i32 0, i32 0
+  %25 = load ptr, ptr %10, align 8
+  %26 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt10_Select1stISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEclERKSC_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull align 8 dereferenceable(36) %25)
+  %27 = load ptr, ptr %9, align 8
+  %28 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %27)
+  %29 = call noundef zeroext i1 @_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_(ptr noundef nonnull align 1 dereferenceable(1) %24, ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %28)
+  br label %30
+
+30:                                               ; preds = %22, %18, %5
+  %31 = phi i1 [ true, %18 ], [ true, %5 ], [ %29, %22 ]
+  %32 = zext i1 %31 to i8
+  store i8 %32, ptr %12, align 1
+  %33 = load ptr, ptr %11, align 8
+  %34 = load ptr, ptr %10, align 8
+  %35 = call noundef ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE11_Alloc_nodeclIRKSC_EEPSt13_Rb_tree_nodeISC_EOT_(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(36) %34)
+  store ptr %35, ptr %14, align 8
+  %36 = load i8, ptr %12, align 1
+  %37 = trunc i8 %36 to i1
+  %38 = load ptr, ptr %14, align 8
+  %39 = load ptr, ptr %9, align 8
+  %40 = getelementptr inbounds %"class.std::_Rb_tree", ptr %15, i32 0, i32 0
+  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  %42 = getelementptr inbounds %"struct.std::_Rb_tree_header", ptr %41, i32 0, i32 0
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %37, ptr noundef %38, ptr noundef %39, ptr noundef nonnull align 8 dereferenceable(32) %42) #3
+  %43 = getelementptr inbounds %"class.std::_Rb_tree", ptr %15, i32 0, i32 0
+  %44 = getelementptr inbounds i8, ptr %43, i64 8
+  %45 = getelementptr inbounds %"struct.std::_Rb_tree_header", ptr %44, i32 0, i32 1
+  %46 = load i64, ptr %45, align 8
+  %47 = add i64 %46, 1
+  store i64 %47, ptr %45, align 8
+  %48 = load ptr, ptr %14, align 8
+  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %48) #3
+  %49 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %6, i32 0, i32 0
+  %50 = load ptr, ptr %49, align 8
+  ret ptr %50
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNKSt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE13_M_const_castEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8
+  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %6) #3
+  %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE6_M_endEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds %"struct.std::_Rb_tree_header", ptr %5, i32 0, i32 0
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds %"struct.std::_Rb_tree_header", ptr %5, i32 0, i32 1
+  %7 = load i64, ptr %6, align 8
+  ret i64 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %6, align 8
+  %9 = call noundef zeroext i1 @_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8) #3
+  ret i1 %9
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE6_S_keyEPKSt13_Rb_tree_nodeISC_E(ptr noundef %3)
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE12_M_rightmostEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds %"struct.std::_Rb_tree_header", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %6, i32 0, i32 3
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds %"struct.std::pair.21", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %9, align 8
+  store ptr %10, ptr %8, align 8
+  %11 = getelementptr inbounds %"struct.std::pair.21", ptr %7, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  %13 = load ptr, ptr %12, align 8
+  store ptr %13, ptr %11, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE24_M_get_insert_unique_posERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #5 comdat align 2 {
+  %3 = alloca %"struct.std::pair.21", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i8, align 1
+  %9 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %10 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %11 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %12 = load ptr, ptr %4, align 8
+  %13 = call noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #3
+  store ptr %13, ptr %6, align 8
+  %14 = call noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE6_M_endEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #3
+  store ptr %14, ptr %7, align 8
+  store i8 1, ptr %8, align 1
+  br label %15
+
+15:                                               ; preds = %35, %2
+  %16 = load ptr, ptr %6, align 8
+  %17 = icmp ne ptr %16, null
+  br i1 %17, label %18, label %37
+
+18:                                               ; preds = %15
+  %19 = load ptr, ptr %6, align 8
+  store ptr %19, ptr %7, align 8
+  %20 = getelementptr inbounds %"class.std::_Rb_tree", ptr %12, i32 0, i32 0
+  %21 = getelementptr inbounds %"struct.std::_Rb_tree_key_compare", ptr %20, i32 0, i32 0
+  %22 = load ptr, ptr %5, align 8
+  %23 = load ptr, ptr %6, align 8
+  %24 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE6_S_keyEPKSt13_Rb_tree_nodeISC_E(ptr noundef %23)
+  %25 = call noundef zeroext i1 @_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %24)
+  %26 = zext i1 %25 to i8
+  store i8 %26, ptr %8, align 1
+  %27 = load i8, ptr %8, align 1
+  %28 = trunc i8 %27 to i1
+  br i1 %28, label %29, label %32
+
+29:                                               ; preds = %18
+  %30 = load ptr, ptr %6, align 8
+  %31 = call noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE7_S_leftEPSt18_Rb_tree_node_base(ptr noundef %30) #3
+  br label %35
+
+32:                                               ; preds = %18
+  %33 = load ptr, ptr %6, align 8
+  %34 = call noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_S_rightEPSt18_Rb_tree_node_base(ptr noundef %33) #3
+  br label %35
+
+35:                                               ; preds = %32, %29
+  %36 = phi ptr [ %31, %29 ], [ %34, %32 ]
+  store ptr %36, ptr %6, align 8
+  br label %15, !llvm.loop !35
+
+37:                                               ; preds = %15
+  %38 = load ptr, ptr %7, align 8
+  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %38) #3
+  %39 = load i8, ptr %8, align 1
+  %40 = trunc i8 %39 to i1
+  br i1 %40, label %41, label %49
+
+41:                                               ; preds = %37
+  %42 = call ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #3
+  %43 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %10, i32 0, i32 0
+  store ptr %42, ptr %43, align 8
+  %44 = call noundef zeroext i1 @_ZSteqRKSt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEESF_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #3
+  br i1 %44, label %45, label %46
+
+45:                                               ; preds = %41
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRPSt13_Rb_tree_nodeIS_IKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEERS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISM_SN_EEEbE4typeELb1EEEOSM_OSN_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  br label %60
+
+46:                                               ; preds = %41
+  %47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEmmEv(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
+  br label %48
+
+48:                                               ; preds = %46
+  br label %49
+
+49:                                               ; preds = %48, %37
+  %50 = getelementptr inbounds %"class.std::_Rb_tree", ptr %12, i32 0, i32 0
+  %51 = getelementptr inbounds %"struct.std::_Rb_tree_key_compare", ptr %50, i32 0, i32 0
+  %52 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %9, i32 0, i32 0
+  %53 = load ptr, ptr %52, align 8
+  %54 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %53)
+  %55 = load ptr, ptr %5, align 8
+  %56 = call noundef zeroext i1 @_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef nonnull align 8 dereferenceable(32) %55)
+  br i1 %56, label %57, label %58
+
+57:                                               ; preds = %49
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRPSt13_Rb_tree_nodeIS_IKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEERS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISM_SN_EEEbE4typeELb1EEEOSM_OSN_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  br label %60
+
+58:                                               ; preds = %49
+  %59 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %9, i32 0, i32 0
+  store ptr null, ptr %11, align 8
+  call void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IS1_S1_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS5_S6_EEEbE4typeELb1EEERKS1_SA_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %59, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  br label %60
+
+60:                                               ; preds = %58, %57, %45
+  %61 = load { ptr, ptr }, ptr %3, align 8
+  ret { ptr, ptr } %61
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE11_M_leftmostEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds %"struct.std::_Rb_tree_header", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %6, i32 0, i32 2
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRS1_S4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS6_S7_EEEbE4typeELb1EEEOS6_OS7_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds %"struct.std::pair.21", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %9, align 8
+  store ptr %10, ptr %8, align 8
+  %11 = getelementptr inbounds %"struct.std::pair.21", ptr %7, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  %13 = load ptr, ptr %12, align 8
+  store ptr %13, ptr %11, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEmmEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %5) #18
+  %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %3, i32 0, i32 0
+  store ptr %6, ptr %7, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %5) #18
+  %7 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %3, i32 0, i32 0
+  store ptr %6, ptr %7, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #4 comdat personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
+          to label %8 unwind label %10
+
+8:                                                ; preds = %2
+  %9 = icmp slt i32 %7, 0
+  ret i1 %9
+
+10:                                               ; preds = %2
+  %11 = landingpad { ptr, i32 }
+          catch ptr null
+  %12 = extractvalue { ptr, i32 } %11, 0
+  call void @__clang_call_terminate(ptr %12) #14
+  unreachable
+}
+
+declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) #1
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE6_S_keyEPKSt13_Rb_tree_nodeISC_E(ptr noundef %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"struct.std::_Select1st", align 1
+  store ptr %0, ptr %2, align 8
+  %4 = load ptr, ptr %2, align 8
+  %5 = call noundef ptr @_ZNKSt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(72) %4)
+  %6 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNKSt10_Select1stISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEclERKSC_(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(36) %5)
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_Rb_tree_node", ptr %3, i32 0, i32 1
+  %5 = call noundef ptr @_ZNK9__gnu_cxx16__aligned_membufISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(40) %4) #3
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNK9__gnu_cxx16__aligned_membufISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNK9__gnu_cxx16__aligned_membufISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNK9__gnu_cxx16__aligned_membufISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.__gnu_cxx::__aligned_membuf", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZSteqRKSt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEESF_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %8, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp eq ptr %7, %10
+  ret i1 %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #4 comdat align 2 {
+  %2 = alloca %"struct.std::_Rb_tree_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Rb_tree", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds %"struct.std::_Rb_tree_header", ptr %6, i32 0, i32 0
+  %8 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %7, i32 0, i32 2
+  %9 = load ptr, ptr %8, align 8
+  call void @_ZNSt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEC2EPSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %9) #3
+  %10 = getelementptr inbounds %"struct.std::_Rb_tree_iterator", ptr %2, i32 0, i32 0
+  %11 = load ptr, ptr %10, align 8
+  ret ptr %11
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt4pairIPSt18_Rb_tree_node_baseS1_EC2IRPSt13_Rb_tree_nodeIS_IKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEERS1_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISM_SN_EEEbE4typeELb1EEEOSM_OSN_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds %"struct.std::pair.21", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  %10 = load ptr, ptr %9, align 8
+  store ptr %10, ptr %8, align 8
+  %11 = getelementptr inbounds %"struct.std::pair.21", ptr %7, i32 0, i32 1
+  %12 = load ptr, ptr %6, align 8
+  %13 = load ptr, ptr %12, align 8
+  store ptr %13, ptr %11, align 8
+  ret void
+}
+
+; Function Attrs: nounwind willreturn memory(read)
+declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) #13
+
+; Function Attrs: nounwind willreturn memory(read)
+declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) #13
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE11_Alloc_nodeclIRKSC_EEPSt13_Rb_tree_nodeISC_EOT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, jsonnet::internal::Token::Kind>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, jsonnet::internal::Token::Kind>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_create_nodeIJRKSC_EEEPSt13_Rb_tree_nodeISC_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(36) %8)
+  ret ptr %9
+}
+
+; Function Attrs: nounwind
+declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) #2
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_create_nodeIJRKSC_EEEPSt13_Rb_tree_nodeISC_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = call noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE11_M_get_nodeEv(ptr noundef nonnull align 8 dereferenceable(48) %6)
+  store ptr %7, ptr %5, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %4, align 8
+  call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE17_M_construct_nodeIJRKSC_EEEvPSt13_Rb_tree_nodeISC_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(36) %9)
+  %10 = load ptr, ptr %5, align 8
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE11_M_get_nodeEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #3
+  %5 = call noundef ptr @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEEE8allocateERSF_m(ptr noundef nonnull align 1 dereferenceable(1) %4, i64 noundef 1)
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE17_M_construct_nodeIJRKSC_EEEvPSt13_Rb_tree_nodeISC_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(36) %2) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(48) %9) #3
+  %11 = load ptr, ptr %5, align 8
+  %12 = call noundef ptr @_ZNSt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(72) %11)
+  %13 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEEE9constructISD_JRKSD_EEEvRSF_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef %12, ptr noundef nonnull align 8 dereferenceable(36) %13)
+          to label %14 unwind label %15
+
+14:                                               ; preds = %3
+  br label %28
+
+15:                                               ; preds = %3
+  %16 = landingpad { ptr, i32 }
+          catch ptr null
+  %17 = extractvalue { ptr, i32 } %16, 0
+  store ptr %17, ptr %7, align 8
+  %18 = extractvalue { ptr, i32 } %16, 1
+  store i32 %18, ptr %8, align 4
+  br label %19
+
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %7, align 8
+  %21 = call ptr @__cxa_begin_catch(ptr %20) #3
+  %22 = load ptr, ptr %5, align 8
+  call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE11_M_put_nodeEPSt13_Rb_tree_nodeISC_E(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef %22) #3
+  invoke void @__cxa_rethrow() #15
+          to label %37 unwind label %23
+
+23:                                               ; preds = %19
+  %24 = landingpad { ptr, i32 }
+          cleanup
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %7, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %8, align 4
+  invoke void @__cxa_end_catch()
+          to label %27 unwind label %34
+
+27:                                               ; preds = %23
+  br label %29
+
+28:                                               ; preds = %14
+  ret void
+
+29:                                               ; preds = %27
+  %30 = load ptr, ptr %7, align 8
+  %31 = load i32, ptr %8, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
+
+34:                                               ; preds = %23
+  %35 = landingpad { ptr, i32 }
+          catch ptr null
+  %36 = extractvalue { ptr, i32 } %35, 0
+  call void @__clang_call_terminate(ptr %36) #14
+  unreachable
+
+37:                                               ; preds = %19
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEEE8allocateERSF_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = call noundef ptr @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  %10 = icmp ugt i64 %8, %9
+  br i1 %10, label %11, label %16
+
+11:                                               ; preds = %3
+  %12 = load i64, ptr %5, align 8
+  %13 = icmp ugt i64 %12, 256204778801521550
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %11
+  call void @_ZSt28__throw_bad_array_new_lengthv() #15
+  unreachable
+
+15:                                               ; preds = %11
+  call void @_ZSt17__throw_bad_allocv() #15
+  unreachable
+
+16:                                               ; preds = %3
+  %17 = load i64, ptr %5, align 8
+  %18 = mul i64 %17, 72
+  %19 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #17
+  ret ptr %19
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret i64 128102389400760775
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEEE9constructISD_JRKSD_EEEvRSF_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(36) %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  call void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEE9constructISD_JRKSD_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(36) %9)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEE9constructISD_JRKSD_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(36) %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %6, align 8
+  call void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull align 8 dereferenceable(36) %8)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"struct.std::pair", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds %"struct.std::pair", ptr %7, i32 0, i32 0
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  %9 = getelementptr inbounds %"struct.std::pair", ptr %5, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %"struct.std::pair", ptr %10, i32 0, i32 1
+  %12 = load i32, ptr %11, align 8
+  store i32 %12, ptr %9, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt16initializer_listISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::initializer_list", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE4findERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) #5 comdat align 2 {
+  %3 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %7 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  %8 = load ptr, ptr %4, align 8
+  %9 = call noundef ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(48) %8) #3
+  %10 = call noundef ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE6_M_endEv(ptr noundef nonnull align 8 dereferenceable(48) %8) #3
+  %11 = load ptr, ptr %5, align 8
+  %12 = call ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %9, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
+  %13 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %6, i32 0, i32 0
+  store ptr %12, ptr %13, align 8
+  %14 = call ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %8) #3
+  %15 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %7, i32 0, i32 0
+  store ptr %14, ptr %15, align 8
+  %16 = call noundef zeroext i1 @_ZSteqRKSt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEESF_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  br i1 %16, label %25, label %17
+
+17:                                               ; preds = %2
+  %18 = getelementptr inbounds %"class.std::_Rb_tree", ptr %8, i32 0, i32 0
+  %19 = getelementptr inbounds %"struct.std::_Rb_tree_key_compare", ptr %18, i32 0, i32 0
+  %20 = load ptr, ptr %5, align 8
+  %21 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %6, i32 0, i32 0
+  %22 = load ptr, ptr %21, align 8
+  %23 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE6_S_keyEPKSt18_Rb_tree_node_base(ptr noundef %22)
+  %24 = call noundef zeroext i1 @_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %23)
+  br i1 %24, label %25, label %28
+
+25:                                               ; preds = %17, %2
+  %26 = call ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %8) #3
+  %27 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %3, i32 0, i32 0
+  store ptr %26, ptr %27, align 8
+  br label %29
+
+28:                                               ; preds = %17
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %6, i64 8, i1 false)
+  br label %29
+
+29:                                               ; preds = %28, %25
+  %30 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %3, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8
+  ret ptr %31
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISC_EPKSt18_Rb_tree_node_baseRS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #5 comdat align 2 {
+  %5 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %6, align 8
+  store ptr %1, ptr %7, align 8
+  store ptr %2, ptr %8, align 8
+  store ptr %3, ptr %9, align 8
+  %10 = load ptr, ptr %6, align 8
+  br label %11
+
+11:                                               ; preds = %28, %4
+  %12 = load ptr, ptr %7, align 8
+  %13 = icmp ne ptr %12, null
+  br i1 %13, label %14, label %29
+
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds %"class.std::_Rb_tree", ptr %10, i32 0, i32 0
+  %16 = getelementptr inbounds %"struct.std::_Rb_tree_key_compare", ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %7, align 8
+  %18 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE6_S_keyEPKSt13_Rb_tree_nodeISC_E(ptr noundef %17)
+  %19 = load ptr, ptr %9, align 8
+  %20 = call noundef zeroext i1 @_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_(ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %19)
+  br i1 %20, label %25, label %21
+
+21:                                               ; preds = %14
+  %22 = load ptr, ptr %7, align 8
+  store ptr %22, ptr %8, align 8
+  %23 = load ptr, ptr %7, align 8
+  %24 = call noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE7_S_leftEPKSt18_Rb_tree_node_base(ptr noundef %23) #3
+  store ptr %24, ptr %7, align 8
+  br label %28
+
+25:                                               ; preds = %14
+  %26 = load ptr, ptr %7, align 8
+  %27 = call noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_S_rightEPKSt18_Rb_tree_node_base(ptr noundef %26) #3
+  store ptr %27, ptr %7, align 8
+  br label %28
+
+28:                                               ; preds = %25, %21
+  br label %11, !llvm.loop !36
+
+29:                                               ; preds = %11
+  %30 = load ptr, ptr %8, align 8
+  call void @_ZNSt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEC2EPKSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %30) #3
+  %31 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %5, i32 0, i32 0
+  %32 = load ptr, ptr %31, align 8
+  ret ptr %32
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_M_beginEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds %"struct.std::_Rb_tree_header", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %6, i32 0, i32 1
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE6_M_endEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::_Rb_tree", ptr %3, i32 0, i32 0
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = getelementptr inbounds %"struct.std::_Rb_tree_header", ptr %5, i32 0, i32 0
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE3endEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #4 comdat align 2 {
+  %2 = alloca %"struct.std::_Rb_tree_const_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::_Rb_tree", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds %"struct.std::_Rb_tree_header", ptr %6, i32 0, i32 0
+  call void @_ZNSt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEC2EPKSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %7) #3
+  %8 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %2, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  ret ptr %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE7_S_leftEPKSt18_Rb_tree_node_base(ptr noundef %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %3, i32 0, i32 2
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N7jsonnet8internal5Token4KindEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE8_S_rightEPKSt18_Rb_tree_node_base(ptr noundef %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_Rb_tree_node_base", ptr %3, i32 0, i32 3
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt23_Rb_tree_const_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal5Token4KindEEEC2EPKSt18_Rb_tree_node_base(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindERjS7_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvRS3_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) #5 comdat align 2 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load ptr, ptr %8, align 8
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  call void @_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE9constructIS2_JNS2_4KindERjS6_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(24) %18)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE17_M_realloc_insertIJNS2_4KindERjS7_RKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %7 = alloca %"class.__gnu_cxx::__normal_iterator.19", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca %"class.__gnu_cxx::__normal_iterator.19", align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca i32, align 4
+  %22 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %7, i32 0, i32 0
+  store ptr %1, ptr %22, align 8
+  store ptr %0, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %23 = load ptr, ptr %8, align 8
+  %24 = call noundef i64 @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef 1, ptr noundef @.str.52)
+  store i64 %24, ptr %13, align 8
+  %25 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %26 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8
+  store ptr %27, ptr %14, align 8
+  %28 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %29 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %28, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8
+  store ptr %30, ptr %15, align 8
+  %31 = call ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  %32 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %17, i32 0, i32 0
+  store ptr %31, ptr %32, align 8
+  %33 = call noundef i64 @_ZN9__gnu_cxxmiIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %17) #3
+  store i64 %33, ptr %16, align 8
+  %34 = load i64, ptr %13, align 8
+  %35 = call noundef ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %34)
+  store ptr %35, ptr %18, align 8
+  %36 = load ptr, ptr %18, align 8
+  store ptr %36, ptr %19, align 8
+  %37 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %38 = load ptr, ptr %18, align 8
+  %39 = load i64, ptr %16, align 8
+  %40 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %38, i64 %39
+  %41 = load ptr, ptr %9, align 8
+  %42 = load ptr, ptr %10, align 8
+  %43 = load ptr, ptr %11, align 8
+  %44 = load ptr, ptr %12, align 8
+  invoke void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindERjS7_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvRS3_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef %40, ptr noundef nonnull align 4 dereferenceable(4) %41, ptr noundef nonnull align 4 dereferenceable(4) %42, ptr noundef nonnull align 4 dereferenceable(4) %43, ptr noundef nonnull align 8 dereferenceable(24) %44)
+          to label %45 unwind label %60
+
+45:                                               ; preds = %6
+  store ptr null, ptr %19, align 8
+  %46 = load ptr, ptr %14, align 8
+  %47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  %48 = load ptr, ptr %47, align 8
+  %49 = load ptr, ptr %18, align 8
+  %50 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  %51 = call noundef ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_(ptr noundef %46, ptr noundef %48, ptr noundef %49, ptr noundef nonnull align 1 dereferenceable(1) %50) #3
+  store ptr %51, ptr %19, align 8
+  %52 = load ptr, ptr %19, align 8
+  %53 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %52, i32 1
+  store ptr %53, ptr %19, align 8
+  %54 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  %55 = load ptr, ptr %54, align 8
+  %56 = load ptr, ptr %15, align 8
+  %57 = load ptr, ptr %19, align 8
+  %58 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  %59 = call noundef ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_(ptr noundef %55, ptr noundef %56, ptr noundef %57, ptr noundef nonnull align 1 dereferenceable(1) %58) #3
+  store ptr %59, ptr %19, align 8
+  br label %88
+
+60:                                               ; preds = %6
+  %61 = landingpad { ptr, i32 }
+          catch ptr null
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %20, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %21, align 4
+  br label %64
+
+64:                                               ; preds = %60
+  %65 = load ptr, ptr %20, align 8
+  %66 = call ptr @__cxa_begin_catch(ptr %65) #3
+  %67 = load ptr, ptr %19, align 8
+  %68 = icmp ne ptr %67, null
+  br i1 %68, label %74, label %69
+
+69:                                               ; preds = %64
+  %70 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %71 = load ptr, ptr %18, align 8
+  %72 = load i64, ptr %16, align 8
+  %73 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %71, i64 %72
+  call void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull align 1 dereferenceable(1) %70, ptr noundef %73) #3
+  br label %83
+
+74:                                               ; preds = %64
+  %75 = load ptr, ptr %18, align 8
+  %76 = load ptr, ptr %19, align 8
+  %77 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  invoke void @_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E(ptr noundef %75, ptr noundef %76, ptr noundef nonnull align 1 dereferenceable(1) %77)
+          to label %78 unwind label %79
+
+78:                                               ; preds = %74
+  br label %83
+
+79:                                               ; preds = %86, %83, %74
+  %80 = landingpad { ptr, i32 }
+          cleanup
+  %81 = extractvalue { ptr, i32 } %80, 0
+  store ptr %81, ptr %20, align 8
+  %82 = extractvalue { ptr, i32 } %80, 1
+  store i32 %82, ptr %21, align 4
+  invoke void @__cxa_end_catch()
+          to label %87 unwind label %114
+
+83:                                               ; preds = %78, %69
+  %84 = load ptr, ptr %18, align 8
+  %85 = load i64, ptr %13, align 8
+  invoke void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE13_M_deallocateEPS2_m(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef %84, i64 noundef %85)
+          to label %86 unwind label %79
+
+86:                                               ; preds = %83
+  invoke void @__cxa_rethrow() #15
+          to label %117 unwind label %79
+
+87:                                               ; preds = %79
+  br label %109
+
+88:                                               ; preds = %45
+  %89 = load ptr, ptr %14, align 8
+  %90 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %91 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %90, i32 0, i32 2
+  %92 = load ptr, ptr %91, align 8
+  %93 = load ptr, ptr %14, align 8
+  %94 = ptrtoint ptr %92 to i64
+  %95 = ptrtoint ptr %93 to i64
+  %96 = sub i64 %94, %95
+  %97 = sdiv exact i64 %96, 40
+  call void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE13_M_deallocateEPS2_m(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef %89, i64 noundef %97)
+  %98 = load ptr, ptr %18, align 8
+  %99 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %100 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %99, i32 0, i32 0
+  store ptr %98, ptr %100, align 8
+  %101 = load ptr, ptr %19, align 8
+  %102 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %103 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %102, i32 0, i32 1
+  store ptr %101, ptr %103, align 8
+  %104 = load ptr, ptr %18, align 8
+  %105 = load i64, ptr %13, align 8
+  %106 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %104, i64 %105
+  %107 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %108 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %107, i32 0, i32 2
+  store ptr %106, ptr %108, align 8
+  ret void
+
+109:                                              ; preds = %87
+  %110 = load ptr, ptr %20, align 8
+  %111 = load i32, ptr %21, align 4
+  %112 = insertvalue { ptr, i32 } poison, ptr %110, 0
+  %113 = insertvalue { ptr, i32 } %112, i32 %111, 1
+  resume { ptr, i32 } %113
+
+114:                                              ; preds = %79
+  %115 = landingpad { ptr, i32 }
+          catch ptr null
+  %116 = extractvalue { ptr, i32 } %115, 0
+  call void @__clang_call_terminate(ptr %116) #14
+  unreachable
+
+117:                                              ; preds = %86
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE9constructIS2_JNS2_4KindERjS6_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) #5 comdat align 2 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %8, align 8
+  %14 = load ptr, ptr %9, align 8
+  %15 = load i32, ptr %14, align 4
+  %16 = load ptr, ptr %10, align 8
+  %17 = load i32, ptr %16, align 4
+  %18 = load ptr, ptr %11, align 8
+  %19 = load i32, ptr %18, align 4
+  %20 = load ptr, ptr %12, align 8
+  call void @_ZN7jsonnet8internal13FodderElementC2ENS1_4KindEjjRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef %15, i32 noundef %17, i32 noundef %19, ptr noundef nonnull align 8 dereferenceable(24) %20)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_S_check_init_lenEmRKS6_(i64 noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #5 comdat align 2 {
+  %3 = alloca i64, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::allocator", align 1
+  store i64 %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load i64, ptr %3, align 8
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  %8 = call noundef i64 @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_max_sizeERKS6_(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  %9 = icmp ugt i64 %6, %8
+  call void @_ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  br i1 %9, label %10, label %11
+
+10:                                               ; preds = %2
+  call void @_ZSt20__throw_length_errorPKc(ptr noundef @.str.54) #15
+  unreachable
+
+11:                                               ; preds = %2
+  %12 = load i64, ptr %3, align 8
+  ret i64 %12
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE21_M_default_initializeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %7 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  %9 = load i64, ptr %4, align 8
+  %10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  %11 = call noundef ptr @_ZSt27__uninitialized_default_n_aIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmS5_ET_S7_T0_RSaIT1_E(ptr noundef %8, i64 noundef %9, ptr noundef nonnull align 1 dereferenceable(1) %10)
+  %12 = getelementptr inbounds %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %13 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %12, i32 0, i32 1
+  store ptr %11, ptr %13, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt27__uninitialized_default_n_aIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmS5_ET_S7_T0_RSaIT1_E(ptr noundef %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) #5 comdat {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8
+  %9 = call noundef ptr @_ZSt25__uninitialized_default_nIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmET_S7_T0_(ptr noundef %7, i64 noundef %8)
+  ret ptr %9
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt25__uninitialized_default_nIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmET_S7_T0_(ptr noundef %0, i64 noundef %1) #5 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i8, align 1
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  store i8 1, ptr %5, align 1
+  %6 = load ptr, ptr %3, align 8
+  %7 = load i64, ptr %4, align 8
+  %8 = call noundef ptr @_ZNSt27__uninitialized_default_n_1ILb0EE18__uninit_default_nIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEET_S9_T0_(ptr noundef %6, i64 noundef %7)
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt27__uninitialized_default_n_1ILb0EE18__uninit_default_nIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEET_S9_T0_(ptr noundef %0, i64 noundef %1) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %8 = load ptr, ptr %3, align 8
+  store ptr %8, ptr %5, align 8
+  br label %9
+
+9:                                                ; preds = %15, %2
+  %10 = load i64, ptr %4, align 8
+  %11 = icmp ugt i64 %10, 0
+  br i1 %11, label %12, label %30
+
+12:                                               ; preds = %9
+  %13 = load ptr, ptr %5, align 8
+  invoke void @_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEvPT_DpOT0_(ptr noundef %13)
+          to label %14 unwind label %20
+
+14:                                               ; preds = %12
+  br label %15
+
+15:                                               ; preds = %14
+  %16 = load i64, ptr %4, align 8
+  %17 = add i64 %16, -1
+  store i64 %17, ptr %4, align 8
+  %18 = load ptr, ptr %5, align 8
+  %19 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %18, i32 1
+  store ptr %19, ptr %5, align 8
+  br label %9, !llvm.loop !37
+
+20:                                               ; preds = %12
+  %21 = landingpad { ptr, i32 }
+          catch ptr null
+  %22 = extractvalue { ptr, i32 } %21, 0
+  store ptr %22, ptr %6, align 8
+  %23 = extractvalue { ptr, i32 } %21, 1
+  store i32 %23, ptr %7, align 4
+  br label %24
+
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %6, align 8
+  %26 = call ptr @__cxa_begin_catch(ptr %25) #3
+  %27 = load ptr, ptr %3, align 8
+  %28 = load ptr, ptr %5, align 8
+  invoke void @_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_(ptr noundef %27, ptr noundef %28)
+          to label %29 unwind label %32
+
+29:                                               ; preds = %24
+  invoke void @__cxa_rethrow() #15
+          to label %46 unwind label %32
+
+30:                                               ; preds = %9
+  %31 = load ptr, ptr %5, align 8
+  ret ptr %31
+
+32:                                               ; preds = %29, %24
+  %33 = landingpad { ptr, i32 }
+          cleanup
+  %34 = extractvalue { ptr, i32 } %33, 0
+  store ptr %34, ptr %6, align 8
+  %35 = extractvalue { ptr, i32 } %33, 1
+  store i32 %35, ptr %7, align 4
+  invoke void @__cxa_end_catch()
+          to label %36 unwind label %43
+
+36:                                               ; preds = %32
+  br label %38
+
+37:                                               ; No predecessors!
+  call void @llvm.trap()
+  unreachable
+
+38:                                               ; preds = %36
+  %39 = load ptr, ptr %6, align 8
+  %40 = load i32, ptr %7, align 4
+  %41 = insertvalue { ptr, i32 } poison, ptr %39, 0
+  %42 = insertvalue { ptr, i32 } %41, i32 %40, 1
+  resume { ptr, i32 } %42
+
+43:                                               ; preds = %32
+  %44 = landingpad { ptr, i32 }
+          catch ptr null
+  %45 = extractvalue { ptr, i32 } %44, 0
+  call void @__clang_call_terminate(ptr %45) #14
+  unreachable
+
+46:                                               ; preds = %29
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJEEvPT_DpOT0_(ptr noundef %0) #4 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JRNS2_4KindERjS8_RSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEEvRS3_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) #5 comdat align 2 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load ptr, ptr %8, align 8
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  call void @_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE9constructIS2_JRNS2_4KindERjS7_RSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(24) %18)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE17_M_realloc_insertIJRNS2_4KindERjS8_RS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %7 = alloca %"class.__gnu_cxx::__normal_iterator.19", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca %"class.__gnu_cxx::__normal_iterator.19", align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca i32, align 4
+  %22 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %7, i32 0, i32 0
+  store ptr %1, ptr %22, align 8
+  store ptr %0, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %23 = load ptr, ptr %8, align 8
+  %24 = call noundef i64 @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef 1, ptr noundef @.str.52)
+  store i64 %24, ptr %13, align 8
+  %25 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %26 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8
+  store ptr %27, ptr %14, align 8
+  %28 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %29 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %28, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8
+  store ptr %30, ptr %15, align 8
+  %31 = call ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  %32 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %17, i32 0, i32 0
+  store ptr %31, ptr %32, align 8
+  %33 = call noundef i64 @_ZN9__gnu_cxxmiIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %17) #3
+  store i64 %33, ptr %16, align 8
+  %34 = load i64, ptr %13, align 8
+  %35 = call noundef ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %34)
+  store ptr %35, ptr %18, align 8
+  %36 = load ptr, ptr %18, align 8
+  store ptr %36, ptr %19, align 8
+  %37 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %38 = load ptr, ptr %18, align 8
+  %39 = load i64, ptr %16, align 8
+  %40 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %38, i64 %39
+  %41 = load ptr, ptr %9, align 8
+  %42 = load ptr, ptr %10, align 8
+  %43 = load ptr, ptr %11, align 8
+  %44 = load ptr, ptr %12, align 8
+  invoke void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JRNS2_4KindERjS8_RSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEEEEvRS3_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef %40, ptr noundef nonnull align 4 dereferenceable(4) %41, ptr noundef nonnull align 4 dereferenceable(4) %42, ptr noundef nonnull align 4 dereferenceable(4) %43, ptr noundef nonnull align 8 dereferenceable(24) %44)
+          to label %45 unwind label %60
+
+45:                                               ; preds = %6
+  store ptr null, ptr %19, align 8
+  %46 = load ptr, ptr %14, align 8
+  %47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  %48 = load ptr, ptr %47, align 8
+  %49 = load ptr, ptr %18, align 8
+  %50 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  %51 = call noundef ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_(ptr noundef %46, ptr noundef %48, ptr noundef %49, ptr noundef nonnull align 1 dereferenceable(1) %50) #3
+  store ptr %51, ptr %19, align 8
+  %52 = load ptr, ptr %19, align 8
+  %53 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %52, i32 1
+  store ptr %53, ptr %19, align 8
+  %54 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  %55 = load ptr, ptr %54, align 8
+  %56 = load ptr, ptr %15, align 8
+  %57 = load ptr, ptr %19, align 8
+  %58 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  %59 = call noundef ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_(ptr noundef %55, ptr noundef %56, ptr noundef %57, ptr noundef nonnull align 1 dereferenceable(1) %58) #3
+  store ptr %59, ptr %19, align 8
+  br label %88
+
+60:                                               ; preds = %6
+  %61 = landingpad { ptr, i32 }
+          catch ptr null
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %20, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %21, align 4
+  br label %64
+
+64:                                               ; preds = %60
+  %65 = load ptr, ptr %20, align 8
+  %66 = call ptr @__cxa_begin_catch(ptr %65) #3
+  %67 = load ptr, ptr %19, align 8
+  %68 = icmp ne ptr %67, null
+  br i1 %68, label %74, label %69
+
+69:                                               ; preds = %64
+  %70 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %71 = load ptr, ptr %18, align 8
+  %72 = load i64, ptr %16, align 8
+  %73 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %71, i64 %72
+  call void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull align 1 dereferenceable(1) %70, ptr noundef %73) #3
+  br label %83
+
+74:                                               ; preds = %64
+  %75 = load ptr, ptr %18, align 8
+  %76 = load ptr, ptr %19, align 8
+  %77 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  invoke void @_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E(ptr noundef %75, ptr noundef %76, ptr noundef nonnull align 1 dereferenceable(1) %77)
+          to label %78 unwind label %79
+
+78:                                               ; preds = %74
+  br label %83
+
+79:                                               ; preds = %86, %83, %74
+  %80 = landingpad { ptr, i32 }
+          cleanup
+  %81 = extractvalue { ptr, i32 } %80, 0
+  store ptr %81, ptr %20, align 8
+  %82 = extractvalue { ptr, i32 } %80, 1
+  store i32 %82, ptr %21, align 4
+  invoke void @__cxa_end_catch()
+          to label %87 unwind label %114
+
+83:                                               ; preds = %78, %69
+  %84 = load ptr, ptr %18, align 8
+  %85 = load i64, ptr %13, align 8
+  invoke void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE13_M_deallocateEPS2_m(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef %84, i64 noundef %85)
+          to label %86 unwind label %79
+
+86:                                               ; preds = %83
+  invoke void @__cxa_rethrow() #15
+          to label %117 unwind label %79
+
+87:                                               ; preds = %79
+  br label %109
+
+88:                                               ; preds = %45
+  %89 = load ptr, ptr %14, align 8
+  %90 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %91 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %90, i32 0, i32 2
+  %92 = load ptr, ptr %91, align 8
+  %93 = load ptr, ptr %14, align 8
+  %94 = ptrtoint ptr %92 to i64
+  %95 = ptrtoint ptr %93 to i64
+  %96 = sub i64 %94, %95
+  %97 = sdiv exact i64 %96, 40
+  call void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE13_M_deallocateEPS2_m(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef %89, i64 noundef %97)
+  %98 = load ptr, ptr %18, align 8
+  %99 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %100 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %99, i32 0, i32 0
+  store ptr %98, ptr %100, align 8
+  %101 = load ptr, ptr %19, align 8
+  %102 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %103 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %102, i32 0, i32 1
+  store ptr %101, ptr %103, align 8
+  %104 = load ptr, ptr %18, align 8
+  %105 = load i64, ptr %13, align 8
+  %106 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %104, i64 %105
+  %107 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %108 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %107, i32 0, i32 2
+  store ptr %106, ptr %108, align 8
+  ret void
+
+109:                                              ; preds = %87
+  %110 = load ptr, ptr %20, align 8
+  %111 = load i32, ptr %21, align 4
+  %112 = insertvalue { ptr, i32 } poison, ptr %110, 0
+  %113 = insertvalue { ptr, i32 } %112, i32 %111, 1
+  resume { ptr, i32 } %113
+
+114:                                              ; preds = %79
+  %115 = landingpad { ptr, i32 }
+          catch ptr null
+  %116 = extractvalue { ptr, i32 } %115, 0
+  call void @__clang_call_terminate(ptr %116) #14
+  unreachable
+
+117:                                              ; preds = %86
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE9constructIS2_JRNS2_4KindERjS7_RSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) #5 comdat align 2 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %8, align 8
+  %14 = load ptr, ptr %9, align 8
+  %15 = load i32, ptr %14, align 4
+  %16 = load ptr, ptr %10, align 8
+  %17 = load i32, ptr %16, align 4
+  %18 = load ptr, ptr %11, align 8
+  %19 = load i32, ptr %18, align 4
+  %20 = load ptr, ptr %12, align 8
+  call void @_ZN7jsonnet8internal13FodderElementC2ENS1_4KindEjjRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef %15, i32 noundef %17, i32 noundef %19, ptr noundef nonnull align 8 dereferenceable(24) %20)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %5, align 8
+  %9 = load ptr, ptr %6, align 8
+  call void @_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIS5_JRKS5_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca i32, align 4
+  %16 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %4, i32 0, i32 0
+  store ptr %1, ptr %16, align 8
+  store ptr %0, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %17 = load ptr, ptr %5, align 8
+  %18 = call noundef i64 @_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef 1, ptr noundef @.str.52)
+  store i64 %18, ptr %7, align 8
+  %19 = getelementptr inbounds %"struct.std::_Vector_base", ptr %17, i32 0, i32 0
+  %20 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %19, i32 0, i32 0
+  %21 = load ptr, ptr %20, align 8
+  store ptr %21, ptr %8, align 8
+  %22 = getelementptr inbounds %"struct.std::_Vector_base", ptr %17, i32 0, i32 0
+  %23 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %22, i32 0, i32 1
+  %24 = load ptr, ptr %23, align 8
+  store ptr %24, ptr %9, align 8
+  %25 = call ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+  %26 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %11, i32 0, i32 0
+  store ptr %25, ptr %26, align 8
+  %27 = call noundef i64 @_ZN9__gnu_cxxmiIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSE_SH_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %11) #3
+  store i64 %27, ptr %10, align 8
+  %28 = load i64, ptr %7, align 8
+  %29 = call noundef ptr @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef %28)
+  store ptr %29, ptr %12, align 8
+  %30 = load ptr, ptr %12, align 8
+  store ptr %30, ptr %13, align 8
+  %31 = getelementptr inbounds %"struct.std::_Vector_base", ptr %17, i32 0, i32 0
+  %32 = load ptr, ptr %12, align 8
+  %33 = load i64, ptr %10, align 8
+  %34 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %32, i64 %33
+  %35 = load ptr, ptr %6, align 8
+  invoke void @_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %31, ptr noundef %34, ptr noundef nonnull align 8 dereferenceable(32) %35)
+          to label %36 unwind label %51
+
+36:                                               ; preds = %3
+  store ptr null, ptr %13, align 8
+  %37 = load ptr, ptr %8, align 8
+  %38 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %39 = load ptr, ptr %38, align 8
+  %40 = load ptr, ptr %12, align 8
+  %41 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+  %42 = call noundef ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_(ptr noundef %37, ptr noundef %39, ptr noundef %40, ptr noundef nonnull align 1 dereferenceable(1) %41) #3
+  store ptr %42, ptr %13, align 8
+  %43 = load ptr, ptr %13, align 8
+  %44 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %43, i32 1
+  store ptr %44, ptr %13, align 8
+  %45 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %46 = load ptr, ptr %45, align 8
+  %47 = load ptr, ptr %9, align 8
+  %48 = load ptr, ptr %13, align 8
+  %49 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+  %50 = call noundef ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_(ptr noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef nonnull align 1 dereferenceable(1) %49) #3
+  store ptr %50, ptr %13, align 8
+  br label %79
+
+51:                                               ; preds = %3
+  %52 = landingpad { ptr, i32 }
+          catch ptr null
+  %53 = extractvalue { ptr, i32 } %52, 0
+  store ptr %53, ptr %14, align 8
+  %54 = extractvalue { ptr, i32 } %52, 1
+  store i32 %54, ptr %15, align 4
+  br label %55
+
+55:                                               ; preds = %51
+  %56 = load ptr, ptr %14, align 8
+  %57 = call ptr @__cxa_begin_catch(ptr %56) #3
+  %58 = load ptr, ptr %13, align 8
+  %59 = icmp ne ptr %58, null
+  br i1 %59, label %65, label %60
+
+60:                                               ; preds = %55
+  %61 = getelementptr inbounds %"struct.std::_Vector_base", ptr %17, i32 0, i32 0
+  %62 = load ptr, ptr %12, align 8
+  %63 = load i64, ptr %10, align 8
+  %64 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %62, i64 %63
+  call void @_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_(ptr noundef nonnull align 1 dereferenceable(1) %61, ptr noundef %64) #3
+  br label %74
+
+65:                                               ; preds = %55
+  %66 = load ptr, ptr %12, align 8
+  %67 = load ptr, ptr %13, align 8
+  %68 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
+  invoke void @_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E(ptr noundef %66, ptr noundef %67, ptr noundef nonnull align 1 dereferenceable(1) %68)
+          to label %69 unwind label %70
+
+69:                                               ; preds = %65
+  br label %74
+
+70:                                               ; preds = %77, %74, %65
+  %71 = landingpad { ptr, i32 }
+          cleanup
+  %72 = extractvalue { ptr, i32 } %71, 0
+  store ptr %72, ptr %14, align 8
+  %73 = extractvalue { ptr, i32 } %71, 1
+  store i32 %73, ptr %15, align 4
+  invoke void @__cxa_end_catch()
+          to label %78 unwind label %105
+
+74:                                               ; preds = %69, %60
+  %75 = load ptr, ptr %12, align 8
+  %76 = load i64, ptr %7, align 8
+  invoke void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef %75, i64 noundef %76)
+          to label %77 unwind label %70
+
+77:                                               ; preds = %74
+  invoke void @__cxa_rethrow() #15
+          to label %108 unwind label %70
+
+78:                                               ; preds = %70
+  br label %100
+
+79:                                               ; preds = %36
+  %80 = load ptr, ptr %8, align 8
+  %81 = getelementptr inbounds %"struct.std::_Vector_base", ptr %17, i32 0, i32 0
+  %82 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %81, i32 0, i32 2
+  %83 = load ptr, ptr %82, align 8
+  %84 = load ptr, ptr %8, align 8
+  %85 = ptrtoint ptr %83 to i64
+  %86 = ptrtoint ptr %84 to i64
+  %87 = sub i64 %85, %86
+  %88 = sdiv exact i64 %87, 32
+  call void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef %80, i64 noundef %88)
+  %89 = load ptr, ptr %12, align 8
+  %90 = getelementptr inbounds %"struct.std::_Vector_base", ptr %17, i32 0, i32 0
+  %91 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %90, i32 0, i32 0
+  store ptr %89, ptr %91, align 8
+  %92 = load ptr, ptr %13, align 8
+  %93 = getelementptr inbounds %"struct.std::_Vector_base", ptr %17, i32 0, i32 0
+  %94 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %93, i32 0, i32 1
+  store ptr %92, ptr %94, align 8
+  %95 = load ptr, ptr %12, align 8
+  %96 = load i64, ptr %7, align 8
+  %97 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %95, i64 %96
+  %98 = getelementptr inbounds %"struct.std::_Vector_base", ptr %17, i32 0, i32 0
+  %99 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %98, i32 0, i32 2
+  store ptr %97, ptr %99, align 8
+  ret void
+
+100:                                              ; preds = %78
+  %101 = load ptr, ptr %14, align 8
+  %102 = load i32, ptr %15, align 4
+  %103 = insertvalue { ptr, i32 } poison, ptr %101, 0
+  %104 = insertvalue { ptr, i32 } %103, i32 %102, 1
+  resume { ptr, i32 } %104
+
+105:                                              ; preds = %70
+  %106 = landingpad { ptr, i32 }
+          catch ptr null
+  %107 = extractvalue { ptr, i32 } %106, 0
+  call void @__clang_call_terminate(ptr %107) #14
+  unreachable
+
+108:                                              ; preds = %77
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9constructIS5_JRKS5_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %5, align 8
+  %8 = load ptr, ptr %6, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindEiiRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEEvRS3_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) #5 comdat align 2 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load ptr, ptr %8, align 8
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  call void @_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE9constructIS2_JNS2_4KindEiiRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(24) %18)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE17_M_realloc_insertIJNS2_4KindEiiRS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %7 = alloca %"class.__gnu_cxx::__normal_iterator.19", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca %"class.__gnu_cxx::__normal_iterator.19", align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca i32, align 4
+  %22 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %7, i32 0, i32 0
+  store ptr %1, ptr %22, align 8
+  store ptr %0, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %23 = load ptr, ptr %8, align 8
+  %24 = call noundef i64 @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef 1, ptr noundef @.str.52)
+  store i64 %24, ptr %13, align 8
+  %25 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %26 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8
+  store ptr %27, ptr %14, align 8
+  %28 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %29 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %28, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8
+  store ptr %30, ptr %15, align 8
+  %31 = call ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  %32 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %17, i32 0, i32 0
+  store ptr %31, ptr %32, align 8
+  %33 = call noundef i64 @_ZN9__gnu_cxxmiIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %17) #3
+  store i64 %33, ptr %16, align 8
+  %34 = load i64, ptr %13, align 8
+  %35 = call noundef ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %34)
+  store ptr %35, ptr %18, align 8
+  %36 = load ptr, ptr %18, align 8
+  store ptr %36, ptr %19, align 8
+  %37 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %38 = load ptr, ptr %18, align 8
+  %39 = load i64, ptr %16, align 8
+  %40 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %38, i64 %39
+  %41 = load ptr, ptr %9, align 8
+  %42 = load ptr, ptr %10, align 8
+  %43 = load ptr, ptr %11, align 8
+  %44 = load ptr, ptr %12, align 8
+  invoke void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindEiiRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEEvRS3_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef %40, ptr noundef nonnull align 4 dereferenceable(4) %41, ptr noundef nonnull align 4 dereferenceable(4) %42, ptr noundef nonnull align 4 dereferenceable(4) %43, ptr noundef nonnull align 8 dereferenceable(24) %44)
+          to label %45 unwind label %60
+
+45:                                               ; preds = %6
+  store ptr null, ptr %19, align 8
+  %46 = load ptr, ptr %14, align 8
+  %47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  %48 = load ptr, ptr %47, align 8
+  %49 = load ptr, ptr %18, align 8
+  %50 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  %51 = call noundef ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_(ptr noundef %46, ptr noundef %48, ptr noundef %49, ptr noundef nonnull align 1 dereferenceable(1) %50) #3
+  store ptr %51, ptr %19, align 8
+  %52 = load ptr, ptr %19, align 8
+  %53 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %52, i32 1
+  store ptr %53, ptr %19, align 8
+  %54 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  %55 = load ptr, ptr %54, align 8
+  %56 = load ptr, ptr %15, align 8
+  %57 = load ptr, ptr %19, align 8
+  %58 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  %59 = call noundef ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_(ptr noundef %55, ptr noundef %56, ptr noundef %57, ptr noundef nonnull align 1 dereferenceable(1) %58) #3
+  store ptr %59, ptr %19, align 8
+  br label %88
+
+60:                                               ; preds = %6
+  %61 = landingpad { ptr, i32 }
+          catch ptr null
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %20, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %21, align 4
+  br label %64
+
+64:                                               ; preds = %60
+  %65 = load ptr, ptr %20, align 8
+  %66 = call ptr @__cxa_begin_catch(ptr %65) #3
+  %67 = load ptr, ptr %19, align 8
+  %68 = icmp ne ptr %67, null
+  br i1 %68, label %74, label %69
+
+69:                                               ; preds = %64
+  %70 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %71 = load ptr, ptr %18, align 8
+  %72 = load i64, ptr %16, align 8
+  %73 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %71, i64 %72
+  call void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull align 1 dereferenceable(1) %70, ptr noundef %73) #3
+  br label %83
+
+74:                                               ; preds = %64
+  %75 = load ptr, ptr %18, align 8
+  %76 = load ptr, ptr %19, align 8
+  %77 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  invoke void @_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E(ptr noundef %75, ptr noundef %76, ptr noundef nonnull align 1 dereferenceable(1) %77)
+          to label %78 unwind label %79
+
+78:                                               ; preds = %74
+  br label %83
+
+79:                                               ; preds = %86, %83, %74
+  %80 = landingpad { ptr, i32 }
+          cleanup
+  %81 = extractvalue { ptr, i32 } %80, 0
+  store ptr %81, ptr %20, align 8
+  %82 = extractvalue { ptr, i32 } %80, 1
+  store i32 %82, ptr %21, align 4
+  invoke void @__cxa_end_catch()
+          to label %87 unwind label %114
+
+83:                                               ; preds = %78, %69
+  %84 = load ptr, ptr %18, align 8
+  %85 = load i64, ptr %13, align 8
+  invoke void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE13_M_deallocateEPS2_m(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef %84, i64 noundef %85)
+          to label %86 unwind label %79
+
+86:                                               ; preds = %83
+  invoke void @__cxa_rethrow() #15
+          to label %117 unwind label %79
+
+87:                                               ; preds = %79
+  br label %109
+
+88:                                               ; preds = %45
+  %89 = load ptr, ptr %14, align 8
+  %90 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %91 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %90, i32 0, i32 2
+  %92 = load ptr, ptr %91, align 8
+  %93 = load ptr, ptr %14, align 8
+  %94 = ptrtoint ptr %92 to i64
+  %95 = ptrtoint ptr %93 to i64
+  %96 = sub i64 %94, %95
+  %97 = sdiv exact i64 %96, 40
+  call void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE13_M_deallocateEPS2_m(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef %89, i64 noundef %97)
+  %98 = load ptr, ptr %18, align 8
+  %99 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %100 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %99, i32 0, i32 0
+  store ptr %98, ptr %100, align 8
+  %101 = load ptr, ptr %19, align 8
+  %102 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %103 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %102, i32 0, i32 1
+  store ptr %101, ptr %103, align 8
+  %104 = load ptr, ptr %18, align 8
+  %105 = load i64, ptr %13, align 8
+  %106 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %104, i64 %105
+  %107 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %108 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %107, i32 0, i32 2
+  store ptr %106, ptr %108, align 8
+  ret void
+
+109:                                              ; preds = %87
+  %110 = load ptr, ptr %20, align 8
+  %111 = load i32, ptr %21, align 4
+  %112 = insertvalue { ptr, i32 } poison, ptr %110, 0
+  %113 = insertvalue { ptr, i32 } %112, i32 %111, 1
+  resume { ptr, i32 } %113
+
+114:                                              ; preds = %79
+  %115 = landingpad { ptr, i32 }
+          catch ptr null
+  %116 = extractvalue { ptr, i32 } %115, 0
+  call void @__clang_call_terminate(ptr %116) #14
+  unreachable
+
+117:                                              ; preds = %86
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE9constructIS2_JNS2_4KindEiiRSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) #5 comdat align 2 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %8, align 8
+  %14 = load ptr, ptr %9, align 8
+  %15 = load i32, ptr %14, align 4
+  %16 = load ptr, ptr %10, align 8
+  %17 = load i32, ptr %16, align 4
+  %18 = load ptr, ptr %11, align 8
+  %19 = load i32, ptr %18, align 4
+  %20 = load ptr, ptr %12, align 8
+  call void @_ZN7jsonnet8internal13FodderElementC2ENS1_4KindEjjRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef %15, i32 noundef %17, i32 noundef %19, ptr noundef nonnull align 8 dereferenceable(24) %20)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindEjRjRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvRS3_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) #5 comdat align 2 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %7, align 8
+  %14 = load ptr, ptr %8, align 8
+  %15 = load ptr, ptr %9, align 8
+  %16 = load ptr, ptr %10, align 8
+  %17 = load ptr, ptr %11, align 8
+  %18 = load ptr, ptr %12, align 8
+  call void @_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE9constructIS2_JNS2_4KindEjRjRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 8 dereferenceable(24) %18)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE17_M_realloc_insertIJNS2_4KindEjRjRKS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %7 = alloca %"class.__gnu_cxx::__normal_iterator.19", align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i64, align 8
+  %17 = alloca %"class.__gnu_cxx::__normal_iterator.19", align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca ptr, align 8
+  %20 = alloca ptr, align 8
+  %21 = alloca i32, align 4
+  %22 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %7, i32 0, i32 0
+  store ptr %1, ptr %22, align 8
+  store ptr %0, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %23 = load ptr, ptr %8, align 8
+  %24 = call noundef i64 @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE12_M_check_lenEmPKc(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef 1, ptr noundef @.str.52)
+  store i64 %24, ptr %13, align 8
+  %25 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %26 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %25, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8
+  store ptr %27, ptr %14, align 8
+  %28 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %29 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %28, i32 0, i32 1
+  %30 = load ptr, ptr %29, align 8
+  store ptr %30, ptr %15, align 8
+  %31 = call ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  %32 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.19", ptr %17, i32 0, i32 0
+  store ptr %31, ptr %32, align 8
+  %33 = call noundef i64 @_ZN9__gnu_cxxmiIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEENS_17__normal_iteratorIT_T0_E15difference_typeERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %17) #3
+  store i64 %33, ptr %16, align 8
+  %34 = load i64, ptr %13, align 8
+  %35 = call noundef ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %23, i64 noundef %34)
+  store ptr %35, ptr %18, align 8
+  %36 = load ptr, ptr %18, align 8
+  store ptr %36, ptr %19, align 8
+  %37 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %38 = load ptr, ptr %18, align 8
+  %39 = load i64, ptr %16, align 8
+  %40 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %38, i64 %39
+  %41 = load ptr, ptr %9, align 8
+  %42 = load ptr, ptr %10, align 8
+  %43 = load ptr, ptr %11, align 8
+  %44 = load ptr, ptr %12, align 8
+  invoke void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE9constructIS2_JNS2_4KindEjRjRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEvRS3_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %37, ptr noundef %40, ptr noundef nonnull align 4 dereferenceable(4) %41, ptr noundef nonnull align 4 dereferenceable(4) %42, ptr noundef nonnull align 4 dereferenceable(4) %43, ptr noundef nonnull align 8 dereferenceable(24) %44)
+          to label %45 unwind label %60
+
+45:                                               ; preds = %6
+  store ptr null, ptr %19, align 8
+  %46 = load ptr, ptr %14, align 8
+  %47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  %48 = load ptr, ptr %47, align 8
+  %49 = load ptr, ptr %18, align 8
+  %50 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  %51 = call noundef ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_(ptr noundef %46, ptr noundef %48, ptr noundef %49, ptr noundef nonnull align 1 dereferenceable(1) %50) #3
+  store ptr %51, ptr %19, align 8
+  %52 = load ptr, ptr %19, align 8
+  %53 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %52, i32 1
+  store ptr %53, ptr %19, align 8
+  %54 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
+  %55 = load ptr, ptr %54, align 8
+  %56 = load ptr, ptr %15, align 8
+  %57 = load ptr, ptr %19, align 8
+  %58 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  %59 = call noundef ptr @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_(ptr noundef %55, ptr noundef %56, ptr noundef %57, ptr noundef nonnull align 1 dereferenceable(1) %58) #3
+  store ptr %59, ptr %19, align 8
+  br label %88
+
+60:                                               ; preds = %6
+  %61 = landingpad { ptr, i32 }
+          catch ptr null
+  %62 = extractvalue { ptr, i32 } %61, 0
+  store ptr %62, ptr %20, align 8
+  %63 = extractvalue { ptr, i32 } %61, 1
+  store i32 %63, ptr %21, align 4
+  br label %64
+
+64:                                               ; preds = %60
+  %65 = load ptr, ptr %20, align 8
+  %66 = call ptr @__cxa_begin_catch(ptr %65) #3
+  %67 = load ptr, ptr %19, align 8
+  %68 = icmp ne ptr %67, null
+  br i1 %68, label %74, label %69
+
+69:                                               ; preds = %64
+  %70 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %71 = load ptr, ptr %18, align 8
+  %72 = load i64, ptr %16, align 8
+  %73 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %71, i64 %72
+  call void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE7destroyIS2_EEvRS3_PT_(ptr noundef nonnull align 1 dereferenceable(1) %70, ptr noundef %73) #3
+  br label %83
+
+74:                                               ; preds = %64
+  %75 = load ptr, ptr %18, align 8
+  %76 = load ptr, ptr %19, align 8
+  %77 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %23) #3
+  invoke void @_ZSt8_DestroyIPN7jsonnet8internal13FodderElementES2_EvT_S4_RSaIT0_E(ptr noundef %75, ptr noundef %76, ptr noundef nonnull align 1 dereferenceable(1) %77)
+          to label %78 unwind label %79
+
+78:                                               ; preds = %74
+  br label %83
+
+79:                                               ; preds = %86, %83, %74
+  %80 = landingpad { ptr, i32 }
+          cleanup
+  %81 = extractvalue { ptr, i32 } %80, 0
+  store ptr %81, ptr %20, align 8
+  %82 = extractvalue { ptr, i32 } %80, 1
+  store i32 %82, ptr %21, align 4
+  invoke void @__cxa_end_catch()
+          to label %87 unwind label %114
+
+83:                                               ; preds = %78, %69
+  %84 = load ptr, ptr %18, align 8
+  %85 = load i64, ptr %13, align 8
+  invoke void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE13_M_deallocateEPS2_m(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef %84, i64 noundef %85)
+          to label %86 unwind label %79
+
+86:                                               ; preds = %83
+  invoke void @__cxa_rethrow() #15
+          to label %117 unwind label %79
+
+87:                                               ; preds = %79
+  br label %109
+
+88:                                               ; preds = %45
+  %89 = load ptr, ptr %14, align 8
+  %90 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %91 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %90, i32 0, i32 2
+  %92 = load ptr, ptr %91, align 8
+  %93 = load ptr, ptr %14, align 8
+  %94 = ptrtoint ptr %92 to i64
+  %95 = ptrtoint ptr %93 to i64
+  %96 = sub i64 %94, %95
+  %97 = sdiv exact i64 %96, 40
+  call void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE13_M_deallocateEPS2_m(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef %89, i64 noundef %97)
+  %98 = load ptr, ptr %18, align 8
+  %99 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %100 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %99, i32 0, i32 0
+  store ptr %98, ptr %100, align 8
+  %101 = load ptr, ptr %19, align 8
+  %102 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %103 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %102, i32 0, i32 1
+  store ptr %101, ptr %103, align 8
+  %104 = load ptr, ptr %18, align 8
+  %105 = load i64, ptr %13, align 8
+  %106 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %104, i64 %105
+  %107 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %23, i32 0, i32 0
+  %108 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %107, i32 0, i32 2
+  store ptr %106, ptr %108, align 8
+  ret void
+
+109:                                              ; preds = %87
+  %110 = load ptr, ptr %20, align 8
+  %111 = load i32, ptr %21, align 4
+  %112 = insertvalue { ptr, i32 } poison, ptr %110, 0
+  %113 = insertvalue { ptr, i32 } %112, i32 %111, 1
+  resume { ptr, i32 } %113
+
+114:                                              ; preds = %79
+  %115 = landingpad { ptr, i32 }
+          catch ptr null
+  %116 = extractvalue { ptr, i32 } %115, 0
+  call void @__clang_call_terminate(ptr %116) #14
+  unreachable
+
+117:                                              ; preds = %86
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEE9constructIS2_JNS2_4KindEjRjRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) #5 comdat align 2 {
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  store ptr %0, ptr %7, align 8
+  store ptr %1, ptr %8, align 8
+  store ptr %2, ptr %9, align 8
+  store ptr %3, ptr %10, align 8
+  store ptr %4, ptr %11, align 8
+  store ptr %5, ptr %12, align 8
+  %13 = load ptr, ptr %8, align 8
+  %14 = load ptr, ptr %9, align 8
+  %15 = load i32, ptr %14, align 4
+  %16 = load ptr, ptr %10, align 8
+  %17 = load i32, ptr %16, align 4
+  %18 = load ptr, ptr %11, align 8
+  %19 = load i32, ptr %18, align 4
+  %20 = load ptr, ptr %12, align 8
+  call void @_ZN7jsonnet8internal13FodderElementC2ENS1_4KindEjjRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef %15, i32 noundef %17, i32 noundef %19, ptr noundef nonnull align 8 dereferenceable(24) %20)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE14_M_move_assignEOS7_St17integral_constantIbLb1EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::vector", align 8
+  %6 = alloca %"class.std::allocator", align 1
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %7 = load ptr, ptr %3, align 8
+  call void @_ZNKSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13get_allocatorEv(ptr dead_on_unwind writable sret(%"class.std::allocator") align 1 %6, ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #3
+  call void @_ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
+  %8 = getelementptr inbounds %"struct.std::_Vector_base", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"struct.std::_Vector_base", ptr %9, i32 0, i32 0
+  call void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_data12_M_swap_dataERS8_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  %11 = getelementptr inbounds %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %12 = load ptr, ptr %4, align 8
+  %13 = getelementptr inbounds %"struct.std::_Vector_base", ptr %12, i32 0, i32 0
+  call void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_data12_M_swap_dataERS8_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %13) #3
+  %14 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  %15 = load ptr, ptr %4, align 8
+  %16 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
+  invoke void @_ZSt15__alloc_on_moveISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRT_S8_(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 1 dereferenceable(1) %16)
+          to label %17 unwind label %18
+
+17:                                               ; preds = %2
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  ret void
+
+18:                                               ; preds = %2
+  %19 = landingpad { ptr, i32 }
+          catch ptr null
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #14
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNKSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13get_allocatorEv(ptr dead_on_unwind noalias writable sret(%"class.std::allocator") align 1 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  call void @_ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %6) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_data12_M_swap_dataERS8_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  call void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  call void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_data12_M_copy_dataERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) #3
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_data12_M_copy_dataERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7) #3
+  %8 = load ptr, ptr %4, align 8
+  call void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_data12_M_copy_dataERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt15__alloc_on_moveISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRT_S8_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #4 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"struct.std::_Vector_base", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  call void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_Vector_implC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %3, i32 0, i32 0
+  store ptr null, ptr %4, align 8
+  %5 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %3, i32 0, i32 1
+  store ptr null, ptr %5, align 8
+  %6 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %3, i32 0, i32 2
+  store ptr null, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_Vector_impl_data12_M_copy_dataERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %5, i32 0, i32 0
+  store ptr %8, ptr %9, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %10, i32 0, i32 1
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %5, i32 0, i32 1
+  store ptr %12, ptr %13, align 8
+  %14 = load ptr, ptr %4, align 8
+  %15 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %14, i32 0, i32 2
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data", ptr %5, i32 0, i32 2
+  store ptr %16, ptr %17, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN9__gnu_cxx14__alloc_traitsISaIcEcE17_S_select_on_copyERKS1_(ptr dead_on_unwind noalias writable sret(%"class.std::allocator.3") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZNSt16allocator_traitsISaIcEE37select_on_container_copy_constructionERKS0_(ptr dead_on_unwind writable sret(%"class.std::allocator.3") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13get_allocatorEv(ptr dead_on_unwind writable sret(%"class.std::allocator.3") align 1, ptr noundef nonnull align 8 dereferenceable(32)) #2
+
+; Function Attrs: nounwind
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #1
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) #1
+
+declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaIcEE37select_on_container_copy_constructionERKS0_(ptr dead_on_unwind noalias writable sret(%"class.std::allocator.3") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE9_M_insertIJRNS3_4KindERSt6vectorINS2_13FodderElementESaISA_EERNS_12basic_stringIcSt11char_traitsIcESaIcEEESJ_SJ_NS2_13LocationRangeEEEEvSt14_List_iteratorIS3_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(64) %7) #5 comdat align 2 {
+  %9 = alloca %"struct.std::_List_iterator", align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = getelementptr inbounds %"struct.std::_List_iterator", ptr %9, i32 0, i32 0
+  store ptr %1, ptr %18, align 8
+  store ptr %0, ptr %10, align 8
+  store ptr %2, ptr %11, align 8
+  store ptr %3, ptr %12, align 8
+  store ptr %4, ptr %13, align 8
+  store ptr %5, ptr %14, align 8
+  store ptr %6, ptr %15, align 8
+  store ptr %7, ptr %16, align 8
+  %19 = load ptr, ptr %10, align 8
+  %20 = load ptr, ptr %11, align 8
+  %21 = load ptr, ptr %12, align 8
+  %22 = load ptr, ptr %13, align 8
+  %23 = load ptr, ptr %14, align 8
+  %24 = load ptr, ptr %15, align 8
+  %25 = load ptr, ptr %16, align 8
+  %26 = call noundef ptr @_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE14_M_create_nodeIJRNS3_4KindERSt6vectorINS2_13FodderElementESaISA_EERNS_12basic_stringIcSt11char_traitsIcESaIcEEESJ_SJ_NS2_13LocationRangeEEEEPSt10_List_nodeIS3_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(64) %25)
+  store ptr %26, ptr %17, align 8
+  %27 = load ptr, ptr %17, align 8
+  %28 = getelementptr inbounds %"struct.std::_List_iterator", ptr %9, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef %29) #3
+  call void @_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EE11_M_inc_sizeEm(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef 1)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr ptr @_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca %"struct.std::_List_iterator", align 8
+  %3 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds %"class.std::__cxx11::_List_base", ptr %4, i32 0, i32 0
+  %6 = getelementptr inbounds %"struct.std::__cxx11::_List_base<jsonnet::internal::Token, std::allocator<jsonnet::internal::Token>>::_List_impl", ptr %5, i32 0, i32 0
+  call void @_ZNSt14_List_iteratorIN7jsonnet8internal5TokenEEC2EPNSt8__detail15_List_node_baseE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %6) #3
+  %7 = getelementptr inbounds %"struct.std::_List_iterator", ptr %2, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(192) ptr @_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE4backEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"struct.std::_List_iterator", align 8
+  store ptr %0, ptr %2, align 8
+  %4 = load ptr, ptr %2, align 8
+  %5 = call ptr @_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
+  %6 = getelementptr inbounds %"struct.std::_List_iterator", ptr %3, i32 0, i32 0
+  store ptr %5, ptr %6, align 8
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt14_List_iteratorIN7jsonnet8internal5TokenEEmmEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  %8 = call noundef nonnull align 8 dereferenceable(192) ptr @_ZNKSt14_List_iteratorIN7jsonnet8internal5TokenEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE14_M_create_nodeIJRNS3_4KindERSt6vectorINS2_13FodderElementESaISA_EERNS_12basic_stringIcSt11char_traitsIcESaIcEEESJ_SJ_NS2_13LocationRangeEEEEPSt10_List_nodeIS3_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(64) %6) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca %"struct.std::__allocated_ptr", align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8
+  store ptr %1, ptr %9, align 8
+  store ptr %2, ptr %10, align 8
+  store ptr %3, ptr %11, align 8
+  store ptr %4, ptr %12, align 8
+  store ptr %5, ptr %13, align 8
+  store ptr %6, ptr %14, align 8
+  %20 = load ptr, ptr %8, align 8
+  %21 = call noundef ptr @_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EE11_M_get_nodeEv(ptr noundef nonnull align 8 dereferenceable(24) %20)
+  store ptr %21, ptr %15, align 8
+  %22 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %20) #3
+  store ptr %22, ptr %16, align 8
+  %23 = load ptr, ptr %16, align 8
+  %24 = load ptr, ptr %15, align 8
+  call void @_ZNSt15__allocated_ptrISaISt10_List_nodeIN7jsonnet8internal5TokenEEEEC2ERS5_PS4_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef %24) #3
+  %25 = load ptr, ptr %16, align 8
+  %26 = load ptr, ptr %15, align 8
+  %27 = call noundef ptr @_ZNSt10_List_nodeIN7jsonnet8internal5TokenEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(208) %26)
+  %28 = load ptr, ptr %9, align 8
+  %29 = load ptr, ptr %10, align 8
+  %30 = load ptr, ptr %11, align 8
+  %31 = load ptr, ptr %12, align 8
+  %32 = load ptr, ptr %13, align 8
+  %33 = load ptr, ptr %14, align 8
+  invoke void @_ZNSt16allocator_traitsISaISt10_List_nodeIN7jsonnet8internal5TokenEEEE9constructIS3_JRNS3_4KindERSt6vectorINS2_13FodderElementESaISB_EERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_NS2_13LocationRangeEEEEvRS5_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef %27, ptr noundef nonnull align 4 dereferenceable(4) %28, ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull align 8 dereferenceable(64) %33)
+          to label %34 unwind label %37
+
+34:                                               ; preds = %7
+  %35 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt15__allocated_ptrISaISt10_List_nodeIN7jsonnet8internal5TokenEEEEaSEDn(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr null) #3
+  %36 = load ptr, ptr %15, align 8
+  call void @_ZNSt15__allocated_ptrISaISt10_List_nodeIN7jsonnet8internal5TokenEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
+  ret ptr %36
+
+37:                                               ; preds = %7
+  %38 = landingpad { ptr, i32 }
+          cleanup
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %18, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %19, align 4
+  call void @_ZNSt15__allocated_ptrISaISt10_List_nodeIN7jsonnet8internal5TokenEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
+  br label %41
+
+41:                                               ; preds = %37
+  %42 = load ptr, ptr %18, align 8
+  %43 = load i32, ptr %19, align 4
+  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
+  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
+  resume { ptr, i32 } %45
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EE11_M_inc_sizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = getelementptr inbounds %"class.std::__cxx11::_List_base", ptr %5, i32 0, i32 0
+  %8 = getelementptr inbounds %"struct.std::__cxx11::_List_base<jsonnet::internal::Token, std::allocator<jsonnet::internal::Token>>::_List_impl", ptr %7, i32 0, i32 0
+  %9 = getelementptr inbounds %"struct.std::__detail::_List_node_header", ptr %8, i32 0, i32 1
+  %10 = load i64, ptr %9, align 8
+  %11 = add i64 %10, %6
+  store i64 %11, ptr %9, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EE11_M_get_nodeEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #5 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.std::__cxx11::_List_base", ptr %3, i32 0, i32 0
+  %5 = call noundef ptr @_ZNSt16allocator_traitsISaISt10_List_nodeIN7jsonnet8internal5TokenEEEE8allocateERS5_m(ptr noundef nonnull align 1 dereferenceable(1) %4, i64 noundef 1)
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__allocated_ptrISaISt10_List_nodeIN7jsonnet8internal5TokenEEEEC2ERS5_PS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef %2) unnamed_addr #4 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds %"struct.std::__allocated_ptr", ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %5, align 8
+  store ptr %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"struct.std::__allocated_ptr", ptr %7, i32 0, i32 1
+  %11 = load ptr, ptr %6, align 8
+  store ptr %11, ptr %10, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaISt10_List_nodeIN7jsonnet8internal5TokenEEEE9constructIS3_JRNS3_4KindERSt6vectorINS2_13FodderElementESaISB_EERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESL_SL_NS2_13LocationRangeEEEEvRS5_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(64) %7) #5 comdat align 2 {
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  store ptr %0, ptr %9, align 8
+  store ptr %1, ptr %10, align 8
+  store ptr %2, ptr %11, align 8
+  store ptr %3, ptr %12, align 8
+  store ptr %4, ptr %13, align 8
+  store ptr %5, ptr %14, align 8
+  store ptr %6, ptr %15, align 8
+  store ptr %7, ptr %16, align 8
+  %17 = load ptr, ptr %9, align 8
+  %18 = load ptr, ptr %10, align 8
+  %19 = load ptr, ptr %11, align 8
+  %20 = load ptr, ptr %12, align 8
+  %21 = load ptr, ptr %13, align 8
+  %22 = load ptr, ptr %14, align 8
+  %23 = load ptr, ptr %15, align 8
+  %24 = load ptr, ptr %16, align 8
+  call void @_ZNSt15__new_allocatorISt10_List_nodeIN7jsonnet8internal5TokenEEE9constructIS3_JRNS3_4KindERSt6vectorINS2_13FodderElementESaISA_EERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESK_SK_NS2_13LocationRangeEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef %18, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(64) %24)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt15__allocated_ptrISaISt10_List_nodeIN7jsonnet8internal5TokenEEEEaSEDn(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"struct.std::__allocated_ptr", ptr %5, i32 0, i32 1
+  store ptr null, ptr %6, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__allocated_ptrISaISt10_List_nodeIN7jsonnet8internal5TokenEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::__allocated_ptr", ptr %3, i32 0, i32 1
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %13
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds %"struct.std::__allocated_ptr", ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds %"struct.std::__allocated_ptr", ptr %3, i32 0, i32 1
+  %11 = load ptr, ptr %10, align 8
+  invoke void @_ZNSt16allocator_traitsISaISt10_List_nodeIN7jsonnet8internal5TokenEEEE10deallocateERS5_PS4_m(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef %11, i64 noundef 1)
+          to label %12 unwind label %14
+
+12:                                               ; preds = %7
+  br label %13
+
+13:                                               ; preds = %12, %1
+  ret void
+
+14:                                               ; preds = %7
+  %15 = landingpad { ptr, i32 }
+          catch ptr null
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #14
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt16allocator_traitsISaISt10_List_nodeIN7jsonnet8internal5TokenEEEE8allocateERS5_m(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = call noundef ptr @_ZNSt15__new_allocatorISt10_List_nodeIN7jsonnet8internal5TokenEEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %5, i64 noundef %6, ptr noundef null)
+  ret ptr %7
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt15__new_allocatorISt10_List_nodeIN7jsonnet8internal5TokenEEE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef %2) #5 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = load i64, ptr %5, align 8
+  %9 = call noundef i64 @_ZNKSt15__new_allocatorISt10_List_nodeIN7jsonnet8internal5TokenEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
+  %10 = icmp ugt i64 %8, %9
+  br i1 %10, label %11, label %16
+
+11:                                               ; preds = %3
+  %12 = load i64, ptr %5, align 8
+  %13 = icmp ugt i64 %12, 88686269585142075
+  br i1 %13, label %14, label %15
+
+14:                                               ; preds = %11
+  call void @_ZSt28__throw_bad_array_new_lengthv() #15
+  unreachable
+
+15:                                               ; preds = %11
+  call void @_ZSt17__throw_bad_allocv() #15
+  unreachable
+
+16:                                               ; preds = %3
+  %17 = load i64, ptr %5, align 8
+  %18 = mul i64 %17, 208
+  %19 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #17
+  ret ptr %19
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt15__new_allocatorISt10_List_nodeIN7jsonnet8internal5TokenEEE11_M_max_sizeEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret i64 44343134792571037
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorISt10_List_nodeIN7jsonnet8internal5TokenEEE9constructIS3_JRNS3_4KindERSt6vectorINS2_13FodderElementESaISA_EERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESK_SK_NS2_13LocationRangeEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(64) %7) #5 comdat align 2 {
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  store ptr %0, ptr %9, align 8
+  store ptr %1, ptr %10, align 8
+  store ptr %2, ptr %11, align 8
+  store ptr %3, ptr %12, align 8
+  store ptr %4, ptr %13, align 8
+  store ptr %5, ptr %14, align 8
+  store ptr %6, ptr %15, align 8
+  store ptr %7, ptr %16, align 8
+  %17 = load ptr, ptr %10, align 8
+  %18 = load ptr, ptr %11, align 8
+  %19 = load i32, ptr %18, align 4
+  %20 = load ptr, ptr %12, align 8
+  %21 = load ptr, ptr %13, align 8
+  %22 = load ptr, ptr %14, align 8
+  %23 = load ptr, ptr %15, align 8
+  %24 = load ptr, ptr %16, align 8
+  call void @_ZN7jsonnet8internal5TokenC2ENS1_4KindERKSt6vectorINS0_13FodderElementESaIS4_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_SG_RKNS0_13LocationRangeE(ptr noundef nonnull align 8 dereferenceable(192) %17, i32 noundef %19, ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(64) %24)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN7jsonnet8internal5TokenC2ENS1_4KindERKSt6vectorINS0_13FodderElementESaIS4_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_SG_RKNS0_13LocationRangeE(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(64) %6) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8
+  store i32 %1, ptr %9, align 4
+  store ptr %2, ptr %10, align 8
+  store ptr %3, ptr %11, align 8
+  store ptr %4, ptr %12, align 8
+  store ptr %5, ptr %13, align 8
+  store ptr %6, ptr %14, align 8
+  %17 = load ptr, ptr %8, align 8
+  %18 = getelementptr inbounds %"struct.jsonnet::internal::Token", ptr %17, i32 0, i32 0
+  %19 = load i32, ptr %9, align 4
+  store i32 %19, ptr %18, align 8
+  %20 = getelementptr inbounds %"struct.jsonnet::internal::Token", ptr %17, i32 0, i32 1
+  %21 = load ptr, ptr %10, align 8
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %21)
+  %22 = getelementptr inbounds %"struct.jsonnet::internal::Token", ptr %17, i32 0, i32 2
+  %23 = load ptr, ptr %11, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(32) %23)
+          to label %24 unwind label %34
+
+24:                                               ; preds = %7
+  %25 = getelementptr inbounds %"struct.jsonnet::internal::Token", ptr %17, i32 0, i32 3
+  %26 = load ptr, ptr %12, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %26)
+          to label %27 unwind label %38
+
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds %"struct.jsonnet::internal::Token", ptr %17, i32 0, i32 4
+  %29 = load ptr, ptr %13, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %29)
+          to label %30 unwind label %42
+
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds %"struct.jsonnet::internal::Token", ptr %17, i32 0, i32 5
+  %32 = load ptr, ptr %14, align 8
+  invoke void @_ZN7jsonnet8internal13LocationRangeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef nonnull align 8 dereferenceable(64) %32)
+          to label %33 unwind label %46
+
+33:                                               ; preds = %30
+  ret void
+
+34:                                               ; preds = %7
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %15, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %16, align 4
+  br label %52
+
+38:                                               ; preds = %24
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %15, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %16, align 4
+  br label %51
+
+42:                                               ; preds = %27
+  %43 = landingpad { ptr, i32 }
+          cleanup
+  %44 = extractvalue { ptr, i32 } %43, 0
+  store ptr %44, ptr %15, align 8
+  %45 = extractvalue { ptr, i32 } %43, 1
+  store i32 %45, ptr %16, align 4
+  br label %50
+
+46:                                               ; preds = %30
+  %47 = landingpad { ptr, i32 }
+          cleanup
+  %48 = extractvalue { ptr, i32 } %47, 0
+  store ptr %48, ptr %15, align 8
+  %49 = extractvalue { ptr, i32 } %47, 1
+  store i32 %49, ptr %16, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #3
+  br label %50
+
+50:                                               ; preds = %46, %42
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #3
+  br label %51
+
+51:                                               ; preds = %50, %38
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #3
+  br label %52
+
+52:                                               ; preds = %51, %34
+  call void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #3
+  br label %53
+
+53:                                               ; preds = %52
+  %54 = load ptr, ptr %15, align 8
+  %55 = load i32, ptr %16, align 4
+  %56 = insertvalue { ptr, i32 } poison, ptr %54, 0
+  %57 = insertvalue { ptr, i32 } %56, i32 %55, 1
+  resume { ptr, i32 } %57
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  %5 = alloca %"class.std::allocator.14", align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca %"class.__gnu_cxx::__normal_iterator.17", align 8
+  %9 = alloca %"class.__gnu_cxx::__normal_iterator.17", align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = load ptr, ptr %4, align 8
+  %12 = call noundef i64 @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
+  %13 = load ptr, ptr %4, align 8
+  %14 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
+  call void @_ZN9__gnu_cxx14__alloc_traitsISaIN7jsonnet8internal13FodderElementEES3_E17_S_select_on_copyERKS4_(ptr dead_on_unwind writable sret(%"class.std::allocator.14") align 1 %5, ptr noundef nonnull align 1 dereferenceable(1) %14)
+  invoke void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EEC2EmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %15 unwind label %34
+
+15:                                               ; preds = %2
+  call void @_ZNSaIN7jsonnet8internal13FodderElementEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  %16 = load ptr, ptr %4, align 8
+  %17 = call ptr @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
+  %18 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %8, i32 0, i32 0
+  store ptr %17, ptr %18, align 8
+  %19 = load ptr, ptr %4, align 8
+  %20 = call ptr @_ZNKSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EE3endEv(ptr noundef nonnull align 8 dereferenceable(24) %19) #3
+  %21 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %9, i32 0, i32 0
+  store ptr %20, ptr %21, align 8
+  %22 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %10, i32 0, i32 0
+  %23 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %22, i32 0, i32 0
+  %24 = load ptr, ptr %23, align 8
+  %25 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE19_M_get_Tp_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  %26 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %8, i32 0, i32 0
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %9, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8
+  %30 = invoke noundef ptr @_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E(ptr %27, ptr %29, ptr noundef %24, ptr noundef nonnull align 1 dereferenceable(1) %25)
+          to label %31 unwind label %38
+
+31:                                               ; preds = %15
+  %32 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %10, i32 0, i32 0
+  %33 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %32, i32 0, i32 1
+  store ptr %30, ptr %33, align 8
+  ret void
+
+34:                                               ; preds = %2
+  %35 = landingpad { ptr, i32 }
+          cleanup
+  %36 = extractvalue { ptr, i32 } %35, 0
+  store ptr %36, ptr %6, align 8
+  %37 = extractvalue { ptr, i32 } %35, 1
+  store i32 %37, ptr %7, align 4
+  call void @_ZNSaIN7jsonnet8internal13FodderElementEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  br label %42
+
+38:                                               ; preds = %15
+  %39 = landingpad { ptr, i32 }
+          cleanup
+  %40 = extractvalue { ptr, i32 } %39, 0
+  store ptr %40, ptr %6, align 8
+  %41 = extractvalue { ptr, i32 } %39, 1
+  store i32 %41, ptr %7, align 4
+  call void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  br label %42
+
+42:                                               ; preds = %38, %34
+  %43 = load ptr, ptr %6, align 8
+  %44 = load i32, ptr %7, align 4
+  %45 = insertvalue { ptr, i32 } poison, ptr %43, 0
+  %46 = insertvalue { ptr, i32 } %45, i32 %44, 1
+  resume { ptr, i32 } %46
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN7jsonnet8internal13LocationRangeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"struct.jsonnet::internal::LocationRange", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds %"struct.jsonnet::internal::LocationRange", ptr %7, i32 0, i32 0
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8)
+  %9 = getelementptr inbounds %"struct.jsonnet::internal::LocationRange", ptr %5, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %"struct.jsonnet::internal::LocationRange", ptr %10, i32 0, i32 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %11, i64 32, i1 false)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN9__gnu_cxx14__alloc_traitsISaIN7jsonnet8internal13FodderElementEES3_E17_S_select_on_copyERKS4_(ptr dead_on_unwind noalias writable sret(%"class.std::allocator.14") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE37select_on_container_copy_constructionERKS3_(ptr dead_on_unwind writable sret(%"class.std::allocator.14") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EEC2EmRKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %9 = load ptr, ptr %4, align 8
+  %10 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %9, i32 0, i32 0
+  %11 = load ptr, ptr %6, align 8
+  call void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE12_Vector_implC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 1 dereferenceable(1) %11) #3
+  %12 = load i64, ptr %5, align 8
+  invoke void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE17_M_create_storageEm(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %12)
+          to label %13 unwind label %14
+
+13:                                               ; preds = %3
+  ret void
+
+14:                                               ; preds = %3
+  %15 = landingpad { ptr, i32 }
+          cleanup
+  %16 = extractvalue { ptr, i32 } %15, 0
+  store ptr %16, ptr %7, align 8
+  %17 = extractvalue { ptr, i32 } %15, 1
+  store i32 %17, ptr %8, align 4
+  call void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE12_Vector_implD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
+  br label %18
+
+18:                                               ; preds = %14
+  %19 = load ptr, ptr %7, align 8
+  %20 = load i32, ptr %8, align 4
+  %21 = insertvalue { ptr, i32 } poison, ptr %19, 0
+  %22 = insertvalue { ptr, i32 } %21, i32 %20, 1
+  resume { ptr, i32 } %22
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSaIN7jsonnet8internal13FodderElementEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %0) unnamed_addr #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS4_SaIS4_EEEEPS4_S4_ET0_T_SD_SC_RSaIT1_E(ptr %0, ptr %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %3) #5 comdat {
+  %5 = alloca %"class.__gnu_cxx::__normal_iterator.17", align 8
+  %6 = alloca %"class.__gnu_cxx::__normal_iterator.17", align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca %"class.__gnu_cxx::__normal_iterator.17", align 8
+  %10 = alloca %"class.__gnu_cxx::__normal_iterator.17", align 8
+  %11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %5, i32 0, i32 0
+  store ptr %0, ptr %11, align 8
+  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %6, i32 0, i32 0
+  store ptr %1, ptr %12, align 8
+  store ptr %2, ptr %7, align 8
+  store ptr %3, ptr %8, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %5, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %6, i64 8, i1 false)
+  %13 = load ptr, ptr %7, align 8
+  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %9, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %10, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8
+  %18 = call noundef ptr @_ZSt18uninitialized_copyIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS4_SaIS4_EEEEPS4_ET0_T_SD_SC_(ptr %15, ptr %17, ptr noundef %13)
+  ret ptr %18
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaIN7jsonnet8internal13FodderElementEEE37select_on_container_copy_constructionERKS3_(ptr dead_on_unwind noalias writable sret(%"class.std::allocator.14") align 1 %0, ptr noundef nonnull align 1 dereferenceable(1) %1) #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  call void @_ZNSaIN7jsonnet8internal13FodderElementEEC2ERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %5) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSaIN7jsonnet8internal13FodderElementEEC2ERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEEC2ERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #3
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorIN7jsonnet8internal13FodderElementEEC2ERKS3_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE12_Vector_implC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 dereferenceable(1) %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZNSaIN7jsonnet8internal13FodderElementEEC2ERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) #3
+  call void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE17_Vector_impl_dataC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE17_M_create_storageEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) #5 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = call noundef ptr @_ZNSt12_Vector_baseIN7jsonnet8internal13FodderElementESaIS2_EE11_M_allocateEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %6)
+  %8 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %5, i32 0, i32 0
+  %9 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %8, i32 0, i32 0
+  store ptr %7, ptr %9, align 8
+  %10 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %5, i32 0, i32 0
+  %11 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %10, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %5, i32 0, i32 0
+  %14 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %13, i32 0, i32 1
+  store ptr %12, ptr %14, align 8
+  %15 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %5, i32 0, i32 0
+  %16 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %15, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8
+  %18 = load i64, ptr %4, align 8
+  %19 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %17, i64 %18
+  %20 = getelementptr inbounds %"struct.std::_Vector_base.13", ptr %5, i32 0, i32 0
+  %21 = getelementptr inbounds %"struct.std::_Vector_base<jsonnet::internal::FodderElement, std::allocator<jsonnet::internal::FodderElement>>::_Vector_impl_data", ptr %20, i32 0, i32 2
+  store ptr %19, ptr %21, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt18uninitialized_copyIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS4_SaIS4_EEEEPS4_ET0_T_SD_SC_(ptr %0, ptr %1, ptr noundef %2) #5 comdat {
+  %4 = alloca %"class.__gnu_cxx::__normal_iterator.17", align 8
+  %5 = alloca %"class.__gnu_cxx::__normal_iterator.17", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i8, align 1
+  %8 = alloca i8, align 1
+  %9 = alloca %"class.__gnu_cxx::__normal_iterator.17", align 8
+  %10 = alloca %"class.__gnu_cxx::__normal_iterator.17", align 8
+  %11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %4, i32 0, i32 0
+  store ptr %0, ptr %11, align 8
+  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %5, i32 0, i32 0
+  store ptr %1, ptr %12, align 8
+  store ptr %2, ptr %6, align 8
+  store i8 0, ptr %7, align 1
+  store i8 0, ptr %8, align 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %4, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %5, i64 8, i1 false)
+  %13 = load ptr, ptr %6, align 8
+  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %9, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8
+  %16 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %10, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8
+  %18 = call noundef ptr @_ZNSt20__uninitialized_copyILb0EE13__uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS6_SaIS6_EEEEPS6_EET0_T_SF_SE_(ptr %15, ptr %17, ptr noundef %13)
+  ret ptr %18
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt20__uninitialized_copyILb0EE13__uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS6_SaIS6_EEEEPS6_EET0_T_SF_SE_(ptr %0, ptr %1, ptr noundef %2) #5 comdat align 2 {
+  %4 = alloca %"class.__gnu_cxx::__normal_iterator.17", align 8
+  %5 = alloca %"class.__gnu_cxx::__normal_iterator.17", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca %"class.__gnu_cxx::__normal_iterator.17", align 8
+  %8 = alloca %"class.__gnu_cxx::__normal_iterator.17", align 8
+  %9 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %4, i32 0, i32 0
+  store ptr %0, ptr %9, align 8
+  %10 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %5, i32 0, i32 0
+  store ptr %1, ptr %10, align 8
+  store ptr %2, ptr %6, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %5, i64 8, i1 false)
+  %11 = load ptr, ptr %6, align 8
+  %12 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %7, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8
+  %14 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %8, i32 0, i32 0
+  %15 = load ptr, ptr %14, align 8
+  %16 = call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS4_SaIS4_EEEEPS4_ET0_T_SD_SC_(ptr %13, ptr %15, ptr noundef %11)
+  ret ptr %16
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS4_SaIS4_EEEEPS4_ET0_T_SD_SC_(ptr %0, ptr %1, ptr noundef %2) #5 comdat personality ptr @__gxx_personality_v0 {
+  %4 = alloca %"class.__gnu_cxx::__normal_iterator.17", align 8
+  %5 = alloca %"class.__gnu_cxx::__normal_iterator.17", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca ptr, align 8
+  %9 = alloca i32, align 4
+  %10 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %4, i32 0, i32 0
+  store ptr %0, ptr %10, align 8
+  %11 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.17", ptr %5, i32 0, i32 0
+  store ptr %1, ptr %11, align 8
+  store ptr %2, ptr %6, align 8
+  %12 = load ptr, ptr %6, align 8
+  store ptr %12, ptr %7, align 8
+  br label %13
+
+13:                                               ; preds = %19, %3
+  %14 = call noundef zeroext i1 @_ZN9__gnu_cxxneIPKN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEEbRKNS_17__normal_iteratorIT_T0_EESE_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5) #3
+  br i1 %14, label %15, label %33
+
+15:                                               ; preds = %13
+  %16 = load ptr, ptr %7, align 8
+  %17 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  invoke void @_ZSt10_ConstructIN7jsonnet8internal13FodderElementEJRKS2_EEvPT_DpOT0_(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(40) %17)
+          to label %18 unwind label %23
+
+18:                                               ; preds = %15
+  br label %19
+
+19:                                               ; preds = %18
+  %20 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN9__gnu_cxx17__normal_iteratorIPKN7jsonnet8internal13FodderElementESt6vectorIS3_SaIS3_EEEppEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
+  %21 = load ptr, ptr %7, align 8
+  %22 = getelementptr inbounds %"struct.jsonnet::internal::FodderElement", ptr %21, i32 1
+  store ptr %22, ptr %7, align 8
+  br label %13, !llvm.loop !38
+
+23:                                               ; preds = %15
+  %24 = landingpad { ptr, i32 }
+          catch ptr null
+  %25 = extractvalue { ptr, i32 } %24, 0
+  store ptr %25, ptr %8, align 8
+  %26 = extractvalue { ptr, i32 } %24, 1
+  store i32 %26, ptr %9, align 4
+  br label %27
+
+27:                                               ; preds = %23
+  %28 = load ptr, ptr %8, align 8
+  %29 = call ptr @__cxa_begin_catch(ptr %28) #3
+  %30 = load ptr, ptr %6, align 8
+  %31 = load ptr, ptr %7, align 8
+  invoke void @_ZSt8_DestroyIPN7jsonnet8internal13FodderElementEEvT_S4_(ptr noundef %30, ptr noundef %31)
+          to label %32 unwind label %35
+
+32:                                               ; preds = %27
+  invoke void @__cxa_rethrow() #15
+          to label %49 unwind label %35
+
+33:                                               ; preds = %13
+  %34 = load ptr, ptr %7, align 8
+  ret ptr %34
+
+35:                                               ; preds = %32, %27
+  %36 = landingpad { ptr, i32 }
+          cleanup
+  %37 = extractvalue { ptr, i32 } %36, 0
+  store ptr %37, ptr %8, align 8
+  %38 = extractvalue { ptr, i32 } %36, 1
+  store i32 %38, ptr %9, align 4
+  invoke void @__cxa_end_catch()
+          to label %39 unwind label %46
+
+39:                                               ; preds = %35
+  br label %41
+
+40:                                               ; No predecessors!
+  call void @llvm.trap()
+  unreachable
+
+41:                                               ; preds = %39
+  %42 = load ptr, ptr %8, align 8
+  %43 = load i32, ptr %9, align 4
+  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
+  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
+  resume { ptr, i32 } %45
+
+46:                                               ; preds = %35
+  %47 = landingpad { ptr, i32 }
+          catch ptr null
+  %48 = extractvalue { ptr, i32 } %47, 0
+  call void @__clang_call_terminate(ptr %48) #14
+  unreachable
+
+49:                                               ; preds = %32
+  unreachable
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZSt10_ConstructIN7jsonnet8internal13FodderElementEJRKS2_EEvPT_DpOT0_(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(40) %1) #5 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZN7jsonnet8internal13FodderElementC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt14_List_iteratorIN7jsonnet8internal5TokenEEC2EPNSt8__detail15_List_node_baseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"struct.std::_List_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt14_List_iteratorIN7jsonnet8internal5TokenEEmmEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_List_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = getelementptr inbounds %"struct.std::__detail::_List_node_base", ptr %5, i32 0, i32 1
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds %"struct.std::_List_iterator", ptr %3, i32 0, i32 0
+  store ptr %7, ptr %8, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(192) ptr @_ZNKSt14_List_iteratorIN7jsonnet8internal5TokenEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_List_iterator", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = call noundef ptr @_ZNSt10_List_nodeIN7jsonnet8internal5TokenEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(208) %5)
+  ret ptr %6
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE9_M_insertIJNS3_4KindERSt6vectorINS2_13FodderElementESaIS9_EERA1_KcSF_SF_NS2_13LocationRangeEEEEvSt14_List_iteratorIS3_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(64) %7) #5 comdat align 2 {
+  %9 = alloca %"struct.std::_List_iterator", align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca ptr, align 8
+  %18 = getelementptr inbounds %"struct.std::_List_iterator", ptr %9, i32 0, i32 0
+  store ptr %1, ptr %18, align 8
+  store ptr %0, ptr %10, align 8
+  store ptr %2, ptr %11, align 8
+  store ptr %3, ptr %12, align 8
+  store ptr %4, ptr %13, align 8
+  store ptr %5, ptr %14, align 8
+  store ptr %6, ptr %15, align 8
+  store ptr %7, ptr %16, align 8
+  %19 = load ptr, ptr %10, align 8
+  %20 = load ptr, ptr %11, align 8
+  %21 = load ptr, ptr %12, align 8
+  %22 = load ptr, ptr %13, align 8
+  %23 = load ptr, ptr %14, align 8
+  %24 = load ptr, ptr %15, align 8
+  %25 = load ptr, ptr %16, align 8
+  %26 = call noundef ptr @_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE14_M_create_nodeIJNS3_4KindERSt6vectorINS2_13FodderElementESaIS9_EERA1_KcSF_SF_NS2_13LocationRangeEEEEPSt10_List_nodeIS3_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull align 1 dereferenceable(1) %24, ptr noundef nonnull align 8 dereferenceable(64) %25)
+  store ptr %26, ptr %17, align 8
+  %27 = load ptr, ptr %17, align 8
+  %28 = getelementptr inbounds %"struct.std::_List_iterator", ptr %9, i32 0, i32 0
+  %29 = load ptr, ptr %28, align 8
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef %29) #3
+  call void @_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EE11_M_inc_sizeEm(ptr noundef nonnull align 8 dereferenceable(24) %19, i64 noundef 1)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef ptr @_ZNSt7__cxx114listIN7jsonnet8internal5TokenESaIS3_EE14_M_create_nodeIJNS3_4KindERSt6vectorINS2_13FodderElementESaIS9_EERA1_KcSF_SF_NS2_13LocationRangeEEEEPSt10_List_nodeIS3_EDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(64) %6) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %8 = alloca ptr, align 8
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca %"struct.std::__allocated_ptr", align 8
+  %18 = alloca ptr, align 8
+  %19 = alloca i32, align 4
+  store ptr %0, ptr %8, align 8
+  store ptr %1, ptr %9, align 8
+  store ptr %2, ptr %10, align 8
+  store ptr %3, ptr %11, align 8
+  store ptr %4, ptr %12, align 8
+  store ptr %5, ptr %13, align 8
+  store ptr %6, ptr %14, align 8
+  %20 = load ptr, ptr %8, align 8
+  %21 = call noundef ptr @_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EE11_M_get_nodeEv(ptr noundef nonnull align 8 dereferenceable(24) %20)
+  store ptr %21, ptr %15, align 8
+  %22 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1110_List_baseIN7jsonnet8internal5TokenESaIS3_EE21_M_get_Node_allocatorEv(ptr noundef nonnull align 8 dereferenceable(24) %20) #3
+  store ptr %22, ptr %16, align 8
+  %23 = load ptr, ptr %16, align 8
+  %24 = load ptr, ptr %15, align 8
+  call void @_ZNSt15__allocated_ptrISaISt10_List_nodeIN7jsonnet8internal5TokenEEEEC2ERS5_PS4_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef %24) #3
+  %25 = load ptr, ptr %16, align 8
+  %26 = load ptr, ptr %15, align 8
+  %27 = call noundef ptr @_ZNSt10_List_nodeIN7jsonnet8internal5TokenEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(208) %26)
+  %28 = load ptr, ptr %9, align 8
+  %29 = load ptr, ptr %10, align 8
+  %30 = load ptr, ptr %11, align 8
+  %31 = load ptr, ptr %12, align 8
+  %32 = load ptr, ptr %13, align 8
+  %33 = load ptr, ptr %14, align 8
+  invoke void @_ZNSt16allocator_traitsISaISt10_List_nodeIN7jsonnet8internal5TokenEEEE9constructIS3_JNS3_4KindERSt6vectorINS2_13FodderElementESaISA_EERA1_KcSG_SG_NS2_13LocationRangeEEEEvRS5_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %25, ptr noundef %27, ptr noundef nonnull align 4 dereferenceable(4) %28, ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 1 dereferenceable(1) %30, ptr noundef nonnull align 1 dereferenceable(1) %31, ptr noundef nonnull align 1 dereferenceable(1) %32, ptr noundef nonnull align 8 dereferenceable(64) %33)
+          to label %34 unwind label %37
+
+34:                                               ; preds = %7
+  %35 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt15__allocated_ptrISaISt10_List_nodeIN7jsonnet8internal5TokenEEEEaSEDn(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr null) #3
+  %36 = load ptr, ptr %15, align 8
+  call void @_ZNSt15__allocated_ptrISaISt10_List_nodeIN7jsonnet8internal5TokenEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
+  ret ptr %36
+
+37:                                               ; preds = %7
+  %38 = landingpad { ptr, i32 }
+          cleanup
+  %39 = extractvalue { ptr, i32 } %38, 0
+  store ptr %39, ptr %18, align 8
+  %40 = extractvalue { ptr, i32 } %38, 1
+  store i32 %40, ptr %19, align 4
+  call void @_ZNSt15__allocated_ptrISaISt10_List_nodeIN7jsonnet8internal5TokenEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %17) #3
+  br label %41
+
+41:                                               ; preds = %37
+  %42 = load ptr, ptr %18, align 8
+  %43 = load i32, ptr %19, align 4
+  %44 = insertvalue { ptr, i32 } poison, ptr %42, 0
+  %45 = insertvalue { ptr, i32 } %44, i32 %43, 1
+  resume { ptr, i32 } %45
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt16allocator_traitsISaISt10_List_nodeIN7jsonnet8internal5TokenEEEE9constructIS3_JNS3_4KindERSt6vectorINS2_13FodderElementESaISA_EERA1_KcSG_SG_NS2_13LocationRangeEEEEvRS5_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(64) %7) #5 comdat align 2 {
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  store ptr %0, ptr %9, align 8
+  store ptr %1, ptr %10, align 8
+  store ptr %2, ptr %11, align 8
+  store ptr %3, ptr %12, align 8
+  store ptr %4, ptr %13, align 8
+  store ptr %5, ptr %14, align 8
+  store ptr %6, ptr %15, align 8
+  store ptr %7, ptr %16, align 8
+  %17 = load ptr, ptr %9, align 8
+  %18 = load ptr, ptr %10, align 8
+  %19 = load ptr, ptr %11, align 8
+  %20 = load ptr, ptr %12, align 8
+  %21 = load ptr, ptr %13, align 8
+  %22 = load ptr, ptr %14, align 8
+  %23 = load ptr, ptr %15, align 8
+  %24 = load ptr, ptr %16, align 8
+  call void @_ZNSt15__new_allocatorISt10_List_nodeIN7jsonnet8internal5TokenEEE9constructIS3_JNS3_4KindERSt6vectorINS2_13FodderElementESaIS9_EERA1_KcSF_SF_NS2_13LocationRangeEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef %18, ptr noundef nonnull align 4 dereferenceable(4) %19, ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 1 dereferenceable(1) %22, ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull align 8 dereferenceable(64) %24)
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt15__new_allocatorISt10_List_nodeIN7jsonnet8internal5TokenEEE9constructIS3_JNS3_4KindERSt6vectorINS2_13FodderElementESaIS9_EERA1_KcSF_SF_NS2_13LocationRangeEEEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(64) %7) #5 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %9 = alloca ptr, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca ptr, align 8
+  %15 = alloca ptr, align 8
+  %16 = alloca ptr, align 8
+  %17 = alloca %"class.std::__cxx11::basic_string", align 8
+  %18 = alloca %"class.std::allocator.3", align 1
+  %19 = alloca ptr, align 8
+  %20 = alloca i32, align 4
+  %21 = alloca %"class.std::__cxx11::basic_string", align 8
+  %22 = alloca %"class.std::allocator.3", align 1
+  %23 = alloca %"class.std::__cxx11::basic_string", align 8
+  %24 = alloca %"class.std::allocator.3", align 1
+  store ptr %0, ptr %9, align 8
+  store ptr %1, ptr %10, align 8
+  store ptr %2, ptr %11, align 8
+  store ptr %3, ptr %12, align 8
+  store ptr %4, ptr %13, align 8
+  store ptr %5, ptr %14, align 8
+  store ptr %6, ptr %15, align 8
+  store ptr %7, ptr %16, align 8
+  %25 = load ptr, ptr %10, align 8
+  %26 = load ptr, ptr %11, align 8
+  %27 = load i32, ptr %26, align 4
+  %28 = load ptr, ptr %12, align 8
+  %29 = load ptr, ptr %13, align 8
+  %30 = getelementptr inbounds [1 x i8], ptr %29, i64 0, i64 0
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef %30, ptr noundef nonnull align 1 dereferenceable(1) %18)
+          to label %31 unwind label %40
+
+31:                                               ; preds = %8
+  %32 = load ptr, ptr %14, align 8
+  %33 = getelementptr inbounds [1 x i8], ptr %32, i64 0, i64 0
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef %33, ptr noundef nonnull align 1 dereferenceable(1) %22)
+          to label %34 unwind label %44
+
+34:                                               ; preds = %31
+  %35 = load ptr, ptr %15, align 8
+  %36 = getelementptr inbounds [1 x i8], ptr %35, i64 0, i64 0
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #3
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef %36, ptr noundef nonnull align 1 dereferenceable(1) %24)
+          to label %37 unwind label %48
+
+37:                                               ; preds = %34
+  %38 = load ptr, ptr %16, align 8
+  invoke void @_ZN7jsonnet8internal5TokenC2ENS1_4KindERKSt6vectorINS0_13FodderElementESaIS4_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_SG_RKNS0_13LocationRangeE(ptr noundef nonnull align 8 dereferenceable(192) %25, i32 noundef %27, ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(64) %38)
+          to label %39 unwind label %52
+
+39:                                               ; preds = %37
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #3
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #3
+  ret void
+
+40:                                               ; preds = %8
+  %41 = landingpad { ptr, i32 }
+          cleanup
+  %42 = extractvalue { ptr, i32 } %41, 0
+  store ptr %42, ptr %19, align 8
+  %43 = extractvalue { ptr, i32 } %41, 1
+  store i32 %43, ptr %20, align 4
+  br label %58
+
+44:                                               ; preds = %31
+  %45 = landingpad { ptr, i32 }
+          cleanup
+  %46 = extractvalue { ptr, i32 } %45, 0
+  store ptr %46, ptr %19, align 8
+  %47 = extractvalue { ptr, i32 } %45, 1
+  store i32 %47, ptr %20, align 4
+  br label %57
+
+48:                                               ; preds = %34
+  %49 = landingpad { ptr, i32 }
+          cleanup
+  %50 = extractvalue { ptr, i32 } %49, 0
+  store ptr %50, ptr %19, align 8
+  %51 = extractvalue { ptr, i32 } %49, 1
+  store i32 %51, ptr %20, align 4
+  br label %56
+
+52:                                               ; preds = %37
+  %53 = landingpad { ptr, i32 }
+          cleanup
+  %54 = extractvalue { ptr, i32 } %53, 0
+  store ptr %54, ptr %19, align 8
+  %55 = extractvalue { ptr, i32 } %53, 1
+  store i32 %55, ptr %20, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %23) #3
+  br label %56
+
+56:                                               ; preds = %52, %48
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %24) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #3
+  br label %57
+
+57:                                               ; preds = %56, %44
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #3
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #3
+  br label %58
+
+58:                                               ; preds = %57, %40
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #3
+  br label %59
+
+59:                                               ; preds = %58
+  %60 = load ptr, ptr %19, align 8
+  %61 = load i32, ptr %20, align 4
+  %62 = insertvalue { ptr, i32 } poison, ptr %60, 0
+  %63 = insertvalue { ptr, i32 } %62, i32 %61, 1
+  resume { ptr, i32 } %63
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt20_List_const_iteratorIN7jsonnet8internal5TokenEEC2EPKNSt8__detail15_List_node_baseE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"struct.std::_List_const_iterator", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNKSt10_List_nodeIN7jsonnet8internal5TokenEE9_M_valptrEv(ptr noundef nonnull align 8 dereferenceable(208) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::_List_node", ptr %3, i32 0, i32 1
+  %5 = call noundef ptr @_ZNK9__gnu_cxx16__aligned_membufIN7jsonnet8internal5TokenEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(192) %4) #3
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNK9__gnu_cxx16__aligned_membufIN7jsonnet8internal5TokenEE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(192) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call noundef ptr @_ZNK9__gnu_cxx16__aligned_membufIN7jsonnet8internal5TokenEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(192) %3) #3
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef ptr @_ZNK9__gnu_cxx16__aligned_membufIN7jsonnet8internal5TokenEE7_M_addrEv(ptr noundef nonnull align 8 dereferenceable(192) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.__gnu_cxx::__aligned_membuf.20", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #4 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.18", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = load ptr, ptr %7, align 8
+  store ptr %8, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS6_SaIS6_EEE4baseEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #4 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator.18", ptr %3, i32 0, i32 0
+  ret ptr %4
+}
+
+; Function Attrs: uwtable
+define internal void @_GLOBAL__sub_I_lexer.cpp() #0 section ".text.startup" {
+  call void @__cxx_global_var_init()
+  call void @__cxx_global_var_init.1()
+  call void @__cxx_global_var_init.2()
+  ret void
+}
+
+attributes #0 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind }
+attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #12 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #13 = { nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { noreturn }
+attributes #16 = { builtin nounwind }
+attributes #17 = { builtin allocsize(0) }
+attributes #18 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}
+!11 = distinct !{!11, !5}
+!12 = distinct !{!12, !5}
+!13 = distinct !{!13, !5}
+!14 = distinct !{!14, !5}
+!15 = distinct !{!15, !5}
+!16 = distinct !{!16, !5}
+!17 = distinct !{!17, !5}
+!18 = distinct !{!18, !5}
+!19 = distinct !{!19, !5}
+!20 = distinct !{!20, !5}
+!21 = distinct !{!21, !5}
+!22 = distinct !{!22, !5}
+!23 = distinct !{!23, !5}
+!24 = distinct !{!24, !5}
+!25 = distinct !{!25, !5}
+!26 = distinct !{!26, !5}
+!27 = distinct !{!27, !5}
+!28 = distinct !{!28, !5}
+!29 = distinct !{!29, !5}
+!30 = distinct !{!30, !5}
+!31 = distinct !{!31, !5}
+!32 = distinct !{!32, !5}
+!33 = distinct !{!33, !5}
+!34 = distinct !{!34, !5}
+!35 = distinct !{!35, !5}
+!36 = distinct !{!36, !5}
+!37 = distinct !{!37, !5}
+!38 = distinct !{!38, !5}
