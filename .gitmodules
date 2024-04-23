@@ -526,3 +526,6 @@
 [submodule "bench/gromacs/gromacs"]
 	path = bench/gromacs/gromacs
 	url = git@github.com:gromacs/gromacs.git
+[submodule "bench/quest/QuEST"]
+	path = bench/quest/QuEST
+	url = git@github.com:QuEST-Kit/QuEST.git
