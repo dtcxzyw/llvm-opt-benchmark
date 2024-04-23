@@ -481,3 +481,6 @@
 [submodule "bench/mixbox/mixbox"]
 	path = bench/mixbox/mixbox
 	url = git@github.com:scrtwpns/mixbox.git
+[submodule "bench/c3c/c3c"]
+	path = bench/c3c/c3c
+	url = git@github.com:c3lang/c3c.git

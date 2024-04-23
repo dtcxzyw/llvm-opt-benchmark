@@ -1,0 +1,564 @@
+; ModuleID = 'bench/c3c/original/llvm_codegen_module.c.ll'
+source_filename = "bench/c3c/original/llvm_codegen_module.c.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.GlobalContext = type { %struct.HTable, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i32, i32, i32, ptr, ptr, %struct.HTable, %struct.HTable, %struct.Module_, %struct.DeclTable, %struct.DeclTable, %struct.Path_, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [65536 x ptr], ptr, ptr, ptr }
+%struct.HTable = type { i32, ptr }
+%struct.Module_ = type { ptr, ptr, ptr, i16, i32, ptr, %struct.HTable, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
+%struct.DeclTable = type { i32, i32, i32, ptr }
+%struct.Path_ = type { %union.SourceSpan, ptr, i32 }
+%union.SourceSpan = type { i64 }
+%struct.BuildTarget = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.anon.86, %struct.anon.87, %struct.anon.88, %struct.anon.89 }
+%struct.anon.86 = type { i16, i32, i32, i32 }
+%struct.anon.87 = type { ptr, ptr, ptr, ptr }
+%struct.anon.88 = type { ptr, ptr, i32, i8 }
+%struct.anon.89 = type { ptr, ptr }
+%struct.PlatformTarget = type { ptr, i32, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, [7 x %struct.AlignData], [7 x %struct.AlignData], [7 x %struct.AlignData], i32, i16, %union.anon.90, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, %struct.AlignData, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr }
+%union.anon.90 = type { %struct.anon.92 }
+%struct.anon.92 = type { %struct.X86Features, i32, i32 }
+%struct.X86Features = type { [2 x i64], ptr }
+%struct.AlignData = type { i32, i32 }
+
+@global_context = external local_unnamed_addr global %struct.GlobalContext, align 8
+@.str = private unnamed_addr constant [10 x i8] c"PIC Level\00", align 1
+@.str.1 = private unnamed_addr constant [10 x i8] c"PIE Level\00", align 1
+@active_target = external local_unnamed_addr global %struct.BuildTarget, align 8
+@type_uint = external local_unnamed_addr global ptr, align 8
+@platform_target = external local_unnamed_addr global %struct.PlatformTarget, align 8
+@type_usz = external local_unnamed_addr global ptr, align 8
+@type_typeid = external local_unnamed_addr global ptr, align 8
+@type_chars = external local_unnamed_addr global ptr, align 8
+@.str.2 = private unnamed_addr constant [9 x i8] c"CodeView\00", align 1
+@.str.3 = private unnamed_addr constant [14 x i8] c"Dwarf Version\00", align 1
+@.str.4 = private unnamed_addr constant [19 x i8] c"Debug Info Version\00", align 1
+@.str.5 = private unnamed_addr constant [14 x i8] c"frame-pointer\00", align 1
+@.str.6 = private unnamed_addr constant [8 x i8] c"uwtable\00", align 1
+@.str.7 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@.str.8 = private unnamed_addr constant [4 x i8] c"c3c\00", align 1
+@.str.9 = private unnamed_addr constant [12 x i8] c".introspect\00", align 1
+@.str.10 = private unnamed_addr constant [7 x i8] c".fault\00", align 1
+
+; Function Attrs: nounwind uwtable
+define dso_local void @gencontext_begin_module(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = alloca [3 x ptr], align 16
+  %3 = alloca [7 x ptr], align 16
+  %4 = alloca [3 x ptr], align 16
+  %5 = alloca [3 x ptr], align 16
+  %6 = getelementptr inbounds i8, ptr %0, i64 368
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 128
+  %9 = getelementptr inbounds i8, ptr %0, i64 144
+  %10 = getelementptr inbounds i8, ptr %0, i64 136
+  tail call void @codegen_setup_object_names(ptr noundef %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #6
+  %11 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 22), align 8
+  %12 = getelementptr inbounds i8, ptr %0, i64 248
+  store ptr %11, ptr %12, align 8
+  %13 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 23), align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 256
+  store ptr %13, ptr %14, align 8
+  %15 = load ptr, ptr %6, align 8
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %18 = load ptr, ptr %17, align 8
+  %19 = getelementptr inbounds i8, ptr %0, i64 40
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call ptr @LLVMModuleCreateWithNameInContext(ptr noundef %18, ptr noundef %20) #6
+  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %21, ptr %22, align 8
+  %23 = tail call ptr @llvm_target_machine_create() #6
+  %24 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %23, ptr %24, align 8
+  %25 = tail call ptr @LLVMCreateTargetDataLayout(ptr noundef %23) #6
+  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %25, ptr %26, align 8
+  %27 = load ptr, ptr %22, align 8
+  tail call void @LLVMSetModuleDataLayout(ptr noundef %27, ptr noundef %25) #6
+  %28 = load ptr, ptr %22, align 8
+  %29 = load ptr, ptr %6, align 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %30, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #7
+  tail call void @LLVMSetSourceFileName(ptr noundef %28, ptr noundef %32, i64 noundef %33) #6
+  %34 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 51), align 4
+  switch i32 %34, label %62 [
+    i32 4, label %35
+    i32 2, label %.sink.split
+    i32 3, label %44
+    i32 1, label %53
+  ]
+
+35:                                               ; preds = %1
+  %36 = load ptr, ptr @type_uint, align 8
+  %37 = load ptr, ptr %19, align 8
+  %38 = tail call i32 @type_size(ptr noundef %36) #6
+  %39 = shl i32 %38, 3
+  %40 = tail call ptr @LLVMIntTypeInContext(ptr noundef %37, i32 noundef %39) #6
+  %41 = tail call ptr @LLVMConstInt(ptr noundef %40, i64 noundef 2, i32 noundef 0) #6
+  %42 = tail call ptr @LLVMValueAsMetadata(ptr noundef %41) #6
+  %43 = load ptr, ptr %22, align 8
+  tail call void @LLVMAddModuleFlag(ptr noundef %43, i32 noundef 3, ptr noundef nonnull @.str.1, i64 noundef 9, ptr noundef %42) #6
+  br label %.sink.split
+
+44:                                               ; preds = %1
+  %45 = load ptr, ptr @type_uint, align 8
+  %46 = load ptr, ptr %19, align 8
+  %47 = tail call i32 @type_size(ptr noundef %45) #6
+  %48 = shl i32 %47, 3
+  %49 = tail call ptr @LLVMIntTypeInContext(ptr noundef %46, i32 noundef %48) #6
+  %50 = tail call ptr @LLVMConstInt(ptr noundef %49, i64 noundef 1, i32 noundef 0) #6
+  %51 = tail call ptr @LLVMValueAsMetadata(ptr noundef %50) #6
+  %52 = load ptr, ptr %22, align 8
+  tail call void @LLVMAddModuleFlag(ptr noundef %52, i32 noundef 3, ptr noundef nonnull @.str.1, i64 noundef 9, ptr noundef %51) #6
+  br label %53
+
+53:                                               ; preds = %44, %1
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %1, %35, %53
+  %.sink123 = phi i64 [ 1, %53 ], [ 2, %35 ], [ 2, %1 ]
+  %54 = load ptr, ptr @type_uint, align 8
+  %55 = load ptr, ptr %19, align 8
+  %56 = tail call i32 @type_size(ptr noundef %54) #6
+  %57 = shl i32 %56, 3
+  %58 = tail call ptr @LLVMIntTypeInContext(ptr noundef %55, i32 noundef %57) #6
+  %59 = tail call ptr @LLVMConstInt(ptr noundef %58, i64 noundef %.sink123, i32 noundef 0) #6
+  %60 = tail call ptr @LLVMValueAsMetadata(ptr noundef %59) #6
+  %61 = load ptr, ptr %22, align 8
+  tail call void @LLVMAddModuleFlag(ptr noundef %61, i32 noundef 3, ptr noundef nonnull @.str, i64 noundef 9, ptr noundef %60) #6
+  br label %62
+
+62:                                               ; preds = %.sink.split, %1
+  %63 = load ptr, ptr %22, align 8
+  %64 = load ptr, ptr @platform_target, align 8
+  tail call void @LLVMSetTarget(ptr noundef %63, ptr noundef %64) #6
+  %65 = getelementptr inbounds i8, ptr %0, i64 288
+  store i32 0, ptr %65, align 8
+  %66 = tail call i32 (...) @target_alloca_addr_space() #6
+  %67 = getelementptr inbounds i8, ptr %0, i64 292
+  store i32 %66, ptr %67, align 4
+  %68 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 4), align 8
+  %.not = icmp eq ptr %68, null
+  br i1 %.not, label %._crit_edge, label %69
+
+69:                                               ; preds = %62
+  %70 = getelementptr inbounds i8, ptr %68, i64 -8
+  %71 = load i32, ptr %70, align 4
+  %.not108 = icmp eq i32 %71, 0
+  br i1 %.not108, label %._crit_edge, label %.lr.ph107.preheader
+
+.lr.ph107.preheader:                              ; preds = %69
+  %wide.trip.count114 = zext i32 %71 to i64
+  br label %.lr.ph107
+
+.lr.ph107:                                        ; preds = %.lr.ph107.preheader, %91
+  %indvars.iv111 = phi i64 [ 0, %.lr.ph107.preheader ], [ %indvars.iv.next112, %91 ]
+  %72 = load ptr, ptr getelementptr inbounds (%struct.GlobalContext, ptr @global_context, i64 0, i32 4), align 8
+  %73 = getelementptr inbounds ptr, ptr %72, i64 %indvars.iv111
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %75, i8 0, i64 24, i1 false)
+  %76 = load i32, ptr %74, align 8
+  switch i32 %76, label %91 [
+    i32 24, label %77
+    i32 30, label %77
+    i32 26, label %.loopexit
+    i32 27, label %.loopexit
+    i32 32, label %.loopexit
+  ]
+
+77:                                               ; preds = %.lr.ph107, %.lr.ph107
+  %78 = getelementptr inbounds i8, ptr %74, i64 56
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 96
+  %81 = load ptr, ptr %80, align 8
+  %.not104 = icmp eq ptr %81, null
+  br i1 %.not104, label %.loopexit, label %82
+
+82:                                               ; preds = %77
+  %83 = getelementptr inbounds i8, ptr %81, i64 -8
+  %84 = load i32, ptr %83, align 4
+  %.not109 = icmp eq i32 %84, 0
+  br i1 %.not109, label %.loopexit, label %.lr.ph.preheader
+
+.lr.ph.preheader:                                 ; preds = %82
+  %wide.trip.count = zext i32 %84 to i64
+  br label %.lr.ph
+
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %85 = getelementptr inbounds ptr, ptr %81, i64 %indvars.iv
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds i8, ptr %86, i64 32
+  store ptr null, ptr %87, align 8
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !7
+
+.loopexit:                                        ; preds = %.lr.ph, %77, %82, %.lr.ph107, %.lr.ph107, %.lr.ph107
+  %88 = getelementptr inbounds i8, ptr %74, i64 56
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds i8, ptr %89, i64 32
+  store ptr null, ptr %90, align 8
+  br label %91
+
+91:                                               ; preds = %.loopexit, %.lr.ph107
+  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
+  %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
+  br i1 %exitcond115.not, label %._crit_edge, label %.lr.ph107, !llvm.loop !9
+
+._crit_edge:                                      ; preds = %91, %62, %69
+  %92 = load ptr, ptr %19, align 8
+  %93 = tail call ptr @LLVMInt1TypeInContext(ptr noundef %92) #6
+  %94 = getelementptr inbounds i8, ptr %0, i64 160
+  store ptr %93, ptr %94, align 8
+  %95 = load ptr, ptr %19, align 8
+  %96 = tail call ptr @LLVMInt8TypeInContext(ptr noundef %95) #6
+  %97 = getelementptr inbounds i8, ptr %0, i64 168
+  store ptr %96, ptr %97, align 8
+  %98 = tail call ptr @LLVMPointerType(ptr noundef %96, i32 noundef 0) #6
+  %99 = getelementptr inbounds i8, ptr %0, i64 216
+  store ptr %98, ptr %99, align 8
+  %100 = load ptr, ptr @type_usz, align 8
+  %101 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %100) #6
+  %102 = getelementptr inbounds i8, ptr %0, i64 192
+  store ptr %101, ptr %102, align 8
+  %103 = load ptr, ptr @type_typeid, align 8
+  %104 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %103) #6
+  %105 = getelementptr inbounds i8, ptr %0, i64 200
+  store ptr %104, ptr %105, align 8
+  %106 = load ptr, ptr %99, align 8
+  store ptr %106, ptr %4, align 16
+  %107 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr %106, ptr %107, align 8
+  %108 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %106, ptr %108, align 16
+  %109 = load ptr, ptr %19, align 8
+  %110 = call ptr @LLVMStructTypeInContext(ptr noundef %109, ptr noundef nonnull %4, i32 noundef 3, i32 noundef 0) #6
+  %111 = getelementptr inbounds i8, ptr %0, i64 208
+  store ptr %110, ptr %111, align 8
+  %112 = load ptr, ptr @type_chars, align 8
+  %113 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef %112) #6
+  %114 = getelementptr inbounds i8, ptr %0, i64 224
+  store ptr %113, ptr %114, align 8
+  %115 = load ptr, ptr %19, align 8
+  %116 = call ptr @LLVMInt32TypeInContext(ptr noundef %115) #6
+  store ptr %116, ptr %5, align 16
+  %117 = getelementptr inbounds i8, ptr %5, i64 8
+  %118 = load ptr, ptr %99, align 8
+  store ptr %118, ptr %117, align 8
+  %119 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %118, ptr %119, align 16
+  %120 = load ptr, ptr %19, align 8
+  %121 = call ptr @LLVMStructTypeInContext(ptr noundef %120, ptr noundef nonnull %5, i32 noundef 3, i32 noundef 0) #6
+  %122 = getelementptr inbounds i8, ptr %0, i64 232
+  store ptr %121, ptr %122, align 8
+  %123 = load ptr, ptr %19, align 8
+  %124 = call ptr @LLVMVoidTypeInContext(ptr noundef %123) #6
+  %125 = call ptr @LLVMFunctionType(ptr noundef %124, ptr noundef null, i32 noundef 0, i32 noundef 0) #6
+  %126 = getelementptr inbounds i8, ptr %0, i64 240
+  store ptr %125, ptr %126, align 8
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
+  %127 = load ptr, ptr %19, align 8
+  %128 = call ptr @LLVMStructCreateNamed(ptr noundef %127, ptr noundef nonnull @.str.9) #6
+  %129 = load ptr, ptr %97, align 8
+  store ptr %129, ptr %3, align 16
+  %130 = getelementptr inbounds i8, ptr %3, i64 8
+  %131 = load ptr, ptr %105, align 8
+  store ptr %131, ptr %130, align 8
+  %132 = getelementptr inbounds i8, ptr %3, i64 16
+  %133 = load ptr, ptr %99, align 8
+  store ptr %133, ptr %132, align 16
+  %134 = getelementptr inbounds i8, ptr %3, i64 24
+  %135 = load ptr, ptr %102, align 8
+  store ptr %135, ptr %134, align 8
+  %136 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %131, ptr %136, align 16
+  %137 = getelementptr inbounds i8, ptr %3, i64 40
+  store ptr %135, ptr %137, align 8
+  %138 = getelementptr inbounds i8, ptr %3, i64 48
+  %139 = call ptr @LLVMArrayType(ptr noundef %131, i32 noundef 0) #6
+  store ptr %139, ptr %138, align 16
+  call void @LLVMStructSetBody(ptr noundef %128, ptr noundef nonnull %3, i32 noundef 7, i32 noundef 0) #6
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
+  %140 = getelementptr inbounds i8, ptr %0, i64 176
+  store ptr %128, ptr %140, align 8
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
+  %141 = load ptr, ptr %19, align 8
+  %142 = call ptr @LLVMStructCreateNamed(ptr noundef %141, ptr noundef nonnull @.str.10) #6
+  %143 = load ptr, ptr %105, align 8
+  store ptr %143, ptr %2, align 16
+  %144 = getelementptr inbounds i8, ptr %2, i64 8
+  %145 = load ptr, ptr %114, align 8
+  store ptr %145, ptr %144, align 8
+  %146 = getelementptr inbounds i8, ptr %2, i64 16
+  %147 = load ptr, ptr %102, align 8
+  store ptr %147, ptr %146, align 16
+  call void @LLVMStructSetBody(ptr noundef %142, ptr noundef nonnull %2, i32 noundef 3, i32 noundef 0) #6
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
+  %148 = getelementptr inbounds i8, ptr %0, i64 184
+  store ptr %142, ptr %148, align 8
+  %149 = load ptr, ptr %12, align 8
+  %.not101 = icmp eq ptr %149, null
+  br i1 %.not101, label %152, label %150
+
+150:                                              ; preds = %._crit_edge
+  %151 = getelementptr inbounds i8, ptr %149, i64 32
+  store ptr null, ptr %151, align 8
+  br label %152
+
+152:                                              ; preds = %150, %._crit_edge
+  %153 = load ptr, ptr %14, align 8
+  %.not102 = icmp eq ptr %153, null
+  br i1 %.not102, label %156, label %154
+
+154:                                              ; preds = %152
+  %155 = getelementptr inbounds i8, ptr %153, i64 32
+  store ptr null, ptr %155, align 8
+  br label %156
+
+156:                                              ; preds = %154, %152
+  %157 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 50), align 8
+  %.not103 = icmp eq i32 %157, 0
+  br i1 %.not103, label %222, label %158
+
+158:                                              ; preds = %156
+  %159 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 52), align 8
+  %160 = add i32 %159, -23
+  %or.cond = icmp ult i32 %160, 2
+  %161 = load ptr, ptr @type_uint, align 8
+  %162 = load ptr, ptr %19, align 8
+  %163 = call i32 @type_size(ptr noundef %161) #6
+  %164 = shl i32 %163, 3
+  %165 = call ptr @LLVMIntTypeInContext(ptr noundef %162, i32 noundef %164) #6
+  br i1 %or.cond, label %166, label %170
+
+166:                                              ; preds = %158
+  %167 = call ptr @LLVMConstInt(ptr noundef %165, i64 noundef 1, i32 noundef 0) #6
+  %168 = call ptr @LLVMValueAsMetadata(ptr noundef %167) #6
+  %169 = load ptr, ptr %22, align 8
+  call void @LLVMAddModuleFlag(ptr noundef %169, i32 noundef 0, ptr noundef nonnull @.str.2, i64 noundef 8, ptr noundef %168) #6
+  br label %193
+
+170:                                              ; preds = %158
+  %171 = call ptr @LLVMConstInt(ptr noundef %165, i64 noundef 4, i32 noundef 0) #6
+  %172 = call ptr @LLVMValueAsMetadata(ptr noundef %171) #6
+  %173 = load ptr, ptr %22, align 8
+  call void @LLVMAddModuleFlag(ptr noundef %173, i32 noundef 1, ptr noundef nonnull @.str.3, i64 noundef 13, ptr noundef %172) #6
+  %174 = load ptr, ptr @type_uint, align 8
+  %175 = load ptr, ptr %19, align 8
+  %176 = call i32 @type_size(ptr noundef %174) #6
+  %177 = shl i32 %176, 3
+  %178 = call ptr @LLVMIntTypeInContext(ptr noundef %175, i32 noundef %177) #6
+  %179 = call ptr @LLVMConstInt(ptr noundef %178, i64 noundef 3, i32 noundef 0) #6
+  %180 = call ptr @LLVMValueAsMetadata(ptr noundef %179) #6
+  %181 = load ptr, ptr %22, align 8
+  call void @LLVMAddModuleFlag(ptr noundef %181, i32 noundef 1, ptr noundef nonnull @.str.4, i64 noundef 18, ptr noundef %180) #6
+  %182 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 4), align 8
+  %183 = icmp eq i32 %182, 3
+  %184 = select i1 %183, i64 1, i64 2
+  %185 = load ptr, ptr @type_uint, align 8
+  %186 = load ptr, ptr %19, align 8
+  %187 = call i32 @type_size(ptr noundef %185) #6
+  %188 = shl i32 %187, 3
+  %189 = call ptr @LLVMIntTypeInContext(ptr noundef %186, i32 noundef %188) #6
+  %190 = call ptr @LLVMConstInt(ptr noundef %189, i64 noundef %184, i32 noundef 0) #6
+  %191 = call ptr @LLVMValueAsMetadata(ptr noundef %190) #6
+  %192 = load ptr, ptr %22, align 8
+  call void @LLVMAddModuleFlag(ptr noundef %192, i32 noundef 1, ptr noundef nonnull @.str.5, i64 noundef 13, ptr noundef %191) #6
+  br label %193
+
+193:                                              ; preds = %170, %166
+  %194 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 52), align 8
+  %195 = icmp eq i32 %194, 13
+  %196 = select i1 %195, i64 1, i64 2
+  %197 = load ptr, ptr @type_uint, align 8
+  %198 = load ptr, ptr %19, align 8
+  %199 = call i32 @type_size(ptr noundef %197) #6
+  %200 = shl i32 %199, 3
+  %201 = call ptr @LLVMIntTypeInContext(ptr noundef %198, i32 noundef %200) #6
+  %202 = call ptr @LLVMConstInt(ptr noundef %201, i64 noundef %196, i32 noundef 0) #6
+  %203 = call ptr @LLVMValueAsMetadata(ptr noundef %202) #6
+  %204 = load ptr, ptr %22, align 8
+  call void @LLVMAddModuleFlag(ptr noundef %204, i32 noundef 0, ptr noundef nonnull @.str.6, i64 noundef 7, ptr noundef %203) #6
+  %205 = getelementptr inbounds i8, ptr %0, i64 296
+  %206 = load i16, ptr %205, align 8
+  %207 = and i16 %206, -256
+  store i16 %207, ptr %205, align 8
+  %208 = load ptr, ptr %22, align 8
+  %209 = call ptr @LLVMCreateDIBuilder(ptr noundef %208) #6
+  %210 = getelementptr inbounds i8, ptr %0, i64 304
+  store ptr %209, ptr %210, align 8
+  %211 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 50), align 8
+  %212 = icmp eq i32 %211, 2
+  %213 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 67, i32 2), align 8
+  %214 = icmp ne i32 %213, 0
+  %or.cond3 = select i1 %212, i1 %214, i1 false
+  br i1 %or.cond3, label %215, label %222
+
+215:                                              ; preds = %193
+  %216 = load i32, ptr getelementptr inbounds (%struct.PlatformTarget, ptr @platform_target, i64 0, i32 5), align 4
+  %217 = call zeroext i1 @os_supports_stacktrace(i32 noundef %216) #6
+  %218 = load i16, ptr %205, align 8
+  %219 = select i1 %217, i16 256, i16 0
+  %220 = and i16 %218, -257
+  %221 = or disjoint i16 %220, %219
+  store i16 %221, ptr %205, align 8
+  br label %222
+
+222:                                              ; preds = %193, %215, %156
+  %223 = call ptr @LLVMCreateBuilder() #6
+  %224 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %223, ptr %224, align 8
+  %225 = getelementptr inbounds i8, ptr %0, i64 64
+  store ptr %223, ptr %225, align 8
+  ret void
+}
+
+declare void @codegen_setup_object_names(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @LLVMModuleCreateWithNameInContext(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @llvm_target_machine_create() local_unnamed_addr #1
+
+declare ptr @LLVMCreateTargetDataLayout(ptr noundef) local_unnamed_addr #1
+
+declare void @LLVMSetModuleDataLayout(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare void @LLVMSetSourceFileName(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+
+declare void @LLVMSetTarget(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @target_alloca_addr_space(...) local_unnamed_addr #1
+
+declare ptr @LLVMInt1TypeInContext(ptr noundef) local_unnamed_addr #1
+
+declare ptr @LLVMInt8TypeInContext(ptr noundef) local_unnamed_addr #1
+
+declare ptr @LLVMPointerType(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @llvm_get_type(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @LLVMStructTypeInContext(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @LLVMInt32TypeInContext(ptr noundef) local_unnamed_addr #1
+
+declare ptr @LLVMFunctionType(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @LLVMVoidTypeInContext(ptr noundef) local_unnamed_addr #1
+
+declare ptr @LLVMCreateDIBuilder(ptr noundef) local_unnamed_addr #1
+
+declare zeroext i1 @os_supports_stacktrace(i32 noundef) local_unnamed_addr #1
+
+declare ptr @LLVMCreateBuilder() local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define dso_local void @gencontext_init_file_emit(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+  %3 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 50), align 8
+  %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %23, label %4
+
+4:                                                ; preds = %2
+  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %7 = load i16, ptr %6, align 8
+  %8 = tail call ptr @llvm_get_debug_file(ptr noundef %0, i16 noundef zeroext %7) #6
+  %9 = getelementptr inbounds i8, ptr %1, i64 240
+  store ptr %8, ptr %9, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 336
+  %11 = load ptr, ptr %10, align 8
+  %.not22 = icmp eq ptr %11, null
+  br i1 %.not22, label %12, label %.sink.split
+
+12:                                               ; preds = %4
+  %13 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 50), align 8
+  %14 = icmp eq i32 %13, 2
+  %15 = select i1 %14, i32 1, i32 2
+  %16 = load i32, ptr getelementptr inbounds (%struct.BuildTarget, ptr @active_target, i64 0, i32 42), align 8
+  %17 = icmp ne i32 %16, 0
+  %18 = getelementptr inbounds i8, ptr %0, i64 304
+  %19 = load ptr, ptr %18, align 8
+  %20 = zext i1 %17 to i32
+  %21 = tail call ptr @LLVMDIBuilderCreateCompileUnit(ptr noundef %19, i32 noundef 28, ptr noundef %8, ptr noundef nonnull @.str.8, i64 noundef 3, i32 noundef %20, ptr noundef nonnull @.str.7, i64 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7, i64 noundef 0, i32 noundef %15, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.7, i64 noundef 0, ptr noundef nonnull @.str.7, i64 noundef 0) #6
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %4, %12
+  %.sink = phi ptr [ %21, %12 ], [ %11, %4 ]
+  %22 = getelementptr inbounds i8, ptr %1, i64 248
+  store ptr %.sink, ptr %22, align 8
+  br label %23
+
+23:                                               ; preds = %.sink.split, %2
+  ret void
+}
+
+declare ptr @llvm_get_debug_file(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
+
+declare ptr @LLVMDIBuilderCreateCompileUnit(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define dso_local void @gencontext_end_file_emit(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 {
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local void @gencontext_end_module(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8
+  tail call void @LLVMDisposeModule(ptr noundef %3) #6
+  ret void
+}
+
+declare void @LLVMDisposeModule(ptr noundef) local_unnamed_addr #1
+
+declare ptr @LLVMValueAsMetadata(ptr noundef) local_unnamed_addr #1
+
+declare ptr @LLVMConstInt(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
+
+declare ptr @LLVMIntTypeInContext(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @LLVMAddModuleFlag(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
+
+declare i32 @type_size(ptr noundef) local_unnamed_addr #1
+
+declare ptr @LLVMStructCreateNamed(ptr noundef, ptr noundef) local_unnamed_addr #1
+
+declare ptr @LLVMArrayType(ptr noundef, i32 noundef) local_unnamed_addr #1
+
+declare void @LLVMStructSetBody(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+
+attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #6 = { nounwind }
+attributes #7 = { nounwind willreturn memory(read) }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
+
+!0 = !{i32 7, !"Dwarf Version", i32 3}
+!1 = !{i32 2, !"Debug Info Version", i32 3}
+!2 = !{i32 1, !"wchar_size", i32 4}
+!3 = !{i32 8, !"PIC Level", i32 2}
+!4 = !{i32 7, !"PIE Level", i32 2}
+!5 = !{i32 7, !"uwtable", i32 2}
+!6 = !{i32 7, !"frame-pointer", i32 2}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}
