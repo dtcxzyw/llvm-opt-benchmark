@@ -1,0 +1,44 @@
+; ModuleID = 'bench/gromacs/original/profile.cpp.ll'
+source_filename = "bench/gromacs/original/profile.cpp.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+@tMPI_Profile_started = local_unnamed_addr global i32 0, align 4
+@.str = private unnamed_addr constant [5 x i8] c"Send\00", align 1
+@.str.1 = private unnamed_addr constant [5 x i8] c"Recv\00", align 1
+@.str.2 = private unnamed_addr constant [9 x i8] c"Sendrecv\00", align 1
+@.str.3 = private unnamed_addr constant [6 x i8] c"Isend\00", align 1
+@.str.4 = private unnamed_addr constant [6 x i8] c"Irecv\00", align 1
+@.str.5 = private unnamed_addr constant [5 x i8] c"Wait\00", align 1
+@.str.6 = private unnamed_addr constant [5 x i8] c"Test\00", align 1
+@.str.7 = private unnamed_addr constant [8 x i8] c"Waitall\00", align 1
+@.str.8 = private unnamed_addr constant [8 x i8] c"Testall\00", align 1
+@.str.9 = private unnamed_addr constant [8 x i8] c"Waitany\00", align 1
+@.str.10 = private unnamed_addr constant [8 x i8] c"Testany\00", align 1
+@.str.11 = private unnamed_addr constant [9 x i8] c"Waitsome\00", align 1
+@.str.12 = private unnamed_addr constant [9 x i8] c"Testsome\00", align 1
+@.str.13 = private unnamed_addr constant [8 x i8] c"Barrier\00", align 1
+@.str.14 = private unnamed_addr constant [6 x i8] c"Bcast\00", align 1
+@.str.15 = private unnamed_addr constant [7 x i8] c"Gather\00", align 1
+@.str.16 = private unnamed_addr constant [8 x i8] c"Gatherv\00", align 1
+@.str.17 = private unnamed_addr constant [8 x i8] c"Scatter\00", align 1
+@.str.18 = private unnamed_addr constant [9 x i8] c"Scatterv\00", align 1
+@.str.19 = private unnamed_addr constant [9 x i8] c"Alltoall\00", align 1
+@.str.20 = private unnamed_addr constant [10 x i8] c"Alltoallv\00", align 1
+@.str.21 = private unnamed_addr constant [7 x i8] c"Reduce\00", align 1
+@.str.22 = private unnamed_addr constant [10 x i8] c"Allreduce\00", align 1
+@.str.23 = private unnamed_addr constant [5 x i8] c"Scan\00", align 1
+@tmpi_function_names = local_unnamed_addr global [24 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23], align 16
+@.str.24 = private unnamed_addr constant [4 x i8] c"P2p\00", align 1
+@.str.25 = private unnamed_addr constant [11 x i8] c"P2p signal\00", align 1
+@.str.26 = private unnamed_addr constant [11 x i8] c"Coll. send\00", align 1
+@.str.27 = private unnamed_addr constant [11 x i8] c"Coll. recv\00", align 1
+@.str.28 = private unnamed_addr constant [12 x i8] c"(All)Reduce\00", align 1
+@tmpi_waitfn_names = local_unnamed_addr global [6 x ptr] [ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.13, ptr @.str.28], align 16
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}

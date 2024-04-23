@@ -523,3 +523,6 @@
 [submodule "bench/opencc/OpenCC"]
 	path = bench/opencc/OpenCC
 	url = git@github.com:BYVoid/OpenCC.git
+[submodule "bench/gromacs/gromacs"]
+	path = bench/gromacs/gromacs
+	url = git@github.com:gromacs/gromacs.git

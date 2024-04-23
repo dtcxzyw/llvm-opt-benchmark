@@ -1,0 +1,2884 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%struct.Quote = type { ptr, ptr }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
+%"class.gmx::ArrayRef" = type { %"struct.gmx::ArrayRefIter", %"struct.gmx::ArrayRefIter" }
+%"struct.gmx::ArrayRefIter" = type { ptr }
+%"class.std::allocator" = type { i8 }
+%"class.std::mersenne_twister_engine" = type { [312 x i64], i64 }
+%"class.std::uniform_int_distribution" = type { %"struct.std::uniform_int_distribution<unsigned long>::param_type" }
+%"struct.std::uniform_int_distribution<unsigned long>::param_type" = type { i64, i64 }
+%struct._Guard = type { ptr }
+%"class.gmx::ArrayRef.0" = type { %"struct.gmx::ArrayRefIter.1", %"struct.gmx::ArrayRefIter.1" }
+%"struct.gmx::ArrayRefIter.1" = type { ptr }
+
+$_ZN3gmx8ArrayRefIKPKcEC2ILm26EEERAT__S3_ = comdat any
+
+$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
+
+$_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Em = comdat any
+
+$_ZNK3gmx8ArrayRefIKPKcE4sizeEv = comdat any
+
+$_ZNSt24uniform_int_distributionImEC2Emm = comdat any
+
+$_ZNK3gmx8ArrayRefIKPKcEixEm = comdat any
+
+$_ZNSt24uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_ = comdat any
+
+$_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE4seedEm = comdat any
+
+$_ZNSt8__detail5__modImTnT_Lm0ETnS1_Lm1ETnS1_Lm0EEES1_S1_ = comdat any
+
+$_ZNSt8__detail5__modImTnT_Lm312ETnS1_Lm1ETnS1_Lm0EEES1_S1_ = comdat any
+
+$_ZNSt8__detail4_ModImLm0ELm1ELm0ELb1ELb0EE6__calcEm = comdat any
+
+$_ZNSt8__detail4_ModImLm312ELm1ELm0ELb1ELb1EE6__calcEm = comdat any
+
+$_ZNK3gmx12ArrayRefIterIKPKcEmiES4_ = comdat any
+
+$_ZNSt24uniform_int_distributionImE10param_typeC2Emm = comdat any
+
+$_ZNK3gmx5boost14stl_interfaces2v118iterator_interfaceINS_12ArrayRefIterIKPKcEESt26random_access_iterator_tagS7_RS7_PS7_lvEixIS8_EEDTcmpLclsr3stdE7declvalIRT_EEfp_declsr3stdE7declvalISF_EEEl = comdat any
+
+$_ZNK3gmx5boost14stl_interfaces2v118iterator_interfaceINS_12ArrayRefIterIKPKcEESt26random_access_iterator_tagS7_RS7_PS7_lvE7derivedEv = comdat any
+
+$_ZN3gmx12ArrayRefIterIKPKcEpLEl = comdat any
+
+$_ZNK3gmx12ArrayRefIterIKPKcEdeEv = comdat any
+
+$_ZNSt24uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS0_10param_typeE = comdat any
+
+$_ZNKSt24uniform_int_distributionImE10param_type1bEv = comdat any
+
+$_ZNKSt24uniform_int_distributionImE10param_type1aEv = comdat any
+
+$_ZNSt24uniform_int_distributionImE5_S_ndIoSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEmEET1_RT0_S4_ = comdat any
+
+$_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv = comdat any
+
+$_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv = comdat any
+
+$_ZN3gmx12ArrayRefIterIKPKcEC2EPS3_ = comdat any
+
+$_ZNSt11char_traitsIcE6lengthEPKc = comdat any
+
+$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
+
+$_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev = comdat any
+
+$_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_ = comdat any
+
+$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_ = comdat any
+
+$_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev = comdat any
+
+$_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag = comdat any
+
+$_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_ = comdat any
+
+$__clang_call_terminate = comdat any
+
+@.str = private unnamed_addr constant [43 x i8] c"Good gRace! Old Maple Actually Chews Slate\00", align 1
+@.str.1 = private unnamed_addr constant [50 x i8] c"GRoups of Organic Molecules in ACtion for Science\00", align 1
+@.str.2 = private unnamed_addr constant [34 x i8] c"GRowing Old MAkes el Chrono Sweat\00", align 1
+@.str.3 = private unnamed_addr constant [38 x i8] c"Gyas ROwers Mature At Cryogenic Speed\00", align 1
+@.str.4 = private unnamed_addr constant [35 x i8] c"Great Red Owns Many ACres of Sand \00", align 1
+@.str.5 = private unnamed_addr constant [42 x i8] c"GROningen MAchine for Chemical Simulation\00", align 1
+@.str.6 = private unnamed_addr constant [36 x i8] c"GROup of MAchos and Cynical Suckers\00", align 1
+@.str.7 = private unnamed_addr constant [29 x i8] c"GROtesk MACabre and Sinister\00", align 1
+@.str.8 = private unnamed_addr constant [37 x i8] c"GROwing Monsters And Cloning Shrimps\00", align 1
+@.str.9 = private unnamed_addr constant [43 x i8] c"Great Red Oystrich Makes All Chemists Sane\00", align 1
+@.str.10 = private unnamed_addr constant [47 x i8] c"Good ROcking Metal Altar for Chronical Sinners\00", align 1
+@.str.11 = private unnamed_addr constant [38 x i8] c"Gnomes, ROck Monsters And Chili Sauce\00", align 1
+@.str.12 = private unnamed_addr constant [20 x i8] c"S  C  A  M  O  R  G\00", align 1
+@.str.13 = private unnamed_addr constant [51 x i8] c"Giant Rising Ordinary Mutants for A Clerical Setup\00", align 1
+@.str.14 = private unnamed_addr constant [45 x i8] c"Gromacs Runs On Most of All Computer Systems\00", align 1
+@.str.15 = private unnamed_addr constant [19 x i8] c"Grunge ROck MAChoS\00", align 1
+@.str.16 = private unnamed_addr constant [44 x i8] c"Green Red Orange Magenta Azure Cyan Skyblue\00", align 1
+@.str.17 = private unnamed_addr constant [52 x i8] c"GROningen Mixture of Alchemy and Childrens' Stories\00", align 1
+@.str.18 = private unnamed_addr constant [49 x i8] c"Guyana Rwanda Oman Macau Angola Cameroon Senegal\00", align 1
+@.str.19 = private unnamed_addr constant [49 x i8] c"God Rules Over Mankind, Animals, Cosmos and Such\00", align 1
+@.str.20 = private unnamed_addr constant [57 x i8] c"Georgetown Riga Oslo Madrid Amsterdam Chisinau Stockholm\00", align 1
+@.str.21 = private unnamed_addr constant [55 x i8] c"Gallium Rubidium Oxygen Manganese Argon Carbon Silicon\00", align 1
+@.str.22 = private unnamed_addr constant [59 x i8] c"Glycine aRginine prOline Methionine Alanine Cystine Serine\00", align 1
+@.str.23 = private unnamed_addr constant [48 x i8] c"Gravel Rubs Often Many Awfully Cauterized Sores\00", align 1
+@.str.24 = private unnamed_addr constant [65 x i8] c"Getting the Right Output Means no Artefacts in Calculating Stuff\00", align 1
+@.str.25 = private unnamed_addr constant [50 x i8] c"Gromacs Runs One Microsecond At Cannonball Speeds\00", align 1
+@__const._ZN3gmx7bromacsB5cxx11Ev.bromacsArray = private unnamed_addr constant [26 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25], align 16
+@.str.26 = private unnamed_addr constant [8 x i8] c"GROMACS\00", align 1
+@.str.27 = private unnamed_addr constant [14 x i8] c"GMX_NO_QUOTES\00", align 1
+@.str.28 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
+@.str.29 = private unnamed_addr constant [54 x i8] c"If You Want Something Done You Have to Do It Yourself\00", align 1
+@.str.30 = private unnamed_addr constant [14 x i8] c"Highlander II\00", align 1
+@.str.31 = private unnamed_addr constant [35 x i8] c"I Live the Life They Wish They Did\00", align 1
+@.str.32 = private unnamed_addr constant [7 x i8] c"Tricky\00", align 1
+@.str.33 = private unnamed_addr constant [22 x i8] c"Jesus Built My Hotrod\00", align 1
+@.str.34 = private unnamed_addr constant [9 x i8] c"Ministry\00", align 1
+@.str.35 = private unnamed_addr constant [43 x i8] c"Nurture Another Mind, Before Yours Expires\00", align 1
+@.str.36 = private unnamed_addr constant [21 x i8] c"Arrested Development\00", align 1
+@.str.37 = private unnamed_addr constant [40 x i8] c"Hmm, It *Does* Go Well With the Chicken\00", align 1
+@.str.38 = private unnamed_addr constant [13 x i8] c"Beastie Boys\00", align 1
+@.str.39 = private unnamed_addr constant [27 x i8] c"We Can Dance Like Iggy Pop\00", align 1
+@.str.40 = private unnamed_addr constant [22 x i8] c"Red Hot Chili Peppers\00", align 1
+@.str.41 = private unnamed_addr constant [49 x i8] c"It's So Lonely When You Don't Even Know Yourself\00", align 1
+@.str.42 = private unnamed_addr constant [25 x i8] c"Do the Dog On the Ground\00", align 1
+@.str.43 = private unnamed_addr constant [43 x i8] c"Don't Push Me, Cause I'm Close to the Edge\00", align 1
+@.str.44 = private unnamed_addr constant [18 x i8] c"Grandmaster Flash\00", align 1
+@.str.45 = private unnamed_addr constant [49 x i8] c"Bum Stikkie Di Bum Stikkie Di Bum Stikkie Di Bum\00", align 1
+@.str.46 = private unnamed_addr constant [14 x i8] c"R. Slijngaard\00", align 1
+@.str.47 = private unnamed_addr constant [43 x i8] c"She's Not Bad, She's Just Genetically Mean\00", align 1
+@.str.48 = private unnamed_addr constant [18 x i8] c"Captain Beefheart\00", align 1
+@.str.49 = private unnamed_addr constant [27 x i8] c"Being Great is Not So Good\00", align 1
+@.str.50 = private unnamed_addr constant [65 x i8] c"If Life Seems Jolly Rotten, There's Something You've Forgotten !\00", align 1
+@.str.51 = private unnamed_addr constant [13 x i8] c"Monty Python\00", align 1
+@.str.52 = private unnamed_addr constant [26 x i8] c"Your Proposal is Accepted\00", align 1
+@.str.53 = private unnamed_addr constant [13 x i8] c"Men In Black\00", align 1
+@.str.54 = private unnamed_addr constant [32 x i8] c"Don't Grumble, Give a Whistle !\00", align 1
+@.str.55 = private unnamed_addr constant [24 x i8] c"Stop Drinking My Beer !\00", align 1
+@.str.56 = private unnamed_addr constant [9 x i8] c"The Amps\00", align 1
+@.str.57 = private unnamed_addr constant [26 x i8] c"I Calculate My Birthright\00", align 1
+@.str.58 = private unnamed_addr constant [12 x i8] c"P.J. Harvey\00", align 1
+@.str.59 = private unnamed_addr constant [65 x i8] c"You Should Sleep Late Man, It's Much Easier On Your Constitution\00", align 1
+@.str.60 = private unnamed_addr constant [21 x i8] c"You're Insignificant\00", align 1
+@.str.61 = private unnamed_addr constant [18 x i8] c"Check Your Output\00", align 1
+@.str.62 = private unnamed_addr constant [12 x i8] c"P. Ahlstrom\00", align 1
+@.str.63 = private unnamed_addr constant [36 x i8] c"What Kind Of Guru are You, Anyway ?\00", align 1
+@.str.64 = private unnamed_addr constant [9 x i8] c"F. Zappa\00", align 1
+@.str.65 = private unnamed_addr constant [51 x i8] c"I Had So Many Problem, and Then I Got Me a Walkman\00", align 1
+@.str.66 = private unnamed_addr constant [9 x i8] c"F. Black\00", align 1
+@.str.67 = private unnamed_addr constant [24 x i8] c"I Caught It In the Face\00", align 1
+@.str.68 = private unnamed_addr constant [36 x i8] c"If You Touch Me, You'll Get Shocked\00", align 1
+@.str.69 = private unnamed_addr constant [27 x i8] c"This Puke Stinks Like Beer\00", align 1
+@.str.70 = private unnamed_addr constant [5 x i8] c"LIVE\00", align 1
+@.str.71 = private unnamed_addr constant [39 x i8] c"Art For Arts Sake, Money For Gods Sake\00", align 1
+@.str.72 = private unnamed_addr constant [6 x i8] c"10 CC\00", align 1
+@.str.73 = private unnamed_addr constant [19 x i8] c"A Man Needs a Maid\00", align 1
+@.str.74 = private unnamed_addr constant [9 x i8] c"N. Young\00", align 1
+@.str.75 = private unnamed_addr constant [47 x i8] c"No One Could Foresee the End That Came So Fast\00", align 1
+@.str.76 = private unnamed_addr constant [7 x i8] c"Slayer\00", align 1
+@.str.77 = private unnamed_addr constant [29 x i8] c"Stay Cool, This is a Robbery\00", align 1
+@.str.78 = private unnamed_addr constant [13 x i8] c"Pulp Fiction\00", align 1
+@.str.79 = private unnamed_addr constant [23 x i8] c"With a Little Penknife\00", align 1
+@.str.80 = private unnamed_addr constant [10 x i8] c"Nick Cave\00", align 1
+@.str.81 = private unnamed_addr constant [20 x i8] c"In a Deep Deep Well\00", align 1
+@.str.82 = private unnamed_addr constant [36 x i8] c"I'm Only Faking When I Get It Right\00", align 1
+@.str.83 = private unnamed_addr constant [12 x i8] c"Soundgarden\00", align 1
+@.str.84 = private unnamed_addr constant [34 x i8] c"Sisters Have Always Fascinated Me\00", align 1
+@.str.85 = private unnamed_addr constant [7 x i8] c"Speech\00", align 1
+@.str.86 = private unnamed_addr constant [29 x i8] c"There's No Room For the Weak\00", align 1
+@.str.87 = private unnamed_addr constant [13 x i8] c"Joy Division\00", align 1
+@.str.88 = private unnamed_addr constant [43 x i8] c"All Work and No Play Makes Jack a Dull Boy\00", align 1
+@.str.89 = private unnamed_addr constant [12 x i8] c"The Shining\00", align 1
+@.str.90 = private unnamed_addr constant [28 x i8] c"They Were So Quiet About It\00", align 1
+@.str.91 = private unnamed_addr constant [7 x i8] c"Pixies\00", align 1
+@.str.92 = private unnamed_addr constant [31 x i8] c"Never Get a Chance to Kick Ass\00", align 1
+@.str.93 = private unnamed_addr constant [24 x i8] c"Yeah, a Wuzz, Or a Jerk\00", align 1
+@.str.94 = private unnamed_addr constant [21 x i8] c"It's Time to Move On\00", align 1
+@.str.95 = private unnamed_addr constant [29 x i8] c"It'll Cure Your Asthma Too !\00", align 1
+@.str.96 = private unnamed_addr constant [28 x i8] c"Out Of Register Space (Ugh)\00", align 1
+@.str.97 = private unnamed_addr constant [3 x i8] c"Vi\00", align 1
+@.str.98 = private unnamed_addr constant [26 x i8] c"May the Force Be With You\00", align 1
+@.str.99 = private unnamed_addr constant [10 x i8] c"Star Wars\00", align 1
+@.str.100 = private unnamed_addr constant [28 x i8] c"You Try to Run the Universe\00", align 1
+@.str.101 = private unnamed_addr constant [25 x i8] c"This May Come As a Shock\00", align 1
+@.str.102 = private unnamed_addr constant [29 x i8] c"I Wonder, Should I Get Up...\00", align 1
+@.str.103 = private unnamed_addr constant [10 x i8] c"J. Lennon\00", align 1
+@.str.104 = private unnamed_addr constant [30 x i8] c"I Am Testing Your Grey Matter\00", align 1
+@.str.105 = private unnamed_addr constant [23 x i8] c"Insane In Tha Membrane\00", align 1
+@.str.106 = private unnamed_addr constant [13 x i8] c"Cypress Hill\00", align 1
+@.str.107 = private unnamed_addr constant [39 x i8] c"You Could Make More Money As a Butcher\00", align 1
+@.str.108 = private unnamed_addr constant [66 x i8] c"I'll Master Your Language, and In the Meantime I'll Create My Own\00", align 1
+@.str.109 = private unnamed_addr constant [36 x i8] c"The Stingrays Must Be Fat This Year\00", align 1
+@.str.110 = private unnamed_addr constant [32 x i8] c"I'm a Wishbone and I'm Breaking\00", align 1
+@.str.111 = private unnamed_addr constant [52 x i8] c"You Think That You're Bigger When You Fill the Void\00", align 1
+@.str.112 = private unnamed_addr constant [18 x i8] c"Urban Dance Squad\00", align 1
+@.str.113 = private unnamed_addr constant [41 x i8] c"And It Goes a Little Something Like This\00", align 1
+@.str.114 = private unnamed_addr constant [9 x i8] c"Tag Team\00", align 1
+@.str.115 = private unnamed_addr constant [35 x i8] c"Kissing You is Like Kissing Gravel\00", align 1
+@.str.116 = private unnamed_addr constant [15 x i8] c"Throwing Muses\00", align 1
+@.str.117 = private unnamed_addr constant [28 x i8] c"You Look Better Upside Down\00", align 1
+@.str.118 = private unnamed_addr constant [24 x i8] c"Lunatics On Pogo Sticks\00", align 1
+@.str.119 = private unnamed_addr constant [36 x i8] c"I Could Take You Home and Abuse You\00", align 1
+@.str.120 = private unnamed_addr constant [9 x i8] c"Magnapop\00", align 1
+@.str.121 = private unnamed_addr constant [21 x i8] c"Move Over Hogey Bear\00", align 1
+@.str.122 = private unnamed_addr constant [17 x i8] c"You Leave Me Dry\00", align 1
+@.str.123 = private unnamed_addr constant [43 x i8] c"Would You Like to Be the Monster Tonight ?\00", align 1
+@.str.124 = private unnamed_addr constant [27 x i8] c"Meet Me At the Coffee Shop\00", align 1
+@.str.125 = private unnamed_addr constant [47 x i8] c"She Says She Can't Go Home Without a Chaperone\00", align 1
+@.str.126 = private unnamed_addr constant [12 x i8] c"E. Costello\00", align 1
+@.str.127 = private unnamed_addr constant [37 x i8] c"Keep Your Shoes and Socks On, People\00", align 1
+@.str.128 = private unnamed_addr constant [40 x i8] c"What If None Of Your Dreams Come True ?\00", align 1
+@.str.129 = private unnamed_addr constant [18 x i8] c"Give a Man a Fish\00", align 1
+@.str.130 = private unnamed_addr constant [41 x i8] c"The Wheels On the Bus Go Round and Round\00", align 1
+@.str.131 = private unnamed_addr constant [11 x i8] c"J. Richman\00", align 1
+@.str.132 = private unnamed_addr constant [25 x i8] c"I Want to Know Right Now\00", align 1
+@.str.133 = private unnamed_addr constant [9 x i8] c"Meatloaf\00", align 1
+@.str.134 = private unnamed_addr constant [34 x i8] c"What's Your Definition Of Dirty ?\00", align 1
+@.str.135 = private unnamed_addr constant [11 x i8] c"G. Michael\00", align 1
+@.str.136 = private unnamed_addr constant [28 x i8] c"Here's the Way It Might End\00", align 1
+@.str.137 = private unnamed_addr constant [35 x i8] c"Breaking the Law, Breaking the Law\00", align 1
+@.str.138 = private unnamed_addr constant [13 x i8] c"Judas Priest\00", align 1
+@.str.139 = private unnamed_addr constant [46 x i8] c"Just Because the Sun Wants a Place In the Sky\00", align 1
+@.str.140 = private unnamed_addr constant [21 x i8] c"Baseball Heroes Only\00", align 1
+@.str.141 = private unnamed_addr constant [15 x i8] c"One Cross Each\00", align 1
+@.str.142 = private unnamed_addr constant [20 x i8] c"I Snipe Like Wesley\00", align 1
+@.str.143 = private unnamed_addr constant [25 x i8] c"Hold On Like Cliffhanger\00", align 1
+@.str.144 = private unnamed_addr constant [36 x i8] c"It Costs Too Much If It Costs a Lot\00", align 1
+@.str.145 = private unnamed_addr constant [22 x i8] c"Every Sperm is Sacred\00", align 1
+@.str.146 = private unnamed_addr constant [46 x i8] c"Everybody Lie Down On the Floor and Keep Calm\00", align 1
+@.str.147 = private unnamed_addr constant [4 x i8] c"KLF\00", align 1
+@.str.148 = private unnamed_addr constant [52 x i8] c"Love is Like Moby Dick, Get Chewed and Get Spat Out\00", align 1
+@.str.149 = private unnamed_addr constant [21 x i8] c"Don't Follow Me Home\00", align 1
+@.str.150 = private unnamed_addr constant [20 x i8] c"All Beauty Must Die\00", align 1
+@.str.151 = private unnamed_addr constant [26 x i8] c"I Don't Want to Calm Down\00", align 1
+@.str.152 = private unnamed_addr constant [27 x i8] c"We're Gonna Hit You Harder\00", align 1
+@.str.153 = private unnamed_addr constant [7 x i8] c"Scoter\00", align 1
+@.str.154 = private unnamed_addr constant [39 x i8] c"Shake Barrels Of Whisky Down My Throat\00", align 1
+@.str.155 = private unnamed_addr constant [34 x i8] c"It's Because Of the Metric System\00", align 1
+@.str.156 = private unnamed_addr constant [44 x i8] c"I Don't Want to Catch Anybody Not Drinking.\00", align 1
+@.str.157 = private unnamed_addr constant [39 x i8] c"This Doesn't Suck, It's a Black Hole !\00", align 1
+@.str.158 = private unnamed_addr constant [14 x i8] c"K.A. Feenstra\00", align 1
+@.str.159 = private unnamed_addr constant [15 x i8] c"Let Me Do This\00", align 1
+@.str.160 = private unnamed_addr constant [17 x i8] c"I Can't Shake It\00", align 1
+@.str.161 = private unnamed_addr constant [12 x i8] c"Dinosaur Jr\00", align 1
+@.str.162 = private unnamed_addr constant [26 x i8] c"Once Again Let Me Do This\00", align 1
+@.str.163 = private unnamed_addr constant [35 x i8] c"Pretend That You're Hercule Poirot\00", align 1
+@.str.164 = private unnamed_addr constant [4 x i8] c"TeX\00", align 1
+@.str.165 = private unnamed_addr constant [8 x i8] c"Exactly\00", align 1
+@.str.166 = private unnamed_addr constant [8 x i8] c"Sort Of\00", align 1
+@.str.167 = private unnamed_addr constant [30 x i8] c"Proceed, With Fingers Crossed\00", align 1
+@.str.168 = private unnamed_addr constant [34 x i8] c"The Universe is Somewhere In Here\00", align 1
+@.str.169 = private unnamed_addr constant [17 x i8] c"J.G.E.M. Fraaije\00", align 1
+@.str.170 = private unnamed_addr constant [30 x i8] c"You're About to Hurt Somebody\00", align 1
+@.str.171 = private unnamed_addr constant [11 x i8] c"Jazzy Jeff\00", align 1
+@.str.172 = private unnamed_addr constant [33 x i8] c"I Should Be the Pimp Of the Year\00", align 1
+@.str.173 = private unnamed_addr constant [57 x i8] c"Jesus Can't Save You, Though It's Nice to Think He Tried\00", align 1
+@.str.174 = private unnamed_addr constant [13 x i8] c"Black Crowes\00", align 1
+@.str.175 = private unnamed_addr constant [38 x i8] c"My Heart is Just a Muscle In a Cavity\00", align 1
+@.str.176 = private unnamed_addr constant [18 x i8] c"Step Aside, Butch\00", align 1
+@.str.177 = private unnamed_addr constant [30 x i8] c"The World is a Friendly Place\00", align 1
+@.str.178 = private unnamed_addr constant [26 x i8] c"Sometimes Life is Obscene\00", align 1
+@.str.179 = private unnamed_addr constant [64 x i8] c"Take Your Medications and Preparations and Ram It Up Your Snout\00", align 1
+@.str.180 = private unnamed_addr constant [31 x i8] c"Count the Bubbles In Your Hair\00", align 1
+@.str.181 = private unnamed_addr constant [13 x i8] c"The Breeders\00", align 1
+@.str.182 = private unnamed_addr constant [16 x i8] c"You Own the Sun\00", align 1
+@.str.183 = private unnamed_addr constant [23 x i8] c"I Need a Little Poison\00", align 1
+@.str.184 = private unnamed_addr constant [30 x i8] c"Ease Myself Into the Body Bag\00", align 1
+@.str.185 = private unnamed_addr constant [14 x i8] c"Correctomundo\00", align 1
+@.str.186 = private unnamed_addr constant [18 x i8] c"I Don't Like Dirt\00", align 1
+@.str.187 = private unnamed_addr constant [19 x i8] c"Bring Out the Gimp\00", align 1
+@.str.188 = private unnamed_addr constant [22 x i8] c"You Could Be a Shadow\00", align 1
+@.str.189 = private unnamed_addr constant [43 x i8] c"If You're So Special Why aren't You Dead ?\00", align 1
+@.str.190 = private unnamed_addr constant [116 x i8] c"The Path Of the Righteous Man is Beset On All Sides With the Iniquities Of the Selfish and the Tyranny Of Evil Men.\00", align 1
+@.str.191 = private unnamed_addr constant [176 x i8] c"Blessed is He Who In the Name Of Charity and Good Will Shepherds the Weak Through the Valley Of Darkness, For He is Truly His Brother's Keeper and the Finder Of Lost Children.\00", align 1
+@.str.192 = private unnamed_addr constant [130 x i8] c"And I Will Strike Down Upon Thee With Great Vengeance and With Furious Anger Those Who Attempt to Poison and Destroy My Brothers.\00", align 1
+@.str.193 = private unnamed_addr constant [78 x i8] c"And You Will Know That My Name is the Lord When I Lay My Vengeance Upon Thee.\00", align 1
+@.str.194 = private unnamed_addr constant [19 x i8] c"Step On the Brakes\00", align 1
+@.str.195 = private unnamed_addr constant [12 x i8] c"2 Unlimited\00", align 1
+@.str.196 = private unnamed_addr constant [21 x i8] c"You Don't Wanna Know\00", align 1
+@.str.197 = private unnamed_addr constant [34 x i8] c"You Dirty Switch, You're On Again\00", align 1
+@.str.198 = private unnamed_addr constant [26 x i8] c"She's a Good Sheila Bruce\00", align 1
+@.str.199 = private unnamed_addr constant [35 x i8] c"I'm Gonna Get Medieval On Your Ass\00", align 1
+@.str.200 = private unnamed_addr constant [21 x i8] c"Three Little Fonzies\00", align 1
+@.str.201 = private unnamed_addr constant [20 x i8] c"It's Not Your Fault\00", align 1
+@.str.202 = private unnamed_addr constant [53 x i8] c"You Will Be Surprised At What Resides In Your Inside\00", align 1
+@.str.203 = private unnamed_addr constant [29 x i8] c"The Carpenter Goes Bang Bang\00", align 1
+@.str.204 = private unnamed_addr constant [39 x i8] c"Everybody Wants to Be Naked and Famous\00", align 1
+@.str.205 = private unnamed_addr constant [19 x i8] c"Royale With Cheese\00", align 1
+@.str.206 = private unnamed_addr constant [13 x i8] c"Shit Happens\00", align 1
+@.str.207 = private unnamed_addr constant [29 x i8] c"You Fill Your Space So Sweet\00", align 1
+@.str.208 = private unnamed_addr constant [9 x i8] c"F. Apple\00", align 1
+@.str.209 = private unnamed_addr constant [18 x i8] c"Push It Real Good\00", align 1
+@.str.210 = private unnamed_addr constant [14 x i8] c"Salt 'n' Pepa\00", align 1
+@.str.211 = private unnamed_addr constant [17 x i8] c"Check Your Input\00", align 1
+@.str.212 = private unnamed_addr constant [17 x i8] c"D. Van Der Spoel\00", align 1
+@.str.213 = private unnamed_addr constant [27 x i8] c"Catholic School Girls Rule\00", align 1
+@.str.214 = private unnamed_addr constant [19 x i8] c"It Was My Pleasure\00", align 1
+@.str.215 = private unnamed_addr constant [23 x i8] c"We Don't Bother Anyone\00", align 1
+@.str.216 = private unnamed_addr constant [36 x i8] c"I Wrapped a Newspaper Round My Head\00", align 1
+@.str.217 = private unnamed_addr constant [30 x i8] c"Kick the Dog and You Will Die\00", align 1
+@.str.218 = private unnamed_addr constant [36 x i8] c"We All Get the Flu, We All Get Aids\00", align 1
+@.str.219 = private unnamed_addr constant [21 x i8] c"One Ripple At a Time\00", align 1
+@.str.220 = private unnamed_addr constant [20 x i8] c"Bianca's Smut Shack\00", align 1
+@.str.221 = private unnamed_addr constant [17 x i8] c"We Have No Money\00", align 1
+@.str.222 = private unnamed_addr constant [12 x i8] c"E. Clementi\00", align 1
+@.str.223 = private unnamed_addr constant [14 x i8] c"Carry Me Away\00", align 1
+@.str.224 = private unnamed_addr constant [7 x i8] c"Motors\00", align 1
+@.str.225 = private unnamed_addr constant [17 x i8] c"I Solve Problems\00", align 1
+@.str.226 = private unnamed_addr constant [34 x i8] c"A Protein is a Set Of Coordinates\00", align 1
+@.str.227 = private unnamed_addr constant [12 x i8] c"A.P. Heiner\00", align 1
+@.str.228 = private unnamed_addr constant [30 x i8] c"It Doesn't Have to Be Tip Top\00", align 1
+@.str.229 = private unnamed_addr constant [40 x i8] c"Everybody's Good Enough For Some Change\00", align 1
+@.str.230 = private unnamed_addr constant [23 x i8] c"It's Against the Rules\00", align 1
+@.str.231 = private unnamed_addr constant [14 x i8] c"I'm An Oakman\00", align 1
+@.str.232 = private unnamed_addr constant [41 x i8] c"I Ripped the Cord Right Out Of the Phone\00", align 1
+@.str.233 = private unnamed_addr constant [16 x i8] c"Capt. Beefheart\00", align 1
+@.str.234 = private unnamed_addr constant [42 x i8] c"I Smell Smoke From a Gun Named Extinction\00", align 1
+@.str.235 = private unnamed_addr constant [28 x i8] c"With a Lead Filled Snowshoe\00", align 1
+@.str.236 = private unnamed_addr constant [23 x i8] c"Right Between the Eyes\00", align 1
+@.str.237 = private unnamed_addr constant [42 x i8] c"BioBeat is Not Available In Regular Shops\00", align 1
+@.str.238 = private unnamed_addr constant [16 x i8] c"P.J. Meulenhoff\00", align 1
+@.str.239 = private unnamed_addr constant [30 x i8] c"Rub It Right Across Your Eyes\00", align 1
+@.str.240 = private unnamed_addr constant [15 x i8] c"Shake Yourself\00", align 1
+@.str.241 = private unnamed_addr constant [4 x i8] c"YES\00", align 1
+@.str.242 = private unnamed_addr constant [23 x i8] c"I Am a Wonderful Thing\00", align 1
+@.str.243 = private unnamed_addr constant [11 x i8] c"Kid Creole\00", align 1
+@.str.244 = private unnamed_addr constant [15 x i8] c"Way to Go Dude\00", align 1
+@.str.245 = private unnamed_addr constant [20 x i8] c"Beavis and Butthead\00", align 1
+@.str.246 = private unnamed_addr constant [32 x i8] c"The Microsecond is Within Reach\00", align 1
+@.str.247 = private unnamed_addr constant [16 x i8] c"P.J. Van Maaren\00", align 1
+@.str.248 = private unnamed_addr constant [24 x i8] c"Microsecond Here I Come\00", align 1
+@.str.249 = private unnamed_addr constant [10 x i8] c"Confirmed\00", align 1
+@.str.250 = private unnamed_addr constant [10 x i8] c"Star Trek\00", align 1
+@.str.251 = private unnamed_addr constant [52 x i8] c"If You Don't Like Cool Quotes Check Your GMXRC File\00", align 1
+@.str.252 = private unnamed_addr constant [14 x i8] c"Your Sysadmin\00", align 1
+@.str.253 = private unnamed_addr constant [41 x i8] c"When It Starts to Start It'll Never Stop\00", align 1
+@.str.254 = private unnamed_addr constant [11 x i8] c"I'm a Jerk\00", align 1
+@.str.255 = private unnamed_addr constant [41 x i8] c"It Wouldn't Hurt to Wipe Once In a While\00", align 1
+@.str.256 = private unnamed_addr constant [25 x i8] c"Welcome to the Power Age\00", align 1
+@.str.257 = private unnamed_addr constant [42 x i8] c"If You See Me Getting High, Knock Me Down\00", align 1
+@.str.258 = private unnamed_addr constant [17 x i8] c"The Poodle Bites\00", align 1
+@.str.259 = private unnamed_addr constant [20 x i8] c"The Poodle Chews It\00", align 1
+@.str.260 = private unnamed_addr constant [26 x i8] c"I Got a Forty Dollar Bill\00", align 1
+@.str.261 = private unnamed_addr constant [38 x i8] c"We Look Pretty Sharp In These Clothes\00", align 1
+@.str.262 = private unnamed_addr constant [24 x i8] c"You Got to Relate to It\00", align 1
+@.str.263 = private unnamed_addr constant [11 x i8] c"A.E. Torda\00", align 1
+@.str.264 = private unnamed_addr constant [21 x i8] c"That Was Pretty Cool\00", align 1
+@.str.265 = private unnamed_addr constant [7 x i8] c"Beavis\00", align 1
+@.str.266 = private unnamed_addr constant [21 x i8] c"That Was Really Cool\00", align 1
+@.str.267 = private unnamed_addr constant [9 x i8] c"Butthead\00", align 1
+@.str.268 = private unnamed_addr constant [20 x i8] c"Hang On to Your Ego\00", align 1
+@.str.269 = private unnamed_addr constant [40 x i8] c"Pump Up the Volume Along With the Tempo\00", align 1
+@.str.270 = private unnamed_addr constant [17 x i8] c"Ramones For Ever\00", align 1
+@.str.271 = private unnamed_addr constant [16 x i8] c"Have a Nice Day\00", align 1
+@.str.272 = private unnamed_addr constant [12 x i8] c"R. McDonald\00", align 1
+@.str.273 = private unnamed_addr constant [28 x i8] c"Whatever Happened to Pong ?\00", align 1
+@.str.274 = private unnamed_addr constant [20 x i8] c"Make the Floor Burn\00", align 1
+@.str.275 = private unnamed_addr constant [14 x i8] c"That Was Cool\00", align 1
+@.str.276 = private unnamed_addr constant [31 x i8] c"These Gromacs Guys Really Rock\00", align 1
+@.str.277 = private unnamed_addr constant [38 x i8] c"You Hear Footsteps Coming From Behind\00", align 1
+@.str.278 = private unnamed_addr constant [14 x i8] c"Colossal Cave\00", align 1
+@.str.279 = private unnamed_addr constant [16 x i8] c"It is Lunchtime\00", align 1
+@.str.280 = private unnamed_addr constant [16 x i8] c"A.R. Van Buuren\00", align 1
+@.str.281 = private unnamed_addr constant [28 x i8] c"You Crashed Into the Swamps\00", align 1
+@.str.282 = private unnamed_addr constant [17 x i8] c"Silicon Graphics\00", align 1
+@.str.283 = private unnamed_addr constant [28 x i8] c"I Am a Poor Lonesome Cowboy\00", align 1
+@.str.284 = private unnamed_addr constant [11 x i8] c"Lucky Luke\00", align 1
+@.str.285 = private unnamed_addr constant [24 x i8] c"Clickety Clickety Click\00", align 1
+@.str.286 = private unnamed_addr constant [25 x i8] c"System Manager From Hell\00", align 1
+@.str.287 = private unnamed_addr constant [20 x i8] c"Been There, Done It\00", align 1
+@.str.288 = private unnamed_addr constant [28 x i8] c"Load Up Your Rubber Bullets\00", align 1
+@.str.289 = private unnamed_addr constant [39 x i8] c"How Do You Like Your Vacation So Far ?\00", align 1
+@.str.290 = private unnamed_addr constant [25 x i8] c"Speed 2 - Cruise Control\00", align 1
+@.str.291 = private unnamed_addr constant [23 x i8] c"It's So Fast It's Slow\00", align 1
+@.str.292 = private unnamed_addr constant [21 x i8] c"Ich Bin Ein Berliner\00", align 1
+@.str.293 = private unnamed_addr constant [13 x i8] c"J.F. Kennedy\00", align 1
+@.str.294 = private unnamed_addr constant [43 x i8] c"Take Dehydrated Water On Your Desert Trips\00", align 1
+@.str.295 = private unnamed_addr constant [16 x i8] c"Space Quest III\00", align 1
+@.str.296 = private unnamed_addr constant [23 x i8] c"Your Country Needs YOU\00", align 1
+@.str.297 = private unnamed_addr constant [10 x i8] c"U.S. Army\00", align 1
+@.str.298 = private unnamed_addr constant [27 x i8] c"Don't Eat That Yellow Snow\00", align 1
+@.str.299 = private unnamed_addr constant [21 x i8] c"I Do It All the Time\00", align 1
+@.str.300 = private unnamed_addr constant [20 x i8] c"Just Give Me a Blip\00", align 1
+@.str.301 = private unnamed_addr constant [22 x i8] c"Garbage Collecting...\00", align 1
+@.str.302 = private unnamed_addr constant [10 x i8] c"GNU Emacs\00", align 1
+@.str.303 = private unnamed_addr constant [28 x i8] c"Cut It Deep and Cut It Wide\00", align 1
+@.str.304 = private unnamed_addr constant [15 x i8] c"The Walkabouts\00", align 1
+@.str.305 = private unnamed_addr constant [37 x i8] c"Beat On the Brat With a Baseball Bat\00", align 1
+@.str.306 = private unnamed_addr constant [12 x i8] c"The Ramones\00", align 1
+@.str.307 = private unnamed_addr constant [33 x i8] c"My Head Goes Pop Pop Pop Pop Pop\00", align 1
+@.str.308 = private unnamed_addr constant [46 x i8] c"Hangout In the Suburbs If You've Got the Guts\00", align 1
+@.str.309 = private unnamed_addr constant [37 x i8] c"I Have a Bad Case Of Purple Diarrhea\00", align 1
+@.str.310 = private unnamed_addr constant [26 x i8] c"It's Bicycle Repair Man !\00", align 1
+@.str.311 = private unnamed_addr constant [41 x i8] c"I've Got Two Turntables and a Microphone\00", align 1
+@.str.312 = private unnamed_addr constant [10 x i8] c"B. Hansen\00", align 1
+@.str.313 = private unnamed_addr constant [58 x i8] c"I Am the Psychotherapist. Please, Describe Your Problems.\00", align 1
+@.str.314 = private unnamed_addr constant [31 x i8] c"Watch Out Where the Huskies Go\00", align 1
+@.str.315 = private unnamed_addr constant [29 x i8] c"I Was Born to Have Adventure\00", align 1
+@.str.316 = private unnamed_addr constant [24 x i8] c"Is That a Real Poncho ?\00", align 1
+@.str.317 = private unnamed_addr constant [16 x i8] c"They're Red Hot\00", align 1
+@.str.318 = private unnamed_addr constant [32 x i8] c"Your Bones Got a Little Machine\00", align 1
+@.str.319 = private unnamed_addr constant [32 x i8] c"Oh My God ! It's the Funky Shit\00", align 1
+@.str.320 = private unnamed_addr constant [36 x i8] c"Throwing the Baby Away With the SPC\00", align 1
+@.str.321 = private unnamed_addr constant [11 x i8] c"S. Hayward\00", align 1
+@.str.322 = private unnamed_addr constant [7 x i8] c"Engage\00", align 1
+@.str.323 = private unnamed_addr constant [12 x i8] c"J.L. Picard\00", align 1
+@.str.324 = private unnamed_addr constant [34 x i8] c"Everybody is Smashing Things Down\00", align 1
+@.str.325 = private unnamed_addr constant [10 x i8] c"Offspring\00", align 1
+@.str.326 = private unnamed_addr constant [32 x i8] c"Hey Man You Know, I'm Really OK\00", align 1
+@.str.327 = private unnamed_addr constant [25 x i8] c"I'm Not Gonna Die Here !\00", align 1
+@.str.328 = private unnamed_addr constant [7 x i8] c"Sphere\00", align 1
+@.str.329 = private unnamed_addr constant [54 x i8] c"I'd Like Monday Mornings Better If They Started Later\00", align 1
+@.str.330 = private unnamed_addr constant [9 x i8] c"Garfield\00", align 1
+@.str.331 = private unnamed_addr constant [28 x i8] c"Here's Another Useful Quote\00", align 1
+@.str.332 = private unnamed_addr constant [8 x i8] c"S. Boot\00", align 1
+@.str.333 = private unnamed_addr constant [36 x i8] c"Wild Pointers Couldn't Drag Me Away\00", align 1
+@.str.334 = private unnamed_addr constant [28 x i8] c"Let's Go Hang Out In a Mall\00", align 1
+@.str.335 = private unnamed_addr constant [35 x i8] c"These are Ideas, They are Not Lies\00", align 1
+@.str.336 = private unnamed_addr constant [64 x i8] c"Bad As This Shit Is, This Shit Ain't As Bad As You Think It Is.\00", align 1
+@.str.337 = private unnamed_addr constant [13 x i8] c"Jackie Brown\00", align 1
+@.str.338 = private unnamed_addr constant [44 x i8] c"My Ass May Be Dumb, But I Ain't No Dumbass.\00", align 1
+@.str.339 = private unnamed_addr constant [56 x i8] c"Jesus Not Only Saves, He Also Frequently Makes Backups.\00", align 1
+@.str.340 = private unnamed_addr constant [15 x i8] c"Myron Bradshaw\00", align 1
+@.str.341 = private unnamed_addr constant [30 x i8] c"Player Sleeps With the Fishes\00", align 1
+@.str.342 = private unnamed_addr constant [36 x i8] c"Ein Bekanntes Spiel Von ID Software\00", align 1
+@.str.343 = private unnamed_addr constant [59 x i8] c"Bailed Out Of Edge Synchronization After 10,000 Iterations\00", align 1
+@.str.344 = private unnamed_addr constant [8 x i8] c"X/Motif\00", align 1
+@.str.345 = private unnamed_addr constant [12 x i8] c"God is a DJ\00", align 1
+@.str.346 = private unnamed_addr constant [10 x i8] c"Faithless\00", align 1
+@.str.347 = private unnamed_addr constant [29 x i8] c"Encountered Subspace Anomaly\00", align 1
+@.str.348 = private unnamed_addr constant [38 x i8] c"If I Were You I Would Give Me a Break\00", align 1
+@.str.349 = private unnamed_addr constant [44 x i8] c"She Needs Cash to Buy Aspirine For Her Pain\00", align 1
+@.str.350 = private unnamed_addr constant [35 x i8] c"Got Coffee, Got Donuts, Got Wasted\00", align 1
+@.str.351 = private unnamed_addr constant [43 x i8] c"Boom Boom Boom Boom, I Want You in My Room\00", align 1
+@.str.352 = private unnamed_addr constant [11 x i8] c"Venga Boys\00", align 1
+@.str.353 = private unnamed_addr constant [43 x i8] c"Right Now My Job is Eating These Doughnuts\00", align 1
+@.str.354 = private unnamed_addr constant [10 x i8] c"Bodycount\00", align 1
+@.str.355 = private unnamed_addr constant [49 x i8] c"Wait a Minute, aren't You.... ? (gunshots) Yeah.\00", align 1
+@.str.356 = private unnamed_addr constant [62 x i8] c"If I Wanted You to Understand This, I Would Explain it Better\00", align 1
+@.str.357 = private unnamed_addr constant [11 x i8] c"J. Cruijff\00", align 1
+@.str.358 = private unnamed_addr constant [6 x i8] c"Uh-oh\00", align 1
+@.str.359 = private unnamed_addr constant [12 x i8] c"Tinky Winky\00", align 1
+@.str.360 = private unnamed_addr constant [24 x i8] c"Uh-oh, We're In Trouble\00", align 1
+@.str.361 = private unnamed_addr constant [8 x i8] c"Shampoo\00", align 1
+@.str.362 = private unnamed_addr constant [38 x i8] c"Can't You Make This Thing Go Faster ?\00", align 1
+@.str.363 = private unnamed_addr constant [15 x i8] c"Get Down In 3D\00", align 1
+@.str.364 = private unnamed_addr constant [15 x i8] c"George Clinton\00", align 1
+@.str.365 = private unnamed_addr constant [23 x i8] c"Uh-oh .... Right Again\00", align 1
+@.str.366 = private unnamed_addr constant [16 x i8] c"Laurie Anderson\00", align 1
+@.str.367 = private unnamed_addr constant [43 x i8] c"(That makes 100 errors; please try again.)\00", align 1
+@.str.368 = private unnamed_addr constant [30 x i8] c"O My God, They Killed Kenny !\00", align 1
+@.str.369 = private unnamed_addr constant [11 x i8] c"South Park\00", align 1
+@.str.370 = private unnamed_addr constant [22 x i8] c"Drugs are Bad, mmokay\00", align 1
+@.str.371 = private unnamed_addr constant [29 x i8] c"Let's Unzip And Let's Unfold\00", align 1
+@.str.372 = private unnamed_addr constant [24 x i8] c"I'd Be Water If I Could\00", align 1
+@.str.373 = private unnamed_addr constant [71 x i8] c"Space May Be the Final Frontier, But It's Made in a Hollywood Basement\00", align 1
+@.str.374 = private unnamed_addr constant [19 x i8] c"Everything Must Go\00", align 1
+@.str.375 = private unnamed_addr constant [59 x i8] c"There's Nothing We Can't Fix, 'coz We Can Do It in the Mix\00", align 1
+@.str.376 = private unnamed_addr constant [7 x i8] c"Indeep\00", align 1
+@.str.377 = private unnamed_addr constant [27 x i8] c"It's Coming Right For Us !\00", align 1
+@.str.378 = private unnamed_addr constant [38 x i8] c"Disturb the Peace of a John Q Citizen\00", align 1
+@.str.379 = private unnamed_addr constant [25 x i8] c"Wicky-wicky Wa-wild West\00", align 1
+@.str.380 = private unnamed_addr constant [11 x i8] c"Will Smith\00", align 1
+@.str.381 = private unnamed_addr constant [16 x i8] c"This is Tense !\00", align 1
+@.str.382 = private unnamed_addr constant [39 x i8] c"Star Wars Episode I The Phantom Menace\00", align 1
+@.str.383 = private unnamed_addr constant [39 x i8] c"Fly to the Court of England and Unfold\00", align 1
+@.str.384 = private unnamed_addr constant [45 x i8] c"Macbeth, Act 3, Scene 6, William Shakespeare\00", align 1
+@.str.385 = private unnamed_addr constant [54 x i8] c"Why, how now, Claudio ! Whence Comes this Restraint ?\00", align 1
+@.str.386 = private unnamed_addr constant [66 x i8] c"Lucio in Measure for measure, Act 1, Scene 4, William Shakespeare\00", align 1
+@.str.387 = private unnamed_addr constant [41 x i8] c"In the End Science Comes Down to Praying\00", align 1
+@.str.388 = private unnamed_addr constant [13 x i8] c"P. v.d. Berg\00", align 1
+@.str.389 = private unnamed_addr constant [33 x i8] c"I'm Looking for a New Simulation\00", align 1
+@.str.390 = private unnamed_addr constant [20 x i8] c"Stone Temple Pilots\00", align 1
+@.str.391 = private unnamed_addr constant [29 x i8] c"I Quit My Job Blowing Leaves\00", align 1
+@.str.392 = private unnamed_addr constant [5 x i8] c"Beck\00", align 1
+@.str.393 = private unnamed_addr constant [21 x i8] c"Live for Liposuction\00", align 1
+@.str.394 = private unnamed_addr constant [16 x i8] c"Robbie Williams\00", align 1
+@.str.395 = private unnamed_addr constant [22 x i8] c"All You Need is Greed\00", align 1
+@.str.396 = private unnamed_addr constant [13 x i8] c"Aztec Camera\00", align 1
+@.str.397 = private unnamed_addr constant [65 x i8] c"You Can Be Too Early, You Can Be Too Late and You Can Be On Time\00", align 1
+@.str.398 = private unnamed_addr constant [5 x i8] c"RTFM\00", align 1
+@.str.399 = private unnamed_addr constant [8 x i8] c"B. Hess\00", align 1
+@.str.400 = private unnamed_addr constant [31 x i8] c"Why Do *You* Use Constraints ?\00", align 1
+@.str.401 = private unnamed_addr constant [17 x i8] c"H.J.C. Berendsen\00", align 1
+@.str.402 = private unnamed_addr constant [32 x i8] c"Why Weren't You at My Funeral ?\00", align 1
+@.str.403 = private unnamed_addr constant [12 x i8] c"G. Groenhof\00", align 1
+@.str.404 = private unnamed_addr constant [32 x i8] c"You Can Always Go On Ricky Lake\00", align 1
+@.str.405 = private unnamed_addr constant [35 x i8] c"As Always Your Logic Is Impeccable\00", align 1
+@.str.406 = private unnamed_addr constant [6 x i8] c"Tuvok\00", align 1
+@.str.407 = private unnamed_addr constant [15 x i8] c"set: No match.\00", align 1
+@.str.408 = private unnamed_addr constant [5 x i8] c"tcsh\00", align 1
+@.str.409 = private unnamed_addr constant [20 x i8] c"AH ....Satisfaction\00", align 1
+@.str.410 = private unnamed_addr constant [11 x i8] c"IRIX imapd\00", align 1
+@.str.411 = private unnamed_addr constant [23 x i8] c"I Need Love, Not Games\00", align 1
+@.str.412 = private unnamed_addr constant [24 x i8] c"Iggy Pop & Kate Pierson\00", align 1
+@.str.413 = private unnamed_addr constant [42 x i8] c"It's Not Dark Yet, But It's Getting There\00", align 1
+@.str.414 = private unnamed_addr constant [10 x i8] c"Bob Dylan\00", align 1
+@.str.415 = private unnamed_addr constant [40 x i8] c"I Used To Care, But Things Have Changed\00", align 1
+@.str.416 = private unnamed_addr constant [58 x i8] c"Working in the Burger Kings, Spitting on your Onion Rings\00", align 1
+@.str.417 = private unnamed_addr constant [11 x i8] c"Slim Shady\00", align 1
+@.str.418 = private unnamed_addr constant [51 x i8] c"Does All This Money Really Have To Go To Charity ?\00", align 1
+@.str.419 = private unnamed_addr constant [5 x i8] c"Rick\00", align 1
+@.str.420 = private unnamed_addr constant [27 x i8] c"Yeah, uh uh, Neil's Head !\00", align 1
+@.str.421 = private unnamed_addr constant [5 x i8] c"Neil\00", align 1
+@.str.422 = private unnamed_addr constant [55 x i8] c"In the Meantime, Take Care of Yourself aaand Eachother\00", align 1
+@.str.423 = private unnamed_addr constant [12 x i8] c"J. Springer\00", align 1
+@.str.424 = private unnamed_addr constant [40 x i8] c"I Feel a Great Disturbance in the Force\00", align 1
+@.str.425 = private unnamed_addr constant [25 x i8] c"The Emperor Strikes Back\00", align 1
+@.str.426 = private unnamed_addr constant [33 x i8] c"Do You Have a Mind of Your Own ?\00", align 1
+@.str.427 = private unnamed_addr constant [8 x i8] c"Garbage\00", align 1
+@.str.428 = private unnamed_addr constant [20 x i8] c"I'll Match Your DNA\00", align 1
+@.str.429 = private unnamed_addr constant [32 x i8] c"All I Ever Wanted Was Your Life\00", align 1
+@.str.430 = private unnamed_addr constant [38 x i8] c"Just a Minute While I Reinvent Myself\00", align 1
+@.str.431 = private unnamed_addr constant [48 x i8] c"There's Still Time to Change the Road You're On\00", align 1
+@.str.432 = private unnamed_addr constant [13 x i8] c"Led Zeppelin\00", align 1
+@.str.433 = private unnamed_addr constant [34 x i8] c"Baby, It Aint Over Till It's Over\00", align 1
+@.str.434 = private unnamed_addr constant [14 x i8] c"Lenny Kravitz\00", align 1
+@.str.435 = private unnamed_addr constant [22 x i8] c"It Just Tastes Better\00", align 1
+@.str.436 = private unnamed_addr constant [12 x i8] c"Burger King\00", align 1
+@.str.437 = private unnamed_addr constant [29 x i8] c"'Nay. We are but men.' Rock!\00", align 1
+@.str.438 = private unnamed_addr constant [12 x i8] c"Tenacious D\00", align 1
+@.str.439 = private unnamed_addr constant [45 x i8] c"Cowardly refusing to create an empty archive\00", align 1
+@.str.440 = private unnamed_addr constant [8 x i8] c"GNU tar\00", align 1
+@.str.441 = private unnamed_addr constant [20 x i8] c"Shaken, not Stirred\00", align 1
+@.str.442 = private unnamed_addr constant [8 x i8] c"J. Bond\00", align 1
+@.str.443 = private unnamed_addr constant [23 x i8] c"Oh, There Goes Gravity\00", align 1
+@.str.444 = private unnamed_addr constant [7 x i8] c"Eminem\00", align 1
+@.str.445 = private unnamed_addr constant [41 x i8] c"Is This the Right Room for an Argument ?\00", align 1
+@.str.446 = private unnamed_addr constant [33 x i8] c"I was detained, I was restrained\00", align 1
+@.str.447 = private unnamed_addr constant [11 x i8] c"The Smiths\00", align 1
+@.str.448 = private unnamed_addr constant [31 x i8] c"The Candlelight Was Just Right\00", align 1
+@.str.449 = private unnamed_addr constant [22 x i8] c"Fresh Air, Green Hair\00", align 1
+@.str.450 = private unnamed_addr constant [12 x i8] c"Frank Black\00", align 1
+@.str.451 = private unnamed_addr constant [25 x i8] c"Rat-tat-tat Ka boom boom\00", align 1
+@.str.452 = private unnamed_addr constant [22 x i8] c"The Smashing Pumpkins\00", align 1
+@.str.453 = private unnamed_addr constant [29 x i8] c"Youth is wasted on the young\00", align 1
+@.str.454 = private unnamed_addr constant [28 x i8] c"Miggida-Miggida-Miggida-Mac\00", align 1
+@.str.455 = private unnamed_addr constant [12 x i8] c"Kriss Kross\00", align 1
+@.str.456 = private unnamed_addr constant [32 x i8] c"Interfacing Space and Beyond...\00", align 1
+@.str.457 = private unnamed_addr constant [13 x i8] c"P. J. Harvey\00", align 1
+@.str.458 = private unnamed_addr constant [43 x i8] c"Everything He Lacks, He Makes Up In Denial\00", align 1
+@.str.459 = private unnamed_addr constant [45 x i8] c"A Pretty Village Burning Makes a Pretty Fire\00", align 1
+@.str.460 = private unnamed_addr constant [16 x i8] c"David Sandstrom\00", align 1
+@.str.461 = private unnamed_addr constant [68 x i8] c"They don't have any beavers in India, so they have to simulate them\00", align 1
+@.str.462 = private unnamed_addr constant [10 x i8] c"The Tubes\00", align 1
+@.str.463 = private unnamed_addr constant [44 x i8] c"It's Calling Me to Break my Bonds, Again...\00", align 1
+@.str.464 = private unnamed_addr constant [14 x i8] c"Van der Graaf\00", align 1
+@.str.465 = private unnamed_addr constant [36 x i8] c"I believe in miracles cause I'm one\00", align 1
+@.str.466 = private unnamed_addr constant [17 x i8] c"Gabba Gabba Hey!\00", align 1
+@.str.467 = private unnamed_addr constant [27 x i8] c"Shoot them in the back now\00", align 1
+@.str.468 = private unnamed_addr constant [43 x i8] c"Read me your scripture and I will twist it\00", align 1
+@.str.469 = private unnamed_addr constant [27 x i8] c"Good Music Saves your Soul\00", align 1
+@.str.470 = private unnamed_addr constant [6 x i8] c"Lemmy\00", align 1
+@.str.471 = private unnamed_addr constant [50 x i8] c"Move about like a Scientist, lay down, get kissed\00", align 1
+@.str.472 = private unnamed_addr constant [22 x i8] c"Red Hot Chili Peppars\00", align 1
+@.str.473 = private unnamed_addr constant [19 x i8] c"California, R.I.P.\00", align 1
+@.str.474 = private unnamed_addr constant [51 x i8] c"Don't You Wish You Never Met Her, Dirty Blue Gene?\00", align 1
+@.str.475 = private unnamed_addr constant [47 x i8] c"Nobody Never Learnt No-Nothing from No History\00", align 1
+@.str.476 = private unnamed_addr constant [15 x i8] c"Gogol Bordello\00", align 1
+@.str.477 = private unnamed_addr constant [38 x i8] c"I'd be Safe and Warm if I was in L.A.\00", align 1
+@.str.478 = private unnamed_addr constant [24 x i8] c"The Mamas and the Papas\00", align 1
+@.str.479 = private unnamed_addr constant [47 x i8] c"It's Unacceptable That Chocolate Makes You Fat\00", align 1
+@.str.480 = private unnamed_addr constant [5 x i8] c"MI 3\00", align 1
+@.str.481 = private unnamed_addr constant [69 x i8] c"My Brothers are Protons (Protons!), My Sisters are Neurons (Neurons)\00", align 1
+@.str.482 = private unnamed_addr constant [84 x i8] c"Put Me Inside SSC, Let's Test Superstring Theory, Oh Yoi Yoi Accelerate the Protons\00", align 1
+@.str.483 = private unnamed_addr constant [77 x i8] c"Do You Have Sex Maniacs or Schizophrenics or Astrophysicists in Your Family?\00", align 1
+@.str.484 = private unnamed_addr constant [31 x i8] c"Screw a Lightbulb in your Head\00", align 1
+@.str.485 = private unnamed_addr constant [21 x i8] c"Alas, You're Welcome\00", align 1
+@.str.486 = private unnamed_addr constant [39 x i8] c"Prof. Dumbledore in Potter Puppet Pals\00", align 1
+@.str.487 = private unnamed_addr constant [37 x i8] c"Your Shopping Techniques are Amazing\00", align 1
+@.str.488 = private unnamed_addr constant [97 x i8] c"Your Country Raised You, Your Country Fed You, and Just Like Any Other Country it Will Break You\00", align 1
+@.str.489 = private unnamed_addr constant [38 x i8] c"What They Need's a Damn Good Whacking\00", align 1
+@.str.490 = private unnamed_addr constant [12 x i8] c"The Beatles\00", align 1
+@.str.491 = private unnamed_addr constant [48 x i8] c"They Paint Their Faces So Differently From Ours\00", align 1
+@.str.492 = private unnamed_addr constant [45 x i8] c"The Feeling of Power was Intoxicating, Magic\00", align 1
+@.str.493 = private unnamed_addr constant [14 x i8] c"Frida Hyvonen\00", align 1
+@.str.494 = private unnamed_addr constant [35 x i8] c"I was elected to lead, not to read\00", align 1
+@.str.495 = private unnamed_addr constant [28 x i8] c"President A. Schwarzenegger\00", align 1
+@.str.496 = private unnamed_addr constant [52 x i8] c"I managed to get two hours of work done before work\00", align 1
+@.str.497 = private unnamed_addr constant [11 x i8] c"E. Lindahl\00", align 1
+@.str.498 = private unnamed_addr constant [46 x i8] c"Go back to the rock from under which you came\00", align 1
+@.str.499 = private unnamed_addr constant [12 x i8] c"Fiona Apple\00", align 1
+@.str.500 = private unnamed_addr constant [37 x i8] c"It's just the way this stuff is done\00", align 1
+@.str.501 = private unnamed_addr constant [15 x i8] c"Built to Spill\00", align 1
+@.str.502 = private unnamed_addr constant [25 x i8] c"You Fill Me With Inertia\00", align 1
+@.str.503 = private unnamed_addr constant [17 x i8] c"The Long Blondes\00", align 1
+@.str.504 = private unnamed_addr constant [55 x i8] c"I used to be blond and stupid, but now I dyed it black\00", align 1
+@.str.505 = private unnamed_addr constant [8 x i8] c"Miss Li\00", align 1
+@.str.506 = private unnamed_addr constant [101 x i8] c"Aber wenn der Quarterback kommt, um dir die Brille abzunehmen, sag ihm: Danke, die bleibt wo sie ist\00", align 1
+@.str.507 = private unnamed_addr constant [16 x i8] c"Wir sind Helden\00", align 1
+@.str.508 = private unnamed_addr constant [37 x i8] c"Jede der Scherben spiegelt das Licht\00", align 1
+@.str.509 = private unnamed_addr constant [32 x i8] c"Ohne Arbeit waer das Leben oede\00", align 1
+@.str.510 = private unnamed_addr constant [16 x i8] c"Wir Sind Helden\00", align 1
+@.str.511 = private unnamed_addr constant [26 x i8] c"Act like Prometheus would\00", align 1
+@.str.512 = private unnamed_addr constant [50 x i8] c"Making merry out of nothing, like in refugee camp\00", align 1
+@.str.513 = private unnamed_addr constant [20 x i8] c"History has expired\00", align 1
+@.str.514 = private unnamed_addr constant [15 x i8] c"PubMed Central\00", align 1
+@.str.515 = private unnamed_addr constant [41 x i8] c"There's only music to make new ringtones\00", align 1
+@.str.516 = private unnamed_addr constant [15 x i8] c"Arctic Monkeys\00", align 1
+@.str.517 = private unnamed_addr constant [80 x i8] c"Can someone please tell Icarus that he's not the only one falling from the sky?\00", align 1
+@.str.518 = private unnamed_addr constant [40 x i8] c"Ich war schwanger, mir gings zum kotzen\00", align 1
+@.str.519 = private unnamed_addr constant [11 x i8] c"Nina Hagen\00", align 1
+@.str.520 = private unnamed_addr constant [69 x i8] c"What if you're wrong about the great Ju Ju at the bottom of the sea?\00", align 1
+@.str.521 = private unnamed_addr constant [16 x i8] c"Richard Dawkins\00", align 1
+@.str.522 = private unnamed_addr constant [33 x i8] c"Come on boys, Let's push it hard\00", align 1
+@.str.523 = private unnamed_addr constant [35 x i8] c"Look at these, my work-strong arms\00", align 1
+@.str.524 = private unnamed_addr constant [37 x i8] c"Is it the invisible chemistry stuff?\00", align 1
+@.str.525 = private unnamed_addr constant [35 x i8] c"Nada e organico, e tudo programado\00", align 1
+@.str.526 = private unnamed_addr constant [6 x i8] c"Pitty\00", align 1
+@.str.527 = private unnamed_addr constant [48 x i8] c"Sitting on a rooftop watching molecules collide\00", align 1
+@.str.528 = private unnamed_addr constant [7 x i8] c"A Camp\00", align 1
+@.str.529 = private unnamed_addr constant [63 x i8] c"Though the path of the comet is sure, it's constitution is not\00", align 1
+@.str.530 = private unnamed_addr constant [14 x i8] c"Peter Hammill\00", align 1
+@.str.531 = private unnamed_addr constant [35 x i8] c"Everything's formed from particles\00", align 1
+@.str.532 = private unnamed_addr constant [24 x i8] c"Van der Graaf Generator\00", align 1
+@.str.533 = private unnamed_addr constant [28 x i8] c"The time for theory is over\00", align 1
+@.str.534 = private unnamed_addr constant [9 x i8] c"J. Hajdu\00", align 1
+@.str.535 = private unnamed_addr constant [41 x i8] c"What's the point, yo, what's the spread?\00", align 1
+@.str.536 = private unnamed_addr constant [75 x i8] c"If There Is No Guitar In The House, You Know It's Owner Can Not Be Trusted\00", align 1
+@.str.537 = private unnamed_addr constant [33 x i8] c"Carbohydrates is all they groove\00", align 1
+@.str.538 = private unnamed_addr constant [12 x i8] c"Frank Zappa\00", align 1
+@.str.539 = private unnamed_addr constant [45 x i8] c"Never, I said never, compare with experiment\00", align 1
+@.str.540 = private unnamed_addr constant [13 x i8] c"Magnus Bergh\00", align 1
+@.str.541 = private unnamed_addr constant [43 x i8] c"Suzy is a headbanger, her mother is a geek\00", align 1
+@.str.542 = private unnamed_addr constant [56 x i8] c"Now it's filled with hundreds and hundreds of chemicals\00", align 1
+@.str.543 = private unnamed_addr constant [8 x i8] c"Midlake\00", align 1
+@.str.544 = private unnamed_addr constant [53 x i8] c"If it weren't for bad luck, we'd have no luck at all\00", align 1
+@.str.545 = private unnamed_addr constant [13 x i8] c"The Unthanks\00", align 1
+@.str.546 = private unnamed_addr constant [45 x i8] c"There's no way you can rely on an experiment\00", align 1
+@.str.547 = private unnamed_addr constant [16 x i8] c"Gerrit Groenhof\00", align 1
+@.str.548 = private unnamed_addr constant [48 x i8] c"I like to wait, then I feel like I do something\00", align 1
+@.str.549 = private unnamed_addr constant [13 x i8] c"Carl Caleman\00", align 1
+@.str.550 = private unnamed_addr constant [51 x i8] c"Can I have everything louder than everything else?\00", align 1
+@.str.551 = private unnamed_addr constant [12 x i8] c"Deep Purple\00", align 1
+@.str.552 = private unnamed_addr constant [41 x i8] c"He's using code that only you and I know\00", align 1
+@.str.553 = private unnamed_addr constant [10 x i8] c"Kate Bush\00", align 1
+@.str.554 = private unnamed_addr constant [44 x i8] c"Chemical gases filling lungs of little ones\00", align 1
+@.str.555 = private unnamed_addr constant [16 x i8] c"Black Eyed Peas\00", align 1
+@.str.556 = private unnamed_addr constant [101 x i8] c"I've basically become a vegetarian since the only meat I'm eating is from animals I've killed myself\00", align 1
+@.str.557 = private unnamed_addr constant [16 x i8] c"Mark Zuckerberg\00", align 1
+@.str.558 = private unnamed_addr constant [77 x i8] c"Years of calculations and the stress, My science is waiting, nearly complete\00", align 1
+@.str.559 = private unnamed_addr constant [41 x i8] c"error: too many template-parameter-lists\00", align 1
+@.str.560 = private unnamed_addr constant [4 x i8] c"g++\00", align 1
+@.str.561 = private unnamed_addr constant [25 x i8] c"Science Won't Change You\00", align 1
+@.str.562 = private unnamed_addr constant [18 x i8] c"The Talking Heads\00", align 1
+@.str.563 = private unnamed_addr constant [45 x i8] c"It Doesn't Seem Right, No Computers in Sight\00", align 1
+@.str.564 = private unnamed_addr constant [12 x i8] c"Faun Fables\00", align 1
+@.str.565 = private unnamed_addr constant [43 x i8] c"Some People Say Not to Worry About the Air\00", align 1
+@.str.566 = private unnamed_addr constant [31 x i8] c"It seemed a good idea at first\00", align 1
+@.str.567 = private unnamed_addr constant [38 x i8] c"There's no kill like overkill, right?\00", align 1
+@.str.568 = private unnamed_addr constant [13 x i8] c"Erik Lindahl\00", align 1
+@.str.569 = private unnamed_addr constant [63 x i8] c"I removed all the lambda defaults so that users have to think!\00", align 1
+@.str.570 = private unnamed_addr constant [10 x i8] c"Berk Hess\00", align 1
+@.str.571 = private unnamed_addr constant [65 x i8] c"I originally implemented PME to prove that you didn't need it...\00", align 1
+@.str.572 = private unnamed_addr constant [56 x i8] c"Take what you want, but just what you need for survival\00", align 1
+@.str.573 = private unnamed_addr constant [12 x i8] c"Joe Jackson\00", align 1
+@.str.574 = private unnamed_addr constant [51 x i8] c"When the universe has expanded, time will contract\00", align 1
+@.str.575 = private unnamed_addr constant [16 x i8] c"Franz Ferdinand\00", align 1
+@.str.576 = private unnamed_addr constant [71 x i8] c"This really is a pretty scene, could you ask your kid to smile please?\00", align 1
+@.str.577 = private unnamed_addr constant [32 x i8] c"England's dancing days are done\00", align 1
+@.str.578 = private unnamed_addr constant [91 x i8] c"The future still looks good, and you've got time to rectify all the things that you should\00", align 1
+@.str.579 = private unnamed_addr constant [12 x i8] c"G. Harrison\00", align 1
+@.str.580 = private unnamed_addr constant [150 x i8] c"If humanity has fled shivering from the starry spaces, it has become minutely at home in the interstices of the speck that it inhabits for an instant\00", align 1
+@.str.581 = private unnamed_addr constant [15 x i8] c"George H. Mead\00", align 1
+@.str.582 = private unnamed_addr constant [166 x i8] c"The scientific method is an integral part of human intelligence, and when it has once been set at work it can only be dismissed by dismissing the intelligence itself\00", align 1
+@.str.583 = private unnamed_addr constant [73 x i8] c"Der Ball ist rund, das Spiel dauert 90 minuten, alles andere ist Theorie\00", align 1
+@.str.584 = private unnamed_addr constant [11 x i8] c"Lola rennt\00", align 1
+@.str.585 = private unnamed_addr constant [32 x i8] c"Life in the streets is not easy\00", align 1
+@.str.586 = private unnamed_addr constant [11 x i8] c"Marky Mark\00", align 1
+@.str.587 = private unnamed_addr constant [36 x i8] c"How will I know it's working right?\00", align 1
+@.str.588 = private unnamed_addr constant [5 x i8] c"MGMT\00", align 1
+@.str.589 = private unnamed_addr constant [41 x i8] c"There was no preconception on what to do\00", align 1
+@.str.590 = private unnamed_addr constant [10 x i8] c"Daft Punk\00", align 1
+@.str.591 = private unnamed_addr constant [39 x i8] c"It takes money to make money, they say\00", align 1
+@.str.592 = private unnamed_addr constant [9 x i8] c"Lou Reed\00", align 1
+@.str.593 = private unnamed_addr constant [42 x i8] c"The future always gets twisted and turned\00", align 1
+@.str.594 = private unnamed_addr constant [11 x i8] c"Lisa o Piu\00", align 1
+@.str.595 = private unnamed_addr constant [87 x i8] c"Do not go where the path may lead, go instead where there is no path and leave a trail\00", align 1
+@.str.596 = private unnamed_addr constant [20 x i8] c"Ralph Waldo Emerson\00", align 1
+@.str.597 = private unnamed_addr constant [260 x i8] c"I went to Venice and looked at the paintings of Canaletto to understand how he presented perspective, and it turned out it was an exponential law. If I had published this, maybe there would be a Karplus law in art theory as well as the Karplus equation in NMR\00", align 1
+@.str.598 = private unnamed_addr constant [35 x i8] c"Martin Karplus, Nobel lecture 2013\00", align 1
+@.str.599 = private unnamed_addr constant [106 x i8] c"Theoretical chemistry has of course always been important and useful ... at least to theoretical chemists\00", align 1
+@.str.600 = private unnamed_addr constant [11 x i8] c"Sven Lidin\00", align 1
+@.str.601 = private unnamed_addr constant [42 x i8] c"I do not believe continuum electrostatics\00", align 1
+@.str.602 = private unnamed_addr constant [34 x i8] c"Arieh Warshel, Nobel lecture 2013\00", align 1
+@.str.603 = private unnamed_addr constant [103 x i8] c"During my undergraduate work I concluded that electrostatics is unlikely to be important [for enzymes]\00", align 1
+@.str.604 = private unnamed_addr constant [91 x i8] c"Martin [Karplus] had a green laser, Arieh [Warshel] had a red laser, I have a *blue* laser\00", align 1
+@.str.605 = private unnamed_addr constant [35 x i8] c"Michael Levitt, Nobel lecture 2013\00", align 1
+@.str.606 = private unnamed_addr constant [32 x i8] c"There's so many shades of black\00", align 1
+@.str.607 = private unnamed_addr constant [15 x i8] c"The Raconteurs\00", align 1
+@.str.608 = private unnamed_addr constant [77 x i8] c"Let us not get carried away with our ideas and take our models too seriously\00", align 1
+@.str.609 = private unnamed_addr constant [14 x i8] c"Nancy Swanson\00", align 1
+@.str.610 = private unnamed_addr constant [100 x i8] c"Unfortunately, \22simulation\22 has become increasingly misused to mean nothing more than \22calculation\22\00", align 1
+@.str.611 = private unnamed_addr constant [15 x i8] c"Bill Jorgensen\00", align 1
+@.str.612 = private unnamed_addr constant [74 x i8] c"Physics is a few rules, and with some handwaving you can make up the rest\00", align 1
+@.str.613 = private unnamed_addr constant [15 x i8] c"Michael Levitt\00", align 1
+@.str.614 = private unnamed_addr constant [35 x i8] c"It doesn't pay to make predictions\00", align 1
+@.str.615 = private unnamed_addr constant [14 x i8] c"Crowded House\00", align 1
+@.str.616 = private unnamed_addr constant [65 x i8] c"Strength is just an accident arising from the weakness of others\00", align 1
+@.str.617 = private unnamed_addr constant [14 x i8] c"Joseph Conrad\00", align 1
+@.str.618 = private unnamed_addr constant [107 x i8] c"On the East coast, a purple patch, to show where the jolly pioneers of progress drink the jolly lager-beer\00", align 1
+@.str.619 = private unnamed_addr constant [36 x i8] c"Restraint! What possible restraint?\00", align 1
+@.str.620 = private unnamed_addr constant [57 x i8] c"It was something to at least have a choice of nightmares\00", align 1
+@.str.621 = private unnamed_addr constant [126 x i8] c"You fight, work, sweat, nearly kill yourself, sometimes you do kill yourself, trying to accomplish something - and you can't.\00", align 1
+@.str.622 = private unnamed_addr constant [129 x i8] c"And after some more talk we agreed that the wisdom of rats had been grossly overrated, being in fact no greater than that of men\00", align 1
+@.str.623 = private unnamed_addr constant [49 x i8] c"It's an easy game, just don't let the ball past!\00", align 1
+@.str.624 = private unnamed_addr constant [13 x i8] c"Szilard Pall\00", align 1
+@.str.625 = private unnamed_addr constant [45 x i8] c"The soul? There's nothing but chemistry here\00", align 1
+@.str.626 = private unnamed_addr constant [13 x i8] c"Breaking Bad\00", align 1
+@.str.627 = private unnamed_addr constant [50 x i8] c"You got one part of that wrong. This is not meth.\00", align 1
+@.str.628 = private unnamed_addr constant [73 x i8] c"It's easy to remember: a half a kT is equal to five fourths of a kJ/mol.\00", align 1
+@.str.629 = private unnamed_addr constant [19 x i8] c"Anders Gabrielsson\00", align 1
+@.str.630 = private unnamed_addr constant [24 x i8] c"Ubiquitin's just a rock\00", align 1
+@.str.631 = private unnamed_addr constant [55 x i8] c"... an excellent man, almost worthy of such a wife ...\00", align 1
+@.str.632 = private unnamed_addr constant [43 x i8] c"Jane Eyre in Jane Eyre by Charlotte Bronte\00", align 1
+@.str.633 = private unnamed_addr constant [67 x i8] c"Humbug! Most things free-born will submit to anything for a salary\00", align 1
+@.str.634 = private unnamed_addr constant [47 x i8] c"Mr. Rochester in Jane Eyre by Charlotte Bronte\00", align 1
+@.str.635 = private unnamed_addr constant [93 x i8] c"Like other defaulters, I like to lay half the blame on ill-fortune and adverse circumstances\00", align 1
+@.str.636 = private unnamed_addr constant [116 x i8] c"Either you will be dashed to atoms on crag points, or lifted up and borne by some master-wave into a calmer current\00", align 1
+@.str.637 = private unnamed_addr constant [17 x i8] c"Charlotte Bronte\00", align 1
+@.str.638 = private unnamed_addr constant [37 x i8] c"I ought to warn you, I have no faith\00", align 1
+@.str.639 = private unnamed_addr constant [140 x i8] c"... yet the [economic] profession continued to churn out purely theoretical results without even knowing what facts needed to be explained.\00", align 1
+@.str.640 = private unnamed_addr constant [15 x i8] c"Thomas Piketty\00", align 1
+@.str.641 = private unnamed_addr constant [142 x i8] c"Scientists think they are born with logic; God forbid they should study this discipline with a history of more than two and a half millennia.\00", align 1
+@.str.642 = private unnamed_addr constant [15 x i8] c"Roald Hoffmann\00", align 1
+@.str.643 = private unnamed_addr constant [154 x i8] c"In the processing of models we must be especially cautious of the human weakness to think that models can be verified or validated. Especially one's own.\00", align 1
+@.str.644 = private unnamed_addr constant [89 x i8] c"... and that dream of dreams, a computational model that predicts everything accurately.\00", align 1
+@.str.645 = private unnamed_addr constant [205 x i8] c"You see it through a charmed medium: you can not discern that the gilding is slime and the silk draperies cobwebs; that the marble is sordid slate, and the polished woods mere refuse chips and scale bark.\00", align 1
+@.str.646 = private unnamed_addr constant [199 x i8] c"I know poetry is not dead, nor genius lost; nor has Mammon gained power over either, to bind or slay; they will both assert their existence, their presence, their liberty and strength again one day.\00", align 1
+@.str.647 = private unnamed_addr constant [44 x i8] c"Parallel programming is not about elegance!\00", align 1
+@.str.648 = private unnamed_addr constant [11 x i8] c"Bill Gropp\00", align 1
+@.str.649 = private unnamed_addr constant [66 x i8] c"In a talk you have a choice: You can make one point or no points.\00", align 1
+@.str.650 = private unnamed_addr constant [12 x i8] c"Paul Sigler\00", align 1
+@.str.651 = private unnamed_addr constant [48 x i8] c"Where all think alike, no one thinks very much.\00", align 1
+@.str.652 = private unnamed_addr constant [16 x i8] c"Walter Lippmann\00", align 1
+@.str.653 = private unnamed_addr constant [112 x i8] c"The scientist is not the person who always gives the right answers, he is the one who asks the right questions.\00", align 1
+@.str.654 = private unnamed_addr constant [20 x i8] c"Claude Levi-Strauss\00", align 1
+@.str.655 = private unnamed_addr constant [88 x i8] c"A curious aspect of the theory of evolution is that everybody thinks he understands it.\00", align 1
+@.str.656 = private unnamed_addr constant [14 x i8] c"Jacques Monod\00", align 1
+@.str.657 = private unnamed_addr constant [180 x i8] c"When a distinguished but elderly scientist states that something is possible, he is almost certainly right. When he states that something is impossible, he is very probably wrong.\00", align 1
+@.str.658 = private unnamed_addr constant [17 x i8] c"Arthur C. Clarke\00", align 1
+@.str.659 = private unnamed_addr constant [74 x i8] c"Energy is a very subtle concept. It is very, very difficult to get right.\00", align 1
+@.str.660 = private unnamed_addr constant [16 x i8] c"Richard Feynman\00", align 1
+@.str.661 = private unnamed_addr constant [75 x i8] c"The determined Real Programmer can write FORTRAN programs in any language.\00", align 1
+@.str.662 = private unnamed_addr constant [8 x i8] c"Ed Post\00", align 1
+@.str.663 = private unnamed_addr constant [92 x i8] c"FORTRAN was the language of choice for the same reason that three-legged races are popular.\00", align 1
+@.str.664 = private unnamed_addr constant [13 x i8] c"Ken Thompson\00", align 1
+@.str.665 = private unnamed_addr constant [99 x i8] c"A computer without COBOL and FORTRAN is like a piece of chocolate cake without ketchup or mustard.\00", align 1
+@.str.666 = private unnamed_addr constant [21 x i8] c"Unix fortune program\00", align 1
+@.str.667 = private unnamed_addr constant [160 x i8] c"Consistently separating words by spaces became a general custom about the tenth century A.D., and lasted until about 1957, when FORTRAN abandoned the practice.\00", align 1
+@.str.668 = private unnamed_addr constant [29 x i8] c"Sun FORTRAN Reference Manual\00", align 1
+@.str.669 = private unnamed_addr constant [286 x i8] c"Ludwig Boltzmann, who spent much of his life studying statistical mechanics, died in 1906, by his own hand. Paul Ehrenfest, carrying on the same work, died similarly in 1933. Now it is our turn to study statistical mechanics. Perhaps it will be wise to approach the subject cautiously.\00", align 1
+@.str.670 = private unnamed_addr constant [16 x i8] c"David Goodstein\00", align 1
+@.str.671 = private unnamed_addr constant [73 x i8] c"It all works because Avogadro's number is closer to infinity than to 10.\00", align 1
+@.str.672 = private unnamed_addr constant [16 x i8] c"Ralph Baierlein\00", align 1
+@.str.673 = private unnamed_addr constant [51 x i8] c"In this house, we OBEY the laws of thermodynamics!\00", align 1
+@.str.674 = private unnamed_addr constant [14 x i8] c"Homer Simpson\00", align 1
+@.str.675 = private unnamed_addr constant [39 x i8] c"We mathematicians are all a bit crazy.\00", align 1
+@.str.676 = private unnamed_addr constant [11 x i8] c"Lev Landau\00", align 1
+@.str.677 = private unnamed_addr constant [103 x i8] c"There is no such thing as free energy. Anyone who advocates it does not know what he is talking about.\00", align 1
+@.str.678 = private unnamed_addr constant [18 x i8] c"Alireza Haghighat\00", align 1
+@.str.679 = private unnamed_addr constant [446 x i8] c"In science it often happens that scientists say, 'You know that's a really good argument; my position is mistaken,' and then they would actually change their minds and you never hear that old view from them again. They really do it. It doesn't happen as often as it should, because scientists are human and change is sometimes painful. But it happens every day. I cannot recall the last time something like that happened in politics or religion.\00", align 1
+@.str.680 = private unnamed_addr constant [11 x i8] c"Carl Sagan\00", align 1
+@.str.681 = private unnamed_addr constant [109 x i8] c"There is nothing new to be discovered in physics now. All that remains is more and more precise measurement.\00", align 1
+@.str.682 = private unnamed_addr constant [18 x i8] c"Lord Kelvin, 1900\00", align 1
+@.str.683 = private unnamed_addr constant [52 x i8] c"I love fools' experiments. I am always making them.\00", align 1
+@.str.684 = private unnamed_addr constant [15 x i8] c"Charles Darwin\00", align 1
+@.str.685 = private unnamed_addr constant [96 x i8] c"If you want to save your child from polio, you can pray or you can inoculate... choose science.\00", align 1
+@.str.686 = private unnamed_addr constant [81 x i8] c"Molecular biology is essentially the practice of biochemistry without a license.\00", align 1
+@.str.687 = private unnamed_addr constant [15 x i8] c"Edwin Chargaff\00", align 1
+@.str.688 = private unnamed_addr constant [143 x i8] c"If at one time or another I have brushed a few colleagues the wrong way, I must apologize: I had not realized that they were covered with fur.\00", align 1
+@.str.689 = private unnamed_addr constant [151 x i8] c"It has not escaped our notice that the specific pairing we have postulated immediately suggests a possible copying mechanism for the genetic material.\00", align 1
+@.str.690 = private unnamed_addr constant [15 x i8] c"Watson & Crick\00", align 1
+@.str.691 = private unnamed_addr constant [66 x i8] c"The researcher's art is first of all to find himself a good boss.\00", align 1
+@.str.692 = private unnamed_addr constant [12 x i8] c"Andre Lwoff\00", align 1
+@.str.693 = private unnamed_addr constant [20 x i8] c"What about my nose?\00", align 1
+@.str.694 = private unnamed_addr constant [152 x i8] c"Aneesur Rahman, responding to an Argonne manager arguing the long hair of Charles Bennett in his group was disreputing the lab; Retold by Michael Klein\00", align 1
+@.str.695 = private unnamed_addr constant [140 x i8] c"Science, my lad, is made up of mistakes, but they are mistakes which it is useful to make, because they lead little by little to the truth.\00", align 1
+@.str.696 = private unnamed_addr constant [12 x i8] c"Jules Verne\00", align 1
+@.str.697 = private unnamed_addr constant [215 x i8] c"Don't be afraid of hard work. Nothing worthwhile comes easily. Don't let others discourage you or tell you that you can't do it. In my day I was told women didn't go into chemistry. I saw no reason why we couldn't.\00", align 1
+@.str.698 = private unnamed_addr constant [15 x i8] c"Gertrude Elion\00", align 1
+@.str.699 = private unnamed_addr constant [81 x i8] c"The Nobel Prize is fine, but the drugs I've developed are rewards in themselves.\00", align 1
+@.str.700 = private unnamed_addr constant [47 x i8] c"...sometimes a scream is better than a thesis.\00", align 1
+@.str.701 = private unnamed_addr constant [86 x i8] c"The great tragedy of science - the slaying of a beautiful hypothesis by an ugly fact.\00", align 1
+@.str.702 = private unnamed_addr constant [20 x i8] c"Thomas Henry Huxley\00", align 1
+@.str.703 = private unnamed_addr constant [111 x i8] c"Dr Pauling, how do you have so many good ideas? Well David, I have a lot of ideas and throw away the bad ones.\00", align 1
+@.str.704 = private unnamed_addr constant [14 x i8] c"Linus Pauling\00", align 1
+@.str.705 = private unnamed_addr constant [107 x i8] c"I try to identify myself with the atoms... I ask what I would do If I were a carbon atom or a sodium atom.\00", align 1
+@.str.706 = private unnamed_addr constant [112 x i8] c"I admired Bohr very much. We had long talks together, long talks in which Bohr did practically all the talking.\00", align 1
+@.str.707 = private unnamed_addr constant [11 x i8] c"Paul Dirac\00", align 1
+@.str.708 = private unnamed_addr constant [65 x i8] c"Predictions can be very difficult - especially about the future.\00", align 1
+@.str.709 = private unnamed_addr constant [11 x i8] c"Niels Bohr\00", align 1
+@.str.710 = private unnamed_addr constant [148 x i8] c"For those who want some proof that physicists are human, the proof is in the idiocy of all the different units which they use for measuring energy.\00", align 1
+@.str.711 = private unnamed_addr constant [40 x i8] c"Dreams seldom materialize on their own.\00", align 1
+@.str.712 = private unnamed_addr constant [12 x i8] c"Dian Fossey\00", align 1
+@.str.713 = private unnamed_addr constant [67 x i8] c"Above all, don't fear difficult moments. The best comes from them.\00", align 1
+@.str.714 = private unnamed_addr constant [21 x i8] c"Rita Levi-Montalcini\00", align 1
+@.str.715 = private unnamed_addr constant [169 x i8] c"Our struggle today is not to have a female Einstein get appointed as an assistant professor. It is for a woman schlemiel to get as quickly promoted as a male schlemiel.\00", align 1
+@.str.716 = private unnamed_addr constant [12 x i8] c"Bella Abzug\00", align 1
+@.str.717 = private unnamed_addr constant [94 x i8] c"I never thought of stopping, and I just hated sleeping. I can't imagine having a better life.\00", align 1
+@.str.718 = private unnamed_addr constant [19 x i8] c"Barbara McClintock\00", align 1
+@.str.719 = private unnamed_addr constant [80 x i8] c"The farther the experiment is from theory, the closer it is to the Nobel Prize.\00", align 1
+@.str.720 = private unnamed_addr constant [19 x i8] c"Irene Joliot-Curie\00", align 1
+@.str.721 = private unnamed_addr constant [68 x i8] c"I never see what has been done; I only see what remains to be done.\00", align 1
+@.str.722 = private unnamed_addr constant [12 x i8] c"Marie Curie\00", align 1
+@.str.723 = private unnamed_addr constant [70 x i8] c"There is no reason for any individual to have a computer in his home.\00", align 1
+@.str.724 = private unnamed_addr constant [43 x i8] c"Ken Olsen, head of Digital Equipment Corp.\00", align 1
+@.str.725 = private unnamed_addr constant [45 x i8] c"People disagree with me. I just ignore them.\00", align 1
+@.str.726 = private unnamed_addr constant [47 x i8] c"Linus Torvalds on the use of C++ in the kernel\00", align 1
+@.str.727 = private unnamed_addr constant [79 x i8] c"Beware of bugs in the above code; I have only proved it correct, not tried it.\00", align 1
+@.str.728 = private unnamed_addr constant [13 x i8] c"Donald Knuth\00", align 1
+@.str.729 = private unnamed_addr constant [77 x i8] c"My greatest contribution to the field of science is that I never entered it.\00", align 1
+@.str.730 = private unnamed_addr constant [13 x i8] c"Colin Powell\00", align 1
+@.str.731 = private unnamed_addr constant [124 x i8] c"We are perhaps not far removed from the time when we shall be able to submit the bulk of chemical phenomena to calculation.\00", align 1
+@.str.732 = private unnamed_addr constant [24 x i8] c"Joseph Gay-Lussac, 1808\00", align 1
+@.str.733 = private unnamed_addr constant [197 x i8] c"If mathematical analysis should ever hold a prominent place in chemistry - an aberration which is happily almost impossible - it would occasion a rapid and widespread degeneration of that science.\00", align 1
+@.str.734 = private unnamed_addr constant [19 x i8] c"Aguste Comte, 1830\00", align 1
+@.str.735 = private unnamed_addr constant [202 x i8] c"Almost without exception, the talented women I have known have believed they had less ability than they actually had. And almost without exception, the talented men I have known believed they had more.\00", align 1
+@.str.736 = private unnamed_addr constant [15 x i8] c"Gregory Petsko\00", align 1
+@.str.737 = private unnamed_addr constant [160 x i8] c"The first 90% of the code accounts for the first 90% of the development time. The remaining 10% of the code accounts for the other 90% of the development time.\00", align 1
+@.str.738 = private unnamed_addr constant [12 x i8] c"Tom Cargill\00", align 1
+@.str.739 = private unnamed_addr constant [44 x i8] c"The Internet?  We are not interested in it.\00", align 1
+@.str.740 = private unnamed_addr constant [17 x i8] c"Bill Gates, 1993\00", align 1
+@.str.741 = private unnamed_addr constant [77 x i8] c"Perl: The only language that looks the same before and after RSA encryption.\00", align 1
+@.str.742 = private unnamed_addr constant [13 x i8] c"Keith Bostic\00", align 1
+@.str.743 = private unnamed_addr constant [87 x i8] c"There are only two things wrong with C++:  The initial concept and the implementation.\00", align 1
+@.str.744 = private unnamed_addr constant [15 x i8] c"Bertrand Meyer\00", align 1
+@.str.745 = private unnamed_addr constant [112 x i8] c"XML is not a language in the sense of a programming language any more than sketches on a napkin are a language.\00", align 1
+@.str.746 = private unnamed_addr constant [16 x i8] c"Charles Simonyi\00", align 1
+@.str.747 = private unnamed_addr constant [141 x i8] c"It has been discovered that C++ provides a remarkable facility for concealing the trivial details of a program - such as where its bugs are.\00", align 1
+@.str.748 = private unnamed_addr constant [13 x i8] c"David Keppel\00", align 1
+@.str.749 = private unnamed_addr constant [98 x i8] c"UNIX is basically a simple operating system. It just takes a genius to understand its simplicity.\00", align 1
+@.str.750 = private unnamed_addr constant [15 x i8] c"Dennis Ritchie\00", align 1
+@.str.751 = private unnamed_addr constant [106 x i8] c"There are only two kinds of programming languages: those people always bitch about and those nobody uses.\00", align 1
+@.str.752 = private unnamed_addr constant [18 x i8] c"Bjarne Stroustrup\00", align 1
+@.str.753 = private unnamed_addr constant [91 x i8] c"If Java had true garbage collection, most programs would delete themselves upon execution.\00", align 1
+@.str.754 = private unnamed_addr constant [14 x i8] c"Robert Sewell\00", align 1
+@.str.755 = private unnamed_addr constant [98 x i8] c"Documentation is like sex: When it's good it's great, and when it's bad it's better than nothing.\00", align 1
+@.str.756 = private unnamed_addr constant [15 x i8] c"Linus Torvalds\00", align 1
+@.str.757 = private unnamed_addr constant [82 x i8] c"C has the power of assembly language and the convenience of... assembly language.\00", align 1
+@.str.758 = private unnamed_addr constant [73 x i8] c"The last good thing written in C was Franz Schubert's Symphony Number 9.\00", align 1
+@.str.759 = private unnamed_addr constant [16 x i8] c"Erwin Dieterich\00", align 1
+@.str.760 = private unnamed_addr constant [41 x i8] c"User-friendly, adj.: Programmer-hostile.\00", align 1
+@.str.761 = private unnamed_addr constant [24 x i8] c"New Hacker's Dictionary\00", align 1
+@.str.762 = private unnamed_addr constant [131 x i8] c"First off, I'd suggest printing out a copy of the GNU coding standards, and NOT read it. Burn them, it's a great symbolic gesture.\00", align 1
+@.str.763 = private unnamed_addr constant [86 x i8] c"I invented the term 'Object-Oriented', and I can tell you I did not have C++ in mind.\00", align 1
+@.str.764 = private unnamed_addr constant [30 x i8] c"Alan Kay, author of Smalltalk\00", align 1
+@.str.765 = private unnamed_addr constant [203 x i8] c"FORTRAN, the infantile disorder, by now nearly 20 years old, is hopelessly inadequate for whatever computer application you have in mind today: it is now too clumsy, too risky, and too expensive to use.\00", align 1
+@.str.766 = private unnamed_addr constant [22 x i8] c"Edsger Dijkstra, 1970\00", align 1
+@.str.767 = private unnamed_addr constant [80 x i8] c"Do you know what cations don't like? Dog-ions. Do you know what they like? Pie.\00", align 1
+@.str.768 = private unnamed_addr constant [13 x i8] c"Tom Cheatham\00", align 1
+@.str.769 = private unnamed_addr constant [122 x i8] c"The most exciting phrase to hear in science, the one that heralds new discoveries, is not \22Eureka\22 but \22That's funny...\22.\00", align 1
+@.str.770 = private unnamed_addr constant [13 x i8] c"Isaac Asimov\00", align 1
+@.str.771 = private unnamed_addr constant [89 x i8] c"Those people who think they know everything are a great annoyance to those of us who do.\00", align 1
+@.str.772 = private unnamed_addr constant [55 x i8] c"No great discovery was ever made without a bold guess.\00", align 1
+@.str.773 = private unnamed_addr constant [33 x i8] c"Chance favors the prepared mind.\00", align 1
+@.str.774 = private unnamed_addr constant [14 x i8] c"Louis Pasteur\00", align 1
+@.str.775 = private unnamed_addr constant [71 x i8] c"I love deadlines. I like the whooshing sound they make as they fly by.\00", align 1
+@.str.776 = private unnamed_addr constant [14 x i8] c"Douglas Adams\00", align 1
+@.str.777 = private unnamed_addr constant [87 x i8] c"Good judgement is the result of experience; experience is the result of bad judgement.\00", align 1
+@.str.778 = private unnamed_addr constant [11 x i8] c"Mark Twain\00", align 1
+@.str.779 = private unnamed_addr constant [68 x i8] c"No matter how important you are, you are not as important as lunch.\00", align 1
+@.str.780 = private unnamed_addr constant [13 x i8] c"Randy Pausch\00", align 1
+@.str.781 = private unnamed_addr constant [106 x i8] c"There is just one thing I can promise you about the outer-space program: your tax dollar will go farther.\00", align 1
+@.str.782 = private unnamed_addr constant [18 x i8] c"Wernher von Braun\00", align 1
+@.str.783 = private unnamed_addr constant [62 x i8] c"Harvard makes mistakes too, you know. Kissinger taught there.\00", align 1
+@.str.784 = private unnamed_addr constant [12 x i8] c"Woody Allen\00", align 1
+@.str.785 = private unnamed_addr constant [65 x i8] c"Nothing in biology makes sense except in the light of evolution.\00", align 1
+@.str.786 = private unnamed_addr constant [22 x i8] c"Theodosius Dobzhansky\00", align 1
+@.str.787 = private unnamed_addr constant [108 x i8] c"I have a hunch that the unknown sequences of DNA will decode into copyright notices and patent protections.\00", align 1
+@.str.788 = private unnamed_addr constant [88 x i8] c"It always takes longer than you think even when you take Hofstadter's Law into account.\00", align 1
+@.str.789 = private unnamed_addr constant [17 x i8] c"Hofstadter's Law\00", align 1
+@.str.790 = private unnamed_addr constant [95 x i8] c"A ship in port is safe, but that is not what ships are for. Sail out to sea and do new things.\00", align 1
+@.str.791 = private unnamed_addr constant [33 x i8] c"Grace Hopper, developer of COBOL\00", align 1
+@.str.792 = private unnamed_addr constant [241 x i8] c"I was told I'd never make it to VP rank because I was too outspoken. Maybe so, but I think men will always find an excuse for keeping women in their 'place.' So, let's make that place the executive suite and start more of our own companies.\00", align 1
+@.str.793 = private unnamed_addr constant [29 x i8] c"Jean Bartik, ENIAC developer\00", align 1
+@.str.794 = private unnamed_addr constant [101 x i8] c"If it's a good idea, go ahead and do it. It's much easier to apologize than it is to get permission.\00", align 1
+@.str.795 = private unnamed_addr constant [41 x i8] c"This isn't right. This isn't even wrong.\00", align 1
+@.str.796 = private unnamed_addr constant [15 x i8] c"Wolfgang Pauli\00", align 1
+@.str.797 = private unnamed_addr constant [55 x i8] c"Louis Pasteur's theory of germs is ridiculous fiction.\00", align 1
+@.str.798 = private unnamed_addr constant [57 x i8] c"Pierre Pachet, Professor of Physiology at Toulouse, 1872\00", align 1
+@.str.799 = private unnamed_addr constant [121 x i8] c"Research ! A mere excuse for idleness; it has never achieved, and will never achieve any results of the slightest value.\00", align 1
+@.str.800 = private unnamed_addr constant [45 x i8] c"Benjamin Jowett, British theologian, 1817-93\00", align 1
+@.str.801 = private unnamed_addr constant [61 x i8] c"Problems worthy of attack prove their worth by hitting back.\00", align 1
+@.str.802 = private unnamed_addr constant [10 x i8] c"Piet Hein\00", align 1
+@.str.803 = private unnamed_addr constant [88 x i8] c"You should never bet against anything in science at odds of more than about 10^12 to 1.\00", align 1
+@.str.804 = private unnamed_addr constant [18 x i8] c"Ernest Rutherford\00", align 1
+@.str.805 = private unnamed_addr constant [32 x i8] c"X-rays will prove to be a hoax.\00", align 1
+@.str.806 = private unnamed_addr constant [50 x i8] c"Lord Kelvin, while president of the Royal Society\00", align 1
+@.str.807 = private unnamed_addr constant [44 x i8] c"If you're doing I/O, you're doing it wrong!\00", align 1
+@.str.808 = private unnamed_addr constant [21 x i8] c"Cannada \22Drew\22 Lewis\00", align 1
+@.str.809 = private unnamed_addr constant [69 x i8] c"The easiest way to scale well is to have bad single-core performance\00", align 1
+@.str.810 = private unnamed_addr constant [14 x i8] c"Blind Freddie\00", align 1
+@.str.811 = private unnamed_addr constant [117 x i8] c"Heard a talk introducing a new language called Swift, from a guy named Wozniak, and it had nothing to do with Apple!\00", align 1
+@.str.812 = private unnamed_addr constant [12 x i8] c"Adam Cadien\00", align 1
+@.str.813 = private unnamed_addr constant [32 x i8] c"When doing HPC, don't communica\00", align 1
+@.str.814 = private unnamed_addr constant [11 x i8] c"Jim Demmel\00", align 1
+@.str.815 = private unnamed_addr constant [92 x i8] c"Today we're not going to optimize our CUDA code, cause that's just a rabbit hole of misery!\00", align 1
+@.str.816 = private unnamed_addr constant [14 x i8] c"Tim Warburton\00", align 1
+@.str.817 = private unnamed_addr constant [172 x i8] c"Big Data is like teenage sex: everyone talks about it, nobody really knows how to do it, everyone thinks everyone else is doing it, so everyone claims they are doing it...\00", align 1
+@.str.818 = private unnamed_addr constant [11 x i8] c"Dan Ariely\00", align 1
+@.str.819 = private unnamed_addr constant [407 x i8] c"It seems likely that significant software contributions to existing scientific software projects are not likely to be rewarded through the traditional reputation economy of science. Together these factors provide a reason to expect the over-production of independent scientific software packages, and the underproduction of collaborative projects in which later academics build on the work of earlier ones.\00", align 1
+@.str.820 = private unnamed_addr constant [19 x i8] c"Howison & Herbsleb\00", align 1
+@.str.821 = private unnamed_addr constant [116 x i8] c"On average, it takes twenty years for the world's largest super computer to shrink down to the size of your laptop.\00", align 1
+@.str.822 = private unnamed_addr constant [13 x i8] c"Pete Beckman\00", align 1
+@.str.823 = private unnamed_addr constant [112 x i8] c"When using an abacus, a human can achieve about 0.1 flops/watt. Super-computers achieve about 2 gigaflops/watt.\00", align 1
+@.str.824 = private unnamed_addr constant [13 x i8] c"John Linford\00", align 1
+@.str.825 = private unnamed_addr constant [44 x i8] c"Try to calculate the numbers that have been\00", align 1
+@.str.826 = private unnamed_addr constant [18 x i8] c"The Smoke Fairies\00", align 1
+@.str.827 = private unnamed_addr constant [36 x i8] c"Please implement proper hep writing\00", align 1
+@.str.828 = private unnamed_addr constant [81 x i8] c"The three principal virtues of a programmer are Laziness, Impatience, and Hubris\00", align 1
+@.str.829 = private unnamed_addr constant [11 x i8] c"Larry Wall\00", align 1
+@.str.830 = private unnamed_addr constant [84 x i8] c"You're like them scientists on TV explaining black holes. More you talk, less I get\00", align 1
+@.str.831 = private unnamed_addr constant [12 x i8] c"Jess Walter\00", align 1
+@.str.832 = private unnamed_addr constant [91 x i8] c"Wedged as we are between two eternities of idleness, there is no excuse for being idle now\00", align 1
+@.str.833 = private unnamed_addr constant [16 x i8] c"Anthony Burgess\00", align 1
+@.str.834 = private unnamed_addr constant [228 x i8] c"Even the *healthy* people move in clouds of cigarette smoke, women straining polyester, men in raggedly cutoffs slathering mayonnaise on foot-long hot dogs. It's as if the hotel were hosting a conference on adult onset diabetes\00", align 1
+@.str.835 = private unnamed_addr constant [149 x i8] c"In practice, throwing traditional norms and values overboard results not in perfect freedom and relationships based on reason, but in chaos and fear\00", align 1
+@.str.836 = private unnamed_addr constant [15 x i8] c"Paul Verhaeghe\00", align 1
+@.str.837 = private unnamed_addr constant [190 x i8] c"When I asked a younger colleague at the university how he had been able to change his research field several times within a decade or so, he answered: \22It's just a question of new software\22\00", align 1
+@.str.838 = private unnamed_addr constant [51 x i8] c"Never mind, death professor, your structure's fine\00", align 1
+@.str.839 = private unnamed_addr constant [16 x i8] c"TV on the Radio\00", align 1
+@.str.840 = private unnamed_addr constant [65 x i8] c"Come and play on the hospital roof, I got something that's yours\00", align 1
+@.str.841 = private unnamed_addr constant [9 x i8] c"Sherlock\00", align 1
+@.str.842 = private unnamed_addr constant [44 x i8] c"Njuta men inte frossa, springa men inte fly\00", align 1
+@.str.843 = private unnamed_addr constant [8 x i8] c"Paganus\00", align 1
+@.str.844 = private unnamed_addr constant [30 x i8] c"Misslycka kan man med all kod\00", align 1
+@.str.845 = private unnamed_addr constant [11 x i8] c"Mats Nylen\00", align 1
+@.str.846 = private unnamed_addr constant [73 x i8] c"Two guys can move very fast when they're motivated enough and unemployed\00", align 1
+@.str.847 = private unnamed_addr constant [12 x i8] c"Eric Betzig\00", align 1
+@.str.848 = private unnamed_addr constant [33 x i8] c"A protein is a chain of letters.\00", align 1
+@.str.849 = private unnamed_addr constant [15 x i8] c"Julie Bernauer\00", align 1
+@.str.850 = private unnamed_addr constant [113 x i8] c"The best way to obtain plausible negative examples is to run a docking program with a biophysics-based function.\00", align 1
+@.str.851 = private unnamed_addr constant [41 x i8] c"I think everybody should like everybody.\00", align 1
+@.str.852 = private unnamed_addr constant [12 x i8] c"Andy Warhol\00", align 1
+@.str.853 = private unnamed_addr constant [69 x i8] c"But I always say, one's company, two's a crowd, and three's a party.\00", align 1
+@.str.854 = private unnamed_addr constant [70 x i8] c"We'll celebrate a woman for anything, as long as it's not her talent.\00", align 1
+@.str.855 = private unnamed_addr constant [19 x i8] c"Colleen McCullough\00", align 1
+@.str.856 = private unnamed_addr constant [62 x i8] c"I believe the big bang of self-driving cars is about to come.\00", align 1
+@.str.857 = private unnamed_addr constant [27 x i8] c"Jen-Hsun Huang, CEO NVIDIA\00", align 1
+@.str.858 = private unnamed_addr constant [66 x i8] c"This is where we have been working hard to push down performance.\00", align 1
+@.str.859 = private unnamed_addr constant [28 x i8] c"Szilard Pall, GTC 2015 talk\00", align 1
+@.str.860 = private unnamed_addr constant [59 x i8] c"Some of these pro-drug messages come from popular culture.\00", align 1
+@.str.861 = private unnamed_addr constant [13 x i8] c"John Walters\00", align 1
+@.str.862 = private unnamed_addr constant [81 x i8] c"Don't pay any attention to what they write about you. Just measure it in inches.\00", align 1
+@.str.863 = private unnamed_addr constant [35 x i8] c"Art is what you can get away with.\00", align 1
+@.str.864 = private unnamed_addr constant [82 x i8] c"I spent a lot of money on booze, birds and fast cars. The rest I just squandered.\00", align 1
+@.str.865 = private unnamed_addr constant [12 x i8] c"George Best\00", align 1
+@.str.866 = private unnamed_addr constant [43 x i8] c"The only greatness for man is immortality.\00", align 1
+@.str.867 = private unnamed_addr constant [11 x i8] c"James Dean\00", align 1
+@.str.868 = private unnamed_addr constant [92 x i8] c"Do not quench your inspiration and your imagination; do not become the slave of your model.\00", align 1
+@.str.869 = private unnamed_addr constant [17 x i8] c"Vincent Van Gogh\00", align 1
+@.str.870 = private unnamed_addr constant [47 x i8] c"You always pass failure on the way to success.\00", align 1
+@.str.871 = private unnamed_addr constant [14 x i8] c"Mickey Rooney\00", align 1
+@.str.872 = private unnamed_addr constant [138 x i8] c"I always seem to get inspiration and renewed vitality by contact with this great novel land of yours which sticks up out of the Atlantic.\00", align 1
+@.str.873 = private unnamed_addr constant [18 x i8] c"Winston Churchill\00", align 1
+@.str.874 = private unnamed_addr constant [25 x i8] c"I am at two with nature.\00", align 1
+@.str.875 = private unnamed_addr constant [66 x i8] c"I'm no model lady. A model's just an imitation of the real thing.\00", align 1
+@.str.876 = private unnamed_addr constant [9 x i8] c"Mae West\00", align 1
+@.str.877 = private unnamed_addr constant [76 x i8] c"Science is the great antidote to the poison of enthusiasm and superstition.\00", align 1
+@.str.878 = private unnamed_addr constant [36 x i8] c"Adam Smith, Wealth of Nations, 1776\00", align 1
+@.str.879 = private unnamed_addr constant [78 x i8] c"Science is a wonderful thing if one does not have to earn one's living at it.\00", align 1
+@.str.880 = private unnamed_addr constant [16 x i8] c"Albert Einstein\00", align 1
+@.str.881 = private unnamed_addr constant [41 x i8] c"Science is the record of dead religions.\00", align 1
+@.str.882 = private unnamed_addr constant [12 x i8] c"Oscar Wilde\00", align 1
+@.str.883 = private unnamed_addr constant [82 x i8] c"Physics isn't a religion. If it were, we'd have a much easier time raising money.\00", align 1
+@.str.884 = private unnamed_addr constant [14 x i8] c"Leon Lederman\00", align 1
+@.str.885 = private unnamed_addr constant [157 x i8] c"It is now quite lawful for a Catholic woman to avoid pregnancy by a resort to mathematics, though she is still forbidden to resort to physics and chemistry.\00", align 1
+@.str.886 = private unnamed_addr constant [20 x i8] c"Henry Louis Mencken\00", align 1
+@.str.887 = private unnamed_addr constant [93 x i8] c"An expert is a person who has made all the mistakes that can be made in a very narrow field.\00", align 1
+@.str.888 = private unnamed_addr constant [94 x i8] c"In my opinion, we don't devote nearly enough scientific research to finding a cure for jerks.\00", align 1
+@.str.889 = private unnamed_addr constant [15 x i8] c"Bill Watterson\00", align 1
+@.str.890 = private unnamed_addr constant [272 x i8] c"Scientists do not join hands every Sunday and sing \22Yes gravity is real! I know gravity is real! I will have faith! I believe in my heart that what goes up, up, up must come down, down, down. Amen!\22 If they did, we would think they were pretty insecure about the concept.\00", align 1
+@.str.891 = private unnamed_addr constant [11 x i8] c"Dan Barker\00", align 1
+@.str.892 = private unnamed_addr constant [61 x i8] c"Take away paradox from the thinker and you have a professor.\00", align 1
+@.str.893 = private unnamed_addr constant [17 x i8] c"Soren Kirkegaard\00", align 1
+@.str.894 = private unnamed_addr constant [104 x i8] c"Measuring programming progress by lines of code is like measuring aircraft building progress by weight.\00", align 1
+@.str.895 = private unnamed_addr constant [11 x i8] c"Bill Gates\00", align 1
+@.str.896 = private unnamed_addr constant [62 x i8] c"Protons give an atom its identity, electrons its personality.\00", align 1
+@.str.897 = private unnamed_addr constant [12 x i8] c"Bill Bryson\00", align 1
+@.str.898 = private unnamed_addr constant [104 x i8] c"Money won't buy happiness, but it will pay the salaries of a large research staff to study the problem.\00", align 1
+@.str.899 = private unnamed_addr constant [13 x i8] c"Bill Vaughan\00", align 1
+@.str.900 = private unnamed_addr constant [50 x i8] c"Torture numbers, and they'll confess to anything.\00", align 1
+@.str.901 = private unnamed_addr constant [17 x i8] c"Greg Easterbrook\00", align 1
+@.str.902 = private unnamed_addr constant [182 x i8] c"Should we force science down the throats of those that have no taste for it? Is it our duty to drag them kicking and screaming into the twenty-first century? I am afraid that it is.\00", align 1
+@.str.903 = private unnamed_addr constant [14 x i8] c"George Porter\00", align 1
+@.str.904 = private unnamed_addr constant [112 x i8] c"A computer would deserve to be called intelligent if it could deceive a human into believing that it was human.\00", align 1
+@.str.905 = private unnamed_addr constant [12 x i8] c"Alan Turing\00", align 1
+@.str.906 = private unnamed_addr constant [104 x i8] c"Any one who considers arithmetical methods of producing random digits is, of course, in a state of sin.\00", align 1
+@.str.907 = private unnamed_addr constant [17 x i8] c"John von Neumann\00", align 1
+@.str.908 = private unnamed_addr constant [56 x i8] c"No, no, you're not thinking, you're just being logical.\00", align 1
+@.str.909 = private unnamed_addr constant [212 x i8] c"As an adolescent I aspired to lasting fame, I craved factual certainty, and I thirsted for a meaningful vision of human life -- so I became a scientist. This is like becoming an archbishop so you can meet girls.\00", align 1
+@.str.910 = private unnamed_addr constant [14 x i8] c"Matt Cartmill\00", align 1
+@.str.911 = private unnamed_addr constant [67 x i8] c"Problems worthy / of attack / prove their worth / by hitting back.\00", align 1
+@.str.912 = private unnamed_addr constant [66 x i8] c"Naive you are if you believe life favours those who aren't naive.\00", align 1
+@.str.913 = private unnamed_addr constant [105 x i8] c"Never measure the height of a mountain until you have reached the top. Then you will see how low it was.\00", align 1
+@.str.914 = private unnamed_addr constant [17 x i8] c"Dag Hammarskjold\00", align 1
+@.str.915 = private unnamed_addr constant [65 x i8] c"Praise those of your critics for whom nothing is up to standard.\00", align 1
+@.str.916 = private unnamed_addr constant [91 x i8] c"Inventions have long since reached their limit, and I see no hope for further development.\00", align 1
+@.str.917 = private unnamed_addr constant [42 x i8] c"Julius Sextus Frontinus, 1st century A.D.\00", align 1
+@.str.918 = private unnamed_addr constant [46 x i8] c"Lottery: A tax on people who are bad at math.\00", align 1
+@.str.919 = private unnamed_addr constant [15 x i8] c"Ambrose Bierce\00", align 1
+@.str.920 = private unnamed_addr constant [81 x i8] c"Even if you are on the right track, you will get run over if you just sit there.\00", align 1
+@.str.921 = private unnamed_addr constant [12 x i8] c"Will Rogers\00", align 1
+@.str.922 = private unnamed_addr constant [205 x i8] c"Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the universe trying to build bigger and better idiots. So far, the universe is winning.\00", align 1
+@.str.923 = private unnamed_addr constant [10 x i8] c"Rick Cook\00", align 1
+@.str.924 = private unnamed_addr constant [121 x i8] c"There's a limit to how many times you can read how great you are and what an inspiration you are, but I'm not there yet.\00", align 1
+@.str.925 = private unnamed_addr constant [194 x i8] c"Throughout my academic career, I'd given some pretty good talks. But being considered the best speaker in the computer science department is like being known as the tallest of the Seven Dwarfs.\00", align 1
+@.str.926 = private unnamed_addr constant [70 x i8] c"If everything seems under control, you're just not going fast enough.\00", align 1
+@.str.927 = private unnamed_addr constant [15 x i8] c"Mario Andretti\00", align 1
+@.str.928 = private unnamed_addr constant [76 x i8] c"Sincerity is the key to success. Once you can fake that you've got it made.\00", align 1
+@.str.929 = private unnamed_addr constant [13 x i8] c"Groucho Marx\00", align 1
+@.str.930 = private unnamed_addr constant [169 x i8] c"This work contains many things which are new and interesting. Unfortunately, everything that is new is not interesting, and everything which is interesting, is not new.\00", align 1
+@.str.931 = private unnamed_addr constant [63 x i8] c"Does college pay? They do if you are a good open-field runner.\00", align 1
+@.str.932 = private unnamed_addr constant [129 x i8] c"Academe, n.: An ancient school where morality and philosophy were taught. Academy, n.: A modern school where football is taught.\00", align 1
+@.str.933 = private unnamed_addr constant [38 x i8] c"This simulation is not as the former.\00", align 1
+@.str.934 = private unnamed_addr constant [58 x i8] c"Malvolio, Act II, scene V of Shaphespeare's Twelfth Night\00", align 1
+@.str.935 = private unnamed_addr constant [22 x i8] c"Here, kitty, kitty...\00", align 1
+@.str.936 = private unnamed_addr constant [19 x i8] c"Erwin Schroedinger\00", align 1
+@.str.937 = private unnamed_addr constant [72 x i8] c"Sir, spare your threats: The bug which you would fright me with I seek.\00", align 1
+@.str.938 = private unnamed_addr constant [59 x i8] c"Hermione, Act III, scene II of Shakespeare's Winter's Tale\00", align 1
+@.str.939 = private unnamed_addr constant [117 x i8] c"Erwin with his psi can do / Calculations quite a few. / But one thing has not been seen / Just what psi really mean.\00", align 1
+@.str.940 = private unnamed_addr constant [12 x i8] c"Felix Bloch\00", align 1
+@.str.941 = private unnamed_addr constant [25 x i8] c"Only entropy comes easy.\00", align 1
+@.str.942 = private unnamed_addr constant [13 x i8] c"Anton Chekov\00", align 1
+@.str.943 = private unnamed_addr constant [112 x i8] c"The loveliest theories are being overthrown by these damned experiments; it is no fun being a chemist any more.\00", align 1
+@.str.944 = private unnamed_addr constant [49 x i8] c"Justus von Liebig, letter to J.J. Berzelius 1834\00", align 1
+@.str.945 = private unnamed_addr constant [75 x i8] c"If all else fails, immortality can always be assured by spectacular error.\00", align 1
+@.str.946 = private unnamed_addr constant [23 x i8] c"John Kenneth Galbraith\00", align 1
+@.str.947 = private unnamed_addr constant [113 x i8] c"Always code as if the person who ends up maintaining your code is a violent psychopath who knows where you live.\00", align 1
+@.str.948 = private unnamed_addr constant [15 x i8] c"Martin Golding\00", align 1
+@.str.949 = private unnamed_addr constant [89 x i8] c"If I have not seen as far as others, it is because giants were standing on my shoulders.\00", align 1
+@.str.950 = private unnamed_addr constant [12 x i8] c"Hal Abelson\00", align 1
+@.str.951 = private unnamed_addr constant [110 x i8] c"Weaseling out of things is important to learn. It's what separates us from the animals... except the weasels.\00", align 1
+@.str.952 = private unnamed_addr constant [31 x i8] c"In science, truth always wins.\00", align 1
+@.str.953 = private unnamed_addr constant [11 x i8] c"Max Perutz\00", align 1
+@.str.954 = private unnamed_addr constant [250 x i8] c"Creativity in science, as in art, cannot be organized. It arises spontaneously from individual talent. Well-run laboratories can foster it, but hierarchical organizations, inflexible bureaucratic rules, and mountains of futile paperwork can kill it.\00", align 1
+@.str.955 = private unnamed_addr constant [26 x i8] c"Every electron is sacred.\00", align 1
+@.str.956 = private unnamed_addr constant [36 x i8] c"Greg McMullan, on Cryo-EM detectors\00", align 1
+@.str.957 = private unnamed_addr constant [120 x i8] c"Science adjusts its views based on what's observed. Faith is the denial of observation so that belief can be preserved.\00", align 1
+@.str.958 = private unnamed_addr constant [12 x i8] c"Tim Minchin\00", align 1
+@.str.959 = private unnamed_addr constant [225 x i8] c"Isn't this enough? Just this world? Just this beautiful, complex wonderfully unfathomable world? How does it so fail to hold our attention that we have to diminish it with the invention of cheap, man-made myths and monsters?\00", align 1
+@.str.960 = private unnamed_addr constant [59 x i8] c"If you open your mind too much, your brains will fall out.\00", align 1
+@.str.961 = private unnamed_addr constant [216 x i8] c"\22Everything organic and natural is good\22 - ignoring the fact that organic natural substances include arsenic and poo and crocodiles. And everything chemical is bad, ignoring the fact that... everything is chemicals.\00", align 1
+@.str.962 = private unnamed_addr constant [50 x i8] c"A program that has not been tested does not work.\00", align 1
+@.str.963 = private unnamed_addr constant [196 x i8] c"You could give Aristotle a tutorial. And you could thrill him to the core of his being. Such is the privilege of living after Newton, Darwin, Einstein, Planck, Watson, Crick and their colleagues.\00", align 1
+@.str.964 = private unnamed_addr constant [111 x i8] c"A robot will be truly autonomous when you instruct it to go to work and it decides to go to the beach instead.\00", align 1
+@.str.965 = private unnamed_addr constant [15 x i8] c"Brad Templeton\00", align 1
+@.str.966 = private unnamed_addr constant [68 x i8] c"If you want to destroy my sweater, hold this thread as I walk away.\00", align 1
+@.str.967 = private unnamed_addr constant [7 x i8] c"Weezer\00", align 1
+@.str.968 = private unnamed_addr constant [47 x i8] c"To survive science you have to become science.\00", align 1
+@.str.969 = private unnamed_addr constant [49 x i8] c"Contemplating answers that could break my bonds.\00", align 1
+@.str.970 = private unnamed_addr constant [76 x i8] c"I always think there is something foreign about jolly phrases at breakfast.\00", align 1
+@.str.971 = private unnamed_addr constant [29 x i8] c"Mr. Carson in Downtown Abbey\00", align 1
+@.str.972 = private unnamed_addr constant [65 x i8] c"According to my computations we're overdue for a transformation.\00", align 1
+@.str.973 = private unnamed_addr constant [15 x i8] c"Jackson Browne\00", align 1
+@.str.974 = private unnamed_addr constant [95 x i8] c"Therefore, things must be learned only to be unlearned again or, more likely, to be corrected.\00", align 1
+@.str.975 = private unnamed_addr constant [130 x i8] c"You wouldn't walk into a chemistry lab and mix two clear liquids together just because they look pretty much the same, would you?\00", align 1
+@.str.976 = private unnamed_addr constant [14 x i8] c"Justin Lemkul\00", align 1
+@.str.977 = private unnamed_addr constant [40 x i8] c"They don't have half hours in the north\00", align 1
+@.str.978 = private unnamed_addr constant [28 x i8] c"Safety lights are for dudes\00", align 1
+@.str.979 = private unnamed_addr constant [18 x i8] c"Ghostbusters 2016\00", align 1
+@.str.980 = private unnamed_addr constant [41 x i8] c"It's 2040 now. Our President is a plant.\00", align 1
+@.str.981 = private unnamed_addr constant [40 x i8] c"It's just B I O L O G Y, can't you see?\00", align 1
+@.str.982 = private unnamed_addr constant [27 x i8] c"Input, output, electricity\00", align 1
+@.str.983 = private unnamed_addr constant [14 x i8] c"Joni Mitchell\00", align 1
+@.str.984 = private unnamed_addr constant [54 x i8] c"Your daddy ain't your daddy but your daddy don't know\00", align 1
+@.str.985 = private unnamed_addr constant [8 x i8] c"Dalahan\00", align 1
+@.str.986 = private unnamed_addr constant [90 x i8] c"Why is the Earth moving 'round the sun? Floating in the vacuum with no purpose, not a one\00", align 1
+@.str.987 = private unnamed_addr constant [12 x i8] c"Fleet Foxes\00", align 1
+@.str.988 = private unnamed_addr constant [57 x i8] c"Everybody has a plan until they get punched in the mouth\00", align 1
+@.str.989 = private unnamed_addr constant [11 x i8] c"Mike Tyson\00", align 1
+@.str.990 = private unnamed_addr constant [24 x i8] c"Sacrifices must be made\00", align 1
+@.str.991 = private unnamed_addr constant [68 x i8] c"Otto Lilienthal, dying after having crashed with his glider in 1896\00", align 1
+@.str.992 = private unnamed_addr constant [47 x i8] c"The secret to getting ahead is getting started\00", align 1
+@.str.993 = private unnamed_addr constant [20 x i8] c"Water is just water\00", align 1
+@.str.994 = private unnamed_addr constant [38 x i8] c"GROMACS First : Making MD Great Again\00", align 1
+@.str.995 = private unnamed_addr constant [15 x i8] c"Vedran Miletic\00", align 1
+@.str.996 = private unnamed_addr constant [55 x i8] c"You still have to climb to the shoulders of the giants\00", align 1
+@.str.997 = private unnamed_addr constant [47 x i8] c"The road to openness is paved with git commits\00", align 1
+@.str.998 = private unnamed_addr constant [91 x i8] c"Performance and power are great targets for tuning, but really you want to tune for money!\00", align 1
+@.str.999 = private unnamed_addr constant [55 x i8] c"Here are all the 'gmx' tools... but no gmx writethesis\00", align 1
+@.str.1000 = private unnamed_addr constant [15 x i8] c"Christian Blau\00", align 1
+@.str.1001 = private unnamed_addr constant [59 x i8] c"The best part of winter in Stockholm is going to Australia\00", align 1
+@.str.1002 = private unnamed_addr constant [13 x i8] c"Mark Abraham\00", align 1
+@.str.1003 = private unnamed_addr constant [63 x i8] c"If you don't know what you're doing, use a (M)BAR-based method\00", align 1
+@.str.1004 = private unnamed_addr constant [43 x i8] c"All models are wrong, but some are useful.\00", align 1
+@.str.1005 = private unnamed_addr constant [11 x i8] c"George Box\00", align 1
+@.str.1006 = private unnamed_addr constant [71 x i8] c"If your experiment needs a statistician, you need a better experiment.\00", align 1
+@.str.1007 = private unnamed_addr constant [60 x i8] c"Facts are stubborn things, but statistics are more pliable.\00", align 1
+@.str.1008 = private unnamed_addr constant [15 x i8] c"Laurence Peter\00", align 1
+@.str.1009 = private unnamed_addr constant [74 x i8] c"In ancient times they had no statistics so they had to fall back on lies.\00", align 1
+@.str.1010 = private unnamed_addr constant [16 x i8] c"Stephen Leacock\00", align 1
+@.str.1011 = private unnamed_addr constant [101 x i8] c"If at first you don't succeed, try two more times so that your failure is statistically significant.\00", align 1
+@.str.1012 = private unnamed_addr constant [14 x i8] c"Dallas Warren\00", align 1
+@.str.1013 = private unnamed_addr constant [60 x i8] c"Your theory is crazy, but it's not crazy enough to be true.\00", align 1
+@.str.1014 = private unnamed_addr constant [91 x i8] c"Science may never come up with a better office communication system than the coffee break.\00", align 1
+@.str.1015 = private unnamed_addr constant [12 x i8] c"Earl Wilson\00", align 1
+@.str.1016 = private unnamed_addr constant [199 x i8] c"A scientific truth does not triumph by convincing its opponents and making them see the light, but rather because its opponents eventually die and a new generation grows up that is familiar with it.\00", align 1
+@.str.1017 = private unnamed_addr constant [11 x i8] c"Max Planck\00", align 1
+@.str.1018 = private unnamed_addr constant [79 x i8] c"Computer science is no more about computers than astronomy is about telescopes\00", align 1
+@.str.1019 = private unnamed_addr constant [16 x i8] c"Edsger Dijkstra\00", align 1
+@.str.1020 = private unnamed_addr constant [81 x i8] c"If we knew what it was we were doing, it would not be called research, would it?\00", align 1
+@.str.1021 = private unnamed_addr constant [63 x i8] c"I have not failed. I've just found 10,000 ways that won't work\00", align 1
+@.str.1022 = private unnamed_addr constant [19 x i8] c"Thomas Alva Edison\00", align 1
+@.str.1023 = private unnamed_addr constant [90 x i8] c"The public have an insatiable curiosity to know everything, except what is worth knowing.\00", align 1
+@.str.1024 = private unnamed_addr constant [83 x i8] c"Philosophy of science is about as useful to scientists as ornithology is to birds.\00", align 1
+@.str.1025 = private unnamed_addr constant [84 x i8] c"I had trouble with physics in college. When I signed up I thought it said psychics.\00", align 1
+@.str.1026 = private unnamed_addr constant [13 x i8] c"Greg Tamblyn\00", align 1
+@.str.1027 = private unnamed_addr constant [153 x i8] c"There's an old saying among scientific guys: \E2\80\9CYou can't make an omelet without breaking eggs, ideally by dropping a cement truck on them from a crane.\00", align 1
+@.str.1028 = private unnamed_addr constant [11 x i8] c"Dave Barry\00", align 1
+@.str.1029 = private unnamed_addr constant [131 x i8] c"Occams Razor is the scientific principle that, all things being equal, the simplest explanation is always the dog ate my homework.\00", align 1
+@.str.1030 = private unnamed_addr constant [115 x i8] c"When you get right down to it, almost every explanation Man came up with for anything until about 1926 was stupid.\00", align 1
+@.str.1031 = private unnamed_addr constant [147 x i8] c"We all understand the twinge of discomfort at the thought that we share a common ancestor with the apes. No one can embarrass you like a relative.\00", align 1
+@.str.1032 = private unnamed_addr constant [20 x i8] c"Neal DeGrasse Tyson\00", align 1
+@.str.1033 = private unnamed_addr constant [93 x i8] c"In physics, you don't have to go around making trouble for yourself. Nature does it for you.\00", align 1
+@.str.1034 = private unnamed_addr constant [14 x i8] c"Frank Wilczek\00", align 1
+@.str.1035 = private unnamed_addr constant [217 x i8] c"Every revolutionary idea seems to evoke three stages of reaction. They may be summed up by the phrases: (1) It's completely impossible. (2) It's possible, but not worth doing. (3) I said it was a good idea all along.\00", align 1
+@.str.1036 = private unnamed_addr constant [61 x i8] c"Computers are like humans - they do everything except think.\00", align 1
+@.str.1037 = private unnamed_addr constant [91 x i8] c"With four parameters I can fit an elephant, and with five I can make him wiggle his trunk.\00", align 1
+@.str.1038 = private unnamed_addr constant [104 x i8] c"Christianity may be OK between consenting adults in private but should not be taught to young children.\00", align 1
+@.str.1039 = private unnamed_addr constant [14 x i8] c"Francis Crick\00", align 1
+@.str.1040 = private unnamed_addr constant [85 x i8] c"All approaches at a higher level are suspect until confirmed at the molecular level.\00", align 1
+@.str.1041 = private unnamed_addr constant [45 x i8] c"We haven't the money, so we've got to think.\00", align 1
+@.str.1042 = private unnamed_addr constant [53 x i8] c"Furious activity is no substitute for understanding.\00", align 1
+@.str.1043 = private unnamed_addr constant [14 x i8] c"H.H. Williams\00", align 1
+@.str.1044 = private unnamed_addr constant [102 x i8] c"Discovery: A couple of months in the laboratory can frequently save a couple of hours in the library.\00", align 1
+@.str.1045 = private unnamed_addr constant [10 x i8] c"Anonymous\00", align 1
+@.str.1046 = private unnamed_addr constant [41 x i8] c"Never replicate a successful experiment.\00", align 1
+@.str.1047 = private unnamed_addr constant [12 x i8] c"Fett's law.\00", align 1
+@.str.1048 = private unnamed_addr constant [123 x i8] c"Raw data is like raw sewage, it requires some processing before it can be spread around. The opposite is true of theories.\00", align 1
+@.str.1049 = private unnamed_addr constant [9 x i8] c"Jim Carr\00", align 1
+@.str.1050 = private unnamed_addr constant [68 x i8] c"A university faculty is 500 egotists with a common parking problem.\00", align 1
+@.str.1051 = private unnamed_addr constant [15 x i8] c"Keith Sullivan\00", align 1
+@.str.1052 = private unnamed_addr constant [106 x i8] c"Studying expands knowledge. Knowledge is power. Power corrupts. Corruption is a crime. Crime doesn't pay.\00", align 1
+@.str.1053 = private unnamed_addr constant [54 x i8] c"A professor is one who talks in someone else's sleep.\00", align 1
+@.str.1054 = private unnamed_addr constant [11 x i8] c"W.H. Auden\00", align 1
+@.str.1055 = private unnamed_addr constant [40 x i8] c"A tidy laboratory means a lazy chemist.\00", align 1
+@.str.1056 = private unnamed_addr constant [15 x i8] c"J.J. Berzelius\00", align 1
+@.str.1057 = private unnamed_addr constant [31 x i8] c"Microbiology Lab - Staph Only.\00", align 1
+@.str.1058 = private unnamed_addr constant [155 x i8] c"I can't go to a restaurant and order food because I keep looking at the fonts on the menu. Five minutes later I realize that it's also talking about food.\00", align 1
+@.str.1059 = private unnamed_addr constant [91 x i8] c"Physics is like sex: sure, it may give some practical results, but that's not why we do it\00", align 1
+@.str.1060 = private unnamed_addr constant [19 x i8] c"Richard P. Feynman\00", align 1
+@.str.1061 = private unnamed_addr constant [114 x i8] c"Statistics: The only science that enables different experts using the same figures to draw different conclusions.\00", align 1
+@.str.1062 = private unnamed_addr constant [10 x i8] c"Evan Esar\00", align 1
+@.str.1063 = private unnamed_addr constant [73 x i8] c"If I could remember the names of all these particles, I'd be a botanist.\00", align 1
+@.str.1064 = private unnamed_addr constant [61 x i8] c"Science... never solves a problem without creating ten more.\00", align 1
+@.str.1065 = private unnamed_addr constant [20 x i8] c"George Bernard Shaw\00", align 1
+@.str.1066 = private unnamed_addr constant [89 x i8] c"A mathematician is a blind man in a dark room looking for a black cat which isn't there.\00", align 1
+@.str.1067 = private unnamed_addr constant [36 x i8] c"Nothing shocks me. I'm a scientist.\00", align 1
+@.str.1068 = private unnamed_addr constant [31 x i8] c"Harrison Ford as Indiana Jones\00", align 1
+@.str.1069 = private unnamed_addr constant [48 x i8] c"There is an infinite set A that is not too big.\00", align 1
+@.str.1070 = private unnamed_addr constant [54 x i8] c"If it's all right with Dirac, it's all right with me.\00", align 1
+@.str.1071 = private unnamed_addr constant [106 x i8] c"Enrico Fermi, on being told that there was experimental evidence He-3 nuclei obey Fermi-Dirac statistics.\00", align 1
+@.str.1072 = private unnamed_addr constant [55 x i8] c"I cannot think of a single one, not even intelligence.\00", align 1
+@.str.1073 = private unnamed_addr constant [85 x i8] c"Enrico Fermi, when asked what characteristics physics Nobel laureates had in common.\00", align 1
+@.str.1074 = private unnamed_addr constant [49 x i8] c"Heavier-than-air flying machines are impossible.\00", align 1
+@.str.1075 = private unnamed_addr constant [47 x i8] c"Lord Kelvin, President of Royal Society, 1895.\00", align 1
+@.str.1076 = private unnamed_addr constant [76 x i8] c"All that glitters may not be gold, but at least it contains free electrons.\00", align 1
+@.str.1077 = private unnamed_addr constant [21 x i8] c"John Desmond Baernal\00", align 1
+@.str.1078 = private unnamed_addr constant [136 x i8] c"It is disconcerting to reflect on the number of students we have flunked in chemistry for not knowing what we later found to be untrue.\00", align 1
+@.str.1079 = private unnamed_addr constant [16 x i8] c"Robert L. Weber\00", align 1
+@.str.1080 = private unnamed_addr constant [41 x i8] c"People are DNA's way of making more DNA.\00", align 1
+@.str.1081 = private unnamed_addr constant [17 x i8] c"Edward O. Wilson\00", align 1
+@.str.1082 = private unnamed_addr constant [67 x i8] c"The best model of a cat is another cat..., specially the same cat.\00", align 1
+@.str.1083 = private unnamed_addr constant [19 x i8] c"Arturo Rosenblueth\00", align 1
+@.str.1084 = private unnamed_addr constant [48 x i8] c"Computer dating is fine, if you are a computer.\00", align 1
+@.str.1085 = private unnamed_addr constant [15 x i8] c"Rita May Brown\00", align 1
+@.str.1086 = private unnamed_addr constant [162 x i8] c"The most likely way for the world to be destroyed, most experts agree, is by accident. That's where we come in; we're computer professionals. We cause accidents.\00", align 1
+@.str.1087 = private unnamed_addr constant [21 x i8] c"Nathaniel Borenstein\00", align 1
+@.str.1088 = private unnamed_addr constant [78 x i8] c"An intellectual is someone who has found something more interesting than sex.\00", align 1
+@.str.1089 = private unnamed_addr constant [14 x i8] c"Edgar Wallace\00", align 1
+@.str.1090 = private unnamed_addr constant [72 x i8] c"Base eight is just like base ten really, if you're missing two fingers.\00", align 1
+@.str.1091 = private unnamed_addr constant [11 x i8] c"Tom Lehrer\00", align 1
+@.str.1092 = private unnamed_addr constant [234 x i8] c"If 10 years from now, when you are doing something quick and dirty, you suddenly visualize that I am looking over your shoulders and say to yourself: 'Dijkstra would not have liked this', well that would be enough immortality for me.\00", align 1
+@.str.1093 = private unnamed_addr constant [74 x i8] c"Memory is like an orgasm. It's a lot better if you don't have to fake it.\00", align 1
+@.str.1094 = private unnamed_addr constant [32 x i8] c"Seymour Cray, on virtual memory\00", align 1
+@.str.1095 = private unnamed_addr constant [77 x i8] c"A computer once beat me at chess, but it was no match for me at kick boxing.\00", align 1
+@.str.1096 = private unnamed_addr constant [12 x i8] c"Emo Philips\00", align 1
+@.str.1097 = private unnamed_addr constant [133 x i8] c"Home computers are being called upon to perform many new functions, including the consumption of homework formerly eaten by the dog.\00", align 1
+@.str.1098 = private unnamed_addr constant [12 x i8] c"Doug Larson\00", align 1
+@.str.1099 = private unnamed_addr constant [95 x i8] c"Forcefields are like dating; things go fine for a while and then sometimes it goes really bad.\00", align 1
+@.str.1100 = private unnamed_addr constant [15 x i8] c"Alex MacKerell\00", align 1
+@.str.1101 = private unnamed_addr constant [80 x i8] c"This type of advanced sampling techniques... which are not so advanced, really.\00", align 1
+@.str.1102 = private unnamed_addr constant [47 x i8] c"Viveca Lindahl, on AWH, at her thesis defense.\00", align 1
+@.str.1103 = private unnamed_addr constant [71 x i8] c"C++ is tricky. You can do everything. You can even make every mistake.\00", align 1
+@.str.1104 = private unnamed_addr constant [29 x i8] c"Nicolai Josuttis, CppCon2017\00", align 1
+@.str.1105 = private unnamed_addr constant [59 x i8] c"Why would the backup server database get corrupted anyway?\00", align 1
+@.str.1106 = private unnamed_addr constant [65 x i8] c"Stefan Fleischmann -- system administrator, physicist, optimist.\00", align 1
+@.str.1107 = private unnamed_addr constant [74 x i8] c"Teaching quantum computing is like teaching computer science at Hogwarts.\00", align 1
+@.str.1108 = private unnamed_addr constant [33 x i8] c"Thomas Sterling, ISC2018 keynote\00", align 1
+@.str.1109 = private unnamed_addr constant [135 x i8] c"It is unfortunate that the authors did not make better use of all the electric power energy that went into these massive computations.\00", align 1
+@.str.1110 = private unnamed_addr constant [21 x i8] c"An anonymous referee\00", align 1
+@.str.1111 = private unnamed_addr constant [90 x i8] c"Doctor, doctor, it hurts when I hit myself in the head with the hammer! - So don't do it!\00", align 1
+@.str.1112 = private unnamed_addr constant [32 x i8] c"Bjarne Stroustrup at CppCon2015\00", align 1
+@.str.1113 = private unnamed_addr constant [28 x i8] c"This is extremely unlikely.\00", align 1
+@.str.1114 = private unnamed_addr constant [37 x i8] c"Nothing is more anarchic than power.\00", align 1
+@.str.1115 = private unnamed_addr constant [20 x i8] c"Pier Paolo Pasolini\00", align 1
+@.str.1116 = private unnamed_addr constant [79 x i8] c"Never attribute to malice that which can be adequately explained by stupidity.\00", align 1
+@.str.1117 = private unnamed_addr constant [14 x i8] c"Robert Hanlon\00", align 1
+@.str.1118 = private unnamed_addr constant [111 x i8] c"Developing the AI requires the work of a data scientist, and most of them understand neither data nor science.\00", align 1
+@.str.1119 = private unnamed_addr constant [14 x i8] c"Scott LeGrand\00", align 1
+@.str.1120 = private unnamed_addr constant [93 x i8] c"Before we work on artificial intelligence why don't we do something about natural stupidity?\00", align 1
+@.str.1121 = private unnamed_addr constant [13 x i8] c"Steve Polyak\00", align 1
+@.str.1122 = private unnamed_addr constant [63 x i8] c"If it weren't for C, we'd all be programming in BASI and OBOL.\00", align 1
+@.str.1123 = private unnamed_addr constant [93 x i8] c"Why is it that programmers always confuse Halloween with Christmas? Because 31 OCT = 25 DEC.\00", align 1
+@.str.1124 = private unnamed_addr constant [76 x i8] c"I'm not interrupting you, I'm putting our conversation in full-duplex mode.\00", align 1
+@.str.1125 = private unnamed_addr constant [14 x i8] c"Antone Roundy\00", align 1
+@.str.1126 = private unnamed_addr constant [115 x i8] c"The programmer got stuck in the shower because the instructions on the shampoo bottle said: Lather, Rinse, Repeat.\00", align 1
+@.str.1127 = private unnamed_addr constant [112 x i8] c"A programmer's spouse says 'While you're at the grocery store, buy some eggs.' The programmer never comes back.\00", align 1
+@.str.1128 = private unnamed_addr constant [69 x i8] c"What is a Unix or Linux sysadmin's favourite hangout place? Foo Bar.\00", align 1
+@.str.1129 = private unnamed_addr constant [92 x i8] c"If you have any trouble sounding condescending, find a UNIX user to show you how it's done.\00", align 1
+@.str.1130 = private unnamed_addr constant [32 x i8] c"Scott Adams, Dilbert Cartoonist\00", align 1
+@.str.1131 = private unnamed_addr constant [25 x i8] c"There is no place like ~\00", align 1
+@.str.1132 = private unnamed_addr constant [23 x i8] c"Thou shalt not kill -9\00", align 1
+@.str.1133 = private unnamed_addr constant [55 x i8] c"printf(\22%d is the year of the linux desktop\22, year+1);\00", align 1
+@.str.1134 = private unnamed_addr constant [101 x i8] c"The use of COBOL cripples the mind; its teaching should therefore be regarded as a criminal offense.\00", align 1
+@.str.1135 = private unnamed_addr constant [107 x i8] c"Computer system analysis is like child-rearing; you can do grievous damage, but you cannot ensure success.\00", align 1
+@.str.1136 = private unnamed_addr constant [13 x i8] c"Tom DeMarcho\00", align 1
+@.str.1137 = private unnamed_addr constant [165 x i8] c"PHP is a minor evil perpetrated and created by incompetent amateurs, whereas Perl is a great and insidious evil, perpetrated by skilled but perverted professionals.\00", align 1
+@.str.1138 = private unnamed_addr constant [12 x i8] c"Jon Ribbens\00", align 1
+@.str.1139 = private unnamed_addr constant [32 x i8] c"C is not a high-level language.\00", align 1
+@.str.1140 = private unnamed_addr constant [26 x i8] c"Brian Kernighan, C author\00", align 1
+@.str.1141 = private unnamed_addr constant [76 x i8] c"I will not be a lemming and follow the crowd over the cliff and into the C.\00", align 1
+@.str.1142 = private unnamed_addr constant [13 x i8] c"John Beidler\00", align 1
+@.str.1143 = private unnamed_addr constant [46 x i8] c"C is quirky, flawed, and an enormous success.\00", align 1
+@.str.1144 = private unnamed_addr constant [25 x i8] c"Dennis Ritchie, C author\00", align 1
+@.str.1145 = private unnamed_addr constant [89 x i8] c"A C program is like a fast dance on a newly waxed dance floor by people carrying razors.\00", align 1
+@.str.1146 = private unnamed_addr constant [13 x i8] c"Waldi Ravens\00", align 1
+@.str.1147 = private unnamed_addr constant [72 x i8] c"Fifty years of programming language research, and we end up with C++???\00", align 1
+@.str.1148 = private unnamed_addr constant [16 x i8] c"Richard O'Keefe\00", align 1
+@.str.1149 = private unnamed_addr constant [142 x i8] c"Quite frankly, even if the choice of C were to do *nothing* but keep the C++ programmers out, that in itself would be a huge reason to use C.\00", align 1
+@.str.1150 = private unnamed_addr constant [163 x i8] c"Considering the current sad state of our computer programs, software development is clearly still a black art, and cannot yet be called an engineering discipline.\00", align 1
+@.str.1151 = private unnamed_addr constant [26 x i8] c"William Jefferson Clinton\00", align 1
+@.str.1152 = private unnamed_addr constant [175 x i8] c"I am rarely happier than when spending an entire day programming my computer to perform automatically a task that it would otherwise take me a good ten seconds to do by hand.\00", align 1
+@.str.1153 = private unnamed_addr constant [32 x i8] c"#define QUESTION ((bb),| !(bb))\00", align 1
+@.str.1154 = private unnamed_addr constant [20 x i8] c"William Shakespeare\00", align 1
+@.str.1155 = private unnamed_addr constant [61 x i8] c"I didn't know what MD was. I think I've managed to catch up.\00", align 1
+@.str.1156 = private unnamed_addr constant [83 x i8] c"Teemu [Murtola] keeps beating our code, but that's fine because he's always right.\00", align 1
+@.str.1157 = private unnamed_addr constant [92 x i8] c"Schr\C3\B6dinger's backup: The condition of any backup is unknown until a restore is attempted.\00", align 1
+@.str.1158 = private unnamed_addr constant [44 x i8] c"Don't waste pure thoughts on dirty enzymes.\00", align 1
+@.str.1159 = private unnamed_addr constant [14 x i8] c"Efraim Racker\00", align 1
+@.str.1160 = private unnamed_addr constant [96 x i8] c"I like single-molecule experiments because I hate to simulate 10^23 molecules at the same time.\00", align 1
+@.str.1161 = private unnamed_addr constant [19 x i8] c"Helmut Grubm\C3\BCller\00", align 1
+@.str.1162 = private unnamed_addr constant [67 x i8] c"I wanted to make a clever chemistry joke, but the best ones Argon.\00", align 1
+@.str.1163 = private unnamed_addr constant [7 x i8] c"39.948\00", align 1
+@.str.1164 = private unnamed_addr constant [75 x i8] c"Not to get technical... but according to chemistry, alcohol is a solution.\00", align 1
+@.str.1165 = private unnamed_addr constant [211 x i8] c"The physical chemists never use their eyes and are most lamentably lacking in chemical culture. It is essential to cast out from our midst, root and branch, this physical element and return to our laboratories.\00", align 1
+@.str.1166 = private unnamed_addr constant [23 x i8] c"Henry Edward Armstrong\00", align 1
+@.str.1167 = private unnamed_addr constant [157 x i8] c"Time is the best appraiser of scientific work, and I am aware that an industrial discovery rarely produces all its fruit in the hands of its first inventor.\00", align 1
+@.str.1168 = private unnamed_addr constant [179 x i8] c"Still I had a lurking question. Would it not be better if one could really 'see' whether molecules as complicated as the sterols, or strychnine were just as experiment suggested?\00", align 1
+@.str.1169 = private unnamed_addr constant [16 x i8] c"Dorothy Hodgkin\00", align 1
+@.str.1170 = private unnamed_addr constant [119 x i8] c"We think there is color, we think there is sweet, we think there is bitter, but in reality there are atoms and a void.\00", align 1
+@.str.1171 = private unnamed_addr constant [11 x i8] c"Democritus\00", align 1
+@.str.1172 = private unnamed_addr constant [217 x i8] c"A cop pulls Heisenberg over and asks him 'Do you know how fast you were going?' Heisenberg replies 'No, but I know exactly where I am'. The cop says 'You were doing 55 in a 35 zone'. Heisenberg: 'Great! Now I'm lost!\00", align 1
+@.str.1173 = private unnamed_addr constant [130 x i8] c"Two chemists walk into a bar. The first one says, 'I'll have some H2O.'. The second one says, 'I'll have some H2O, too'. He dies.\00", align 1
+@.str.1174 = private unnamed_addr constant [110 x i8] c"There are only two hard things in computer science - cache invalidation, naming things and off-by-one errors.\00", align 1
+@.str.1175 = private unnamed_addr constant [125 x i8] c"Science, for me, gives a partial explanation for life. In so far as it goes, it is based on fact, experience and experiment.\00", align 1
+@.str.1176 = private unnamed_addr constant [18 x i8] c"Rosalind Franklin\00", align 1
+@.str.1177 = private unnamed_addr constant [66 x i8] c"I was taught that the way of progress was neither swift nor easy.\00", align 1
+@.str.1178 = private unnamed_addr constant [59 x i8] c"Life need not be easy, provided only that it is not empty.\00", align 1
+@.str.1179 = private unnamed_addr constant [13 x i8] c"Lise Meitner\00", align 1
+@.str.1180 = private unnamed_addr constant [56 x i8] c"We ignore public understanding of science at our peril.\00", align 1
+@.str.1181 = private unnamed_addr constant [14 x i8] c"Eugenie Clark\00", align 1
+@.str.1182 = private unnamed_addr constant [93 x i8] c"All sorts of things can happen when you're open to new ideas and playing around with things.\00", align 1
+@.str.1183 = private unnamed_addr constant [37 x i8] c"Stephanie Kwolek, inventor of Kevlar\00", align 1
+@.str.1184 = private unnamed_addr constant [73 x i8] c"As always in life, people want a simple answer... and it's always wrong.\00", align 1
+@.str.1185 = private unnamed_addr constant [11 x i8] c"Marie Daly\00", align 1
+@.str.1186 = private unnamed_addr constant [255 x i8] c"For a research worker the unforgotten moments of his life are those rare ones which come after years of plodding work, when the veil over natures secret seems suddenly to lift & when what was dark & chaotic appears in a clear & beautiful light & pattern.\00", align 1
+@.str.1187 = private unnamed_addr constant [11 x i8] c"Gerty Cori\00", align 1
+@.str.1188 = private unnamed_addr constant [145 x i8] c"The more clearly we can focus our attention on the wonders and realities of the universe about us, the less taste we shall have for destruction.\00", align 1
+@.str.1189 = private unnamed_addr constant [14 x i8] c"Rachel Carson\00", align 1
+@.str.1190 = private unnamed_addr constant [97 x i8] c"I didn't want to just know names of things. I remember really wanting to know how it all worked.\00", align 1
+@.str.1191 = private unnamed_addr constant [20 x i8] c"Elizabeth Blackburn\00", align 1
+@.str.1192 = private unnamed_addr constant [122 x i8] c"Science is not a boy's game, it's not a girl's game. It's everyone's game. It's about where we are and where we're going.\00", align 1
+@.str.1193 = private unnamed_addr constant [17 x i8] c"Nichelle Nichols\00", align 1
+@.str.1194 = private unnamed_addr constant [131 x i8] c"If you know you are on the right track, if you have this inner knowledge, then nobody can turn you off... no matter what they say.\00", align 1
+@.str.1195 = private unnamed_addr constant [62 x i8] c"Science and everyday life cannot and should not be separated.\00", align 1
+@.str.1196 = private unnamed_addr constant [89 x i8] c"I hadn't been aware that there were doors closed to me until I started knocking on them.\00", align 1
+@.str.1197 = private unnamed_addr constant [169 x i8] c"Humans are allergic to change. They love to say, 'We've always done it this way.' I try to fight that. That's why I have a clock on my wall that runs counter-clockwise.\00", align 1
+@.str.1198 = private unnamed_addr constant [13 x i8] c"Grace Hopper\00", align 1
+@.str.1199 = private unnamed_addr constant [59 x i8] c"Be less curious about people and more curious about ideas.\00", align 1
+@.str.1200 = private unnamed_addr constant [210 x i8] c"I was a bit of an artist, and somewhere along the way had gotten the idea that computers could be used for animation and artists, because in-betweening was so tedious... Of course, everyone thought I was nuts.\00", align 1
+@.str.1201 = private unnamed_addr constant [31 x i8] c"Carla Meninsky, Atari engineer\00", align 1
+@.str.1202 = private unnamed_addr constant [122 x i8] c"I think it's very important to get more women into computing. My slogan is: Computing is too important to be left to men.\00", align 1
+@.str.1203 = private unnamed_addr constant [12 x i8] c"Karen Jones\00", align 1
+@.str.1204 = private unnamed_addr constant [133 x i8] c"There is only one thing worse than coming home from the lab to a sink full of dirty dishes, and that is not going to the lab at all!\00", align 1
+@.str.1205 = private unnamed_addr constant [16 x i8] c"Chien-Shiung Wu\00", align 1
+@.str.1206 = private unnamed_addr constant [115 x i8] c"They never asked me to go back over (my calculations) because when I did it, I had done my best, and it was right.\00", align 1
+@.str.1207 = private unnamed_addr constant [47 x i8] c"Kathrine Jonson (legendary NASA mathematician)\00", align 1
+@.str.1208 = private unnamed_addr constant [71 x i8] c"Science is a way of thinking much more than it is a body of knowledge.\00", align 1
+@.str.1209 = private unnamed_addr constant [58 x i8] c"Science is organized knowledge. Wisdom is organized life.\00", align 1
+@.str.1210 = private unnamed_addr constant [14 x i8] c"Immanuel Kant\00", align 1
+@.str.1211 = private unnamed_addr constant [58 x i8] c"Everything is theoretically impossible, until it is done.\00", align 1
+@.str.1212 = private unnamed_addr constant [16 x i8] c"Robert Heinlein\00", align 1
+@.str.1213 = private unnamed_addr constant [86 x i8] c"Bad times have a scientific value. These are occasions a good learner would not miss.\00", align 1
+@.str.1214 = private unnamed_addr constant [98 x i8] c"The scientist is not a person who gives the right answers, he's one who asks the right questions.\00", align 1
+@.str.1215 = private unnamed_addr constant [50 x i8] c"Rockets are cool. There's no getting around that.\00", align 1
+@.str.1216 = private unnamed_addr constant [10 x i8] c"Elon Musk\00", align 1
+@.str.1217 = private unnamed_addr constant [42 x i8] c"Life would be tragic if it weren't funny.\00", align 1
+@.str.1218 = private unnamed_addr constant [16 x i8] c"Stephen Hawking\00", align 1
+@.str.1219 = private unnamed_addr constant [56 x i8] c"Somewhere, something incredible is waiting to be known.\00", align 1
+@.str.1220 = private unnamed_addr constant [170 x i8] c"I am driven by two main philosophies: know more today about the world than I knew yesterday and lessen the suffering of others. You'd be surprised how far that gets you.\00", align 1
+@.str.1221 = private unnamed_addr constant [20 x i8] c"Neil deGrasse Tyson\00", align 1
+@.str.1222 = private unnamed_addr constant [114 x i8] c"Your assumptions are your windows on the world. Scrub them off every once in a while, or the light won't come in.\00", align 1
+@.str.1223 = private unnamed_addr constant [63 x i8] c"Religion is a culture of faith; science is a culture of doubt.\00", align 1
+@.str.1224 = private unnamed_addr constant [68 x i8] c"Millions saw the apple fall, Newton was the only one who asked why?\00", align 1
+@.str.1225 = private unnamed_addr constant [15 x i8] c"Bernard Baruch\00", align 1
+@.str.1226 = private unnamed_addr constant [84 x i8] c"If you thought that science was certain - well, that is just an error on your part.\00", align 1
+@.str.1227 = private unnamed_addr constant [74 x i8] c"When my information changes, I alter my conclusions. What do you do, sir?\00", align 1
+@.str.1228 = private unnamed_addr constant [20 x i8] c"John Maynard Keynes\00", align 1
+@.str.1229 = private unnamed_addr constant [101 x i8] c"The aim of science is not to open the door to infinite wisdom, but to set a limit to infinite error.\00", align 1
+@.str.1230 = private unnamed_addr constant [32 x i8] c"Bertolt Brecht, Life of Galileo\00", align 1
+@.str.1231 = private unnamed_addr constant [47 x i8] c"As we all know, blinking lights means science.\00", align 1
+@.str.1232 = private unnamed_addr constant [12 x i8] c"Joss Whedon\00", align 1
+@.str.1233 = private unnamed_addr constant [62 x i8] c"But in my opinion, all things in nature occur mathematically.\00", align 1
+@.str.1234 = private unnamed_addr constant [14 x i8] c"Rene Decartes\00", align 1
+@.str.1235 = private unnamed_addr constant [228 x i8] c"A weed scientist goes into a shop. He asks: 'Hey, you got any of that inhibitor of 3-phosphoshikimate-carboxyvinyl transferase?' Shopkeeper: 'You mean Roundup?' Scientist: 'Yeah, that's it. I can never remember that dang name!'\00", align 1
+@.str.1236 = private unnamed_addr constant [13 x i8] c"John Pickett\00", align 1
+@.str.1237 = private unnamed_addr constant [68 x i8] c"It is not clear that intelligence has any long-term survival value.\00", align 1
+@.str.1238 = private unnamed_addr constant [100 x i8] c"The greatest shortcoming of the human race is our inability to understand the exponential function.\00", align 1
+@.str.1239 = private unnamed_addr constant [16 x i8] c"Albert Bartlett\00", align 1
+@.str.1240 = private unnamed_addr constant [174 x i8] c"You can get into a habit of thought in which you enjoy making fun of all those other people who don't see things as clearly as you do. We have to guard carefully against it.\00", align 1
+@.str.1241 = private unnamed_addr constant [103 x i8] c"I have no responsibility to live up to what others expect of me. That's their mistake, not my failing.\00", align 1
+@.str.1242 = private unnamed_addr constant [64 x i8] c"Highly organized research is guaranteed to produce nothing new.\00", align 1
+@.str.1243 = private unnamed_addr constant [14 x i8] c"Frank Herbert\00", align 1
+@.str.1244 = private unnamed_addr constant [64 x i8] c"Those who cannot remember the past are condemned to compute it.\00", align 1
+@.str.1245 = private unnamed_addr constant [13 x i8] c"Steve Pinker\00", align 1
+@.str.1246 = private unnamed_addr constant [73 x i8] c"If a rat is a good model for your emotional life, you're in big trouble.\00", align 1
+@.str.1247 = private unnamed_addr constant [16 x i8] c"Robert Sapolsky\00", align 1
+@.str.1248 = private unnamed_addr constant [141 x i8] c"I don't know how many of you have ever met Dijkstra, but you probably know that arrogance in computer science is measured in nano-Dijkstras.\00", align 1
+@.str.1249 = private unnamed_addr constant [9 x i8] c"Alan Kay\00", align 1
+@.str.1250 = private unnamed_addr constant [118 x i8] c"NASA spent millions of dollars inventing the ball-point pen so they could write in space. The Russians took a pencil.\00", align 1
+@.str.1251 = private unnamed_addr constant [12 x i8] c"Will Chabot\00", align 1
+@.str.1252 = private unnamed_addr constant [64 x i8] c"By denying scientific principles, one may maintain any paradox.\00", align 1
+@.str.1253 = private unnamed_addr constant [16 x i8] c"Galileo Galilei\00", align 1
+@.str.1254 = private unnamed_addr constant [30 x i8] c"Perfect is the enemy of good.\00", align 1
+@.str.1255 = private unnamed_addr constant [9 x i8] c"Voltaire\00", align 1
+@.str.1256 = private unnamed_addr constant [53 x i8] c"Men love to wonder, and that is the seed of science.\00", align 1
+@.str.1257 = private unnamed_addr constant [70 x i8] c"In mathematics you don't understand things, you just get used to them\00", align 1
+@.str.1258 = private unnamed_addr constant [70 x i8] c"A real scientist solves problems, not wails that they are unsolvable.\00", align 1
+@.str.1259 = private unnamed_addr constant [15 x i8] c"Anne McCaffrey\00", align 1
+@.str.1260 = private unnamed_addr constant [80 x i8] c"Science progresses best when observations force us to alter our preconceptions.\00", align 1
+@.str.1261 = private unnamed_addr constant [11 x i8] c"Vera Rubin\00", align 1
+@.str.1262 = private unnamed_addr constant [120 x i8] c"Our two greatest problems are gravity and paper work. We can lick gravity, but sometimes the paperwork is overwhelming.\00", align 1
+@.str.1263 = private unnamed_addr constant [89 x i8] c"I have had my results for a long time, but I do not yet know how I am to arrive at them.\00", align 1
+@.str.1264 = private unnamed_addr constant [21 x i8] c"Carl Friedrich Gauss\00", align 1
+@.str.1265 = private unnamed_addr constant [73 x i8] c"The difficulty lies, not in the new ideas, but in escaping the old ones.\00", align 1
+@.str.1266 = private unnamed_addr constant [51 x i8] c"The way to succeed is to double your failure rate.\00", align 1
+@.str.1267 = private unnamed_addr constant [17 x i8] c"Thomas J. Watson\00", align 1
+@.str.1268 = private unnamed_addr constant [93 x i8] c"We are continually faced by great opportunities brilliantly disguised as insoluble problems.\00", align 1
+@.str.1269 = private unnamed_addr constant [12 x i8] c"Lee Iacocca\00", align 1
+@.str.1270 = private unnamed_addr constant [89 x i8] c"Mathematics is a game played according to certain rules with meaningless marks on paper.\00", align 1
+@.str.1271 = private unnamed_addr constant [14 x i8] c"David Hilbert\00", align 1
+@.str.1272 = private unnamed_addr constant [62 x i8] c"Mathematics is no more computation than typing is literature.\00", align 1
+@.str.1273 = private unnamed_addr constant [18 x i8] c"John Allen Paulos\00", align 1
+@.str.1274 = private unnamed_addr constant [69 x i8] c"Mathematics is like love; a simple idea, but it can get complicated.\00", align 1
+@.str.1275 = private unnamed_addr constant [47 x i8] c"I had a polynomial once. My doctor removed it.\00", align 1
+@.str.1276 = private unnamed_addr constant [14 x i8] c"Michael Grant\00", align 1
+@.str.1277 = private unnamed_addr constant [103 x i8] c"Since the mathematicians have invaded the theory of relativity I do not understand it myself any more.\00", align 1
+@.str.1278 = private unnamed_addr constant [118 x i8] c"I couldn't claim that I was smarter than sixty-five other guys - but the average of sixty-five other guys, certainly!\00", align 1
+@.str.1279 = private unnamed_addr constant [52 x i8] c"Your Excellency, I have no need of this hypothesis.\00", align 1
+@.str.1280 = private unnamed_addr constant [92 x i8] c"Pierre Laplace, to Napoleon on why his works on celestial mechanics make no mention of God.\00", align 1
+@.str.1281 = private unnamed_addr constant [59 x i8] c"The sign of wisdom is to have more questions than answers.\00", align 1
+@.str.1282 = private unnamed_addr constant [15 x i8] c"Abhijit Naskar\00", align 1
+@.str.1283 = private unnamed_addr constant [64 x i8] c"Stupidity got us into this mess, and stupidity will get us out.\00", align 1
+@.str.1284 = private unnamed_addr constant [42 x i8] c"Trying is the first step towards failure.\00", align 1
+@.str.1285 = private unnamed_addr constant [145 x i8] c"Same sex marriage is not a gay privilege, it's equal rights. Privilege would be something like gay people not paying taxes. Like churches don't.\00", align 1
+@.str.1286 = private unnamed_addr constant [14 x i8] c"Ricky Gervais\00", align 1
+@.str.1287 = private unnamed_addr constant [66 x i8] c"Remember, being healthy is basically dying as slowly as possible.\00", align 1
+@.str.1288 = private unnamed_addr constant [43 x i8] c"Pain is inevitable. Suffering is optional.\00", align 1
+@.str.1289 = private unnamed_addr constant [16 x i8] c"Haruki Murakami\00", align 1
+@.str.1290 = private unnamed_addr constant [172 x i8] c"Aristotle maintained that women have fewer teeth than men; although he was twice married, it never occurred to him to verify this statement by examining his wives' mouths.\00", align 1
+@.str.1291 = private unnamed_addr constant [17 x i8] c"Bertrand Russell\00", align 1
+@.str.1292 = private unnamed_addr constant [69 x i8] c"I don't believe in astrology; I'm a Sagittarian and we're skeptical.\00", align 1
+@.str.1293 = private unnamed_addr constant [116 x i8] c"I see they found out the universe is 80 million years older than we thought. It's also been lying about its weight.\00", align 1
+@.str.1294 = private unnamed_addr constant [11 x i8] c"Bill Maher\00", align 1
+@.str.1295 = private unnamed_addr constant [61 x i8] c"Do you have mole problems? If so, call Avogadro at 602-1023.\00", align 1
+@.str.1296 = private unnamed_addr constant [9 x i8] c"Jay Leno\00", align 1
+@.str.1297 = private unnamed_addr constant [46 x i8] c"Marie, you're looking more radiant every day!\00", align 1
+@.str.1298 = private unnamed_addr constant [13 x i8] c"Pierre Curie\00", align 1
+@.str.1299 = private unnamed_addr constant [95 x i8] c"I don't want to achieve immortality through my work... I want to achieve it through not dying!\00", align 1
+@.str.1300 = private unnamed_addr constant [150 x i8] c"Well, I am a dilettante. It's only in England that dilettantism is considered a bad thing. In other countries it's called interdisciplinary research.\00", align 1
+@.str.1301 = private unnamed_addr constant [10 x i8] c"Brian Eno\00", align 1
+@.str.1302 = private unnamed_addr constant [33 x i8] c"I think it would be a good idea.\00", align 1
+@.str.1303 = private unnamed_addr constant [67 x i8] c"Mahatma Gandhi, when asked what he thought of Western civilization\00", align 1
+@.str.1304 = private unnamed_addr constant [61 x i8] c"Nobody ever complained a seminar was too easy to understand.\00", align 1
+@.str.1305 = private unnamed_addr constant [9 x i8] c"Ken Dill\00", align 1
+@.str.1306 = private unnamed_addr constant [93 x i8] c"Academia is kind of like applied Marxism. The workers really do own the means of production.\00", align 1
+@.str.1307 = private unnamed_addr constant [16 x i8] c"Niklas Blomberg\00", align 1
+@.str.1308 = private unnamed_addr constant [150 x i8] c"The Lord of the Rings can be confusing to follow because many of the bad minions look and sound familiar; that's why Tolkien gave them each an ORCid.\00", align 1
+@.str.1309 = private unnamed_addr constant [17 x i8] c"Caroline Bartman\00", align 1
+@.str.1310 = private unnamed_addr constant [238 x i8] c"Mendeleev's first attempt, the perfluoric table, was a total disaster, and his subsequent attempts, the perchloric and perbromic tables, were not favorably received. Only his fourth attempt, the periodic table, gained general acceptance.\00", align 1
+@.str.1311 = private unnamed_addr constant [43 x i8] c"Don\E2\80\99t bring an anecdote to a data fight.\00", align 1
+@.str.1312 = private unnamed_addr constant [14 x i8] c"Molly Hodgdon\00", align 1
+@.str.1313 = private unnamed_addr constant [116 x i8] c"Give someone a program, you frustrate them for a day; teach them how to program, you frustrate them for a lifetime.\00", align 1
+@.str.1314 = private unnamed_addr constant [16 x i8] c"David Leinweber\00", align 1
+@.str.1315 = private unnamed_addr constant [29 x i8] c"Or (horrors!) use Berendsen!\00", align 1
+@.str.1316 = private unnamed_addr constant [63 x i8] c"The absence of real intelligence doesn't prove you're using AI\00", align 1
+@.str.1317 = private unnamed_addr constant [16 x i8] c"Magnus Lundborg\00", align 1
+@.str.1318 = private unnamed_addr constant [72 x i8] c"People who do QM/MM must be rather patient and enjoy quality over speed\00", align 1
+@.str.1319 = private unnamed_addr constant [24 x i8] c"Kresten Lindorff-Larsen\00", align 1
+@.str.1320 = private unnamed_addr constant [51 x i8] c"I don\E2\80\99t think we\E2\80\99re afraid of inline assembly.\00", align 1
+@.str.1321 = private unnamed_addr constant [205 x i8] c"I'm a strong believer that ignorance is important in science. If you know too much, you start seeing reasons why things won't work. That's why its important to change your field to collect more ignorance.\00", align 1
+@.str.1322 = private unnamed_addr constant [15 x i8] c"Sydney Brenner\00", align 1
+@.str.1323 = private unnamed_addr constant [50 x i8] c"It's more useful when you know what you're doing.\00", align 1
+@.str.1324 = private unnamed_addr constant [14 x i8] c"Artem Zhmurov\00", align 1
+@.str.1325 = private unnamed_addr constant [204 x i8] c"I have noticed a large, negative correlation between having a well-defined mission workload and concern for the Top500. It's almost like LINPACK is what you focus on when you don't know what to focus on.\00", align 1
+@.str.1326 = private unnamed_addr constant [13 x i8] c"Jeff Hammond\00", align 1
+@.str.1327 = private unnamed_addr constant [37 x i8] c"Between equal rights, force decides.\00", align 1
+@.str.1328 = private unnamed_addr constant [10 x i8] c"Karl Marx\00", align 1
+@.str.1329 = private unnamed_addr constant [102 x i8] c"To dissimulate is to feign not to have what one has. To simulate is to feign to have what one hasn't.\00", align 1
+@.str.1330 = private unnamed_addr constant [17 x i8] c"Jean Baudrillard\00", align 1
+@.str.1331 = private unnamed_addr constant [191 x i8] c"Install our Free Energy Patents app! There is energy all around us; and it's free! Free energy is everywhere, and all around you, just waiting to be extracted! Over 100+ free energy patents!\00", align 1
+@.str.1332 = private unnamed_addr constant [63 x i8] c"Mind and Miracle Productions on Twitter, spamming a FEP thread\00", align 1
+@.str.1333 = private unnamed_addr constant [208 x i8] c"\22A slow sort of country!\22 said the Queen. \22Now, HERE, you see, it takes all the running YOU can do, to keep in the same place. If you want to get somewhere else, you must run at least twice as fast as that!\22\00", align 1
+@.str.1334 = private unnamed_addr constant [14 x i8] c"Lewis Carroll\00", align 1
+@.str.1335 = private unnamed_addr constant [132 x i8] c"More than 10000000 total errors detected.  I'm not reporting any more. Final error counts will be inaccurate.  Go fix your program!\00", align 1
+@.str.1336 = private unnamed_addr constant [38 x i8] c"Valgrind while memory debugging mdrun\00", align 1
+@.str.1337 = private unnamed_addr constant [60 x i8] c"If we are going to have SYCL, can we have a hammer as well?\00", align 1
+@.str.1338 = private unnamed_addr constant [11 x i8] c"Joe Jordan\00", align 1
+@.str.1339 = private unnamed_addr constant [69 x i8] c"We can make it into a friend class. But I don't like having friends.\00", align 1
+@.str.1340 = private unnamed_addr constant [122 x i8] c"A method is more important than a discovery, since the right method will lead to new and even more important discoveries.\00", align 1
+@.str.1341 = private unnamed_addr constant [49 x i8] c"Product of optimism and knowledge is a constant.\00", align 1
+@.str.1342 = private unnamed_addr constant [64 x i8] c"Why add prime numbers? Prime numbers are made to be multiplied.\00", align 1
+@.str.1343 = private unnamed_addr constant [89 x i8] c"How wonderful that we have met with a paradox. Now we have some hope of making progress.\00", align 1
+@.str.1344 = private unnamed_addr constant [87 x i8] c"We must be clear that when it comes to atoms, language can be used only as in poetry. \00", align 1
+@.str.1345 = private unnamed_addr constant [86 x i8] c"\22What are the biological implications of your research?\22 - \22Well, I simulate water.\22 \00", align 1
+@.str.1346 = private unnamed_addr constant [17 x i8] c"Petter Johansson\00", align 1
+@.str.1347 = private unnamed_addr constant [96 x i8] c"Everything what mathematicians were saying for the last 50 years is slowly catching up with us.\00", align 1
+@.str.1348 = private unnamed_addr constant [20 x i8] c"David van der Spoel\00", align 1
+@.str.1349 = private unnamed_addr constant [42 x i8] c"I tend to consider myself as a scientist.\00", align 1
+@.str.1350 = private unnamed_addr constant [107 x i8] c"Emmanuelle Charpentier, when asked about the importance of two women sharing the Nobel Prize for Chemistry\00", align 1
+@.str.1351 = private unnamed_addr constant [136 x i8] c"I identified myself very early on as a scientist rather than a student - as someone creating knowledge rather than simply absorbing it.\00", align 1
+@.str.1352 = private unnamed_addr constant [23 x i8] c"Emmanuelle Charpentier\00", align 1
+@.str.1353 = private unnamed_addr constant [127 x i8] c"Look, I don't want to compete, so let's divide up physics between us. I'll take auroras and you take the rest of the universe.\00", align 1
+@.str.1354 = private unnamed_addr constant [36 x i8] c"Joan Feynman to her brother Richard\00", align 1
+@.str.1355 = private unnamed_addr constant [163 x i8] c"There are three kinds of men. The one that learns by reading. The few who learn by observation. The rest of them have to pee on the electric fence for themselves.\00", align 1
+@.str.1356 = private unnamed_addr constant [87 x i8] c"I can't help but think the model is ungrateful for all that nice data I gave it. Jerk.\00", align 1
+@.str.1357 = private unnamed_addr constant [14 x i8] c"Kate Stafford\00", align 1
+@.str.1358 = private unnamed_addr constant [59 x i8] c"What do you call an acid with an attitude? A-mean-oh acid.\00", align 1
+@.str.1359 = private unnamed_addr constant [38 x i8] c"Science grows like a weed every year.\00", align 1
+@.str.1360 = private unnamed_addr constant [12 x i8] c"Kary Mullis\00", align 1
+@.str.1361 = private unnamed_addr constant [165 x i8] c"A good sign these days when you're listening to someone talk about this epidemic is the number of times they say 'We don't know yet'. The more of those, the better.\00", align 1
+@.str.1362 = private unnamed_addr constant [11 x i8] c"Derek Lowe\00", align 1
+@.str.1363 = private unnamed_addr constant [42 x i8] c"Nullis in verba [Nobody's word is final].\00", align 1
+@.str.1364 = private unnamed_addr constant [27 x i8] c"Motto of the Royal Society\00", align 1
+@.str.1365 = private unnamed_addr constant [80 x i8] c"Calling a system 'non-linear' is like calling all wild animals 'non-elephants'.\00", align 1
+@.str.1366 = private unnamed_addr constant [10 x i8] c"Stan Ulam\00", align 1
+@.str.1367 = private unnamed_addr constant [45 x i8] c"Given enough eyeballs, all bugs are shallow.\00", align 1
+@.str.1368 = private unnamed_addr constant [44 x i8] c"Linus Torvalds, on the power of open source\00", align 1
+@.str.1369 = private unnamed_addr constant [102 x i8] c"If every study was groundbreaking, we'd end up with a bunch of holes in the ground and nothing built.\00", align 1
+@.str.1370 = private unnamed_addr constant [34 x i8] c"Expertise is not inherently good.\00", align 1
+@.str.1371 = private unnamed_addr constant [40 x i8] c"I couldn't give a shit about ribosomes.\00", align 1
+@.str.1372 = private unnamed_addr constant [74 x i8] c"Bj\C3\B6rn Forsberg, presenting his thesis, including two papers on ribosomes\00", align 1
+@.str.1373 = private unnamed_addr constant [163 x i8] c"Here's something fun to do: Next time you approach a conversation say 'I want to talk to someone technical... Oh! There's a woman!' and walk straight over to her.\00", align 1
+@.str.1374 = private unnamed_addr constant [12 x i8] c"Patty Lopez\00", align 1
+@.str.1375 = private unnamed_addr constant [70 x i8] c"After a few talks we usually sit down to do some work... or drinking.\00", align 1
+@.str.1376 = private unnamed_addr constant [11 x i8] c"Mike Klein\00", align 1
+@.str.1377 = private unnamed_addr constant [58 x i8] c"The message here is that Thermodynamic Integration sucks.\00", align 1
+@.str.1378 = private unnamed_addr constant [84 x i8] c"Enthusiasm is the mother of effort, and without it nothing great was ever achieved.\00", align 1
+@.str.1379 = private unnamed_addr constant [31 x i8] c"Our hands are tied by physics.\00", align 1
+@.str.1380 = private unnamed_addr constant [143 x i8] c"If all it takes to motivate you is a fancy picture and quote, you probably have a very easy job. The type of job computers will soon be doing.\00", align 1
+@.str.1381 = private unnamed_addr constant [261 x i8] c"At school I had a teacher that didn't like me and I didn't like him. At the end of the year he decided to fail me. The ironic thing is that the topic was chemistry. I have the distinction of being the only Chemistry Laurate who failed the topic in high school.\00", align 1
+@.str.1382 = private unnamed_addr constant [15 x i8] c"Thomas Lindahl\00", align 1
+@.str.1383 = private unnamed_addr constant [43 x i8] c"Chemistry: It tends to be a messy science.\00", align 1
+@.str.1384 = private unnamed_addr constant [69 x i8] c"Gunnar von Heijne, former chair of the Nobel Committee for chemistry\00", align 1
+@.str.1385 = private unnamed_addr constant [111 x i8] c"Computers are incredibly fast, accurate and stupid. Humans are incredibly slow, inaccurate and... also stupid.\00", align 1
+@.str.1386 = private unnamed_addr constant [82 x i8] c"If my PhD doesn't allow me to be right on the internet, what is it even good for?\00", align 1
+@.str.1387 = private unnamed_addr constant [15 x i8] c"Martin V\C3\B6gele\00", align 1
+@.str.1388 = private unnamed_addr constant [58 x i8] c"A little less conversation, a little more action, please.\00", align 1
+@.str.1389 = private unnamed_addr constant [14 x i8] c"Elvis Presley\00", align 1
+@.str.1390 = private unnamed_addr constant [41 x i8] c"Friends don't let friends use Berendsen!\00", align 1
+@.str.1391 = private unnamed_addr constant [26 x i8] c"John Chodera (on Twitter)\00", align 1
+@.str.1392 = private unnamed_addr constant [31 x i8] c"The plural of regex is regrets\00", align 1
+@.str.1393 = private unnamed_addr constant [28 x i8] c"Steve McCarthy (on Twitter)\00", align 1
+@.str.1394 = private unnamed_addr constant [36 x i8] c"Culture eats strategy for breakfast\00", align 1
+@.str.1395 = private unnamed_addr constant [14 x i8] c"Peter Drucker\00", align 1
+@.str.1396 = private unnamed_addr constant [64 x i8] c"Roses are read // Violets are blue // Unexpected '}' on line 32\00", align 1
+@.str.1397 = private unnamed_addr constant [76 x i8] c"We cannot wait for Nature's good graces - to take them from her is our goal\00", align 1
+@.str.1398 = private unnamed_addr constant [14 x i8] c"Ivan Michurin\00", align 1
+@.str.1399 = private unnamed_addr constant [167 x i8] c"By three methods we may learn wisdom: First, by reflection, which is noblest; Second, by imitation, which is easiest; and third by experience, which is the bitterest.\00", align 1
+@.str.1400 = private unnamed_addr constant [10 x i8] c"Confucius\00", align 1
+@.str.1401 = private unnamed_addr constant [109 x i8] c"There are three types of people: Those who see, those who see when they are shown, and those who do not see.\00", align 1
+@.str.1402 = private unnamed_addr constant [18 x i8] c"Leonardo da Vinci\00", align 1
+@.str.1403 = private unnamed_addr constant [58 x i8] c"Hey, it's me - Pandora. Welcome to my new unboxing video!\00", align 1
+@.str.1404 = private unnamed_addr constant [300 x i8] c"It is an unfortunate fact that when you raise the question of the reliability of many simulations you are often told about how much manpower went into it, how large & fast the computer is, how important the problem is, and such things, which are completely irrelevant to the question that was asked.\00", align 1
+@.str.1405 = private unnamed_addr constant [16 x i8] c"Richard Hamming\00", align 1
+@.str.1406 = private unnamed_addr constant [84 x i8] c"Sie haben also recht gehabt, Sie Spitzbube. [You were right after all, you rascal.]\00", align 1
+@.str.1407 = private unnamed_addr constant [43 x i8] c"Albert Einstein (letter to Wolfgang Pauli)\00", align 1
+@.str.1408 = private unnamed_addr constant [118 x i8] c"You should call it 'entropy'. No one knows what entropy really is, so in a debate you will always have the advantage.\00", align 1
+@.str.1409 = private unnamed_addr constant [92 x i8] c"John von Neumann to Claude Shannon, on why he should borrow the term for information theory\00", align 1
+@.str.1410 = private unnamed_addr constant [152 x i8] c"We must have perseverance and above all confidence in ourselves. We must believe that we are gifted for something and that this thing must be attained.\00", align 1
+@.str.1411 = private unnamed_addr constant [157 x i8] c"Courage is like - it's a habitus, a habit, a virtue: you get it by courageous acts. It's like you learn to swim by swimming. You learn courage by couraging.\00", align 1
+@.str.1412 = private unnamed_addr constant [205 x i8] c"We will always have STEM with us. Some things will drop out of the public eye and will go away, but there will always be science, engineering, and technology. And there will always, always be mathematics.\00", align 1
+@.str.1413 = private unnamed_addr constant [18 x i8] c"Katherine Johnson\00", align 1
+@.str.1414 = private unnamed_addr constant [75 x i8] c"If you want to change the future, start living as if you're already there.\00", align 1
+@.str.1415 = private unnamed_addr constant [12 x i8] c"Lynn Conway\00", align 1
+@.str.1416 = private unnamed_addr constant [97 x i8] c"What you do makes a difference, and you have to decide what kind of difference you want to make.\00", align 1
+@.str.1417 = private unnamed_addr constant [13 x i8] c"Jane Goodall\00", align 1
+@.str.1418 = private unnamed_addr constant [69 x i8] c"I don't fear death because I don't fear anything I don't understand.\00", align 1
+@.str.1419 = private unnamed_addr constant [12 x i8] c"Hedy Lamarr\00", align 1
+@.str.1420 = private unnamed_addr constant [75 x i8] c"You cannot hope to build a better world without improving the individuals.\00", align 1
+@.str.1421 = private unnamed_addr constant [142 x i8] c"Forget this world and all its troubles and, if possible, it's multitudinous Charlatans - everything, in short, but the Enchantress of Numbers\00", align 1
+@.str.1422 = private unnamed_addr constant [13 x i8] c"Ada Lovelace\00", align 1
+@.str.1423 = private unnamed_addr constant [161 x i8] c"We had the quaint notion at the time that software should be completely, absolutely free of bugs. Unfortunately it's a notion that never really quite caught on.\00", align 1
+@.str.1424 = private unnamed_addr constant [18 x i8] c"Mary Allen Wilkes\00", align 1
+@.str.1425 = private unnamed_addr constant [50 x i8] c"Like what you do, and then you will do your best.\00", align 1
+@.str.1426 = private unnamed_addr constant [46 x i8] c"All creative people want to do the unexpected\00", align 1
+@.str.1427 = private unnamed_addr constant [86 x i8] c"Unlike teachers or doctors, our efforts improve the lives of people we'll never meet.\00", align 1
+@.str.1428 = private unnamed_addr constant [21 x i8] c"Katie Busch-Sorensen\00", align 1
+@.str.1429 = private unnamed_addr constant [56 x i8] c"Numbers have life; they\E2\80\99re not just symbols on paper.\00", align 1
+@.str.1430 = private unnamed_addr constant [16 x i8] c"Shakuntala Devi\00", align 1
+@.str.1431 = private unnamed_addr constant [111 x i8] c"Not everyone is capable of madness; and of those lucky enough to be capable, not many have the courage for it.\00", align 1
+@.str.1432 = private unnamed_addr constant [18 x i8] c"August Strindberg\00", align 1
+@.str.1433 = private unnamed_addr constant [58 x i8] c"The historical meaning of QM/MM: Quanto Mangi, Mamma Mia!\00", align 1
+@.str.1434 = private unnamed_addr constant [68 x i8] c"Attilio Vittorio Vargiu, at BioExcel 2022 Summer School in Sardinia\00", align 1
+@.str.1435 = private unnamed_addr constant [154 x i8] c"I wanted to have a real language where programmers could write real programs, and see whether they would find the idea of data abstraction at all useful.\00", align 1
+@.str.1436 = private unnamed_addr constant [15 x i8] c"Barbara Liskov\00", align 1
+@.str.1437 = private unnamed_addr constant [99 x i8] c"I never thought about breaking barriers, I was just interested in what I was doing and kept going.\00", align 1
+@.str.1438 = private unnamed_addr constant [174 x i8] c"My husband was on the Internet everyday when I got the Turing award, and one day he saw a quote by someone who said 'Why did she get the award? Everyone already knows this!'\00", align 1
+@.str.1439 = private unnamed_addr constant [393 x i8] c"When I got my first job as a programmer there were quite a number of women doing programming because there was no computer science education and people were hired from many different fields if it seemed like they could do the work. It was better then, probably, in terms of proportions, not necessarily in women being paid as much as men and so forth, but definitely, there were women around.\00", align 1
+@.str.1440 = private unnamed_addr constant [63 x i8] c"Prior to 1965 there were none, and after 1965 there was a nun.\00", align 1
+@.str.1441 = private unnamed_addr constant [73 x i8] c"Sister Mary Kenneth Keller regarding women with PhDs in computer science\00", align 1
+@.str.1442 = private unnamed_addr constant [133 x i8] c"We're having an information explosion, among others, and it's certainly obvious that information is of no use unless it's available.\00", align 1
+@.str.1443 = private unnamed_addr constant [27 x i8] c"Sister Mary Kenneth Keller\00", align 1
+@.str.1444 = private unnamed_addr constant [337 x i8] c"For the first time we can now mechanically simulate the cognitive process. We can make studies in artificial intelligence. Beyond that, this mechanism can be used to assist humans in learning. As we are going to have more mature students in greater numbers as time goes on, this type of teaching will probably be increasingly important.\00", align 1
+@.str.1445 = private unnamed_addr constant [98 x i8] c"Why would I pay GitHub $100/year for an AI to tell me what code to write when men do it for free?\00", align 1
+@.str.1446 = private unnamed_addr constant [14 x i8] c"Safia Abdalla\00", align 1
+@.str.1447 = private unnamed_addr constant [209 x i8] c"So can we think of the canonical ensemble sort of like if you ran the same season of temptation island over and over again and took statistics about how many times each person hooks up with each other person?\00", align 1
+@.str.1448 = private unnamed_addr constant [12 x i8] c"Teddy Press\00", align 1
+@.str.1449 = private unnamed_addr constant [69 x i8] c"The biggest lie in science is 'data and code available upon request'\00", align 1
+@.str.1450 = private unnamed_addr constant [14 x i8] c"Michael Eisen\00", align 1
+@.str.1451 = private unnamed_addr constant [30 x i8] c"What do you want out of life?\00", align 1
+@.str.1452 = private unnamed_addr constant [26 x i8] c"Jack Kerouac, On The Road\00", align 1
+@.str.1453 = private unnamed_addr constant [56 x i8] c"Developer accused of unreadable code refuses to comment\00", align 1
+@.str.1454 = private unnamed_addr constant [13 x i8] c"Molly Struve\00", align 1
+@.str.1455 = private unnamed_addr constant [43 x i8] c"It's hard to ignore 12 orders of magnitude\00", align 1
+@.str.1456 = private unnamed_addr constant [13 x i8] c"John Urbanic\00", align 1
+@.str.1457 = private unnamed_addr constant [72 x i8] c"Success is going from one failure to another without loss of enthusiasm\00", align 1
+@.str.1458 = private unnamed_addr constant [249 x i8] c"Apologies to the astrophysics student I met at a party years ago. When you told me how many hours a day you used 4chan and how much you love it, I gave you a funny look and walked away. Now, a decade later, I realize you were talking about Fortran.\00", align 1
+@.str.1459 = private unnamed_addr constant [62 x i8] c"The only place success comes before work is in the dictionary\00", align 1
+@.str.1460 = private unnamed_addr constant [15 x i8] c"Vince Lombardi\00", align 1
+@.str.1461 = private unnamed_addr constant [82 x i8] c"They call me 007: 0 pull requests reviewed, 0 features completed, 7 bugs created.\00", align 1
+@.str.1462 = private unnamed_addr constant [101 x i8] c"Optimist: The glass is 1/2 full. Pessimist: The glass is 1/2 empty. Excel: The glass is January 2nd.\00", align 1
+@.str.1463 = private unnamed_addr constant [15 x i8] c"John Feminella\00", align 1
+@.str.1464 = private unnamed_addr constant [41 x i8] c"FORTRAN. Input: reason, output: pleasure\00", align 1
+@.str.1465 = private unnamed_addr constant [25 x i8] c"ORDA, FORTRAN board game\00", align 1
+@.str.1466 = private unnamed_addr constant [106 x i8] c"gmx fellowship-writing -g grant_name -s protein_structure_involved -o output -m method_used -p list_of_pi\00", align 1
+@.str.1467 = private unnamed_addr constant [63 x i8] c"Tanadet Pipatpolkai, while discussing new features for GROMACS\00", align 1
+@.str.1468 = private unnamed_addr constant [140 x i8] c"I came up with the new convergence method, it's called a deadline driven convergence. My simulation is converged when it hits the deadline.\00", align 1
+@.str.1469 = private unnamed_addr constant [20 x i8] c"Tanadet Pipatpolkai\00", align 1
+@.str.1470 = private unnamed_addr constant [22 x i8] c"Lets get back to beer\00", align 1
+@.str.1471 = private unnamed_addr constant [59 x i8] c"Yuxuan Zhuang, in a discussion about science communication\00", align 1
+@.str.1472 = private unnamed_addr constant [35 x i8] c"You ONLY have to do the coding ...\00", align 1
+@.str.1473 = private unnamed_addr constant [62 x i8] c"Anton Jansen, to core developer, on implementing new features\00", align 1
+@.str.1474 = private unnamed_addr constant [30 x i8] c"There are way too many quotes\00", align 1
+@.str.1475 = private unnamed_addr constant [24 x i8] c"Sebastian Wingbermuehle\00", align 1
+@.str.1476 = private unnamed_addr constant [60 x i8] c"It is not critical to add the next quote to a patch release\00", align 1
+@.str.1477 = private unnamed_addr constant [11 x i8] c"Paul Bauer\00", align 1
+@.str.1478 = private unnamed_addr constant [20 x i8] c"It is a cute toxin.\00", align 1
+@.str.1479 = private unnamed_addr constant [15 x i8] c"Rebecca Howard\00", align 1
+@.str.1480 = private unnamed_addr constant [22 x i8] c"Everything is failing\00", align 1
+@.str.1481 = private unnamed_addr constant [42 x i8] c"Requiem, bring the dissident from slumber\00", align 1
+@.str.1482 = private unnamed_addr constant [13 x i8] c"Bad Religion\00", align 1
+@.str.1483 = private unnamed_addr constant [22 x i8] c"I can't relate to you\00", align 1
+@.str.1484 = private unnamed_addr constant [15 x i8] c"You are wrong!\00", align 1
+@.str.1485 = private unnamed_addr constant [5 x i8] c"NOFX\00", align 1
+@.str.1486 = private unnamed_addr constant [50 x i8] c"The final page is written in the books of history\00", align 1
+@.str.1487 = private unnamed_addr constant [40 x i8] c"Would you give it all up to live again?\00", align 1
+@__const._ZN3gmx12getCoolQuoteB5cxx11Ev.quoteArray = private unnamed_addr constant [907 x %struct.Quote] [%struct.Quote { ptr @.str.29, ptr @.str.30 }, %struct.Quote { ptr @.str.31, ptr @.str.32 }, %struct.Quote { ptr @.str.33, ptr @.str.34 }, %struct.Quote { ptr @.str.35, ptr @.str.36 }, %struct.Quote { ptr @.str.37, ptr @.str.38 }, %struct.Quote { ptr @.str.39, ptr @.str.40 }, %struct.Quote { ptr @.str.41, ptr @.str.40 }, %struct.Quote { ptr @.str.42, ptr @.str.40 }, %struct.Quote { ptr @.str.43, ptr @.str.32 }, %struct.Quote { ptr @.str.43, ptr @.str.44 }, %struct.Quote { ptr @.str.45, ptr @.str.46 }, %struct.Quote { ptr @.str.47, ptr @.str.48 }, %struct.Quote { ptr @.str.49, ptr @.str.40 }, %struct.Quote { ptr @.str.50, ptr @.str.51 }, %struct.Quote { ptr @.str.52, ptr @.str.53 }, %struct.Quote { ptr @.str.54, ptr @.str.51 }, %struct.Quote { ptr @.str.55, ptr @.str.56 }, %struct.Quote { ptr @.str.57, ptr @.str.58 }, %struct.Quote { ptr @.str.59, ptr @.str.38 }, %struct.Quote { ptr @.str.60, ptr @.str.32 }, %struct.Quote { ptr @.str.61, ptr @.str.62 }, %struct.Quote { ptr @.str.63, ptr @.str.64 }, %struct.Quote { ptr @.str.65, ptr @.str.66 }, %struct.Quote { ptr @.str.67, ptr @.str.58 }, %struct.Quote { ptr @.str.68, ptr @.str.38 }, %struct.Quote { ptr @.str.69, ptr @.str.70 }, %struct.Quote { ptr @.str.71, ptr @.str.72 }, %struct.Quote { ptr @.str.73, ptr @.str.74 }, %struct.Quote { ptr @.str.75, ptr @.str.76 }, %struct.Quote { ptr @.str.77, ptr @.str.78 }, %struct.Quote { ptr @.str.79, ptr @.str.80 }, %struct.Quote { ptr @.str.81, ptr @.str.80 }, %struct.Quote { ptr @.str.82, ptr @.str.83 }, %struct.Quote { ptr @.str.84, ptr @.str.85 }, %struct.Quote { ptr @.str.86, ptr @.str.87 }, %struct.Quote { ptr @.str.88, ptr @.str.89 }, %struct.Quote { ptr @.str.90, ptr @.str.91 }, %struct.Quote { ptr @.str.92, ptr @.str.56 }, %struct.Quote { ptr @.str.93, ptr @.str.66 }, %struct.Quote { ptr @.str.94, ptr @.str.66 }, %struct.Quote { ptr @.str.95, ptr @.str.64 }, %struct.Quote { ptr @.str.96, ptr @.str.97 }, %struct.Quote { ptr @.str.98, ptr @.str.99 }, %struct.Quote { ptr @.str.100, ptr @.str.32 }, %struct.Quote { ptr @.str.101, ptr @.str.66 }, %struct.Quote { ptr @.str.102, ptr @.str.103 }, %struct.Quote { ptr @.str.104, ptr @.str.40 }, %struct.Quote { ptr @.str.105, ptr @.str.106 }, %struct.Quote { ptr @.str.107, ptr @.str.64 }, %struct.Quote { ptr @.str.108, ptr @.str.32 }, %struct.Quote { ptr @.str.109, ptr @.str.40 }, %struct.Quote { ptr @.str.110, ptr @.str.91 }, %struct.Quote { ptr @.str.111, ptr @.str.112 }, %struct.Quote { ptr @.str.113, ptr @.str.114 }, %struct.Quote { ptr @.str.115, ptr @.str.116 }, %struct.Quote { ptr @.str.117, ptr @.str.116 }, %struct.Quote { ptr @.str.118, ptr @.str.40 }, %struct.Quote { ptr @.str.119, ptr @.str.120 }, %struct.Quote { ptr @.str.121, ptr @.str.112 }, %struct.Quote { ptr @.str.122, ptr @.str.58 }, %struct.Quote { ptr @.str.123, ptr @.str.48 }, %struct.Quote { ptr @.str.124, ptr @.str.40 }, %struct.Quote { ptr @.str.125, ptr @.str.126 }, %struct.Quote { ptr @.str.127, ptr @.str.64 }, %struct.Quote { ptr @.str.128, ptr @.str.126 }, %struct.Quote { ptr @.str.129, ptr @.str.36 }, %struct.Quote { ptr @.str.130, ptr @.str.131 }, %struct.Quote { ptr @.str.132, ptr @.str.133 }, %struct.Quote { ptr @.str.134, ptr @.str.135 }, %struct.Quote { ptr @.str.136, ptr @.str.135 }, %struct.Quote { ptr @.str.137, ptr @.str.138 }, %struct.Quote { ptr @.str.139, ptr @.str.64 }, %struct.Quote { ptr @.str.140, ptr @.str.58 }, %struct.Quote { ptr @.str.141, ptr @.str.51 }, %struct.Quote { ptr @.str.142, ptr @.str.112 }, %struct.Quote { ptr @.str.143, ptr @.str.112 }, %struct.Quote { ptr @.str.144, ptr @.str.120 }, %struct.Quote { ptr @.str.145, ptr @.str.51 }, %struct.Quote { ptr @.str.146, ptr @.str.147 }, %struct.Quote { ptr @.str.148, ptr @.str.112 }, %struct.Quote { ptr @.str.149, ptr @.str.116 }, %struct.Quote { ptr @.str.150, ptr @.str.80 }, %struct.Quote { ptr @.str.151, ptr @.str.116 }, %struct.Quote { ptr @.str.152, ptr @.str.153 }, %struct.Quote { ptr @.str.154, ptr @.str.116 }, %struct.Quote { ptr @.str.155, ptr @.str.78 }, %struct.Quote { ptr @.str.156, ptr @.str.51 }, %struct.Quote { ptr @.str.157, ptr @.str.158 }, %struct.Quote { ptr @.str.159, ptr @.str.112 }, %struct.Quote { ptr @.str.160, ptr @.str.161 }, %struct.Quote { ptr @.str.162, ptr @.str.112 }, %struct.Quote { ptr @.str.163, ptr @.str.164 }, %struct.Quote { ptr @.str.165, ptr @.str.78 }, %struct.Quote { ptr @.str.166, ptr @.str.112 }, %struct.Quote { ptr @.str.167, ptr @.str.164 }, %struct.Quote { ptr @.str.168, ptr @.str.169 }, %struct.Quote { ptr @.str.170, ptr @.str.171 }, %struct.Quote { ptr @.str.172, ptr @.str.112 }, %struct.Quote { ptr @.str.173, ptr @.str.174 }, %struct.Quote { ptr @.str.175, ptr @.str.66 }, %struct.Quote { ptr @.str.176, ptr @.str.78 }, %struct.Quote { ptr @.str.177, ptr @.str.120 }, %struct.Quote { ptr @.str.178, ptr @.str.174 }, %struct.Quote { ptr @.str.179, ptr @.str.64 }, %struct.Quote { ptr @.str.180, ptr @.str.181 }, %struct.Quote { ptr @.str.182, ptr @.str.116 }, %struct.Quote { ptr @.str.183, ptr @.str.116 }, %struct.Quote { ptr @.str.184, ptr @.str.58 }, %struct.Quote { ptr @.str.185, ptr @.str.78 }, %struct.Quote { ptr @.str.186, ptr @.str.181 }, %struct.Quote { ptr @.str.187, ptr @.str.78 }, %struct.Quote { ptr @.str.188, ptr @.str.181 }, %struct.Quote { ptr @.str.189, ptr @.str.181 }, %struct.Quote { ptr @.str.190, ptr @.str.78 }, %struct.Quote { ptr @.str.191, ptr @.str.78 }, %struct.Quote { ptr @.str.192, ptr @.str.78 }, %struct.Quote { ptr @.str.193, ptr @.str.78 }, %struct.Quote { ptr @.str.194, ptr @.str.195 }, %struct.Quote { ptr @.str.196, ptr @.str.78 }, %struct.Quote { ptr @.str.197, ptr @.str.181 }, %struct.Quote { ptr @.str.198, ptr @.str.51 }, %struct.Quote { ptr @.str.199, ptr @.str.78 }, %struct.Quote { ptr @.str.200, ptr @.str.78 }, %struct.Quote { ptr @.str.201, ptr @.str.78 }, %struct.Quote { ptr @.str.202, ptr @.str.36 }, %struct.Quote { ptr @.str.203, ptr @.str.181 }, %struct.Quote { ptr @.str.204, ptr @.str.32 }, %struct.Quote { ptr @.str.205, ptr @.str.78 }, %struct.Quote { ptr @.str.206, ptr @.str.78 }, %struct.Quote { ptr @.str.207, ptr @.str.208 }, %struct.Quote { ptr @.str.209, ptr @.str.210 }, %struct.Quote { ptr @.str.211, ptr @.str.212 }, %struct.Quote { ptr @.str.213, ptr @.str.40 }, %struct.Quote { ptr @.str.214, ptr @.str.78 }, %struct.Quote { ptr @.str.215, ptr @.str.70 }, %struct.Quote { ptr @.str.216, ptr @.str.64 }, %struct.Quote { ptr @.str.217, ptr @.str.120 }, %struct.Quote { ptr @.str.218, ptr @.str.70 }, %struct.Quote { ptr @.str.219, ptr @.str.220 }, %struct.Quote { ptr @.str.221, ptr @.str.222 }, %struct.Quote { ptr @.str.223, ptr @.str.224 }, %struct.Quote { ptr @.str.225, ptr @.str.78 }, %struct.Quote { ptr @.str.226, ptr @.str.227 }, %struct.Quote { ptr @.str.228, ptr @.str.78 }, %struct.Quote { ptr @.str.229, ptr @.str.70 }, %struct.Quote { ptr @.str.230, ptr @.str.78 }, %struct.Quote { ptr @.str.231, ptr @.str.78 }, %struct.Quote { ptr @.str.232, ptr @.str.233 }, %struct.Quote { ptr @.str.234, ptr @.str.91 }, %struct.Quote { ptr @.str.235, ptr @.str.64 }, %struct.Quote { ptr @.str.236, ptr @.str.64 }, %struct.Quote { ptr @.str.237, ptr @.str.238 }, %struct.Quote { ptr @.str.239, ptr @.str.64 }, %struct.Quote { ptr @.str.240, ptr @.str.241 }, %struct.Quote { ptr @.str.242, ptr @.str.243 }, %struct.Quote { ptr @.str.244, ptr @.str.245 }, %struct.Quote { ptr @.str.246, ptr @.str.247 }, %struct.Quote { ptr @.str.248, ptr @.str.247 }, %struct.Quote { ptr @.str.249, ptr @.str.250 }, %struct.Quote { ptr @.str.251, ptr @.str.252 }, %struct.Quote { ptr @.str.253, ptr @.str.120 }, %struct.Quote { ptr @.str.254, ptr @.str.66 }, %struct.Quote { ptr @.str.255, ptr @.str.245 }, %struct.Quote { ptr @.str.256, ptr @.str.195 }, %struct.Quote { ptr @.str.257, ptr @.str.40 }, %struct.Quote { ptr @.str.258, ptr @.str.64 }, %struct.Quote { ptr @.str.259, ptr @.str.64 }, %struct.Quote { ptr @.str.260, ptr @.str.64 }, %struct.Quote { ptr @.str.261, ptr @.str.64 }, %struct.Quote { ptr @.str.262, ptr @.str.263 }, %struct.Quote { ptr @.str.264, ptr @.str.265 }, %struct.Quote { ptr @.str.266, ptr @.str.267 }, %struct.Quote { ptr @.str.268, ptr @.str.66 }, %struct.Quote { ptr @.str.269, ptr @.str.171 }, %struct.Quote { ptr @.str.270, ptr @.str.247 }, %struct.Quote { ptr @.str.271, ptr @.str.272 }, %struct.Quote { ptr @.str.273, ptr @.str.66 }, %struct.Quote { ptr @.str.274, ptr @.str.195 }, %struct.Quote { ptr @.str.275, ptr @.str.245 }, %struct.Quote { ptr @.str.276, ptr @.str.238 }, %struct.Quote { ptr @.str.277, ptr @.str.278 }, %struct.Quote { ptr @.str.279, ptr @.str.280 }, %struct.Quote { ptr @.str.281, ptr @.str.282 }, %struct.Quote { ptr @.str.283, ptr @.str.284 }, %struct.Quote { ptr @.str.285, ptr @.str.286 }, %struct.Quote { ptr @.str.287, ptr @.str.245 }, %struct.Quote { ptr @.str.288, ptr @.str.72 }, %struct.Quote { ptr @.str.289, ptr @.str.290 }, %struct.Quote { ptr @.str.291, ptr @.str.66 }, %struct.Quote { ptr @.str.292, ptr @.str.293 }, %struct.Quote { ptr @.str.294, ptr @.str.295 }, %struct.Quote { ptr @.str.296, ptr @.str.297 }, %struct.Quote { ptr @.str.298, ptr @.str.64 }, %struct.Quote { ptr @.str.299, ptr @.str.120 }, %struct.Quote { ptr @.str.300, ptr @.str.66 }, %struct.Quote { ptr @.str.301, ptr @.str.302 }, %struct.Quote { ptr @.str.303, ptr @.str.304 }, %struct.Quote { ptr @.str.305, ptr @.str.306 }, %struct.Quote { ptr @.str.307, ptr @.str.66 }, %struct.Quote { ptr @.str.308, ptr @.str.112 }, %struct.Quote { ptr @.str.309, ptr @.str.112 }, %struct.Quote { ptr @.str.310, ptr @.str.51 }, %struct.Quote { ptr @.str.311, ptr @.str.312 }, %struct.Quote { ptr @.str.313, ptr @.str.302 }, %struct.Quote { ptr @.str.314, ptr @.str.64 }, %struct.Quote { ptr @.str.315, ptr @.str.64 }, %struct.Quote { ptr @.str.316, ptr @.str.64 }, %struct.Quote { ptr @.str.317, ptr @.str.40 }, %struct.Quote { ptr @.str.318, ptr @.str.91 }, %struct.Quote { ptr @.str.319, ptr @.str.38 }, %struct.Quote { ptr @.str.320, ptr @.str.321 }, %struct.Quote { ptr @.str.322, ptr @.str.323 }, %struct.Quote { ptr @.str.324, ptr @.str.325 }, %struct.Quote { ptr @.str.326, ptr @.str.325 }, %struct.Quote { ptr @.str.327, ptr @.str.328 }, %struct.Quote { ptr @.str.329, ptr @.str.330 }, %struct.Quote { ptr @.str.331, ptr @.str.332 }, %struct.Quote { ptr @.str.333, ptr @.str.158 }, %struct.Quote { ptr @.str.334, ptr @.str.70 }, %struct.Quote { ptr @.str.335, ptr @.str.120 }, %struct.Quote { ptr @.str.336, ptr @.str.337 }, %struct.Quote { ptr @.str.338, ptr @.str.337 }, %struct.Quote { ptr @.str.339, ptr @.str.340 }, %struct.Quote { ptr @.str.341, ptr @.str.342 }, %struct.Quote { ptr @.str.343, ptr @.str.344 }, %struct.Quote { ptr @.str.345, ptr @.str.346 }, %struct.Quote { ptr @.str.347, ptr @.str.250 }, %struct.Quote { ptr @.str.348, ptr @.str.66 }, %struct.Quote { ptr @.str.349, ptr @.str.70 }, %struct.Quote { ptr @.str.350, ptr @.str.66 }, %struct.Quote { ptr @.str.351, ptr @.str.352 }, %struct.Quote { ptr @.str.353, ptr @.str.354 }, %struct.Quote { ptr @.str.355, ptr @.str.354 }, %struct.Quote { ptr @.str.356, ptr @.str.357 }, %struct.Quote { ptr @.str.358, ptr @.str.359 }, %struct.Quote { ptr @.str.360, ptr @.str.361 }, %struct.Quote { ptr @.str.362, ptr @.str.174 }, %struct.Quote { ptr @.str.363, ptr @.str.364 }, %struct.Quote { ptr @.str.365, ptr @.str.366 }, %struct.Quote { ptr @.str.367, ptr @.str.164 }, %struct.Quote { ptr @.str.368, ptr @.str.369 }, %struct.Quote { ptr @.str.370, ptr @.str.369 }, %struct.Quote { ptr @.str.371, ptr @.str.40 }, %struct.Quote { ptr @.str.372, ptr @.str.40 }, %struct.Quote { ptr @.str.373, ptr @.str.40 }, %struct.Quote { ptr @.str.374, ptr @.str.40 }, %struct.Quote { ptr @.str.375, ptr @.str.376 }, %struct.Quote { ptr @.str.377, ptr @.str.369 }, %struct.Quote { ptr @.str.378, ptr @.str.112 }, %struct.Quote { ptr @.str.379, ptr @.str.380 }, %struct.Quote { ptr @.str.381, ptr @.str.382 }, %struct.Quote { ptr @.str.383, ptr @.str.384 }, %struct.Quote { ptr @.str.385, ptr @.str.386 }, %struct.Quote { ptr @.str.387, ptr @.str.388 }, %struct.Quote { ptr @.str.389, ptr @.str.390 }, %struct.Quote { ptr @.str.391, ptr @.str.392 }, %struct.Quote { ptr @.str.393, ptr @.str.394 }, %struct.Quote { ptr @.str.395, ptr @.str.396 }, %struct.Quote { ptr @.str.397, ptr @.str.357 }, %struct.Quote { ptr @.str.398, ptr @.str.399 }, %struct.Quote { ptr @.str.400, ptr @.str.401 }, %struct.Quote { ptr @.str.402, ptr @.str.403 }, %struct.Quote { ptr @.str.404, ptr @.str.325 }, %struct.Quote { ptr @.str.405, ptr @.str.406 }, %struct.Quote { ptr @.str.407, ptr @.str.408 }, %struct.Quote { ptr @.str.409, ptr @.str.410 }, %struct.Quote { ptr @.str.411, ptr @.str.412 }, %struct.Quote { ptr @.str.413, ptr @.str.414 }, %struct.Quote { ptr @.str.415, ptr @.str.414 }, %struct.Quote { ptr @.str.416, ptr @.str.417 }, %struct.Quote { ptr @.str.418, ptr @.str.419 }, %struct.Quote { ptr @.str.420, ptr @.str.421 }, %struct.Quote { ptr @.str.422, ptr @.str.423 }, %struct.Quote { ptr @.str.424, ptr @.str.425 }, %struct.Quote { ptr @.str.426, ptr @.str.427 }, %struct.Quote { ptr @.str.428, ptr @.str.40 }, %struct.Quote { ptr @.str.429, ptr @.str.40 }, %struct.Quote { ptr @.str.430, ptr @.str.40 }, %struct.Quote { ptr @.str.431, ptr @.str.432 }, %struct.Quote { ptr @.str.433, ptr @.str.434 }, %struct.Quote { ptr @.str.435, ptr @.str.436 }, %struct.Quote { ptr @.str.437, ptr @.str.438 }, %struct.Quote { ptr @.str.439, ptr @.str.440 }, %struct.Quote { ptr @.str.441, ptr @.str.442 }, %struct.Quote { ptr @.str.443, ptr @.str.444 }, %struct.Quote { ptr @.str.445, ptr @.str.51 }, %struct.Quote { ptr @.str.446, ptr @.str.447 }, %struct.Quote { ptr @.str.448, ptr @.str.38 }, %struct.Quote { ptr @.str.449, ptr @.str.450 }, %struct.Quote { ptr @.str.451, ptr @.str.452 }, %struct.Quote { ptr @.str.453, ptr @.str.452 }, %struct.Quote { ptr @.str.454, ptr @.str.455 }, %struct.Quote { ptr @.str.456, ptr @.str.457 }, %struct.Quote { ptr @.str.458, ptr @.str.325 }, %struct.Quote { ptr @.str.459, ptr @.str.460 }, %struct.Quote { ptr @.str.461, ptr @.str.462 }, %struct.Quote { ptr @.str.463, ptr @.str.464 }, %struct.Quote { ptr @.str.465, ptr @.str.306 }, %struct.Quote { ptr @.str.466, ptr @.str.306 }, %struct.Quote { ptr @.str.467, ptr @.str.306 }, %struct.Quote { ptr @.str.468, ptr @.str.40 }, %struct.Quote { ptr @.str.469, ptr @.str.470 }, %struct.Quote { ptr @.str.471, ptr @.str.472 }, %struct.Quote { ptr @.str.473, ptr @.str.472 }, %struct.Quote { ptr @.str.474, ptr @.str.48 }, %struct.Quote { ptr @.str.475, ptr @.str.476 }, %struct.Quote { ptr @.str.477, ptr @.str.478 }, %struct.Quote { ptr @.str.479, ptr @.str.480 }, %struct.Quote { ptr @.str.481, ptr @.str.476 }, %struct.Quote { ptr @.str.482, ptr @.str.476 }, %struct.Quote { ptr @.str.483, ptr @.str.476 }, %struct.Quote { ptr @.str.484, ptr @.str.476 }, %struct.Quote { ptr @.str.485, ptr @.str.486 }, %struct.Quote { ptr @.str.487, ptr @.str.476 }, %struct.Quote { ptr @.str.488, ptr @.str.476 }, %struct.Quote { ptr @.str.489, ptr @.str.490 }, %struct.Quote { ptr @.str.491, ptr @.str.476 }, %struct.Quote { ptr @.str.492, ptr @.str.493 }, %struct.Quote { ptr @.str.494, ptr @.str.495 }, %struct.Quote { ptr @.str.496, ptr @.str.497 }, %struct.Quote { ptr @.str.498, ptr @.str.499 }, %struct.Quote { ptr @.str.500, ptr @.str.501 }, %struct.Quote { ptr @.str.502, ptr @.str.503 }, %struct.Quote { ptr @.str.504, ptr @.str.505 }, %struct.Quote { ptr @.str.506, ptr @.str.507 }, %struct.Quote { ptr @.str.508, ptr @.str.507 }, %struct.Quote { ptr @.str.509, ptr @.str.510 }, %struct.Quote { ptr @.str.511, ptr @.str.476 }, %struct.Quote { ptr @.str.512, ptr @.str.476 }, %struct.Quote { ptr @.str.513, ptr @.str.514 }, %struct.Quote { ptr @.str.515, ptr @.str.516 }, %struct.Quote { ptr @.str.517, ptr @.str.112 }, %struct.Quote { ptr @.str.518, ptr @.str.519 }, %struct.Quote { ptr @.str.520, ptr @.str.521 }, %struct.Quote { ptr @.str.522, ptr @.str.58 }, %struct.Quote { ptr @.str.523, ptr @.str.58 }, %struct.Quote { ptr @.str.524, ptr @.str.493 }, %struct.Quote { ptr @.str.525, ptr @.str.526 }, %struct.Quote { ptr @.str.527, ptr @.str.528 }, %struct.Quote { ptr @.str.529, ptr @.str.530 }, %struct.Quote { ptr @.str.531, ptr @.str.532 }, %struct.Quote { ptr @.str.533, ptr @.str.534 }, %struct.Quote { ptr @.str.535, ptr @.str.40 }, %struct.Quote { ptr @.str.536, ptr @.str.476 }, %struct.Quote { ptr @.str.537, ptr @.str.538 }, %struct.Quote { ptr @.str.539, ptr @.str.540 }, %struct.Quote { ptr @.str.541, ptr @.str.306 }, %struct.Quote { ptr @.str.542, ptr @.str.543 }, %struct.Quote { ptr @.str.544, ptr @.str.545 }, %struct.Quote { ptr @.str.546, ptr @.str.547 }, %struct.Quote { ptr @.str.548, ptr @.str.549 }, %struct.Quote { ptr @.str.550, ptr @.str.551 }, %struct.Quote { ptr @.str.552, ptr @.str.553 }, %struct.Quote { ptr @.str.554, ptr @.str.555 }, %struct.Quote { ptr @.str.556, ptr @.str.557 }, %struct.Quote { ptr @.str.558, ptr @.str.543 }, %struct.Quote { ptr @.str.559, ptr @.str.560 }, %struct.Quote { ptr @.str.561, ptr @.str.562 }, %struct.Quote { ptr @.str.563, ptr @.str.564 }, %struct.Quote { ptr @.str.565, ptr @.str.562 }, %struct.Quote { ptr @.str.566, ptr @.str.547 }, %struct.Quote { ptr @.str.567, ptr @.str.568 }, %struct.Quote { ptr @.str.569, ptr @.str.570 }, %struct.Quote { ptr @.str.571, ptr @.str.568 }, %struct.Quote { ptr @.str.572, ptr @.str.573 }, %struct.Quote { ptr @.str.574, ptr @.str.575 }, %struct.Quote { ptr @.str.576, ptr @.str.573 }, %struct.Quote { ptr @.str.577, ptr @.str.457 }, %struct.Quote { ptr @.str.578, ptr @.str.579 }, %struct.Quote { ptr @.str.580, ptr @.str.581 }, %struct.Quote { ptr @.str.582, ptr @.str.581 }, %struct.Quote { ptr @.str.583, ptr @.str.584 }, %struct.Quote { ptr @.str.585, ptr @.str.586 }, %struct.Quote { ptr @.str.587, ptr @.str.588 }, %struct.Quote { ptr @.str.589, ptr @.str.590 }, %struct.Quote { ptr @.str.591, ptr @.str.592 }, %struct.Quote { ptr @.str.593, ptr @.str.594 }, %struct.Quote { ptr @.str.595, ptr @.str.596 }, %struct.Quote { ptr @.str.597, ptr @.str.598 }, %struct.Quote { ptr @.str.599, ptr @.str.600 }, %struct.Quote { ptr @.str.601, ptr @.str.602 }, %struct.Quote { ptr @.str.603, ptr @.str.602 }, %struct.Quote { ptr @.str.604, ptr @.str.605 }, %struct.Quote { ptr @.str.606, ptr @.str.607 }, %struct.Quote { ptr @.str.608, ptr @.str.609 }, %struct.Quote { ptr @.str.610, ptr @.str.611 }, %struct.Quote { ptr @.str.612, ptr @.str.613 }, %struct.Quote { ptr @.str.614, ptr @.str.615 }, %struct.Quote { ptr @.str.616, ptr @.str.617 }, %struct.Quote { ptr @.str.618, ptr @.str.617 }, %struct.Quote { ptr @.str.619, ptr @.str.617 }, %struct.Quote { ptr @.str.620, ptr @.str.617 }, %struct.Quote { ptr @.str.621, ptr @.str.617 }, %struct.Quote { ptr @.str.622, ptr @.str.617 }, %struct.Quote { ptr @.str.623, ptr @.str.624 }, %struct.Quote { ptr @.str.625, ptr @.str.626 }, %struct.Quote { ptr @.str.627, ptr @.str.626 }, %struct.Quote { ptr @.str.628, ptr @.str.629 }, %struct.Quote { ptr @.str.630, ptr @.str.570 }, %struct.Quote { ptr @.str.631, ptr @.str.632 }, %struct.Quote { ptr @.str.633, ptr @.str.634 }, %struct.Quote { ptr @.str.635, ptr @.str.634 }, %struct.Quote { ptr @.str.636, ptr @.str.637 }, %struct.Quote { ptr @.str.638, ptr @.str.632 }, %struct.Quote { ptr @.str.639, ptr @.str.640 }, %struct.Quote { ptr @.str.641, ptr @.str.642 }, %struct.Quote { ptr @.str.643, ptr @.str.642 }, %struct.Quote { ptr @.str.644, ptr @.str.642 }, %struct.Quote { ptr @.str.645, ptr @.str.634 }, %struct.Quote { ptr @.str.646, ptr @.str.632 }, %struct.Quote { ptr @.str.647, ptr @.str.648 }, %struct.Quote { ptr @.str.649, ptr @.str.650 }, %struct.Quote { ptr @.str.651, ptr @.str.652 }, %struct.Quote { ptr @.str.653, ptr @.str.654 }, %struct.Quote { ptr @.str.655, ptr @.str.656 }, %struct.Quote { ptr @.str.657, ptr @.str.658 }, %struct.Quote { ptr @.str.659, ptr @.str.660 }, %struct.Quote { ptr @.str.661, ptr @.str.662 }, %struct.Quote { ptr @.str.663, ptr @.str.664 }, %struct.Quote { ptr @.str.665, ptr @.str.666 }, %struct.Quote { ptr @.str.667, ptr @.str.668 }, %struct.Quote { ptr @.str.669, ptr @.str.670 }, %struct.Quote { ptr @.str.671, ptr @.str.672 }, %struct.Quote { ptr @.str.673, ptr @.str.674 }, %struct.Quote { ptr @.str.675, ptr @.str.676 }, %struct.Quote { ptr @.str.677, ptr @.str.678 }, %struct.Quote { ptr @.str.679, ptr @.str.680 }, %struct.Quote { ptr @.str.681, ptr @.str.682 }, %struct.Quote { ptr @.str.683, ptr @.str.684 }, %struct.Quote { ptr @.str.685, ptr @.str.680 }, %struct.Quote { ptr @.str.686, ptr @.str.687 }, %struct.Quote { ptr @.str.688, ptr @.str.687 }, %struct.Quote { ptr @.str.689, ptr @.str.690 }, %struct.Quote { ptr @.str.691, ptr @.str.692 }, %struct.Quote { ptr @.str.693, ptr @.str.694 }, %struct.Quote { ptr @.str.695, ptr @.str.696 }, %struct.Quote { ptr @.str.697, ptr @.str.698 }, %struct.Quote { ptr @.str.699, ptr @.str.698 }, %struct.Quote { ptr @.str.700, ptr @.str.596 }, %struct.Quote { ptr @.str.701, ptr @.str.702 }, %struct.Quote { ptr @.str.703, ptr @.str.704 }, %struct.Quote { ptr @.str.705, ptr @.str.704 }, %struct.Quote { ptr @.str.706, ptr @.str.707 }, %struct.Quote { ptr @.str.708, ptr @.str.709 }, %struct.Quote { ptr @.str.710, ptr @.str.660 }, %struct.Quote { ptr @.str.711, ptr @.str.712 }, %struct.Quote { ptr @.str.713, ptr @.str.714 }, %struct.Quote { ptr @.str.715, ptr @.str.716 }, %struct.Quote { ptr @.str.717, ptr @.str.718 }, %struct.Quote { ptr @.str.719, ptr @.str.720 }, %struct.Quote { ptr @.str.721, ptr @.str.722 }, %struct.Quote { ptr @.str.723, ptr @.str.724 }, %struct.Quote { ptr @.str.725, ptr @.str.726 }, %struct.Quote { ptr @.str.727, ptr @.str.728 }, %struct.Quote { ptr @.str.729, ptr @.str.730 }, %struct.Quote { ptr @.str.731, ptr @.str.732 }, %struct.Quote { ptr @.str.733, ptr @.str.734 }, %struct.Quote { ptr @.str.735, ptr @.str.736 }, %struct.Quote { ptr @.str.737, ptr @.str.738 }, %struct.Quote { ptr @.str.739, ptr @.str.740 }, %struct.Quote { ptr @.str.741, ptr @.str.742 }, %struct.Quote { ptr @.str.743, ptr @.str.744 }, %struct.Quote { ptr @.str.745, ptr @.str.746 }, %struct.Quote { ptr @.str.747, ptr @.str.748 }, %struct.Quote { ptr @.str.749, ptr @.str.750 }, %struct.Quote { ptr @.str.751, ptr @.str.752 }, %struct.Quote { ptr @.str.753, ptr @.str.754 }, %struct.Quote { ptr @.str.755, ptr @.str.756 }, %struct.Quote { ptr @.str.757, ptr @.str.750 }, %struct.Quote { ptr @.str.758, ptr @.str.759 }, %struct.Quote { ptr @.str.760, ptr @.str.761 }, %struct.Quote { ptr @.str.762, ptr @.str.756 }, %struct.Quote { ptr @.str.763, ptr @.str.764 }, %struct.Quote { ptr @.str.765, ptr @.str.766 }, %struct.Quote { ptr @.str.767, ptr @.str.768 }, %struct.Quote { ptr @.str.769, ptr @.str.770 }, %struct.Quote { ptr @.str.771, ptr @.str.770 }, %struct.Quote { ptr @.str.772, ptr @.str.722 }, %struct.Quote { ptr @.str.773, ptr @.str.774 }, %struct.Quote { ptr @.str.775, ptr @.str.776 }, %struct.Quote { ptr @.str.777, ptr @.str.778 }, %struct.Quote { ptr @.str.779, ptr @.str.780 }, %struct.Quote { ptr @.str.781, ptr @.str.782 }, %struct.Quote { ptr @.str.783, ptr @.str.784 }, %struct.Quote { ptr @.str.785, ptr @.str.786 }, %struct.Quote { ptr @.str.787, ptr @.str.728 }, %struct.Quote { ptr @.str.788, ptr @.str.789 }, %struct.Quote { ptr @.str.790, ptr @.str.791 }, %struct.Quote { ptr @.str.792, ptr @.str.793 }, %struct.Quote { ptr @.str.794, ptr @.str.791 }, %struct.Quote { ptr @.str.795, ptr @.str.796 }, %struct.Quote { ptr @.str.797, ptr @.str.798 }, %struct.Quote { ptr @.str.799, ptr @.str.800 }, %struct.Quote { ptr @.str.801, ptr @.str.802 }, %struct.Quote { ptr @.str.803, ptr @.str.804 }, %struct.Quote { ptr @.str.805, ptr @.str.806 }, %struct.Quote { ptr @.str.807, ptr @.str.808 }, %struct.Quote { ptr @.str.809, ptr @.str.810 }, %struct.Quote { ptr @.str.811, ptr @.str.812 }, %struct.Quote { ptr @.str.813, ptr @.str.814 }, %struct.Quote { ptr @.str.815, ptr @.str.816 }, %struct.Quote { ptr @.str.817, ptr @.str.818 }, %struct.Quote { ptr @.str.819, ptr @.str.820 }, %struct.Quote { ptr @.str.821, ptr @.str.822 }, %struct.Quote { ptr @.str.823, ptr @.str.824 }, %struct.Quote { ptr @.str.825, ptr @.str.826 }, %struct.Quote { ptr @.str.827, ptr @.str.26 }, %struct.Quote { ptr @.str.828, ptr @.str.829 }, %struct.Quote { ptr @.str.830, ptr @.str.831 }, %struct.Quote { ptr @.str.832, ptr @.str.833 }, %struct.Quote { ptr @.str.834, ptr @.str.831 }, %struct.Quote { ptr @.str.835, ptr @.str.836 }, %struct.Quote { ptr @.str.837, ptr @.str.836 }, %struct.Quote { ptr @.str.838, ptr @.str.839 }, %struct.Quote { ptr @.str.840, ptr @.str.841 }, %struct.Quote { ptr @.str.842, ptr @.str.843 }, %struct.Quote { ptr @.str.844, ptr @.str.845 }, %struct.Quote { ptr @.str.846, ptr @.str.847 }, %struct.Quote { ptr @.str.848, ptr @.str.849 }, %struct.Quote { ptr @.str.850, ptr @.str.849 }, %struct.Quote { ptr @.str.851, ptr @.str.852 }, %struct.Quote { ptr @.str.853, ptr @.str.852 }, %struct.Quote { ptr @.str.854, ptr @.str.855 }, %struct.Quote { ptr @.str.856, ptr @.str.857 }, %struct.Quote { ptr @.str.858, ptr @.str.859 }, %struct.Quote { ptr @.str.860, ptr @.str.861 }, %struct.Quote { ptr @.str.862, ptr @.str.852 }, %struct.Quote { ptr @.str.863, ptr @.str.852 }, %struct.Quote { ptr @.str.864, ptr @.str.865 }, %struct.Quote { ptr @.str.866, ptr @.str.867 }, %struct.Quote { ptr @.str.868, ptr @.str.869 }, %struct.Quote { ptr @.str.870, ptr @.str.871 }, %struct.Quote { ptr @.str.872, ptr @.str.873 }, %struct.Quote { ptr @.str.874, ptr @.str.784 }, %struct.Quote { ptr @.str.875, ptr @.str.876 }, %struct.Quote { ptr @.str.877, ptr @.str.878 }, %struct.Quote { ptr @.str.879, ptr @.str.880 }, %struct.Quote { ptr @.str.881, ptr @.str.882 }, %struct.Quote { ptr @.str.883, ptr @.str.884 }, %struct.Quote { ptr @.str.885, ptr @.str.886 }, %struct.Quote { ptr @.str.887, ptr @.str.709 }, %struct.Quote { ptr @.str.888, ptr @.str.889 }, %struct.Quote { ptr @.str.890, ptr @.str.891 }, %struct.Quote { ptr @.str.892, ptr @.str.893 }, %struct.Quote { ptr @.str.894, ptr @.str.895 }, %struct.Quote { ptr @.str.896, ptr @.str.897 }, %struct.Quote { ptr @.str.898, ptr @.str.899 }, %struct.Quote { ptr @.str.900, ptr @.str.901 }, %struct.Quote { ptr @.str.902, ptr @.str.903 }, %struct.Quote { ptr @.str.904, ptr @.str.905 }, %struct.Quote { ptr @.str.906, ptr @.str.907 }, %struct.Quote { ptr @.str.908, ptr @.str.709 }, %struct.Quote { ptr @.str.909, ptr @.str.910 }, %struct.Quote { ptr @.str.911, ptr @.str.802 }, %struct.Quote { ptr @.str.912, ptr @.str.802 }, %struct.Quote { ptr @.str.913, ptr @.str.914 }, %struct.Quote { ptr @.str.915, ptr @.str.914 }, %struct.Quote { ptr @.str.916, ptr @.str.917 }, %struct.Quote { ptr @.str.918, ptr @.str.919 }, %struct.Quote { ptr @.str.920, ptr @.str.921 }, %struct.Quote { ptr @.str.922, ptr @.str.923 }, %struct.Quote { ptr @.str.924, ptr @.str.780 }, %struct.Quote { ptr @.str.925, ptr @.str.780 }, %struct.Quote { ptr @.str.926, ptr @.str.927 }, %struct.Quote { ptr @.str.928, ptr @.str.929 }, %struct.Quote { ptr @.str.930, ptr @.str.676 }, %struct.Quote { ptr @.str.931, ptr @.str.921 }, %struct.Quote { ptr @.str.932, ptr @.str.919 }, %struct.Quote { ptr @.str.933, ptr @.str.934 }, %struct.Quote { ptr @.str.935, ptr @.str.936 }, %struct.Quote { ptr @.str.937, ptr @.str.938 }, %struct.Quote { ptr @.str.939, ptr @.str.940 }, %struct.Quote { ptr @.str.941, ptr @.str.942 }, %struct.Quote { ptr @.str.943, ptr @.str.944 }, %struct.Quote { ptr @.str.945, ptr @.str.946 }, %struct.Quote { ptr @.str.947, ptr @.str.948 }, %struct.Quote { ptr @.str.949, ptr @.str.950 }, %struct.Quote { ptr @.str.951, ptr @.str.674 }, %struct.Quote { ptr @.str.952, ptr @.str.953 }, %struct.Quote { ptr @.str.954, ptr @.str.953 }, %struct.Quote { ptr @.str.955, ptr @.str.956 }, %struct.Quote { ptr @.str.957, ptr @.str.958 }, %struct.Quote { ptr @.str.959, ptr @.str.958 }, %struct.Quote { ptr @.str.960, ptr @.str.958 }, %struct.Quote { ptr @.str.961, ptr @.str.958 }, %struct.Quote { ptr @.str.962, ptr @.str.752 }, %struct.Quote { ptr @.str.963, ptr @.str.521 }, %struct.Quote { ptr @.str.964, ptr @.str.965 }, %struct.Quote { ptr @.str.966, ptr @.str.967 }, %struct.Quote { ptr @.str.968, ptr @.str.547 }, %struct.Quote { ptr @.str.969, ptr @.str.530 }, %struct.Quote { ptr @.str.970, ptr @.str.971 }, %struct.Quote { ptr @.str.972, ptr @.str.973 }, %struct.Quote { ptr @.str.974, ptr @.str.660 }, %struct.Quote { ptr @.str.975, ptr @.str.976 }, %struct.Quote { ptr @.str.977, ptr @.str.549 }, %struct.Quote { ptr @.str.978, ptr @.str.979 }, %struct.Quote { ptr @.str.980, ptr @.str.979 }, %struct.Quote { ptr @.str.981, ptr @.str.573 }, %struct.Quote { ptr @.str.982, ptr @.str.983 }, %struct.Quote { ptr @.str.984, ptr @.str.985 }, %struct.Quote { ptr @.str.986, ptr @.str.987 }, %struct.Quote { ptr @.str.988, ptr @.str.989 }, %struct.Quote { ptr @.str.990, ptr @.str.991 }, %struct.Quote { ptr @.str.992, ptr @.str.778 }, %struct.Quote { ptr @.str.993, ptr @.str.570 }, %struct.Quote { ptr @.str.994, ptr @.str.995 }, %struct.Quote { ptr @.str.996, ptr @.str.995 }, %struct.Quote { ptr @.str.997, ptr @.str.995 }, %struct.Quote { ptr @.str.998, ptr @.str.568 }, %struct.Quote { ptr @.str.999, ptr @.str.1000 }, %struct.Quote { ptr @.str.1001, ptr @.str.1002 }, %struct.Quote { ptr @.str.1003, ptr @.str.568 }, %struct.Quote { ptr @.str.1004, ptr @.str.1005 }, %struct.Quote { ptr @.str.1006, ptr @.str.804 }, %struct.Quote { ptr @.str.1007, ptr @.str.1008 }, %struct.Quote { ptr @.str.1009, ptr @.str.1010 }, %struct.Quote { ptr @.str.1011, ptr @.str.1012 }, %struct.Quote { ptr @.str.1013, ptr @.str.709 }, %struct.Quote { ptr @.str.1014, ptr @.str.1015 }, %struct.Quote { ptr @.str.1016, ptr @.str.1017 }, %struct.Quote { ptr @.str.1018, ptr @.str.1019 }, %struct.Quote { ptr @.str.1020, ptr @.str.880 }, %struct.Quote { ptr @.str.1021, ptr @.str.1022 }, %struct.Quote { ptr @.str.1023, ptr @.str.882 }, %struct.Quote { ptr @.str.1024, ptr @.str.660 }, %struct.Quote { ptr @.str.1025, ptr @.str.1026 }, %struct.Quote { ptr @.str.1027, ptr @.str.1028 }, %struct.Quote { ptr @.str.1029, ptr @.str.1026 }, %struct.Quote { ptr @.str.1030, ptr @.str.1028 }, %struct.Quote { ptr @.str.1031, ptr @.str.1032 }, %struct.Quote { ptr @.str.1033, ptr @.str.1034 }, %struct.Quote { ptr @.str.1035, ptr @.str.658 }, %struct.Quote { ptr @.str.1036, ptr @.str.907 }, %struct.Quote { ptr @.str.1037, ptr @.str.907 }, %struct.Quote { ptr @.str.1038, ptr @.str.1039 }, %struct.Quote { ptr @.str.1040, ptr @.str.1039 }, %struct.Quote { ptr @.str.1041, ptr @.str.804 }, %struct.Quote { ptr @.str.1042, ptr @.str.1043 }, %struct.Quote { ptr @.str.1044, ptr @.str.1045 }, %struct.Quote { ptr @.str.1046, ptr @.str.1047 }, %struct.Quote { ptr @.str.1048, ptr @.str.1049 }, %struct.Quote { ptr @.str.1050, ptr @.str.1051 }, %struct.Quote { ptr @.str.1052, ptr @.str.1045 }, %struct.Quote { ptr @.str.1053, ptr @.str.1054 }, %struct.Quote { ptr @.str.1055, ptr @.str.1056 }, %struct.Quote { ptr @.str.1057, ptr @.str.1045 }, %struct.Quote { ptr @.str.1058, ptr @.str.728 }, %struct.Quote { ptr @.str.1059, ptr @.str.1060 }, %struct.Quote { ptr @.str.1061, ptr @.str.1062 }, %struct.Quote { ptr @.str.1063, ptr @.str.880 }, %struct.Quote { ptr @.str.1064, ptr @.str.1065 }, %struct.Quote { ptr @.str.1066, ptr @.str.684 }, %struct.Quote { ptr @.str.1067, ptr @.str.1068 }, %struct.Quote { ptr @.str.1069, ptr @.str.907 }, %struct.Quote { ptr @.str.1070, ptr @.str.1071 }, %struct.Quote { ptr @.str.1072, ptr @.str.1073 }, %struct.Quote { ptr @.str.1074, ptr @.str.1075 }, %struct.Quote { ptr @.str.1076, ptr @.str.1077 }, %struct.Quote { ptr @.str.1078, ptr @.str.1079 }, %struct.Quote { ptr @.str.1080, ptr @.str.1081 }, %struct.Quote { ptr @.str.1082, ptr @.str.1083 }, %struct.Quote { ptr @.str.1084, ptr @.str.1085 }, %struct.Quote { ptr @.str.1086, ptr @.str.1087 }, %struct.Quote { ptr @.str.1088, ptr @.str.1089 }, %struct.Quote { ptr @.str.1090, ptr @.str.1091 }, %struct.Quote { ptr @.str.1092, ptr @.str.1019 }, %struct.Quote { ptr @.str.1093, ptr @.str.1094 }, %struct.Quote { ptr @.str.1095, ptr @.str.1096 }, %struct.Quote { ptr @.str.1097, ptr @.str.1098 }, %struct.Quote { ptr @.str.1099, ptr @.str.1100 }, %struct.Quote { ptr @.str.1101, ptr @.str.1102 }, %struct.Quote { ptr @.str.1103, ptr @.str.1104 }, %struct.Quote { ptr @.str.1105, ptr @.str.1106 }, %struct.Quote { ptr @.str.1107, ptr @.str.1108 }, %struct.Quote { ptr @.str.1109, ptr @.str.1110 }, %struct.Quote { ptr @.str.1111, ptr @.str.1112 }, %struct.Quote { ptr @.str.1113, ptr @.str.570 }, %struct.Quote { ptr @.str.1114, ptr @.str.1115 }, %struct.Quote { ptr @.str.1116, ptr @.str.1117 }, %struct.Quote { ptr @.str.1118, ptr @.str.1119 }, %struct.Quote { ptr @.str.1120, ptr @.str.1121 }, %struct.Quote { ptr @.str.1122, ptr @.str.1045 }, %struct.Quote { ptr @.str.1123, ptr @.str.1045 }, %struct.Quote { ptr @.str.1124, ptr @.str.1125 }, %struct.Quote { ptr @.str.1126, ptr @.str.1045 }, %struct.Quote { ptr @.str.1127, ptr @.str.1045 }, %struct.Quote { ptr @.str.1128, ptr @.str.1045 }, %struct.Quote { ptr @.str.1129, ptr @.str.1130 }, %struct.Quote { ptr @.str.1131, ptr @.str.1045 }, %struct.Quote { ptr @.str.1132, ptr @.str.1045 }, %struct.Quote { ptr @.str.1133, ptr @.str.1045 }, %struct.Quote { ptr @.str.1134, ptr @.str.1019 }, %struct.Quote { ptr @.str.1135, ptr @.str.1136 }, %struct.Quote { ptr @.str.1137, ptr @.str.1138 }, %struct.Quote { ptr @.str.1139, ptr @.str.1140 }, %struct.Quote { ptr @.str.1141, ptr @.str.1142 }, %struct.Quote { ptr @.str.1143, ptr @.str.1144 }, %struct.Quote { ptr @.str.1145, ptr @.str.1146 }, %struct.Quote { ptr @.str.1147, ptr @.str.1148 }, %struct.Quote { ptr @.str.1149, ptr @.str.756 }, %struct.Quote { ptr @.str.1150, ptr @.str.1151 }, %struct.Quote { ptr @.str.1152, ptr @.str.776 }, %struct.Quote { ptr @.str.1153, ptr @.str.1154 }, %struct.Quote { ptr @.str.1155, ptr @.str.570 }, %struct.Quote { ptr @.str.1156, ptr @.str.570 }, %struct.Quote { ptr @.str.1157, ptr @.str.1045 }, %struct.Quote { ptr @.str.1158, ptr @.str.1159 }, %struct.Quote { ptr @.str.1160, ptr @.str.1161 }, %struct.Quote { ptr @.str.1162, ptr @.str.1163 }, %struct.Quote { ptr @.str.1164, ptr @.str.1045 }, %struct.Quote { ptr @.str.1165, ptr @.str.1166 }, %struct.Quote { ptr @.str.1167, ptr @.str.774 }, %struct.Quote { ptr @.str.1168, ptr @.str.1169 }, %struct.Quote { ptr @.str.1170, ptr @.str.1171 }, %struct.Quote { ptr @.str.1172, ptr @.str.1045 }, %struct.Quote { ptr @.str.1173, ptr @.str.1045 }, %struct.Quote { ptr @.str.1174, ptr @.str.1045 }, %struct.Quote { ptr @.str.1175, ptr @.str.1176 }, %struct.Quote { ptr @.str.1177, ptr @.str.722 }, %struct.Quote { ptr @.str.1178, ptr @.str.1179 }, %struct.Quote { ptr @.str.1180, ptr @.str.1181 }, %struct.Quote { ptr @.str.1182, ptr @.str.1183 }, %struct.Quote { ptr @.str.1184, ptr @.str.1185 }, %struct.Quote { ptr @.str.1186, ptr @.str.1187 }, %struct.Quote { ptr @.str.1188, ptr @.str.1189 }, %struct.Quote { ptr @.str.1190, ptr @.str.1191 }, %struct.Quote { ptr @.str.1192, ptr @.str.1193 }, %struct.Quote { ptr @.str.1194, ptr @.str.718 }, %struct.Quote { ptr @.str.1195, ptr @.str.1176 }, %struct.Quote { ptr @.str.1196, ptr @.str.698 }, %struct.Quote { ptr @.str.1197, ptr @.str.1198 }, %struct.Quote { ptr @.str.1199, ptr @.str.722 }, %struct.Quote { ptr @.str.1200, ptr @.str.1201 }, %struct.Quote { ptr @.str.1202, ptr @.str.1203 }, %struct.Quote { ptr @.str.1204, ptr @.str.1205 }, %struct.Quote { ptr @.str.1206, ptr @.str.1207 }, %struct.Quote { ptr @.str.1208, ptr @.str.680 }, %struct.Quote { ptr @.str.1209, ptr @.str.1210 }, %struct.Quote { ptr @.str.1211, ptr @.str.1212 }, %struct.Quote { ptr @.str.1213, ptr @.str.596 }, %struct.Quote { ptr @.str.1214, ptr @.str.654 }, %struct.Quote { ptr @.str.1215, ptr @.str.1216 }, %struct.Quote { ptr @.str.1217, ptr @.str.1218 }, %struct.Quote { ptr @.str.1219, ptr @.str.680 }, %struct.Quote { ptr @.str.1220, ptr @.str.1221 }, %struct.Quote { ptr @.str.1222, ptr @.str.770 }, %struct.Quote { ptr @.str.1223, ptr @.str.660 }, %struct.Quote { ptr @.str.1224, ptr @.str.1225 }, %struct.Quote { ptr @.str.1226, ptr @.str.660 }, %struct.Quote { ptr @.str.1227, ptr @.str.1228 }, %struct.Quote { ptr @.str.1229, ptr @.str.1230 }, %struct.Quote { ptr @.str.1231, ptr @.str.1232 }, %struct.Quote { ptr @.str.1233, ptr @.str.1234 }, %struct.Quote { ptr @.str.1235, ptr @.str.1236 }, %struct.Quote { ptr @.str.1237, ptr @.str.1218 }, %struct.Quote { ptr @.str.1238, ptr @.str.1239 }, %struct.Quote { ptr @.str.1240, ptr @.str.680 }, %struct.Quote { ptr @.str.1241, ptr @.str.660 }, %struct.Quote { ptr @.str.1242, ptr @.str.1243 }, %struct.Quote { ptr @.str.1244, ptr @.str.1245 }, %struct.Quote { ptr @.str.1246, ptr @.str.1247 }, %struct.Quote { ptr @.str.1248, ptr @.str.1249 }, %struct.Quote { ptr @.str.1250, ptr @.str.1251 }, %struct.Quote { ptr @.str.1252, ptr @.str.1253 }, %struct.Quote { ptr @.str.1254, ptr @.str.1255 }, %struct.Quote { ptr @.str.1256, ptr @.str.596 }, %struct.Quote { ptr @.str.1257, ptr @.str.907 }, %struct.Quote { ptr @.str.1258, ptr @.str.1259 }, %struct.Quote { ptr @.str.1260, ptr @.str.1261 }, %struct.Quote { ptr @.str.1262, ptr @.str.782 }, %struct.Quote { ptr @.str.1263, ptr @.str.1264 }, %struct.Quote { ptr @.str.1265, ptr @.str.1228 }, %struct.Quote { ptr @.str.1266, ptr @.str.1267 }, %struct.Quote { ptr @.str.1268, ptr @.str.1269 }, %struct.Quote { ptr @.str.1270, ptr @.str.1271 }, %struct.Quote { ptr @.str.1272, ptr @.str.1273 }, %struct.Quote { ptr @.str.1274, ptr @.str.1045 }, %struct.Quote { ptr @.str.1275, ptr @.str.1276 }, %struct.Quote { ptr @.str.1277, ptr @.str.880 }, %struct.Quote { ptr @.str.1278, ptr @.str.660 }, %struct.Quote { ptr @.str.1279, ptr @.str.1280 }, %struct.Quote { ptr @.str.1281, ptr @.str.1282 }, %struct.Quote { ptr @.str.1283, ptr @.str.674 }, %struct.Quote { ptr @.str.1284, ptr @.str.674 }, %struct.Quote { ptr @.str.1285, ptr @.str.1286 }, %struct.Quote { ptr @.str.1287, ptr @.str.1286 }, %struct.Quote { ptr @.str.1288, ptr @.str.1289 }, %struct.Quote { ptr @.str.1290, ptr @.str.1291 }, %struct.Quote { ptr @.str.1292, ptr @.str.658 }, %struct.Quote { ptr @.str.1293, ptr @.str.1294 }, %struct.Quote { ptr @.str.1295, ptr @.str.1296 }, %struct.Quote { ptr @.str.1297, ptr @.str.1298 }, %struct.Quote { ptr @.str.1299, ptr @.str.784 }, %struct.Quote { ptr @.str.1300, ptr @.str.1301 }, %struct.Quote { ptr @.str.1302, ptr @.str.1303 }, %struct.Quote { ptr @.str.1304, ptr @.str.1305 }, %struct.Quote { ptr @.str.1306, ptr @.str.1307 }, %struct.Quote { ptr @.str.1308, ptr @.str.1309 }, %struct.Quote { ptr @.str.1310, ptr @.str.1045 }, %struct.Quote { ptr @.str.1311, ptr @.str.1312 }, %struct.Quote { ptr @.str.1313, ptr @.str.1314 }, %struct.Quote { ptr @.str.1315, ptr @.str.976 }, %struct.Quote { ptr @.str.1316, ptr @.str.1317 }, %struct.Quote { ptr @.str.1318, ptr @.str.1319 }, %struct.Quote { ptr @.str.1320, ptr @.str.624 }, %struct.Quote { ptr @.str.1321, ptr @.str.1322 }, %struct.Quote { ptr @.str.1323, ptr @.str.1324 }, %struct.Quote { ptr @.str.1325, ptr @.str.1326 }, %struct.Quote { ptr @.str.1327, ptr @.str.1328 }, %struct.Quote { ptr @.str.1329, ptr @.str.1330 }, %struct.Quote { ptr @.str.1331, ptr @.str.1332 }, %struct.Quote { ptr @.str.1333, ptr @.str.1334 }, %struct.Quote { ptr @.str.1335, ptr @.str.1336 }, %struct.Quote { ptr @.str.1337, ptr @.str.1338 }, %struct.Quote { ptr @.str.1339, ptr @.str.1338 }, %struct.Quote { ptr @.str.1340, ptr @.str.676 }, %struct.Quote { ptr @.str.1341, ptr @.str.676 }, %struct.Quote { ptr @.str.1342, ptr @.str.676 }, %struct.Quote { ptr @.str.1343, ptr @.str.709 }, %struct.Quote { ptr @.str.1344, ptr @.str.709 }, %struct.Quote { ptr @.str.1345, ptr @.str.1346 }, %struct.Quote { ptr @.str.1347, ptr @.str.1348 }, %struct.Quote { ptr @.str.1349, ptr @.str.1350 }, %struct.Quote { ptr @.str.1351, ptr @.str.1352 }, %struct.Quote { ptr @.str.1353, ptr @.str.1354 }, %struct.Quote { ptr @.str.1355, ptr @.str.921 }, %struct.Quote { ptr @.str.1356, ptr @.str.1357 }, %struct.Quote { ptr @.str.1358, ptr @.str.1045 }, %struct.Quote { ptr @.str.1359, ptr @.str.1360 }, %struct.Quote { ptr @.str.1361, ptr @.str.1362 }, %struct.Quote { ptr @.str.1363, ptr @.str.1364 }, %struct.Quote { ptr @.str.1365, ptr @.str.1366 }, %struct.Quote { ptr @.str.1367, ptr @.str.1368 }, %struct.Quote { ptr @.str.1369, ptr @.str.1045 }, %struct.Quote { ptr @.str.1370, ptr @.str.1338 }, %struct.Quote { ptr @.str.1371, ptr @.str.1372 }, %struct.Quote { ptr @.str.1373, ptr @.str.1374 }, %struct.Quote { ptr @.str.1375, ptr @.str.1376 }, %struct.Quote { ptr @.str.1377, ptr @.str.570 }, %struct.Quote { ptr @.str.1378, ptr @.str.596 }, %struct.Quote { ptr @.str.1379, ptr @.str.1000 }, %struct.Quote { ptr @.str.1380, ptr @.str.1045 }, %struct.Quote { ptr @.str.1381, ptr @.str.1382 }, %struct.Quote { ptr @.str.1383, ptr @.str.1384 }, %struct.Quote { ptr @.str.1385, ptr @.str.1045 }, %struct.Quote { ptr @.str.1157, ptr @.str.1045 }, %struct.Quote { ptr @.str.1386, ptr @.str.1387 }, %struct.Quote { ptr @.str.1388, ptr @.str.1389 }, %struct.Quote { ptr @.str.1390, ptr @.str.1391 }, %struct.Quote { ptr @.str.1392, ptr @.str.1393 }, %struct.Quote { ptr @.str.1394, ptr @.str.1395 }, %struct.Quote { ptr @.str.1396, ptr @.str.1045 }, %struct.Quote { ptr @.str.1397, ptr @.str.1398 }, %struct.Quote { ptr @.str.1399, ptr @.str.1400 }, %struct.Quote { ptr @.str.1401, ptr @.str.1402 }, %struct.Quote { ptr @.str.1403, ptr @.str.1045 }, %struct.Quote { ptr @.str.1404, ptr @.str.1405 }, %struct.Quote { ptr @.str.1406, ptr @.str.1407 }, %struct.Quote { ptr @.str.1408, ptr @.str.1409 }, %struct.Quote { ptr @.str.1410, ptr @.str.722 }, %struct.Quote { ptr @.str.1411, ptr @.str.1185 }, %struct.Quote { ptr @.str.1412, ptr @.str.1413 }, %struct.Quote { ptr @.str.1414, ptr @.str.1415 }, %struct.Quote { ptr @.str.1416, ptr @.str.1417 }, %struct.Quote { ptr @.str.1418, ptr @.str.1419 }, %struct.Quote { ptr @.str.1420, ptr @.str.722 }, %struct.Quote { ptr @.str.1421, ptr @.str.1422 }, %struct.Quote { ptr @.str.1423, ptr @.str.1424 }, %struct.Quote { ptr @.str.1425, ptr @.str.1413 }, %struct.Quote { ptr @.str.1426, ptr @.str.1419 }, %struct.Quote { ptr @.str.1427, ptr @.str.1428 }, %struct.Quote { ptr @.str.1429, ptr @.str.1430 }, %struct.Quote { ptr @.str.1431, ptr @.str.1432 }, %struct.Quote { ptr @.str.1433, ptr @.str.1434 }, %struct.Quote { ptr @.str.1435, ptr @.str.1436 }, %struct.Quote { ptr @.str.1437, ptr @.str.1436 }, %struct.Quote { ptr @.str.1438, ptr @.str.1436 }, %struct.Quote { ptr @.str.1439, ptr @.str.1436 }, %struct.Quote { ptr @.str.1440, ptr @.str.1441 }, %struct.Quote { ptr @.str.1442, ptr @.str.1443 }, %struct.Quote { ptr @.str.1444, ptr @.str.1443 }, %struct.Quote { ptr @.str.1445, ptr @.str.1446 }, %struct.Quote { ptr @.str.1447, ptr @.str.1448 }, %struct.Quote { ptr @.str.1449, ptr @.str.1450 }, %struct.Quote { ptr @.str.1451, ptr @.str.1452 }, %struct.Quote { ptr @.str.1453, ptr @.str.1454 }, %struct.Quote { ptr @.str.1455, ptr @.str.1456 }, %struct.Quote { ptr @.str.1457, ptr @.str.873 }, %struct.Quote { ptr @.str.1458, ptr @.str.1045 }, %struct.Quote { ptr @.str.1459, ptr @.str.1460 }, %struct.Quote { ptr @.str.1461, ptr @.str.1045 }, %struct.Quote { ptr @.str.1462, ptr @.str.1463 }, %struct.Quote { ptr @.str.1464, ptr @.str.1465 }, %struct.Quote { ptr @.str.1466, ptr @.str.1467 }, %struct.Quote { ptr @.str.1468, ptr @.str.1469 }, %struct.Quote { ptr @.str.1470, ptr @.str.1471 }, %struct.Quote { ptr @.str.1472, ptr @.str.1473 }, %struct.Quote { ptr @.str.1474, ptr @.str.1475 }, %struct.Quote { ptr @.str.1476, ptr @.str.1477 }, %struct.Quote { ptr @.str.1478, ptr @.str.1479 }, %struct.Quote { ptr @.str.1480, ptr @.str.1477 }, %struct.Quote { ptr @.str.1481, ptr @.str.1482 }, %struct.Quote { ptr @.str.1483, ptr @.str.1482 }, %struct.Quote { ptr @.str.1484, ptr @.str.1485 }, %struct.Quote { ptr @.str.1486, ptr @.str.1482 }, %struct.Quote { ptr @.str.1487, ptr @.str.1482 }], align 16
+@.str.1488 = private unnamed_addr constant [31 x i8] c"GROMACS reminds you: \22%s\22 (%s)\00", align 1
+@.str.1489 = private unnamed_addr constant [42 x i8] c"Thanx for Using GROMACS - Have a Nice Day\00", align 1
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN3gmx7bromacsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0) #0 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca [26 x ptr], align 16
+  %4 = alloca %"class.gmx::ArrayRef", align 8
+  %5 = alloca %"class.std::allocator", align 1
+  %6 = alloca ptr, align 8
+  %7 = alloca i32, align 4
+  %8 = alloca %"class.std::allocator", align 1
+  store ptr %0, ptr %2, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %3, ptr align 16 @__const._ZN3gmx7bromacsB5cxx11Ev.bromacsArray, i64 208, i1 false)
+  %9 = call noundef zeroext i1 @_ZN3gmx12_GLOBAL__N_16beCoolEv()
+  br i1 %9, label %10, label %22
+
+10:                                               ; preds = %1
+  call void @_ZN3gmx8ArrayRefIKPKcEC2ILm26EEERAT__S3_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(208) %3)
+  %11 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds { ptr, ptr }, ptr %4, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8
+  %15 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE(ptr %12, ptr %14)
+  %16 = load ptr, ptr %15, align 8
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #7
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %16, ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %17 unwind label %18
+
+17:                                               ; preds = %10
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #7
+  br label %28
+
+18:                                               ; preds = %10
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %6, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %7, align 4
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #7
+  br label %29
+
+22:                                               ; preds = %1
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #7
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef @.str.26, ptr noundef nonnull align 1 dereferenceable(1) %8)
+          to label %23 unwind label %24
+
+23:                                               ; preds = %22
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #7
+  br label %28
+
+24:                                               ; preds = %22
+  %25 = landingpad { ptr, i32 }
+          cleanup
+  %26 = extractvalue { ptr, i32 } %25, 0
+  store ptr %26, ptr %6, align 8
+  %27 = extractvalue { ptr, i32 } %25, 1
+  store i32 %27, ptr %7, align 4
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #7
+  br label %29
+
+28:                                               ; preds = %23, %17
+  ret void
+
+29:                                               ; preds = %24, %18
+  %30 = load ptr, ptr %6, align 8
+  %31 = load i32, ptr %7, align 4
+  %32 = insertvalue { ptr, i32 } poison, ptr %30, 0
+  %33 = insertvalue { ptr, i32 } %32, i32 %31, 1
+  resume { ptr, i32 } %33
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef zeroext i1 @_ZN3gmx12_GLOBAL__N_16beCoolEv() #2 {
+  %1 = call ptr @getenv(ptr noundef @.str.27) #7
+  %2 = icmp eq ptr %1, null
+  ret i1 %2
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIPKcEERKT_NS_8ArrayRefIS5_EE(ptr %0, ptr %1) #0 {
+  %3 = alloca %"class.gmx::ArrayRef", align 8
+  %4 = alloca %"class.std::mersenne_twister_engine", align 8
+  %5 = alloca %"class.std::uniform_int_distribution", align 8
+  %6 = getelementptr inbounds { ptr, ptr }, ptr %3, i32 0, i32 0
+  store ptr %0, ptr %6, align 8
+  %7 = getelementptr inbounds { ptr, ptr }, ptr %3, i32 0, i32 1
+  store ptr %1, ptr %7, align 8
+  %8 = call i64 @time(ptr noundef null) #7
+  call void @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Em(ptr noundef nonnull align 8 dereferenceable(2504) %4, i64 noundef %8)
+  %9 = call noundef i64 @_ZNK3gmx8ArrayRefIKPKcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %10 = sub i64 %9, 1
+  call void @_ZNSt24uniform_int_distributionImEC2Emm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef 0, i64 noundef %10)
+  %11 = call noundef i64 @_ZNSt24uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(2504) %4)
+  %12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3gmx8ArrayRefIKPKcEixEm(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %11)
+  ret ptr %12
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3gmx8ArrayRefIKPKcEC2ILm26EEERAT__S3_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(208) %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"class.gmx::ArrayRef", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds [26 x ptr], ptr %7, i64 0, i64 0
+  call void @_ZN3gmx12ArrayRefIterIKPKcEC2EPS3_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %8) #7
+  %9 = getelementptr inbounds %"class.gmx::ArrayRef", ptr %5, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds [26 x ptr], ptr %10, i64 0, i64 0
+  %12 = getelementptr inbounds ptr, ptr %11, i64 26
+  call void @_ZN3gmx12ArrayRefIterIKPKcEC2EPS3_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %12) #7
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %10, i32 0, i32 0
+  %12 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %10)
+  %13 = load ptr, ptr %6, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %13)
+  %14 = load ptr, ptr %5, align 8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %22
+
+16:                                               ; preds = %3
+  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef @.str.28) #8
+          to label %17 unwind label %18
+
+17:                                               ; preds = %16
+  unreachable
+
+18:                                               ; preds = %26, %22, %16
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  %20 = extractvalue { ptr, i32 } %19, 0
+  store ptr %20, ptr %7, align 8
+  %21 = extractvalue { ptr, i32 } %19, 1
+  store i32 %21, ptr %8, align 4
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #7
+  br label %31
+
+22:                                               ; preds = %3
+  %23 = load ptr, ptr %5, align 8
+  %24 = load ptr, ptr %5, align 8
+  %25 = invoke noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %24)
+          to label %26 unwind label %18
+
+26:                                               ; preds = %22
+  %27 = getelementptr inbounds i8, ptr %23, i64 %25
+  store ptr %27, ptr %9, align 8
+  %28 = load ptr, ptr %5, align 8
+  %29 = load ptr, ptr %9, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %28, ptr noundef %29)
+          to label %30 unwind label %18
+
+30:                                               ; preds = %26
+  ret void
+
+31:                                               ; preds = %18
+  %32 = load ptr, ptr %7, align 8
+  %33 = load i32, ptr %8, align 4
+  %34 = insertvalue { ptr, i32 } poison, ptr %32, 0
+  %35 = insertvalue { ptr, i32 } %34, i32 %33, 1
+  resume { ptr, i32 } %35
+}
+
+declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: nounwind
+declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
+
+; Function Attrs: nounwind
+declare ptr @getenv(ptr noundef) #3
+
+; Function Attrs: nounwind
+declare i64 @time(ptr noundef) #3
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Em(ptr noundef nonnull align 8 dereferenceable(2504) %0, i64 noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  call void @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE4seedEm(ptr noundef nonnull align 8 dereferenceable(2504) %5, i64 noundef %6)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNK3gmx8ArrayRefIKPKcE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"struct.gmx::ArrayRefIter", align 8
+  store ptr %0, ptr %2, align 8
+  %4 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds %"class.gmx::ArrayRef", ptr %4, i32 0, i32 1
+  %6 = getelementptr inbounds %"class.gmx::ArrayRef", ptr %4, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %6, i64 8, i1 false)
+  %7 = getelementptr inbounds %"struct.gmx::ArrayRefIter", ptr %3, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  %9 = call noundef i64 @_ZNK3gmx12ArrayRefIterIKPKcEmiES4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr %8) #7
+  ret i64 %9
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt24uniform_int_distributionImEC2Emm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds %"class.std::uniform_int_distribution", ptr %7, i32 0, i32 0
+  %9 = load i64, ptr %5, align 8
+  %10 = load i64, ptr %6, align 8
+  call void @_ZNSt24uniform_int_distributionImE10param_typeC2Emm(ptr noundef nonnull align 8 dereferenceable(16) %8, i64 noundef %9, i64 noundef %10)
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3gmx8ArrayRefIKPKcEixEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"class.gmx::ArrayRef", ptr %5, i32 0, i32 0
+  %7 = load i64, ptr %4, align 8
+  %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3gmx5boost14stl_interfaces2v118iterator_interfaceINS_12ArrayRefIterIKPKcEESt26random_access_iterator_tagS7_RS7_PS7_lvEixIS8_EEDTcmpLclsr3stdE7declvalIRT_EEfp_declsr3stdE7declvalISF_EEEl(ptr noundef nonnull align 1 dereferenceable(1) %6, i64 noundef %7) #7
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZNSt24uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds %"class.std::uniform_int_distribution", ptr %5, i32 0, i32 0
+  %8 = call noundef i64 @_ZNSt24uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(2504) %6, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  ret i64 %8
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE4seedEm(ptr noundef nonnull align 8 dereferenceable(2504) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %7 = load ptr, ptr %3, align 8
+  %8 = load i64, ptr %4, align 8
+  %9 = call noundef i64 @_ZNSt8__detail5__modImTnT_Lm0ETnS1_Lm1ETnS1_Lm0EEES1_S1_(i64 noundef %8)
+  %10 = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %7, i32 0, i32 0
+  %11 = getelementptr inbounds [312 x i64], ptr %10, i64 0, i64 0
+  store i64 %9, ptr %11, align 8
+  store i64 1, ptr %5, align 8
+  br label %12
+
+12:                                               ; preds = %36, %2
+  %13 = load i64, ptr %5, align 8
+  %14 = icmp ult i64 %13, 312
+  br i1 %14, label %15, label %39
+
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %7, i32 0, i32 0
+  %17 = load i64, ptr %5, align 8
+  %18 = sub i64 %17, 1
+  %19 = getelementptr inbounds [312 x i64], ptr %16, i64 0, i64 %18
+  %20 = load i64, ptr %19, align 8
+  store i64 %20, ptr %6, align 8
+  %21 = load i64, ptr %6, align 8
+  %22 = lshr i64 %21, 62
+  %23 = load i64, ptr %6, align 8
+  %24 = xor i64 %23, %22
+  store i64 %24, ptr %6, align 8
+  %25 = load i64, ptr %6, align 8
+  %26 = mul i64 %25, 6364136223846793005
+  store i64 %26, ptr %6, align 8
+  %27 = load i64, ptr %5, align 8
+  %28 = call noundef i64 @_ZNSt8__detail5__modImTnT_Lm312ETnS1_Lm1ETnS1_Lm0EEES1_S1_(i64 noundef %27)
+  %29 = load i64, ptr %6, align 8
+  %30 = add i64 %29, %28
+  store i64 %30, ptr %6, align 8
+  %31 = load i64, ptr %6, align 8
+  %32 = call noundef i64 @_ZNSt8__detail5__modImTnT_Lm0ETnS1_Lm1ETnS1_Lm0EEES1_S1_(i64 noundef %31)
+  %33 = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %7, i32 0, i32 0
+  %34 = load i64, ptr %5, align 8
+  %35 = getelementptr inbounds [312 x i64], ptr %33, i64 0, i64 %34
+  store i64 %32, ptr %35, align 8
+  br label %36
+
+36:                                               ; preds = %15
+  %37 = load i64, ptr %5, align 8
+  %38 = add i64 %37, 1
+  store i64 %38, ptr %5, align 8
+  br label %12, !llvm.loop !5
+
+39:                                               ; preds = %12
+  %40 = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %7, i32 0, i32 1
+  store i64 312, ptr %40, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZNSt8__detail5__modImTnT_Lm0ETnS1_Lm1ETnS1_Lm0EEES1_S1_(i64 noundef %0) #0 comdat {
+  %2 = alloca i64, align 8
+  %3 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8
+  store i64 1, ptr %3, align 8
+  %4 = load i64, ptr %2, align 8
+  %5 = call noundef i64 @_ZNSt8__detail4_ModImLm0ELm1ELm0ELb1ELb0EE6__calcEm(i64 noundef %4)
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZNSt8__detail5__modImTnT_Lm312ETnS1_Lm1ETnS1_Lm0EEES1_S1_(i64 noundef %0) #0 comdat {
+  %2 = alloca i64, align 8
+  %3 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8
+  store i64 1, ptr %3, align 8
+  %4 = load i64, ptr %2, align 8
+  %5 = call noundef i64 @_ZNSt8__detail4_ModImLm312ELm1ELm0ELb1ELb1EE6__calcEm(i64 noundef %4)
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNSt8__detail4_ModImLm0ELm1ELm0ELb1ELb0EE6__calcEm(i64 noundef %0) #2 comdat align 2 {
+  %2 = alloca i64, align 8
+  %3 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8
+  %4 = load i64, ptr %2, align 8
+  %5 = mul i64 1, %4
+  %6 = add i64 %5, 0
+  store i64 %6, ptr %3, align 8
+  %7 = load i64, ptr %3, align 8
+  ret i64 %7
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNSt8__detail4_ModImLm312ELm1ELm0ELb1ELb1EE6__calcEm(i64 noundef %0) #2 comdat align 2 {
+  %2 = alloca i64, align 8
+  %3 = alloca i64, align 8
+  store i64 %0, ptr %2, align 8
+  %4 = load i64, ptr %2, align 8
+  %5 = mul i64 1, %4
+  %6 = add i64 %5, 0
+  store i64 %6, ptr %3, align 8
+  %7 = load i64, ptr %3, align 8
+  %8 = urem i64 %7, 312
+  store i64 %8, ptr %3, align 8
+  %9 = load i64, ptr %3, align 8
+  ret i64 %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNK3gmx12ArrayRefIterIKPKcEmiES4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1) #2 comdat align 2 {
+  %3 = alloca %"struct.gmx::ArrayRefIter", align 8
+  %4 = alloca ptr, align 8
+  %5 = getelementptr inbounds %"struct.gmx::ArrayRefIter", ptr %3, i32 0, i32 0
+  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds %"struct.gmx::ArrayRefIter", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.gmx::ArrayRefIter", ptr %3, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  %11 = ptrtoint ptr %8 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  %14 = sdiv exact i64 %13, 8
+  ret i64 %14
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt24uniform_int_distributionImE10param_typeC2Emm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8
+  store i64 %1, ptr %5, align 8
+  store i64 %2, ptr %6, align 8
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds %"struct.std::uniform_int_distribution<unsigned long>::param_type", ptr %7, i32 0, i32 0
+  %9 = load i64, ptr %5, align 8
+  store i64 %9, ptr %8, align 8
+  %10 = getelementptr inbounds %"struct.std::uniform_int_distribution<unsigned long>::param_type", ptr %7, i32 0, i32 1
+  %11 = load i64, ptr %6, align 8
+  store i64 %11, ptr %10, align 8
+  br label %12
+
+12:                                               ; preds = %3
+  br label %13
+
+13:                                               ; preds = %12
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3gmx5boost14stl_interfaces2v118iterator_interfaceINS_12ArrayRefIterIKPKcEESt26random_access_iterator_tagS7_RS7_PS7_lvEixIS8_EEDTcmpLclsr3stdE7declvalIRT_EEfp_declsr3stdE7declvalISF_EEEl(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca %"struct.gmx::ArrayRefIter", align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3gmx5boost14stl_interfaces2v118iterator_interfaceINS_12ArrayRefIterIKPKcEESt26random_access_iterator_tagS7_RS7_PS7_lvE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %6) #7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %7, i64 8, i1 false)
+  %8 = load i64, ptr %4, align 8
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx12ArrayRefIterIKPKcEpLEl(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %8) #7
+  %10 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3gmx12ArrayRefIterIKPKcEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3gmx5boost14stl_interfaces2v118iterator_interfaceINS_12ArrayRefIterIKPKcEESt26random_access_iterator_tagS7_RS7_PS7_lvE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx12ArrayRefIterIKPKcEpLEl(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = getelementptr inbounds %"struct.gmx::ArrayRefIter", ptr %5, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds ptr, ptr %8, i64 %6
+  store ptr %9, ptr %7, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3gmx12ArrayRefIterIKPKcEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.gmx::ArrayRefIter", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZNSt24uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(2504) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #0 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i64, align 8
+  %11 = alloca i64, align 8
+  %12 = alloca i64, align 8
+  %13 = alloca i64, align 8
+  %14 = alloca i64, align 8
+  %15 = alloca i64, align 8
+  %16 = alloca %"struct.std::uniform_int_distribution<unsigned long>::param_type", align 8
+  store ptr %0, ptr %4, align 8
+  store ptr %1, ptr %5, align 8
+  store ptr %2, ptr %6, align 8
+  %17 = load ptr, ptr %4, align 8
+  store i64 0, ptr %7, align 8
+  store i64 -1, ptr %8, align 8
+  store i64 -1, ptr %9, align 8
+  %18 = load ptr, ptr %6, align 8
+  %19 = call noundef i64 @_ZNKSt24uniform_int_distributionImE10param_type1bEv(ptr noundef nonnull align 8 dereferenceable(16) %18)
+  %20 = load ptr, ptr %6, align 8
+  %21 = call noundef i64 @_ZNKSt24uniform_int_distributionImE10param_type1aEv(ptr noundef nonnull align 8 dereferenceable(16) %20)
+  %22 = sub i64 %19, %21
+  store i64 %22, ptr %10, align 8
+  %23 = load i64, ptr %10, align 8
+  %24 = icmp ugt i64 -1, %23
+  br i1 %24, label %25, label %32
+
+25:                                               ; preds = %3
+  %26 = load i64, ptr %10, align 8
+  %27 = add i64 %26, 1
+  store i64 %27, ptr %12, align 8
+  %28 = load i64, ptr %12, align 8
+  store i64 %28, ptr %13, align 8
+  %29 = load ptr, ptr %5, align 8
+  %30 = load i64, ptr %13, align 8
+  %31 = call noundef i64 @_ZNSt24uniform_int_distributionImE5_S_ndIoSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEmEET1_RT0_S4_(ptr noundef nonnull align 8 dereferenceable(2504) %29, i64 noundef %30)
+  store i64 %31, ptr %11, align 8
+  br label %63
+
+32:                                               ; preds = %3
+  %33 = load i64, ptr %10, align 8
+  %34 = icmp ult i64 -1, %33
+  br i1 %34, label %35, label %58
+
+35:                                               ; preds = %32
+  br label %36
+
+36:                                               ; preds = %55, %35
+  store i64 0, ptr %15, align 8
+  %37 = load ptr, ptr %5, align 8
+  %38 = load i64, ptr %10, align 8
+  %39 = udiv i64 %38, 0
+  call void @_ZNSt24uniform_int_distributionImE10param_typeC2Emm(ptr noundef nonnull align 8 dereferenceable(16) %16, i64 noundef 0, i64 noundef %39)
+  %40 = call noundef i64 @_ZNSt24uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(2504) %37, ptr noundef nonnull align 8 dereferenceable(16) %16)
+  %41 = mul i64 0, %40
+  store i64 %41, ptr %14, align 8
+  %42 = load i64, ptr %14, align 8
+  %43 = load ptr, ptr %5, align 8
+  %44 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %43)
+  %45 = sub i64 %44, 0
+  %46 = add i64 %42, %45
+  store i64 %46, ptr %11, align 8
+  br label %47
+
+47:                                               ; preds = %36
+  %48 = load i64, ptr %11, align 8
+  %49 = load i64, ptr %10, align 8
+  %50 = icmp ugt i64 %48, %49
+  br i1 %50, label %55, label %51
+
+51:                                               ; preds = %47
+  %52 = load i64, ptr %11, align 8
+  %53 = load i64, ptr %14, align 8
+  %54 = icmp ult i64 %52, %53
+  br label %55
+
+55:                                               ; preds = %51, %47
+  %56 = phi i1 [ true, %47 ], [ %54, %51 ]
+  br i1 %56, label %36, label %57, !llvm.loop !7
+
+57:                                               ; preds = %55
+  br label %62
+
+58:                                               ; preds = %32
+  %59 = load ptr, ptr %5, align 8
+  %60 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %59)
+  %61 = sub i64 %60, 0
+  store i64 %61, ptr %11, align 8
+  br label %62
+
+62:                                               ; preds = %58, %57
+  br label %63
+
+63:                                               ; preds = %62, %25
+  %64 = load i64, ptr %11, align 8
+  %65 = load ptr, ptr %6, align 8
+  %66 = call noundef i64 @_ZNKSt24uniform_int_distributionImE10param_type1aEv(ptr noundef nonnull align 8 dereferenceable(16) %65)
+  %67 = add i64 %64, %66
+  ret i64 %67
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt24uniform_int_distributionImE10param_type1bEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::uniform_int_distribution<unsigned long>::param_type", ptr %3, i32 0, i32 1
+  %5 = load i64, ptr %4, align 8
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNKSt24uniform_int_distributionImE10param_type1aEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.std::uniform_int_distribution<unsigned long>::param_type", ptr %3, i32 0, i32 0
+  %5 = load i64, ptr %4, align 8
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZNSt24uniform_int_distributionImE5_S_ndIoSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEmEET1_RT0_S4_(ptr noundef nonnull align 8 dereferenceable(2504) %0, i64 noundef %1) #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i128, align 16
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %8 = load ptr, ptr %3, align 8
+  %9 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %8)
+  %10 = zext i64 %9 to i128
+  %11 = load i64, ptr %4, align 8
+  %12 = zext i64 %11 to i128
+  %13 = mul i128 %10, %12
+  store i128 %13, ptr %5, align 16
+  %14 = load i128, ptr %5, align 16
+  %15 = trunc i128 %14 to i64
+  store i64 %15, ptr %6, align 8
+  %16 = load i64, ptr %6, align 8
+  %17 = load i64, ptr %4, align 8
+  %18 = icmp ult i64 %16, %17
+  br i1 %18, label %19, label %38
+
+19:                                               ; preds = %2
+  %20 = load i64, ptr %4, align 8
+  %21 = sub i64 0, %20
+  %22 = load i64, ptr %4, align 8
+  %23 = urem i64 %21, %22
+  store i64 %23, ptr %7, align 8
+  br label %24
+
+24:                                               ; preds = %28, %19
+  %25 = load i64, ptr %6, align 8
+  %26 = load i64, ptr %7, align 8
+  %27 = icmp ult i64 %25, %26
+  br i1 %27, label %28, label %37
+
+28:                                               ; preds = %24
+  %29 = load ptr, ptr %3, align 8
+  %30 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %29)
+  %31 = zext i64 %30 to i128
+  %32 = load i64, ptr %4, align 8
+  %33 = zext i64 %32 to i128
+  %34 = mul i128 %31, %33
+  store i128 %34, ptr %5, align 16
+  %35 = load i128, ptr %5, align 16
+  %36 = trunc i128 %35 to i64
+  store i64 %36, ptr %6, align 8
+  br label %24, !llvm.loop !8
+
+37:                                               ; preds = %24
+  br label %38
+
+38:                                               ; preds = %37, %2
+  %39 = load i128, ptr %5, align 16
+  %40 = lshr i128 %39, 64
+  %41 = trunc i128 %40 to i64
+  ret i64 %41
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %0) #0 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8
+  %4 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %4, i32 0, i32 1
+  %6 = load i64, ptr %5, align 8
+  %7 = icmp uge i64 %6, 312
+  br i1 %7, label %8, label %9
+
+8:                                                ; preds = %1
+  call void @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv(ptr noundef nonnull align 8 dereferenceable(2504) %4)
+  br label %9
+
+9:                                                ; preds = %8, %1
+  %10 = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %4, i32 0, i32 0
+  %11 = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %4, i32 0, i32 1
+  %12 = load i64, ptr %11, align 8
+  %13 = add i64 %12, 1
+  store i64 %13, ptr %11, align 8
+  %14 = getelementptr inbounds [312 x i64], ptr %10, i64 0, i64 %12
+  %15 = load i64, ptr %14, align 8
+  store i64 %15, ptr %3, align 8
+  %16 = load i64, ptr %3, align 8
+  %17 = lshr i64 %16, 29
+  %18 = and i64 %17, 6148914691236517205
+  %19 = load i64, ptr %3, align 8
+  %20 = xor i64 %19, %18
+  store i64 %20, ptr %3, align 8
+  %21 = load i64, ptr %3, align 8
+  %22 = shl i64 %21, 17
+  %23 = and i64 %22, 8202884508482404352
+  %24 = load i64, ptr %3, align 8
+  %25 = xor i64 %24, %23
+  store i64 %25, ptr %3, align 8
+  %26 = load i64, ptr %3, align 8
+  %27 = shl i64 %26, 37
+  %28 = and i64 %27, -2270628950310912
+  %29 = load i64, ptr %3, align 8
+  %30 = xor i64 %29, %28
+  store i64 %30, ptr %3, align 8
+  %31 = load i64, ptr %3, align 8
+  %32 = lshr i64 %31, 43
+  %33 = load i64, ptr %3, align 8
+  %34 = xor i64 %33, %32
+  store i64 %34, ptr %3, align 8
+  %35 = load i64, ptr %3, align 8
+  ret i64 %35
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv(ptr noundef nonnull align 8 dereferenceable(2504) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8
+  %10 = load ptr, ptr %2, align 8
+  store i64 -2147483648, ptr %3, align 8
+  store i64 2147483647, ptr %4, align 8
+  store i64 0, ptr %5, align 8
+  br label %11
+
+11:                                               ; preds = %43, %1
+  %12 = load i64, ptr %5, align 8
+  %13 = icmp ult i64 %12, 156
+  br i1 %13, label %14, label %46
+
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %10, i32 0, i32 0
+  %16 = load i64, ptr %5, align 8
+  %17 = getelementptr inbounds [312 x i64], ptr %15, i64 0, i64 %16
+  %18 = load i64, ptr %17, align 8
+  %19 = and i64 %18, -2147483648
+  %20 = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %10, i32 0, i32 0
+  %21 = load i64, ptr %5, align 8
+  %22 = add i64 %21, 1
+  %23 = getelementptr inbounds [312 x i64], ptr %20, i64 0, i64 %22
+  %24 = load i64, ptr %23, align 8
+  %25 = and i64 %24, 2147483647
+  %26 = or i64 %19, %25
+  store i64 %26, ptr %6, align 8
+  %27 = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %10, i32 0, i32 0
+  %28 = load i64, ptr %5, align 8
+  %29 = add i64 %28, 156
+  %30 = getelementptr inbounds [312 x i64], ptr %27, i64 0, i64 %29
+  %31 = load i64, ptr %30, align 8
+  %32 = load i64, ptr %6, align 8
+  %33 = lshr i64 %32, 1
+  %34 = xor i64 %31, %33
+  %35 = load i64, ptr %6, align 8
+  %36 = and i64 %35, 1
+  %37 = icmp ne i64 %36, 0
+  %38 = select i1 %37, i64 -5403634167711393303, i64 0
+  %39 = xor i64 %34, %38
+  %40 = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %10, i32 0, i32 0
+  %41 = load i64, ptr %5, align 8
+  %42 = getelementptr inbounds [312 x i64], ptr %40, i64 0, i64 %41
+  store i64 %39, ptr %42, align 8
+  br label %43
+
+43:                                               ; preds = %14
+  %44 = load i64, ptr %5, align 8
+  %45 = add i64 %44, 1
+  store i64 %45, ptr %5, align 8
+  br label %11, !llvm.loop !9
+
+46:                                               ; preds = %11
+  store i64 156, ptr %7, align 8
+  br label %47
+
+47:                                               ; preds = %79, %46
+  %48 = load i64, ptr %7, align 8
+  %49 = icmp ult i64 %48, 311
+  br i1 %49, label %50, label %82
+
+50:                                               ; preds = %47
+  %51 = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %10, i32 0, i32 0
+  %52 = load i64, ptr %7, align 8
+  %53 = getelementptr inbounds [312 x i64], ptr %51, i64 0, i64 %52
+  %54 = load i64, ptr %53, align 8
+  %55 = and i64 %54, -2147483648
+  %56 = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %10, i32 0, i32 0
+  %57 = load i64, ptr %7, align 8
+  %58 = add i64 %57, 1
+  %59 = getelementptr inbounds [312 x i64], ptr %56, i64 0, i64 %58
+  %60 = load i64, ptr %59, align 8
+  %61 = and i64 %60, 2147483647
+  %62 = or i64 %55, %61
+  store i64 %62, ptr %8, align 8
+  %63 = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %10, i32 0, i32 0
+  %64 = load i64, ptr %7, align 8
+  %65 = add i64 %64, -156
+  %66 = getelementptr inbounds [312 x i64], ptr %63, i64 0, i64 %65
+  %67 = load i64, ptr %66, align 8
+  %68 = load i64, ptr %8, align 8
+  %69 = lshr i64 %68, 1
+  %70 = xor i64 %67, %69
+  %71 = load i64, ptr %8, align 8
+  %72 = and i64 %71, 1
+  %73 = icmp ne i64 %72, 0
+  %74 = select i1 %73, i64 -5403634167711393303, i64 0
+  %75 = xor i64 %70, %74
+  %76 = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %10, i32 0, i32 0
+  %77 = load i64, ptr %7, align 8
+  %78 = getelementptr inbounds [312 x i64], ptr %76, i64 0, i64 %77
+  store i64 %75, ptr %78, align 8
+  br label %79
+
+79:                                               ; preds = %50
+  %80 = load i64, ptr %7, align 8
+  %81 = add i64 %80, 1
+  store i64 %81, ptr %7, align 8
+  br label %47, !llvm.loop !10
+
+82:                                               ; preds = %47
+  %83 = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %10, i32 0, i32 0
+  %84 = getelementptr inbounds [312 x i64], ptr %83, i64 0, i64 311
+  %85 = load i64, ptr %84, align 8
+  %86 = and i64 %85, -2147483648
+  %87 = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %10, i32 0, i32 0
+  %88 = getelementptr inbounds [312 x i64], ptr %87, i64 0, i64 0
+  %89 = load i64, ptr %88, align 8
+  %90 = and i64 %89, 2147483647
+  %91 = or i64 %86, %90
+  store i64 %91, ptr %9, align 8
+  %92 = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %10, i32 0, i32 0
+  %93 = getelementptr inbounds [312 x i64], ptr %92, i64 0, i64 155
+  %94 = load i64, ptr %93, align 8
+  %95 = load i64, ptr %9, align 8
+  %96 = lshr i64 %95, 1
+  %97 = xor i64 %94, %96
+  %98 = load i64, ptr %9, align 8
+  %99 = and i64 %98, 1
+  %100 = icmp ne i64 %99, 0
+  %101 = select i1 %100, i64 -5403634167711393303, i64 0
+  %102 = xor i64 %97, %101
+  %103 = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %10, i32 0, i32 0
+  %104 = getelementptr inbounds [312 x i64], ptr %103, i64 0, i64 311
+  store i64 %102, ptr %104, align 8
+  %105 = getelementptr inbounds %"class.std::mersenne_twister_engine", ptr %10, i32 0, i32 1
+  store i64 0, ptr %105, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN3gmx12ArrayRefIterIKPKcEC2EPS3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"struct.gmx::ArrayRefIter", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
+  ret void
+}
+
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #4
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
+
+; Function Attrs: noreturn
+declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) #5
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNSt11char_traitsIcE6lengthEPKc(ptr noundef %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = call i64 @strlen(ptr noundef %3) #7
+  ret i64 %4
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %4 = alloca ptr, align 8
+  %5 = alloca ptr, align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca %struct._Guard, align 8
+  %10 = alloca ptr, align 8
+  %11 = alloca i32, align 4
+  store ptr %0, ptr %5, align 8
+  store ptr %1, ptr %6, align 8
+  store ptr %2, ptr %7, align 8
+  %12 = load ptr, ptr %5, align 8
+  %13 = load ptr, ptr %6, align 8
+  %14 = load ptr, ptr %7, align 8
+  %15 = call noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %13, ptr noundef %14)
+  store i64 %15, ptr %8, align 8
+  %16 = load i64, ptr %8, align 8
+  %17 = icmp ugt i64 %16, 15
+  br i1 %17, label %18, label %21
+
+18:                                               ; preds = %3
+  %19 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(8) %8, i64 noundef 0)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef %19)
+  %20 = load i64, ptr %8, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef %20)
+  br label %28
+
+21:                                               ; preds = %3
+  store ptr %12, ptr %4, align 8
+  %22 = load ptr, ptr %4, align 8
+  %23 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %22)
+          to label %27 unwind label %24
+
+24:                                               ; preds = %21
+  %25 = landingpad { ptr, i32 }
+          catch ptr null
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #9
+  unreachable
+
+27:                                               ; preds = %21
+  br label %28
+
+28:                                               ; preds = %27, %18
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %12)
+  %29 = invoke noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %12)
+          to label %30 unwind label %36
+
+30:                                               ; preds = %28
+  %31 = load ptr, ptr %6, align 8
+  %32 = load ptr, ptr %7, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef %29, ptr noundef %31, ptr noundef %32) #7
+  %33 = getelementptr inbounds %struct._Guard, ptr %9, i32 0, i32 0
+  store ptr null, ptr %33, align 8
+  %34 = load i64, ptr %8, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef %34)
+          to label %35 unwind label %36
+
+35:                                               ; preds = %30
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #7
+  ret void
+
+36:                                               ; preds = %30, %28
+  %37 = landingpad { ptr, i32 }
+          cleanup
+  %38 = extractvalue { ptr, i32 } %37, 0
+  store ptr %38, ptr %10, align 8
+  %39 = extractvalue { ptr, i32 } %37, 1
+  store i32 %39, ptr %11, align 4
+  call void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #7
+  br label %40
+
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %10, align 8
+  %42 = load i32, ptr %11, align 4
+  %43 = insertvalue { ptr, i32 } poison, ptr %41, 0
+  %44 = insertvalue { ptr, i32 } %43, i32 %42, 1
+  resume { ptr, i32 } %44
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #7
+  ret void
+}
+
+; Function Attrs: nounwind
+declare i64 @strlen(ptr noundef) #3
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr noundef i64 @_ZSt8distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_(ptr noundef %0, ptr noundef %1) #0 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load ptr, ptr %4, align 8
+  call void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %7 = call noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %5, ptr noundef %6)
+  ret i64 %7
+}
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) #4
+
+declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) #4
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_capacityEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #4
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %struct._Guard, ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
+  ret void
+}
+
+; Function Attrs: nounwind
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_S_copy_charsEPcPKcS7_(ptr noundef, ptr noundef, ptr noundef) #3
+
+declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) #4
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) #4
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tagEN6_GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %struct._Guard, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  %6 = icmp ne ptr %5, null
+  br i1 %6, label %7, label %11
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds %struct._Guard, ptr %3, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32) %9)
+          to label %10 unwind label %12
+
+10:                                               ; preds = %7
+  br label %11
+
+11:                                               ; preds = %10, %1
+  ret void
+
+12:                                               ; preds = %7
+  %13 = landingpad { ptr, i32 }
+          catch ptr null
+  %14 = extractvalue { ptr, i32 } %13, 0
+  call void @__clang_call_terminate(ptr %14) #9
+  unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %1) #2 comdat {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = ptrtoint ptr %5 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = sub i64 %7, %8
+  ret i64 %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: noreturn nounwind uwtable
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) #6 comdat {
+  %2 = call ptr @__cxa_begin_catch(ptr %0) #7
+  call void @_ZSt9terminatev() #9
+  unreachable
+}
+
+declare ptr @__cxa_begin_catch(ptr)
+
+declare void @_ZSt9terminatev()
+
+declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32)) #4
+
+; Function Attrs: nounwind
+declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN3gmx12getCoolQuoteB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0) #0 personality ptr @__gxx_personality_v0 {
+  %2 = alloca ptr, align 8
+  %3 = alloca [907 x %struct.Quote], align 16
+  %4 = alloca %struct.Quote, align 8
+  %5 = alloca %"class.gmx::ArrayRef.0", align 8
+  %6 = alloca %"class.std::allocator", align 1
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  store ptr %0, ptr %2, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 16 %3, ptr align 16 @__const._ZN3gmx12getCoolQuoteB5cxx11Ev.quoteArray, i64 14512, i1 false)
+  %9 = call noundef zeroext i1 @_ZN3gmx12_GLOBAL__N_16beCoolEv()
+  br i1 %9, label %10, label %20
+
+10:                                               ; preds = %1
+  call void @_ZN3gmx8ArrayRefIKZNS_12getCoolQuoteB5cxx11EvE5QuoteEC2ILm907EEERAT__S2_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(14512) %3)
+  %11 = getelementptr inbounds { ptr, ptr }, ptr %5, i32 0, i32 0
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds { ptr, ptr }, ptr %5, i32 0, i32 1
+  %14 = load ptr, ptr %13, align 8
+  %15 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIZNS_12getCoolQuoteB5cxx11EvE5QuoteEERKT_NS_8ArrayRefIS4_EE(ptr %12, ptr %14)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %4, ptr align 8 %15, i64 16, i1 false)
+  %16 = getelementptr inbounds %struct.Quote, ptr %4, i32 0, i32 0
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds %struct.Quote, ptr %4, i32 0, i32 1
+  %19 = load ptr, ptr %18, align 8
+  call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef @.str.1488, ptr noundef %17, ptr noundef %19)
+  br label %26
+
+20:                                               ; preds = %1
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #7
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef @.str.1489, ptr noundef nonnull align 1 dereferenceable(1) %6)
+          to label %21 unwind label %22
+
+21:                                               ; preds = %20
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #7
+  br label %26
+
+22:                                               ; preds = %20
+  %23 = landingpad { ptr, i32 }
+          cleanup
+  %24 = extractvalue { ptr, i32 } %23, 0
+  store ptr %24, ptr %7, align 8
+  %25 = extractvalue { ptr, i32 } %23, 1
+  store i32 %25, ptr %8, align 4
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #7
+  br label %27
+
+26:                                               ; preds = %21, %10
+  ret void
+
+27:                                               ; preds = %22
+  %28 = load ptr, ptr %7, align 8
+  %29 = load i32, ptr %8, align 4
+  %30 = insertvalue { ptr, i32 } poison, ptr %28, 0
+  %31 = insertvalue { ptr, i32 } %30, i32 %29, 1
+  resume { ptr, i32 } %31
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef nonnull align 8 dereferenceable(16) ptr @_ZN3gmx12_GLOBAL__N_122getPseudoRandomElementIZNS_12getCoolQuoteB5cxx11EvE5QuoteEERKT_NS_8ArrayRefIS4_EE(ptr %0, ptr %1) #0 {
+  %3 = alloca %"class.gmx::ArrayRef.0", align 8
+  %4 = alloca %"class.std::mersenne_twister_engine", align 8
+  %5 = alloca %"class.std::uniform_int_distribution", align 8
+  %6 = getelementptr inbounds { ptr, ptr }, ptr %3, i32 0, i32 0
+  store ptr %0, ptr %6, align 8
+  %7 = getelementptr inbounds { ptr, ptr }, ptr %3, i32 0, i32 1
+  store ptr %1, ptr %7, align 8
+  %8 = call i64 @time(ptr noundef null) #7
+  call void @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Em(ptr noundef nonnull align 8 dereferenceable(2504) %4, i64 noundef %8)
+  %9 = call noundef i64 @_ZNK3gmx8ArrayRefIKZNS_12getCoolQuoteB5cxx11EvE5QuoteE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
+  %10 = sub i64 %9, 1
+  call void @_ZNSt24uniform_int_distributionImEC2Emm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef 0, i64 noundef %10)
+  %11 = call noundef i64 @_ZNSt24uniform_int_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(2504) %4)
+  %12 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK3gmx8ArrayRefIKZNS_12getCoolQuoteB5cxx11EvE5QuoteEixEm(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %11)
+  ret ptr %12
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZN3gmx8ArrayRefIKZNS_12getCoolQuoteB5cxx11EvE5QuoteEC2ILm907EEERAT__S2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(14512) %1) unnamed_addr #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"class.gmx::ArrayRef.0", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds [907 x %struct.Quote], ptr %7, i64 0, i64 0
+  call void @_ZN3gmx12ArrayRefIterIKZNS_12getCoolQuoteB5cxx11EvE5QuoteEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %8) #7
+  %9 = getelementptr inbounds %"class.gmx::ArrayRef.0", ptr %5, i32 0, i32 1
+  %10 = load ptr, ptr %4, align 8
+  %11 = getelementptr inbounds [907 x %struct.Quote], ptr %10, i64 0, i64 0
+  %12 = getelementptr inbounds %struct.Quote, ptr %11, i64 907
+  call void @_ZN3gmx12ArrayRefIterIKZNS_12getCoolQuoteB5cxx11EvE5QuoteEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %12) #7
+  ret void
+}
+
+declare void @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ...) #4
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef i64 @_ZNK3gmx8ArrayRefIKZNS_12getCoolQuoteB5cxx11EvE5QuoteE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca %"struct.gmx::ArrayRefIter.1", align 8
+  store ptr %0, ptr %2, align 8
+  %4 = load ptr, ptr %2, align 8
+  %5 = getelementptr inbounds %"class.gmx::ArrayRef.0", ptr %4, i32 0, i32 1
+  %6 = getelementptr inbounds %"class.gmx::ArrayRef.0", ptr %4, i32 0, i32 0
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %3, ptr align 8 %6, i64 8, i1 false)
+  %7 = getelementptr inbounds %"struct.gmx::ArrayRefIter.1", ptr %3, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  %9 = call noundef i64 @_ZNK3gmx12ArrayRefIterIKZNS_12getCoolQuoteB5cxx11EvE5QuoteEmiES3_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr %8) #7
+  ret i64 %9
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(16) ptr @_ZNK3gmx8ArrayRefIKZNS_12getCoolQuoteB5cxx11EvE5QuoteEixEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"class.gmx::ArrayRef.0", ptr %5, i32 0, i32 0
+  %7 = load i64, ptr %4, align 8
+  %8 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK3gmx5boost14stl_interfaces2v118iterator_interfaceINS_12ArrayRefIterIKZNS_12getCoolQuoteB5cxx11EvE5QuoteEESt26random_access_iterator_tagS6_RS6_PS6_lvEixIS7_EEDTcmpLclsr3stdE7declvalIRT_EEfp_declsr3stdE7declvalISE_EEEl(ptr noundef nonnull align 1 dereferenceable(1) %6, i64 noundef %7) #7
+  ret ptr %8
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef i64 @_ZNK3gmx12ArrayRefIterIKZNS_12getCoolQuoteB5cxx11EvE5QuoteEmiES3_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1) #2 align 2 {
+  %3 = alloca %"struct.gmx::ArrayRefIter.1", align 8
+  %4 = alloca ptr, align 8
+  %5 = getelementptr inbounds %"struct.gmx::ArrayRefIter.1", ptr %3, i32 0, i32 0
+  store ptr %1, ptr %5, align 8
+  store ptr %0, ptr %4, align 8
+  %6 = load ptr, ptr %4, align 8
+  %7 = getelementptr inbounds %"struct.gmx::ArrayRefIter.1", ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds %"struct.gmx::ArrayRefIter.1", ptr %3, i32 0, i32 0
+  %10 = load ptr, ptr %9, align 8
+  %11 = ptrtoint ptr %8 to i64
+  %12 = ptrtoint ptr %10 to i64
+  %13 = sub i64 %11, %12
+  %14 = sdiv exact i64 %13, 16
+  ret i64 %14
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(16) ptr @_ZNK3gmx5boost14stl_interfaces2v118iterator_interfaceINS_12ArrayRefIterIKZNS_12getCoolQuoteB5cxx11EvE5QuoteEESt26random_access_iterator_tagS6_RS6_PS6_lvEixIS7_EEDTcmpLclsr3stdE7declvalIRT_EEfp_declsr3stdE7declvalISE_EEEl(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1) #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca %"struct.gmx::ArrayRefIter.1", align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %6 = load ptr, ptr %3, align 8
+  %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3gmx5boost14stl_interfaces2v118iterator_interfaceINS_12ArrayRefIterIKZNS_12getCoolQuoteB5cxx11EvE5QuoteEESt26random_access_iterator_tagS6_RS6_PS6_lvE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %6) #7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %5, ptr align 8 %7, i64 8, i1 false)
+  %8 = load i64, ptr %4, align 8
+  %9 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx12ArrayRefIterIKZNS_12getCoolQuoteB5cxx11EvE5QuoteEpLEl(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %8) #7
+  %10 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK3gmx12ArrayRefIterIKZNS_12getCoolQuoteB5cxx11EvE5QuoteEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3gmx5boost14stl_interfaces2v118iterator_interfaceINS_12ArrayRefIterIKZNS_12getCoolQuoteB5cxx11EvE5QuoteEESt26random_access_iterator_tagS6_RS6_PS6_lvE7derivedEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  ret ptr %3
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZN3gmx12ArrayRefIterIKZNS_12getCoolQuoteB5cxx11EvE5QuoteEpLEl(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1) #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  store ptr %0, ptr %3, align 8
+  store i64 %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i64, ptr %4, align 8
+  %7 = getelementptr inbounds %"struct.gmx::ArrayRefIter.1", ptr %5, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds %struct.Quote, ptr %8, i64 %6
+  store ptr %9, ptr %7, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal noundef nonnull align 8 dereferenceable(16) ptr @_ZNK3gmx12ArrayRefIterIKZNS_12getCoolQuoteB5cxx11EvE5QuoteEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds %"struct.gmx::ArrayRefIter.1", ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8
+  ret ptr %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZN3gmx12ArrayRefIterIKZNS_12getCoolQuoteB5cxx11EvE5QuoteEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca ptr, align 8
+  store ptr %0, ptr %3, align 8
+  store ptr %1, ptr %4, align 8
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds %"struct.gmx::ArrayRefIter.1", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %4, align 8
+  store ptr %7, ptr %6, align 8
+  ret void
+}
+
+attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #5 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #6 = { noreturn nounwind uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
+attributes #7 = { nounwind }
+attributes #8 = { noreturn }
+attributes #9 = { noreturn nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3, !4}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 7, !"openmp", i32 51}
+!2 = !{i32 8, !"PIC Level", i32 2}
+!3 = !{i32 7, !"uwtable", i32 2}
+!4 = !{i32 7, !"frame-pointer", i32 2}
+!5 = distinct !{!5, !6}
+!6 = !{!"llvm.loop.mustprogress"}
+!7 = distinct !{!7, !6}
+!8 = distinct !{!8, !6}
+!9 = distinct !{!9, !6}
+!10 = distinct !{!10, !6}
