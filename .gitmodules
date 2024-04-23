@@ -487,3 +487,6 @@
 [submodule "bench/coreutils-rs/coreutils"]
 	path = bench/coreutils-rs/coreutils
 	url = git@github.com:uutils/coreutils.git
+[submodule "bench/rust-analyzer-rs/rust-analyzer"]
+	path = bench/rust-analyzer-rs/rust-analyzer
+	url = git@github.com:rust-lang/rust-analyzer.git
