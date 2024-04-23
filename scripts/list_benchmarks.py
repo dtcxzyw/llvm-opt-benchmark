@@ -40,10 +40,13 @@ def guess_language(dir):
             if any(key in r for key in filters):
                 continue
             for f in fs:
+                path = os.path.join(r, f)
+                if os.path.islink(path):
+                    continue
                 if f.endswith('.c'):
-                    count_c += os.stat(os.path.join(r, f)).st_size
+                    count_c += os.stat(path).st_size
                 elif f.endswith('.cpp') or f.endswith('.cc') or f.endswith('.cxx'):
-                    count_cpp += os.stat(os.path.join(r, f)).st_size
+                    count_cpp += os.stat(path).st_size
         if count_cpp > count_c:
             return (name, 'C++', url)
         return (name, 'C', url)
