@@ -514,3 +514,6 @@
 [submodule "bench/osqp/osqp"]
 	path = bench/osqp/osqp
 	url = git@github.com:osqp/osqp.git
+[submodule "bench/crow/Crow"]
+	path = bench/crow/Crow
+	url = git@github.com:CrowCpp/Crow.git
