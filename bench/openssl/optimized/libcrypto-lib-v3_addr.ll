@@ -3640,7 +3640,7 @@ addr_expand.exit54:                               ; preds = %if.end.i29, %if.the
 for.cond:                                         ; preds = %addr_expand.exit54, %land.rhs
   %indvars.iv = phi i64 [ 16, %addr_expand.exit54 ], [ %indvars.iv.next, %land.rhs ]
   %cmp16.not = icmp eq i64 %indvars.iv, 0
-  br i1 %cmp16.not, label %if.end49.thread, label %land.lhs.true
+  br i1 %cmp16.not, label %if.then52, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.cond
   %23 = add nsw i64 %indvars.iv, -1
@@ -3659,7 +3659,7 @@ land.rhs:                                         ; preds = %land.lhs.true
 for.end:                                          ; preds = %land.lhs.true, %land.rhs
   %26 = trunc nuw nsw i64 %indvars.iv to i32
   %cmp3060 = icmp sgt i32 %26, 0
-  br i1 %cmp3060, label %for.body32.preheader, label %if.end49.thread
+  br i1 %cmp3060, label %for.body32.preheader, label %if.then52
 
 for.body32.preheader:                             ; preds = %for.end
   %27 = and i64 %indvars.iv, 2147483646
@@ -3683,21 +3683,17 @@ for.body32:                                       ; preds = %for.body32.preheade
   %cmp30 = icmp ult i64 %indvars.iv.next67, %27
   br i1 %cmp30, label %for.body32, label %for.end44, !llvm.loop !31
 
-if.end49.thread:                                  ; preds = %for.cond, %for.end
-  %call4880 = tail call i32 @BIO_puts(ptr noundef %out, ptr noundef nonnull @.str.44) #15
-  br label %if.then52
-
 for.end44:                                        ; preds = %for.body32
-  %31 = trunc nuw nsw i64 %indvars.iv.next67 to i32
-  %cmp45 = icmp ult i32 %31, 16
+  %31 = and i64 %indvars.iv.next67, 4294967280
+  %cmp45 = icmp eq i64 %31, 0
   br i1 %cmp45, label %if.end49, label %return
 
 if.end49:                                         ; preds = %for.end44
   %call48 = tail call i32 @BIO_puts(ptr noundef %out, ptr noundef nonnull @.str.44) #15
-  %cmp50 = icmp eq i32 %31, 0
-  br i1 %cmp50, label %if.then52, label %return
+  br label %return
 
-if.then52:                                        ; preds = %if.end49.thread, %if.end49
+if.then52:                                        ; preds = %for.cond, %for.end
+  %call4880 = tail call i32 @BIO_puts(ptr noundef %out, ptr noundef nonnull @.str.44) #15
   %call53 = tail call i32 @BIO_puts(ptr noundef %out, ptr noundef nonnull @.str.44) #15
   br label %return
 
@@ -3724,7 +3720,7 @@ for.end68:                                        ; preds = %for.body59, %for.co
   %call70 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.46, i32 noundef %conv69) #15
   br label %return
 
-return:                                           ; preds = %for.end44, %sw.bb10, %sw.bb, %if.end2, %for.end68, %if.then52, %if.end49, %entry
+return:                                           ; preds = %if.end49, %for.end44, %sw.bb10, %sw.bb, %if.end2, %for.end68, %if.then52, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ 1, %if.end49 ], [ 1, %if.then52 ], [ 1, %for.end68 ], [ 1, %if.end2 ], [ 0, %sw.bb ], [ 0, %sw.bb10 ], [ 1, %for.end44 ]
   ret i32 %retval.0
 }

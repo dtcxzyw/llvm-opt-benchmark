@@ -9996,12 +9996,13 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %18
 29:                                               ; preds = %Rtl_Num2Name.exit.i, %Abc_UtilStrsav.exit
   %indvars.iv.i = phi i64 [ 1, %Abc_UtilStrsav.exit ], [ %indvars.iv.next.i, %Rtl_Num2Name.exit.i ]
   %30 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %switch.tableidx = add i32 %30, -1
-  %31 = icmp ult i32 %switch.tableidx, 14
+  %31 = icmp ult i32 %30, 15
   br i1 %31, label %switch.lookup, label %Rtl_Num2Name.exit.i
 
 switch.lookup:                                    ; preds = %29
-  %32 = zext nneg i32 %switch.tableidx to i64
+  %switch.tableidx = shl i64 %indvars.iv.i, 32
+  %sext = add nsw i64 %switch.tableidx, -4294967296
+  %32 = ashr exact i64 %sext, 32
   %switch.gep = getelementptr inbounds [14 x ptr], ptr @switch.table.Rtl_LibReadFile, i64 0, i64 %32
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %Rtl_Num2Name.exit.i

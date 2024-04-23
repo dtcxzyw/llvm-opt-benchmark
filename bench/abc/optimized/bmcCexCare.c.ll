@@ -136,7 +136,7 @@ define noundef ptr @Bmc_CexCareExtendToObjects(ptr nocapture noundef readonly %0
   %61 = load i32, ptr %40, align 4
   %62 = load i32, ptr %41, align 4
   %63 = mul nsw i32 %62, %.080157
-  %64 = trunc i64 %indvars.iv176 to i32
+  %64 = trunc nuw nsw i64 %indvars.iv176 to i32
   %65 = add i32 %61, %64
   %66 = add i32 %65, %63
   %67 = ashr i32 %66, 5
@@ -223,7 +223,7 @@ define noundef ptr @Bmc_CexCareExtendToObjects(ptr nocapture noundef readonly %0
   %112 = getelementptr i8, ptr %.val5.i.i, i64 4
   %.val5.val.i.i = load i32, ptr %112, align 4
   %113 = lshr i64 %.val.i, 32
-  %114 = trunc i64 %113 to i32
+  %114 = trunc nuw i64 %113 to i32
   %115 = and i32 %114, 536870911
   %116 = sub i32 %.val5.val.i.i, %.val112.val
   %117 = add i32 %116, %115
@@ -428,7 +428,7 @@ Gia_ObjTerSimCo.exit:                             ; preds = %Gia_ObjTerSimGet0Fa
   %196 = load i32, ptr %46, align 4
   %197 = load i32, ptr %47, align 4
   %198 = mul nsw i32 %197, %.080157
-  %199 = trunc i64 %indvars.iv165 to i32
+  %199 = trunc nuw nsw i64 %indvars.iv165 to i32
   %200 = add i32 %196, %199
   %201 = add i32 %200, %198
   %202 = and i32 %201, 31
@@ -493,7 +493,7 @@ define void @Bmc_CexCarePropagateFwdOne(ptr nocapture noundef readonly %0, ptr n
   %17 = sext i32 %16 to i64
   %18 = load i32, ptr %10, align 4
   %19 = mul nsw i32 %18, %2
-  %20 = trunc i64 %indvars.iv to i32
+  %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = add nsw i32 %19, %20
   %.val56 = load ptr, ptr %11, align 8
   %22 = sext i32 %21 to i64
@@ -548,7 +548,7 @@ define void @Bmc_CexCarePropagateFwdOne(ptr nocapture noundef readonly %0, ptr n
   %50 = trunc i64 %.val64 to i32
   %51 = lshr i32 %50, 29
   %52 = lshr i64 %.val64, 61
-  %53 = trunc i64 %52 to i32
+  %53 = trunc nuw nsw i64 %52 to i32
   %54 = xor i32 %42, %51
   %55 = and i32 %54, 1
   %56 = icmp ne i32 %55, 0
@@ -935,7 +935,7 @@ define void @Bmc_CexCarePropagateBwdOne(ptr nocapture noundef readonly %0, ptr n
   %69 = getelementptr inbounds i8, ptr %64, i64 8
   %70 = load i32, ptr %69, align 4
   %71 = lshr i64 %.val88, 61
-  %72 = trunc i64 %71 to i32
+  %72 = trunc nuw nsw i64 %71 to i32
   %73 = xor i32 %66, %68
   %74 = and i32 %73, 1
   %75 = icmp ne i32 %74, 0
@@ -979,7 +979,7 @@ define void @Bmc_CexCarePropagateBwdOne(ptr nocapture noundef readonly %0, ptr n
 
 Gia_ObjIsPi.exit:                                 ; preds = %91
   %93 = lshr i64 %87, 32
-  %94 = trunc i64 %93 to i32
+  %94 = trunc nuw i64 %93 to i32
   %95 = and i32 %94, 536870911
   %.val.i = load i32, ptr %49, align 8
   %.val3.i = load ptr, ptr %6, align 8
@@ -996,7 +996,7 @@ Gia_ObjIsPi.exit.thread:                          ; preds = %91, %Gia_ObjIsPi.ex
 
 Gia_ObjIsPi.exit97:                               ; preds = %Gia_ObjIsPi.exit.thread
   %99 = lshr i64 %90, 32
-  %100 = trunc i64 %99 to i32
+  %100 = trunc nuw i64 %99 to i32
   %101 = and i32 %100, 536870911
   %.val.i94 = load i32, ptr %49, align 8
   %.val3.i95 = load ptr, ptr %6, align 8
@@ -1063,7 +1063,7 @@ Gia_ObjIsPi.exit97.thread:                        ; preds = %Gia_ObjIsPi.exit.th
   %125 = load i32, ptr %114, align 4
   %126 = load i32, ptr %115, align 4
   %127 = mul nsw i32 %126, %2
-  %128 = trunc i64 %indvars.iv129 to i32
+  %128 = trunc nuw nsw i64 %indvars.iv129 to i32
   %129 = add i32 %125, %128
   %130 = add i32 %129, %127
   %131 = and i32 %130, 31
@@ -1644,7 +1644,7 @@ Vec_IntFill.exit:                                 ; preds = %.lr.ph.i, %Vec_IntG
   br i1 %135, label %.preheader.us, label %.loopexit, !llvm.loop !31
 
 136:                                              ; preds = %Vec_IntFill.exit
-  %137 = trunc i64 %indvars.iv to i32
+  %137 = trunc nuw nsw i64 %indvars.iv to i32
   switch i32 %137, label %.loopexit [
     i32 1, label %138
     i32 2, label %188
@@ -2028,13 +2028,14 @@ Vec_IntFree.exit273:                              ; preds = %Vec_IntFree.exit, %
   br i1 %85, label %.sink.split, label %317
 
 317:                                              ; preds = %316
-  %318 = trunc i64 %indvars.iv to i32
-  %switch.tableidx = add i32 %318, -1
-  %319 = icmp ult i32 %switch.tableidx, 3
+  %318 = and i64 %indvars.iv, 4294967292
+  %319 = icmp eq i64 %318, 0
   br i1 %319, label %switch.lookup, label %322
 
 switch.lookup:                                    ; preds = %317
-  %320 = zext nneg i32 %switch.tableidx to i64
+  %switch.tableidx = shl i64 %indvars.iv, 32
+  %sext = add nsw i64 %switch.tableidx, -4294967296
+  %320 = ashr exact i64 %sext, 32
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.Bmc_CexCareMinimizeAig, i64 0, i64 %320
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split

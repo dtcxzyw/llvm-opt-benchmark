@@ -335395,10 +335395,9 @@ contextMalloc.exit:                               ; preds = %97
 
 ._crit_edge178:                                   ; preds = %.loopexit162
   %116 = trunc nuw i64 %indvars.iv.next to i32
-  %.not115 = icmp eq i32 %116, 0
-  br i1 %.not115, label %sqlite3_free.exit, label %.thread137
+  br label %.thread137
 
-.thread137:                                       ; preds = %sqlite3_value_bytes.exit, %._crit_edge178
+.thread137:                                       ; preds = %._crit_edge178, %sqlite3_value_bytes.exit
   %.288144 = phi i32 [ %116, %._crit_edge178 ], [ 1, %sqlite3_value_bytes.exit ]
   %.089143 = phi ptr [ %98, %._crit_edge178 ], [ @trimFunc.azOne, %sqlite3_value_bytes.exit ]
   %.090142 = phi ptr [ %100, %._crit_edge178 ], [ @trimFunc.lenOne, %sqlite3_value_bytes.exit ]
@@ -335537,9 +335536,9 @@ sqlite3_mutex_leave.exit.sink.split.i:            ; preds = %sqlite3_mutex_enter
   tail call void %169(ptr noundef nonnull %.sink.i) #57
   br label %sqlite3_free.exit
 
-sqlite3_free.exit:                                ; preds = %contextMalloc.exit, %.preheader165, %sqlite3_mutex_leave.exit.sink.split.i, %sqlite3_mutex_enter.exit.i, %.thread148, %._crit_edge178
-  %.4100 = phi i32 [ %.399, %.thread148 ], [ %.0.i.i123, %._crit_edge178 ], [ %.399, %sqlite3_mutex_enter.exit.i ], [ %.399, %sqlite3_mutex_leave.exit.sink.split.i ], [ %.0.i.i123, %.preheader165 ], [ %.0.i.i123, %contextMalloc.exit ]
-  %.295 = phi ptr [ %.194152, %.thread148 ], [ %.0.i.i, %._crit_edge178 ], [ %.194152, %sqlite3_mutex_enter.exit.i ], [ %.194152, %sqlite3_mutex_leave.exit.sink.split.i ], [ %.0.i.i, %.preheader165 ], [ %.0.i.i, %contextMalloc.exit ]
+sqlite3_free.exit:                                ; preds = %contextMalloc.exit, %.preheader165, %sqlite3_mutex_leave.exit.sink.split.i, %sqlite3_mutex_enter.exit.i, %.thread148
+  %.4100 = phi i32 [ %.399, %.thread148 ], [ %.399, %sqlite3_mutex_enter.exit.i ], [ %.399, %sqlite3_mutex_leave.exit.sink.split.i ], [ %.0.i.i123, %.preheader165 ], [ %.0.i.i123, %contextMalloc.exit ]
+  %.295 = phi ptr [ %.194152, %.thread148 ], [ %.194152, %sqlite3_mutex_enter.exit.i ], [ %.194152, %sqlite3_mutex_leave.exit.sink.split.i ], [ %.0.i.i, %.preheader165 ], [ %.0.i.i, %contextMalloc.exit ]
   tail call fastcc void @setResultStrOrError(ptr noundef %0, ptr noundef %.295, i32 noundef %.4100, i8 noundef zeroext 1, ptr noundef nonnull inttoptr (i64 -1 to ptr))
   br label %sqlite3_value_text.exit.thread
 

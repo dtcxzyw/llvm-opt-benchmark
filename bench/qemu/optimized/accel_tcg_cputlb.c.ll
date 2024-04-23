@@ -503,7 +503,7 @@ qemu_spin_lock.exit:                              ; preds = %while.cond.loopexit
 
 for.body:                                         ; preds = %qemu_spin_lock.exit, %for.inc
   %indvars.iv = phi i64 [ 0, %qemu_spin_lock.exit ], [ %indvars.iv.next, %for.inc ]
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw nsw i64 %indvars.iv to i32
   %5 = shl nuw nsw i32 1, %4
   %6 = and i32 %5, %conv
   %tobool.not = icmp eq i32 %6, 0
@@ -1069,7 +1069,7 @@ qemu_spin_lock.exit:                              ; preds = %while.cond.loopexit
 
 for.body.us:                                      ; preds = %qemu_spin_lock.exit, %for.inc.us
   %indvars.iv18 = phi i64 [ %indvars.iv.next19, %for.inc.us ], [ 0, %qemu_spin_lock.exit ]
-  %8 = trunc i64 %indvars.iv18 to i32
+  %8 = trunc nuw nsw i64 %indvars.iv18 to i32
   %9 = shl nuw nsw i32 1, %8
   %10 = and i32 %9, %conv
   %tobool.not.us = icmp eq i32 %10, 0
@@ -1124,7 +1124,7 @@ for.inc.us:                                       ; preds = %if.end.i.us, %for.e
 
 for.body:                                         ; preds = %qemu_spin_lock.exit, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %qemu_spin_lock.exit ]
-  %18 = trunc i64 %indvars.iv to i32
+  %18 = trunc nuw nsw i64 %indvars.iv to i32
   %19 = shl nuw nsw i32 1, %18
   %20 = and i32 %19, %conv
   %tobool.not = icmp eq i32 %20, 0
@@ -2120,7 +2120,7 @@ if.then.i:                                        ; preds = %if.end94
 
 if.then3.i:                                       ; preds = %if.then.i
   %or4.i = or i64 %or.i, 128
-  %46 = trunc i32 %and1.i to i8
+  %46 = trunc nuw nsw i32 %and1.i to i8
   br label %tlb_set_compare.exit
 
 tlb_set_compare.exit:                             ; preds = %if.end94, %if.then.i, %if.then3.i
@@ -2146,7 +2146,7 @@ if.then.i92:                                      ; preds = %tlb_set_compare.exi
 
 if.then3.i98:                                     ; preds = %if.then.i92
   %or4.i99 = or i64 %or.i95, 128
-  %48 = trunc i32 %and1.i96 to i8
+  %48 = trunc nuw nsw i32 %and1.i96 to i8
   br label %tlb_set_compare.exit100
 
 tlb_set_compare.exit100:                          ; preds = %tlb_set_compare.exit, %if.then.i92, %if.then3.i98
@@ -2173,7 +2173,7 @@ if.then.i106:                                     ; preds = %tlb_set_compare.exi
 
 if.then3.i112:                                    ; preds = %if.then.i106
   %or4.i113 = or i64 %or.i109, 128
-  %51 = trunc i32 %and1.i110 to i8
+  %51 = trunc nuw nsw i32 %and1.i110 to i8
   br label %tlb_set_compare.exit114
 
 tlb_set_compare.exit114:                          ; preds = %tlb_set_compare.exit100, %if.then.i106, %if.then3.i112
@@ -2228,7 +2228,7 @@ entry:
   store i8 %conv, ptr %prot2, align 4
   %lg_page_size = getelementptr inbounds i8, ptr %full, i64 21
   %0 = tail call i64 @llvm.cttz.i64(i64 %size, i1 false), !range !45
-  %conv3 = trunc i64 %0 to i8
+  %conv3 = trunc nuw nsw i64 %0 to i8
   store i8 %conv3, ptr %lg_page_size, align 1
   %slow_flags = getelementptr inbounds i8, ptr %full, i64 22
   %1 = tail call i64 @llvm.ctpop.i64(i64 %size), !range !45
@@ -2263,7 +2263,7 @@ entry:
   store i8 %conv.i, ptr %prot2.i, align 4
   %lg_page_size.i = getelementptr inbounds i8, ptr %full.i, i64 21
   %0 = tail call i64 @llvm.cttz.i64(i64 %size, i1 false), !range !45
-  %conv3.i = trunc i64 %0 to i8
+  %conv3.i = trunc nuw nsw i64 %0 to i8
   store i8 %conv3.i, ptr %lg_page_size.i, align 1
   %slow_flags.i = getelementptr inbounds i8, ptr %full.i, i64 22
   %1 = tail call i64 @llvm.ctpop.i64(i64 %size), !range !45
@@ -2440,7 +2440,7 @@ if.end24:                                         ; preds = %if.end22, %land.end
   %flags.1 = phi i64 [ 3840, %land.end ], [ %flags.0, %if.end22 ]
   %index.1 = phi i64 [ %and.i, %land.end ], [ %index.0, %if.end22 ]
   %and26 = and i64 %flags.1, %tlb_addr.0
-  %conv27 = trunc i64 %and26 to i32
+  %conv27 = trunc nuw nsw i64 %and26 to i32
   %d = getelementptr inbounds i8, ptr %cpu, i64 816
   %fulltlb = getelementptr [16 x %struct.CPUTLBDesc], ptr %d, i64 0, i64 %conv, i32 8
   %17 = load ptr, ptr %fulltlb, align 8
@@ -3248,7 +3248,7 @@ atomic16_read_rw.exit.i.i.i.i:                    ; preds = %if.end34.i.i
   %24 = extractvalue { i128, i1 } %23, 0
   %extract.t2.i.i.i.i.i = trunc i128 %24 to i64
   %extract4.i.i.i.i.i = lshr i128 %24, 64
-  %extract.t5.i.i.i.i.i = trunc i128 %extract4.i.i.i.i.i to i64
+  %extract.t5.i.i.i.i.i = trunc nuw i128 %extract4.i.i.i.i.i to i64
   br label %load_atom_extract_al16_or_exit.exit.i.i
 
 load_atom_extract_al16_or_exit.exit.i.i:          ; preds = %atomic16_read_rw.exit.i.i.i.i, %if.then.i.i.i.i
@@ -3581,7 +3581,7 @@ atomic16_read_rw.exit.i.i.i.i:                    ; preds = %if.end31.i.i
   %29 = extractvalue { i128, i1 } %28, 0
   %extract.t2.i.i.i.i.i = trunc i128 %29 to i64
   %extract4.i.i.i.i.i = lshr i128 %29, 64
-  %extract.t5.i.i.i.i.i = trunc i128 %extract4.i.i.i.i.i to i64
+  %extract.t5.i.i.i.i.i = trunc nuw i128 %extract4.i.i.i.i.i to i64
   br label %load_atom_extract_al16_or_exit.exit.i.i
 
 load_atom_extract_al16_or_exit.exit.i.i:          ; preds = %atomic16_read_rw.exit.i.i.i.i, %if.then.i.i.i.i
@@ -3892,7 +3892,7 @@ sw.bb.i:                                          ; preds = %required_atomicity.
   %r.0.copyload.i = load i128, ptr %8, align 1
   %retval.sroa.0.0.extract.trunc14.i = trunc i128 %r.0.copyload.i to i64
   %retval.sroa.5.0.extract.shift17.i = lshr i128 %r.0.copyload.i, 64
-  %retval.sroa.5.0.extract.trunc18.i = trunc i128 %retval.sroa.5.0.extract.shift17.i to i64
+  %retval.sroa.5.0.extract.trunc18.i = trunc nuw i128 %retval.sroa.5.0.extract.shift17.i to i64
   br label %load_atom_16.exit
 
 sw.bb12.i:                                        ; preds = %required_atomicity.exit.i
@@ -4027,7 +4027,7 @@ atomic16_read_rw.exit.i.i:                        ; preds = %sw.bb27.i
   %48 = extractvalue { i128, i1 } %47, 0
   %extract.t2.i.i.i = trunc i128 %48 to i64
   %extract4.i.i.i = lshr i128 %48, 64
-  %extract.t5.i.i.i = trunc i128 %extract4.i.i.i to i64
+  %extract.t5.i.i.i = trunc nuw i128 %extract4.i.i.i to i64
   br label %load_atom_16.exit
 
 do.body.i:                                        ; preds = %required_atomicity.exit.i
@@ -4104,7 +4104,7 @@ if.else76:                                        ; preds = %if.end61
   %sh_prom.i = zext nneg i32 %mul to i128
   %shl.i = shl i128 %a.sroa.0.0.insert.insert.i, %sh_prom.i
   %retval.sroa.2.0.extract.shift.i = lshr i128 %shl.i, 64
-  %retval.sroa.2.0.extract.trunc.i = trunc i128 %retval.sroa.2.0.extract.shift.i to i64
+  %retval.sroa.2.0.extract.trunc.i = trunc nuw i128 %retval.sroa.2.0.extract.shift.i to i64
   %60 = load i32, ptr %mmu_idx67, align 4
   %61 = load i32, ptr %memop68, align 8
   %call97 = call fastcc i64 @do_ld_beN(ptr noundef %cpu, ptr noundef nonnull %arrayidx86, i64 noundef %57, i32 noundef %60, i32 noundef 0, i32 noundef %61, i64 noundef %ra)
@@ -4638,13 +4638,13 @@ sw.bb2.i.i:                                       ; preds = %required_atomicity.
   store atomic i16 %conv.i23.i.i, ptr %7 monotonic, align 2
   %add.ptr.i.i.i = getelementptr i8, ptr %7, i64 2
   %shr1.i.i.i = lshr i32 %spec.select12.i, 16
-  %conv2.i.i.i = trunc i32 %shr1.i.i.i to i16
+  %conv2.i.i.i = trunc nuw i32 %shr1.i.i.i to i16
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i.i.i, i64 2) ]
   store atomic i16 %conv2.i.i.i, ptr %add.ptr.i.i.i monotonic, align 2
   br label %return
 
 sw.bb3.i.i:                                       ; preds = %required_atomicity.exit.i.i
-  %conv6.i.i = trunc i64 %and.i.i to i32
+  %conv6.i.i = trunc nuw nsw i64 %and.i.i to i32
   switch i32 %conv6.i.i, label %do.body.i.i [
     i32 1, label %sw.bb7.i.i
     i32 3, label %sw.bb12.i.i
@@ -4674,7 +4674,7 @@ do.body1.i.i.i.i:                                 ; preds = %do.body1.i.i.i.i, %
 
 store_whole_le4.exit.i.i:                         ; preds = %do.body1.i.i.i.i
   %20 = lshr i32 %spec.select12.i, 24
-  %conv11.i.i = trunc i32 %20 to i8
+  %conv11.i.i = trunc nuw i32 %20 to i8
   %add.ptr.i.i = getelementptr i8, ptr %7, i64 3
   store i8 %conv11.i.i, ptr %add.ptr.i.i, align 1
   br label %return
@@ -5019,7 +5019,7 @@ sw.bb7.i:                                         ; preds = %required_atomicity.
   store atomic i16 %conv.i3.i.i, ptr %add.ptr.i.i monotonic, align 2
   %add.ptr.i4.i.i = getelementptr i8, ptr %9, i64 6
   %sum.shift.i.i = lshr i64 %val.addr.1.off0, 48
-  %conv2.i6.i.i = trunc i64 %sum.shift.i.i to i16
+  %conv2.i6.i.i = trunc nuw i64 %sum.shift.i.i to i16
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4.i.i, i64 2) ]
   store atomic i16 %conv2.i6.i.i, ptr %add.ptr.i4.i.i monotonic, align 2
   %add.ptr.i = getelementptr i8, ptr %9, i64 8
@@ -5038,7 +5038,7 @@ sw.bb7.i:                                         ; preds = %required_atomicity.
   store atomic i16 %conv.i3.i41.i, ptr %add.ptr.i39.i monotonic, align 2
   %add.ptr.i4.i42.i = getelementptr i8, ptr %9, i64 14
   %sum.shift.i43.i = lshr i64 %val.addr.1.off64, 48
-  %conv2.i6.i44.i = trunc i64 %sum.shift.i43.i to i16
+  %conv2.i6.i44.i = trunc nuw i64 %sum.shift.i43.i to i16
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4.i42.i, i64 2) ]
   store atomic i16 %conv2.i6.i44.i, ptr %add.ptr.i4.i42.i monotonic, align 2
   br label %if.end116
@@ -5049,7 +5049,7 @@ sw.bb8.i:                                         ; preds = %required_atomicity.
   store atomic i32 %conv.i45.i, ptr %9 monotonic, align 4
   %add.ptr.i46.i = getelementptr i8, ptr %9, i64 4
   %shr1.i47.i = lshr i64 %val.addr.1.off0, 32
-  %conv2.i.i = trunc i64 %shr1.i47.i to i32
+  %conv2.i.i = trunc nuw i64 %shr1.i47.i to i32
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i46.i, i64 4) ]
   store atomic i32 %conv2.i.i, ptr %add.ptr.i46.i monotonic, align 4
   %add.ptr9.i = getelementptr i8, ptr %9, i64 8
@@ -5058,7 +5058,7 @@ sw.bb8.i:                                         ; preds = %required_atomicity.
   store atomic i32 %conv.i48.i, ptr %add.ptr9.i monotonic, align 4
   %add.ptr.i49.i = getelementptr i8, ptr %9, i64 12
   %shr1.i50.i = lshr i64 %val.addr.1.off64, 32
-  %conv2.i51.i = trunc i64 %shr1.i50.i to i32
+  %conv2.i51.i = trunc nuw i64 %shr1.i50.i to i32
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i49.i, i64 4) ]
   store atomic i32 %conv2.i51.i, ptr %add.ptr.i49.i monotonic, align 4
   br label %if.end116
@@ -5072,7 +5072,7 @@ sw.bb10.i:                                        ; preds = %required_atomicity.
   br label %if.end116
 
 sw.bb12.i:                                        ; preds = %required_atomicity.exit.i
-  %conv14.i = trunc i64 %and.i to i32
+  %conv14.i = trunc nuw nsw i64 %and.i to i32
   %sub.i = sub nuw nsw i32 16, %conv14.i
   switch i32 %conv14.i, label %do.body.i [
     i32 1, label %sw.bb15.i
@@ -5124,18 +5124,14 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %sw.
   %28 = cmpxchg weak ptr %add.ptr.i54.i, i128 %old.sroa.0.0.i.i.i, i128 %or.i.i.i.i monotonic monotonic, align 16
   %29 = extractvalue { i128, i1 } %28, 1
   %30 = extractvalue { i128, i1 } %28, 0
-  br i1 %29, label %store_whole_le16.exit.i, label %do.body.i.i.i, !llvm.loop !57
+  br i1 %29, label %for.body.preheader.i.i, label %do.body.i.i.i, !llvm.loop !57
 
-store_whole_le16.exit.i:                          ; preds = %do.body.i.i.i
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr18.i = getelementptr i8, ptr %9, i64 %idx.ext.i
-  %cmp5.i.not.i = icmp eq i32 %conv14.i, 0
-  br i1 %cmp5.i.not.i, label %if.end116, label %for.body.preheader.i.i
-
-for.body.preheader.i.i:                           ; preds = %store_whole_le16.exit.i
+for.body.preheader.i.i:                           ; preds = %do.body.i.i.i
   %sub25.i.i = add nsw i32 %mul.i.i, -64
   %sh_prom26.i.i = zext nneg i32 %sub25.i.i to i64
   %shr27.i.i = ashr i64 %val.addr.1.off64, %sh_prom26.i.i
+  %idx.ext.i = zext nneg i32 %sub.i to i64
+  %add.ptr18.i = getelementptr i8, ptr %9, i64 %idx.ext.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -5270,7 +5266,7 @@ if.then87:                                        ; preds = %if.end75
   %shr.i = lshr i128 %a.sroa.0.0.insert.insert.i, %sh_prom.i
   %retval.sroa.0.0.extract.trunc.i = trunc i128 %shr.i to i64
   %retval.sroa.2.0.extract.shift.i = lshr i128 %shr.i, 64
-  %retval.sroa.2.0.extract.trunc.i = trunc i128 %retval.sroa.2.0.extract.shift.i to i64
+  %retval.sroa.2.0.extract.trunc.i = trunc nuw i128 %retval.sroa.2.0.extract.shift.i to i64
   %arrayidx99 = getelementptr inbounds i8, ptr %l, i64 32
   %call103 = call fastcc i64 @do_st16_leN(ptr noundef %cpu, ptr noundef nonnull %arrayidx99, i64 noundef %retval.sroa.0.0.extract.trunc.i, i64 noundef %retval.sroa.2.0.extract.trunc.i, i32 noundef %49, i32 noundef %43, i64 noundef %ra)
   br label %if.end116
@@ -5281,7 +5277,7 @@ if.else104:                                       ; preds = %if.end75
   %call115 = call fastcc i64 @do_st_leN(ptr noundef %cpu, ptr noundef nonnull %arrayidx112, i64 noundef %call110, i32 noundef %49, i32 noundef %43, i64 noundef %ra)
   br label %if.end116
 
-if.end116:                                        ; preds = %do.body.i.i97.i, %for.body.i.i, %do.body.i.i, %store_whole_le16.exit.i, %sw.bb10.i, %sw.bb8.i, %sw.bb7.i, %sw.bb.i, %if.then.i.i, %if.then12, %if.else, %if.else104, %if.then87, %if.then54
+if.end116:                                        ; preds = %do.body.i.i97.i, %for.body.i.i, %do.body.i.i, %sw.bb10.i, %sw.bb8.i, %sw.bb7.i, %sw.bb.i, %if.then.i.i, %if.then12, %if.else, %if.else104, %if.then87, %if.then54
   ret void
 }
 
@@ -6693,7 +6689,7 @@ entry:
   %14 = extractvalue { i128, i1 } %12, 0
   %extract.t2.i.i = trunc i128 %14 to i64
   %extract4.i.i = lshr i128 %14, 64
-  %extract.t5.i.i = trunc i128 %extract4.i.i to i64
+  %extract.t5.i.i = trunc nuw i128 %extract4.i.i to i64
   %_old.0.off0.i.i = select i1 %13, i64 %2, i64 %extract.t2.i.i
   %_old.0.off64.i.i = select i1 %13, i64 %3, i64 %extract.t5.i.i
   tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
@@ -6727,7 +6723,7 @@ entry:
   %12 = extractvalue { i128, i1 } %10, 0
   %extract.t2.i = trunc i128 %12 to i64
   %extract4.i = lshr i128 %12, 64
-  %extract.t5.i = trunc i128 %extract4.i to i64
+  %extract.t5.i = trunc nuw i128 %extract4.i to i64
   %_old.0.off0.i = select i1 %11, i64 %0, i64 %extract.t2.i
   %_old.0.off64.i = select i1 %11, i64 %1, i64 %extract.t5.i
   tail call void @qemu_plugin_vcpu_mem_cb(ptr noundef %add.ptr.i, i64 noundef %addr, i32 noundef %oi, i32 noundef 3) #18
@@ -6759,7 +6755,7 @@ entry:
   %4 = extractvalue { i128, i1 } %2, 0
   %extract.t2.i.i = trunc i128 %4 to i64
   %extract4.i.i = lshr i128 %4, 64
-  %extract.t5.i.i = trunc i128 %extract4.i.i to i64
+  %extract.t5.i.i = trunc nuw i128 %extract4.i.i to i64
   %_old.0.off0.i.i = select i1 %3, i64 %oldv.coerce0, i64 %extract.t2.i.i
   %_old.0.off64.i.i = select i1 %3, i64 %oldv.coerce1, i64 %extract.t5.i.i
   %.fca.0.insert.i.i = insertvalue { i64, i64 } poison, i64 %_old.0.off0.i.i, 0
@@ -6787,7 +6783,7 @@ entry:
   %2 = extractvalue { i128, i1 } %0, 0
   %extract.t2.i = trunc i128 %2 to i64
   %extract4.i = lshr i128 %2, 64
-  %extract.t5.i = trunc i128 %extract4.i to i64
+  %extract.t5.i = trunc nuw i128 %extract4.i to i64
   %_old.0.off0.i = select i1 %1, i64 %cmpv.coerce0, i64 %extract.t2.i
   %_old.0.off64.i = select i1 %1, i64 %cmpv.coerce1, i64 %extract.t5.i
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %_old.0.off0.i, 0
@@ -7611,7 +7607,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %cmp.0.i = phi i8 [ %2, %entry ], [ %4, %do.body.i ]
   %conv2.i = sext i8 %cmp.0.i to i32
   %cond.i = tail call i32 @llvm.smin.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i8
+  %conv6.i = trunc nsw i32 %cond.i to i8
   %3 = cmpxchg ptr %call1.i, i8 %cmp.0.i, i8 %conv6.i seq_cst seq_cst, align 1
   %4 = extractvalue { i8, i1 } %3, 0
   %cmp10.not.i = extractvalue { i8, i1 } %3, 1
@@ -7638,7 +7634,7 @@ do.body:                                          ; preds = %do.body, %entry
   %cmp.0 = phi i8 [ %0, %entry ], [ %2, %do.body ]
   %conv2 = sext i8 %cmp.0 to i32
   %cond = tail call i32 @llvm.smin.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i8
+  %conv6 = trunc nsw i32 %cond to i8
   %1 = cmpxchg ptr %call1, i8 %cmp.0, i8 %conv6 seq_cst seq_cst, align 1
   %2 = extractvalue { i8, i1 } %1, 0
   %cmp10.not = extractvalue { i8, i1 } %1, 1
@@ -7668,7 +7664,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %3 = tail call i16 @llvm.bswap.i16(i16 %ldn.0.i)
   %conv2.i = sext i16 %3 to i32
   %cond.i = tail call i32 @llvm.smin.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv5.i = trunc i32 %cond.i to i16
+  %conv5.i = trunc nsw i32 %cond.i to i16
   %4 = tail call i16 @llvm.bswap.i16(i16 %conv5.i)
   %5 = cmpxchg ptr %call1.i, i16 %ldn.0.i, i16 %4 seq_cst seq_cst, align 2
   %6 = extractvalue { i16, i1 } %5, 0
@@ -7697,7 +7693,7 @@ do.body:                                          ; preds = %do.body, %entry
   %1 = tail call i16 @llvm.bswap.i16(i16 %ldn.0)
   %conv2 = sext i16 %1 to i32
   %cond = tail call i32 @llvm.smin.i32(i32 %conv3, i32 %conv2)
-  %conv5 = trunc i32 %cond to i16
+  %conv5 = trunc nsw i32 %cond to i16
   %2 = tail call i16 @llvm.bswap.i16(i16 %conv5)
   %3 = cmpxchg ptr %call1, i16 %ldn.0, i16 %2 seq_cst seq_cst, align 2
   %4 = extractvalue { i16, i1 } %3, 0
@@ -7727,7 +7723,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %cmp.0.i = phi i16 [ %2, %entry ], [ %4, %do.body.i ]
   %conv2.i = sext i16 %cmp.0.i to i32
   %cond.i = tail call i32 @llvm.smin.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i16
+  %conv6.i = trunc nsw i32 %cond.i to i16
   %3 = cmpxchg ptr %call1.i, i16 %cmp.0.i, i16 %conv6.i seq_cst seq_cst, align 2
   %4 = extractvalue { i16, i1 } %3, 0
   %cmp10.not.i = extractvalue { i16, i1 } %3, 1
@@ -7754,7 +7750,7 @@ do.body:                                          ; preds = %do.body, %entry
   %cmp.0 = phi i16 [ %0, %entry ], [ %2, %do.body ]
   %conv2 = sext i16 %cmp.0 to i32
   %cond = tail call i32 @llvm.smin.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i16
+  %conv6 = trunc nsw i32 %cond to i16
   %1 = cmpxchg ptr %call1, i16 %cmp.0, i16 %conv6 seq_cst seq_cst, align 2
   %2 = extractvalue { i16, i1 } %1, 0
   %cmp10.not = extractvalue { i16, i1 } %1, 1
@@ -7982,7 +7978,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %cmp.0.i = phi i8 [ %2, %entry ], [ %4, %do.body.i ]
   %conv2.i = zext i8 %cmp.0.i to i32
   %cond.i = tail call i32 @llvm.umin.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i8
+  %conv6.i = trunc nuw i32 %cond.i to i8
   %3 = cmpxchg ptr %call1.i, i8 %cmp.0.i, i8 %conv6.i seq_cst seq_cst, align 1
   %4 = extractvalue { i8, i1 } %3, 0
   %cmp10.not.i = extractvalue { i8, i1 } %3, 1
@@ -8008,7 +8004,7 @@ do.body:                                          ; preds = %do.body, %entry
   %cmp.0 = phi i8 [ %0, %entry ], [ %2, %do.body ]
   %conv2 = zext i8 %cmp.0 to i32
   %cond = tail call i32 @llvm.umin.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i8
+  %conv6 = trunc nuw i32 %cond to i8
   %1 = cmpxchg ptr %call1, i8 %cmp.0, i8 %conv6 seq_cst seq_cst, align 1
   %2 = extractvalue { i8, i1 } %1, 0
   %cmp10.not = extractvalue { i8, i1 } %1, 1
@@ -8037,7 +8033,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %3 = tail call i16 @llvm.bswap.i16(i16 %ldn.0.i)
   %conv2.i = zext i16 %3 to i32
   %cond.i = tail call i32 @llvm.umin.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv5.i = trunc i32 %cond.i to i16
+  %conv5.i = trunc nuw i32 %cond.i to i16
   %4 = tail call i16 @llvm.bswap.i16(i16 %conv5.i)
   %5 = cmpxchg ptr %call1.i, i16 %ldn.0.i, i16 %4 seq_cst seq_cst, align 2
   %6 = extractvalue { i16, i1 } %5, 0
@@ -8065,7 +8061,7 @@ do.body:                                          ; preds = %do.body, %entry
   %1 = tail call i16 @llvm.bswap.i16(i16 %ldn.0)
   %conv2 = zext i16 %1 to i32
   %cond = tail call i32 @llvm.umin.i32(i32 %conv3, i32 %conv2)
-  %conv5 = trunc i32 %cond to i16
+  %conv5 = trunc nuw i32 %cond to i16
   %2 = tail call i16 @llvm.bswap.i16(i16 %conv5)
   %3 = cmpxchg ptr %call1, i16 %ldn.0, i16 %2 seq_cst seq_cst, align 2
   %4 = extractvalue { i16, i1 } %3, 0
@@ -8094,7 +8090,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %cmp.0.i = phi i16 [ %2, %entry ], [ %4, %do.body.i ]
   %conv2.i = zext i16 %cmp.0.i to i32
   %cond.i = tail call i32 @llvm.umin.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i16
+  %conv6.i = trunc nuw i32 %cond.i to i16
   %3 = cmpxchg ptr %call1.i, i16 %cmp.0.i, i16 %conv6.i seq_cst seq_cst, align 2
   %4 = extractvalue { i16, i1 } %3, 0
   %cmp10.not.i = extractvalue { i16, i1 } %3, 1
@@ -8120,7 +8116,7 @@ do.body:                                          ; preds = %do.body, %entry
   %cmp.0 = phi i16 [ %0, %entry ], [ %2, %do.body ]
   %conv2 = zext i16 %cmp.0 to i32
   %cond = tail call i32 @llvm.umin.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i16
+  %conv6 = trunc nuw i32 %cond to i16
   %1 = cmpxchg ptr %call1, i16 %cmp.0, i16 %conv6 seq_cst seq_cst, align 2
   %2 = extractvalue { i16, i1 } %1, 0
   %cmp10.not = extractvalue { i16, i1 } %1, 1
@@ -8349,7 +8345,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %cmp.0.i = phi i8 [ %2, %entry ], [ %4, %do.body.i ]
   %conv2.i = sext i8 %cmp.0.i to i32
   %cond.i = tail call i32 @llvm.smax.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i8
+  %conv6.i = trunc nsw i32 %cond.i to i8
   %3 = cmpxchg ptr %call1.i, i8 %cmp.0.i, i8 %conv6.i seq_cst seq_cst, align 1
   %4 = extractvalue { i8, i1 } %3, 0
   %cmp10.not.i = extractvalue { i8, i1 } %3, 1
@@ -8376,7 +8372,7 @@ do.body:                                          ; preds = %do.body, %entry
   %cmp.0 = phi i8 [ %0, %entry ], [ %2, %do.body ]
   %conv2 = sext i8 %cmp.0 to i32
   %cond = tail call i32 @llvm.smax.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i8
+  %conv6 = trunc nsw i32 %cond to i8
   %1 = cmpxchg ptr %call1, i8 %cmp.0, i8 %conv6 seq_cst seq_cst, align 1
   %2 = extractvalue { i8, i1 } %1, 0
   %cmp10.not = extractvalue { i8, i1 } %1, 1
@@ -8406,7 +8402,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %3 = tail call i16 @llvm.bswap.i16(i16 %ldn.0.i)
   %conv2.i = sext i16 %3 to i32
   %cond.i = tail call i32 @llvm.smax.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv5.i = trunc i32 %cond.i to i16
+  %conv5.i = trunc nsw i32 %cond.i to i16
   %4 = tail call i16 @llvm.bswap.i16(i16 %conv5.i)
   %5 = cmpxchg ptr %call1.i, i16 %ldn.0.i, i16 %4 seq_cst seq_cst, align 2
   %6 = extractvalue { i16, i1 } %5, 0
@@ -8435,7 +8431,7 @@ do.body:                                          ; preds = %do.body, %entry
   %1 = tail call i16 @llvm.bswap.i16(i16 %ldn.0)
   %conv2 = sext i16 %1 to i32
   %cond = tail call i32 @llvm.smax.i32(i32 %conv3, i32 %conv2)
-  %conv5 = trunc i32 %cond to i16
+  %conv5 = trunc nsw i32 %cond to i16
   %2 = tail call i16 @llvm.bswap.i16(i16 %conv5)
   %3 = cmpxchg ptr %call1, i16 %ldn.0, i16 %2 seq_cst seq_cst, align 2
   %4 = extractvalue { i16, i1 } %3, 0
@@ -8465,7 +8461,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %cmp.0.i = phi i16 [ %2, %entry ], [ %4, %do.body.i ]
   %conv2.i = sext i16 %cmp.0.i to i32
   %cond.i = tail call i32 @llvm.smax.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i16
+  %conv6.i = trunc nsw i32 %cond.i to i16
   %3 = cmpxchg ptr %call1.i, i16 %cmp.0.i, i16 %conv6.i seq_cst seq_cst, align 2
   %4 = extractvalue { i16, i1 } %3, 0
   %cmp10.not.i = extractvalue { i16, i1 } %3, 1
@@ -8492,7 +8488,7 @@ do.body:                                          ; preds = %do.body, %entry
   %cmp.0 = phi i16 [ %0, %entry ], [ %2, %do.body ]
   %conv2 = sext i16 %cmp.0 to i32
   %cond = tail call i32 @llvm.smax.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i16
+  %conv6 = trunc nsw i32 %cond to i16
   %1 = cmpxchg ptr %call1, i16 %cmp.0, i16 %conv6 seq_cst seq_cst, align 2
   %2 = extractvalue { i16, i1 } %1, 0
   %cmp10.not = extractvalue { i16, i1 } %1, 1
@@ -8720,7 +8716,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %cmp.0.i = phi i8 [ %2, %entry ], [ %4, %do.body.i ]
   %conv2.i = zext i8 %cmp.0.i to i32
   %cond.i = tail call i32 @llvm.umax.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i8
+  %conv6.i = trunc nuw i32 %cond.i to i8
   %3 = cmpxchg ptr %call1.i, i8 %cmp.0.i, i8 %conv6.i seq_cst seq_cst, align 1
   %4 = extractvalue { i8, i1 } %3, 0
   %cmp10.not.i = extractvalue { i8, i1 } %3, 1
@@ -8746,7 +8742,7 @@ do.body:                                          ; preds = %do.body, %entry
   %cmp.0 = phi i8 [ %0, %entry ], [ %2, %do.body ]
   %conv2 = zext i8 %cmp.0 to i32
   %cond = tail call i32 @llvm.umax.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i8
+  %conv6 = trunc nuw i32 %cond to i8
   %1 = cmpxchg ptr %call1, i8 %cmp.0, i8 %conv6 seq_cst seq_cst, align 1
   %2 = extractvalue { i8, i1 } %1, 0
   %cmp10.not = extractvalue { i8, i1 } %1, 1
@@ -8775,7 +8771,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %3 = tail call i16 @llvm.bswap.i16(i16 %ldn.0.i)
   %conv2.i = zext i16 %3 to i32
   %cond.i = tail call i32 @llvm.umax.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv5.i = trunc i32 %cond.i to i16
+  %conv5.i = trunc nuw i32 %cond.i to i16
   %4 = tail call i16 @llvm.bswap.i16(i16 %conv5.i)
   %5 = cmpxchg ptr %call1.i, i16 %ldn.0.i, i16 %4 seq_cst seq_cst, align 2
   %6 = extractvalue { i16, i1 } %5, 0
@@ -8803,7 +8799,7 @@ do.body:                                          ; preds = %do.body, %entry
   %1 = tail call i16 @llvm.bswap.i16(i16 %ldn.0)
   %conv2 = zext i16 %1 to i32
   %cond = tail call i32 @llvm.umax.i32(i32 %conv3, i32 %conv2)
-  %conv5 = trunc i32 %cond to i16
+  %conv5 = trunc nuw i32 %cond to i16
   %2 = tail call i16 @llvm.bswap.i16(i16 %conv5)
   %3 = cmpxchg ptr %call1, i16 %ldn.0, i16 %2 seq_cst seq_cst, align 2
   %4 = extractvalue { i16, i1 } %3, 0
@@ -8832,7 +8828,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %cmp.0.i = phi i16 [ %2, %entry ], [ %4, %do.body.i ]
   %conv2.i = zext i16 %cmp.0.i to i32
   %cond.i = tail call i32 @llvm.umax.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i16
+  %conv6.i = trunc nuw i32 %cond.i to i16
   %3 = cmpxchg ptr %call1.i, i16 %cmp.0.i, i16 %conv6.i seq_cst seq_cst, align 2
   %4 = extractvalue { i16, i1 } %3, 0
   %cmp10.not.i = extractvalue { i16, i1 } %3, 1
@@ -8858,7 +8854,7 @@ do.body:                                          ; preds = %do.body, %entry
   %cmp.0 = phi i16 [ %0, %entry ], [ %2, %do.body ]
   %conv2 = zext i16 %cmp.0 to i32
   %cond = tail call i32 @llvm.umax.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i16
+  %conv6 = trunc nuw i32 %cond to i16
   %1 = cmpxchg ptr %call1, i16 %cmp.0, i16 %conv6 seq_cst seq_cst, align 2
   %2 = extractvalue { i16, i1 } %1, 0
   %cmp10.not = extractvalue { i16, i1 } %1, 1
@@ -9927,7 +9923,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %cmp.0.i = phi i8 [ %2, %entry ], [ %4, %do.body.i ]
   %conv2.i = sext i8 %cmp.0.i to i32
   %cond.i = tail call i32 @llvm.smin.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i8
+  %conv6.i = trunc nsw i32 %cond.i to i8
   %3 = cmpxchg ptr %call1.i, i8 %cmp.0.i, i8 %conv6.i seq_cst seq_cst, align 1
   %4 = extractvalue { i8, i1 } %3, 0
   %cmp10.not.i = extractvalue { i8, i1 } %3, 1
@@ -9954,7 +9950,7 @@ do.body:                                          ; preds = %do.body, %entry
   %cmp.0 = phi i8 [ %0, %entry ], [ %2, %do.body ]
   %conv2 = sext i8 %cmp.0 to i32
   %cond = tail call i32 @llvm.smin.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i8
+  %conv6 = trunc nsw i32 %cond to i8
   %1 = cmpxchg ptr %call1, i8 %cmp.0, i8 %conv6 seq_cst seq_cst, align 1
   %2 = extractvalue { i8, i1 } %1, 0
   %cmp10.not = extractvalue { i8, i1 } %1, 1
@@ -9984,7 +9980,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %3 = tail call i16 @llvm.bswap.i16(i16 %ldn.0.i)
   %conv2.i = sext i16 %3 to i32
   %cond.i = tail call i32 @llvm.smin.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv5.i = trunc i32 %cond.i to i16
+  %conv5.i = trunc nsw i32 %cond.i to i16
   %4 = tail call i16 @llvm.bswap.i16(i16 %conv5.i)
   %5 = cmpxchg ptr %call1.i, i16 %ldn.0.i, i16 %4 seq_cst seq_cst, align 2
   %6 = extractvalue { i16, i1 } %5, 0
@@ -10013,7 +10009,7 @@ do.body:                                          ; preds = %do.body, %entry
   %1 = tail call i16 @llvm.bswap.i16(i16 %ldn.0)
   %conv2 = sext i16 %1 to i32
   %cond = tail call i32 @llvm.smin.i32(i32 %conv3, i32 %conv2)
-  %conv5 = trunc i32 %cond to i16
+  %conv5 = trunc nsw i32 %cond to i16
   %2 = tail call i16 @llvm.bswap.i16(i16 %conv5)
   %3 = cmpxchg ptr %call1, i16 %ldn.0, i16 %2 seq_cst seq_cst, align 2
   %4 = extractvalue { i16, i1 } %3, 0
@@ -10043,7 +10039,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %cmp.0.i = phi i16 [ %2, %entry ], [ %4, %do.body.i ]
   %conv2.i = sext i16 %cmp.0.i to i32
   %cond.i = tail call i32 @llvm.smin.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i16
+  %conv6.i = trunc nsw i32 %cond.i to i16
   %3 = cmpxchg ptr %call1.i, i16 %cmp.0.i, i16 %conv6.i seq_cst seq_cst, align 2
   %4 = extractvalue { i16, i1 } %3, 0
   %cmp10.not.i = extractvalue { i16, i1 } %3, 1
@@ -10070,7 +10066,7 @@ do.body:                                          ; preds = %do.body, %entry
   %cmp.0 = phi i16 [ %0, %entry ], [ %2, %do.body ]
   %conv2 = sext i16 %cmp.0 to i32
   %cond = tail call i32 @llvm.smin.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i16
+  %conv6 = trunc nsw i32 %cond to i16
   %1 = cmpxchg ptr %call1, i16 %cmp.0, i16 %conv6 seq_cst seq_cst, align 2
   %2 = extractvalue { i16, i1 } %1, 0
   %cmp10.not = extractvalue { i16, i1 } %1, 1
@@ -10298,7 +10294,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %cmp.0.i = phi i8 [ %2, %entry ], [ %4, %do.body.i ]
   %conv2.i = zext i8 %cmp.0.i to i32
   %cond.i = tail call i32 @llvm.umin.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i8
+  %conv6.i = trunc nuw i32 %cond.i to i8
   %3 = cmpxchg ptr %call1.i, i8 %cmp.0.i, i8 %conv6.i seq_cst seq_cst, align 1
   %4 = extractvalue { i8, i1 } %3, 0
   %cmp10.not.i = extractvalue { i8, i1 } %3, 1
@@ -10324,7 +10320,7 @@ do.body:                                          ; preds = %do.body, %entry
   %cmp.0 = phi i8 [ %0, %entry ], [ %2, %do.body ]
   %conv2 = zext i8 %cmp.0 to i32
   %cond = tail call i32 @llvm.umin.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i8
+  %conv6 = trunc nuw i32 %cond to i8
   %1 = cmpxchg ptr %call1, i8 %cmp.0, i8 %conv6 seq_cst seq_cst, align 1
   %2 = extractvalue { i8, i1 } %1, 0
   %cmp10.not = extractvalue { i8, i1 } %1, 1
@@ -10353,7 +10349,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %3 = tail call i16 @llvm.bswap.i16(i16 %ldn.0.i)
   %conv2.i = zext i16 %3 to i32
   %cond.i = tail call i32 @llvm.umin.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv5.i = trunc i32 %cond.i to i16
+  %conv5.i = trunc nuw i32 %cond.i to i16
   %4 = tail call i16 @llvm.bswap.i16(i16 %conv5.i)
   %5 = cmpxchg ptr %call1.i, i16 %ldn.0.i, i16 %4 seq_cst seq_cst, align 2
   %6 = extractvalue { i16, i1 } %5, 0
@@ -10381,7 +10377,7 @@ do.body:                                          ; preds = %do.body, %entry
   %1 = tail call i16 @llvm.bswap.i16(i16 %ldn.0)
   %conv2 = zext i16 %1 to i32
   %cond = tail call i32 @llvm.umin.i32(i32 %conv3, i32 %conv2)
-  %conv5 = trunc i32 %cond to i16
+  %conv5 = trunc nuw i32 %cond to i16
   %2 = tail call i16 @llvm.bswap.i16(i16 %conv5)
   %3 = cmpxchg ptr %call1, i16 %ldn.0, i16 %2 seq_cst seq_cst, align 2
   %4 = extractvalue { i16, i1 } %3, 0
@@ -10410,7 +10406,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %cmp.0.i = phi i16 [ %2, %entry ], [ %4, %do.body.i ]
   %conv2.i = zext i16 %cmp.0.i to i32
   %cond.i = tail call i32 @llvm.umin.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i16
+  %conv6.i = trunc nuw i32 %cond.i to i16
   %3 = cmpxchg ptr %call1.i, i16 %cmp.0.i, i16 %conv6.i seq_cst seq_cst, align 2
   %4 = extractvalue { i16, i1 } %3, 0
   %cmp10.not.i = extractvalue { i16, i1 } %3, 1
@@ -10436,7 +10432,7 @@ do.body:                                          ; preds = %do.body, %entry
   %cmp.0 = phi i16 [ %0, %entry ], [ %2, %do.body ]
   %conv2 = zext i16 %cmp.0 to i32
   %cond = tail call i32 @llvm.umin.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i16
+  %conv6 = trunc nuw i32 %cond to i16
   %1 = cmpxchg ptr %call1, i16 %cmp.0, i16 %conv6 seq_cst seq_cst, align 2
   %2 = extractvalue { i16, i1 } %1, 0
   %cmp10.not = extractvalue { i16, i1 } %1, 1
@@ -10665,7 +10661,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %cmp.0.i = phi i8 [ %2, %entry ], [ %4, %do.body.i ]
   %conv2.i = sext i8 %cmp.0.i to i32
   %cond.i = tail call i32 @llvm.smax.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i8
+  %conv6.i = trunc nsw i32 %cond.i to i8
   %3 = cmpxchg ptr %call1.i, i8 %cmp.0.i, i8 %conv6.i seq_cst seq_cst, align 1
   %4 = extractvalue { i8, i1 } %3, 0
   %cmp10.not.i = extractvalue { i8, i1 } %3, 1
@@ -10692,7 +10688,7 @@ do.body:                                          ; preds = %do.body, %entry
   %cmp.0 = phi i8 [ %0, %entry ], [ %2, %do.body ]
   %conv2 = sext i8 %cmp.0 to i32
   %cond = tail call i32 @llvm.smax.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i8
+  %conv6 = trunc nsw i32 %cond to i8
   %1 = cmpxchg ptr %call1, i8 %cmp.0, i8 %conv6 seq_cst seq_cst, align 1
   %2 = extractvalue { i8, i1 } %1, 0
   %cmp10.not = extractvalue { i8, i1 } %1, 1
@@ -10722,7 +10718,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %3 = tail call i16 @llvm.bswap.i16(i16 %ldn.0.i)
   %conv2.i = sext i16 %3 to i32
   %cond.i = tail call i32 @llvm.smax.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv5.i = trunc i32 %cond.i to i16
+  %conv5.i = trunc nsw i32 %cond.i to i16
   %4 = tail call i16 @llvm.bswap.i16(i16 %conv5.i)
   %5 = cmpxchg ptr %call1.i, i16 %ldn.0.i, i16 %4 seq_cst seq_cst, align 2
   %6 = extractvalue { i16, i1 } %5, 0
@@ -10751,7 +10747,7 @@ do.body:                                          ; preds = %do.body, %entry
   %1 = tail call i16 @llvm.bswap.i16(i16 %ldn.0)
   %conv2 = sext i16 %1 to i32
   %cond = tail call i32 @llvm.smax.i32(i32 %conv3, i32 %conv2)
-  %conv5 = trunc i32 %cond to i16
+  %conv5 = trunc nsw i32 %cond to i16
   %2 = tail call i16 @llvm.bswap.i16(i16 %conv5)
   %3 = cmpxchg ptr %call1, i16 %ldn.0, i16 %2 seq_cst seq_cst, align 2
   %4 = extractvalue { i16, i1 } %3, 0
@@ -10781,7 +10777,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %cmp.0.i = phi i16 [ %2, %entry ], [ %4, %do.body.i ]
   %conv2.i = sext i16 %cmp.0.i to i32
   %cond.i = tail call i32 @llvm.smax.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i16
+  %conv6.i = trunc nsw i32 %cond.i to i16
   %3 = cmpxchg ptr %call1.i, i16 %cmp.0.i, i16 %conv6.i seq_cst seq_cst, align 2
   %4 = extractvalue { i16, i1 } %3, 0
   %cmp10.not.i = extractvalue { i16, i1 } %3, 1
@@ -10808,7 +10804,7 @@ do.body:                                          ; preds = %do.body, %entry
   %cmp.0 = phi i16 [ %0, %entry ], [ %2, %do.body ]
   %conv2 = sext i16 %cmp.0 to i32
   %cond = tail call i32 @llvm.smax.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i16
+  %conv6 = trunc nsw i32 %cond to i16
   %1 = cmpxchg ptr %call1, i16 %cmp.0, i16 %conv6 seq_cst seq_cst, align 2
   %2 = extractvalue { i16, i1 } %1, 0
   %cmp10.not = extractvalue { i16, i1 } %1, 1
@@ -11036,7 +11032,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %cmp.0.i = phi i8 [ %2, %entry ], [ %4, %do.body.i ]
   %conv2.i = zext i8 %cmp.0.i to i32
   %cond.i = tail call i32 @llvm.umax.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i8
+  %conv6.i = trunc nuw i32 %cond.i to i8
   %3 = cmpxchg ptr %call1.i, i8 %cmp.0.i, i8 %conv6.i seq_cst seq_cst, align 1
   %4 = extractvalue { i8, i1 } %3, 0
   %cmp10.not.i = extractvalue { i8, i1 } %3, 1
@@ -11062,7 +11058,7 @@ do.body:                                          ; preds = %do.body, %entry
   %cmp.0 = phi i8 [ %0, %entry ], [ %2, %do.body ]
   %conv2 = zext i8 %cmp.0 to i32
   %cond = tail call i32 @llvm.umax.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i8
+  %conv6 = trunc nuw i32 %cond to i8
   %1 = cmpxchg ptr %call1, i8 %cmp.0, i8 %conv6 seq_cst seq_cst, align 1
   %2 = extractvalue { i8, i1 } %1, 0
   %cmp10.not = extractvalue { i8, i1 } %1, 1
@@ -11091,7 +11087,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %3 = tail call i16 @llvm.bswap.i16(i16 %ldn.0.i)
   %conv2.i = zext i16 %3 to i32
   %cond.i = tail call i32 @llvm.umax.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv5.i = trunc i32 %cond.i to i16
+  %conv5.i = trunc nuw i32 %cond.i to i16
   %4 = tail call i16 @llvm.bswap.i16(i16 %conv5.i)
   %5 = cmpxchg ptr %call1.i, i16 %ldn.0.i, i16 %4 seq_cst seq_cst, align 2
   %6 = extractvalue { i16, i1 } %5, 0
@@ -11119,7 +11115,7 @@ do.body:                                          ; preds = %do.body, %entry
   %1 = tail call i16 @llvm.bswap.i16(i16 %ldn.0)
   %conv2 = zext i16 %1 to i32
   %cond = tail call i32 @llvm.umax.i32(i32 %conv3, i32 %conv2)
-  %conv5 = trunc i32 %cond to i16
+  %conv5 = trunc nuw i32 %cond to i16
   %2 = tail call i16 @llvm.bswap.i16(i16 %conv5)
   %3 = cmpxchg ptr %call1, i16 %ldn.0, i16 %2 seq_cst seq_cst, align 2
   %4 = extractvalue { i16, i1 } %3, 0
@@ -11148,7 +11144,7 @@ do.body.i:                                        ; preds = %do.body.i, %entry
   %cmp.0.i = phi i16 [ %2, %entry ], [ %4, %do.body.i ]
   %conv2.i = zext i16 %cmp.0.i to i32
   %cond.i = tail call i32 @llvm.umax.i32(i32 %conv3.i, i32 %conv2.i)
-  %conv6.i = trunc i32 %cond.i to i16
+  %conv6.i = trunc nuw i32 %cond.i to i16
   %3 = cmpxchg ptr %call1.i, i16 %cmp.0.i, i16 %conv6.i seq_cst seq_cst, align 2
   %4 = extractvalue { i16, i1 } %3, 0
   %cmp10.not.i = extractvalue { i16, i1 } %3, 1
@@ -11174,7 +11170,7 @@ do.body:                                          ; preds = %do.body, %entry
   %cmp.0 = phi i16 [ %0, %entry ], [ %2, %do.body ]
   %conv2 = zext i16 %cmp.0 to i32
   %cond = tail call i32 @llvm.umax.i32(i32 %conv3, i32 %conv2)
-  %conv6 = trunc i32 %cond to i16
+  %conv6 = trunc nuw i32 %cond to i16
   %1 = cmpxchg ptr %call1, i16 %cmp.0, i16 %conv6 seq_cst seq_cst, align 2
   %2 = extractvalue { i16, i1 } %1, 0
   %cmp10.not = extractvalue { i16, i1 } %1, 1
@@ -11572,7 +11568,7 @@ entry:
   %conv = zext nneg i32 %and.i to i64
   %shr.i = lshr i32 %oi, 4
   %and.i61 = and i32 %shr.i, 224
-  %trunc.i = trunc i32 %and.i61 to i8
+  %trunc.i = trunc nuw i32 %and.i61 to i8
   switch i8 %trunc.i, label %if.else4.i [
     i8 0, label %get_alignment_bits.exit.thread
     i8 -32, label %if.then2.i
@@ -12277,7 +12273,7 @@ entry:
   %mmu_idx = getelementptr inbounds i8, ptr %l, i64 68
   store i32 %and.i, ptr %mmu_idx, align 4
   %and.i64 = and i32 %shr.i, 224
-  %trunc.i = trunc i32 %and.i64 to i8
+  %trunc.i = trunc nuw i32 %and.i64 to i8
   switch i8 %trunc.i, label %if.else4.i [
     i8 0, label %get_alignment_bits.exit
     i8 -32, label %if.then2.i
@@ -13487,7 +13483,7 @@ atomic16_read_rw.exit.i.i:                        ; preds = %sw.bb10
   %23 = extractvalue { i128, i1 } %22, 0
   %extract.t2.i.i.i = trunc i128 %23 to i64
   %extract4.i.i.i = lshr i128 %23, 64
-  %extract.t5.i.i.i = trunc i128 %extract4.i.i.i to i64
+  %extract.t5.i.i.i = trunc nuw i128 %extract4.i.i.i to i64
   %.pre = load i32, ptr %size1, align 4
   br label %do_ld_whole_be16.exit
 
@@ -13515,7 +13511,7 @@ do_ld_whole_be16.exit:                            ; preds = %if.then.i.i, %atomi
   %or.i.i = or i128 %shr.i.i, %shl.i23.i
   %retval.sroa.0.0.extract.trunc.i33.i = trunc i128 %or.i.i to i64
   %retval.sroa.2.0.extract.shift.i34.i = lshr i128 %or.i.i, 64
-  %retval.sroa.2.0.extract.trunc.i35.i = trunc i128 %retval.sroa.2.0.extract.shift.i34.i to i64
+  %retval.sroa.2.0.extract.trunc.i35.i = trunc nuw i128 %retval.sroa.2.0.extract.shift.i34.i to i64
   %.fca.0.insert.i36.i = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0.extract.trunc.i33.i, 0
   %.fca.1.insert.i37.i = insertvalue { i64, i64 } %.fca.0.insert.i36.i, i64 %retval.sroa.2.0.extract.trunc.i35.i, 1
   br label %return
@@ -13992,7 +13988,7 @@ sw.bb2.i:                                         ; preds = %required_atomicity.
   store atomic i16 %conv.i3.i.i, ptr %add.ptr.i.i monotonic, align 2
   %add.ptr.i4.i.i = getelementptr i8, ptr %5, i64 6
   %sum.shift.i.i = lshr i64 %spec.select12, 48
-  %conv2.i6.i.i = trunc i64 %sum.shift.i.i to i16
+  %conv2.i6.i.i = trunc nuw i64 %sum.shift.i.i to i16
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i4.i.i, i64 2) ]
   store atomic i16 %conv2.i6.i.i, ptr %add.ptr.i4.i.i monotonic, align 2
   br label %if.end22
@@ -14003,13 +13999,13 @@ sw.bb3.i:                                         ; preds = %required_atomicity.
   store atomic i32 %conv.i26.i, ptr %5 monotonic, align 4
   %add.ptr.i27.i = getelementptr i8, ptr %5, i64 4
   %shr1.i28.i = lshr i64 %spec.select12, 32
-  %conv2.i.i = trunc i64 %shr1.i28.i to i32
+  %conv2.i.i = trunc nuw i64 %shr1.i28.i to i32
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i27.i, i64 4) ]
   store atomic i32 %conv2.i.i, ptr %add.ptr.i27.i monotonic, align 4
   br label %if.end22
 
 sw.bb4.i:                                         ; preds = %required_atomicity.exit.i
-  %conv7.i = trunc i64 %and.i to i32
+  %conv7.i = trunc nuw nsw i64 %and.i to i32
   %sub.i = sub nuw nsw i32 8, %conv7.i
   switch i32 %conv7.i, label %do.body.i [
     i32 1, label %sw.bb8.i
@@ -14043,17 +14039,13 @@ do.body1.i.i.i:                                   ; preds = %do.body1.i.i.i, %sw
   %14 = cmpxchg weak ptr %add.ptr.i30.i, i64 %old.0.i.i.i, i64 %or.i.i.i monotonic monotonic, align 8
   %15 = extractvalue { i64, i1 } %14, 1
   %16 = extractvalue { i64, i1 } %14, 0
-  br i1 %15, label %store_whole_le8.exit.i, label %do.body1.i.i.i, !llvm.loop !56
+  br i1 %15, label %for.body.preheader.i.i, label %do.body1.i.i.i, !llvm.loop !56
 
-store_whole_le8.exit.i:                           ; preds = %do.body1.i.i.i
-  %idx.ext.i = zext nneg i32 %sub.i to i64
-  %add.ptr.i = getelementptr i8, ptr %5, i64 %idx.ext.i
-  %cmp5.i.not.i = icmp eq i32 %conv7.i, 0
-  br i1 %cmp5.i.not.i, label %if.end22, label %for.body.preheader.i.i
-
-for.body.preheader.i.i:                           ; preds = %store_whole_le8.exit.i
+for.body.preheader.i.i:                           ; preds = %do.body1.i.i.i
   %sh_prom6.i.i = zext nneg i32 %mul.i.i to i64
   %shr7.i.i = lshr i64 %spec.select12, %sh_prom6.i.i
+  %idx.ext.i = zext nneg i32 %sub.i to i64
+  %add.ptr.i = getelementptr i8, ptr %5, i64 %idx.ext.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -14147,7 +14139,7 @@ do.body23.i:                                      ; preds = %required_atomicity.
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 1030, ptr noundef nonnull @__func__.store_atom_8, ptr noundef null) #21
   unreachable
 
-if.end22:                                         ; preds = %do.body.i.i.i, %do.body1.i.i58.i, %for.body.i.i, %store_whole_le8.exit.i, %sw.bb3.i, %sw.bb2.i, %sw.bb.i, %if.then.i, %if.else, %if.then
+if.end22:                                         ; preds = %do.body.i.i.i, %do.body1.i.i58.i, %for.body.i.i, %sw.bb3.i, %sw.bb2.i, %sw.bb.i, %if.then.i, %if.else, %if.then
   ret void
 }
 

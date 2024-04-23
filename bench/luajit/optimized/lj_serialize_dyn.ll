@@ -53,7 +53,7 @@ for.body:                                         ; preds = %land.rhs
   %arrayidx = getelementptr inbounds %union.TValue, ptr %7, i64 %indvars.iv
   %8 = load i64, ptr %arrayidx, align 8
   %shr = ashr i64 %8, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   switch i32 %conv, label %if.then25 [
     i32 -5, label %if.then13
     i32 -2, label %for.inc
@@ -139,7 +139,7 @@ for.body:                                         ; preds = %land.rhs
   %arrayidx = getelementptr inbounds %union.TValue, ptr %7, i64 %indvars.iv
   %8 = load i64, ptr %arrayidx, align 8
   %shr = ashr i64 %8, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   switch i32 %conv, label %if.then26 [
     i32 -12, label %if.then13
     i32 -2, label %for.inc
@@ -189,7 +189,7 @@ define internal fastcc nonnull ptr @serialize_put(ptr noundef %w, ptr noundef %s
 entry:
   %0 = load i64, ptr %o, align 8
   %shr = ashr i64 %0, 47
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nsw i64 %shr to i32
   %cmp = icmp eq i32 %conv, -5
   br i1 %cmp, label %if.then, label %if.else
 
@@ -220,7 +220,7 @@ serialize_more.exit500:                           ; preds = %if.then.i498, %if.t
   br i1 %cmp.i563, label %if.then.i569, label %if.else.i567
 
 if.then.i569:                                     ; preds = %serialize_more.exit500
-  %conv2.i570 = trunc i32 %add5 to i8
+  %conv2.i570 = trunc nuw i32 %add5 to i8
   %incdec.ptr.i571 = getelementptr inbounds i8, ptr %w.addr.i486.0, i64 1
   br label %serialize_wu124.exit572
 
@@ -360,22 +360,18 @@ for.body:                                         ; preds = %for.cond
   %arrayidx = getelementptr inbounds %union.TValue, ptr %15, i64 %i.0
   %16 = load i64, ptr %arrayidx, align 8
   %cmp49 = icmp eq i64 %16, -1
-  br i1 %cmp49, label %for.cond, label %for.end, !llvm.loop !7
+  br i1 %cmp49, label %for.cond, label %land.lhs.true, !llvm.loop !7
 
-for.end:                                          ; preds = %for.body
-  %conv55 = trunc i64 %i.0.in to i32
-  %tobool56.not = icmp eq i32 %conv55, 0
-  br i1 %tobool56.not, label %if.end62, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %for.end
+land.lhs.true:                                    ; preds = %for.body
+  %conv55 = trunc nuw i64 %i.0.in to i32
   %17 = load i64, ptr %15, align 8
   %cmp58 = icmp eq i64 %17, -1
   %spec.select = select i1 %cmp58, i32 4, i32 2
   br label %if.end62
 
-if.end62:                                         ; preds = %for.cond, %land.lhs.true, %for.end, %if.end
-  %narray.0 = phi i32 [ 0, %for.end ], [ 0, %if.end ], [ %conv55, %land.lhs.true ], [ 0, %for.cond ]
-  %one.0 = phi i32 [ 2, %for.end ], [ 2, %if.end ], [ %spec.select, %land.lhs.true ], [ 2, %for.cond ]
+if.end62:                                         ; preds = %for.cond, %land.lhs.true, %if.end
+  %narray.0 = phi i32 [ 0, %if.end ], [ %conv55, %land.lhs.true ], [ 0, %for.cond ]
+  %one.0 = phi i32 [ 2, %if.end ], [ %spec.select, %land.lhs.true ], [ 2, %for.cond ]
   %hmask = getelementptr inbounds i8, ptr %9, i64 52
   %18 = load i32, ptr %hmask, align 4
   %cmp63.not = icmp eq i32 %18, 0
@@ -419,7 +415,7 @@ land.lhs.true92:                                  ; preds = %if.end83
 if.then95:                                        ; preds = %land.lhs.true92
   %or.i610 = or i64 %25, -1688849860263936
   %shr106 = lshr i64 %or.i610, 32
-  %conv107 = trunc i64 %shr106 to i32
+  %conv107 = trunc nuw i64 %shr106 to i32
   %xor.i256 = xor i64 %shr106, %25
   %xor.i = trunc i64 %xor.i256 to i32
   %or.i = tail call i32 @llvm.fshl.i32(i32 %conv107, i32 %conv107, i32 14)
@@ -469,7 +465,7 @@ serialize_more.exit455:                           ; preds = %if.then.i453, %if.t
   br i1 %cmp.i550, label %if.then.i556, label %if.else.i554
 
 if.then.i556:                                     ; preds = %serialize_more.exit455
-  %conv2.i557 = trunc i32 %30 to i8
+  %conv2.i557 = trunc nuw i32 %30 to i8
   %incdec.ptr.i558 = getelementptr inbounds i8, ptr %w.addr.i441.0, i64 2
   br label %if.end120.sink.split
 
@@ -530,7 +526,7 @@ serialize_more.exit440:                           ; preds = %if.then.i438, %if.e
   %tobool124.not = icmp eq i32 %narray.0, 0
   %cond125 = select i1 %tobool124.not, i32 0, i32 %one.0
   %add126 = or disjoint i32 %add123, %cond125
-  %conv127 = trunc i32 %add126 to i8
+  %conv127 = trunc nuw nsw i32 %add126 to i8
   %incdec.ptr128 = getelementptr inbounds i8, ptr %w.addr.i426.0, i64 1
   store i8 %conv127, ptr %w.addr.i426.0, align 1
   br i1 %tobool124.not, label %if.end132, label %if.then130
@@ -540,7 +536,7 @@ if.then130:                                       ; preds = %serialize_more.exit
   br i1 %cmp.i537, label %if.then.i543, label %if.else.i541
 
 if.then.i543:                                     ; preds = %if.then130
-  %conv2.i544 = trunc i32 %narray.0 to i8
+  %conv2.i544 = trunc nuw i32 %narray.0 to i8
   %incdec.ptr.i545 = getelementptr inbounds i8, ptr %w.addr.i426.0, i64 2
   br label %if.end132.sink.split
 
@@ -580,7 +576,7 @@ if.then134:                                       ; preds = %if.end132
   br i1 %cmp.i524, label %if.then.i530, label %if.else.i528
 
 if.then.i530:                                     ; preds = %if.then134
-  %conv2.i531 = trunc i32 %nhash.1 to i8
+  %conv2.i531 = trunc nuw i32 %nhash.1 to i8
   %incdec.ptr.i532 = getelementptr inbounds i8, ptr %w.addr.1, i64 1
   br label %if.end136.sink.split
 
@@ -725,7 +721,7 @@ serialize_more.exit425:                           ; preds = %if.then.i423, %if.t
   br i1 %cmp.i511, label %if.then.i517, label %if.else.i515
 
 if.then.i517:                                     ; preds = %serialize_more.exit425
-  %conv2.i518 = trunc i32 %56 to i8
+  %conv2.i518 = trunc nuw i32 %56 to i8
   %incdec.ptr.i519 = getelementptr inbounds i8, ptr %w.addr.i411.0, i64 2
   store i8 %conv2.i518, ptr %incdec.ptr210, align 1
   br label %if.end231
@@ -788,7 +784,7 @@ serialize_more.exit410:                           ; preds = %if.then.i408, %if.t
   br i1 %cmp.i502, label %if.then.i507, label %if.else.i
 
 if.then.i507:                                     ; preds = %serialize_more.exit410
-  %conv2.i = trunc i32 %add221 to i8
+  %conv2.i = trunc nuw i32 %add221 to i8
   %incdec.ptr.i = getelementptr inbounds i8, ptr %w.addr.i396.0, i64 1
   br label %serialize_wu124.exit
 
@@ -1031,7 +1027,7 @@ if.else330:                                       ; preds = %serialize_more.exit
   br i1 %cmp333, label %if.then335, label %if.else338
 
 if.then335:                                       ; preds = %if.else330
-  %conv331 = trunc i64 %retval.i593.0 to i32
+  %conv331 = trunc nuw i64 %retval.i593.0 to i32
   %incdec.ptr336 = getelementptr inbounds i8, ptr %w.addr.i.0, i64 1
   store i8 4, ptr %w.addr.i.0, align 1
   store i32 %conv331, ptr %incdec.ptr336, align 1
@@ -1050,7 +1046,7 @@ badenc:                                           ; preds = %if.else27, %if.else
   %L344 = getelementptr inbounds i8, ptr %sbx, i64 24
   %92 = load i64, ptr %L344, align 8
   %shr347 = ashr i64 %91, 47
-  %conv348 = trunc i64 %shr347 to i32
+  %conv348 = trunc nsw i64 %shr347 to i32
   %cmp349 = icmp ult i32 %conv348, -13
   %not355 = and i64 %shr347, 15
   %93 = xor i64 %not355, 15
@@ -1175,7 +1171,7 @@ if.then48:                                        ; preds = %if.else
 if.end59:                                         ; preds = %if.then48
   %8 = load i64, ptr %retval.i505.0, align 1
   %shr = ashr i64 %8, 47
-  %conv61 = trunc i64 %shr to i32
+  %conv61 = trunc nsw i64 %shr to i32
   %cmp62 = icmp ult i32 %conv61, -14
   %spec.store.select = select i1 %cmp62, i64 %8, i64 -2251799813685248
   store i64 %spec.store.select, ptr %o, align 8
@@ -1653,7 +1649,7 @@ if.end321:                                        ; preds = %if.end305
 if.then341:                                       ; preds = %if.end321
   %67 = load i64, ptr %add.ptr335, align 8
   %shr344 = ashr i64 %67, 47
-  %conv345 = trunc i64 %shr344 to i32
+  %conv345 = trunc nsw i64 %shr344 to i32
   %cmp346 = icmp ult i32 %conv345, -14
   br i1 %cmp346, label %if.end350, label %if.then348
 
@@ -1665,7 +1661,7 @@ if.end350:                                        ; preds = %if.then348, %if.the
   %arrayidx351 = getelementptr inbounds i8, ptr %call.i546, i64 24
   %68 = load i64, ptr %arrayidx351, align 8
   %shr352 = ashr i64 %68, 47
-  %conv353 = trunc i64 %shr352 to i32
+  %conv353 = trunc nsw i64 %shr352 to i32
   %cmp354 = icmp ult i32 %conv353, -14
   br i1 %cmp354, label %if.end359, label %if.then356
 

@@ -4790,6 +4790,7 @@ for.cond8.preheader.lr.ph:                        ; preds = %for.cond2.preheader
   %1 = trunc i64 %0 to i32
   %2 = sub i32 0, %1
   %conv.i26 = and i32 %2, 7
+  %tobool.not12.i = icmp eq i32 %conv.i26, 0
   br label %for.cond8.preheader
 
 for.cond8.preheader:                              ; preds = %for.cond8.preheader.lr.ph, %for.inc85
@@ -4801,16 +4802,15 @@ for.body12:                                       ; preds = %for.cond8.preheader
   %indvars.iv = phi i64 [ 0, %for.cond8.preheader ], [ %indvars.iv.next, %for.body12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds [32 x i8], ptr %data, i64 0, i64 %indvars.iv
-  %3 = trunc i64 %indvars.iv.next to i8
+  %3 = trunc nuw nsw i64 %indvars.iv.next to i8
   store i8 %3, ptr %arrayidx, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
   br i1 %exitcond.not, label %for.end, label %for.body12, !llvm.loop !13
 
 for.end:                                          ; preds = %for.body12
-  %4 = trunc i64 %indvars.iv42 to i32
+  %4 = trunc nuw nsw i64 %indvars.iv42 to i32
   %spec.select.i = call i32 @llvm.umin.i32(i32 %conv.i26, i32 %4)
   %sub3.i = sub i32 %4, %spec.select.i
-  %tobool.not12.i = icmp eq i32 %spec.select.i, 0
   br i1 %tobool.not12.i, label %for.cond.preheader.i, label %while.body.i
 
 for.cond.preheader.i:                             ; preds = %while.body.i, %for.end
@@ -35890,7 +35890,7 @@ if.else409:                                       ; preds = %do.end294
 do.body414.loopexit:                              ; preds = %for.inc, %for.inc.thread
   %indvars.iv.next179 = phi i64 [ %indvars.iv.next176, %for.inc.thread ], [ %indvars.iv.next, %for.inc ]
   %_ret.13178 = phi i32 [ 0, %for.inc.thread ], [ 1, %for.inc ]
-  %87 = trunc i64 %indvars.iv.next179 to i32
+  %87 = trunc nsw i64 %indvars.iv.next179 to i32
   br label %do.body414
 
 do.body414:                                       ; preds = %if.else409, %do.body414.loopexit, %if.then302
@@ -36023,7 +36023,7 @@ for.body:                                         ; preds = %entry, %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds [854 x %struct.TEST_CASE], ptr @testCases, i64 0, i64 %indvars.iv
   %0 = load ptr, ptr %arrayidx, align 8
-  %1 = trunc i64 %indvars.iv.next to i32
+  %1 = trunc nuw nsw i64 %indvars.iv.next to i32
   %call1 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.886, i32 noundef %1, ptr noundef %0)
   %exitcond.not = icmp eq i64 %indvars.iv.next, 854
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !58
@@ -36145,7 +36145,7 @@ if.end12:                                         ; preds = %land.lhs.true, %for
   %3 = add nuw nsw i64 %indvars.iv, 1
   %arrayidx14 = getelementptr inbounds [854 x %struct.TEST_CASE], ptr @testCases, i64 0, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx14, align 8
-  %5 = trunc i64 %3 to i32
+  %5 = trunc nuw nsw i64 %3 to i32
   %call15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.892, i32 noundef %5, ptr noundef %4)
   %6 = load ptr, ptr @stdout, align 8
   %call16 = tail call i32 @fflush(ptr noundef %6)
@@ -36281,7 +36281,7 @@ for.body72:                                       ; preds = %if.then67, %for.inc
 
 if.then79:                                        ; preds = %for.body72
   %27 = load ptr, ptr %arrayidx74, align 8
-  %28 = trunc i64 %.pre57 to i32
+  %28 = trunc nuw nsw i64 %.pre57 to i32
   %call84 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.898, i32 noundef %28, ptr noundef %27)
   br label %for.inc86
 
@@ -37825,24 +37825,24 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %switch, label %if.then14, label %return
 
 if.then14:                                        ; preds = %land.lhs.true
-  %puts9 = call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
+  %puts10 = call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
   br label %return
 
 if.end16:                                         ; preds = %entry
-  %.pr = load i32, ptr %error, align 8
-  %cmp18.not = icmp ne i32 %.pr, 0
+  %8 = load i32, ptr %error, align 8
+  %cmp18 = icmp ne i32 %8, 0
   %cmp21 = icmp eq i32 %6, 0
-  %or.cond = and i1 %cmp21, %cmp18.not
+  %or.cond = and i1 %cmp21, %cmp18
   br i1 %or.cond, label %if.then23, label %if.end25
 
 if.then23:                                        ; preds = %if.end16
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.7)
   %.pre = load i32, ptr %5, align 4
-  %8 = freeze i32 %.pre
+  %9 = freeze i32 %.pre
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then23, %if.end16
-  %.fr = phi i32 [ %8, %if.then23 ], [ %6, %if.end16 ]
+  %.fr = phi i32 [ %9, %if.then23 ], [ %6, %if.end16 ]
   %cmp26 = icmp eq i32 %.fr, 0
   %spec.select = select i1 %cmp26, i32 1, i32 %preverify
   br label %return

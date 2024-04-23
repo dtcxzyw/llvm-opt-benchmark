@@ -7823,7 +7823,7 @@ for.body.lr.ph:                                   ; preds = %_ZN15ref_vector_cor
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %17 = trunc i64 %indvars.iv to i32
+  %17 = trunc nuw i64 %indvars.iv to i32
   invoke void @_ZNK7pb_util9get_coeffEP9func_declj(ptr nonnull sret(%class.rational) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %pb, ptr noundef nonnull %f, i32 noundef %17)
           to label %invoke.cont5 unwind label %lpad.loopexit
 
@@ -8768,7 +8768,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit61.us:        ; preds = %if.end.i58.us, %for
 
 for.body42.us:                                    ; preds = %for.cond40.preheader.us, %for.inc60.us
   %indvars.iv = phi i64 [ 0, %for.cond40.preheader.us ], [ %indvars.iv.next, %for.inc60.us ]
-  %26 = trunc i64 %indvars.iv to i32
+  %26 = trunc nuw i64 %indvars.iv to i32
   %shl43.us = shl nuw i32 1, %26
   %and.us = and i32 %shl43.us, %116
   %cmp44.not.us = icmp eq i32 %and.us, 0
@@ -9401,7 +9401,7 @@ for.inc60.us:                                     ; preds = %for.body.i.us, %if.
   br i1 %exitcond346.not, label %for.cond40.for.inc63_crit_edge.us, label %for.body42.us, !llvm.loop !44
 
 for.cond40.preheader.us:                          ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit61.us
-  %116 = trunc i64 %indvars.iv347 to i32
+  %116 = trunc nuw i64 %indvars.iv347 to i32
   br label %for.body42.us
 
 for.cond40.for.inc63_crit_edge.us:                ; preds = %for.inc60.us
@@ -9721,16 +9721,16 @@ _ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE9use_dcardEjj.exit: ; pred
   %div8.i.i = lshr i32 %n, 1
   %call.i.i = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE7vc_cardEjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %k, i32 noundef %div8.i.i) #25
   %ref.tmp2.i.sroa.4.0.extract.shift.i = lshr i64 %call.i.i, 32
-  %ref.tmp2.i.sroa.4.0.extract.trunc.i = trunc i64 %ref.tmp2.i.sroa.4.0.extract.shift.i to i32
+  %ref.tmp2.i.sroa.4.0.extract.trunc.i = trunc nuw i64 %ref.tmp2.i.sroa.4.0.extract.shift.i to i32
   %sub.i.i = sub nsw i32 %n, %div8.i.i
   %call4.i.i = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE7vc_cardEjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %k, i32 noundef %sub.i.i) #25
   %ref.tmp3.i.sroa.4.0.extract.shift.i = lshr i64 %call4.i.i, 32
-  %ref.tmp3.i.sroa.4.0.extract.trunc.i = trunc i64 %ref.tmp3.i.sroa.4.0.extract.shift.i to i32
+  %ref.tmp3.i.sroa.4.0.extract.trunc.i = trunc nuw i64 %ref.tmp3.i.sroa.4.0.extract.shift.i to i32
   %add.i6.i = add i64 %call4.i.i, %call.i.i
   %add4.i9.i = add i32 %ref.tmp3.i.sroa.4.0.extract.trunc.i, %ref.tmp2.i.sroa.4.0.extract.trunc.i
   %call8.i.i = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE9vc_smergeEjjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %k, i32 noundef %div8.i.i, i32 noundef %sub.i.i)
   %ref.tmp6.i.sroa.4.0.extract.shift.i = lshr i64 %call8.i.i, 32
-  %ref.tmp6.i.sroa.4.0.extract.trunc.i = trunc i64 %ref.tmp6.i.sroa.4.0.extract.shift.i to i32
+  %ref.tmp6.i.sroa.4.0.extract.trunc.i = trunc nuw i64 %ref.tmp6.i.sroa.4.0.extract.shift.i to i32
   %add.i.i = add i64 %add.i6.i, %call8.i.i
   %add4.i.i = add i32 %add4.i9.i, %ref.tmp6.i.sroa.4.0.extract.trunc.i
   %ref.tmp2.sroa.0.0.extract.trunc.i = trunc i64 %add.i.i to i32
@@ -12718,16 +12718,16 @@ _ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE12use_dsortingEj.exit: ; p
   %div6.i.i = lshr i32 %n, 1
   %call.i.i = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE10vc_sortingEj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %div6.i.i)
   %ref.tmp2.i.sroa.4.0.extract.shift.i = lshr i64 %call.i.i, 32
-  %ref.tmp2.i.sroa.4.0.extract.trunc.i = trunc i64 %ref.tmp2.i.sroa.4.0.extract.shift.i to i32
+  %ref.tmp2.i.sroa.4.0.extract.trunc.i = trunc nuw i64 %ref.tmp2.i.sroa.4.0.extract.shift.i to i32
   %sub.i.i = sub nsw i32 %n, %div6.i.i
   %call4.i.i = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE10vc_sortingEj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %sub.i.i)
   %ref.tmp3.i.sroa.4.0.extract.shift.i = lshr i64 %call4.i.i, 32
-  %ref.tmp3.i.sroa.4.0.extract.trunc.i = trunc i64 %ref.tmp3.i.sroa.4.0.extract.shift.i to i32
+  %ref.tmp3.i.sroa.4.0.extract.trunc.i = trunc nuw i64 %ref.tmp3.i.sroa.4.0.extract.shift.i to i32
   %add.i6.i = add i64 %call4.i.i, %call.i.i
   %add4.i9.i = add i32 %ref.tmp3.i.sroa.4.0.extract.trunc.i, %ref.tmp2.i.sroa.4.0.extract.trunc.i
   %call8.i.i = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE8vc_mergeEjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %div6.i.i, i32 noundef %sub.i.i)
   %ref.tmp6.i.sroa.4.0.extract.shift.i = lshr i64 %call8.i.i, 32
-  %ref.tmp6.i.sroa.4.0.extract.trunc.i = trunc i64 %ref.tmp6.i.sroa.4.0.extract.shift.i to i32
+  %ref.tmp6.i.sroa.4.0.extract.trunc.i = trunc nuw i64 %ref.tmp6.i.sroa.4.0.extract.shift.i to i32
   %add.i.i = add i64 %add.i6.i, %call8.i.i
   %add4.i.i = add i32 %add4.i9.i, %ref.tmp6.i.sroa.4.0.extract.trunc.i
   %ref.tmp2.sroa.0.0.extract.trunc.i = trunc i64 %add.i.i to i32
@@ -12856,16 +12856,16 @@ _ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11vc_dsortingEjj.exit: ; p
   %div8.i = lshr i32 %n, 1
   %call.i = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE7vc_cardEjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %k, i32 noundef %div8.i)
   %ref.tmp2.i.sroa.4.0.extract.shift = lshr i64 %call.i, 32
-  %ref.tmp2.i.sroa.4.0.extract.trunc = trunc i64 %ref.tmp2.i.sroa.4.0.extract.shift to i32
+  %ref.tmp2.i.sroa.4.0.extract.trunc = trunc nuw i64 %ref.tmp2.i.sroa.4.0.extract.shift to i32
   %sub.i = sub nsw i32 %n, %div8.i
   %call4.i = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE7vc_cardEjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %k, i32 noundef %sub.i)
   %ref.tmp3.i.sroa.4.0.extract.shift = lshr i64 %call4.i, 32
-  %ref.tmp3.i.sroa.4.0.extract.trunc = trunc i64 %ref.tmp3.i.sroa.4.0.extract.shift to i32
+  %ref.tmp3.i.sroa.4.0.extract.trunc = trunc nuw i64 %ref.tmp3.i.sroa.4.0.extract.shift to i32
   %add.i6 = add i64 %call4.i, %call.i
   %add4.i9 = add i32 %ref.tmp3.i.sroa.4.0.extract.trunc, %ref.tmp2.i.sroa.4.0.extract.trunc
   %call8.i = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE9vc_smergeEjjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %k, i32 noundef %div8.i, i32 noundef %sub.i)
   %ref.tmp6.i.sroa.4.0.extract.shift = lshr i64 %call8.i, 32
-  %ref.tmp6.i.sroa.4.0.extract.trunc = trunc i64 %ref.tmp6.i.sroa.4.0.extract.shift to i32
+  %ref.tmp6.i.sroa.4.0.extract.trunc = trunc nuw i64 %ref.tmp6.i.sroa.4.0.extract.shift to i32
   %add.i = add i64 %add.i6, %call8.i
   %add4.i = add i32 %add4.i9, %ref.tmp6.i.sroa.4.0.extract.trunc
   %ref.tmp2.sroa.0.0.extract.trunc = trunc i64 %add.i to i32
@@ -14568,13 +14568,13 @@ _ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE10vc_dsmergeEjjj.exit: ; p
   %cond.i = select i1 %cmp.i.i, i32 %div912.i, i32 %add.i8
   %call10.i = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE9vc_smergeEjjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %add.i.i7, i32 noundef %add.i18.i, i32 noundef %cond.i) #25
   %ref.tmp5.sroa.2.0.extract.shift.i = lshr i64 %call10.i, 32
-  %ref.tmp5.sroa.2.0.extract.trunc.i = trunc i64 %ref.tmp5.sroa.2.0.extract.shift.i to i32
+  %ref.tmp5.sroa.2.0.extract.trunc.i = trunc nuw i64 %ref.tmp5.sroa.2.0.extract.shift.i to i32
   %sub.i = sext i1 %cmp.i.i to i32
   %cond20.in.i = add i32 %sub.i, %c
   %cond20.i = lshr i32 %cond20.in.i, 1
   %call21.i = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE9vc_smergeEjjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %div2.i.i, i32 noundef %div2.i16.i, i32 noundef %cond20.i) #25
   %ref.tmp11.sroa.2.0.extract.shift.i = lshr i64 %call21.i, 32
-  %ref.tmp11.sroa.2.0.extract.trunc.i = trunc i64 %ref.tmp11.sroa.2.0.extract.shift.i to i32
+  %ref.tmp11.sroa.2.0.extract.trunc.i = trunc nuw i64 %ref.tmp11.sroa.2.0.extract.shift.i to i32
   %add4.i.i = add i32 %ref.tmp11.sroa.2.0.extract.trunc.i, %ref.tmp5.sroa.2.0.extract.trunc.i
   %add29.i = add nuw nsw i32 %div2.i16.i, %div2.i.i
   %1 = load i32, ptr %m_t.i, align 8
@@ -15293,6 +15293,7 @@ for.body53.lr.ph:                                 ; preds = %if.then50
   %91 = zext i32 %a to i64
   %92 = zext i32 %b to i64
   %wide.trip.count343 = zext i32 %c to i64
+  %cmp87321.not = icmp eq i32 %a, 0
   br label %for.body53
 
 for.cond51.loopexit:                              ; preds = %for.inc105, %if.end81
@@ -15365,7 +15366,7 @@ if.then61:                                        ; preds = %invoke.cont58
           to label %invoke.cont64 unwind label %lpad.loopexit.split-lp
 
 invoke.cont64:                                    ; preds = %if.then61
-  %105 = trunc i64 %indvars.iv340 to i32
+  %105 = trunc nuw i64 %indvars.iv340 to i32
   %sub66 = sub i32 %105, %a
   %idxprom67 = zext i32 %sub66 to i64
   %arrayidx68 = getelementptr inbounds ptr, ptr %bs, i64 %idxprom67
@@ -15391,7 +15392,7 @@ lpad.loopexit.split-lp:                           ; preds = %_ZN6vectorIP4exprLb
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %ehcleanup.i212, %cleanup.action.i207, %ehcleanup.i, %cleanup.action.i
-  %eh.lpad-body = phi { ptr, i32 } [ %117, %ehcleanup.i ], [ %118, %cleanup.action.i ], [ %127, %ehcleanup.i212 ], [ %128, %cleanup.action.i207 ], [ %lpad.loopexit306, %lpad.loopexit ], [ %lpad.loopexit.split-lp307, %lpad.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %116, %ehcleanup.i ], [ %117, %cleanup.action.i ], [ %126, %ehcleanup.i212 ], [ %127, %cleanup.action.i207 ], [ %lpad.loopexit306, %lpad.loopexit ], [ %lpad.loopexit.split-lp307, %lpad.loopexit.split-lp ]
   call void @_ZN10ptr_vectorI4exprED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ls) #20
   br label %common.resume
 
@@ -15407,7 +15408,7 @@ if.then72:                                        ; preds = %if.end70
           to label %invoke.cont75 unwind label %lpad.loopexit.split-lp
 
 invoke.cont75:                                    ; preds = %if.then72
-  %109 = trunc i64 %indvars.iv340 to i32
+  %109 = trunc nuw i64 %indvars.iv340 to i32
   %sub77 = sub i32 %109, %b
   %idxprom78 = zext i32 %sub77 to i64
   %arrayidx79 = getelementptr inbounds ptr, ptr %as, i64 %idxprom78
@@ -15424,35 +15425,32 @@ _ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE10add_clauseEP4exprS5_.exi
 
 if.end81:                                         ; preds = %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE10add_clauseEP4exprS5_.exit137, %if.end70
   %indvars.iv.next341 = add nuw nsw i64 %indvars.iv340, 1
-  %111 = trunc i64 %indvars.iv.next341 to i32
-  %.sroa.speculated = call i32 @llvm.umin.i32(i32 %111, i32 %a)
-  %cmp87321.not = icmp eq i32 %.sroa.speculated, 0
   br i1 %cmp87321.not, label %for.cond51.loopexit, label %for.body88.preheader
 
 for.body88.preheader:                             ; preds = %if.end81
   %wide.trip.count338 = zext i32 %umin to i64
-  %112 = trunc i64 %indvars.iv340 to i32
+  %111 = trunc nuw i64 %indvars.iv340 to i32
   br label %for.body88
 
 for.body88:                                       ; preds = %for.body88.preheader, %for.inc105
   %indvars.iv333 = phi i64 [ 0, %for.body88.preheader ], [ %indvars.iv.next334, %for.inc105 ]
-  %113 = trunc i64 %indvars.iv333 to i32
-  %sub90 = sub i32 %112, %113
+  %112 = trunc nuw i64 %indvars.iv333 to i32
+  %sub90 = sub i32 %111, %112
   %cmp91 = icmp ult i32 %sub90, %b
   br i1 %cmp91, label %if.then92, label %for.inc105
 
 if.then92:                                        ; preds = %for.body88
   %arrayidx94 = getelementptr inbounds ptr, ptr %as, i64 %indvars.iv333
-  %114 = load ptr, ptr %ls, align 8
-  %cmp.i139 = icmp eq ptr %114, null
+  %113 = load ptr, ptr %ls, align 8
+  %cmp.i139 = icmp eq ptr %113, null
   br i1 %cmp.i139, label %if.then.i190, label %lor.lhs.false.i140
 
 lor.lhs.false.i140:                               ; preds = %if.then92
-  %arrayidx.i141 = getelementptr inbounds i8, ptr %114, i64 -4
-  %115 = load i32, ptr %arrayidx.i141, align 4
-  %arrayidx4.i142 = getelementptr inbounds i8, ptr %114, i64 -8
-  %116 = load i32, ptr %arrayidx4.i142, align 4
-  %cmp5.i143 = icmp eq i32 %115, %116
+  %arrayidx.i141 = getelementptr inbounds i8, ptr %113, i64 -4
+  %114 = load i32, ptr %arrayidx.i141, align 4
+  %arrayidx4.i142 = getelementptr inbounds i8, ptr %113, i64 -8
+  %115 = load i32, ptr %arrayidx4.i142, align 4
+  %cmp5.i143 = icmp eq i32 %114, %115
   br i1 %cmp5.i143, label %if.else.i, label %invoke.cont95
 
 if.then.i190:                                     ; preds = %if.then92
@@ -15472,16 +15470,16 @@ call.i191.noexc:                                  ; preds = %if.then.i190
 if.else.i:                                        ; preds = %lor.lhs.false.i140
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp18.i)
-  %mul9.i = mul i32 %115, 3
+  %mul9.i = mul i32 %114, 3
   %add10.i = add i32 %mul9.i, 1
   %shr.i = lshr i32 %add10.i, 1
   %mul12.i = shl i32 %shr.i, 3
   %add13.i = add i32 %mul12.i, 8
-  %cmp15.not.i = icmp ugt i32 %shr.i, %115
+  %cmp15.not.i = icmp ugt i32 %shr.i, %114
   br i1 %cmp15.not.i, label %lor.lhs.false.i188, label %if.then17.i
 
 lor.lhs.false.i188:                               ; preds = %if.else.i
-  %mul6.i = shl i32 %115, 3
+  %mul6.i = shl i32 %114, 3
   %add7.i = add i32 %mul6.i, 8
   %cmp16.not.i = icmp ugt i32 %add13.i, %add7.i
   br i1 %cmp16.not.i, label %if.end.i189, label %if.then17.i
@@ -15500,14 +15498,14 @@ invoke.cont.i187:                                 ; preds = %if.then17.i
           to label %unreachable.i unwind label %ehcleanup.i
 
 ehcleanup.i:                                      ; preds = %invoke.cont.i187
-  %117 = landingpad { ptr, i32 }
+  %116 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18.i) #20
   br label %lpad.body
 
 cleanup.action.i:                                 ; preds = %if.then17.i
-  %118 = landingpad { ptr, i32 }
+  %117 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18.i) #20
   call void @__cxa_free_exception(ptr %exception.i) #20
@@ -15536,29 +15534,29 @@ unreachable.i:                                    ; preds = %invoke.cont.i187
   br label %invoke.cont95
 
 invoke.cont95:                                    ; preds = %.noexc153, %lor.lhs.false.i140
-  %119 = phi i32 [ %.pre1.i152, %.noexc153 ], [ %115, %lor.lhs.false.i140 ]
-  %120 = phi ptr [ %.pre.i150, %.noexc153 ], [ %114, %lor.lhs.false.i140 ]
-  %idx.ext.i145 = zext i32 %119 to i64
-  %add.ptr.i146 = getelementptr inbounds ptr, ptr %120, i64 %idx.ext.i145
-  %121 = load ptr, ptr %arrayidx94, align 8
-  store ptr %121, ptr %add.ptr.i146, align 8
-  %122 = load ptr, ptr %ls, align 8
-  %arrayidx10.i147 = getelementptr inbounds i8, ptr %122, i64 -4
-  %123 = load i32, ptr %arrayidx10.i147, align 4
-  %inc.i148 = add i32 %123, 1
+  %118 = phi i32 [ %.pre1.i152, %.noexc153 ], [ %114, %lor.lhs.false.i140 ]
+  %119 = phi ptr [ %.pre.i150, %.noexc153 ], [ %113, %lor.lhs.false.i140 ]
+  %idx.ext.i145 = zext i32 %118 to i64
+  %add.ptr.i146 = getelementptr inbounds ptr, ptr %119, i64 %idx.ext.i145
+  %120 = load ptr, ptr %arrayidx94, align 8
+  store ptr %120, ptr %add.ptr.i146, align 8
+  %121 = load ptr, ptr %ls, align 8
+  %arrayidx10.i147 = getelementptr inbounds i8, ptr %121, i64 -4
+  %122 = load i32, ptr %arrayidx10.i147, align 4
+  %inc.i148 = add i32 %122, 1
   store i32 %inc.i148, ptr %arrayidx10.i147, align 4
   %idxprom97 = zext i32 %sub90 to i64
   %arrayidx98 = getelementptr inbounds ptr, ptr %bs, i64 %idxprom97
-  %124 = load ptr, ptr %ls, align 8
-  %cmp.i154 = icmp eq ptr %124, null
+  %123 = load ptr, ptr %ls, align 8
+  %cmp.i154 = icmp eq ptr %123, null
   br i1 %cmp.i154, label %if.then.i221, label %lor.lhs.false.i155
 
 lor.lhs.false.i155:                               ; preds = %invoke.cont95
-  %arrayidx.i156 = getelementptr inbounds i8, ptr %124, i64 -4
-  %125 = load i32, ptr %arrayidx.i156, align 4
-  %arrayidx4.i157 = getelementptr inbounds i8, ptr %124, i64 -8
-  %126 = load i32, ptr %arrayidx4.i157, align 4
-  %cmp5.i158 = icmp eq i32 %125, %126
+  %arrayidx.i156 = getelementptr inbounds i8, ptr %123, i64 -4
+  %124 = load i32, ptr %arrayidx.i156, align 4
+  %arrayidx4.i157 = getelementptr inbounds i8, ptr %123, i64 -8
+  %125 = load i32, ptr %arrayidx4.i157, align 4
+  %cmp5.i158 = icmp eq i32 %124, %125
   br i1 %cmp5.i158, label %if.else.i197, label %invoke.cont99
 
 if.then.i221:                                     ; preds = %invoke.cont95
@@ -15578,16 +15576,16 @@ call.i222.noexc:                                  ; preds = %if.then.i221
 if.else.i197:                                     ; preds = %lor.lhs.false.i155
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i194)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp18.i195)
-  %mul9.i199 = mul i32 %125, 3
+  %mul9.i199 = mul i32 %124, 3
   %add10.i200 = add i32 %mul9.i199, 1
   %shr.i201 = lshr i32 %add10.i200, 1
   %mul12.i202 = shl i32 %shr.i201, 3
   %add13.i203 = add i32 %mul12.i202, 8
-  %cmp15.not.i204 = icmp ugt i32 %shr.i201, %125
+  %cmp15.not.i204 = icmp ugt i32 %shr.i201, %124
   br i1 %cmp15.not.i204, label %lor.lhs.false.i214, label %if.then17.i205
 
 lor.lhs.false.i214:                               ; preds = %if.else.i197
-  %mul6.i215 = shl i32 %125, 3
+  %mul6.i215 = shl i32 %124, 3
   %add7.i216 = add i32 %mul6.i215, 8
   %cmp16.not.i217 = icmp ugt i32 %add13.i203, %add7.i216
   br i1 %cmp16.not.i217, label %if.end.i218, label %if.then17.i205
@@ -15606,14 +15604,14 @@ invoke.cont.i210:                                 ; preds = %if.then17.i205
           to label %unreachable.i213 unwind label %ehcleanup.i212
 
 ehcleanup.i212:                                   ; preds = %invoke.cont.i210
-  %127 = landingpad { ptr, i32 }
+  %126 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i194) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18.i195) #20
   br label %lpad.body
 
 cleanup.action.i207:                              ; preds = %if.then17.i205
-  %128 = landingpad { ptr, i32 }
+  %127 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp18.i195) #20
   call void @__cxa_free_exception(ptr %exception.i206) #20
@@ -15642,41 +15640,41 @@ unreachable.i213:                                 ; preds = %invoke.cont.i210
   br label %invoke.cont99
 
 invoke.cont99:                                    ; preds = %.noexc168, %lor.lhs.false.i155
-  %129 = phi i32 [ %.pre1.i167, %.noexc168 ], [ %125, %lor.lhs.false.i155 ]
-  %130 = phi ptr [ %.pre.i165, %.noexc168 ], [ %124, %lor.lhs.false.i155 ]
-  %idx.ext.i160 = zext i32 %129 to i64
-  %add.ptr.i161 = getelementptr inbounds ptr, ptr %130, i64 %idx.ext.i160
-  %131 = load ptr, ptr %arrayidx98, align 8
-  store ptr %131, ptr %add.ptr.i161, align 8
-  %132 = load ptr, ptr %ls, align 8
-  %arrayidx10.i162 = getelementptr inbounds i8, ptr %132, i64 -4
-  %133 = load i32, ptr %arrayidx10.i162, align 4
-  %inc.i163 = add i32 %133, 1
+  %128 = phi i32 [ %.pre1.i167, %.noexc168 ], [ %124, %lor.lhs.false.i155 ]
+  %129 = phi ptr [ %.pre.i165, %.noexc168 ], [ %123, %lor.lhs.false.i155 ]
+  %idx.ext.i160 = zext i32 %128 to i64
+  %add.ptr.i161 = getelementptr inbounds ptr, ptr %129, i64 %idx.ext.i160
+  %130 = load ptr, ptr %arrayidx98, align 8
+  store ptr %130, ptr %add.ptr.i161, align 8
+  %131 = load ptr, ptr %ls, align 8
+  %arrayidx10.i162 = getelementptr inbounds i8, ptr %131, i64 -4
+  %132 = load i32, ptr %arrayidx10.i162, align 4
+  %inc.i163 = add i32 %132, 1
   store i32 %inc.i163, ptr %arrayidx10.i162, align 4
-  %134 = load ptr, ptr %ls, align 8
-  %cmp.i.i170 = icmp eq ptr %134, null
+  %133 = load ptr, ptr %ls, align 8
+  %cmp.i.i170 = icmp eq ptr %133, null
   br i1 %cmp.i.i170, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i, label %if.end.i.i171
 
 if.end.i.i171:                                    ; preds = %invoke.cont99
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %134, i64 -4
-  %135 = load i32, ptr %arrayidx.i.i, align 4
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %133, i64 -4
+  %134 = load i32, ptr %arrayidx.i.i, align 4
   br label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i
 
 _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i:           ; preds = %if.end.i.i171, %invoke.cont99
-  %retval.0.i.i = phi i32 [ %135, %if.end.i.i171 ], [ 0, %invoke.cont99 ]
-  invoke void @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE10add_clauseEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %retval.0.i.i, ptr noundef %134)
+  %retval.0.i.i = phi i32 [ %134, %if.end.i.i171 ], [ 0, %invoke.cont99 ]
+  invoke void @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE10add_clauseEjPKP4expr(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %retval.0.i.i, ptr noundef %133)
           to label %invoke.cont101 unwind label %lpad.loopexit
 
 invoke.cont101:                                   ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i
-  %136 = load ptr, ptr %ls, align 8
-  %arrayidx.i173 = getelementptr inbounds i8, ptr %136, i64 -4
-  %137 = load i32, ptr %arrayidx.i173, align 4
-  %dec.i = add i32 %137, -1
+  %135 = load ptr, ptr %ls, align 8
+  %arrayidx.i173 = getelementptr inbounds i8, ptr %135, i64 -4
+  %136 = load i32, ptr %arrayidx.i173, align 4
+  %dec.i = add i32 %136, -1
   store i32 %dec.i, ptr %arrayidx.i173, align 4
-  %138 = load ptr, ptr %ls, align 8
-  %arrayidx.i174 = getelementptr inbounds i8, ptr %138, i64 -4
-  %139 = load i32, ptr %arrayidx.i174, align 4
-  %dec.i175 = add i32 %139, -1
+  %137 = load ptr, ptr %ls, align 8
+  %arrayidx.i174 = getelementptr inbounds i8, ptr %137, i64 -4
+  %138 = load i32, ptr %arrayidx.i174, align 4
+  %dec.i175 = add i32 %138, -1
   store i32 %dec.i175, ptr %arrayidx.i174, align 4
   br label %for.inc105
 
@@ -15696,10 +15694,10 @@ if.then.i.i.i:                                    ; preds = %for.end110
           to label %if.end111 unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
-  %140 = landingpad { ptr, i32 }
+  %139 = landingpad { ptr, i32 }
           catch ptr null
-  %141 = extractvalue { ptr, i32 } %140, 0
-  call void @__clang_call_terminate(ptr %141) #21
+  %140 = extractvalue { ptr, i32 } %139, 0
+  call void @__clang_call_terminate(ptr %140) #21
   unreachable
 
 if.end111:                                        ; preds = %if.then50, %if.then.i.i.i, %for.end110, %if.end
@@ -16269,13 +16267,13 @@ entry:
   %cond = select i1 %cmp.i, i32 %div912, i32 %add
   %call10 = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE9vc_smergeEjjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %add.i, i32 noundef %add.i18, i32 noundef %cond)
   %ref.tmp5.sroa.2.0.extract.shift = lshr i64 %call10, 32
-  %ref.tmp5.sroa.2.0.extract.trunc = trunc i64 %ref.tmp5.sroa.2.0.extract.shift to i32
+  %ref.tmp5.sroa.2.0.extract.trunc = trunc nuw i64 %ref.tmp5.sroa.2.0.extract.shift to i32
   %sub = sext i1 %cmp.i to i32
   %cond20.in = add i32 %sub, %c
   %cond20 = lshr i32 %cond20.in, 1
   %call21 = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE9vc_smergeEjjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %div2.i, i32 noundef %div2.i16, i32 noundef %cond20)
   %ref.tmp11.sroa.2.0.extract.shift = lshr i64 %call21, 32
-  %ref.tmp11.sroa.2.0.extract.trunc = trunc i64 %ref.tmp11.sroa.2.0.extract.shift to i32
+  %ref.tmp11.sroa.2.0.extract.trunc = trunc nuw i64 %ref.tmp11.sroa.2.0.extract.shift to i32
   %add4.i = add i32 %ref.tmp11.sroa.2.0.extract.trunc, %ref.tmp5.sroa.2.0.extract.trunc
   %add29 = add nuw i32 %div2.i16, %div2.i
   %m_t.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -16343,7 +16341,7 @@ if.then21:                                        ; preds = %if.end19
   %call22 = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE9vc_smergeEjjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %c, i32 noundef %b, i32 noundef %c)
   %retval.sroa.0.0.extract.trunc = trunc i64 %call22 to i32
   %retval.sroa.12.0.extract.shift = lshr i64 %call22, 32
-  %retval.sroa.12.0.extract.trunc = trunc i64 %retval.sroa.12.0.extract.shift to i32
+  %retval.sroa.12.0.extract.trunc = trunc nuw i64 %retval.sroa.12.0.extract.shift to i32
   br label %return
 
 if.end23:                                         ; preds = %if.end19
@@ -16354,7 +16352,7 @@ if.then25:                                        ; preds = %if.end23
   %call26 = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE9vc_smergeEjjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %a, i32 noundef %c, i32 noundef %c)
   %retval.sroa.0.0.extract.trunc47 = trunc i64 %call26 to i32
   %retval.sroa.12.0.extract.shift54 = lshr i64 %call26, 32
-  %retval.sroa.12.0.extract.trunc55 = trunc i64 %retval.sroa.12.0.extract.shift54 to i32
+  %retval.sroa.12.0.extract.trunc55 = trunc nuw i64 %retval.sroa.12.0.extract.shift54 to i32
   br label %return
 
 if.end27:                                         ; preds = %if.end23
@@ -16366,7 +16364,7 @@ if.then29:                                        ; preds = %if.end27
   %call30 = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE8vc_mergeEjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %a, i32 noundef %b)
   %retval.sroa.0.0.extract.trunc48 = trunc i64 %call30 to i32
   %retval.sroa.12.0.extract.shift56 = lshr i64 %call30, 32
-  %retval.sroa.12.0.extract.trunc57 = trunc i64 %retval.sroa.12.0.extract.shift56 to i32
+  %retval.sroa.12.0.extract.trunc57 = trunc nuw i64 %retval.sroa.12.0.extract.shift56 to i32
   br label %return
 
 if.end31:                                         ; preds = %if.end27
@@ -16398,7 +16396,7 @@ _ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit: ; 
   %call4.i = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE13vc_smerge_recEjjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %a, i32 noundef %b, i32 noundef %c)
   %ref.tmp3.i.sroa.0.0.extract.trunc = trunc i64 %call4.i to i32
   %ref.tmp3.i.sroa.4.0.extract.shift = lshr i64 %call4.i, 32
-  %ref.tmp3.i.sroa.4.0.extract.trunc = trunc i64 %ref.tmp3.i.sroa.4.0.extract.shift to i32
+  %ref.tmp3.i.sroa.4.0.extract.trunc = trunc nuw i64 %ref.tmp3.i.sroa.4.0.extract.shift to i32
   %mul.i.i.i = mul nuw nsw i32 %add, 5
   %add.i.i.i = add i32 %retval.sroa.6.1.i.i, %mul.i.i.i
   %mul.i1.i.i = mul i32 %ref.tmp3.i.sroa.0.0.extract.trunc, 5
@@ -16437,13 +16435,13 @@ if.end35:                                         ; preds = %if.end31, %_ZN8psor
   %cond.i = select i1 %cmp.i.i72, i32 %div912.i, i32 %add.i
   %call10.i = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE9vc_smergeEjjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %add.i.i, i32 noundef %add.i18.i, i32 noundef %cond.i)
   %ref.tmp5.sroa.2.0.extract.shift.i = lshr i64 %call10.i, 32
-  %ref.tmp5.sroa.2.0.extract.trunc.i = trunc i64 %ref.tmp5.sroa.2.0.extract.shift.i to i32
+  %ref.tmp5.sroa.2.0.extract.trunc.i = trunc nuw i64 %ref.tmp5.sroa.2.0.extract.shift.i to i32
   %sub.i = sext i1 %cmp.i.i72 to i32
   %cond20.in.i = add i32 %sub.i, %c
   %cond20.i = lshr i32 %cond20.in.i, 1
   %call21.i = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE9vc_smergeEjjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %div2.i.i, i32 noundef %div2.i16.i, i32 noundef %cond20.i)
   %ref.tmp11.sroa.2.0.extract.shift.i = lshr i64 %call21.i, 32
-  %ref.tmp11.sroa.2.0.extract.trunc.i = trunc i64 %ref.tmp11.sroa.2.0.extract.shift.i to i32
+  %ref.tmp11.sroa.2.0.extract.trunc.i = trunc nuw i64 %ref.tmp11.sroa.2.0.extract.shift.i to i32
   %add4.i.i73 = add i32 %ref.tmp11.sroa.2.0.extract.trunc.i, %ref.tmp5.sroa.2.0.extract.trunc.i
   %add29.i = add nuw i32 %div2.i16.i, %div2.i.i
   %m_t.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -16555,13 +16553,13 @@ _ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit: ; 
   %cond.i = select i1 %cmp.i.i24, i32 %div912.i, i32 %add.i
   %call10.i = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE9vc_smergeEjjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %add.i.i, i32 noundef %add.i18.i, i32 noundef %cond.i)
   %ref.tmp5.sroa.2.0.extract.shift.i = lshr i64 %call10.i, 32
-  %ref.tmp5.sroa.2.0.extract.trunc.i = trunc i64 %ref.tmp5.sroa.2.0.extract.shift.i to i32
+  %ref.tmp5.sroa.2.0.extract.trunc.i = trunc nuw i64 %ref.tmp5.sroa.2.0.extract.shift.i to i32
   %sub.i = sext i1 %cmp.i.i24 to i32
   %cond20.in.i = add nsw i32 %add, %sub.i
   %cond20.i = lshr i32 %cond20.in.i, 1
   %call21.i = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE9vc_smergeEjjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %div2.i.i, i32 noundef %div2.i16.i, i32 noundef %cond20.i)
   %ref.tmp11.sroa.2.0.extract.shift.i = lshr i64 %call21.i, 32
-  %ref.tmp11.sroa.2.0.extract.trunc.i = trunc i64 %ref.tmp11.sroa.2.0.extract.shift.i to i32
+  %ref.tmp11.sroa.2.0.extract.trunc.i = trunc nuw i64 %ref.tmp11.sroa.2.0.extract.shift.i to i32
   %add4.i.i25 = add i32 %ref.tmp11.sroa.2.0.extract.trunc.i, %ref.tmp5.sroa.2.0.extract.trunc.i
   %add29.i = add nuw nsw i32 %div2.i16.i, %div2.i.i
   %2 = load i32, ptr %m_t.i.i, align 8
@@ -16616,10 +16614,10 @@ if.else11:                                        ; preds = %if.else6.if.else11_
   %div2.i.i28.pre-phi = phi i32 [ %.pre, %if.else6.if.else11_crit_edge ], [ %div2.i.i, %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE11use_dsmergeEjjj.exit ]
   %call5.i = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE8vc_mergeEjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %add.i.i30.pre-phi, i32 noundef %add.i9.i.pre-phi)
   %ref.tmp3.sroa.2.0.extract.shift.i = lshr i64 %call5.i, 32
-  %ref.tmp3.sroa.2.0.extract.trunc.i = trunc i64 %ref.tmp3.sroa.2.0.extract.shift.i to i32
+  %ref.tmp3.sroa.2.0.extract.trunc.i = trunc nuw i64 %ref.tmp3.sroa.2.0.extract.shift.i to i32
   %call9.i = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE8vc_mergeEjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %div2.i.i28.pre-phi, i32 noundef %div2.i7.i.pre-phi)
   %ref.tmp6.sroa.2.0.extract.shift.i = lshr i64 %call9.i, 32
-  %ref.tmp6.sroa.2.0.extract.trunc.i = trunc i64 %ref.tmp6.sroa.2.0.extract.shift.i to i32
+  %ref.tmp6.sroa.2.0.extract.trunc.i = trunc nuw i64 %ref.tmp6.sroa.2.0.extract.shift.i to i32
   %add.i11.i = add i64 %call9.i, %call5.i
   %ref.tmp2.sroa.0.0.extract.trunc.i = trunc i64 %add.i11.i to i32
   %m_t.i.i.i31 = getelementptr inbounds i8, ptr %this, i64 16
@@ -16691,16 +16689,16 @@ _ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE12use_dsortingEj.exit: ; p
   %div6.i.i = lshr i32 %n, 1
   %call.i.i = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE10vc_sortingEj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %div6.i.i)
   %ref.tmp2.i.sroa.4.0.extract.shift.i = lshr i64 %call.i.i, 32
-  %ref.tmp2.i.sroa.4.0.extract.trunc.i = trunc i64 %ref.tmp2.i.sroa.4.0.extract.shift.i to i32
+  %ref.tmp2.i.sroa.4.0.extract.trunc.i = trunc nuw i64 %ref.tmp2.i.sroa.4.0.extract.shift.i to i32
   %sub.i.i = sub nsw i32 %n, %div6.i.i
   %call4.i.i = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE10vc_sortingEj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %sub.i.i)
   %ref.tmp3.i.sroa.4.0.extract.shift.i = lshr i64 %call4.i.i, 32
-  %ref.tmp3.i.sroa.4.0.extract.trunc.i = trunc i64 %ref.tmp3.i.sroa.4.0.extract.shift.i to i32
+  %ref.tmp3.i.sroa.4.0.extract.trunc.i = trunc nuw i64 %ref.tmp3.i.sroa.4.0.extract.shift.i to i32
   %add.i6.i = add i64 %call4.i.i, %call.i.i
   %add4.i9.i14 = add i32 %ref.tmp3.i.sroa.4.0.extract.trunc.i, %ref.tmp2.i.sroa.4.0.extract.trunc.i
   %call8.i.i = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE8vc_mergeEjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %div6.i.i, i32 noundef %sub.i.i)
   %ref.tmp6.i.sroa.4.0.extract.shift.i = lshr i64 %call8.i.i, 32
-  %ref.tmp6.i.sroa.4.0.extract.trunc.i = trunc i64 %ref.tmp6.i.sroa.4.0.extract.shift.i to i32
+  %ref.tmp6.i.sroa.4.0.extract.trunc.i = trunc nuw i64 %ref.tmp6.i.sroa.4.0.extract.shift.i to i32
   %add.i.i15 = add i64 %add.i6.i, %call8.i.i
   %add4.i.i16 = add i32 %add4.i9.i14, %ref.tmp6.i.sroa.4.0.extract.trunc.i
   %ref.tmp2.sroa.0.0.extract.trunc.i = trunc i64 %add.i.i15 to i32
@@ -16731,15 +16729,15 @@ if.else:                                          ; preds = %sw.default.if.else_
   %div6.i.pre-phi = phi i32 [ %.pre, %sw.default.if.else_crit_edge ], [ %div6.i.i, %_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE12use_dsortingEj.exit ]
   %call.i = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE10vc_sortingEj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %div6.i.pre-phi)
   %ref.tmp2.i.sroa.4.0.extract.shift = lshr i64 %call.i, 32
-  %ref.tmp2.i.sroa.4.0.extract.trunc = trunc i64 %ref.tmp2.i.sroa.4.0.extract.shift to i32
+  %ref.tmp2.i.sroa.4.0.extract.trunc = trunc nuw i64 %ref.tmp2.i.sroa.4.0.extract.shift to i32
   %call4.i = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE10vc_sortingEj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %sub.i.pre-phi)
   %ref.tmp3.i.sroa.4.0.extract.shift = lshr i64 %call4.i, 32
-  %ref.tmp3.i.sroa.4.0.extract.trunc = trunc i64 %ref.tmp3.i.sroa.4.0.extract.shift to i32
+  %ref.tmp3.i.sroa.4.0.extract.trunc = trunc nuw i64 %ref.tmp3.i.sroa.4.0.extract.shift to i32
   %add.i.i = add i64 %call4.i, %call.i
   %add4.i.i = add i32 %ref.tmp3.i.sroa.4.0.extract.trunc, %ref.tmp2.i.sroa.4.0.extract.trunc
   %call8.i = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE8vc_mergeEjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %div6.i.pre-phi, i32 noundef %sub.i.pre-phi)
   %ref.tmp6.i.sroa.4.0.extract.shift = lshr i64 %call8.i, 32
-  %ref.tmp6.i.sroa.4.0.extract.trunc = trunc i64 %ref.tmp6.i.sroa.4.0.extract.shift to i32
+  %ref.tmp6.i.sroa.4.0.extract.trunc = trunc nuw i64 %ref.tmp6.i.sroa.4.0.extract.shift to i32
   %add.i7.i = add i64 %add.i.i, %call8.i
   %add4.i10.i = add i32 %add4.i.i, %ref.tmp6.i.sroa.4.0.extract.trunc
   %retval.sroa.0.0.extract.trunc8 = trunc i64 %add.i7.i to i32
@@ -16896,16 +16894,16 @@ _ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE9use_dcardEjj.exit: ; pred
   %div8.i.i = lshr i32 %n, 1
   %call.i.i = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE7vc_cardEjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %k, i32 noundef %div8.i.i)
   %ref.tmp2.i.sroa.4.0.extract.shift.i = lshr i64 %call.i.i, 32
-  %ref.tmp2.i.sroa.4.0.extract.trunc.i = trunc i64 %ref.tmp2.i.sroa.4.0.extract.shift.i to i32
+  %ref.tmp2.i.sroa.4.0.extract.trunc.i = trunc nuw i64 %ref.tmp2.i.sroa.4.0.extract.shift.i to i32
   %sub.i.i = sub nsw i32 %n, %div8.i.i
   %call4.i.i = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE7vc_cardEjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %k, i32 noundef %sub.i.i)
   %ref.tmp3.i.sroa.4.0.extract.shift.i = lshr i64 %call4.i.i, 32
-  %ref.tmp3.i.sroa.4.0.extract.trunc.i = trunc i64 %ref.tmp3.i.sroa.4.0.extract.shift.i to i32
+  %ref.tmp3.i.sroa.4.0.extract.trunc.i = trunc nuw i64 %ref.tmp3.i.sroa.4.0.extract.shift.i to i32
   %add.i6.i = add i64 %call4.i.i, %call.i.i
   %add4.i9.i8 = add i32 %ref.tmp3.i.sroa.4.0.extract.trunc.i, %ref.tmp2.i.sroa.4.0.extract.trunc.i
   %call8.i.i = tail call i64 @_ZN8psort_nwIN14pb2bv_rewriter3imp16card2bv_rewriterEE9vc_smergeEjjj(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %k, i32 noundef %div8.i.i, i32 noundef %sub.i.i)
   %ref.tmp6.i.sroa.4.0.extract.shift.i = lshr i64 %call8.i.i, 32
-  %ref.tmp6.i.sroa.4.0.extract.trunc.i = trunc i64 %ref.tmp6.i.sroa.4.0.extract.shift.i to i32
+  %ref.tmp6.i.sroa.4.0.extract.trunc.i = trunc nuw i64 %ref.tmp6.i.sroa.4.0.extract.shift.i to i32
   %add.i.i = add i64 %add.i6.i, %call8.i.i
   %add4.i.i = add i32 %add4.i9.i8, %ref.tmp6.i.sroa.4.0.extract.trunc.i
   %ref.tmp2.sroa.0.0.extract.trunc.i = trunc i64 %add.i.i to i32
@@ -19189,7 +19187,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit
-  %4 = trunc i64 %indvars.iv to i32
+  %4 = trunc nuw i64 %indvars.iv to i32
   call void @_ZNK7pb_util9get_coeffEP9func_declj(ptr nonnull sret(%class.rational) align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(64) %pb, ptr noundef %f, i32 noundef %4)
   %5 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   invoke void @_ZN11mpq_managerILb1EE3addERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %5, ptr noundef nonnull align 8 dereferenceable(32) %k, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %k)
@@ -26729,7 +26727,7 @@ for.body49:                                       ; preds = %_ZNK6vectorIjLb0EjE
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %42 = load i32, ptr %arrayidx.i86, align 4
   store i32 %42, ptr %ref.tmp.i, align 4
-  %43 = trunc i64 %indvars.iv to i32
+  %43 = trunc nuw i64 %indvars.iv to i32
   store i32 %43, ptr %m_value.i.i, align 4
   invoke void @_ZN14core_hashtableI17default_map_entryIjjEN9table2mapIS1_6u_hash4u_eqE15entry_hash_procENS5_13entry_eq_procEE6insertEO9_key_dataIjjE(ptr noundef nonnull align 8 dereferenceable(20) %sum2def, ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i)
           to label %invoke.cont54 unwind label %lpad8.loopexit.split-lp.loopexit

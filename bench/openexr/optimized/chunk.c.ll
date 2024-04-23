@@ -3147,15 +3147,11 @@ while.body:                                       ; preds = %entry, %while.body
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !13
 
 while.end:                                        ; preds = %while.body
-  %8 = trunc i64 %indvars.iv.next to i32
+  %8 = trunc nuw nsw i64 %indvars.iv.next to i32
   %file_size = getelementptr inbounds i8, ptr %ctxt, i64 152
   %9 = load i64, ptr %file_size, align 8
   %cmp8 = icmp sgt i64 %9, 0
   %spec.select = select i1 %cmp8, i64 %9, i64 -1
-  %cmp11.not = icmp eq i32 %8, 0
-  br i1 %cmp11.not, label %if.end41, label %if.then13
-
-if.then13:                                        ; preds = %while.end
   %sub15 = add nsw i32 %8, -1
   %idxprom16 = zext nneg i32 %sub15 to i64
   %arrayidx17 = getelementptr inbounds ptr, ptr %0, i64 %idxprom16
@@ -3164,7 +3160,7 @@ if.then13:                                        ; preds = %while.end
   %cmp18.not = icmp eq i32 %call, 0
   br i1 %cmp18.not, label %if.end21, label %return
 
-if.end21:                                         ; preds = %if.then13
+if.end21:                                         ; preds = %while.end
   %11 = load ptr, ptr %curctable, align 8
   %12 = load i64, ptr %11, align 8
   %chunk_count23 = getelementptr inbounds i8, ptr %10, i64 244
@@ -3194,9 +3190,9 @@ for.end:                                          ; preds = %for.body, %if.end21
   %cmp37.not = icmp eq i32 %call.i, 0
   br i1 %cmp37.not, label %if.end41, label %return
 
-if.end41:                                         ; preds = %while.end.thread, %for.end, %while.end
-  %spec.select97 = phi i64 [ %spec.select, %for.end ], [ %spec.select, %while.end ], [ %spec.select94, %while.end.thread ]
-  %partnum.0.lcssa96 = phi i32 [ %8, %for.end ], [ 0, %while.end ], [ 0, %while.end.thread ]
+if.end41:                                         ; preds = %while.end.thread, %for.end
+  %spec.select97 = phi i64 [ %spec.select, %for.end ], [ %spec.select94, %while.end.thread ]
+  %partnum.0.lcssa96 = phi i32 [ %8, %for.end ], [ 0, %while.end.thread ]
   %chunk_count44 = getelementptr inbounds i8, ptr %part, i64 244
   %15 = load i32, ptr %chunk_count44, align 4
   %cmp4572 = icmp sgt i32 %15, 0
@@ -3227,7 +3223,7 @@ for.body47:                                       ; preds = %for.body47.lr.ph, %
   store i64 %spec.store.select60, ptr %offset_start, align 8
   %20 = load i32, ptr %lineorder, align 4
   %cmp60 = icmp eq i32 %20, 1
-  %21 = trunc i64 %indvars.iv86 to i32
+  %21 = trunc nuw nsw i64 %indvars.iv86 to i32
   %add64.neg = xor i32 %21, -1
   %sub65 = add i32 %17, %add64.neg
   %computed_ci.0 = select i1 %cmp60, i32 %sub65, i32 %21
@@ -3268,7 +3264,7 @@ if.then12.i:                                      ; preds = %if.then4.i
   br label %read_and_validate_chunk_leader.exit
 
 read_and_validate_chunk_leader.exit.thread:       ; preds = %if.then4.i
-  %conv20.i = trunc i64 %div.i to i32
+  %conv20.i = trunc nuw nsw i64 %div.i to i32
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %leader.i49)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %cidx.i)
   br label %if.end71
@@ -3317,8 +3313,8 @@ if.end82:                                         ; preds = %if.end71, %if.then7
   %cmp45 = icmp slt i64 %indvars.iv.next87, %34
   br i1 %cmp45, label %for.body47, label %return, !llvm.loop !15
 
-return:                                           ; preds = %read_and_validate_chunk_leader.exit, %if.then77, %if.end82, %if.end41, %read_and_validate_chunk_leader.exit.thread56, %for.end, %if.then13
-  %retval.0 = phi i32 [ %call, %if.then13 ], [ %call.i, %for.end ], [ %call.i50, %read_and_validate_chunk_leader.exit.thread56 ], [ 0, %if.end41 ], [ %retval.0.i, %read_and_validate_chunk_leader.exit ], [ 22, %if.then77 ], [ 0, %if.end82 ]
+return:                                           ; preds = %read_and_validate_chunk_leader.exit, %if.then77, %if.end82, %if.end41, %read_and_validate_chunk_leader.exit.thread56, %for.end, %while.end
+  %retval.0 = phi i32 [ %call, %while.end ], [ %call.i, %for.end ], [ %call.i50, %read_and_validate_chunk_leader.exit.thread56 ], [ 0, %if.end41 ], [ %retval.0.i, %read_and_validate_chunk_leader.exit ], [ 22, %if.then77 ], [ 0, %if.end82 ]
   ret i32 %retval.0
 }
 

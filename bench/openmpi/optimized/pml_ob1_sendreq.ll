@@ -3367,7 +3367,7 @@ define void @mca_pml_ob1_send_request_copy_in_out(ptr noundef %0, i64 noundef %1
   %6 = getelementptr i8, ptr %5, i64 136
   %.val = load i64, ptr %6, align 8
   %7 = icmp eq i64 %2, 0
-  br i1 %7, label %98, label %8
+  br i1 %7, label %97, label %8
 
 8:                                                ; preds = %3
   %9 = trunc i64 %.val to i32
@@ -3440,108 +3440,104 @@ mca_bml_base_btl_array_get_next.exit:             ; preds = %26, %28
   store i32 %44, ptr %45, align 4
   %46 = getelementptr inbounds i8, ptr %10, i64 80
   %47 = icmp eq i32 %44, 1
-  br i1 %47, label %48, label %50
+  br i1 %47, label %48, label %.lr.ph.i
 
 48:                                               ; preds = %._crit_edge
   %49 = getelementptr inbounds i8, ptr %10, i64 96
   store i64 %2, ptr %49, align 8
   br label %mca_pml_ob1_calc_weighted_length.exit
 
-50:                                               ; preds = %._crit_edge
-  %51 = and i64 %indvars.iv.next, 4294967295
-  tail call void @qsort(ptr noundef nonnull %46, i64 noundef %51, i64 noundef 24, ptr noundef nonnull @mca_pml_ob1_com_btl_comp) #9
-  %.not = icmp eq i32 %44, 0
-  br i1 %.not, label %._crit_edge.i, label %.lr.ph.i
+.lr.ph.i:                                         ; preds = %._crit_edge
+  %50 = and i64 %indvars.iv.next, 4294967295
+  tail call void @qsort(ptr noundef nonnull %46, i64 noundef %50, i64 noundef 24, ptr noundef nonnull @mca_pml_ob1_com_btl_comp) #9
+  %51 = uitofp i64 %2 to double
+  br label %52
 
-.lr.ph.i:                                         ; preds = %50
-  %52 = uitofp i64 %2 to double
-  br label %53
-
-53:                                               ; preds = %72, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %72 ]
-  %.02832.i = phi i64 [ %2, %.lr.ph.i ], [ %.129.i, %72 ]
-  %54 = getelementptr inbounds %struct.mca_pml_ob1_com_btl_t, ptr %46, i64 %indvars.iv.i
-  %55 = load ptr, ptr %54, align 8
+52:                                               ; preds = %71, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %71 ]
+  %.02832.i = phi i64 [ %2, %.lr.ph.i ], [ %.129.i, %71 ]
+  %53 = getelementptr inbounds %struct.mca_pml_ob1_com_btl_t, ptr %46, i64 %indvars.iv.i
+  %54 = load ptr, ptr %53, align 8
   %.not.i = icmp eq i64 %.02832.i, 0
-  br i1 %.not.i, label %72, label %56
+  br i1 %.not.i, label %71, label %55
 
-56:                                               ; preds = %53
-  %57 = getelementptr inbounds i8, ptr %55, i64 8
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 8
-  %60 = load i64, ptr %59, align 8
-  %61 = icmp ugt i64 %.02832.i, %60
-  br i1 %61, label %62, label %69
+55:                                               ; preds = %52
+  %56 = getelementptr inbounds i8, ptr %54, i64 8
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %59 = load i64, ptr %58, align 8
+  %60 = icmp ugt i64 %.02832.i, %59
+  br i1 %60, label %61, label %68
 
-62:                                               ; preds = %56
-  %63 = getelementptr inbounds i8, ptr %55, i64 4
-  %64 = load float, ptr %63, align 4
-  %65 = fpext float %64 to double
-  %66 = fdiv double %65, %38
-  %67 = fmul double %66, %52
-  %68 = fptoui double %67 to i64
-  br label %69
+61:                                               ; preds = %55
+  %62 = getelementptr inbounds i8, ptr %54, i64 4
+  %63 = load float, ptr %62, align 4
+  %64 = fpext float %63 to double
+  %65 = fdiv double %64, %38
+  %66 = fmul double %65, %51
+  %67 = fptoui double %66 to i64
+  br label %68
 
-69:                                               ; preds = %62, %56
-  %70 = phi i64 [ %68, %62 ], [ %.02832.i, %56 ]
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %70, i64 %.02832.i)
-  %71 = sub i64 %.02832.i, %spec.select.i
-  br label %72
+68:                                               ; preds = %61, %55
+  %69 = phi i64 [ %67, %61 ], [ %.02832.i, %55 ]
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %69, i64 %.02832.i)
+  %70 = sub i64 %.02832.i, %spec.select.i
+  br label %71
 
-72:                                               ; preds = %69, %53
-  %.129.i = phi i64 [ %71, %69 ], [ 0, %53 ]
-  %.1.i = phi i64 [ %spec.select.i, %69 ], [ 0, %53 ]
-  %73 = getelementptr inbounds i8, ptr %54, i64 16
-  store i64 %.1.i, ptr %73, align 8
+71:                                               ; preds = %68, %52
+  %.129.i = phi i64 [ %70, %68 ], [ 0, %52 ]
+  %.1.i = phi i64 [ %spec.select.i, %68 ], [ 0, %52 ]
+  %72 = getelementptr inbounds i8, ptr %53, i64 16
+  store i64 %.1.i, ptr %72, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %51
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %53, !llvm.loop !21
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %50
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %52, !llvm.loop !21
 
-._crit_edge.i:                                    ; preds = %72, %.thread, %50
-  %.028.lcssa.i = phi i64 [ %2, %50 ], [ %2, %.thread ], [ %.129.i, %72 ]
-  %74 = getelementptr inbounds i8, ptr %10, i64 96
-  %75 = load i64, ptr %74, align 8
-  %76 = add i64 %75, %.028.lcssa.i
-  store i64 %76, ptr %74, align 8
+._crit_edge.i:                                    ; preds = %71, %.thread
+  %.028.lcssa.i = phi i64 [ %2, %.thread ], [ %.129.i, %71 ]
+  %73 = getelementptr inbounds i8, ptr %10, i64 96
+  %74 = load i64, ptr %73, align 8
+  %75 = add i64 %74, %.028.lcssa.i
+  store i64 %75, ptr %73, align 8
   br label %mca_pml_ob1_calc_weighted_length.exit
 
 mca_pml_ob1_calc_weighted_length.exit:            ; preds = %48, %._crit_edge.i
-  %77 = load i8, ptr @opal_uses_threads, align 1
-  %78 = trunc i8 %77 to i1
-  br i1 %78, label %79, label %82
+  %76 = load i8, ptr @opal_uses_threads, align 1
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %78, label %81
 
-79:                                               ; preds = %mca_pml_ob1_calc_weighted_length.exit
-  %80 = getelementptr inbounds i8, ptr %0, i64 608
-  %81 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %80) #9
+78:                                               ; preds = %mca_pml_ob1_calc_weighted_length.exit
+  %79 = getelementptr inbounds i8, ptr %0, i64 608
+  %80 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %79) #9
   %.pre = load i8, ptr @opal_uses_threads, align 1
-  br label %82
+  br label %81
 
-82:                                               ; preds = %mca_pml_ob1_calc_weighted_length.exit, %79
-  %83 = phi i8 [ %77, %mca_pml_ob1_calc_weighted_length.exit ], [ %.pre, %79 ]
-  %84 = getelementptr inbounds i8, ptr %0, i64 672
-  %85 = getelementptr inbounds i8, ptr %0, i64 696
-  %86 = load volatile ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %10, i64 24
-  store volatile ptr %86, ptr %87, align 8
-  %88 = load volatile ptr, ptr %85, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 16
-  store volatile ptr %10, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %10, i64 16
-  store volatile ptr %84, ptr %90, align 8
-  store volatile ptr %10, ptr %85, align 8
-  %91 = getelementptr inbounds i8, ptr %0, i64 712
-  %92 = load volatile i64, ptr %91, align 8
-  %93 = add i64 %92, 1
-  store volatile i64 %93, ptr %91, align 8
-  %94 = trunc i8 %83 to i1
-  br i1 %94, label %95, label %98
+81:                                               ; preds = %mca_pml_ob1_calc_weighted_length.exit, %78
+  %82 = phi i8 [ %76, %mca_pml_ob1_calc_weighted_length.exit ], [ %.pre, %78 ]
+  %83 = getelementptr inbounds i8, ptr %0, i64 672
+  %84 = getelementptr inbounds i8, ptr %0, i64 696
+  %85 = load volatile ptr, ptr %84, align 8
+  %86 = getelementptr inbounds i8, ptr %10, i64 24
+  store volatile ptr %85, ptr %86, align 8
+  %87 = load volatile ptr, ptr %84, align 8
+  %88 = getelementptr inbounds i8, ptr %87, i64 16
+  store volatile ptr %10, ptr %88, align 8
+  %89 = getelementptr inbounds i8, ptr %10, i64 16
+  store volatile ptr %83, ptr %89, align 8
+  store volatile ptr %10, ptr %84, align 8
+  %90 = getelementptr inbounds i8, ptr %0, i64 712
+  %91 = load volatile i64, ptr %90, align 8
+  %92 = add i64 %91, 1
+  store volatile i64 %92, ptr %90, align 8
+  %93 = trunc i8 %82 to i1
+  br i1 %93, label %94, label %97
 
-95:                                               ; preds = %82
-  %96 = getelementptr inbounds i8, ptr %0, i64 608
-  %97 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %96) #9
-  br label %98
+94:                                               ; preds = %81
+  %95 = getelementptr inbounds i8, ptr %0, i64 608
+  %96 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %95) #9
+  br label %97
 
-98:                                               ; preds = %82, %95, %3
+97:                                               ; preds = %81, %94, %3
   ret void
 }
 

@@ -1134,7 +1134,7 @@ getSegLen.exit:                                   ; preds = %35, %getSegLen.exit
   %.374 = phi i32 [ 2, %59 ], [ 1, %.loopexit ]
   tail call void @free(ptr noundef %5) #27
   tail call void @free(ptr noundef %32) #27
-  br label %100
+  br label %99
 
 62:                                               ; preds = %55
   %63 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.44) #27
@@ -1144,13 +1144,9 @@ getSegLen.exit:                                   ; preds = %35, %getSegLen.exit
 ._crit_edge:                                      ; preds = %62
   %64 = trunc nuw i64 %indvars.iv.next to i32
   %65 = fcmp ogt double %47, 0.000000e+00
-  br i1 %65, label %.preheader, label %.thread99
+  br i1 %65, label %.lr.ph126.preheader, label %.thread99
 
-.preheader:                                       ; preds = %._crit_edge
-  %.not = icmp eq i32 %64, 0
-  br i1 %.not, label %._crit_edge127.thread, label %.lr.ph126.preheader
-
-.lr.ph126.preheader:                              ; preds = %.preheader
+.lr.ph126.preheader:                              ; preds = %._crit_edge
   %wide.trip.count = and i64 %indvars.iv.next, 4294967295
   br label %.lr.ph126
 
@@ -1167,78 +1163,75 @@ getSegLen.exit:                                   ; preds = %35, %getSegLen.exit
   br i1 %exitcond.not, label %._crit_edge127, label %.lr.ph126
 
 ._crit_edge127:                                   ; preds = %.lr.ph126
-  %.not177 = icmp eq i32 %.4, 0
-  br i1 %.not177, label %._crit_edge127.thread, label %70
+  %.not = icmp eq i32 %.4, 0
+  br i1 %.not, label %._crit_edge127.thread, label %.lr.ph131
 
-70:                                               ; preds = %._crit_edge127
-  br i1 %.not, label %.thread99, label %.lr.ph131
-
-.lr.ph131:                                        ; preds = %70
-  %71 = uitofp nneg i32 %.4 to double
-  %72 = fdiv double %47, %71
-  %73 = fptrunc double %72 to float
+.lr.ph131:                                        ; preds = %._crit_edge127
+  %70 = uitofp nneg i32 %.4 to double
+  %71 = fdiv double %47, %70
+  %72 = fptrunc double %71 to float
   %wide.trip.count145 = and i64 %indvars.iv.next, 4294967295
-  br label %74
+  br label %73
 
-74:                                               ; preds = %.lr.ph131, %79
-  %indvars.iv142 = phi i64 [ 0, %.lr.ph131 ], [ %indvars.iv.next143, %79 ]
-  %75 = getelementptr inbounds %struct.colorseg_t, ptr %32, i64 %indvars.iv142, i32 1
-  %76 = load float, ptr %75, align 8
-  %77 = fcmp ogt float %76, 0.000000e+00
-  br i1 %77, label %79, label %78
+73:                                               ; preds = %.lr.ph131, %78
+  %indvars.iv142 = phi i64 [ 0, %.lr.ph131 ], [ %indvars.iv.next143, %78 ]
+  %74 = getelementptr inbounds %struct.colorseg_t, ptr %32, i64 %indvars.iv142, i32 1
+  %75 = load float, ptr %74, align 8
+  %76 = fcmp ogt float %75, 0.000000e+00
+  br i1 %76, label %78, label %77
 
-78:                                               ; preds = %74
-  store float %73, ptr %75, align 8
-  br label %79
+77:                                               ; preds = %73
+  store float %72, ptr %74, align 8
+  br label %78
 
-79:                                               ; preds = %74, %78
+78:                                               ; preds = %73, %77
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count145
-  br i1 %exitcond146.not, label %.thread99, label %74
+  br i1 %exitcond146.not, label %.thread99, label %73
 
-._crit_edge127.thread:                            ; preds = %gv_calloc.exit, %.preheader, %._crit_edge127
-  %.071.lcssa157162173 = phi i32 [ %.273, %._crit_edge127 ], [ %.273, %.preheader ], [ 0, %gv_calloc.exit ]
-  %.079.lcssa156163172 = phi double [ %47, %._crit_edge127 ], [ %47, %.preheader ], [ 1.000000e+00, %gv_calloc.exit ]
-  %.082.lcssa155164171 = phi i32 [ %64, %._crit_edge127 ], [ 0, %.preheader ], [ 0, %gv_calloc.exit ]
-  %80 = zext nneg i32 %.082.lcssa155164171 to i64
-  %81 = getelementptr %struct.colorseg_t, ptr %32, i64 %80
-  %82 = getelementptr i8, ptr %81, i64 -8
-  %83 = load float, ptr %82, align 8
-  %84 = fpext float %83 to double
-  %85 = fadd double %.079.lcssa156163172, %84
-  %86 = fptrunc double %85 to float
-  store float %86, ptr %82, align 8
+._crit_edge127.thread:                            ; preds = %gv_calloc.exit, %._crit_edge127
+  %.071.lcssa157162173 = phi i32 [ %.273, %._crit_edge127 ], [ 0, %gv_calloc.exit ]
+  %.079.lcssa156163172 = phi double [ %47, %._crit_edge127 ], [ 1.000000e+00, %gv_calloc.exit ]
+  %.082.lcssa155164171 = phi i32 [ %64, %._crit_edge127 ], [ 0, %gv_calloc.exit ]
+  %79 = zext nneg i32 %.082.lcssa155164171 to i64
+  %80 = getelementptr %struct.colorseg_t, ptr %32, i64 %79
+  %81 = getelementptr i8, ptr %80, i64 -8
+  %82 = load float, ptr %81, align 8
+  %83 = fpext float %82 to double
+  %84 = fadd double %.079.lcssa156163172, %83
+  %85 = fptrunc double %84 to float
+  store float %85, ptr %81, align 8
   br label %.thread99
 
 .thread99.loopexit133:                            ; preds = %55
-  %87 = trunc nuw i64 %indvars.iv.next to i32
+  %86 = trunc nuw i64 %indvars.iv.next to i32
   br label %.thread99
 
-.thread99:                                        ; preds = %79, %.thread99.loopexit133, %70, %._crit_edge127.thread, %._crit_edge
-  %.475104 = phi i32 [ %.071.lcssa157162173, %._crit_edge127.thread ], [ %.273, %._crit_edge ], [ %.273, %70 ], [ %.273, %.thread99.loopexit133 ], [ %.273, %79 ]
-  %.183103 = phi i32 [ %.082.lcssa155164171, %._crit_edge127.thread ], [ %64, %._crit_edge ], [ 0, %70 ], [ %87, %.thread99.loopexit133 ], [ %64, %79 ]
-  %88 = zext i32 %.183103 to i64
+.thread99:                                        ; preds = %78, %.thread99.loopexit133, %._crit_edge127.thread, %._crit_edge
+  %.475104 = phi i32 [ %.071.lcssa157162173, %._crit_edge127.thread ], [ %.273, %._crit_edge ], [ %.273, %.thread99.loopexit133 ], [ %.273, %78 ]
+  %.183103 = phi i32 [ %.082.lcssa155164171, %._crit_edge127.thread ], [ %64, %._crit_edge ], [ %86, %.thread99.loopexit133 ], [ %64, %78 ]
+  %87 = zext i32 %.183103 to i64
   %smin = tail call i32 @llvm.smin.i32(i32 %.183103, i32 0)
-  br label %89
+  br label %88
 
-89:                                               ; preds = %92, %.thread99
-  %indvars.iv147 = phi i64 [ %93, %92 ], [ %88, %.thread99 ]
-  %90 = trunc nuw i64 %indvars.iv147 to i32
-  %91 = icmp sgt i32 %90, 0
-  br i1 %91, label %92, label %97
+88:                                               ; preds = %91, %.thread99
+  %indvars.iv147 = phi i64 [ %92, %91 ], [ %87, %.thread99 ]
+  %89 = trunc nuw i64 %indvars.iv147 to i32
+  %90 = icmp sgt i32 %89, 0
+  br i1 %90, label %91, label %96
 
-92:                                               ; preds = %89
-  %93 = add nsw i64 %indvars.iv147, -1
-  %94 = getelementptr inbounds %struct.colorseg_t, ptr %32, i64 %93, i32 1
-  %95 = load float, ptr %94, align 8
-  %96 = fcmp ogt float %95, 0.000000e+00
-  br i1 %96, label %97, label %89
+91:                                               ; preds = %88
+  %92 = add nsw i64 %indvars.iv147, -1
+  %93 = getelementptr inbounds %struct.colorseg_t, ptr %32, i64 %92, i32 1
+  %94 = load float, ptr %93, align 8
+  %95 = fcmp ogt float %94, 0.000000e+00
+  br i1 %95, label %96, label %88
 
-97:                                               ; preds = %92, %89
-  %.278.in.lcssa = phi i32 [ %90, %92 ], [ %smin, %89 ]
-  %98 = sext i32 %.278.in.lcssa to i64
-  %99 = getelementptr inbounds %struct.colorseg_t, ptr %32, i64 %98
-  store ptr null, ptr %99, align 8
+96:                                               ; preds = %91, %88
+  %.278.in.lcssa = phi i32 [ %89, %91 ], [ %smin, %88 ]
+  %97 = sext i32 %.278.in.lcssa to i64
+  %98 = getelementptr inbounds %struct.colorseg_t, ptr %32, i64 %97
+  store ptr null, ptr %98, align 8
   store i32 %.278.in.lcssa, ptr %2, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %.sroa.3.0..sroa_idx, align 4
@@ -1246,10 +1239,10 @@ getSegLen.exit:                                   ; preds = %35, %getSegLen.exit
   store ptr %5, ptr %.sroa.393.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %32, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %100
+  br label %99
 
-100:                                              ; preds = %97, %61
-  %.0 = phi i32 [ %.475104, %97 ], [ %.374, %61 ]
+99:                                               ; preds = %96, %61
+  %.0 = phi i32 [ %.475104, %96 ], [ %.374, %61 ]
   ret i32 %.0
 }
 

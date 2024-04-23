@@ -3754,13 +3754,13 @@ define noundef i32 @inflateGetHeader(ptr noundef readonly %0, ptr noundef %1) lo
 define noundef i32 @inflateSync(ptr noundef %0) local_unnamed_addr #4 {
   %2 = alloca [4 x i8], align 1
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %109, label %4
+  br i1 %3, label %107, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %109, label %8
+  br i1 %7, label %107, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3772,7 +3772,7 @@ define noundef i32 @inflateSync(ptr noundef %0) local_unnamed_addr #4 {
   %13 = getelementptr inbounds i8, ptr %6, i64 80
   %14 = load i32, ptr %13, align 8
   %15 = icmp ult i32 %14, 8
-  br i1 %15, label %109, label %16
+  br i1 %15, label %107, label %16
 
 16:                                               ; preds = %12, %8
   %17 = load i32, ptr %6, align 8
@@ -3782,7 +3782,7 @@ define noundef i32 @inflateSync(ptr noundef %0) local_unnamed_addr #4 {
 ._crit_edge62:                                    ; preds = %16
   %.phi.trans.insert = getelementptr inbounds i8, ptr %6, i64 132
   %.pre63 = load i32, ptr %.phi.trans.insert, align 4
-  br label %47
+  br label %45
 
 18:                                               ; preds = %16
   store i32 31, ptr %6, align 8
@@ -3813,172 +3813,167 @@ define noundef i32 @inflateSync(ptr noundef %0) local_unnamed_addr #4 {
   %30 = lshr i64 %27, 8
   %31 = add i32 %storemerge56, -8
   %.not53 = icmp eq i32 %31, 0
-  br i1 %.not53, label %32, label %.lr.ph, !llvm.loop !29
+  br i1 %.not53, label %.lr.ph.preheader.i, label %.lr.ph, !llvm.loop !29
 
-32:                                               ; preds = %.lr.ph
+.lr.ph.preheader.i:                               ; preds = %.lr.ph
   store i64 %30, ptr %22, align 8
   store i32 0, ptr %19, align 8
-  %33 = and i64 %indvars.iv.next, 4294967295
-  %.not54 = icmp eq i64 %33, 0
-  br i1 %.not54, label %syncsearch.exit, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %32
-  %34 = and i64 %indvars.iv.next, 4294967295
+  %32 = and i64 %indvars.iv.next, 4294967295
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.01415.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.1.i, %.lr.ph.i ]
-  %35 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
-  %36 = load i8, ptr %35, align 1
-  %37 = zext i8 %36 to i32
-  %38 = icmp ult i32 %.01415.i, 2
-  %39 = select i1 %38, i32 0, i32 255
-  %40 = icmp eq i32 %39, %37
-  %41 = add nuw nsw i32 %.01415.i, 1
-  %.not.i = icmp eq i8 %36, 0
-  %42 = sub nuw nsw i32 4, %.01415.i
-  %spec.select.i = select i1 %.not.i, i32 %42, i32 0
-  %.1.i = select i1 %40, i32 %41, i32 %spec.select.i
+  %33 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.i
+  %34 = load i8, ptr %33, align 1
+  %35 = zext i8 %34 to i32
+  %36 = icmp ult i32 %.01415.i, 2
+  %37 = select i1 %36, i32 0, i32 255
+  %38 = icmp eq i32 %37, %35
+  %39 = add nuw nsw i32 %.01415.i, 1
+  %.not.i = icmp eq i8 %34, 0
+  %40 = sub nuw nsw i32 4, %.01415.i
+  %spec.select.i = select i1 %.not.i, i32 %40, i32 0
+  %.1.i = select i1 %38, i32 %39, i32 %spec.select.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %43 = icmp ult i64 %indvars.iv.next.i, %34
-  %44 = icmp ult i32 %.1.i, 4
-  %45 = select i1 %43, i1 %44, i1 false
-  br i1 %45, label %.lr.ph.i, label %syncsearch.exit, !llvm.loop !30
+  %41 = icmp ult i64 %indvars.iv.next.i, %32
+  %42 = icmp ult i32 %.1.i, 4
+  %43 = select i1 %41, i1 %42, i1 false
+  br i1 %43, label %.lr.ph.i, label %syncsearch.exit, !llvm.loop !30
 
-syncsearch.exit:                                  ; preds = %.lr.ph.i, %.thread, %32
-  %.014.lcssa.i = phi i32 [ 0, %32 ], [ 0, %.thread ], [ %.1.i, %.lr.ph.i ]
-  %46 = getelementptr inbounds i8, ptr %6, i64 132
-  store i32 %.014.lcssa.i, ptr %46, align 4
+syncsearch.exit:                                  ; preds = %.lr.ph.i, %.thread
+  %.014.lcssa.i = phi i32 [ 0, %.thread ], [ %.1.i, %.lr.ph.i ]
+  %44 = getelementptr inbounds i8, ptr %6, i64 132
+  store i32 %.014.lcssa.i, ptr %44, align 4
   %.pre = load i32, ptr %9, align 8
-  br label %47
+  br label %45
 
-47:                                               ; preds = %._crit_edge62, %syncsearch.exit
-  %48 = phi i32 [ %.014.lcssa.i, %syncsearch.exit ], [ %.pre63, %._crit_edge62 ]
-  %49 = phi i32 [ %.pre, %syncsearch.exit ], [ %10, %._crit_edge62 ]
-  %50 = getelementptr inbounds i8, ptr %6, i64 132
-  %51 = load ptr, ptr %0, align 8
-  %52 = icmp ne i32 %49, 0
-  %53 = icmp ult i32 %48, 4
-  %54 = select i1 %52, i1 %53, i1 false
-  br i1 %54, label %.lr.ph.preheader.i43, label %syncsearch.exit52
+45:                                               ; preds = %._crit_edge62, %syncsearch.exit
+  %46 = phi i32 [ %.014.lcssa.i, %syncsearch.exit ], [ %.pre63, %._crit_edge62 ]
+  %47 = phi i32 [ %.pre, %syncsearch.exit ], [ %10, %._crit_edge62 ]
+  %48 = getelementptr inbounds i8, ptr %6, i64 132
+  %49 = load ptr, ptr %0, align 8
+  %50 = icmp ne i32 %47, 0
+  %51 = icmp ult i32 %46, 4
+  %52 = select i1 %50, i1 %51, i1 false
+  br i1 %52, label %.lr.ph.preheader.i43, label %syncsearch.exit52
 
-.lr.ph.preheader.i43:                             ; preds = %47
-  %55 = zext i32 %49 to i64
+.lr.ph.preheader.i43:                             ; preds = %45
+  %53 = zext i32 %47 to i64
   br label %.lr.ph.i44
 
 .lr.ph.i44:                                       ; preds = %.lr.ph.i44, %.lr.ph.preheader.i43
   %indvars.iv.i45 = phi i64 [ 0, %.lr.ph.preheader.i43 ], [ %indvars.iv.next.i50, %.lr.ph.i44 ]
-  %.01415.i46 = phi i32 [ %48, %.lr.ph.preheader.i43 ], [ %.1.i49, %.lr.ph.i44 ]
-  %56 = getelementptr inbounds i8, ptr %51, i64 %indvars.iv.i45
-  %57 = load i8, ptr %56, align 1
-  %58 = zext i8 %57 to i32
-  %59 = icmp ult i32 %.01415.i46, 2
-  %60 = select i1 %59, i32 0, i32 255
-  %61 = icmp eq i32 %60, %58
-  %62 = add nuw nsw i32 %.01415.i46, 1
-  %.not.i47 = icmp eq i8 %57, 0
-  %63 = sub nuw nsw i32 4, %.01415.i46
-  %spec.select.i48 = select i1 %.not.i47, i32 %63, i32 0
-  %.1.i49 = select i1 %61, i32 %62, i32 %spec.select.i48
+  %.01415.i46 = phi i32 [ %46, %.lr.ph.preheader.i43 ], [ %.1.i49, %.lr.ph.i44 ]
+  %54 = getelementptr inbounds i8, ptr %49, i64 %indvars.iv.i45
+  %55 = load i8, ptr %54, align 1
+  %56 = zext i8 %55 to i32
+  %57 = icmp ult i32 %.01415.i46, 2
+  %58 = select i1 %57, i32 0, i32 255
+  %59 = icmp eq i32 %58, %56
+  %60 = add nuw nsw i32 %.01415.i46, 1
+  %.not.i47 = icmp eq i8 %55, 0
+  %61 = sub nuw nsw i32 4, %.01415.i46
+  %spec.select.i48 = select i1 %.not.i47, i32 %61, i32 0
+  %.1.i49 = select i1 %59, i32 %60, i32 %spec.select.i48
   %indvars.iv.next.i50 = add nuw nsw i64 %indvars.iv.i45, 1
-  %64 = icmp ult i64 %indvars.iv.next.i50, %55
-  %65 = icmp ult i32 %.1.i49, 4
-  %66 = select i1 %64, i1 %65, i1 false
-  br i1 %66, label %.lr.ph.i44, label %._crit_edge.loopexit.i51, !llvm.loop !30
+  %62 = icmp ult i64 %indvars.iv.next.i50, %53
+  %63 = icmp ult i32 %.1.i49, 4
+  %64 = select i1 %62, i1 %63, i1 false
+  br i1 %64, label %.lr.ph.i44, label %._crit_edge.loopexit.i51, !llvm.loop !30
 
 ._crit_edge.loopexit.i51:                         ; preds = %.lr.ph.i44
-  %67 = trunc nuw i64 %indvars.iv.next.i50 to i32
+  %65 = trunc nuw i64 %indvars.iv.next.i50 to i32
   br label %syncsearch.exit52
 
-syncsearch.exit52:                                ; preds = %47, %._crit_edge.loopexit.i51
-  %.014.lcssa.i41 = phi i32 [ %48, %47 ], [ %.1.i49, %._crit_edge.loopexit.i51 ]
-  %.0.lcssa.i42 = phi i32 [ 0, %47 ], [ %67, %._crit_edge.loopexit.i51 ]
-  store i32 %.014.lcssa.i41, ptr %50, align 4
-  %68 = load i32, ptr %9, align 8
-  %69 = sub i32 %68, %.0.lcssa.i42
-  store i32 %69, ptr %9, align 8
-  %70 = load ptr, ptr %0, align 8
-  %71 = zext i32 %.0.lcssa.i42 to i64
-  %72 = getelementptr inbounds i8, ptr %70, i64 %71
-  store ptr %72, ptr %0, align 8
-  %73 = getelementptr inbounds i8, ptr %0, i64 16
-  %74 = load i64, ptr %73, align 8
-  %75 = add i64 %74, %71
-  store i64 %75, ptr %73, align 8
-  %76 = load i32, ptr %50, align 4
-  %.not40 = icmp eq i32 %76, 4
-  br i1 %.not40, label %77, label %109
+syncsearch.exit52:                                ; preds = %45, %._crit_edge.loopexit.i51
+  %.014.lcssa.i41 = phi i32 [ %46, %45 ], [ %.1.i49, %._crit_edge.loopexit.i51 ]
+  %.0.lcssa.i42 = phi i32 [ 0, %45 ], [ %65, %._crit_edge.loopexit.i51 ]
+  store i32 %.014.lcssa.i41, ptr %48, align 4
+  %66 = load i32, ptr %9, align 8
+  %67 = sub i32 %66, %.0.lcssa.i42
+  store i32 %67, ptr %9, align 8
+  %68 = load ptr, ptr %0, align 8
+  %69 = zext i32 %.0.lcssa.i42 to i64
+  %70 = getelementptr inbounds i8, ptr %68, i64 %69
+  store ptr %70, ptr %0, align 8
+  %71 = getelementptr inbounds i8, ptr %0, i64 16
+  %72 = load i64, ptr %71, align 8
+  %73 = add i64 %72, %69
+  store i64 %73, ptr %71, align 8
+  %74 = load i32, ptr %48, align 4
+  %.not40 = icmp eq i32 %74, 4
+  br i1 %.not40, label %75, label %107
 
-77:                                               ; preds = %syncsearch.exit52
-  %78 = getelementptr inbounds i8, ptr %0, i64 40
-  %79 = load i64, ptr %78, align 8
-  %80 = load ptr, ptr %5, align 8
-  %81 = icmp eq ptr %80, null
-  br i1 %81, label %inflateReset.exit, label %82
+75:                                               ; preds = %syncsearch.exit52
+  %76 = getelementptr inbounds i8, ptr %0, i64 40
+  %77 = load i64, ptr %76, align 8
+  %78 = load ptr, ptr %5, align 8
+  %79 = icmp eq ptr %78, null
+  br i1 %79, label %inflateReset.exit, label %80
 
-82:                                               ; preds = %77
-  %83 = getelementptr inbounds i8, ptr %80, i64 52
+80:                                               ; preds = %75
+  %81 = getelementptr inbounds i8, ptr %78, i64 52
+  store i32 0, ptr %81, align 4
+  %82 = getelementptr inbounds i8, ptr %78, i64 56
+  store i32 0, ptr %82, align 8
+  %83 = getelementptr inbounds i8, ptr %78, i64 60
   store i32 0, ptr %83, align 4
-  %84 = getelementptr inbounds i8, ptr %80, i64 56
+  %84 = load ptr, ptr %5, align 8
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %inflateReset.exit, label %86
+
+86:                                               ; preds = %80
+  %87 = getelementptr inbounds i8, ptr %84, i64 32
+  store i64 0, ptr %87, align 8
+  store i64 0, ptr %71, align 8
+  %88 = getelementptr inbounds i8, ptr %84, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, i8 0, i64 16, i1 false)
+  %89 = load i32, ptr %88, align 8
+  %.not.i.i = icmp eq i32 %89, 0
+  br i1 %.not.i.i, label %94, label %90
+
+90:                                               ; preds = %86
+  %91 = and i32 %89, 1
+  %92 = zext nneg i32 %91 to i64
+  %93 = getelementptr inbounds i8, ptr %0, i64 96
+  store i64 %92, ptr %93, align 8
+  br label %94
+
+94:                                               ; preds = %90, %86
   store i32 0, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %80, i64 60
-  store i32 0, ptr %85, align 4
-  %86 = load ptr, ptr %5, align 8
-  %87 = icmp eq ptr %86, null
-  br i1 %87, label %inflateReset.exit, label %88
-
-88:                                               ; preds = %82
-  %89 = getelementptr inbounds i8, ptr %86, i64 32
-  store i64 0, ptr %89, align 8
-  store i64 0, ptr %73, align 8
-  %90 = getelementptr inbounds i8, ptr %86, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %78, i8 0, i64 16, i1 false)
-  %91 = load i32, ptr %90, align 8
-  %.not.i.i = icmp eq i32 %91, 0
-  br i1 %.not.i.i, label %96, label %92
-
-92:                                               ; preds = %88
-  %93 = and i32 %91, 1
-  %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds i8, ptr %0, i64 96
-  store i64 %94, ptr %95, align 8
-  br label %96
-
-96:                                               ; preds = %92, %88
-  store i32 0, ptr %86, align 8
-  %97 = getelementptr inbounds i8, ptr %86, i64 4
-  store i32 0, ptr %97, align 4
-  %98 = getelementptr inbounds i8, ptr %86, i64 12
-  store i32 0, ptr %98, align 4
-  %99 = getelementptr inbounds i8, ptr %86, i64 20
-  store i32 32768, ptr %99, align 4
-  %100 = getelementptr inbounds i8, ptr %86, i64 40
-  store ptr null, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %86, i64 72
-  store i64 0, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %86, i64 80
-  store i32 0, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %86, i64 1360
-  %104 = getelementptr inbounds i8, ptr %86, i64 136
-  store ptr %103, ptr %104, align 8
-  %105 = getelementptr inbounds i8, ptr %86, i64 104
-  store ptr %103, ptr %105, align 8
-  %106 = getelementptr inbounds i8, ptr %86, i64 96
-  store ptr %103, ptr %106, align 8
-  %107 = getelementptr inbounds i8, ptr %86, i64 7136
-  store i32 1, ptr %107, align 8
-  %108 = getelementptr inbounds i8, ptr %86, i64 7140
-  store i32 -1, ptr %108, align 4
+  %95 = getelementptr inbounds i8, ptr %84, i64 4
+  store i32 0, ptr %95, align 4
+  %96 = getelementptr inbounds i8, ptr %84, i64 12
+  store i32 0, ptr %96, align 4
+  %97 = getelementptr inbounds i8, ptr %84, i64 20
+  store i32 32768, ptr %97, align 4
+  %98 = getelementptr inbounds i8, ptr %84, i64 40
+  store ptr null, ptr %98, align 8
+  %99 = getelementptr inbounds i8, ptr %84, i64 72
+  store i64 0, ptr %99, align 8
+  %100 = getelementptr inbounds i8, ptr %84, i64 80
+  store i32 0, ptr %100, align 8
+  %101 = getelementptr inbounds i8, ptr %84, i64 1360
+  %102 = getelementptr inbounds i8, ptr %84, i64 136
+  store ptr %101, ptr %102, align 8
+  %103 = getelementptr inbounds i8, ptr %84, i64 104
+  store ptr %101, ptr %103, align 8
+  %104 = getelementptr inbounds i8, ptr %84, i64 96
+  store ptr %101, ptr %104, align 8
+  %105 = getelementptr inbounds i8, ptr %84, i64 7136
+  store i32 1, ptr %105, align 8
+  %106 = getelementptr inbounds i8, ptr %84, i64 7140
+  store i32 -1, ptr %106, align 4
   br label %inflateReset.exit
 
-inflateReset.exit:                                ; preds = %77, %82, %96
-  store i64 %75, ptr %73, align 8
-  store i64 %79, ptr %78, align 8
+inflateReset.exit:                                ; preds = %75, %80, %94
+  store i64 %73, ptr %71, align 8
+  store i64 %77, ptr %76, align 8
   store i32 11, ptr %6, align 8
-  br label %109
+  br label %107
 
-109:                                              ; preds = %syncsearch.exit52, %12, %1, %4, %inflateReset.exit
+107:                                              ; preds = %syncsearch.exit52, %12, %1, %4, %inflateReset.exit
   %.0 = phi i32 [ 0, %inflateReset.exit ], [ -2, %4 ], [ -2, %1 ], [ -5, %12 ], [ -3, %syncsearch.exit52 ]
   ret i32 %.0
 }

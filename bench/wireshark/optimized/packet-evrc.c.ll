@@ -385,7 +385,7 @@ define internal fastcc void @dissect_evrc_aux(ptr noundef %0, ptr %.8.val, ptr n
   %.01374 = phi i32 [ %33, %.lr.ph7 ], [ 1, %12 ]
   %19 = load i32, ptr @ett_toc, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %20 = trunc i64 %indvars.iv.next to i32
+  %20 = trunc nuw nsw i64 %indvars.iv.next to i32
   %21 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %11, ptr noundef %0, i32 noundef %.01374, i32 noundef 1, i32 noundef %19, ptr noundef null, ptr noundef nonnull @.str.102, i32 noundef %20) #3
   %22 = load i32, ptr @hf_evrc_legacy_toc_fe_ind, align 4
   %23 = tail call ptr @proto_tree_add_item(ptr noundef %21, i32 noundef %22, ptr noundef %0, i32 noundef %.01374, i32 noundef 1, i32 noundef 0) #3
@@ -409,7 +409,7 @@ define internal fastcc void @dissect_evrc_aux(ptr noundef %0, ptr %.8.val, ptr n
   %or.cond = and i1 %29, %34
   %.not150 = icmp ne i32 %7, %33
   %or.cond153.not = and i1 %or.cond, %.not150
-  br i1 %or.cond153.not, label %.lr.ph7, label %.critedge, !llvm.loop !4
+  br i1 %or.cond153.not, label %.lr.ph7, label %.critedge.loopexit, !llvm.loop !4
 
 default.unreachable:                              ; preds = %6
   unreachable
@@ -479,10 +479,10 @@ default.unreachable:                              ; preds = %6
   %76 = icmp ult i8 %74, 80
   %77 = lshr i8 %74, 1
   %78 = and i8 %77, 120
-  %switch.shiftamt33 = zext nneg i8 %78 to i40
-  %switch.downshift34 = lshr i40 94657380864, %switch.shiftamt33
-  %switch.masked35 = trunc i40 %switch.downshift34 to i8
-  %.0.i154 = select i1 %76, i8 %switch.masked35, i8 0
+  %switch.shiftamt29 = zext nneg i8 %78 to i40
+  %switch.downshift30 = lshr i40 94657380864, %switch.shiftamt29
+  %switch.masked31 = trunc i40 %switch.downshift30 to i8
+  %.0.i154 = select i1 %76, i8 %switch.masked31, i8 0
   %79 = zext i8 %.01391 to i64
   %80 = getelementptr [32 x i8], ptr %5, i64 0, i64 %79
   store i8 %.0.i154, ptr %80, align 1
@@ -495,10 +495,10 @@ evrc_frame_type_to_octs.exit157:                  ; preds = %.lr.ph
   %83 = and i8 %74, 15
   %84 = icmp ult i8 %83, 5
   %85 = shl nuw nsw i8 %83, 3
-  %switch.shiftamt38 = zext nneg i8 %85 to i40
-  %switch.downshift39 = lshr i40 94657380864, %switch.shiftamt38
-  %switch.masked40 = trunc i40 %switch.downshift39 to i8
-  %.0.i156 = select i1 %84, i8 %switch.masked40, i8 0
+  %switch.shiftamt34 = zext nneg i8 %85 to i40
+  %switch.downshift35 = lshr i40 94657380864, %switch.shiftamt34
+  %switch.masked36 = trunc i40 %switch.downshift35 to i8
+  %.0.i156 = select i1 %84, i8 %switch.masked36, i8 0
   %86 = zext i8 %81 to i64
   %87 = getelementptr [32 x i8], ptr %5, i64 0, i64 %86
   store i8 %.0.i156, ptr %87, align 1
@@ -517,53 +517,52 @@ evrc_frame_type_to_octs.exit157:                  ; preds = %.lr.ph
   %.1138.lcssa = phi i32 [ 2, %57 ], [ %90, %89 ]
   %94 = and i32 %70, 1
   %.not148 = icmp eq i32 %94, 0
-  br i1 %.not148, label %.critedge.thread23, label %95
+  br i1 %.not148, label %99, label %95
 
 95:                                               ; preds = %._crit_edge
   %96 = load i32, ptr @hf_evrc_padding, align 4
   %97 = add i32 %.1138.lcssa, -1
   %98 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %96, ptr noundef %0, i32 noundef %97, i32 noundef 1, i32 noundef 0) #3
-  br label %.critedge.thread23
+  br label %99
 
-.critedge.thread23:                               ; preds = %._crit_edge, %95
-  %99 = load ptr, ptr %4, align 8
-  %100 = add i32 %.1138.lcssa, -2
-  call void @proto_item_set_len(ptr noundef %99, i32 noundef %100) #3
+99:                                               ; preds = %95, %._crit_edge
+  %100 = load ptr, ptr %4, align 8
+  %101 = add i32 %.1138.lcssa, -2
+  call void @proto_item_set_len(ptr noundef %100, i32 noundef %101) #3
   br label %.lr.ph12.preheader
 
-.critedge:                                        ; preds = %.lr.ph7
-  %101 = trunc i64 %indvars.iv.next to i8
-  %.not15 = icmp eq i8 %101, 0
-  br i1 %.not15, label %.critedge4, label %.lr.ph12.preheader
+.critedge.loopexit:                               ; preds = %.lr.ph7
+  %102 = trunc nuw nsw i64 %indvars.iv.next to i8
+  br label %.lr.ph12.preheader
 
-.lr.ph12.preheader:                               ; preds = %.critedge.thread23, %.critedge
-  %.128 = phi i8 [ %narrow, %.critedge.thread23 ], [ %101, %.critedge ]
-  %.227 = phi i32 [ %.1138.lcssa, %.critedge.thread23 ], [ %33, %.critedge ]
-  %wide.trip.count = zext i8 %.128 to i64
+.lr.ph12.preheader:                               ; preds = %99, %.critedge.loopexit
+  %.2.ph = phi i32 [ %33, %.critedge.loopexit ], [ %.1138.lcssa, %99 ]
+  %.1.ph = phi i8 [ %102, %.critedge.loopexit ], [ %narrow, %99 ]
+  %wide.trip.count = zext i8 %.1.ph to i64
   br label %.lr.ph12
 
-.lr.ph12:                                         ; preds = %.lr.ph12.preheader, %107
-  %indvars.iv18 = phi i64 [ 0, %.lr.ph12.preheader ], [ %indvars.iv.next19, %107 ]
-  %102 = phi i32 [ 0, %.lr.ph12.preheader ], [ %112, %107 ]
-  %.311 = phi i32 [ %.227, %.lr.ph12.preheader ], [ %111, %107 ]
-  %103 = sub i32 %7, %.311
-  %104 = getelementptr [32 x i8], ptr %5, i64 0, i64 %indvars.iv18
-  %105 = load i8, ptr %104, align 1
-  %106 = zext i8 %105 to i32
-  %.not151 = icmp ult i32 %103, %106
-  br i1 %.not151, label %.critedge4, label %107
+.lr.ph12:                                         ; preds = %.lr.ph12.preheader, %108
+  %indvars.iv18 = phi i64 [ 0, %.lr.ph12.preheader ], [ %indvars.iv.next19, %108 ]
+  %103 = phi i32 [ 0, %.lr.ph12.preheader ], [ %113, %108 ]
+  %.311 = phi i32 [ %.2.ph, %.lr.ph12.preheader ], [ %112, %108 ]
+  %104 = sub i32 %7, %.311
+  %105 = getelementptr [32 x i8], ptr %5, i64 0, i64 %indvars.iv18
+  %106 = load i8, ptr %105, align 1
+  %107 = zext i8 %106 to i32
+  %.not151 = icmp ult i32 %104, %107
+  br i1 %.not151, label %.critedge4, label %108
 
-107:                                              ; preds = %.lr.ph12
-  %108 = load i32, ptr @hf_evrc_speech_data, align 4
-  %109 = add nuw nsw i32 %102, 1
-  %110 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %11, i32 noundef %108, ptr noundef %0, i32 noundef %.311, i32 noundef %106, ptr noundef null, ptr noundef nonnull @.str.106, i32 noundef %109) #3
-  %111 = add i32 %.311, %106
+108:                                              ; preds = %.lr.ph12
+  %109 = load i32, ptr @hf_evrc_speech_data, align 4
+  %110 = add nuw nsw i32 %103, 1
+  %111 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %11, i32 noundef %109, ptr noundef %0, i32 noundef %.311, i32 noundef %107, ptr noundef null, ptr noundef nonnull @.str.106, i32 noundef %110) #3
+  %112 = add i32 %.311, %107
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
-  %112 = trunc i64 %indvars.iv.next19 to i32
+  %113 = trunc nuw nsw i64 %indvars.iv.next19 to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next19, %wide.trip.count
   br i1 %exitcond.not, label %.critedge4, label %.lr.ph12, !llvm.loop !7
 
-.critedge4:                                       ; preds = %.lr.ph12, %107, %12, %.critedge, %3
+.critedge4:                                       ; preds = %.lr.ph12, %108, %12, %3
   ret void
 }
 

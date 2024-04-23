@@ -1487,7 +1487,7 @@ define dso_local void @serial8250_do_set_mctrl(ptr noundef %0, i32 noundef %1) #
   %7 = or disjoint i32 %4, %6
   %8 = getelementptr inbounds i8, ptr %0, i64 600
   %9 = load i8, ptr %8, align 8
-  %10 = trunc i32 %7 to i8
+  %10 = trunc nuw nsw i32 %7 to i8
   %11 = or i8 %9, %10
   %12 = zext i8 %11 to i32
   %13 = getelementptr inbounds i8, ptr %0, i64 32
@@ -2037,7 +2037,7 @@ define dso_local i32 @serial8250_do_startup(ptr noundef %0) #0 align 16 {
   %310 = and i32 %309, 28
   %311 = or disjoint i32 %308, %310
   %312 = load i8, ptr %35, align 8
-  %313 = trunc i32 %311 to i8
+  %313 = trunc nuw nsw i32 %311 to i8
   %314 = or i8 %312, %313
   %315 = zext i8 %314 to i32
   %316 = load ptr, ptr %279, align 8
@@ -2328,7 +2328,7 @@ define internal void @serial8250_set_mctrl(ptr noundef %0, i32 noundef %1) #0 al
   %17 = or disjoint i32 %14, %16
   %18 = getelementptr inbounds i8, ptr %0, i64 600
   %19 = load i8, ptr %18, align 8
-  %20 = trunc i32 %17 to i8
+  %20 = trunc nuw nsw i32 %17 to i8
   %21 = or i8 %19, %20
   %22 = zext i8 %21 to i32
   %23 = getelementptr inbounds i8, ptr %0, i64 32
@@ -2434,7 +2434,7 @@ define dso_local void @serial8250_do_shutdown(ptr noundef %0) #0 align 16 {
   %57 = or disjoint i32 %54, %56
   %58 = getelementptr inbounds i8, ptr %0, i64 600
   %59 = load i8, ptr %58, align 8
-  %60 = trunc i32 %57 to i8
+  %60 = trunc nuw nsw i32 %57 to i8
   %61 = or i8 %59, %60
   %62 = zext i8 %61 to i32
   %63 = load ptr, ptr %13, align 8
@@ -2607,7 +2607,7 @@ define dso_local void @serial8250_update_uartclk(ptr noundef %0, i32 noundef %1)
   %29 = udiv i32 %1, 1048560
   %30 = select i1 %28, i32 4, i32 2
   %31 = lshr exact i64 %27, 16
-  %32 = trunc i64 %31 to i32
+  %32 = trunc nuw nsw i64 %31 to i32
   %33 = lshr i32 %29, %32
   %34 = add i32 %24, %1
   %35 = lshr i32 %34, %30
@@ -2824,7 +2824,7 @@ define dso_local void @serial8250_do_set_termios(ptr noundef %0, ptr noundef %1,
   %29 = or i8 %26, 16
   %30 = select i1 %28, i8 %29, i8 %26
   %31 = lshr i32 %15, 25
-  %32 = trunc i32 %31 to i8
+  %32 = trunc nuw nsw i32 %31 to i8
   %33 = and i8 %32, 32
   %34 = or i8 %30, %33
   %35 = getelementptr inbounds i8, ptr %0, i64 184
@@ -2837,7 +2837,7 @@ define dso_local void @serial8250_do_set_termios(ptr noundef %0, ptr noundef %1,
   %42 = udiv i32 %36, 1048560
   %43 = select i1 %41, i32 4, i32 2
   %44 = lshr exact i64 %40, 16
-  %45 = trunc i64 %44 to i32
+  %45 = trunc nuw nsw i64 %44 to i32
   %46 = lshr i32 %42, %45
   %47 = add i32 %37, %36
   %48 = lshr i32 %47, %43
@@ -3194,7 +3194,7 @@ define dso_local void @serial8250_do_set_termios(ptr noundef %0, ptr noundef %1,
   %276 = or disjoint i32 %273, %275
   %277 = getelementptr inbounds i8, ptr %0, i64 600
   %278 = load i8, ptr %277, align 8
-  %279 = trunc i32 %276 to i8
+  %279 = trunc nuw nsw i32 %276 to i8
   %280 = or i8 %278, %279
   %281 = zext i8 %280 to i32
   %282 = load ptr, ptr %199, align 8
@@ -3732,7 +3732,7 @@ define dso_local void @serial8250_console_write(ptr noundef %0, ptr noundef %1, 
   %77 = udiv i32 %71, 1048560
   %78 = select i1 %76, i32 4, i32 2
   %79 = lshr exact i64 %75, 16
-  %80 = trunc i64 %79 to i32
+  %80 = trunc nuw nsw i64 %79 to i32
   %81 = lshr i32 %77, %80
   %82 = add i32 %72, %71
   %83 = lshr i32 %82, %78
@@ -6422,7 +6422,7 @@ define internal i64 @rx_trig_bytes_store(ptr nocapture noundef readonly %0, ptr 
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #14
   %8 = icmp eq i64 %3, 0
-  br i1 %8, label %59, label %9
+  br i1 %8, label %56, label %9
 
 9:                                                ; preds = %4
   store i8 0, ptr %5, align 1, !annotation !23
@@ -6432,7 +6432,7 @@ define internal i64 @rx_trig_bytes_store(ptr nocapture noundef readonly %0, ptr 
 
 12:                                               ; preds = %9
   %13 = sext i32 %10 to i64
-  br label %59
+  br label %56
 
 14:                                               ; preds = %9
   %15 = load i8, ptr %5, align 1
@@ -6474,43 +6474,40 @@ define internal i64 @rx_trig_bytes_store(ptr nocapture noundef readonly %0, ptr 
   br i1 %40, label %.thread4, label %.preheader, !llvm.loop !41
 
 41:                                               ; preds = %.preheader
-  %42 = trunc i64 %34 to i32
-  %43 = shl nuw nsw i32 %42, 6
-  %44 = add nsw i32 %43, -64
-  %45 = icmp eq i32 %42, 0
-  br i1 %45, label %.thread, label %.thread4
+  %42 = trunc i64 %34 to i8
+  %43 = shl i8 %42, 6
+  %44 = add i8 %43, -64
+  br label %.thread4
 
 .thread4:                                         ; preds = %38, %41
-  %46 = phi i32 [ %44, %41 ], [ 192, %38 ]
-  %47 = getelementptr inbounds i8, ptr %18, i64 32
-  %48 = load ptr, ptr %47, align 8
-  call void %48(ptr noundef %18, i32 noundef 2, i32 noundef 1) #14
-  %49 = load ptr, ptr %47, align 8
-  call void %49(ptr noundef %18, i32 noundef 2, i32 noundef 7) #14
-  %50 = load ptr, ptr %47, align 8
-  call void %50(ptr noundef %18, i32 noundef 2, i32 noundef 0) #14
-  %51 = getelementptr inbounds i8, ptr %18, i64 597
-  %52 = load i8, ptr %51, align 1
-  %53 = and i8 %52, 63
-  %54 = trunc i32 %46 to i8
-  %55 = or i8 %53, %54
-  store i8 %55, ptr %51, align 1
-  %56 = zext i8 %55 to i32
-  %57 = load ptr, ptr %47, align 8
-  call void %57(ptr noundef %18, i32 noundef 2, i32 noundef %56) #14
+  %45 = phi i8 [ %44, %41 ], [ -64, %38 ]
+  %46 = getelementptr inbounds i8, ptr %18, i64 32
+  %47 = load ptr, ptr %46, align 8
+  call void %47(ptr noundef %18, i32 noundef 2, i32 noundef 1) #14
+  %48 = load ptr, ptr %46, align 8
+  call void %48(ptr noundef %18, i32 noundef 2, i32 noundef 7) #14
+  %49 = load ptr, ptr %46, align 8
+  call void %49(ptr noundef %18, i32 noundef 2, i32 noundef 0) #14
+  %50 = getelementptr inbounds i8, ptr %18, i64 597
+  %51 = load i8, ptr %50, align 1
+  %52 = and i8 %51, 63
+  %53 = or i8 %52, %45
+  store i8 %53, ptr %50, align 1
+  %54 = zext i8 %53 to i32
+  %55 = load ptr, ptr %46, align 8
+  call void %55(ptr noundef %18, i32 noundef 2, i32 noundef %54) #14
   call void @mutex_unlock(ptr noundef %16) #14
-  br label %59
+  br label %56
 
-.thread:                                          ; preds = %27, %23, %14, %41
-  %.ph = phi i32 [ %44, %41 ], [ -22, %14 ], [ -22, %23 ], [ -95, %27 ]
+.thread:                                          ; preds = %27, %23, %14
+  %.ph = phi i64 [ -22, %14 ], [ -22, %23 ], [ -95, %27 ]
   call void @mutex_unlock(ptr noundef %16) #14
-  %58 = sext i32 %.ph to i64
-  br label %59
+  br label %56
 
-59:                                               ; preds = %.thread, %.thread4, %12, %4
-  %60 = phi i64 [ %13, %12 ], [ -22, %4 ], [ %58, %.thread ], [ %3, %.thread4 ]
+56:                                               ; preds = %.thread, %.thread4, %12, %4
+  %57 = phi i64 [ %13, %12 ], [ -22, %4 ], [ %.ph, %.thread ], [ %3, %.thread4 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #14
-  ret i64 %60
+  ret i64 %57
 }
 
 ; Function Attrs: null_pointer_is_valid

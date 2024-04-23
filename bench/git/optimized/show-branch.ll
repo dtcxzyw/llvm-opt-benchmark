@@ -921,10 +921,6 @@ if.then327:                                       ; preds = %if.end325
 
 for.cond375.preheader:                            ; preds = %if.end369
   %66 = trunc nuw nsw i64 %indvars.iv.next348 to i32
-  %cmp376310.not = icmp eq i32 %66, 0
-  br i1 %cmp376310.not, label %for.end388, label %for.body378.preheader
-
-for.body378.preheader:                            ; preds = %for.cond375.preheader
   %wide.trip.count = and i64 %indvars.iv.next348, 4294967295
   br label %for.body378
 
@@ -1002,8 +998,8 @@ if.end369:                                        ; preds = %if.then367, %mark_s
   %tobool334.not = icmp eq ptr %74, null
   br i1 %tobool334.not, label %for.cond375.preheader, label %for.body335, !llvm.loop !10
 
-for.body378:                                      ; preds = %for.body378.preheader, %for.body378
-  %indvars.iv351 = phi i64 [ 0, %for.body378.preheader ], [ %indvars.iv.next352, %for.body378 ]
+for.body378:                                      ; preds = %for.cond375.preheader, %for.body378
+  %indvars.iv351 = phi i64 [ 0, %for.cond375.preheader ], [ %indvars.iv.next352, %for.body378 ]
   %arrayidx380 = getelementptr inbounds [26 x ptr], ptr %rev, i64 0, i64 %indvars.iv351
   %75 = load ptr, ptr %arrayidx380, align 8
   %bf.load382 = load i32, ptr %75, align 8
@@ -1014,10 +1010,9 @@ for.body378:                                      ; preds = %for.body378.prehead
   %exitcond354.not = icmp eq i64 %indvars.iv.next352, %wide.trip.count
   br i1 %exitcond354.not, label %for.end388, label %for.body378, !llvm.loop !11
 
-for.end388:                                       ; preds = %for.body378, %for.cond331.preheader, %for.cond375.preheader
-  %cmp376310.not377 = phi i1 [ true, %for.cond375.preheader ], [ true, %for.cond331.preheader ], [ %cmp376310.not, %for.body378 ]
-  %idxprom332.lcssa375 = phi i64 [ %indvars.iv.next348, %for.cond375.preheader ], [ 0, %for.cond331.preheader ], [ %indvars.iv.next348, %for.body378 ]
-  %num_rev.0.lcssa374 = phi i32 [ 0, %for.cond375.preheader ], [ 0, %for.cond331.preheader ], [ %66, %for.body378 ]
+for.end388:                                       ; preds = %for.body378, %for.cond331.preheader
+  %idxprom332.lcssa375 = phi i64 [ 0, %for.cond331.preheader ], [ %indvars.iv.next348, %for.body378 ]
+  %num_rev.0.lcssa374 = phi i32 [ 0, %for.cond331.preheader ], [ %66, %for.body378 ]
   %76 = load i32, ptr %extra, align 4
   %cmp389 = icmp sgt i32 %76, -1
   br i1 %cmp389, label %if.then391, label %if.end392
@@ -1242,7 +1237,7 @@ if.end396:                                        ; preds = %if.end392
   br i1 %tobool397.not, label %if.end402, label %if.then398
 
 if.then398:                                       ; preds = %if.end396
-  br i1 %cmp376310.not377, label %return, label %for.body.i144
+  br i1 %tobool334.not305, label %return, label %for.body.i144
 
 for.body.i144:                                    ; preds = %if.then398, %if.end.i147
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %if.end.i147 ], [ 0, %if.then398 ]
@@ -1278,7 +1273,7 @@ if.end402:                                        ; preds = %if.end396
   br i1 %or.cond7, label %for.cond409.preheader, label %if.end483
 
 for.cond409.preheader:                            ; preds = %if.end402
-  br i1 %cmp376310.not377, label %for.end464.thread, label %for.body412.lr.ph
+  br i1 %tobool334.not305, label %for.end464.thread, label %for.body412.lr.ph
 
 for.body412.lr.ph:                                ; preds = %for.cond409.preheader
   %tobool.not.i153 = icmp eq ptr %call301, null
@@ -1476,7 +1471,7 @@ for.end464.thread:                                ; preds = %for.cond409.prehead
   br i1 %cmp465380, label %if.end478, label %if.then481
 
 for.cond468.preheader:                            ; preds = %for.end464
-  br i1 %cmp376310.not377, label %if.end478, label %for.body471
+  br i1 %tobool334.not305, label %if.end478, label %for.body471
 
 for.body471:                                      ; preds = %for.cond468.preheader, %for.body471
   %i.4321 = phi i32 [ %inc474, %for.body471 ], [ 0, %for.cond468.preheader ]
@@ -1584,7 +1579,7 @@ commit_to_name.exit.i:                            ; preds = %if.end20.i.i.i.i, %
   %arrayidx35.i.i.i.i = getelementptr inbounds ptr, ptr %138, i64 %idxprom34.i.i.i.i
   %139 = load ptr, ptr %arrayidx35.i.i.i.i, align 8
   %tobool1.not.i213 = icmp ne ptr %139, null
-  %brmerge.i = or i1 %cmp376310.not377, %tobool1.not.i213
+  %brmerge.i = or i1 %tobool334.not305, %tobool1.not.i213
   br i1 %brmerge.i, label %for.inc9.i, label %for.body3.i
 
 for.cond2.i:                                      ; preds = %for.body3.i
@@ -2157,7 +2152,7 @@ omit_in_dense.exit:                               ; preds = %for.body4.i
   br i1 %.not, label %while.cond492.backedge, label %if.end530
 
 if.end530:                                        ; preds = %for.body.i232, %omit_in_dense.exit, %if.end521
-  br i1 %cmp376310.not377, label %for.end562, label %for.body534
+  br i1 %tobool334.not305, label %for.end562, label %for.body534
 
 for.body534:                                      ; preds = %if.end530, %for.inc560
   %i.5324 = phi i32 [ %inc561, %for.inc560 ], [ 0, %if.end530 ]
