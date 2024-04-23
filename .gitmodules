@@ -490,3 +490,6 @@
 [submodule "bench/rust-analyzer-rs/rust-analyzer"]
 	path = bench/rust-analyzer-rs/rust-analyzer
 	url = git@github.com:rust-lang/rust-analyzer.git
+[submodule "bench/just-rs/just"]
+	path = bench/just-rs/just
+	url = git@github.com:casey/just.git
