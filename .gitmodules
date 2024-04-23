@@ -535,3 +535,6 @@
 [submodule "bench/actix-rs/actix-web"]
 	path = bench/actix-rs/actix-web
 	url = git@github.com:actix/actix-web.git
+[submodule "bench/nom-rs/nom"]
+	path = bench/nom-rs/nom
+	url = git@github.com:rust-bakery/nom.git
