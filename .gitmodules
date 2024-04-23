@@ -511,3 +511,6 @@
 [submodule "bench/tinygltf/tinygltf"]
 	path = bench/tinygltf/tinygltf
 	url = git@github.com:syoyo/tinygltf.git
+[submodule "bench/osqp/osqp"]
+	path = bench/osqp/osqp
+	url = git@github.com:osqp/osqp.git
