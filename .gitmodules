@@ -529,3 +529,6 @@
 [submodule "bench/quest/QuEST"]
 	path = bench/quest/QuEST
 	url = git@github.com:QuEST-Kit/QuEST.git
+[submodule "bench/clamav/clamav"]
+	path = bench/clamav/clamav
+	url = git@github.com:Cisco-Talos/clamav.git

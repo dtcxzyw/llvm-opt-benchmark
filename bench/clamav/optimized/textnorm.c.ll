@@ -1,0 +1,247 @@
+; ModuleID = 'bench/clamav/original/textnorm.c.ll'
+source_filename = "bench/clamav/original/textnorm.c.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+@char_action = internal unnamed_addr constant [256 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 2, i32 2, i32 2, i32 2, i32 2, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], align 16
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define noundef i32 @text_normalize_init(ptr noundef writeonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+  %.not = icmp eq ptr %0, null
+  br i1 %.not, label %8, label %4
+
+4:                                                ; preds = %3
+  store ptr %1, ptr %0, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %2, ptr %5, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 0, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %7, align 8
+  br label %8
+
+8:                                                ; preds = %3, %4
+  %.0 = phi i32 [ 0, %4 ], [ 2, %3 ]
+  ret i32 %.0
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define void @text_normalize_reset(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 0, ptr %2, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %3, align 8
+  ret void
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+define i64 @text_normalize_buffer(ptr nocapture noundef %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 {
+  %4 = load ptr, ptr %0, align 8
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = load i64, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %4, i64 %6
+  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = icmp eq ptr %1, null
+  br i1 %9, label %41, label %10
+
+10:                                               ; preds = %3
+  %11 = load i64, ptr %8, align 8
+  %12 = getelementptr inbounds i8, ptr %4, i64 %11
+  %13 = icmp ne i64 %2, 0
+  %14 = icmp slt i64 %11, %6
+  %15 = select i1 %13, i1 %14, i1 false
+  br i1 %15, label %.lr.ph, label %._crit_edge
+
+.lr.ph:                                           ; preds = %10
+  %16 = getelementptr inbounds i8, ptr %0, i64 24
+  br label %17
+
+17:                                               ; preds = %.lr.ph, %32
+  %.02429 = phi ptr [ %12, %.lr.ph ], [ %.2, %32 ]
+  %.02628 = phi i64 [ 0, %.lr.ph ], [ %33, %32 ]
+  %18 = getelementptr inbounds i8, ptr %1, i64 %.02628
+  %19 = load i8, ptr %18, align 1
+  %20 = zext i8 %19 to i64
+  %21 = getelementptr inbounds [256 x i32], ptr @char_action, i64 0, i64 %20
+  %22 = load i32, ptr %21, align 4
+  switch i32 %22, label %32 [
+    i32 0, label %30
+    i32 2, label %23
+    i32 3, label %28
+  ]
+
+23:                                               ; preds = %17
+  %24 = load i32, ptr %16, align 8
+  %.not = icmp eq i32 %24, 0
+  br i1 %.not, label %25, label %27
+
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds i8, ptr %.02429, i64 1
+  store i8 32, ptr %.02429, align 1
+  br label %27
+
+27:                                               ; preds = %25, %23
+  %.1 = phi ptr [ %.02429, %23 ], [ %26, %25 ]
+  store i32 1, ptr %16, align 8
+  br label %32
+
+28:                                               ; preds = %17
+  %29 = add i8 %19, 32
+  br label %30
+
+30:                                               ; preds = %17, %28
+  %.0 = phi i8 [ %29, %28 ], [ %19, %17 ]
+  store i32 0, ptr %16, align 8
+  %31 = getelementptr inbounds i8, ptr %.02429, i64 1
+  store i8 %.0, ptr %.02429, align 1
+  br label %32
+
+32:                                               ; preds = %17, %30, %27
+  %.2 = phi ptr [ %.02429, %17 ], [ %31, %30 ], [ %.1, %27 ]
+  %33 = add nuw i64 %.02628, 1
+  %34 = icmp ult i64 %33, %2
+  %35 = icmp ult ptr %.2, %7
+  %36 = select i1 %34, i1 %35, i1 false
+  br i1 %36, label %17, label %._crit_edge.loopexit
+
+._crit_edge.loopexit:                             ; preds = %32
+  %.pre = load ptr, ptr %0, align 8
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %10
+  %37 = phi ptr [ %4, %10 ], [ %.pre, %._crit_edge.loopexit ]
+  %.026.lcssa = phi i64 [ 0, %10 ], [ %33, %._crit_edge.loopexit ]
+  %.024.lcssa = phi ptr [ %12, %10 ], [ %.2, %._crit_edge.loopexit ]
+  %38 = ptrtoint ptr %.024.lcssa to i64
+  %39 = ptrtoint ptr %37 to i64
+  %40 = sub i64 %38, %39
+  store i64 %40, ptr %8, align 8
+  br label %41
+
+41:                                               ; preds = %3, %._crit_edge
+  %.025 = phi i64 [ %.026.lcssa, %._crit_edge ], [ 0, %3 ]
+  ret i64 %.025
+}
+
+; Function Attrs: nounwind uwtable
+define i64 @text_normalize_map(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+  %4 = getelementptr inbounds i8, ptr %1, i64 88
+  %5 = load i64, ptr %4, align 8
+  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = load i64, ptr %8, align 8
+  %10 = and i64 %7, 4294967295
+  %11 = getelementptr inbounds i8, ptr %1, i64 104
+  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = sub i64 %5, %2
+  %.5152 = tail call i64 @llvm.umin.i64(i64 %10, i64 %14)
+  %.53 = tail call i64 @llvm.umin.i64(i64 %.5152, i64 %9)
+  %.not54 = icmp eq i64 %.53, 0
+  br i1 %.not54, label %.loopexit, label %.lr.ph
+
+.lr.ph:                                           ; preds = %3, %44
+  %.57 = phi i64 [ %., %44 ], [ %.53, %3 ]
+  %.056 = phi i64 [ %48, %44 ], [ %2, %3 ]
+  %.03055 = phi i64 [ %49, %44 ], [ 0, %3 ]
+  %15 = load ptr, ptr %11, align 8
+  %16 = tail call ptr %15(ptr noundef %1, i64 noundef %.056, i64 noundef %.57, i32 noundef 0) #4
+  %.not37 = icmp eq ptr %16, null
+  br i1 %.not37, label %.loopexit, label %17
+
+17:                                               ; preds = %.lr.ph
+  %18 = load ptr, ptr %0, align 8
+  %19 = load i64, ptr %8, align 8
+  %20 = getelementptr inbounds i8, ptr %18, i64 %19
+  %21 = load i64, ptr %12, align 8
+  %22 = icmp slt i64 %21, %19
+  br i1 %22, label %.lr.ph.i, label %.loopexit
+
+.lr.ph.i:                                         ; preds = %17
+  %23 = getelementptr inbounds i8, ptr %18, i64 %21
+  br label %24
+
+24:                                               ; preds = %39, %.lr.ph.i
+  %.02429.i = phi ptr [ %23, %.lr.ph.i ], [ %.2.i, %39 ]
+  %.02628.i = phi i64 [ 0, %.lr.ph.i ], [ %40, %39 ]
+  %25 = getelementptr inbounds i8, ptr %16, i64 %.02628.i
+  %26 = load i8, ptr %25, align 1
+  %27 = zext i8 %26 to i64
+  %28 = getelementptr inbounds [256 x i32], ptr @char_action, i64 0, i64 %27
+  %29 = load i32, ptr %28, align 4
+  switch i32 %29, label %39 [
+    i32 0, label %37
+    i32 2, label %30
+    i32 3, label %35
+  ]
+
+30:                                               ; preds = %24
+  %31 = load i32, ptr %13, align 8
+  %.not.i = icmp eq i32 %31, 0
+  br i1 %.not.i, label %32, label %34
+
+32:                                               ; preds = %30
+  %33 = getelementptr inbounds i8, ptr %.02429.i, i64 1
+  store i8 32, ptr %.02429.i, align 1
+  br label %34
+
+34:                                               ; preds = %32, %30
+  %.1.i = phi ptr [ %.02429.i, %30 ], [ %33, %32 ]
+  store i32 1, ptr %13, align 8
+  br label %39
+
+35:                                               ; preds = %24
+  %36 = add i8 %26, 32
+  br label %37
+
+37:                                               ; preds = %35, %24
+  %.0.i = phi i8 [ %36, %35 ], [ %26, %24 ]
+  store i32 0, ptr %13, align 8
+  %38 = getelementptr inbounds i8, ptr %.02429.i, i64 1
+  store i8 %.0.i, ptr %.02429.i, align 1
+  br label %39
+
+39:                                               ; preds = %37, %34, %24
+  %.2.i = phi ptr [ %.02429.i, %24 ], [ %38, %37 ], [ %.1.i, %34 ]
+  %40 = add nuw i64 %.02628.i, 1
+  %41 = icmp ult i64 %40, %.57
+  %42 = icmp ult ptr %.2.i, %20
+  %43 = select i1 %41, i1 %42, i1 false
+  br i1 %43, label %24, label %44
+
+44:                                               ; preds = %39
+  %.pre.i = load ptr, ptr %0, align 8
+  %45 = ptrtoint ptr %.2.i to i64
+  %46 = ptrtoint ptr %.pre.i to i64
+  %47 = sub i64 %45, %46
+  store i64 %47, ptr %12, align 8
+  %48 = add i64 %.57, %.056
+  %49 = add i64 %40, %.03055
+  %50 = sub i64 %5, %48
+  %51 = sub i64 %9, %49
+  %.51 = tail call i64 @llvm.umin.i64(i64 %10, i64 %50)
+  %. = tail call i64 @llvm.umin.i64(i64 %.51, i64 %51)
+  %.not = icmp eq i64 %., 0
+  br i1 %.not, label %.loopexit, label %.lr.ph
+
+.loopexit:                                        ; preds = %17, %44, %.lr.ph, %3
+  %.030.lcssa = phi i64 [ 0, %3 ], [ %.03055, %17 ], [ %49, %44 ], [ %.03055, %.lr.ph ]
+  ret i64 %.030.lcssa
+}
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #3
+
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
