@@ -12228,36 +12228,34 @@ if.then:                                          ; preds = %entry
   %fneg20.i = fneg float %add.i.i
   %cu.i.0 = select i1 %cmp.i.not, float %add.i.i, float %fneg20.i
   %cmp.i31.i.inv = fcmp oge float %add.i62.i, -1.000000e+00
-  %val.i30.i.0 = select i1 %cmp.i31.i.inv, float %add.i62.i, float -1.000000e+00
-  %cmp1.i34.i = fcmp ogt float %val.i30.i.0, 1.000000e+00
+  %8 = fcmp ogt float %add.i62.i, 1.000000e+00
   %cmp.i.i.inv = fcmp oge float %cu.i.0, -1.000000e+00
-  %val.i.i.0 = select i1 %cmp.i.i.inv, float %cu.i.0, float -1.000000e+00
-  %cmp1.i.i = fcmp ogt float %val.i.i.0, 1.000000e+00
-  %8 = tail call float @llvm.fabs.f32(float %add.i62.i)
-  %9 = select i1 %cmp.i31.i.inv, float %8, float 1.000000e+00
-  %10 = select i1 %cmp1.i34.i, float 1.000000e+00, float %9
-  %11 = tail call float @llvm.fabs.f32(float %add.i.i)
-  %12 = select i1 %cmp.i.i.inv, float %11, float 1.000000e+00
-  %13 = select i1 %cmp1.i.i, float 1.000000e+00, float %12
-  %mul1 = fmul float %10, %tblur
-  %14 = tail call float @llvm.fmuladd.f32(float %sblur, float %13, float %mul1)
-  %15 = load float, ptr %majorlength, align 4
-  %add2 = fadd float %15, %14
+  %9 = fcmp ogt float %cu.i.0, 1.000000e+00
+  %10 = tail call float @llvm.fabs.f32(float %add.i62.i)
+  %11 = select i1 %8, float 1.000000e+00, float %10
+  %12 = select i1 %cmp.i31.i.inv, float %11, float 1.000000e+00
+  %13 = tail call float @llvm.fabs.f32(float %add.i.i)
+  %14 = select i1 %9, float 1.000000e+00, float %13
+  %15 = select i1 %cmp.i.i.inv, float %14, float 1.000000e+00
+  %mul1 = fmul float %12, %tblur
+  %16 = tail call float @llvm.fmuladd.f32(float %sblur, float %15, float %mul1)
+  %17 = load float, ptr %majorlength, align 4
+  %add2 = fadd float %17, %16
   store float %add2, ptr %majorlength, align 4
-  %mul3 = fmul float %13, %tblur
-  %16 = tail call float @llvm.fmuladd.f32(float %sblur, float %10, float %mul3)
-  %17 = load float, ptr %minorlength, align 4
-  %add4 = fadd float %17, %16
+  %mul3 = fmul float %15, %tblur
+  %18 = tail call float @llvm.fmuladd.f32(float %sblur, float %12, float %mul3)
+  %19 = load float, ptr %minorlength, align 4
+  %add4 = fadd float %19, %18
   store float %add4, ptr %minorlength, align 4
-  %18 = load float, ptr %majorlength, align 4
-  %cmp5 = fcmp ogt float %add4, %18
+  %20 = load float, ptr %majorlength, align 4
+  %cmp5 = fcmp ogt float %add4, %20
   br i1 %cmp5, label %if.then6, label %if.end9
 
 if.then6:                                         ; preds = %if.then
-  store float %18, ptr %minorlength, align 4
+  store float %20, ptr %minorlength, align 4
   store float %add4, ptr %majorlength, align 4
-  %19 = load float, ptr %theta, align 4
-  %conv = fpext float %19 to double
+  %21 = load float, ptr %theta, align 4
+  %conv = fpext float %21 to double
   %add7 = fadd double %conv, 0x3FF921FB54442D18
   %conv8 = fptrunc double %add7 to float
   store float %conv8, ptr %theta, align 4

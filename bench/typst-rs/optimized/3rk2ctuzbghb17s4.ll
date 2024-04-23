@@ -101033,19 +101033,18 @@ define noundef double @_ZN5typst6layout6length6Length2at17hceec87c6a828e39cE(dou
   %.mask.i.i.i.i.i = and i64 %9, 4503599627370495
   %12 = icmp ne i64 %.mask.i.i.i.i.i, 0
   %.0.i.i.i.i.i = and i1 %11, %12
-  %.0.i.i.i.i = select i1 %.0.i.i.i.i.i, double 0.000000e+00, double %8
   %13 = tail call double @llvm.fabs.f64(double %8)
-  %14 = select i1 %.0.i.i.i.i.i, double 0.000000e+00, double %13
-  %15 = fcmp one double %14, 0x7FF0000000000000
-  %.0.i = select i1 %15, double %.0.i.i.i.i, double 0.000000e+00
-  %16 = fadd double %.0.i, %0
-  %17 = bitcast double %16 to i64
-  %18 = and i64 %17, 9218868437227405312
-  %19 = icmp eq i64 %18, 9218868437227405312
-  %.mask.i.i.i.i = and i64 %17, 4503599627370495
-  %20 = icmp ne i64 %.mask.i.i.i.i, 0
-  %.0.i.i.i.i1 = and i1 %19, %20
-  %.0.i.i.i = select i1 %.0.i.i.i.i1, double 0.000000e+00, double %16
+  %14 = fcmp one double %13, 0x7FF0000000000000
+  %.0.i.i.i.i = select i1 %14, double %8, double 0.000000e+00
+  %.0.i = select i1 %.0.i.i.i.i.i, double 0.000000e+00, double %.0.i.i.i.i
+  %15 = fadd double %.0.i, %0
+  %16 = bitcast double %15 to i64
+  %17 = and i64 %16, 9218868437227405312
+  %18 = icmp eq i64 %17, 9218868437227405312
+  %.mask.i.i.i.i = and i64 %16, 4503599627370495
+  %19 = icmp ne i64 %.mask.i.i.i.i, 0
+  %.0.i.i.i.i1 = and i1 %18, %19
+  %.0.i.i.i = select i1 %.0.i.i.i.i1, double 0.000000e+00, double %15
   ret double %.0.i.i.i
 }
 
@@ -102076,23 +102075,22 @@ _ZN5typst4util7Numeric7is_zero17h8b8e138031b37f84E.exit: ; preds = %3
   %.mask.i.i.i.i.i = and i64 %25, 4503599627370495
   %28 = icmp ne i64 %.mask.i.i.i.i.i, 0
   %.0.i.i.i.i.i = and i1 %27, %28
-  %.0.i.i.i.i1 = select i1 %.0.i.i.i.i.i, double 0.000000e+00, double %24
   %29 = call double @llvm.fabs.f64(double %24)
-  %30 = select i1 %.0.i.i.i.i.i, double 0.000000e+00, double %29
-  %31 = fcmp one double %30, 0x7FF0000000000000
-  %.0.i2 = select i1 %31, double %.0.i.i.i.i1, double 0.000000e+00
+  %30 = fcmp one double %29, 0x7FF0000000000000
+  %.0.i.i.i.i1 = select i1 %30, double %24, double 0.000000e+00
+  %.0.i2 = select i1 %.0.i.i.i.i.i, double 0.000000e+00, double %.0.i.i.i.i1
   br label %"_ZN77_$LT$typst..layout..em..Em$u20$as$u20$typst..foundations..styles..Resolve$GT$7resolve17haa3a83699951ea91E.exit"
 
 "_ZN77_$LT$typst..layout..em..Em$u20$as$u20$typst..foundations..styles..Resolve$GT$7resolve17haa3a83699951ea91E.exit": ; preds = %_ZN5typst4util7Numeric7is_zero17h8b8e138031b37f84E.exit, %15
   %.0.i = phi double [ %.0.i2, %15 ], [ 0.000000e+00, %_ZN5typst4util7Numeric7is_zero17h8b8e138031b37f84E.exit ]
-  %32 = fadd double %.0.i, %0
-  %33 = bitcast double %32 to i64
-  %34 = and i64 %33, 9218868437227405312
-  %35 = icmp eq i64 %34, 9218868437227405312
-  %.mask.i.i.i.i = and i64 %33, 4503599627370495
-  %36 = icmp ne i64 %.mask.i.i.i.i, 0
-  %.0.i.i.i.i = and i1 %35, %36
-  %.0.i.i.i = select i1 %.0.i.i.i.i, double 0.000000e+00, double %32
+  %31 = fadd double %.0.i, %0
+  %32 = bitcast double %31 to i64
+  %33 = and i64 %32, 9218868437227405312
+  %34 = icmp eq i64 %33, 9218868437227405312
+  %.mask.i.i.i.i = and i64 %32, 4503599627370495
+  %35 = icmp ne i64 %.mask.i.i.i.i, 0
+  %.0.i.i.i.i = and i1 %34, %35
+  %.0.i.i.i = select i1 %.0.i.i.i.i, double 0.000000e+00, double %31
   ret double %.0.i.i.i
 }
 
@@ -102352,186 +102350,146 @@ define void @_ZN5typst6layout9transform9Transform10pre_concat17h3557677b4d525aca
   %10 = getelementptr inbounds i8, ptr %2, i64 24
   %11 = load <2 x double>, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %2, i64 32
-  %13 = load double, ptr %12, align 8, !noundef !12
-  %14 = getelementptr inbounds i8, ptr %2, i64 40
-  %15 = load double, ptr %14, align 8, !noundef !12
-  %16 = getelementptr inbounds i8, ptr %1, i64 32
-  %17 = load double, ptr %16, align 8, !noundef !12
-  %18 = getelementptr inbounds i8, ptr %1, i64 40
-  %19 = load double, ptr %18, align 8, !noundef !12
-  %20 = load <2 x double>, ptr %1, align 8
-  %21 = shufflevector <2 x double> %4, <2 x double> poison, <2 x i32> zeroinitializer
-  %22 = fmul <2 x double> %21, %20
-  %23 = bitcast <2 x double> %22 to <2 x i64>
-  %24 = and <2 x i64> %23, <i64 9218868437227405312, i64 9218868437227405312>
-  %25 = icmp eq <2 x i64> %24, <i64 9218868437227405312, i64 9218868437227405312>
-  %26 = and <2 x i64> %23, <i64 4503599627370495, i64 4503599627370495>
-  %27 = icmp ne <2 x i64> %26, zeroinitializer
-  %28 = and <2 x i1> %25, %27
-  %29 = select <2 x i1> %28, <2 x double> zeroinitializer, <2 x double> %22
-  %30 = load <2 x double>, ptr %5, align 8
-  %31 = shufflevector <2 x double> %7, <2 x double> poison, <2 x i32> zeroinitializer
-  %32 = fmul <2 x double> %31, %30
-  %33 = bitcast <2 x double> %32 to <2 x i64>
-  %34 = and <2 x i64> %33, <i64 9218868437227405312, i64 9218868437227405312>
-  %35 = icmp eq <2 x i64> %34, <i64 9218868437227405312, i64 9218868437227405312>
-  %36 = and <2 x i64> %33, <i64 4503599627370495, i64 4503599627370495>
-  %37 = icmp ne <2 x i64> %36, zeroinitializer
-  %38 = and <2 x i1> %35, %37
-  %39 = select <2 x i1> %38, <2 x double> zeroinitializer, <2 x double> %32
-  %40 = fadd <2 x double> %29, %39
-  %41 = bitcast <2 x double> %40 to <2 x i64>
-  %42 = and <2 x i64> %41, <i64 9218868437227405312, i64 9218868437227405312>
-  %43 = icmp eq <2 x i64> %42, <i64 9218868437227405312, i64 9218868437227405312>
-  %44 = and <2 x i64> %41, <i64 4503599627370495, i64 4503599627370495>
-  %45 = icmp ne <2 x i64> %44, zeroinitializer
-  %46 = and <2 x i1> %43, %45
-  %47 = select <2 x i1> %46, <2 x double> zeroinitializer, <2 x double> %40
-  %48 = extractelement <2 x double> %20, i64 0
-  %49 = bitcast double %48 to i64
-  %50 = and i64 %49, 9218868437227405312
-  %51 = icmp eq i64 %50, 9218868437227405312
-  %.mask.i.i.i.i.i.i.i = and i64 %49, 4503599627370495
-  %52 = icmp ne i64 %.mask.i.i.i.i.i.i.i, 0
-  %.0.i.i.i.i.i.i.i = and i1 %51, %52
-  %.0.i.i.i.i.i.i = select i1 %.0.i.i.i.i.i.i.i, double 0.000000e+00, double %48
-  %53 = fmul double %.0.i.i.i.i.i.i, %13
-  %54 = bitcast double %53 to i64
-  %55 = and i64 %54, 9218868437227405312
-  %56 = icmp eq i64 %55, 9218868437227405312
-  %.mask.i.i.i.i.i = and i64 %54, 4503599627370495
-  %57 = icmp ne i64 %.mask.i.i.i.i.i, 0
-  %.0.i.i.i.i.i = and i1 %56, %57
-  %.0.i.i.i.i34 = select i1 %.0.i.i.i.i.i, double 0.000000e+00, double %53
-  %58 = tail call double @llvm.fabs.f64(double %53)
-  %59 = select i1 %.0.i.i.i.i.i, double 0.000000e+00, double %58
-  %60 = fcmp one double %59, 0x7FF0000000000000
-  %.0.i = select i1 %60, double %.0.i.i.i.i34, double 0.000000e+00
-  %61 = extractelement <2 x double> %30, i64 0
-  %62 = bitcast double %61 to i64
-  %63 = and i64 %62, 9218868437227405312
-  %64 = icmp eq i64 %63, 9218868437227405312
-  %.mask.i.i.i.i.i.i.i35 = and i64 %62, 4503599627370495
-  %65 = icmp ne i64 %.mask.i.i.i.i.i.i.i35, 0
-  %.0.i.i.i.i.i.i.i36 = and i1 %64, %65
-  %.0.i.i.i.i.i.i37 = select i1 %.0.i.i.i.i.i.i.i36, double 0.000000e+00, double %61
-  %66 = fmul double %.0.i.i.i.i.i.i37, %15
+  %13 = getelementptr inbounds i8, ptr %1, i64 32
+  %14 = load double, ptr %13, align 8, !noundef !12
+  %15 = getelementptr inbounds i8, ptr %1, i64 40
+  %16 = load double, ptr %15, align 8, !noundef !12
+  %17 = load <2 x double>, ptr %1, align 8
+  %18 = shufflevector <2 x double> %4, <2 x double> poison, <2 x i32> zeroinitializer
+  %19 = fmul <2 x double> %18, %17
+  %20 = bitcast <2 x double> %19 to <2 x i64>
+  %21 = and <2 x i64> %20, <i64 9218868437227405312, i64 9218868437227405312>
+  %22 = icmp eq <2 x i64> %21, <i64 9218868437227405312, i64 9218868437227405312>
+  %23 = and <2 x i64> %20, <i64 4503599627370495, i64 4503599627370495>
+  %24 = icmp ne <2 x i64> %23, zeroinitializer
+  %25 = and <2 x i1> %22, %24
+  %26 = select <2 x i1> %25, <2 x double> zeroinitializer, <2 x double> %19
+  %27 = load <2 x double>, ptr %5, align 8
+  %28 = shufflevector <2 x double> %7, <2 x double> poison, <2 x i32> zeroinitializer
+  %29 = fmul <2 x double> %28, %27
+  %30 = bitcast <2 x double> %29 to <2 x i64>
+  %31 = and <2 x i64> %30, <i64 9218868437227405312, i64 9218868437227405312>
+  %32 = icmp eq <2 x i64> %31, <i64 9218868437227405312, i64 9218868437227405312>
+  %33 = and <2 x i64> %30, <i64 4503599627370495, i64 4503599627370495>
+  %34 = icmp ne <2 x i64> %33, zeroinitializer
+  %35 = and <2 x i1> %32, %34
+  %36 = select <2 x i1> %35, <2 x double> zeroinitializer, <2 x double> %29
+  %37 = fadd <2 x double> %26, %36
+  %38 = bitcast <2 x double> %37 to <2 x i64>
+  %39 = and <2 x i64> %38, <i64 9218868437227405312, i64 9218868437227405312>
+  %40 = icmp eq <2 x i64> %39, <i64 9218868437227405312, i64 9218868437227405312>
+  %41 = and <2 x i64> %38, <i64 4503599627370495, i64 4503599627370495>
+  %42 = icmp ne <2 x i64> %41, zeroinitializer
+  %43 = and <2 x i1> %40, %42
+  %44 = select <2 x i1> %43, <2 x double> zeroinitializer, <2 x double> %37
+  %45 = load <2 x double>, ptr %12, align 8
+  %46 = shufflevector <2 x double> %17, <2 x double> %27, <2 x i32> <i32 0, i32 2>
+  %47 = bitcast <2 x double> %46 to <2 x i64>
+  %48 = and <2 x i64> %47, <i64 9218868437227405312, i64 9218868437227405312>
+  %49 = icmp eq <2 x i64> %48, <i64 9218868437227405312, i64 9218868437227405312>
+  %50 = and <2 x i64> %47, <i64 4503599627370495, i64 4503599627370495>
+  %51 = icmp ne <2 x i64> %50, zeroinitializer
+  %52 = and <2 x i1> %49, %51
+  %53 = select <2 x i1> %52, <2 x double> zeroinitializer, <2 x double> %46
+  %54 = fmul <2 x double> %53, %45
+  %55 = bitcast <2 x double> %54 to <2 x i64>
+  %56 = and <2 x i64> %55, <i64 9218868437227405312, i64 9218868437227405312>
+  %57 = icmp eq <2 x i64> %56, <i64 9218868437227405312, i64 9218868437227405312>
+  %58 = and <2 x i64> %55, <i64 4503599627370495, i64 4503599627370495>
+  %59 = icmp ne <2 x i64> %58, zeroinitializer
+  %60 = and <2 x i1> %57, %59
+  %61 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %54)
+  %62 = fcmp one <2 x double> %61, <double 0x7FF0000000000000, double 0x7FF0000000000000>
+  %63 = select <2 x i1> %62, <2 x double> %54, <2 x double> zeroinitializer
+  %64 = select <2 x i1> %60, <2 x double> zeroinitializer, <2 x double> %63
+  %shift = shufflevector <2 x double> %64, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %65 = fadd <2 x double> %64, %shift
+  %66 = extractelement <2 x double> %65, i64 0
   %67 = bitcast double %66 to i64
   %68 = and i64 %67, 9218868437227405312
   %69 = icmp eq i64 %68, 9218868437227405312
-  %.mask.i.i.i.i.i38 = and i64 %67, 4503599627370495
-  %70 = icmp ne i64 %.mask.i.i.i.i.i38, 0
-  %.0.i.i.i.i.i39 = and i1 %69, %70
-  %.0.i.i.i.i40 = select i1 %.0.i.i.i.i.i39, double 0.000000e+00, double %66
-  %71 = tail call double @llvm.fabs.f64(double %66)
-  %72 = select i1 %.0.i.i.i.i.i39, double 0.000000e+00, double %71
-  %73 = fcmp one double %72, 0x7FF0000000000000
-  %.0.i41 = select i1 %73, double %.0.i.i.i.i40, double 0.000000e+00
-  %74 = fadd double %.0.i, %.0.i41
-  %75 = bitcast double %74 to i64
-  %76 = and i64 %75, 9218868437227405312
-  %77 = icmp eq i64 %76, 9218868437227405312
-  %.mask.i.i.i.i42 = and i64 %75, 4503599627370495
-  %78 = icmp ne i64 %.mask.i.i.i.i42, 0
-  %.0.i.i.i.i43 = and i1 %77, %78
-  %.0.i.i.i44 = select i1 %.0.i.i.i.i43, double 0.000000e+00, double %74
-  %79 = fadd double %17, %.0.i.i.i44
-  %80 = bitcast double %79 to i64
-  %81 = and i64 %80, 9218868437227405312
-  %82 = icmp eq i64 %81, 9218868437227405312
-  %.mask.i.i.i.i45 = and i64 %80, 4503599627370495
-  %83 = icmp ne i64 %.mask.i.i.i.i45, 0
-  %.0.i.i.i.i46 = and i1 %82, %83
-  %.0.i.i.i47 = select i1 %.0.i.i.i.i46, double 0.000000e+00, double %79
-  %84 = extractelement <2 x double> %20, i64 1
-  %85 = bitcast double %84 to i64
-  %86 = and i64 %85, 9218868437227405312
-  %87 = icmp eq i64 %86, 9218868437227405312
-  %.mask.i.i.i.i.i.i.i48 = and i64 %85, 4503599627370495
-  %88 = icmp ne i64 %.mask.i.i.i.i.i.i.i48, 0
-  %.0.i.i.i.i.i.i.i49 = and i1 %87, %88
-  %.0.i.i.i.i.i.i50 = select i1 %.0.i.i.i.i.i.i.i49, double 0.000000e+00, double %84
-  %89 = fmul double %13, %.0.i.i.i.i.i.i50
-  %90 = bitcast double %89 to i64
-  %91 = and i64 %90, 9218868437227405312
-  %92 = icmp eq i64 %91, 9218868437227405312
-  %.mask.i.i.i.i.i51 = and i64 %90, 4503599627370495
-  %93 = icmp ne i64 %.mask.i.i.i.i.i51, 0
-  %.0.i.i.i.i.i52 = and i1 %92, %93
-  %.0.i.i.i.i53 = select i1 %.0.i.i.i.i.i52, double 0.000000e+00, double %89
-  %94 = tail call double @llvm.fabs.f64(double %89)
-  %95 = select i1 %.0.i.i.i.i.i52, double 0.000000e+00, double %94
-  %96 = fcmp one double %95, 0x7FF0000000000000
-  %.0.i54 = select i1 %96, double %.0.i.i.i.i53, double 0.000000e+00
-  %97 = extractelement <2 x double> %30, i64 1
-  %98 = bitcast double %97 to i64
-  %99 = and i64 %98, 9218868437227405312
-  %100 = icmp eq i64 %99, 9218868437227405312
-  %.mask.i.i.i.i.i.i.i55 = and i64 %98, 4503599627370495
-  %101 = icmp ne i64 %.mask.i.i.i.i.i.i.i55, 0
-  %.0.i.i.i.i.i.i.i56 = and i1 %100, %101
-  %.0.i.i.i.i.i.i57 = select i1 %.0.i.i.i.i.i.i.i56, double 0.000000e+00, double %97
-  %102 = fmul double %15, %.0.i.i.i.i.i.i57
-  %103 = bitcast double %102 to i64
-  %104 = and i64 %103, 9218868437227405312
-  %105 = icmp eq i64 %104, 9218868437227405312
-  %.mask.i.i.i.i.i58 = and i64 %103, 4503599627370495
-  %106 = icmp ne i64 %.mask.i.i.i.i.i58, 0
-  %.0.i.i.i.i.i59 = and i1 %105, %106
-  %.0.i.i.i.i60 = select i1 %.0.i.i.i.i.i59, double 0.000000e+00, double %102
-  %107 = tail call double @llvm.fabs.f64(double %102)
-  %108 = select i1 %.0.i.i.i.i.i59, double 0.000000e+00, double %107
-  %109 = fcmp one double %108, 0x7FF0000000000000
-  %.0.i61 = select i1 %109, double %.0.i.i.i.i60, double 0.000000e+00
-  %110 = fadd double %.0.i54, %.0.i61
-  %111 = bitcast double %110 to i64
-  %112 = and i64 %111, 9218868437227405312
-  %113 = icmp eq i64 %112, 9218868437227405312
-  %.mask.i.i.i.i62 = and i64 %111, 4503599627370495
-  %114 = icmp ne i64 %.mask.i.i.i.i62, 0
-  %.0.i.i.i.i63 = and i1 %113, %114
-  %.0.i.i.i64 = select i1 %.0.i.i.i.i63, double 0.000000e+00, double %110
-  %115 = fadd double %19, %.0.i.i.i64
-  %116 = bitcast double %115 to i64
-  %117 = and i64 %116, 9218868437227405312
-  %118 = icmp eq i64 %117, 9218868437227405312
-  %.mask.i.i.i.i65 = and i64 %116, 4503599627370495
-  %119 = icmp ne i64 %.mask.i.i.i.i65, 0
-  %.0.i.i.i.i66 = and i1 %118, %119
-  %.0.i.i.i67 = select i1 %.0.i.i.i.i66, double 0.000000e+00, double %115
-  store <2 x double> %47, ptr %0, align 8
-  %120 = getelementptr inbounds i8, ptr %0, i64 16
-  %121 = shufflevector <2 x double> %9, <2 x double> poison, <2 x i32> zeroinitializer
-  %122 = fmul <2 x double> %20, %121
-  %123 = bitcast <2 x double> %122 to <2 x i64>
-  %124 = and <2 x i64> %123, <i64 9218868437227405312, i64 9218868437227405312>
-  %125 = icmp eq <2 x i64> %124, <i64 9218868437227405312, i64 9218868437227405312>
-  %126 = and <2 x i64> %123, <i64 4503599627370495, i64 4503599627370495>
-  %127 = icmp ne <2 x i64> %126, zeroinitializer
-  %128 = and <2 x i1> %125, %127
-  %129 = select <2 x i1> %128, <2 x double> zeroinitializer, <2 x double> %122
-  %130 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> zeroinitializer
-  %131 = fmul <2 x double> %30, %130
-  %132 = bitcast <2 x double> %131 to <2 x i64>
-  %133 = and <2 x i64> %132, <i64 9218868437227405312, i64 9218868437227405312>
-  %134 = icmp eq <2 x i64> %133, <i64 9218868437227405312, i64 9218868437227405312>
-  %135 = and <2 x i64> %132, <i64 4503599627370495, i64 4503599627370495>
-  %136 = icmp ne <2 x i64> %135, zeroinitializer
-  %137 = and <2 x i1> %134, %136
-  %138 = select <2 x i1> %137, <2 x double> zeroinitializer, <2 x double> %131
-  %139 = fadd <2 x double> %129, %138
-  %140 = bitcast <2 x double> %139 to <2 x i64>
-  %141 = and <2 x i64> %140, <i64 9218868437227405312, i64 9218868437227405312>
-  %142 = icmp eq <2 x i64> %141, <i64 9218868437227405312, i64 9218868437227405312>
-  %143 = and <2 x i64> %140, <i64 4503599627370495, i64 4503599627370495>
-  %144 = icmp ne <2 x i64> %143, zeroinitializer
-  %145 = and <2 x i1> %142, %144
-  %146 = select <2 x i1> %145, <2 x double> zeroinitializer, <2 x double> %139
-  store <2 x double> %146, ptr %120, align 8
-  %147 = getelementptr inbounds i8, ptr %0, i64 32
-  store double %.0.i.i.i47, ptr %147, align 8
-  %148 = getelementptr inbounds i8, ptr %0, i64 40
-  store double %.0.i.i.i67, ptr %148, align 8
+  %.mask.i.i.i.i42 = and i64 %67, 4503599627370495
+  %70 = icmp ne i64 %.mask.i.i.i.i42, 0
+  %.0.i.i.i.i43 = and i1 %69, %70
+  %.0.i.i.i44 = select i1 %.0.i.i.i.i43, double 0.000000e+00, double %66
+  %71 = fadd double %14, %.0.i.i.i44
+  %72 = bitcast double %71 to i64
+  %73 = and i64 %72, 9218868437227405312
+  %74 = icmp eq i64 %73, 9218868437227405312
+  %.mask.i.i.i.i45 = and i64 %72, 4503599627370495
+  %75 = icmp ne i64 %.mask.i.i.i.i45, 0
+  %.0.i.i.i.i46 = and i1 %74, %75
+  %.0.i.i.i47 = select i1 %.0.i.i.i.i46, double 0.000000e+00, double %71
+  %76 = shufflevector <2 x double> %17, <2 x double> %27, <2 x i32> <i32 1, i32 3>
+  %77 = bitcast <2 x double> %76 to <2 x i64>
+  %78 = and <2 x i64> %77, <i64 9218868437227405312, i64 9218868437227405312>
+  %79 = icmp eq <2 x i64> %78, <i64 9218868437227405312, i64 9218868437227405312>
+  %80 = and <2 x i64> %77, <i64 4503599627370495, i64 4503599627370495>
+  %81 = icmp ne <2 x i64> %80, zeroinitializer
+  %82 = and <2 x i1> %79, %81
+  %83 = select <2 x i1> %82, <2 x double> zeroinitializer, <2 x double> %76
+  %84 = fmul <2 x double> %45, %83
+  %85 = bitcast <2 x double> %84 to <2 x i64>
+  %86 = and <2 x i64> %85, <i64 9218868437227405312, i64 9218868437227405312>
+  %87 = icmp eq <2 x i64> %86, <i64 9218868437227405312, i64 9218868437227405312>
+  %88 = and <2 x i64> %85, <i64 4503599627370495, i64 4503599627370495>
+  %89 = icmp ne <2 x i64> %88, zeroinitializer
+  %90 = and <2 x i1> %87, %89
+  %91 = tail call <2 x double> @llvm.fabs.v2f64(<2 x double> %84)
+  %92 = fcmp one <2 x double> %91, <double 0x7FF0000000000000, double 0x7FF0000000000000>
+  %93 = select <2 x i1> %92, <2 x double> %84, <2 x double> zeroinitializer
+  %94 = select <2 x i1> %90, <2 x double> zeroinitializer, <2 x double> %93
+  %shift68 = shufflevector <2 x double> %94, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %95 = fadd <2 x double> %94, %shift68
+  %96 = extractelement <2 x double> %95, i64 0
+  %97 = bitcast double %96 to i64
+  %98 = and i64 %97, 9218868437227405312
+  %99 = icmp eq i64 %98, 9218868437227405312
+  %.mask.i.i.i.i62 = and i64 %97, 4503599627370495
+  %100 = icmp ne i64 %.mask.i.i.i.i62, 0
+  %.0.i.i.i.i63 = and i1 %99, %100
+  %.0.i.i.i64 = select i1 %.0.i.i.i.i63, double 0.000000e+00, double %96
+  %101 = fadd double %16, %.0.i.i.i64
+  %102 = bitcast double %101 to i64
+  %103 = and i64 %102, 9218868437227405312
+  %104 = icmp eq i64 %103, 9218868437227405312
+  %.mask.i.i.i.i65 = and i64 %102, 4503599627370495
+  %105 = icmp ne i64 %.mask.i.i.i.i65, 0
+  %.0.i.i.i.i66 = and i1 %104, %105
+  %.0.i.i.i67 = select i1 %.0.i.i.i.i66, double 0.000000e+00, double %101
+  store <2 x double> %44, ptr %0, align 8
+  %106 = getelementptr inbounds i8, ptr %0, i64 16
+  %107 = shufflevector <2 x double> %9, <2 x double> poison, <2 x i32> zeroinitializer
+  %108 = fmul <2 x double> %17, %107
+  %109 = bitcast <2 x double> %108 to <2 x i64>
+  %110 = and <2 x i64> %109, <i64 9218868437227405312, i64 9218868437227405312>
+  %111 = icmp eq <2 x i64> %110, <i64 9218868437227405312, i64 9218868437227405312>
+  %112 = and <2 x i64> %109, <i64 4503599627370495, i64 4503599627370495>
+  %113 = icmp ne <2 x i64> %112, zeroinitializer
+  %114 = and <2 x i1> %111, %113
+  %115 = select <2 x i1> %114, <2 x double> zeroinitializer, <2 x double> %108
+  %116 = shufflevector <2 x double> %11, <2 x double> poison, <2 x i32> zeroinitializer
+  %117 = fmul <2 x double> %27, %116
+  %118 = bitcast <2 x double> %117 to <2 x i64>
+  %119 = and <2 x i64> %118, <i64 9218868437227405312, i64 9218868437227405312>
+  %120 = icmp eq <2 x i64> %119, <i64 9218868437227405312, i64 9218868437227405312>
+  %121 = and <2 x i64> %118, <i64 4503599627370495, i64 4503599627370495>
+  %122 = icmp ne <2 x i64> %121, zeroinitializer
+  %123 = and <2 x i1> %120, %122
+  %124 = select <2 x i1> %123, <2 x double> zeroinitializer, <2 x double> %117
+  %125 = fadd <2 x double> %115, %124
+  %126 = bitcast <2 x double> %125 to <2 x i64>
+  %127 = and <2 x i64> %126, <i64 9218868437227405312, i64 9218868437227405312>
+  %128 = icmp eq <2 x i64> %127, <i64 9218868437227405312, i64 9218868437227405312>
+  %129 = and <2 x i64> %126, <i64 4503599627370495, i64 4503599627370495>
+  %130 = icmp ne <2 x i64> %129, zeroinitializer
+  %131 = and <2 x i1> %128, %130
+  %132 = select <2 x i1> %131, <2 x double> zeroinitializer, <2 x double> %125
+  store <2 x double> %132, ptr %106, align 8
+  %133 = getelementptr inbounds i8, ptr %0, i64 32
+  store double %.0.i.i.i47, ptr %133, align 8
+  %134 = getelementptr inbounds i8, ptr %0, i64 40
+  store double %.0.i.i.i67, ptr %134, align 8
   ret void
 }
 
@@ -102579,7 +102537,7 @@ _ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit: ; preds = %8
 19:                                               ; preds = %2
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
-  br label %121
+  br label %120
 
 _ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit._crit_edge: ; preds = %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit, %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit12
   %21 = load double, ptr %1, align 8, !noundef !12
@@ -102617,9 +102575,9 @@ _ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit._crit_edge: ; pred
   %43 = icmp ne i64 %.mask.i.i.i.i1.i, 0
   %.0.i.i.i.i2.i = and i1 %42, %43
   %44 = tail call double @llvm.fabs.f64(double %39)
-  %45 = select i1 %.0.i.i.i.i2.i, double 0.000000e+00, double %44
-  %46 = fcmp olt double %45, 0x3D719799812DEA11
-  br i1 %46, label %121, label %62
+  %45 = fcmp olt double %44, 0x3D719799812DEA11
+  %46 = or i1 %45, %.0.i.i.i.i2.i
+  br i1 %46, label %120, label %62
 
 47:                                               ; preds = %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit
   %or.cond.i.i11 = fcmp uno double %18, 0.000000e+00
@@ -102664,191 +102622,190 @@ _ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit12: ; preds = %47
 
 _ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit14: ; preds = %54
   %61 = fcmp oeq double %55, 0.000000e+00
-  br i1 %61, label %131, label %122
+  br i1 %61, label %130, label %121
 
 62:                                               ; preds = %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit._crit_edge
   %63 = fdiv double 1.000000e+00, %39
-  %64 = select i1 %.0.i.i.i.i2.i, double 0x7FF0000000000000, double %63
-  %65 = bitcast double %64 to i64
-  %66 = and i64 %65, 9218868437227405312
-  %67 = icmp eq i64 %66, 9218868437227405312
-  %.mask.i.i.i.i.i.i = and i64 %65, 4503599627370495
-  %68 = icmp ne i64 %.mask.i.i.i.i.i.i, 0
-  %.0.i.i.i.i.i.i = and i1 %67, %68
-  %.0.i.i.i.i.i15 = select i1 %.0.i.i.i.i.i.i, double 0.000000e+00, double %64
-  %69 = fneg double %18
-  %70 = bitcast double %69 to i64
-  %71 = and i64 %70, 9218868437227405312
-  %72 = icmp eq i64 %71, 9218868437227405312
-  %.mask.i.i.i.i19 = and i64 %70, 4503599627370495
-  %73 = icmp ne i64 %.mask.i.i.i.i19, 0
-  %.0.i.i.i.i20 = and i1 %72, %73
-  %.0.i.i.i21 = select i1 %.0.i.i.i.i20, double 0.000000e+00, double %69
-  %74 = fneg double %10
-  %75 = bitcast double %74 to i64
-  %76 = and i64 %75, 9218868437227405312
-  %77 = icmp eq i64 %76, 9218868437227405312
-  %.mask.i.i.i.i28 = and i64 %75, 4503599627370495
-  %78 = icmp ne i64 %.mask.i.i.i.i28, 0
-  %.0.i.i.i.i29 = and i1 %77, %78
-  %.0.i.i.i30 = select i1 %.0.i.i.i.i29, double 0.000000e+00, double %74
-  %79 = getelementptr inbounds i8, ptr %1, i64 32
-  %80 = getelementptr inbounds i8, ptr %0, i64 8
-  %81 = insertelement <2 x double> poison, double %23, i64 0
-  %82 = insertelement <2 x double> %81, double %.0.i.i.i21, i64 1
-  %83 = insertelement <2 x double> poison, double %.0.i.i.i.i.i15, i64 0
-  %84 = shufflevector <2 x double> %83, <2 x double> poison, <2 x i32> zeroinitializer
-  %85 = fmul <2 x double> %82, %84
-  %86 = bitcast <2 x double> %85 to <2 x i64>
-  %87 = and <2 x i64> %86, <i64 9218868437227405312, i64 9218868437227405312>
-  %88 = icmp eq <2 x i64> %87, <i64 9218868437227405312, i64 9218868437227405312>
-  %89 = and <2 x i64> %86, <i64 4503599627370495, i64 4503599627370495>
-  %90 = icmp ne <2 x i64> %89, zeroinitializer
-  %91 = and <2 x i1> %88, %90
-  %92 = select <2 x i1> %91, <2 x double> zeroinitializer, <2 x double> %85
-  store <2 x double> %92, ptr %80, align 8
+  %64 = bitcast double %63 to i64
+  %65 = and i64 %64, 9218868437227405312
+  %66 = icmp eq i64 %65, 9218868437227405312
+  %.mask.i.i.i.i.i.i = and i64 %64, 4503599627370495
+  %67 = icmp ne i64 %.mask.i.i.i.i.i.i, 0
+  %.0.i.i.i.i.i.i = and i1 %66, %67
+  %.0.i.i.i.i.i15 = select i1 %.0.i.i.i.i.i.i, double 0.000000e+00, double %63
+  %68 = fneg double %18
+  %69 = bitcast double %68 to i64
+  %70 = and i64 %69, 9218868437227405312
+  %71 = icmp eq i64 %70, 9218868437227405312
+  %.mask.i.i.i.i19 = and i64 %69, 4503599627370495
+  %72 = icmp ne i64 %.mask.i.i.i.i19, 0
+  %.0.i.i.i.i20 = and i1 %71, %72
+  %.0.i.i.i21 = select i1 %.0.i.i.i.i20, double 0.000000e+00, double %68
+  %73 = fneg double %10
+  %74 = bitcast double %73 to i64
+  %75 = and i64 %74, 9218868437227405312
+  %76 = icmp eq i64 %75, 9218868437227405312
+  %.mask.i.i.i.i28 = and i64 %74, 4503599627370495
+  %77 = icmp ne i64 %.mask.i.i.i.i28, 0
+  %.0.i.i.i.i29 = and i1 %76, %77
+  %.0.i.i.i30 = select i1 %.0.i.i.i.i29, double 0.000000e+00, double %73
+  %78 = getelementptr inbounds i8, ptr %1, i64 32
+  %79 = getelementptr inbounds i8, ptr %0, i64 8
+  %80 = insertelement <2 x double> poison, double %23, i64 0
+  %81 = insertelement <2 x double> %80, double %.0.i.i.i21, i64 1
+  %82 = insertelement <2 x double> poison, double %.0.i.i.i.i.i15, i64 0
+  %83 = shufflevector <2 x double> %82, <2 x double> poison, <2 x i32> zeroinitializer
+  %84 = fmul <2 x double> %81, %83
+  %85 = bitcast <2 x double> %84 to <2 x i64>
+  %86 = and <2 x i64> %85, <i64 9218868437227405312, i64 9218868437227405312>
+  %87 = icmp eq <2 x i64> %86, <i64 9218868437227405312, i64 9218868437227405312>
+  %88 = and <2 x i64> %85, <i64 4503599627370495, i64 4503599627370495>
+  %89 = icmp ne <2 x i64> %88, zeroinitializer
+  %90 = and <2 x i1> %87, %89
+  %91 = select <2 x i1> %90, <2 x double> zeroinitializer, <2 x double> %84
+  store <2 x double> %91, ptr %79, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  %93 = insertelement <2 x double> poison, double %.0.i.i.i30, i64 0
-  %94 = insertelement <2 x double> %93, double %21, i64 1
-  %95 = fmul <2 x double> %94, %84
-  %96 = bitcast <2 x double> %95 to <2 x i64>
-  %97 = and <2 x i64> %96, <i64 9218868437227405312, i64 9218868437227405312>
-  %98 = icmp eq <2 x i64> %97, <i64 9218868437227405312, i64 9218868437227405312>
-  %99 = and <2 x i64> %96, <i64 4503599627370495, i64 4503599627370495>
-  %100 = icmp ne <2 x i64> %99, zeroinitializer
-  %101 = and <2 x i1> %98, %100
-  %102 = select <2 x i1> %101, <2 x double> zeroinitializer, <2 x double> %95
-  store <2 x double> %102, ptr %.sroa.53.0..sroa_idx, align 8
+  %92 = insertelement <2 x double> poison, double %.0.i.i.i30, i64 0
+  %93 = insertelement <2 x double> %92, double %21, i64 1
+  %94 = fmul <2 x double> %93, %83
+  %95 = bitcast <2 x double> %94 to <2 x i64>
+  %96 = and <2 x i64> %95, <i64 9218868437227405312, i64 9218868437227405312>
+  %97 = icmp eq <2 x i64> %96, <i64 9218868437227405312, i64 9218868437227405312>
+  %98 = and <2 x i64> %95, <i64 4503599627370495, i64 4503599627370495>
+  %99 = icmp ne <2 x i64> %98, zeroinitializer
+  %100 = and <2 x i1> %97, %99
+  %101 = select <2 x i1> %100, <2 x double> zeroinitializer, <2 x double> %94
+  store <2 x double> %101, ptr %.sroa.53.0..sroa_idx, align 8
   %.sroa.75.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  %103 = load <2 x double>, ptr %79, align 8
-  %104 = insertelement <2 x double> poison, double %18, i64 0
-  %105 = insertelement <2 x double> %104, double %10, i64 1
-  %106 = fmul <2 x double> %105, %103
-  %107 = shufflevector <2 x double> %106, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %108 = insertelement <2 x double> %81, double %21, i64 1
-  %109 = fmul <2 x double> %108, %103
-  %110 = fsub <2 x double> %107, %109
-  %111 = insertelement <2 x double> poison, double %64, i64 0
-  %112 = shufflevector <2 x double> %111, <2 x double> poison, <2 x i32> zeroinitializer
-  %113 = fmul <2 x double> %112, %110
-  %114 = bitcast <2 x double> %113 to <2 x i64>
-  %115 = and <2 x i64> %114, <i64 9218868437227405312, i64 9218868437227405312>
-  %116 = icmp eq <2 x i64> %115, <i64 9218868437227405312, i64 9218868437227405312>
-  %117 = and <2 x i64> %114, <i64 4503599627370495, i64 4503599627370495>
-  %118 = icmp ne <2 x i64> %117, zeroinitializer
-  %119 = and <2 x i1> %116, %118
-  %120 = select <2 x i1> %119, <2 x double> zeroinitializer, <2 x double> %113
-  store <2 x double> %120, ptr %.sroa.75.0..sroa_idx, align 8
-  br label %121
+  %102 = load <2 x double>, ptr %78, align 8
+  %103 = insertelement <2 x double> poison, double %18, i64 0
+  %104 = insertelement <2 x double> %103, double %10, i64 1
+  %105 = fmul <2 x double> %104, %102
+  %106 = shufflevector <2 x double> %105, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %107 = insertelement <2 x double> %80, double %21, i64 1
+  %108 = fmul <2 x double> %107, %102
+  %109 = fsub <2 x double> %106, %108
+  %110 = insertelement <2 x double> poison, double %63, i64 0
+  %111 = shufflevector <2 x double> %110, <2 x double> poison, <2 x i32> zeroinitializer
+  %112 = fmul <2 x double> %111, %109
+  %113 = bitcast <2 x double> %112 to <2 x i64>
+  %114 = and <2 x i64> %113, <i64 9218868437227405312, i64 9218868437227405312>
+  %115 = icmp eq <2 x i64> %114, <i64 9218868437227405312, i64 9218868437227405312>
+  %116 = and <2 x i64> %113, <i64 4503599627370495, i64 4503599627370495>
+  %117 = icmp ne <2 x i64> %116, zeroinitializer
+  %118 = and <2 x i1> %115, %117
+  %119 = select <2 x i1> %118, <2 x double> zeroinitializer, <2 x double> %112
+  store <2 x double> %119, ptr %.sroa.75.0..sroa_idx, align 8
+  br label %120
 
-121:                                              ; preds = %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit._crit_edge, %131, %143, %62, %19
-  %.sink = phi i64 [ 1, %131 ], [ 1, %143 ], [ 1, %62 ], [ 1, %19 ], [ 0, %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit._crit_edge ]
+120:                                              ; preds = %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit._crit_edge, %130, %142, %62, %19
+  %.sink = phi i64 [ 1, %130 ], [ 1, %142 ], [ 1, %62 ], [ 1, %19 ], [ 0, %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit._crit_edge ]
   store i64 %.sink, ptr %0, align 8
   ret void
 
-122:                                              ; preds = %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit14
-  %123 = getelementptr inbounds i8, ptr %1, i64 24
-  %124 = load double, ptr %123, align 8, !noundef !12
-  %or.cond.i.i48 = fcmp uno double %124, 0.000000e+00
-  br i1 %or.cond.i.i48, label %125, label %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit49
+121:                                              ; preds = %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit14
+  %122 = getelementptr inbounds i8, ptr %1, i64 24
+  %123 = load double, ptr %122, align 8, !noundef !12
+  %or.cond.i.i48 = fcmp uno double %123, 0.000000e+00
+  br i1 %or.cond.i.i48, label %124, label %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit49
 
-125:                                              ; preds = %122
+124:                                              ; preds = %121
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !25318
   store ptr @anon.a2b023d1a4e2834952d16152dce23780.285.llvm.7889846851399105414, ptr %3, align 8, !noalias !25318
-  %126 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 1, ptr %126, align 8, !noalias !25318
-  %127 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr null, ptr %127, align 8, !noalias !25318
-  %128 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %128, align 8, !noalias !25318
-  %129 = getelementptr inbounds i8, ptr %3, i64 24
-  store i64 0, ptr %129, align 8, !noalias !25318
+  %125 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 1, ptr %125, align 8, !noalias !25318
+  %126 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr null, ptr %126, align 8, !noalias !25318
+  %127 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr @anon.a2b023d1a4e2834952d16152dce23780.43.llvm.7889846851399105414, ptr %127, align 8, !noalias !25318
+  %128 = getelementptr inbounds i8, ptr %3, i64 24
+  store i64 0, ptr %128, align 8, !noalias !25318
   call void @_ZN4core9panicking9panic_fmt17hc69c4d258fe11477E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2b023d1a4e2834952d16152dce23780.287.llvm.7889846851399105414) #79, !noalias !25318
   unreachable
 
-_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit49: ; preds = %122
-  %130 = fcmp oeq double %124, 0.000000e+00
-  br i1 %130, label %131, label %143
+_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit49: ; preds = %121
+  %129 = fcmp oeq double %123, 0.000000e+00
+  br i1 %129, label %130, label %142
 
-131:                                              ; preds = %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit49, %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit14
-  %132 = getelementptr inbounds i8, ptr %1, i64 32
-  %133 = getelementptr inbounds i8, ptr %0, i64 8
-  store double 1.000000e+00, ptr %133, align 8
+130:                                              ; preds = %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit49, %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit14
+  %131 = getelementptr inbounds i8, ptr %1, i64 32
+  %132 = getelementptr inbounds i8, ptr %0, i64 8
+  store double 1.000000e+00, ptr %132, align 8
   %.sroa.4.0..sroa_idx78 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx78, i8 0, i64 16, i1 false)
   %.sroa.5.0..sroa_idx79 = getelementptr inbounds i8, ptr %0, i64 32
   store double 1.000000e+00, ptr %.sroa.5.0..sroa_idx79, align 8
   %.sroa.6.0..sroa_idx80 = getelementptr inbounds i8, ptr %0, i64 40
-  %134 = load <2 x double>, ptr %132, align 8
-  %135 = fneg <2 x double> %134
-  %136 = bitcast <2 x double> %135 to <2 x i64>
-  %137 = and <2 x i64> %136, <i64 9218868437227405312, i64 9218868437227405312>
-  %138 = icmp eq <2 x i64> %137, <i64 9218868437227405312, i64 9218868437227405312>
-  %139 = and <2 x i64> %136, <i64 4503599627370495, i64 4503599627370495>
-  %140 = icmp ne <2 x i64> %139, zeroinitializer
-  %141 = and <2 x i1> %138, %140
-  %142 = select <2 x i1> %141, <2 x double> zeroinitializer, <2 x double> %135
-  store <2 x double> %142, ptr %.sroa.6.0..sroa_idx80, align 8
-  br label %121
+  %133 = load <2 x double>, ptr %131, align 8
+  %134 = fneg <2 x double> %133
+  %135 = bitcast <2 x double> %134 to <2 x i64>
+  %136 = and <2 x i64> %135, <i64 9218868437227405312, i64 9218868437227405312>
+  %137 = icmp eq <2 x i64> %136, <i64 9218868437227405312, i64 9218868437227405312>
+  %138 = and <2 x i64> %135, <i64 4503599627370495, i64 4503599627370495>
+  %139 = icmp ne <2 x i64> %138, zeroinitializer
+  %140 = and <2 x i1> %137, %139
+  %141 = select <2 x i1> %140, <2 x double> zeroinitializer, <2 x double> %134
+  store <2 x double> %141, ptr %.sroa.6.0..sroa_idx80, align 8
+  br label %120
 
-143:                                              ; preds = %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit49
-  %144 = fdiv double 1.000000e+00, %55
-  %145 = fdiv double 1.000000e+00, %124
-  %146 = bitcast double %144 to i64
-  %147 = and i64 %146, 9218868437227405312
-  %148 = icmp eq i64 %147, 9218868437227405312
-  %.mask.i.i.i = and i64 %146, 4503599627370495
-  %149 = icmp ne i64 %.mask.i.i.i, 0
-  %.0.i.i.i56 = and i1 %148, %149
-  %.0.i.i = select i1 %.0.i.i.i56, double 0.000000e+00, double %144
-  %150 = getelementptr inbounds i8, ptr %1, i64 32
-  %151 = load double, ptr %150, align 8, !noundef !12
-  %152 = fneg double %151
-  %153 = bitcast double %152 to i64
-  %154 = and i64 %153, 9218868437227405312
-  %155 = icmp eq i64 %154, 9218868437227405312
-  %.mask.i.i.i.i60 = and i64 %153, 4503599627370495
-  %156 = icmp ne i64 %.mask.i.i.i.i60, 0
-  %.0.i.i.i.i61 = and i1 %155, %156
-  %.0.i.i.i62 = select i1 %.0.i.i.i.i61, double 0.000000e+00, double %152
-  %157 = fmul double %.0.i.i, %.0.i.i.i62
-  %158 = getelementptr inbounds i8, ptr %1, i64 40
-  %159 = load double, ptr %158, align 8, !noundef !12
-  %160 = fneg double %159
-  %161 = bitcast double %160 to i64
-  %162 = and i64 %161, 9218868437227405312
-  %163 = icmp eq i64 %162, 9218868437227405312
-  %.mask.i.i.i.i69 = and i64 %161, 4503599627370495
-  %164 = icmp ne i64 %.mask.i.i.i.i69, 0
-  %.0.i.i.i.i70 = and i1 %163, %164
-  %.0.i.i.i71 = select i1 %.0.i.i.i.i70, double 0.000000e+00, double %160
-  %165 = getelementptr inbounds i8, ptr %0, i64 8
-  store double %.0.i.i, ptr %165, align 8
+142:                                              ; preds = %_ZN5typst6layout5ratio5Ratio7is_zero17hb38194570eebdcaeE.exit49
+  %143 = fdiv double 1.000000e+00, %55
+  %144 = fdiv double 1.000000e+00, %123
+  %145 = bitcast double %143 to i64
+  %146 = and i64 %145, 9218868437227405312
+  %147 = icmp eq i64 %146, 9218868437227405312
+  %.mask.i.i.i = and i64 %145, 4503599627370495
+  %148 = icmp ne i64 %.mask.i.i.i, 0
+  %.0.i.i.i56 = and i1 %147, %148
+  %.0.i.i = select i1 %.0.i.i.i56, double 0.000000e+00, double %143
+  %149 = getelementptr inbounds i8, ptr %1, i64 32
+  %150 = load double, ptr %149, align 8, !noundef !12
+  %151 = fneg double %150
+  %152 = bitcast double %151 to i64
+  %153 = and i64 %152, 9218868437227405312
+  %154 = icmp eq i64 %153, 9218868437227405312
+  %.mask.i.i.i.i60 = and i64 %152, 4503599627370495
+  %155 = icmp ne i64 %.mask.i.i.i.i60, 0
+  %.0.i.i.i.i61 = and i1 %154, %155
+  %.0.i.i.i62 = select i1 %.0.i.i.i.i61, double 0.000000e+00, double %151
+  %156 = fmul double %.0.i.i, %.0.i.i.i62
+  %157 = getelementptr inbounds i8, ptr %1, i64 40
+  %158 = load double, ptr %157, align 8, !noundef !12
+  %159 = fneg double %158
+  %160 = bitcast double %159 to i64
+  %161 = and i64 %160, 9218868437227405312
+  %162 = icmp eq i64 %161, 9218868437227405312
+  %.mask.i.i.i.i69 = and i64 %160, 4503599627370495
+  %163 = icmp ne i64 %.mask.i.i.i.i69, 0
+  %.0.i.i.i.i70 = and i1 %162, %163
+  %.0.i.i.i71 = select i1 %.0.i.i.i.i70, double 0.000000e+00, double %159
+  %164 = getelementptr inbounds i8, ptr %0, i64 8
+  store double %.0.i.i, ptr %164, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, i8 0, i64 16, i1 false)
-  %166 = insertelement <2 x double> poison, double %145, i64 0
-  %167 = insertelement <2 x double> %166, double %157, i64 1
-  %168 = bitcast <2 x double> %167 to <2 x i64>
-  %169 = and <2 x i64> %168, <i64 9218868437227405312, i64 9218868437227405312>
-  %170 = icmp eq <2 x i64> %169, <i64 9218868437227405312, i64 9218868437227405312>
-  %171 = and <2 x i64> %168, <i64 4503599627370495, i64 4503599627370495>
-  %172 = icmp ne <2 x i64> %171, zeroinitializer
-  %173 = and <2 x i1> %170, %172
-  %174 = select <2 x i1> %173, <2 x double> zeroinitializer, <2 x double> %167
-  %175 = extractelement <2 x double> %174, i64 0
-  %176 = fmul double %175, %.0.i.i.i71
-  %177 = bitcast double %176 to i64
-  %178 = and i64 %177, 9218868437227405312
-  %179 = icmp eq i64 %178, 9218868437227405312
-  %.mask.i.i.i.i75 = and i64 %177, 4503599627370495
-  %180 = icmp ne i64 %.mask.i.i.i.i75, 0
-  %.0.i.i.i.i76 = and i1 %179, %180
-  %.0.i.i.i77 = select i1 %.0.i.i.i.i76, double 0.000000e+00, double %176
-  store <2 x double> %174, ptr %.sroa.6.0..sroa_idx, align 8
+  %165 = insertelement <2 x double> poison, double %144, i64 0
+  %166 = insertelement <2 x double> %165, double %156, i64 1
+  %167 = bitcast <2 x double> %166 to <2 x i64>
+  %168 = and <2 x i64> %167, <i64 9218868437227405312, i64 9218868437227405312>
+  %169 = icmp eq <2 x i64> %168, <i64 9218868437227405312, i64 9218868437227405312>
+  %170 = and <2 x i64> %167, <i64 4503599627370495, i64 4503599627370495>
+  %171 = icmp ne <2 x i64> %170, zeroinitializer
+  %172 = and <2 x i1> %169, %171
+  %173 = select <2 x i1> %172, <2 x double> zeroinitializer, <2 x double> %166
+  %174 = extractelement <2 x double> %173, i64 0
+  %175 = fmul double %174, %.0.i.i.i71
+  %176 = bitcast double %175 to i64
+  %177 = and i64 %176, 9218868437227405312
+  %178 = icmp eq i64 %177, 9218868437227405312
+  %.mask.i.i.i.i75 = and i64 %176, 4503599627370495
+  %179 = icmp ne i64 %.mask.i.i.i.i75, 0
+  %.0.i.i.i.i76 = and i1 %178, %179
+  %.0.i.i.i77 = select i1 %.0.i.i.i.i76, double 0.000000e+00, double %175
+  store <2 x double> %173, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   store double %.0.i.i.i77, ptr %.sroa.8.0..sroa_idx, align 8
-  br label %121
+  br label %120
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
