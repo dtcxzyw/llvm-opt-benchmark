@@ -1,0 +1,884 @@
+; ModuleID = 'bench/zxing/original/BinaryBitmap.cpp.ll'
+source_filename = "bench/zxing/original/BinaryBitmap.cpp.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-pc-linux-gnu"
+
+%"class.ZXing::BitMatrix" = type { i32, i32, %"class.std::vector" }
+%"class.std::vector" = type { %"struct.std::_Vector_base" }
+%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
+%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%class.anon.7 = type { ptr }
+%class.anon.2 = type { ptr }
+%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
+%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
+%"class.std::__shared_count" = type { ptr }
+
+$_ZN5ZXing9BitMatrixC2Eii = comdat any
+
+@_ZTVN5ZXing12BinaryBitmapE = unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr @_ZTIN5ZXing12BinaryBitmapE, ptr @__cxa_pure_virtual, ptr @_ZN5ZXing12BinaryBitmapD1Ev, ptr @_ZN5ZXing12BinaryBitmapD0Ev, ptr @__cxa_pure_virtual] }, align 8
+@_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
+@_ZTSN5ZXing12BinaryBitmapE = constant [23 x i8] c"N5ZXing12BinaryBitmapE\00", align 1
+@_ZTIN5ZXing12BinaryBitmapE = constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN5ZXing12BinaryBitmapE }, align 8
+@.str = private unnamed_addr constant [40 x i8] c"Invalid size: width * height is too big\00", align 1
+@_ZTISt16invalid_argument = external constant ptr
+@.str.1 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
+@__libc_single_threaded = external local_unnamed_addr global i8, align 1
+@_ZSt15__once_callable = external thread_local global ptr, align 8
+@_ZSt11__once_call = external thread_local global ptr, align 8
+
+@_ZN5ZXing12BinaryBitmapD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5ZXing12BinaryBitmapD2Ev
+
+; Function Attrs: mustprogress uwtable
+define void @_ZNK5ZXing12BinaryBitmap8binarizeEh(ptr dead_on_unwind noalias nonnull writable sret(%"class.ZXing::BitMatrix") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, i8 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %4 = getelementptr inbounds i8, ptr %1, i64 36
+  %5 = load i32, ptr %4, align 4
+  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %7 = load i32, ptr %6, align 8
+  tail call void @_ZN5ZXing9BitMatrixC2Eii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %5, i32 noundef %7)
+  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %9 = getelementptr inbounds i8, ptr %1, i64 44
+  %10 = load i32, ptr %9, align 4
+  %11 = icmp eq i32 %10, 1
+  br i1 %11, label %12, label %29
+
+12:                                               ; preds = %3
+  %13 = getelementptr inbounds i8, ptr %1, i64 48
+  %14 = load i32, ptr %13, align 8
+  %15 = load i32, ptr %4, align 4
+  %16 = icmp eq i32 %14, %15
+  br i1 %16, label %17, label %29
+
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %8, align 8
+  %19 = load i32, ptr %6, align 8
+  %20 = mul nsw i32 %19, %14
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds i8, ptr %18, i64 %21
+  %.not46 = icmp eq i32 %20, 0
+  br i1 %.not46, label %.loopexit, label %.lr.ph49.preheader
+
+.lr.ph49.preheader:                               ; preds = %17
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = load ptr, ptr %23, align 8
+  br label %.lr.ph49
+
+.lr.ph49:                                         ; preds = %.lr.ph49.preheader, %.lr.ph49
+  %.02048 = phi ptr [ %28, %.lr.ph49 ], [ %24, %.lr.ph49.preheader ]
+  %.02147 = phi ptr [ %27, %.lr.ph49 ], [ %18, %.lr.ph49.preheader ]
+  %25 = load i8, ptr %.02147, align 1
+  %.not22 = icmp ule i8 %25, %2
+  %26 = sext i1 %.not22 to i8
+  store i8 %26, ptr %.02048, align 1
+  %27 = getelementptr inbounds i8, ptr %.02147, i64 1
+  %28 = getelementptr inbounds i8, ptr %.02048, i64 1
+  %.not = icmp eq ptr %27, %22
+  br i1 %.not, label %.loopexit, label %.lr.ph49, !llvm.loop !4
+
+29:                                               ; preds = %12, %3
+  %30 = getelementptr inbounds i8, ptr %0, i64 4
+  %31 = load i32, ptr %30, align 4
+  %32 = icmp sgt i32 %31, 0
+  br i1 %32, label %.lr.ph, label %.loopexit
+
+.lr.ph:                                           ; preds = %29
+  %33 = getelementptr inbounds i8, ptr %1, i64 48
+  %34 = getelementptr inbounds i8, ptr %1, i64 32
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %36
+
+36:                                               ; preds = %.lr.ph, %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit"
+  %.045 = phi i32 [ 0, %.lr.ph ], [ %51, %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit" ]
+  %37 = load ptr, ptr %8, align 8
+  %38 = load i32, ptr %33, align 8
+  %39 = mul nsw i32 %38, %.045
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds i8, ptr %37, i64 %40
+  %42 = load i32, ptr %34, align 8
+  %43 = lshr i32 %42, 8
+  %44 = and i32 %43, 255
+  %45 = zext nneg i32 %44 to i64
+  %46 = getelementptr inbounds i8, ptr %41, i64 %45
+  %47 = load i32, ptr %9, align 4
+  %48 = load ptr, ptr %35, align 8
+  %49 = load i32, ptr %0, align 8
+  %50 = mul nsw i32 %49, %.045
+  %51 = add nuw nsw i32 %.045, 1
+  %52 = mul nsw i32 %49, %51
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds i8, ptr %48, i64 %53
+  %.not13.i30 = icmp eq i32 %50, %52
+  switch i32 %47, label %71 [
+    i32 1, label %55
+    i32 4, label %63
+  ]
+
+55:                                               ; preds = %36
+  br i1 %.not13.i30, label %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit", label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %55
+  %56 = sext i32 %50 to i64
+  %57 = getelementptr inbounds i8, ptr %48, i64 %56
+  br label %58
+
+58:                                               ; preds = %58, %.lr.ph.i
+  %.015.i = phi ptr [ %46, %.lr.ph.i ], [ %61, %58 ]
+  %.01114.i = phi ptr [ %57, %.lr.ph.i ], [ %62, %58 ]
+  %59 = load i8, ptr %.015.i, align 1
+  %.not12.i = icmp ule i8 %59, %2
+  %60 = sext i1 %.not12.i to i8
+  store i8 %60, ptr %.01114.i, align 1
+  %61 = getelementptr inbounds i8, ptr %.015.i, i64 1
+  %62 = getelementptr inbounds i8, ptr %.01114.i, i64 1
+  %.not.i = icmp eq ptr %62, %54
+  br i1 %.not.i, label %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit", label %58
+
+63:                                               ; preds = %36
+  br i1 %.not13.i30, label %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit", label %.lr.ph.i24
+
+.lr.ph.i24:                                       ; preds = %63
+  %64 = sext i32 %50 to i64
+  %65 = getelementptr inbounds i8, ptr %48, i64 %64
+  br label %66
+
+66:                                               ; preds = %66, %.lr.ph.i24
+  %.015.i25 = phi ptr [ %46, %.lr.ph.i24 ], [ %69, %66 ]
+  %.01114.i26 = phi ptr [ %65, %.lr.ph.i24 ], [ %70, %66 ]
+  %67 = load i8, ptr %.015.i25, align 1
+  %.not12.i27 = icmp ule i8 %67, %2
+  %68 = sext i1 %.not12.i27 to i8
+  store i8 %68, ptr %.01114.i26, align 1
+  %69 = getelementptr inbounds i8, ptr %.015.i25, i64 4
+  %70 = getelementptr inbounds i8, ptr %.01114.i26, i64 1
+  %.not.i28 = icmp eq ptr %70, %54
+  br i1 %.not.i28, label %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit", label %66
+
+71:                                               ; preds = %36
+  br i1 %.not13.i30, label %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit", label %.lr.ph.i31
+
+.lr.ph.i31:                                       ; preds = %71
+  %72 = sext i32 %50 to i64
+  %73 = getelementptr inbounds i8, ptr %48, i64 %72
+  %74 = sext i32 %47 to i64
+  br label %75
+
+75:                                               ; preds = %75, %.lr.ph.i31
+  %.015.i32 = phi ptr [ %46, %.lr.ph.i31 ], [ %78, %75 ]
+  %.01114.i33 = phi ptr [ %73, %.lr.ph.i31 ], [ %79, %75 ]
+  %76 = load i8, ptr %.015.i32, align 1
+  %.not12.i34 = icmp ule i8 %76, %2
+  %77 = sext i1 %.not12.i34 to i8
+  store i8 %77, ptr %.01114.i33, align 1
+  %78 = getelementptr inbounds i8, ptr %.015.i32, i64 %74
+  %79 = getelementptr inbounds i8, ptr %.01114.i33, i64 1
+  %.not.i35 = icmp eq ptr %79, %54
+  br i1 %.not.i35, label %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit", label %75
+
+"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit": ; preds = %66, %58, %75, %71, %63, %55
+  %80 = load i32, ptr %30, align 4
+  %81 = icmp slt i32 %51, %80
+  br i1 %81, label %36, label %.loopexit, !llvm.loop !6
+
+.loopexit:                                        ; preds = %"_ZZNK5ZXing12BinaryBitmap8binarizeEhENK3$_0clIhEEDaiPKT_i.exit", %.lr.ph49, %29, %17
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr void @_ZN5ZXing9BitMatrixC2Eii(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+  store i32 %1, ptr %0, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %2, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = mul nsw i32 %2, %1
+  %7 = sext i32 %6 to i64
+  %8 = icmp slt i32 %6, 0
+  br i1 %8, label %.noexc, label %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
+
+.noexc:                                           ; preds = %3
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.1) #14
+  unreachable
+
+_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
+  %.not.i.i.i.i = icmp eq i32 %6, 0
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i, label %.noexc15
+
+_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
+  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  br label %15
+
+.noexc15:                                         ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
+  %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #15
+  store ptr %10, ptr %5, align 8
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %10, ptr %11, align 8
+  %12 = getelementptr inbounds i8, ptr %10, i64 %7
+  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr %12, ptr %13, align 8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %10, i8 0, i64 %7, i1 false)
+  %14 = ptrtoint ptr %10 to i64
+  br label %15
+
+15:                                               ; preds = %.noexc15, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i
+  %16 = phi i64 [ %14, %.noexc15 ], [ 0, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
+  %17 = phi ptr [ %11, %.noexc15 ], [ %9, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
+  %18 = phi ptr [ %12, %.noexc15 ], [ null, %_ZNSt12_Vector_baseIhSaIhEEC2EmRKS0_.exit.thread.i ]
+  store ptr %18, ptr %17, align 8
+  %.not = icmp eq i32 %1, 0
+  br i1 %.not, label %31, label %19
+
+19:                                               ; preds = %15
+  %20 = ptrtoint ptr %18 to i64
+  %21 = sub i64 %20, %16
+  %22 = trunc i64 %21 to i32
+  %23 = sdiv i32 %22, %1
+  %.not12 = icmp eq i32 %23, %2
+  br i1 %.not12, label %31, label %24
+
+24:                                               ; preds = %19
+  %25 = tail call ptr @__cxa_allocate_exception(i64 16) #16
+  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull @.str)
+          to label %26 unwind label %29
+
+26:                                               ; preds = %24
+  invoke void @__cxa_throw(ptr nonnull %25, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #14
+          to label %35 unwind label %27
+
+27:                                               ; preds = %26
+  %28 = landingpad { ptr, i32 }
+          cleanup
+  br label %32
+
+29:                                               ; preds = %24
+  %30 = landingpad { ptr, i32 }
+          cleanup
+  tail call void @__cxa_free_exception(ptr %25) #16
+  br label %32
+
+31:                                               ; preds = %19, %15
+  ret void
+
+32:                                               ; preds = %29, %27
+  %.pn = phi { ptr, i32 } [ %28, %27 ], [ %30, %29 ]
+  %33 = load ptr, ptr %5, align 8
+  %.not.i.i.i = icmp eq ptr %33, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %34
+
+34:                                               ; preds = %32
+  tail call void @_ZdlPv(ptr noundef nonnull %33) #17
+  br label %_ZNSt6vectorIhSaIhEED2Ev.exit
+
+_ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %34, %32
+  resume { ptr, i32 } %.pn
+
+35:                                               ; preds = %26
+  unreachable
+}
+
+declare i32 @__gxx_personality_v0(...)
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN5ZXing12BinaryBitmapC2ERKNS_9ImageViewE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5ZXing12BinaryBitmapE, i64 0, i32 0, i64 2), ptr %0, align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #15
+  store i32 0, ptr %4, align 4
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
+  store ptr %4, ptr %3, align 8
+  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  store i8 0, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 17
+  store i8 0, ptr %7, align 1
+  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
+  ret void
+}
+
+; Function Attrs: nobuiltin allocsize(0)
+declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN5ZXing12BinaryBitmapD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+  store ptr getelementptr inbounds inrange(-16, 32) ({ [6 x ptr] }, ptr @_ZTVN5ZXing12BinaryBitmapE, i64 0, i32 0, i64 2), ptr %0, align 8
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8
+  %.not.i = icmp eq ptr %3, null
+  br i1 %.not.i, label %_ZNSt10unique_ptrIN5ZXing12BinaryBitmap5CacheESt14default_deleteIS2_EED2Ev.exit, label %4
+
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = load ptr, ptr %5, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %6, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN5ZXing12BinaryBitmap5CacheEEclEPS2_.exit.i, label %7
+
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = load atomic i64, ptr %8 acquire, align 8
+  %10 = icmp eq i64 %9, 4294967297
+  %11 = trunc i64 %9 to i32
+  br i1 %10, label %12, label %17
+
+12:                                               ; preds = %7
+  store i32 0, ptr %8, align 8
+  %13 = getelementptr inbounds i8, ptr %6, i64 12
+  store i32 0, ptr %13, align 4
+  %14 = load ptr, ptr %6, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %16 = load ptr, ptr %15, align 8
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
+  br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i
+
+17:                                               ; preds = %7
+  %18 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i = icmp eq i8 %18, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %21, label %19
+
+19:                                               ; preds = %17
+  %20 = add nsw i32 %11, -1
+  store i32 %20, ptr %8, align 4
+  br label %23
+
+21:                                               ; preds = %17
+  %22 = atomicrmw volatile add ptr %8, i32 -1 acq_rel, align 4
+  br label %23
+
+23:                                               ; preds = %21, %19
+  %.0.i.i.i.i.i.i.i = phi i32 [ %11, %19 ], [ %22, %21 ]
+  %24 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
+  br i1 %24, label %25, label %_ZNKSt14default_deleteIN5ZXing12BinaryBitmap5CacheEEclEPS2_.exit.i
+
+25:                                               ; preds = %23
+  %26 = load ptr, ptr %6, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 16
+  %28 = load ptr, ptr %27, align 8
+  tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
+  %29 = getelementptr inbounds i8, ptr %6, i64 12
+  %30 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq i8 %30, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %34, label %31
+
+31:                                               ; preds = %25
+  %32 = load i32, ptr %29, align 4
+  %33 = add nsw i32 %32, -1
+  store i32 %33, ptr %29, align 4
+  br label %36
+
+34:                                               ; preds = %25
+  %35 = atomicrmw volatile add ptr %29, i32 -1 acq_rel, align 4
+  br label %36
+
+36:                                               ; preds = %34, %31
+  %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %32, %31 ], [ %35, %34 ]
+  %37 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
+  br i1 %37, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN5ZXing12BinaryBitmap5CacheEEclEPS2_.exit.i
+
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i: ; preds = %36, %12
+  %38 = load ptr, ptr %6, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %40 = load ptr, ptr %39, align 8
+  tail call void %40(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
+  br label %_ZNKSt14default_deleteIN5ZXing12BinaryBitmap5CacheEEclEPS2_.exit.i
+
+_ZNKSt14default_deleteIN5ZXing12BinaryBitmap5CacheEEclEPS2_.exit.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i, %36, %23, %4
+  tail call void @_ZdlPv(ptr noundef nonnull %3) #17
+  br label %_ZNSt10unique_ptrIN5ZXing12BinaryBitmap5CacheESt14default_deleteIS2_EED2Ev.exit
+
+_ZNSt10unique_ptrIN5ZXing12BinaryBitmap5CacheESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5ZXing12BinaryBitmap5CacheEEclEPS2_.exit.i
+  store ptr null, ptr %2, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+define void @_ZN5ZXing12BinaryBitmapD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+  tail call void @llvm.trap() #18
+  unreachable
+}
+
+; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
+declare void @llvm.trap() #5
+
+; Function Attrs: mustprogress uwtable
+define noundef ptr @_ZNK5ZXing12BinaryBitmap12getBitMatrixEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca %class.anon.7, align 8
+  %3 = alloca %class.anon.2, align 8
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8
+  store ptr %0, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
+  store ptr %3, ptr %2, align 8
+  %6 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
+  store ptr %2, ptr %6, align 8
+  %7 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt11__once_call)
+  store ptr @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK5ZXing12BinaryBitmap12getBitMatrixEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENUlvE_8__invokeEv", ptr %7, align 8
+  %8 = invoke noundef i32 @pthread_once(ptr noundef nonnull %5, ptr noundef nonnull @__once_proxy)
+          to label %_ZL14__gthread_oncePiPFvvE.exit.i unwind label %11
+
+_ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %1
+  %.not.i = icmp eq i32 %8, 0
+  br i1 %.not.i, label %"_ZSt9call_onceIZNK5ZXing12BinaryBitmap12getBitMatrixEvE3$_0JEEvRSt9once_flagOT_DpOT0_.exit", label %9
+
+9:                                                ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %8) #14
+          to label %10 unwind label %11
+
+10:                                               ; preds = %9
+  unreachable
+
+11:                                               ; preds = %9, %1
+  %12 = landingpad { ptr, i32 }
+          cleanup
+  store ptr null, ptr %6, align 8
+  store ptr null, ptr %7, align 8
+  resume { ptr, i32 } %12
+
+"_ZSt9call_onceIZNK5ZXing12BinaryBitmap12getBitMatrixEvE3$_0JEEvRSt9once_flagOT_DpOT0_.exit": ; preds = %_ZL14__gthread_oncePiPFvvE.exit.i
+  store ptr null, ptr %6, align 8
+  store ptr null, ptr %7, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
+  %13 = load ptr, ptr %4, align 8
+  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %15 = load ptr, ptr %14, align 8
+  ret ptr %15
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define void @_ZN5ZXing12BinaryBitmap6invertEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #6 align 2 {
+  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = load ptr, ptr %4, align 8
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %_ZN5ZXing9BitMatrix7flipAllEv.exit, label %6
+
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds i8, ptr %5, i64 16
+  %10 = load ptr, ptr %9, align 8
+  %.not89.i = icmp eq ptr %8, %10
+  br i1 %.not89.i, label %_ZN5ZXing9BitMatrix7flipAllEv.exit, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %6, %.lr.ph.i
+  %.sroa.05.010.i = phi ptr [ %13, %.lr.ph.i ], [ %8, %6 ]
+  %11 = load i8, ptr %.sroa.05.010.i, align 1
+  %.not.i = icmp eq i8 %11, 0
+  %12 = sext i1 %.not.i to i8
+  store i8 %12, ptr %.sroa.05.010.i, align 1
+  %13 = getelementptr inbounds i8, ptr %.sroa.05.010.i, i64 1
+  %.not8.i = icmp eq ptr %13, %10
+  br i1 %.not8.i, label %_ZN5ZXing9BitMatrix7flipAllEv.exit, label %.lr.ph.i
+
+_ZN5ZXing9BitMatrix7flipAllEv.exit:               ; preds = %.lr.ph.i, %6, %1
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i8 1, ptr %14, align 8
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define void @_ZN5ZXing12BinaryBitmap5closeEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  %2 = alloca %"class.ZXing::BitMatrix", align 8
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %6 = load ptr, ptr %5, align 8
+  %.not = icmp eq ptr %6, null
+  br i1 %.not, label %_ZN5ZXing9BitMatrixD2Ev.exit, label %7
+
+7:                                                ; preds = %1
+  %8 = load i32, ptr %6, align 8
+  %9 = getelementptr inbounds i8, ptr %6, i64 4
+  %10 = load i32, ptr %9, align 4
+  call void @_ZN5ZXing9BitMatrixC2Eii(ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %8, i32 noundef %10)
+  %11 = getelementptr i8, ptr %6, i64 8
+  %12 = getelementptr inbounds i8, ptr %2, i64 8
+  %13 = load ptr, ptr %12, align 8
+  %14 = load i32, ptr %2, align 8
+  %15 = sext i32 %14 to i64
+  %16 = getelementptr inbounds i8, ptr %13, i64 %15
+  %17 = getelementptr inbounds i8, ptr %2, i64 4
+  %18 = load i32, ptr %17, align 4
+  %19 = add nsw i32 %18, -1
+  %20 = mul nsw i32 %19, %14
+  %21 = sext i32 %20 to i64
+  %22 = getelementptr inbounds i8, ptr %13, i64 %21
+  %23 = getelementptr inbounds i8, ptr %22, i64 -1
+  %.02412.i = getelementptr inbounds i8, ptr %16, i64 1
+  %.not13.i = icmp eq ptr %.02412.i, %23
+  br i1 %.not13.i, label %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_0EEvRKNS_9BitMatrixERS3_T_.exit", label %.preheader.preheader.i
+
+.preheader.preheader.i:                           ; preds = %7
+  %.val6 = load ptr, ptr %11, align 8
+  %.val = load i32, ptr %6, align 8
+  %24 = shl nsw i32 %.val, 1
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds i8, ptr %.val6, i64 %25
+  %27 = sext i32 %.val to i64
+  %28 = getelementptr inbounds i8, ptr %.val6, i64 %27
+  br label %.preheader.i
+
+.preheader.i:                                     ; preds = %42, %.preheader.preheader.i
+  %.02417.i = phi ptr [ %.024.i, %42 ], [ %.02412.i, %.preheader.preheader.i ]
+  %.02316.i = phi ptr [ %44, %42 ], [ %.val6, %.preheader.preheader.i ]
+  %.02515.i = phi ptr [ %46, %42 ], [ %26, %.preheader.preheader.i ]
+  %.02614.i = phi ptr [ %45, %42 ], [ %28, %.preheader.preheader.i ]
+  br label %29
+
+29:                                               ; preds = %29, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %29 ]
+  %.02210.i = phi i32 [ 0, %.preheader.i ], [ %41, %29 ]
+  %30 = getelementptr inbounds i8, ptr %.02316.i, i64 %indvars.iv.i
+  %31 = load i8, ptr %30, align 1
+  %32 = zext i8 %31 to i32
+  %33 = getelementptr inbounds i8, ptr %.02614.i, i64 %indvars.iv.i
+  %34 = load i8, ptr %33, align 1
+  %35 = zext i8 %34 to i32
+  %36 = getelementptr inbounds i8, ptr %.02515.i, i64 %indvars.iv.i
+  %37 = load i8, ptr %36, align 1
+  %38 = zext i8 %37 to i32
+  %39 = add nuw i32 %.02210.i, %32
+  %40 = add nuw i32 %39, %35
+  %41 = add nuw i32 %40, %38
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
+  br i1 %exitcond.not.i, label %42, label %29, !llvm.loop !7
+
+42:                                               ; preds = %29
+  %.not9.i = icmp ne i32 %41, 0
+  %43 = sext i1 %.not9.i to i8
+  store i8 %43, ptr %.02417.i, align 1
+  %44 = getelementptr inbounds i8, ptr %.02316.i, i64 1
+  %45 = getelementptr inbounds i8, ptr %.02614.i, i64 1
+  %46 = getelementptr inbounds i8, ptr %.02515.i, i64 1
+  %.024.i = getelementptr inbounds i8, ptr %.02417.i, i64 1
+  %.not.i = icmp eq ptr %.024.i, %23
+  br i1 %.not.i, label %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_0EEvRKNS_9BitMatrixERS3_T_.exit.loopexit", label %.preheader.i, !llvm.loop !8
+
+"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_0EEvRKNS_9BitMatrixERS3_T_.exit.loopexit": ; preds = %42
+  %.pre20.pre = load ptr, ptr %12, align 8
+  br label %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_0EEvRKNS_9BitMatrixERS3_T_.exit"
+
+"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_0EEvRKNS_9BitMatrixERS3_T_.exit": ; preds = %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_0EEvRKNS_9BitMatrixERS3_T_.exit.loopexit", %7
+  %.pre20 = phi ptr [ %.pre20.pre, %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_0EEvRKNS_9BitMatrixERS3_T_.exit.loopexit" ], [ %13, %7 ]
+  %47 = load ptr, ptr %11, align 8
+  %48 = load i32, ptr %6, align 8
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds i8, ptr %47, i64 %49
+  %51 = load i32, ptr %9, align 4
+  %52 = add nsw i32 %51, -1
+  %53 = mul nsw i32 %52, %48
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds i8, ptr %47, i64 %54
+  %56 = getelementptr inbounds i8, ptr %55, i64 -1
+  %.02411.i = getelementptr inbounds i8, ptr %50, i64 1
+  %.not12.i = icmp eq ptr %.02411.i, %56
+  br i1 %.not12.i, label %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_1EEvRKNS_9BitMatrixERS3_T_.exit", label %.preheader.preheader.i9
+
+.preheader.preheader.i9:                          ; preds = %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_0EEvRKNS_9BitMatrixERS3_T_.exit"
+  %.val7 = load i32, ptr %2, align 8
+  %57 = shl nsw i32 %.val7, 1
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds i8, ptr %.pre20, i64 %58
+  %60 = sext i32 %.val7 to i64
+  %61 = getelementptr inbounds i8, ptr %.pre20, i64 %60
+  br label %.preheader.i10
+
+.preheader.i10:                                   ; preds = %75, %.preheader.preheader.i9
+  %.02416.i = phi ptr [ %.024.i14, %75 ], [ %.02411.i, %.preheader.preheader.i9 ]
+  %.02315.i = phi ptr [ %78, %75 ], [ %.pre20, %.preheader.preheader.i9 ]
+  %.02514.i = phi ptr [ %80, %75 ], [ %59, %.preheader.preheader.i9 ]
+  %.02613.i = phi ptr [ %79, %75 ], [ %61, %.preheader.preheader.i9 ]
+  br label %62
+
+62:                                               ; preds = %62, %.preheader.i10
+  %indvars.iv.i11 = phi i64 [ 0, %.preheader.i10 ], [ %indvars.iv.next.i12, %62 ]
+  %.0229.i = phi i32 [ 0, %.preheader.i10 ], [ %74, %62 ]
+  %63 = getelementptr inbounds i8, ptr %.02315.i, i64 %indvars.iv.i11
+  %64 = load i8, ptr %63, align 1
+  %65 = zext i8 %64 to i32
+  %66 = getelementptr inbounds i8, ptr %.02613.i, i64 %indvars.iv.i11
+  %67 = load i8, ptr %66, align 1
+  %68 = zext i8 %67 to i32
+  %69 = getelementptr inbounds i8, ptr %.02514.i, i64 %indvars.iv.i11
+  %70 = load i8, ptr %69, align 1
+  %71 = zext i8 %70 to i32
+  %72 = add nuw i32 %.0229.i, %65
+  %73 = add nuw i32 %72, %68
+  %74 = add nuw i32 %73, %71
+  %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i11, 1
+  %exitcond.not.i13 = icmp eq i64 %indvars.iv.next.i12, 3
+  br i1 %exitcond.not.i13, label %75, label %62, !llvm.loop !9
+
+75:                                               ; preds = %62
+  %76 = icmp eq i32 %74, 2295
+  %77 = sext i1 %76 to i8
+  store i8 %77, ptr %.02416.i, align 1
+  %78 = getelementptr inbounds i8, ptr %.02315.i, i64 1
+  %79 = getelementptr inbounds i8, ptr %.02613.i, i64 1
+  %80 = getelementptr inbounds i8, ptr %.02514.i, i64 1
+  %.024.i14 = getelementptr inbounds i8, ptr %.02416.i, i64 1
+  %.not.i15 = icmp eq ptr %.024.i14, %56
+  br i1 %.not.i15, label %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_1EEvRKNS_9BitMatrixERS3_T_.exit.loopexit", label %.preheader.i10, !llvm.loop !10
+
+"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_1EEvRKNS_9BitMatrixERS3_T_.exit.loopexit": ; preds = %75
+  %.pre = load ptr, ptr %12, align 8
+  br label %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_1EEvRKNS_9BitMatrixERS3_T_.exit"
+
+"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_1EEvRKNS_9BitMatrixERS3_T_.exit": ; preds = %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_1EEvRKNS_9BitMatrixERS3_T_.exit.loopexit", %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_0EEvRKNS_9BitMatrixERS3_T_.exit"
+  %81 = phi ptr [ %.pre, %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_1EEvRKNS_9BitMatrixERS3_T_.exit.loopexit" ], [ %.pre20, %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_0EEvRKNS_9BitMatrixERS3_T_.exit" ]
+  %.not.i.i.i.i = icmp eq ptr %81, null
+  br i1 %.not.i.i.i.i, label %_ZN5ZXing9BitMatrixD2Ev.exit, label %82
+
+82:                                               ; preds = %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_1EEvRKNS_9BitMatrixERS3_T_.exit"
+  call void @_ZdlPv(ptr noundef nonnull %81) #17
+  br label %_ZN5ZXing9BitMatrixD2Ev.exit
+
+_ZN5ZXing9BitMatrixD2Ev.exit:                     ; preds = %82, %"_ZN5ZXing9SumFilterIZNS_12BinaryBitmap5closeEvE3$_1EEvRKNS_9BitMatrixERS3_T_.exit", %1
+  %83 = getelementptr inbounds i8, ptr %0, i64 17
+  store i8 1, ptr %83, align 1
+  ret void
+}
+
+declare void @__cxa_pure_virtual() unnamed_addr
+
+declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
+
+declare void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #7
+
+declare void @__cxa_free_exception(ptr) local_unnamed_addr
+
+; Function Attrs: nounwind
+declare void @_ZNSt16invalid_argumentD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #8
+
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
+
+; Function Attrs: noreturn
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
+
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+
+; Function Attrs: nobuiltin nounwind
+declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
+
+declare void @__once_proxy() #7
+
+; Function Attrs: noreturn
+declare void @_ZSt20__throw_system_errori(i32 noundef) local_unnamed_addr #9
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #12
+
+; Function Attrs: mustprogress uwtable
+define internal void @"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK5ZXing12BinaryBitmap12getBitMatrixEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENUlvE_8__invokeEv"() #0 align 2 personality ptr @__gxx_personality_v0 {
+  %1 = alloca %"class.std::shared_ptr", align 16
+  %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZSt15__once_callable)
+  %3 = load ptr, ptr %2, align 8
+  %.val.i = load ptr, ptr %3, align 8
+  %.val.val.i = load ptr, ptr %.val.i, align 8
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
+  %4 = load ptr, ptr %.val.val.i, align 8
+  %5 = load ptr, ptr %4, align 8
+  call void %5(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %1, ptr noundef nonnull align 8 dereferenceable(56) %.val.val.i)
+  %6 = getelementptr inbounds i8, ptr %.val.val.i, i64 8
+  %7 = load ptr, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = getelementptr inbounds i8, ptr %7, i64 16
+  %11 = load <2 x ptr>, ptr %1, align 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1, i8 0, i64 16, i1 false)
+  %12 = load ptr, ptr %10, align 8
+  store <2 x ptr> %11, ptr %8, align 8
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %12, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIKN5ZXing9BitMatrixEEaSEOS3_.exit.i.i.i.i.i, label %13
+
+13:                                               ; preds = %0
+  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %15 = load atomic i64, ptr %14 acquire, align 8
+  %16 = icmp eq i64 %15, 4294967297
+  %17 = trunc i64 %15 to i32
+  br i1 %16, label %18, label %23
+
+18:                                               ; preds = %13
+  store i32 0, ptr %14, align 8
+  %19 = getelementptr inbounds i8, ptr %12, i64 12
+  store i32 0, ptr %19, align 4
+  %20 = load ptr, ptr %12, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 16
+  %22 = load ptr, ptr %21, align 8
+  call void %22(ptr noundef nonnull align 8 dereferenceable(16) %12) #16
+  br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i
+
+23:                                               ; preds = %13
+  %24 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %24, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %27, label %25
+
+25:                                               ; preds = %23
+  %26 = add nsw i32 %17, -1
+  store i32 %26, ptr %14, align 4
+  br label %29
+
+27:                                               ; preds = %23
+  %28 = atomicrmw volatile add ptr %14, i32 -1 acq_rel, align 4
+  br label %29
+
+29:                                               ; preds = %27, %25
+  %.0.i.i.i.i.i.i.i.i.i.i = phi i32 [ %17, %25 ], [ %28, %27 ]
+  %30 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %30, label %31, label %_ZNSt10shared_ptrIKN5ZXing9BitMatrixEEaSEOS3_.exit.i.i.i.i.i
+
+31:                                               ; preds = %29
+  %32 = load ptr, ptr %12, align 8
+  %33 = getelementptr inbounds i8, ptr %32, i64 16
+  %34 = load ptr, ptr %33, align 8
+  call void %34(ptr noundef nonnull align 8 dereferenceable(16) %12) #16
+  %35 = getelementptr inbounds i8, ptr %12, i64 12
+  %36 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %36, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %40, label %37
+
+37:                                               ; preds = %31
+  %38 = load i32, ptr %35, align 4
+  %39 = add nsw i32 %38, -1
+  store i32 %39, ptr %35, align 4
+  br label %42
+
+40:                                               ; preds = %31
+  %41 = atomicrmw volatile add ptr %35, i32 -1 acq_rel, align 4
+  br label %42
+
+42:                                               ; preds = %40, %37
+  %.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %38, %37 ], [ %41, %40 ]
+  %43 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %43, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i, label %_ZNSt10shared_ptrIKN5ZXing9BitMatrixEEaSEOS3_.exit.i.i.i.i.i
+
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i: ; preds = %42, %18
+  %44 = load ptr, ptr %12, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 24
+  %46 = load ptr, ptr %45, align 8
+  call void %46(ptr noundef nonnull align 8 dereferenceable(16) %12) #16
+  br label %_ZNSt10shared_ptrIKN5ZXing9BitMatrixEEaSEOS3_.exit.i.i.i.i.i
+
+_ZNSt10shared_ptrIKN5ZXing9BitMatrixEEaSEOS3_.exit.i.i.i.i.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i.i, %42, %29, %0
+  %47 = load ptr, ptr %9, align 8
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %47, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK5ZXing12BinaryBitmap12getBitMatrixEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.exit", label %48
+
+48:                                               ; preds = %_ZNSt10shared_ptrIKN5ZXing9BitMatrixEEaSEOS3_.exit.i.i.i.i.i
+  %49 = getelementptr inbounds i8, ptr %47, i64 8
+  %50 = load atomic i64, ptr %49 acquire, align 8
+  %51 = icmp eq i64 %50, 4294967297
+  %52 = trunc i64 %50 to i32
+  br i1 %51, label %53, label %58
+
+53:                                               ; preds = %48
+  store i32 0, ptr %49, align 8
+  %54 = getelementptr inbounds i8, ptr %47, i64 12
+  store i32 0, ptr %54, align 4
+  %55 = load ptr, ptr %47, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 16
+  %57 = load ptr, ptr %56, align 8
+  call void %57(ptr noundef nonnull align 8 dereferenceable(16) %47) #16
+  br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i
+
+58:                                               ; preds = %48
+  %59 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i1.i.i.i.i.i = icmp eq i8 %59, 0
+  br i1 %.not.i.i.i.i1.i.i.i.i.i, label %62, label %60
+
+60:                                               ; preds = %58
+  %61 = add nsw i32 %52, -1
+  store i32 %61, ptr %49, align 4
+  br label %64
+
+62:                                               ; preds = %58
+  %63 = atomicrmw volatile add ptr %49, i32 -1 acq_rel, align 4
+  br label %64
+
+64:                                               ; preds = %62, %60
+  %.0.i.i.i.i.i.i.i.i.i = phi i32 [ %52, %60 ], [ %63, %62 ]
+  %65 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i, 1
+  br i1 %65, label %66, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK5ZXing12BinaryBitmap12getBitMatrixEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.exit"
+
+66:                                               ; preds = %64
+  %67 = load ptr, ptr %47, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 16
+  %69 = load ptr, ptr %68, align 8
+  call void %69(ptr noundef nonnull align 8 dereferenceable(16) %47) #16
+  %70 = getelementptr inbounds i8, ptr %47, i64 12
+  %71 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %71, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %75, label %72
+
+72:                                               ; preds = %66
+  %73 = load i32, ptr %70, align 4
+  %74 = add nsw i32 %73, -1
+  store i32 %74, ptr %70, align 4
+  br label %77
+
+75:                                               ; preds = %66
+  %76 = atomicrmw volatile add ptr %70, i32 -1 acq_rel, align 4
+  br label %77
+
+77:                                               ; preds = %75, %72
+  %.0.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %73, %72 ], [ %76, %75 ]
+  %78 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %78, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i, label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK5ZXing12BinaryBitmap12getBitMatrixEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.exit"
+
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i: ; preds = %77, %53
+  %79 = load ptr, ptr %47, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 24
+  %81 = load ptr, ptr %80, align 8
+  call void %81(ptr noundef nonnull align 8 dereferenceable(16) %47) #16
+  br label %"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK5ZXing12BinaryBitmap12getBitMatrixEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.exit"
+
+"_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZNK5ZXing12BinaryBitmap12getBitMatrixEvE3$_0JEEvRS_OT_DpOT0_EUlvE_EERS7_ENKUlvE_clEv.exit": ; preds = %_ZNSt10shared_ptrIKN5ZXing9BitMatrixEEaSEOS3_.exit.i.i.i.i.i, %64, %77, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i.i.i.i.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1)
+  ret void
+}
+
+declare i32 @pthread_once(ptr noundef, ptr noundef) local_unnamed_addr #7
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+
+attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { noreturn }
+attributes #15 = { builtin allocsize(0) }
+attributes #16 = { nounwind }
+attributes #17 = { builtin nounwind }
+attributes #18 = { noreturn nounwind }
+
+!llvm.module.flags = !{!0, !1, !2, !3}
+
+!0 = !{i32 1, !"wchar_size", i32 4}
+!1 = !{i32 8, !"PIC Level", i32 2}
+!2 = !{i32 7, !"uwtable", i32 2}
+!3 = !{i32 7, !"frame-pointer", i32 2}
+!4 = distinct !{!4, !5}
+!5 = !{!"llvm.loop.mustprogress"}
+!6 = distinct !{!6, !5}
+!7 = distinct !{!7, !5}
+!8 = distinct !{!8, !5}
+!9 = distinct !{!9, !5}
+!10 = distinct !{!10, !5}

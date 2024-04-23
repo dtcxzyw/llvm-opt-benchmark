@@ -541,3 +541,6 @@
 [submodule "bench/ozz-animation/ozz-animation"]
 	path = bench/ozz-animation/ozz-animation
 	url = git@github.com:guillaumeblanc/ozz-animation.git
+[submodule "bench/zxing/zxing-cpp"]
+	path = bench/zxing/zxing-cpp
+	url = git@github.com:zxing-cpp/zxing-cpp.git
