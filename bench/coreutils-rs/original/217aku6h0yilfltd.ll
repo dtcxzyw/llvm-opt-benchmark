@@ -1,0 +1,176 @@
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+; Function Attrs: inlinehint nonlazybind uwtable
+define hidden noundef i8 @"_ZN49_$LT$u8$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17h11602a3d16f1bdf6E.llvm.17720765270491877913"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 {
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
+  %7 = alloca i64, align 8
+  %8 = alloca i8, align 1
+  %9 = sub i64 %1, %3
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7)
+  %10 = icmp ult i64 %1, %3
+  br i1 %10, label %12, label %11
+
+11:                                               ; preds = %4
+  store i64 %3, ptr %7, align 8
+  br label %13
+
+12:                                               ; preds = %4
+  store i64 %1, ptr %7, align 8
+  br label %13
+
+13:                                               ; preds = %12, %11
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6)
+  %14 = load i64, ptr %7, align 8, !noundef !4
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5)
+  %15 = call i32 @memcmp(ptr %0, ptr %2, i64 %14)
+  store i32 %15, ptr %5, align 4
+  %16 = load i32, ptr %5, align 4, !noundef !4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5)
+  %17 = sext i32 %16 to i64
+  store i64 %17, ptr %6, align 8
+  %18 = load i64, ptr %6, align 8, !noundef !4
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %20, label %21
+
+20:                                               ; preds = %13
+  store i64 %9, ptr %6, align 8
+  br label %22
+
+21:                                               ; preds = %13
+  br label %22
+
+22:                                               ; preds = %21, %20
+  %23 = load i64, ptr %6, align 8, !noundef !4
+  %24 = icmp slt i64 %23, 0
+  br i1 %24, label %27, label %25
+
+25:                                               ; preds = %22
+  %26 = icmp eq i64 %23, 0
+  br i1 %26, label %28, label %29
+
+27:                                               ; preds = %22
+  store i8 -1, ptr %8, align 1
+  br label %31
+
+28:                                               ; preds = %25
+  store i8 0, ptr %8, align 1
+  br label %30
+
+29:                                               ; preds = %25
+  store i8 1, ptr %8, align 1
+  br label %30
+
+30:                                               ; preds = %29, %28
+  br label %31
+
+31:                                               ; preds = %30, %27
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7)
+  %32 = load i8, ptr %8, align 1, !range !5, !noundef !4
+  ret i8 %32
+}
+
+; Function Attrs: nonlazybind uwtable
+define hidden noundef i8 @"_ZN55_$LT$A$u20$as$u20$core..slice..cmp..SlicePartialOrd$GT$15partial_compare17h0960484b168a77f3E"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #1 {
+  %5 = alloca i8, align 1
+  %6 = call noundef i8 @"_ZN49_$LT$u8$u20$as$u20$core..slice..cmp..SliceOrd$GT$7compare17h11602a3d16f1bdf6E.llvm.17720765270491877913"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3), !range !5
+  store i8 %6, ptr %5, align 1
+  %7 = load i8, ptr %5, align 1, !range !6, !noundef !4
+  ret i8 %7
+}
+
+; Function Attrs: nonlazybind uwtable
+define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9491236b0c54dbc1E"(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3) unnamed_addr #1 {
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
+  %7 = alloca i8, align 1
+  %8 = icmp ne i64 %1, %3
+  br i1 %8, label %16, label %9
+
+9:                                                ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6)
+  %10 = mul nsw i64 %1, 8
+  store i64 %10, ptr %6, align 8
+  %11 = load i64, ptr %6, align 8, !noundef !4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5)
+  %12 = call i32 @memcmp(ptr %0, ptr %2, i64 %11)
+  store i32 %12, ptr %5, align 4
+  %13 = load i32, ptr %5, align 4, !noundef !4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5)
+  %14 = icmp eq i32 %13, 0
+  %15 = zext i1 %14 to i8
+  store i8 %15, ptr %7, align 1
+  br label %17
+
+16:                                               ; preds = %4
+  store i8 0, ptr %7, align 1
+  br label %17
+
+17:                                               ; preds = %16, %9
+  %18 = load i8, ptr %7, align 1, !range !7, !noundef !4
+  %19 = trunc i8 %18 to i1
+  ret i1 %19
+}
+
+; Function Attrs: nonlazybind uwtable
+define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hbb7ef3936405d717E"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #1 {
+  %5 = alloca i32, align 4
+  %6 = alloca i64, align 8
+  %7 = alloca i8, align 1
+  %8 = icmp ne i64 %1, %3
+  br i1 %8, label %16, label %9
+
+9:                                                ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6)
+  %10 = mul nsw i64 %1, 1
+  store i64 %10, ptr %6, align 8
+  %11 = load i64, ptr %6, align 8, !noundef !4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5)
+  %12 = call i32 @memcmp(ptr %0, ptr %2, i64 %11)
+  store i32 %12, ptr %5, align 4
+  %13 = load i32, ptr %5, align 4, !noundef !4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5)
+  %14 = icmp eq i32 %13, 0
+  %15 = zext i1 %14 to i8
+  store i8 %15, ptr %7, align 1
+  br label %17
+
+16:                                               ; preds = %4
+  store i8 0, ptr %7, align 1
+  br label %17
+
+17:                                               ; preds = %16, %9
+  %18 = load i8, ptr %7, align 1, !range !7, !noundef !4
+  %19 = trunc i8 %18 to i1
+  ret i1 %19
+}
+
+; Function Attrs: nonlazybind
+declare i32 @memcmp(ptr, ptr, i64) #2
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+
+attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #2 = { nonlazybind }
+attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+
+!llvm.module.flags = !{!0, !1, !2}
+!llvm.ident = !{!3}
+
+!0 = !{i32 8, !"PIC Level", i32 2}
+!1 = !{i32 2, !"RtLibUseGOT", i32 1}
+!2 = !{i32 1, !"LTOPostLink", i32 1}
+!3 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
+!4 = !{}
+!5 = !{i8 -1, i8 2}
+!6 = !{i8 -1, i8 3}
+!7 = !{i8 0, i8 2}

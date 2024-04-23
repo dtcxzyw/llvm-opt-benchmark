@@ -484,3 +484,6 @@
 [submodule "bench/c3c/c3c"]
 	path = bench/c3c/c3c
 	url = git@github.com:c3lang/c3c.git
+[submodule "bench/coreutils-rs/coreutils"]
+	path = bench/coreutils-rs/coreutils
+	url = git@github.com:uutils/coreutils.git

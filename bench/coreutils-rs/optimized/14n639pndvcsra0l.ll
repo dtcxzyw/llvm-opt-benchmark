@@ -1,0 +1,87 @@
+; ModuleID = 'bench/coreutils-rs/original/14n639pndvcsra0l.ll'
+source_filename = "bench/coreutils-rs/original/14n639pndvcsra0l.ll"
+target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
+target triple = "x86_64-unknown-linux-gnu"
+
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
+define { ptr, i64 } @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h56dcce3b568083bbE"(ptr align 1 %0, i64 %1) unnamed_addr #0 {
+  %3 = icmp ne ptr %0, null
+  tail call void @llvm.assume(i1 %3)
+  %4 = insertvalue { ptr, i64 } poison, ptr %0, 0
+  %5 = insertvalue { ptr, i64 } %4, i64 %1, 1
+  ret { ptr, i64 } %5
+}
+
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
+define noundef zeroext i1 @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17ha1c83f79c2d247dbE"() unnamed_addr #1 {
+  ret i1 true
+}
+
+; Function Attrs: inlinehint nonlazybind uwtable
+define zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8a32457f038208b5E"(ptr align 1 %0, ptr align 1 %1) unnamed_addr #2 {
+  %3 = load i8, ptr %0, align 1, !range !3, !noundef !4
+  %4 = load i8, ptr %1, align 1, !range !3, !noundef !4
+  %5 = trunc nuw i8 %4 to i1
+  %6 = icmp eq i8 %3, %4
+  br i1 %6, label %7, label %12
+
+7:                                                ; preds = %2
+  %8 = icmp eq i8 %3, 0
+  br i1 %8, label %.sink.split, label %13
+
+.sink.split:                                      ; preds = %7, %13
+  %9 = getelementptr i8, ptr %0, i64 1
+  %10 = getelementptr i8, ptr %1, i64 1
+  %11 = tail call zeroext i1 @"_ZN4core3cmp5impls59_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$$RP$$GT$2eq17he885a5914d777eefE"(ptr align 1 %9, ptr align 1 %10)
+  br label %12
+
+12:                                               ; preds = %.sink.split, %2
+  %.0.shrunk = phi i1 [ false, %2 ], [ %11, %.sink.split ]
+  ret i1 %.0.shrunk
+
+13:                                               ; preds = %7
+  tail call void @llvm.assume(i1 %5)
+  br label %.sink.split
+}
+
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
+define { ptr, i64 } @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h223c4c4acc3d4c6bE"() unnamed_addr #1 {
+  ret { ptr, i64 } { ptr null, i64 undef }
+}
+
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
+define noundef zeroext i1 @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h9d022809c68d98b9E"() unnamed_addr #1 {
+  ret i1 false
+}
+
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
+define { ptr, i64 } @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h48c4ccbcbaec6bb9E"(ptr align 1 %0, i64 %1) unnamed_addr #1 {
+  %3 = insertvalue { ptr, i64 } poison, ptr %0, 0
+  %4 = insertvalue { ptr, i64 } %3, i64 %1, 1
+  ret { ptr, i64 } %4
+}
+
+; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
+define zeroext i1 @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hed14d6049ec5833dE"(i1 returned zeroext %0) unnamed_addr #1 {
+  ret i1 %0
+}
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #3
+
+; Function Attrs: inlinehint nonlazybind uwtable
+declare hidden zeroext i1 @"_ZN4core3cmp5impls59_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$$RP$$GT$2eq17he885a5914d777eefE"(ptr align 1, ptr align 1) unnamed_addr #2
+
+attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #2 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+
+!llvm.module.flags = !{!0, !1}
+!llvm.ident = !{!2}
+
+!0 = !{i32 8, !"PIC Level", i32 2}
+!1 = !{i32 2, !"RtLibUseGOT", i32 1}
+!2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
+!3 = !{i8 0, i8 2}
+!4 = !{}
