@@ -532,3 +532,6 @@
 [submodule "bench/clamav/clamav"]
 	path = bench/clamav/clamav
 	url = git@github.com:Cisco-Talos/clamav.git
+[submodule "bench/actix-rs/actix-web"]
+	path = bench/actix-rs/actix-web
+	url = git@github.com:actix/actix-web.git
