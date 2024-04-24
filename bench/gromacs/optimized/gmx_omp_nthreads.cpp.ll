@@ -452,7 +452,7 @@ _ZL31manage_number_of_openmp_threadsRKN3gmx8MDLoggerEPK9t_commrecbiiibib.exit.th
 
 _ZL31manage_number_of_openmp_threadsRKN3gmx8MDLoggerEPK9t_commrecbiiibib.exit: ; preds = %.thread.i, %48, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i
   %61 = phi i32 [ %.pre54.i, %_ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i ], [ %spec.select.i, %48 ], [ %spec.select.i, %.thread.i ]
-  store i32 %61, ptr getelementptr inbounds (%struct.omp_module_nthreads_t, ptr @_ZL5modth, i64 0, i32 2), align 4
+  store i32 %61, ptr getelementptr inbounds (%struct.omp_module_nthreads_t, ptr @_ZL5modth, i64 0, i32 2, i32 0, i64 0), align 4
   call fastcc void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleMultiThreadb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 1, i1 noundef zeroext %22)
   call fastcc void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleMultiThreadb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 2, i1 noundef zeroext %22)
   call fastcc void @_ZL20pick_module_nthreadsRKN3gmx8MDLoggerE17ModuleMultiThreadb(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 3, i1 noundef zeroext %22)

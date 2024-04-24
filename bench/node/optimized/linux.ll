@@ -961,7 +961,7 @@ if.then29.i:                                      ; preds = %if.else.i
   tail call fastcc void @uv__epoll_ctl_flush(i32 noundef %9, ptr noundef nonnull %ctl, ptr noundef nonnull %10)
   br label %if.end13
 
-if.end13:                                         ; preds = %if.then29.i, %if.else.i, %if.then.i, %if.then11
+if.end13:                                         ; preds = %if.then.i, %if.then29.i, %if.else.i, %if.then11
   ret void
 }
 
@@ -2423,7 +2423,7 @@ if.end3.i.i:                                      ; preds = %if.end40
 
 done.i.i:                                         ; preds = %if.end3.i.i, %if.end40
   %clock_id.1.i.i = phi i64 [ %26, %if.end40 ], [ %spec.select.i.i, %if.end3.i.i ]
-  %conv.i.i = trunc i64 %clock_id.1.i.i to i32
+  %conv.i.i = trunc nuw nsw i64 %clock_id.1.i.i to i32
   %call10.i.i = call i32 @clock_gettime(i32 noundef %conv.i.i, ptr noundef nonnull %t.i.i) #18
   %tobool.not.i.i = icmp eq i32 %call10.i.i, 0
   br i1 %tobool.not.i.i, label %if.end12.i.i, label %uv__update_time.exit
@@ -2775,10 +2775,10 @@ if.end104:                                        ; preds = %if.then99, %if.else
   %inc = add nsw i32 %nevents.0118, 1
   br label %for.inc
 
-for.inc:                                          ; preds = %if.end81, %if.then29.i, %if.else.i, %if.then.i, %do.body26.i, %do.body18.i, %if.end104, %for.body
-  %have_signals.2 = phi i32 [ %have_signals.0117, %for.body ], [ %have_signals.1, %if.end104 ], [ %have_signals.0117, %do.body18.i ], [ %have_signals.0117, %do.body26.i ], [ %have_signals.0117, %if.then.i ], [ %have_signals.0117, %if.else.i ], [ %have_signals.0117, %if.then29.i ], [ %have_signals.0117, %if.end81 ]
-  %nevents.1 = phi i32 [ %nevents.0118, %for.body ], [ %inc, %if.end104 ], [ %nevents.0118, %do.body18.i ], [ %nevents.0118, %do.body26.i ], [ %nevents.0118, %if.then.i ], [ %nevents.0118, %if.else.i ], [ %nevents.0118, %if.then29.i ], [ %nevents.0118, %if.end81 ]
-  %have_iou_events.1 = phi i32 [ %have_iou_events.0119, %for.body ], [ %have_iou_events.0119, %if.end104 ], [ 1, %do.body18.i ], [ 1, %do.body26.i ], [ %have_iou_events.0119, %if.then.i ], [ %have_iou_events.0119, %if.else.i ], [ %have_iou_events.0119, %if.then29.i ], [ %have_iou_events.0119, %if.end81 ]
+for.inc:                                          ; preds = %if.end81, %if.then.i, %if.then29.i, %if.else.i, %do.body26.i, %do.body18.i, %if.end104, %for.body
+  %have_signals.2 = phi i32 [ %have_signals.0117, %for.body ], [ %have_signals.1, %if.end104 ], [ %have_signals.0117, %do.body18.i ], [ %have_signals.0117, %do.body26.i ], [ %have_signals.0117, %if.else.i ], [ %have_signals.0117, %if.then29.i ], [ %have_signals.0117, %if.then.i ], [ %have_signals.0117, %if.end81 ]
+  %nevents.1 = phi i32 [ %nevents.0118, %for.body ], [ %inc, %if.end104 ], [ %nevents.0118, %do.body18.i ], [ %nevents.0118, %do.body26.i ], [ %nevents.0118, %if.else.i ], [ %nevents.0118, %if.then29.i ], [ %nevents.0118, %if.then.i ], [ %nevents.0118, %if.end81 ]
+  %have_iou_events.1 = phi i32 [ %have_iou_events.0119, %for.body ], [ %have_iou_events.0119, %if.end104 ], [ 1, %do.body18.i ], [ 1, %do.body26.i ], [ %have_iou_events.0119, %if.else.i ], [ %have_iou_events.0119, %if.then29.i ], [ %have_iou_events.0119, %if.then.i ], [ %have_iou_events.0119, %if.end81 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %do.body107, label %for.body
@@ -2957,7 +2957,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 if.end13:                                         ; preds = %while.body
   %15 = load i64, ptr %arrayidx, align 8
   %shr = lshr i64 %15, 32
-  %conv = trunc i64 %shr to i32
+  %conv = trunc nuw i64 %shr to i32
   %16 = trunc i64 %15 to i32
   %conv16 = and i32 %16, 3
   %17 = lshr i64 %15, 2
@@ -3081,7 +3081,7 @@ if.end3:                                          ; preds = %if.end
 
 done:                                             ; preds = %if.end, %entry, %if.end3
   %clock_id.1 = phi i64 [ 1, %entry ], [ %0, %if.end ], [ %spec.select, %if.end3 ]
-  %conv = trunc i64 %clock_id.1 to i32
+  %conv = trunc nuw nsw i64 %clock_id.1 to i32
   %call10 = call i32 @clock_gettime(i32 noundef %conv, ptr noundef nonnull %t) #18
   %tobool.not = icmp eq i32 %call10, 0
   br i1 %tobool.not, label %if.end12, label %return
@@ -3323,7 +3323,7 @@ if.end27:                                         ; preds = %if.end23
   %idxprom28 = zext nneg i32 %shr to i64
   %arrayidx29 = getelementptr inbounds [1024 x i8], ptr %bitmap, i64 0, i64 %idxprom28
   %2 = load i8, ptr %arrayidx29, align 1
-  %3 = trunc i32 %shl to i8
+  %3 = trunc nuw i32 %shl to i8
   %conv31 = or i8 %2, %3
   store i8 %conv31, ptr %arrayidx29, align 1
   %cmp32.not = icmp ult i32 %1, %maxcpu.0.ph

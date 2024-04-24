@@ -477,7 +477,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %4 = load ptr, ptr %3, align 8, !alias.scope !150, !nonnull !9, !noundef !9
   %.promoted = load ptr, ptr %0, align 8, !alias.scope !150
   %5 = load i8, ptr %1, align 1, !range !153
-  %trunc.i.i.i = trunc i8 %5 to i1
+  %trunc.i.i.i = trunc nuw i8 %5 to i1
   %6 = getelementptr inbounds i8, ptr %1, i64 1
   %7 = load i8, ptr %6, align 1
   %.0.i.i.i = select i1 %trunc.i.i.i, i8 10, i8 %7
@@ -763,8 +763,8 @@ define hidden noundef zeroext i1 @"_ZN90_$LT$core..ops..control_flow..ControlFlo
   br i1 %5, label %.sink.split, label %8
 
 .sink.split:                                      ; preds = %2
-  %6 = trunc i8 %4 to i1
-  %trunc = trunc i8 %3 to i1
+  %6 = trunc nuw i8 %4 to i1
+  %trunc = trunc nuw i8 %3 to i1
   %7 = icmp eq i8 %3, 0
   %spec.select = select i1 %trunc, i1 %6, i1 %7
   tail call void @llvm.assume(i1 %spec.select)
@@ -826,19 +826,19 @@ define void @"_ZN69_$LT$grep_regex..config..Config$u20$as$u20$core..default..Def
 define noundef zeroext i1 @_ZN10grep_regex6config6Config19is_case_insensitive17ha2cb68f5686bf05cE(ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %1) unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8, !range !153, !noundef !9
-  %5 = trunc i8 %4 to i1
+  %5 = trunc nuw i8 %4 to i1
   br i1 %5, label %14, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 25
   %8 = load i8, ptr %7, align 1, !range !153, !noundef !9
-  %9 = trunc i8 %8 to i1
+  %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %1, i64 1
   %12 = load i8, ptr %11, align 1, !range !153, !alias.scope !214, !noundef !9
-  %13 = trunc i8 %12 to i1
+  %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %15, label %14
 
 14:                                               ; preds = %10, %6, %2, %15
@@ -847,7 +847,7 @@ define noundef zeroext i1 @_ZN10grep_regex6config6Config19is_case_insensitive17h
 
 15:                                               ; preds = %10
   %16 = load i8, ptr %1, align 1, !range !153, !alias.scope !217, !noundef !9
-  %17 = trunc i8 %16 to i1
+  %17 = trunc nuw i8 %16 to i1
   %18 = xor i1 %17, true
   br label %14
 }
@@ -1042,7 +1042,7 @@ define void @_ZN10grep_regex6config13ConfiguredHIR15into_whole_line17h24bf92b1f7
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
   %7 = getelementptr inbounds i8, ptr %1, i64 80
   %.val = load i8, ptr %7, align 8, !range !153, !noundef !9
-  %8 = trunc i8 %.val to i1
+  %8 = trunc nuw i8 %.val to i1
   %..i = select i1 %8, i32 16, i32 4
   %9 = invoke noundef nonnull align 8 ptr @_ZN12regex_syntax3hir10Properties4look17h13b65b29255350cdE(i32 noundef %..i)
           to label %12 unwind label %.thread
@@ -1166,7 +1166,7 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.exit: ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   %13 = getelementptr inbounds i8, ptr %1, i64 78
   %14 = load i8, ptr %13, align 2, !range !153, !noundef !9
-  %15 = trunc i8 %14 to i1
+  %15 = trunc nuw i8 %14 to i1
   %. = select i1 %15, i32 65536, i32 16384
   %16 = invoke noundef nonnull align 8 ptr @_ZN12regex_syntax3hir10Properties4look17h13b65b29255350cdE(i32 noundef %.)
           to label %18 unwind label %.thread
@@ -1243,12 +1243,12 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.exit: ; preds = %2
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN10grep_regex6config19has_line_terminator17h560a706d7356fb25E(i1 noundef zeroext %0, i8 %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #14 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds i8, ptr %2, i64 %3
-  br i1 %0, label %.preheader, label %.preheader23
+  br i1 %0, label %.preheader, label %.preheader24
 
 .preheader:                                       ; preds = %4, %7
   %6 = phi ptr [ %8, %7 ], [ %2, %4 ]
-  %.not.i.not.not = icmp ne ptr %6, %5
-  br i1 %.not.i.not.not, label %7, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h02c112ae1c069990E.llvm.6027615119203585168.exit"
+  %.not.i.not = icmp ne ptr %6, %5
+  br i1 %.not.i.not, label %7, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h02c112ae1c069990E.llvm.6027615119203585168.exit"
 
 7:                                                ; preds = %.preheader
   %8 = getelementptr inbounds i8, ptr %6, i64 1
@@ -1258,19 +1258,19 @@ define noundef zeroext i1 @_ZN10grep_regex6config19has_line_terminator17h560a706
     i8 10, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h02c112ae1c069990E.llvm.6027615119203585168.exit"
   ]
 
-.preheader23:                                     ; preds = %4, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h068942be9d3f3c64E.exit.i"
+.preheader24:                                     ; preds = %4, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h068942be9d3f3c64E.exit.i"
   %9 = phi ptr [ %10, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h068942be9d3f3c64E.exit.i" ], [ %2, %4 ]
-  %.not10.i.not.not = icmp ne ptr %9, %5
-  br i1 %.not10.i.not.not, label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h068942be9d3f3c64E.exit.i", label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h02c112ae1c069990E.llvm.6027615119203585168.exit"
+  %.not10.i.not = icmp ne ptr %9, %5
+  br i1 %.not10.i.not, label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h068942be9d3f3c64E.exit.i", label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h02c112ae1c069990E.llvm.6027615119203585168.exit"
 
-"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h068942be9d3f3c64E.exit.i": ; preds = %.preheader23
+"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h068942be9d3f3c64E.exit.i": ; preds = %.preheader24
   %10 = getelementptr inbounds i8, ptr %9, i64 1
   %.val4.i = load i8, ptr %9, align 1, !noalias !264, !noundef !9
   %.not.i8 = icmp eq i8 %.val4.i, %1
-  br i1 %.not.i8, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h02c112ae1c069990E.llvm.6027615119203585168.exit", label %.preheader23
+  br i1 %.not.i8, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h02c112ae1c069990E.llvm.6027615119203585168.exit", label %.preheader24
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h02c112ae1c069990E.llvm.6027615119203585168.exit": ; preds = %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h068942be9d3f3c64E.exit.i", %.preheader23, %7, %7, %.preheader
-  %.0.in = phi i1 [ %.not.i.not.not, %.preheader ], [ %.not.i.not.not, %7 ], [ %.not.i.not.not, %7 ], [ %.not10.i.not.not, %.preheader23 ], [ %.not10.i.not.not, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h068942be9d3f3c64E.exit.i" ]
+"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h02c112ae1c069990E.llvm.6027615119203585168.exit": ; preds = %.preheader24, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h068942be9d3f3c64E.exit.i", %.preheader, %7, %7
+  %.0.in = phi i1 [ %.not.i.not, %7 ], [ %.not.i.not, %7 ], [ %.not.i.not, %.preheader ], [ %.not10.i.not, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h068942be9d3f3c64E.exit.i" ], [ %.not10.i.not, %.preheader24 ]
   ret i1 %.0.in
 }
 

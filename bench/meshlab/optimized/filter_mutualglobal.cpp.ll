@@ -5302,10 +5302,10 @@ _ZN12MeshDocument19RasterRangeIterator3endEv.exit.preheader: ; preds = %_ZN12Mes
   %196 = sitofp i32 %191 to double
   %197 = fdiv double %195, %196
   %198 = fptosi double %197 to i32
-  store i32 %198, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 1), align 4
+  store i32 %198, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 1, i32 0, i64 0), align 4
   %199 = sdiv i32 %198, 2
   %200 = sitofp i32 %199 to float
-  store float %200, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 3), align 4
+  store float %200, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 3, i32 0, i64 0), align 4
   %201 = load i8, ptr %41, align 1
   %202 = trunc i8 %201 to i1
   br i1 %202, label %203, label %205
@@ -7995,10 +7995,10 @@ _ZN12MeshDocument19RasterRangeIterator3endEv.exit.preheader: ; preds = %_ZN12Mes
   %163 = sitofp i32 %158 to double
   %164 = fdiv double %162, %163
   %165 = fptosi double %164 to i32
-  store i32 %165, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 1), align 4
+  store i32 %165, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 1, i32 0, i64 0), align 4
   %166 = sdiv i32 %165, 2
   %167 = sitofp i32 %166 to float
-  store float %167, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 3), align 4
+  store float %167, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 3, i32 0, i64 0), align 4
   store i32 0, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 22), align 8
   invoke void @_ZN8AlignSet11renderSceneERN3vcg4ShotIfNS0_8Matrix44IfEEEEib(ptr noundef nonnull align 8 dereferenceable(688) @alignset, ptr noundef nonnull align 4 dereferenceable(132) getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5), i32 noundef 3, i1 noundef zeroext true)
           to label %168 unwind label %208
@@ -13302,10 +13302,10 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit179:       ; preds = %._crit_edge, %_ZNSt
   %553 = sitofp i32 %548 to double
   %554 = fdiv double %552, %553
   %555 = fptosi double %554 to i32
-  store i32 %555, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 1), align 4
+  store i32 %555, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 1, i32 0, i64 0), align 4
   %556 = sdiv i32 %555, 2
   %557 = sitofp i32 %556 to float
-  store float %557, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 3), align 4
+  store float %557, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 3, i32 0, i64 0), align 4
   %558 = getelementptr inbounds i8, ptr %4, i64 305
   %559 = load i8, ptr %558, align 1
   %560 = trunc i8 %559 to i1
@@ -13718,10 +13718,10 @@ _ZSt7advanceISt14_List_iteratorI11RasterModelEiEvRT_T0_.exit: ; preds = %.lr.ph.
   %172 = sitofp i32 %167 to double
   %173 = fdiv double %171, %172
   %174 = fptosi double %173 to i32
-  store i32 %174, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 1), align 4
+  store i32 %174, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 1, i32 0, i64 0), align 4
   %175 = sdiv i32 %174, 2
   %176 = sitofp i32 %175 to float
-  store float %176, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 3), align 4
+  store float %176, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 5, i32 0, i32 3, i32 0, i64 0), align 4
   store i32 6, ptr getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 22), align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) getelementptr inbounds (%class.AlignSet, ptr @alignset, i64 0, i32 7), ptr noundef nonnull align 8 dereferenceable(132) %157, i64 132, i1 false)
   %177 = load ptr, ptr %158, align 8
