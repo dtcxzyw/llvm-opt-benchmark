@@ -5671,10 +5671,10 @@ if.else.i:                                        ; preds = %invoke.cont21
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %21 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp24.not.i = icmp eq ptr %21, %20
-  store i64 %add.i, ptr %20, align 8
   br i1 %cmp24.not.i, label %_ZSt22__uninitialized_copy_aIPKlPllET0_T_S4_S3_RSaIT1_E.exit.i, label %if.then25.i
 
 if.then25.i:                                      ; preds = %if.else.i
+  store i64 %add.i, ptr %20, align 8
   %.pre.i = load ptr, ptr %_M_finish.i.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 8
   %tobool.not.i19.i = icmp eq ptr %.pre.i, %add.ptr.i.i.i.i.i.i
@@ -5685,7 +5685,8 @@ invoke.cont.i.i:                                  ; preds = %if.then25.i
   br label %invoke.cont24
 
 _ZSt22__uninitialized_copy_aIPKlPllET0_T_S4_S3_RSaIT1_E.exit.i: ; preds = %if.else.i
-  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 8
+  store i64 %add.i, ptr %21, align 8
+  %add.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %21, i64 8
   store ptr %add.ptr.i.i.i.i.i.i.i.i.i, ptr %_M_finish.i.i, align 8
   br label %invoke.cont24
 

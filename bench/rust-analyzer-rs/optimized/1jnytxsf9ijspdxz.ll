@@ -3276,7 +3276,7 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.exit.i: ; preds = %10, %7
   store i32 %29, ptr %23, align 4, !noalias !641
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %"_ZN5rowan3api19SyntaxNode$LT$L$GT$9ancestors17h3fe941aa175e125bE.exit", %61
+.lr.ph.i:                                         ; preds = %61, %"_ZN5rowan3api19SyntaxNode$LT$L$GT$9ancestors17h3fe941aa175e125bE.exit"
   %.025.i = phi i64 [ %62, %61 ], [ 0, %"_ZN5rowan3api19SyntaxNode$LT$L$GT$9ancestors17h3fe941aa175e125bE.exit" ]
   %.01224.i = phi ptr [ %.val.i.i.i.i, %61 ], [ %.val, %"_ZN5rowan3api19SyntaxNode$LT$L$GT$9ancestors17h3fe941aa175e125bE.exit" ]
   %30 = getelementptr i8, ptr %.01224.i, i64 16
@@ -3382,7 +3382,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hcd45aeb3ec5d170cE.exit: ; preds = 
   store i32 %70, ptr %65, align 4, !noalias !663
   br label %.lr.ph.i23
 
-.lr.ph.i23:                                       ; preds = %"_ZN5rowan3api19SyntaxNode$LT$L$GT$9ancestors17h3fe941aa175e125bE.exit22", %102
+.lr.ph.i23:                                       ; preds = %102, %"_ZN5rowan3api19SyntaxNode$LT$L$GT$9ancestors17h3fe941aa175e125bE.exit22"
   %.025.i24 = phi i64 [ %103, %102 ], [ 0, %"_ZN5rowan3api19SyntaxNode$LT$L$GT$9ancestors17h3fe941aa175e125bE.exit22" ]
   %.01224.i25 = phi ptr [ %.val.i.i.i.i26, %102 ], [ %.val21, %"_ZN5rowan3api19SyntaxNode$LT$L$GT$9ancestors17h3fe941aa175e125bE.exit22" ]
   %71 = getelementptr i8, ptr %.01224.i25, i64 16
@@ -4013,7 +4013,7 @@ define noundef zeroext i1 @_ZN6syntax4algo10has_errors17h78767f4bd728addfE(ptr n
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %33)
           to label %"_ZN4core3ptr92drop_in_place$LT$rowan..api..SyntaxNodeChildren$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h4306b19a24c47193E.exit" unwind label %49
 
-"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb148f6688551445eE.llvm.3573574483942673257.exit": ; preds = %.noexc, %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h28e84faf5f632a23E.exit.i"
+"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hb148f6688551445eE.llvm.3573574483942673257.exit": ; preds = %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h28e84faf5f632a23E.exit.i", %.noexc
   call void @llvm.experimental.noalias.scope.decl(metadata !914)
   call void @llvm.experimental.noalias.scope.decl(metadata !917)
   call void @llvm.experimental.noalias.scope.decl(metadata !920)

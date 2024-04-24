@@ -31422,7 +31422,7 @@ define { ptr, ptr } @_ZN6ide_db13source_change11TreeMutator3new17hc32d701e817ca1
   store i32 %9, ptr %4, align 4, !noalias !7532
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %"_ZN5rowan3api19SyntaxNode$LT$L$GT$9ancestors17h18f292af127df6fbE.exit", %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4ddd37870fdd4e1cE.exit.i"
+.lr.ph.i:                                         ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4ddd37870fdd4e1cE.exit.i", %"_ZN5rowan3api19SyntaxNode$LT$L$GT$9ancestors17h18f292af127df6fbE.exit"
   %10 = phi ptr [ %.val.i.i.i.i, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4ddd37870fdd4e1cE.exit.i" ], [ %3, %"_ZN5rowan3api19SyntaxNode$LT$L$GT$9ancestors17h18f292af127df6fbE.exit" ]
   %.0727.i = phi ptr [ %10, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h4ddd37870fdd4e1cE.exit.i" ], [ null, %"_ZN5rowan3api19SyntaxNode$LT$L$GT$9ancestors17h18f292af127df6fbE.exit" ]
   %11 = getelementptr i8, ptr %10, i64 16

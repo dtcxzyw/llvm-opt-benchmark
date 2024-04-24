@@ -3920,7 +3920,7 @@ define hidden { i32, i32 } @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d6bba321a357ba0E.exit"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7d6bba321a357ba0E.exit": ; preds = %10, %12
-  %16 = phi ptr [ %13, %12 ], [ %4, %10 ]
+  %16 = phi ptr [ %13, %12 ], [ %7, %10 ]
   %17 = phi { i32, i32 } [ %15, %12 ], [ { i32 0, i32 undef }, %10 ]
   %.sroa.3.0.i = phi i32 [ %14, %12 ], [ undef, %10 ]
   %18 = extractvalue { i32, i32 } %17, 0
@@ -34494,7 +34494,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.14851531119274094909.exit27.i: ; p
           to label %.body.i unwind label %210
 
 ._crit_edge.i:                                    ; preds = %199, %172
-  %.lcssa107.i = phi ptr [ %.sroa.4.0.copyload.i, %172 ], [ %173, %199 ]
+  %.lcssa107.i = phi ptr [ %.sroa.4.0.copyload.i, %172 ], [ %183, %199 ]
   store ptr %.lcssa107.i, ptr %.sroa.5.0..sroa_idx63.i, align 8, !alias.scope !4104, !noalias !4107
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28), !noalias !4109
   store ptr %29, ptr %28, align 8, !noalias !4109

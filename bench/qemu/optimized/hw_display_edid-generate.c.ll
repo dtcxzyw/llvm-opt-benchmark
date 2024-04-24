@@ -781,8 +781,8 @@ if.then139:                                       ; preds = %while.end
   br label %for.body.i.i298
 
 for.body.i.i298:                                  ; preds = %for.body.i.i298, %if.then139
-  %indvars.iv.i299 = phi i64 [ 0, %if.then139 ], [ %indvars.iv.next.i304, %for.body.i.i298 ]
-  %sum.09.i.i300 = phi i32 [ 0, %if.then139 ], [ %add.i.i303, %for.body.i.i298 ]
+  %indvars.iv.i299 = phi i64 [ %indvars.iv.next.i304, %for.body.i.i298 ], [ 0, %if.then139 ]
+  %sum.09.i.i300 = phi i32 [ %add.i.i303, %for.body.i.i298 ], [ 0, %if.then139 ]
   %arrayidx.i.i301 = getelementptr i8, ptr %arrayidx1.i279, i64 %indvars.iv.i299
   %67 = load i8, ptr %arrayidx.i.i301, align 1
   %conv2.i.i302 = zext i8 %67 to i32

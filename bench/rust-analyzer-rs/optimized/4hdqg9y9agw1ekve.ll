@@ -27234,13 +27234,13 @@ define hidden noundef zeroext i1 @_ZN11ide_assists8handlers35convert_tuple_retur
   store ptr %18, ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   %21 = invoke { i64, ptr } @_ZN6syntax3ast9generated5nodes7RetType2ty17h8c8b89e567554619E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %13)
-          to label %23 unwind label %.thread110
+          to label %23 unwind label %.thread108
 
 22:                                               ; preds = %"_ZN4core3ptr88drop_in_place$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..Type$GT$$GT$17h714f09a376b3f5dfE.exit"
   br i1 %.236, label %171, label %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..RetType$GT$17h5f5d3d36506653dbE.exit84"
 
-.thread110:                                       ; preds = %163, %20
-  %lpad.thr_comm108 = landingpad { ptr, i32 }
+.thread108:                                       ; preds = %163, %20
+  %lpad.thr_comm106 = landingpad { ptr, i32 }
           cleanup
   br label %171
 
@@ -27641,7 +27641,7 @@ _ZN3hir9semantics13SemanticsImpl6to_def17h6f3eeaefde48512dE.exit: ; preds = %"_Z
 
 163:                                              ; preds = %26, %"_ZN4core3ptr54drop_in_place$LT$syntax..ast..generated..nodes..Fn$GT$17h7b63983a1ddec4a7E.exit", %"_ZN4core3ptr88drop_in_place$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..Type$GT$$GT$17h714f09a376b3f5dfE.exit67"
   invoke void @"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Type$GT$17h65f6279d8c97e388E.llvm.14339125420948612040"(ptr noalias noundef nonnull align 8 dereferenceable(16) %12)
-          to label %164 unwind label %.thread110
+          to label %164 unwind label %.thread108
 
 164:                                              ; preds = %23, %163
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
@@ -27666,11 +27666,11 @@ _ZN3hir9semantics13SemanticsImpl6to_def17h6f3eeaefde48512dE.exit: ; preds = %"_Z
   br label %143
 
 "_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..RetType$GT$17h5f5d3d36506653dbE.exit84": ; preds = %171, %177, %22
-  %.pn57106 = phi { ptr, i32 } [ %.pn57107, %171 ], [ %.pn57107, %177 ], [ %.pn55, %22 ]
-  resume { ptr, i32 } %.pn57106
+  %.pn57104 = phi { ptr, i32 } [ %.pn57105, %171 ], [ %.pn57105, %177 ], [ %.pn55, %22 ]
+  resume { ptr, i32 } %.pn57104
 
-171:                                              ; preds = %.thread110, %22
-  %.pn57107 = phi { ptr, i32 } [ %.pn55, %22 ], [ %lpad.thr_comm108, %.thread110 ]
+171:                                              ; preds = %.thread108, %22
+  %.pn57105 = phi { ptr, i32 } [ %.pn55, %22 ], [ %lpad.thr_comm106, %.thread108 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7602)
   call void @llvm.experimental.noalias.scope.decl(metadata !7605)
   call void @llvm.experimental.noalias.scope.decl(metadata !7608)
