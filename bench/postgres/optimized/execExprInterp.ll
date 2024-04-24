@@ -6081,9 +6081,9 @@ define dso_local void @ExecEvalHashedScalarArrayOp(ptr nocapture readnone %0, pt
   %66 = select i1 %65, double 0x41F0000000000000, double %64
   %67 = fptoui double %66 to i64
   %68 = call i64 @llvm.umax.i64(i64 %67, i64 2)
-  %69 = call i64 @llvm.ctpop.i64(i64 %68), !range !20
+  %69 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %68)
   %70 = icmp ult i64 %69, 2
-  %71 = call i64 @llvm.ctlz.i64(i64 %68, i1 true), !range !20
+  %71 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %68, i1 true)
   %72 = sub nuw nsw i64 64, %71
   %73 = shl nuw i64 1, %72
   %.0.i.i.i = select i1 %70, i64 %68, i64 %73
@@ -6103,9 +6103,9 @@ saophash_compute_size.exit.i:                     ; preds = %29
   %80 = getelementptr inbounds i8, ptr %60, i64 24
   store ptr %79, ptr %80, align 8
   %81 = call i64 @llvm.umax.i64(i64 %.0.i.i.i, i64 2)
-  %82 = call i64 @llvm.ctpop.i64(i64 %81), !range !20
+  %82 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %81)
   %83 = icmp ult i64 %82, 2
-  %84 = call i64 @llvm.ctlz.i64(i64 %81, i1 true), !range !20
+  %84 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %81, i1 true)
   %85 = sub nuw nsw i64 64, %84
   %86 = shl nuw i64 1, %85
   %.0.i.i.i.i = select i1 %83, i64 %81, i64 %86
@@ -6352,9 +6352,9 @@ fetch_att.exit.thread:                            ; preds = %136, %133, %130, %1
   %213 = shl i64 %207, 1
   %214 = load ptr, ptr %200, align 8
   %215 = call i64 @llvm.umax.i64(i64 %213, i64 2)
-  %216 = call i64 @llvm.ctpop.i64(i64 %215), !range !20
+  %216 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %215)
   %217 = icmp ult i64 %216, 2
-  %218 = call i64 @llvm.ctlz.i64(i64 %215, i1 true), !range !20
+  %218 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %215, i1 true)
   %219 = sub nuw nsw i64 64, %218
   %220 = shl nuw i64 1, %219
   %.0.i.i.i.i.i = select i1 %217, i64 %215, i64 %220
@@ -6374,9 +6374,9 @@ saophash_compute_size.exit.i.i.i:                 ; preds = %212
   %226 = call ptr @MemoryContextAllocExtended(ptr noundef %.val.i.i.i, i64 noundef %221, i32 noundef 5) #15
   store ptr %226, ptr %200, align 8
   %227 = call i64 @llvm.umax.i64(i64 %.0.i.i.i.i.i, i64 2)
-  %228 = call i64 @llvm.ctpop.i64(i64 %227), !range !20
+  %228 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %227)
   %229 = icmp ult i64 %228, 2
-  %230 = call i64 @llvm.ctlz.i64(i64 %227, i1 true), !range !20
+  %230 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %227, i1 true)
   %231 = sub nuw nsw i64 64, %230
   %232 = shl nuw i64 1, %231
   %.0.i.i.i.i.i.i = select i1 %229, i64 %227, i64 %232
@@ -6425,7 +6425,7 @@ saophash_update_parameters.exit.i.i.i:            ; preds = %saophash_compute_si
   %253 = add i32 %.058.i.i.i, 1
   %254 = zext i32 %253 to i64
   %255 = icmp ugt i64 %207, %254
-  br i1 %255, label %.lr.ph.i.i.i, label %.lr.ph66.i.i.i.preheader, !llvm.loop !21
+  br i1 %255, label %.lr.ph.i.i.i, label %.lr.ph66.i.i.i.preheader, !llvm.loop !20
 
 .lr.ph66.i.i.i.preheader:                         ; preds = %252, %248, %.lr.ph.i.i.i
   %.04963.i.i.i.ph = phi i32 [ %.058.i.i.i, %.lr.ph.i.i.i ], [ %.058.i.i.i, %248 ], [ 0, %252 ]
@@ -6470,7 +6470,7 @@ saophash_update_parameters.exit.i.i.i:            ; preds = %saophash_compute_si
   %274 = add i32 %.164.i.i.i, 1
   %275 = zext i32 %274 to i64
   %276 = icmp ugt i64 %207, %275
-  br i1 %276, label %.lr.ph66.i.i.i, label %saophash_grow.exit.i.i, !llvm.loop !22
+  br i1 %276, label %.lr.ph66.i.i.i, label %saophash_grow.exit.i.i, !llvm.loop !21
 
 saophash_grow.exit.i.i:                           ; preds = %271, %saophash_update_parameters.exit.i.i.i
   call void @pfree(ptr noundef %214) #15
@@ -6610,7 +6610,7 @@ saophash_distance.exit.i.i:                       ; preds = %309, %307
   %343 = getelementptr %struct.ScalarArrayOpExprHashEntry, ptr %278, i64 %342
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.080155.i.i, ptr noundef nonnull align 8 dereferenceable(16) %343, i64 16, i1 false)
   %.not82.i.i = icmp eq i32 %341, %.076126.i.i
-  br i1 %.not82.i.i, label %._crit_edge158.i.i, label %.lr.ph157.i.i, !llvm.loop !23
+  br i1 %.not82.i.i, label %._crit_edge158.i.i, label %.lr.ph157.i.i, !llvm.loop !22
 
 ._crit_edge158.i.i:                               ; preds = %.lr.ph157.i.i, %.preheader.i.i
   %344 = load i32, ptr %198, align 8
@@ -6661,7 +6661,7 @@ saophash_insert.exit:                             ; preds = %292, %.sink.split.i
   %.196 = select i1 %.not113, i32 %.095182, i32 %spec.select118
   %364 = add nuw nsw i32 %.092183, 1
   %exitcond.not = icmp eq i32 %364, %40
-  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !24
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge.loopexit:                             ; preds = %saophash_insert.exit
   %365 = and i8 %.1102, 1
@@ -6944,7 +6944,7 @@ list_length.exit:                                 ; preds = %18, %20
 35:                                               ; preds = %26, %30
   %.1 = phi ptr [ %.0, %26 ], [ %34, %30 ]
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
-  br label %18, !llvm.loop !25
+  br label %18, !llvm.loop !24
 
 36:                                               ; preds = %list_length.exit
   %.not114 = icmp eq ptr %.0, null
@@ -7027,7 +7027,7 @@ list_length.exit:                                 ; preds = %18, %20
 
 86:                                               ; preds = %76, %72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br label %.split.split, !llvm.loop !26
+  br label %.split.split, !llvm.loop !25
 
 .thread:                                          ; preds = %61, %66, %42
   %87 = load ptr, ptr %6, align 8
@@ -7293,7 +7293,7 @@ define dso_local void @ExecEvalJsonConstructor(ptr nocapture readnone %0, ptr no
   %26 = getelementptr inbounds i8, ptr %6, i64 40
   %27 = load i8, ptr %26, align 8
   %28 = trunc i8 %27 to i1
-  %29 = tail call i64 %17(i32 noundef %19, ptr noundef %21, ptr noundef %23, ptr noundef %25, i1 noundef zeroext %28) #15, !callees !27
+  %29 = tail call i64 %17(i32 noundef %19, ptr noundef %21, ptr noundef %23, ptr noundef %25, i1 noundef zeroext %28) #15, !callees !26
   br label %84
 
 30:                                               ; preds = %3
@@ -7312,7 +7312,7 @@ define dso_local void @ExecEvalJsonConstructor(ptr nocapture readnone %0, ptr no
   %43 = getelementptr inbounds i8, ptr %6, i64 41
   %44 = load i8, ptr %43, align 1
   %45 = trunc i8 %44 to i1
-  %46 = tail call i64 %31(i32 noundef %33, ptr noundef %35, ptr noundef %37, ptr noundef %39, i1 noundef zeroext %42, i1 noundef zeroext %45) #15, !callees !28
+  %46 = tail call i64 %31(i32 noundef %33, ptr noundef %35, ptr noundef %37, ptr noundef %39, i1 noundef zeroext %42, i1 noundef zeroext %45) #15, !callees !27
   br label %84
 
 47:                                               ; preds = %3
@@ -7721,7 +7721,7 @@ define dso_local void @ExecEvalWholeRowVar(ptr nocapture readnone %0, ptr nocapt
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %77 = sext i32 %76 to i64
   %78 = icmp slt i64 %indvars.iv.next, %77
-  br i1 %78, label %38, label %._crit_edge, !llvm.loop !29
+  br i1 %78, label %38, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %75, %.preheader
   %79 = getelementptr inbounds i8, ptr %2, i64 32
@@ -7877,7 +7877,7 @@ slot_getallattrs.exit..loopexit_crit_edge:        ; preds = %slot_getallattrs.ex
 165:                                              ; preds = %153, %143, %137
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next118, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %137, !llvm.loop !30
+  br i1 %exitcond.not, label %.loopexit, label %137, !llvm.loop !29
 
 .loopexit:                                        ; preds = %165, %slot_getallattrs.exit..loopexit_crit_edge, %129
   %166 = phi ptr [ %.pre120, %slot_getallattrs.exit..loopexit_crit_edge ], [ %.pre121, %129 ], [ %.pre121, %165 ]
@@ -8231,7 +8231,7 @@ define dso_local noundef zeroext i1 @ExecEvalPreOrderedDistinctMulti(ptr nocaptu
   %29 = load i32, ptr %6, align 8
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %11, label %._crit_edge, !llvm.loop !31
+  br i1 %31, label %11, label %._crit_edge, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %11, %2
   %32 = getelementptr inbounds i8, ptr %1, i64 304
@@ -8470,15 +8470,14 @@ attributes #17 = { nounwind willreturn memory(read) }
 !17 = distinct !{!17, !6}
 !18 = distinct !{!18, !6}
 !19 = distinct !{!19, !6}
-!20 = !{i64 0, i64 65}
+!20 = distinct !{!20, !6}
 !21 = distinct !{!21, !6}
 !22 = distinct !{!22, !6}
 !23 = distinct !{!23, !6}
 !24 = distinct !{!24, !6}
 !25 = distinct !{!25, !6}
-!26 = distinct !{!26, !6}
-!27 = !{ptr @json_build_array_worker, ptr @jsonb_build_array_worker}
-!28 = !{ptr @json_build_object_worker, ptr @jsonb_build_object_worker}
+!26 = !{ptr @json_build_array_worker, ptr @jsonb_build_array_worker}
+!27 = !{ptr @json_build_object_worker, ptr @jsonb_build_object_worker}
+!28 = distinct !{!28, !6}
 !29 = distinct !{!29, !6}
 !30 = distinct !{!30, !6}
-!31 = distinct !{!31, !6}

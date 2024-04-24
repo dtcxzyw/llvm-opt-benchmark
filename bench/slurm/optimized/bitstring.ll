@@ -664,10 +664,10 @@ define i64 @bit_ffs(ptr nocapture noundef readonly %0) #4 {
   br i1 %7, label %._crit_edge.i.outer, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %8 = tail call i64 @llvm.cttz.i64(i64 %6, i1 true), !range !13
+  %8 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %6, i1 true)
   %9 = or disjoint i64 %8, %.025.i.ph6
   %10 = icmp eq i64 %9, -1
-  br i1 %10, label %._crit_edge.i, label %bit_ffs_from_bit.exit, !llvm.loop !14
+  br i1 %10, label %._crit_edge.i, label %bit_ffs_from_bit.exit, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.split, %._crit_edge.i
   br label %._crit_edge.i
@@ -675,7 +675,7 @@ define i64 @bit_ffs(ptr nocapture noundef readonly %0) #4 {
 ._crit_edge.i.outer:                              ; preds = %.lr.ph
   %11 = add i64 %.025.i.ph6, 64
   %12 = icmp slt i64 %11, %.pre.i
-  br i1 %12, label %.lr.ph, label %bit_ffs_from_bit.exit, !llvm.loop !14
+  br i1 %12, label %.lr.ph, label %bit_ffs_from_bit.exit, !llvm.loop !13
 
 bit_ffs_from_bit.exit:                            ; preds = %._crit_edge.i.outer, %.lr.ph.split, %1
   %.024.i.lcssa = phi i64 [ -1, %1 ], [ %9, %.lr.ph.split ], [ -1, %._crit_edge.i.outer ]
@@ -714,7 +714,7 @@ define void @bit_and(ptr nocapture noundef %0, ptr nocapture noundef readonly %1
   store i64 %14, ptr %12, align 8
   %15 = add nuw i64 %7, 64
   %.not = icmp ugt i64 %15, %.
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i64 [ 0, %2 ], [ %7, %.lr.ph ]
@@ -757,7 +757,7 @@ define void @bit_not(ptr nocapture noundef %0) #3 {
   %8 = add i64 %.06, 64
   %9 = load i64, ptr %2, align 8
   %10 = icmp slt i64 %8, %9
-  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret void
@@ -786,7 +786,7 @@ define void @bit_or(ptr nocapture noundef %0, ptr nocapture noundef readonly %1)
   store i64 %14, ptr %12, align 8
   %15 = add nuw i64 %7, 64
   %.not = icmp ugt i64 %15, %.
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i64 [ 0, %2 ], [ %7, %.lr.ph ]
@@ -827,12 +827,12 @@ define i32 @bit_set_count(ptr nocapture noundef readonly %0) #4 {
   %5 = ashr exact i64 %.01418, 6
   %gep = getelementptr i64, ptr %invariant.gep, i64 %5
   %6 = load i64, ptr %gep, align 8
-  %7 = tail call i64 @llvm.ctpop.i64(i64 %6), !range !13
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %6)
   %8 = trunc nuw nsw i64 %7 to i32
   %9 = add nuw nsw i32 %.019, %8
   %10 = add nuw i64 %4, 64
   %.not = icmp ugt i64 %10, %3
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %.014.lcssa = phi i64 [ 0, %1 ], [ %4, %.lr.ph ]
@@ -849,7 +849,7 @@ define i32 @bit_set_count(ptr nocapture noundef readonly %0) #4 {
   %17 = getelementptr i8, ptr %16, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, %14
-  %20 = tail call i64 @llvm.ctpop.i64(i64 %19), !range !19
+  %20 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %19)
   %21 = trunc nuw nsw i64 %20 to i32
   %22 = add nuw nsw i32 %.0.lcssa, %21
   br label %23
@@ -873,7 +873,7 @@ define i32 @bit_set_count_range(ptr nocapture noundef readonly %0, i32 noundef %
   %13 = icmp sle i32 %12, %1
   %.not = icmp sgt i32 %12, %9
   %or.cond = select i1 %13, i1 true, i1 %.not
-  br i1 %or.cond, label %20, label %14
+  br i1 %or.cond, label %24, label %14
 
 14:                                               ; preds = %3
   %15 = and i64 %10, 63
@@ -882,79 +882,78 @@ define i32 @bit_set_count_range(ptr nocapture noundef readonly %0, i32 noundef %
   %17 = getelementptr i64, ptr %0, i64 %16
   %18 = getelementptr i8, ptr %17, i64 16
   %19 = load i64, ptr %18, align 8
-  br label %.sink.split
+  %20 = and i64 %19, %notmask48
+  %21 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %20)
+  %22 = trunc nuw nsw i64 %21 to i32
+  %23 = sext i32 %12 to i64
+  br label %39
 
-20:                                               ; preds = %3
-  br i1 %13, label %35, label %21
+24:                                               ; preds = %3
+  br i1 %13, label %39, label %25
 
-21:                                               ; preds = %20
-  %22 = and i64 %10, 63
-  %notmask = shl nsw i64 -1, %22
-  %23 = and i32 %9, 63
-  %24 = zext nneg i32 %23 to i64
-  %notmask47 = shl nsw i64 -1, %24
-  %25 = xor i64 %notmask47, -1
-  %26 = and i64 %notmask, %25
-  %27 = ashr i64 %10, 6
-  %28 = getelementptr i64, ptr %0, i64 %27
-  %29 = getelementptr i8, ptr %28, i64 16
-  %30 = load i64, ptr %29, align 8
-  br label %.sink.split
+25:                                               ; preds = %24
+  %26 = and i64 %10, 63
+  %notmask = shl nsw i64 -1, %26
+  %27 = and i32 %9, 63
+  %28 = zext nneg i32 %27 to i64
+  %notmask47 = shl nsw i64 -1, %28
+  %29 = xor i64 %notmask47, -1
+  %30 = and i64 %notmask, %29
+  %31 = ashr i64 %10, 6
+  %32 = getelementptr i64, ptr %0, i64 %31
+  %33 = getelementptr i8, ptr %32, i64 16
+  %34 = load i64, ptr %33, align 8
+  %35 = and i64 %30, %34
+  %36 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %35)
+  %37 = trunc nuw nsw i64 %36 to i32
+  %38 = sext i32 %12 to i64
+  br label %39
 
-.sink.split:                                      ; preds = %14, %21
-  %.sink60 = phi i64 [ %30, %21 ], [ %notmask48, %14 ]
-  %.sink = phi i64 [ %26, %21 ], [ %19, %14 ]
-  %31 = and i64 %.sink, %.sink60
-  %32 = tail call i64 @llvm.ctpop.i64(i64 %31), !range !13
-  %33 = trunc nuw nsw i64 %32 to i32
-  %34 = sext i32 %12 to i64
-  br label %35
-
-35:                                               ; preds = %.sink.split, %20
-  %.039 = phi i64 [ %10, %20 ], [ %34, %.sink.split ]
-  %.0 = phi i32 [ 0, %20 ], [ %33, %.sink.split ]
-  %36 = sext i32 %9 to i64
+39:                                               ; preds = %24, %25, %14
+  %.039 = phi i64 [ %23, %14 ], [ %38, %25 ], [ %10, %24 ]
+  %.0 = phi i32 [ %22, %14 ], [ %37, %25 ], [ 0, %24 ]
+  %40 = sext i32 %9 to i64
   %invariant.gep = getelementptr i8, ptr %0, i64 16
-  %37 = add nsw i64 %.039, 64
-  %.not4952 = icmp ugt i64 %37, %36
+  %41 = add nsw i64 %.039, 64
+  %.not4952 = icmp ugt i64 %41, %40
   br i1 %.not4952, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %35, %.lr.ph
-  %38 = phi i64 [ %44, %.lr.ph ], [ %37, %35 ]
-  %.154 = phi i32 [ %43, %.lr.ph ], [ %.0, %35 ]
-  %.14053 = phi i64 [ %38, %.lr.ph ], [ %.039, %35 ]
-  %39 = ashr i64 %.14053, 6
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %39
-  %40 = load i64, ptr %gep, align 8
-  %41 = tail call i64 @llvm.ctpop.i64(i64 %40), !range !13
-  %42 = trunc nuw nsw i64 %41 to i32
-  %43 = add nsw i32 %.154, %42
-  %44 = add i64 %38, 64
-  %.not49 = icmp ugt i64 %44, %36
-  br i1 %.not49, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+.lr.ph:                                           ; preds = %39, %.lr.ph
+  %42 = phi i64 [ %48, %.lr.ph ], [ %41, %39 ]
+  %.154 = phi i32 [ %47, %.lr.ph ], [ %.0, %39 ]
+  %.14053 = phi i64 [ %42, %.lr.ph ], [ %.039, %39 ]
+  %43 = ashr i64 %.14053, 6
+  %gep = getelementptr i64, ptr %invariant.gep, i64 %43
+  %44 = load i64, ptr %gep, align 8
+  %45 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %44)
+  %46 = trunc nuw nsw i64 %45 to i32
+  %47 = add nsw i32 %.154, %46
+  %48 = add i64 %42, 64
+  %.not49 = icmp ugt i64 %48, %40
+  br i1 %.not49, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %.lr.ph, %35
-  %.140.lcssa = phi i64 [ %.039, %35 ], [ %38, %.lr.ph ]
-  %.1.lcssa = phi i32 [ %.0, %35 ], [ %43, %.lr.ph ]
-  %45 = icmp slt i64 %.140.lcssa, %36
-  br i1 %45, label %46, label %57
+._crit_edge:                                      ; preds = %.lr.ph, %39
+  %.140.lcssa = phi i64 [ %.039, %39 ], [ %42, %.lr.ph ]
+  %.1.lcssa = phi i32 [ %.0, %39 ], [ %47, %.lr.ph ]
+  %49 = icmp slt i64 %.140.lcssa, %40
+  br i1 %49, label %50, label %61
 
-46:                                               ; preds = %._crit_edge
-  %47 = and i64 %36, 63
-  %notmask50 = shl nsw i64 -1, %47
-  %48 = xor i64 %notmask50, -1
-  %49 = ashr i64 %.140.lcssa, 6
-  %50 = getelementptr i64, ptr %0, i64 %49
-  %51 = getelementptr i8, ptr %50, i64 16
-  %52 = load i64, ptr %51, align 8
-  %53 = and i64 %52, %48
-  %54 = tail call i64 @llvm.ctpop.i64(i64 %53), !range !19
-  %55 = trunc nuw nsw i64 %54 to i32
-  %56 = add nsw i32 %.1.lcssa, %55
-  br label %57
+50:                                               ; preds = %._crit_edge
+  %51 = and i64 %40, 63
+  %notmask50 = shl nsw i64 -1, %51
+  %52 = xor i64 %notmask50, -1
+  %53 = ashr i64 %.140.lcssa, 6
+  %54 = getelementptr i64, ptr %0, i64 %53
+  %55 = getelementptr i8, ptr %54, i64 16
+  %56 = load i64, ptr %55, align 8
+  %57 = and i64 %56, %52
+  %58 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %57)
+  %59 = trunc nuw nsw i64 %58 to i32
+  %60 = add nsw i32 %.1.lcssa, %59
+  br label %61
 
-57:                                               ; preds = %46, %._crit_edge
-  %.2 = phi i32 [ %56, %46 ], [ %.1.lcssa, %._crit_edge ]
+61:                                               ; preds = %50, %._crit_edge
+  %.2 = phi i32 [ %60, %50 ], [ %.1.lcssa, %._crit_edge ]
   ret i32 %.2
 }
 
@@ -973,12 +972,12 @@ define i32 @bit_clear_count(ptr nocapture noundef readonly %0) #4 {
   %5 = ashr exact i64 %.01418.i, 6
   %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %5
   %6 = load i64, ptr %gep.i, align 8
-  %7 = tail call i64 @llvm.ctpop.i64(i64 %6), !range !13
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %6)
   %8 = trunc nuw nsw i64 %7 to i32
   %9 = add nuw nsw i32 %.019.i, %8
   %10 = add nuw i64 %4, 64
   %.not.i = icmp ugt i64 %10, %3
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %1
   %.014.lcssa.i = phi i64 [ 0, %1 ], [ %4, %.lr.ph.i ]
@@ -995,7 +994,7 @@ define i32 @bit_clear_count(ptr nocapture noundef readonly %0) #4 {
   %17 = getelementptr i8, ptr %16, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, %14
-  %20 = tail call i64 @llvm.ctpop.i64(i64 %19), !range !19
+  %20 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %19)
   %21 = trunc nuw nsw i64 %20 to i32
   %22 = add nuw nsw i32 %.0.lcssa.i, %21
   br label %bit_set_count.exit
@@ -1011,7 +1010,7 @@ bit_set_count.exit:                               ; preds = %._crit_edge.i, %12
 define i32 @bit_clear_count_range(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #4 {
   %4 = sub nsw i32 %2, %1
   %5 = icmp slt i32 %4, 1
-  br i1 %5, label %61, label %6
+  br i1 %5, label %65, label %6
 
 6:                                                ; preds = %3
   %7 = sext i32 %2 to i64
@@ -1026,7 +1025,7 @@ define i32 @bit_clear_count_range(ptr nocapture noundef readonly %0, i32 noundef
   %16 = icmp sle i32 %15, %1
   %.not.i = icmp sgt i32 %15, %12
   %or.cond.i = select i1 %16, i1 true, i1 %.not.i
-  br i1 %or.cond.i, label %23, label %17
+  br i1 %or.cond.i, label %27, label %17
 
 17:                                               ; preds = %6
   %18 = and i64 %13, 63
@@ -1035,84 +1034,83 @@ define i32 @bit_clear_count_range(ptr nocapture noundef readonly %0, i32 noundef
   %20 = getelementptr i64, ptr %0, i64 %19
   %21 = getelementptr i8, ptr %20, i64 16
   %22 = load i64, ptr %21, align 8
-  br label %.sink.split.i
+  %23 = and i64 %22, %notmask48.i
+  %24 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %23)
+  %25 = trunc nuw nsw i64 %24 to i32
+  %26 = sext i32 %15 to i64
+  br label %42
 
-23:                                               ; preds = %6
-  br i1 %16, label %38, label %24
+27:                                               ; preds = %6
+  br i1 %16, label %42, label %28
 
-24:                                               ; preds = %23
-  %25 = and i64 %13, 63
-  %notmask.i = shl nsw i64 -1, %25
-  %26 = and i32 %12, 63
-  %27 = zext nneg i32 %26 to i64
-  %notmask47.i = shl nsw i64 -1, %27
-  %28 = xor i64 %notmask47.i, -1
-  %29 = and i64 %notmask.i, %28
-  %30 = ashr i64 %13, 6
-  %31 = getelementptr i64, ptr %0, i64 %30
-  %32 = getelementptr i8, ptr %31, i64 16
-  %33 = load i64, ptr %32, align 8
-  br label %.sink.split.i
+28:                                               ; preds = %27
+  %29 = and i64 %13, 63
+  %notmask.i = shl nsw i64 -1, %29
+  %30 = and i32 %12, 63
+  %31 = zext nneg i32 %30 to i64
+  %notmask47.i = shl nsw i64 -1, %31
+  %32 = xor i64 %notmask47.i, -1
+  %33 = and i64 %notmask.i, %32
+  %34 = ashr i64 %13, 6
+  %35 = getelementptr i64, ptr %0, i64 %34
+  %36 = getelementptr i8, ptr %35, i64 16
+  %37 = load i64, ptr %36, align 8
+  %38 = and i64 %33, %37
+  %39 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %38)
+  %40 = trunc nuw nsw i64 %39 to i32
+  %41 = sext i32 %15 to i64
+  br label %42
 
-.sink.split.i:                                    ; preds = %24, %17
-  %.sink60.i = phi i64 [ %33, %24 ], [ %notmask48.i, %17 ]
-  %.sink.i = phi i64 [ %29, %24 ], [ %22, %17 ]
-  %34 = and i64 %.sink.i, %.sink60.i
-  %35 = tail call i64 @llvm.ctpop.i64(i64 %34), !range !13
-  %36 = trunc nuw nsw i64 %35 to i32
-  %37 = sext i32 %15 to i64
-  br label %38
-
-38:                                               ; preds = %.sink.split.i, %23
-  %.039.i = phi i64 [ %13, %23 ], [ %37, %.sink.split.i ]
-  %.0.i = phi i32 [ 0, %23 ], [ %36, %.sink.split.i ]
-  %39 = sext i32 %12 to i64
+42:                                               ; preds = %28, %27, %17
+  %.039.i = phi i64 [ %26, %17 ], [ %41, %28 ], [ %13, %27 ]
+  %.0.i = phi i32 [ %25, %17 ], [ %40, %28 ], [ 0, %27 ]
+  %43 = sext i32 %12 to i64
   %invariant.gep.i = getelementptr i8, ptr %0, i64 16
-  %40 = add nsw i64 %.039.i, 64
-  %.not4952.i = icmp ugt i64 %40, %39
+  %44 = add nsw i64 %.039.i, 64
+  %.not4952.i = icmp ugt i64 %44, %43
   br i1 %.not4952.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %38, %.lr.ph.i
-  %41 = phi i64 [ %47, %.lr.ph.i ], [ %40, %38 ]
-  %.154.i = phi i32 [ %46, %.lr.ph.i ], [ %.0.i, %38 ]
-  %.14053.i = phi i64 [ %41, %.lr.ph.i ], [ %.039.i, %38 ]
-  %42 = ashr i64 %.14053.i, 6
-  %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %42
-  %43 = load i64, ptr %gep.i, align 8
-  %44 = tail call i64 @llvm.ctpop.i64(i64 %43), !range !13
-  %45 = trunc nuw nsw i64 %44 to i32
-  %46 = add nsw i32 %.154.i, %45
-  %47 = add i64 %41, 64
-  %.not49.i = icmp ugt i64 %47, %39
-  br i1 %.not49.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
+.lr.ph.i:                                         ; preds = %42, %.lr.ph.i
+  %45 = phi i64 [ %51, %.lr.ph.i ], [ %44, %42 ]
+  %.154.i = phi i32 [ %50, %.lr.ph.i ], [ %.0.i, %42 ]
+  %.14053.i = phi i64 [ %45, %.lr.ph.i ], [ %.039.i, %42 ]
+  %46 = ashr i64 %.14053.i, 6
+  %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %46
+  %47 = load i64, ptr %gep.i, align 8
+  %48 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %47)
+  %49 = trunc nuw nsw i64 %48 to i32
+  %50 = add nsw i32 %.154.i, %49
+  %51 = add i64 %45, 64
+  %.not49.i = icmp ugt i64 %51, %43
+  br i1 %.not49.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !18
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %38
-  %.140.lcssa.i = phi i64 [ %.039.i, %38 ], [ %41, %.lr.ph.i ]
-  %.1.lcssa.i = phi i32 [ %.0.i, %38 ], [ %46, %.lr.ph.i ]
-  %48 = icmp slt i64 %.140.lcssa.i, %39
-  br i1 %48, label %49, label %bit_set_count_range.exit
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %42
+  %.140.lcssa.i = phi i64 [ %.039.i, %42 ], [ %45, %.lr.ph.i ]
+  %.1.lcssa.i = phi i32 [ %.0.i, %42 ], [ %50, %.lr.ph.i ]
+  %52 = icmp slt i64 %.140.lcssa.i, %43
+  br i1 %52, label %53, label %bit_set_count_range.exit
 
-49:                                               ; preds = %._crit_edge.i
-  %50 = and i64 %39, 63
-  %notmask50.i = shl nsw i64 -1, %50
-  %51 = xor i64 %notmask50.i, -1
-  %52 = ashr i64 %.140.lcssa.i, 6
-  %53 = getelementptr i64, ptr %0, i64 %52
-  %54 = getelementptr i8, ptr %53, i64 16
-  %55 = load i64, ptr %54, align 8
-  %56 = and i64 %55, %51
-  %57 = tail call i64 @llvm.ctpop.i64(i64 %56), !range !19
-  %58 = trunc nuw nsw i64 %57 to i32
-  %59 = add nsw i32 %.1.lcssa.i, %58
+53:                                               ; preds = %._crit_edge.i
+  %54 = and i64 %43, 63
+  %notmask50.i = shl nsw i64 -1, %54
+  %55 = xor i64 %notmask50.i, -1
+  %56 = ashr i64 %.140.lcssa.i, 6
+  %57 = getelementptr i64, ptr %0, i64 %56
+  %58 = getelementptr i8, ptr %57, i64 16
+  %59 = load i64, ptr %58, align 8
+  %60 = and i64 %59, %55
+  %61 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %60)
+  %62 = trunc nuw nsw i64 %61 to i32
+  %63 = add nsw i32 %.1.lcssa.i, %62
   br label %bit_set_count_range.exit
 
-bit_set_count_range.exit:                         ; preds = %._crit_edge.i, %49
-  %.2.i = phi i32 [ %59, %49 ], [ %.1.lcssa.i, %._crit_edge.i ]
-  %60 = sub nsw i32 %4, %.2.i
-  br label %61
+bit_set_count_range.exit:                         ; preds = %._crit_edge.i, %53
+  %.2.i = phi i32 [ %63, %53 ], [ %.1.lcssa.i, %._crit_edge.i ]
+  %64 = sub nsw i32 %4, %.2.i
+  br label %65
 
-61:                                               ; preds = %3, %bit_set_count_range.exit
-  %.0 = phi i32 [ %60, %bit_set_count_range.exit ], [ 0, %3 ]
+65:                                               ; preds = %3, %bit_set_count_range.exit
+  %.0 = phi i32 [ %64, %bit_set_count_range.exit ], [ 0, %3 ]
   ret i32 %.0
 }
 
@@ -1160,7 +1158,7 @@ define i32 @bit_nset_max_count(ptr nocapture noundef readonly %0) #4 {
 
 .lr.ph.backedge:                                  ; preds = %19, %13
   %.023.be = phi i64 [ %.old, %19 ], [ %17, %13 ]
-  br label %.lr.ph, !llvm.loop !21
+  br label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %19, %13, %1
   %.2 = phi i32 [ 0, %1 ], [ %.1, %13 ], [ %.1, %19 ]
@@ -1259,7 +1257,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %3, %.
 43:                                               ; preds = %.lr.ph, %36
   %44 = add nuw nsw i64 %.03347, 1
   %45 = icmp slt i64 %44, %27
-  br i1 %45, label %.lr.ph, label %.preheader, !llvm.loop !22
+  br i1 %45, label %.lr.ph, label %.preheader, !llvm.loop !20
 
 .lr.ph54:                                         ; preds = %.lr.ph54.preheader, %57
   %.153 = phi i64 [ %58, %57 ], [ %.033.lcssa, %.lr.ph54.preheader ]
@@ -1287,7 +1285,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %3, %.
   %58 = add nuw nsw i64 %.153, 1
   %59 = add nuw i64 %.03452, 1
   %exitcond.not = icmp eq i64 %59, %30
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph54, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph54, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %57, %.preheader
   ret ptr %17
@@ -1350,7 +1348,7 @@ define noundef ptr @bit_fmt(ptr noundef returned %0, i32 noundef %1, ptr nocaptu
 14:                                               ; preds = %8
   %15 = add i64 %.03343, 64
   %16 = icmp slt i64 %15, %7
-  br i1 %16, label %8, label %.outer._crit_edge, !llvm.loop !24
+  br i1 %16, label %8, label %.outer._crit_edge, !llvm.loop !22
 
 17:                                               ; preds = %8
   %18 = ashr i64 %.03343, 6
@@ -1380,7 +1378,7 @@ define noundef ptr @bit_fmt(ptr noundef returned %0, i32 noundef %1, ptr nocaptu
   %29 = shl nuw i64 1, %28
   %30 = and i64 %27, %29
   %.not.i40.not = icmp eq i64 %30, 0
-  br i1 %.not.i40.not, label %.critedge, label %.preheader, !llvm.loop !25
+  br i1 %.not.i40.not, label %.critedge, label %.preheader, !llvm.loop !23
 
 .critedge:                                        ; preds = %.preheader, %25
   %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
@@ -1415,7 +1413,7 @@ define noundef ptr @bit_fmt(ptr noundef returned %0, i32 noundef %1, ptr nocaptu
   %.1 = phi ptr [ %.0.ph47, %..outer_crit_edge ], [ @.str.4, %42 ], [ @.str.4, %44 ]
   %46 = load i64, ptr %4, align 8
   %47 = icmp slt i64 %.pre-phi, %46
-  br i1 %47, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !24
+  br i1 %47, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !22
 
 .outer._crit_edge:                                ; preds = %.outer, %14, %3
   ret ptr %0
@@ -1450,7 +1448,7 @@ define ptr @bit_fmt_full(ptr nocapture noundef readonly %0) #0 {
 13:                                               ; preds = %7
   %14 = add i64 %.02128, 64
   %15 = icmp slt i64 %14, %6
-  br i1 %15, label %7, label %.outer._crit_edge, !llvm.loop !26
+  br i1 %15, label %7, label %.outer._crit_edge, !llvm.loop !24
 
 16:                                               ; preds = %7
   %17 = ashr i64 %.02128, 6
@@ -1476,7 +1474,7 @@ define ptr @bit_fmt_full(ptr nocapture noundef readonly %0) #0 {
   %28 = shl nuw i64 1, %27
   %29 = and i64 %26, %28
   %.not.i25.not = icmp eq i64 %29, 0
-  br i1 %.not.i25.not, label %.critedge, label %.preheader, !llvm.loop !27
+  br i1 %.not.i25.not, label %.critedge, label %.preheader, !llvm.loop !25
 
 .critedge:                                        ; preds = %.preheader, %24
   %30 = icmp eq i64 %.122, %.02128
@@ -1496,7 +1494,7 @@ define ptr @bit_fmt_full(ptr nocapture noundef readonly %0) #0 {
   %33 = add nsw i64 %.2, 1
   %34 = load i64, ptr %3, align 8
   %35 = icmp slt i64 %33, %34
-  br i1 %35, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !26
+  br i1 %35, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !24
 
 .outer._crit_edge:                                ; preds = %.outer, %13, %1
   %36 = load ptr, ptr %2, align 8
@@ -1521,7 +1519,7 @@ define noundef i32 @bit_unfmt(ptr nocapture noundef %0, ptr noundef %1) #0 {
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call i32 @inx2bitstr(ptr noundef %0, ptr noundef nonnull %8), !range !28
+  %11 = tail call i32 @inx2bitstr(ptr noundef %0, ptr noundef nonnull %8), !range !26
   call void @slurm_xfree(ptr noundef nonnull %3) #17
   br label %12
 
@@ -1606,7 +1604,7 @@ define ptr @bitfmt2int(ptr noundef %0) #0 {
   %.2 = phi i32 [ %.078, %19 ], [ -1, %26 ], [ %.05377, %23 ], [ %.078, %.fold.split ]
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph79, !llvm.loop !29
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph79, !llvm.loop !27
 
 33:                                               ; preds = %4
   %34 = call i64 @strtol(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 10) #17
@@ -1662,7 +1660,7 @@ define ptr @bitfmt2int(ptr noundef %0) #0 {
   store i32 %.15973, ptr %64, align 4
   %65 = add nsw i32 %.15973, %47
   %66 = icmp slt i32 %65, %41
-  br i1 %66, label %.lr.ph, label %.loopexit.loopexit83, !llvm.loop !30
+  br i1 %66, label %.lr.ph, label %.loopexit.loopexit83, !llvm.loop !28
 
 .loopexit.loopexit83:                             ; preds = %.lr.ph
   %67 = trunc nuw i64 %indvars.iv.next to i32
@@ -1800,7 +1798,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %5, %.
   %.052.be = getelementptr inbounds i8, ptr %.05283, i64 -1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %.not = icmp ult ptr %.052.be, %spec.select
-  br i1 %.not, label %.loopexit, label %23, !llvm.loop !31
+  br i1 %.not, label %.loopexit, label %23, !llvm.loop !29
 
 52:                                               ; preds = %40
   %53 = and i64 %.051, 1
@@ -1898,7 +1896,7 @@ define ptr @bit_fmt_binmask(ptr nocapture noundef readonly %0) #0 {
   %spec.select = select i1 %.not.i.not, i8 48, i8 49
   store i8 %spec.select, ptr %.0, align 1
   %exitcond.not = icmp eq i64 %8, %3
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   ret ptr %5
@@ -1969,7 +1967,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %2, %.
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.016 = getelementptr inbounds i8, ptr %.01625, i64 -1
   %.not = icmp ult ptr %.016, %1
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %25, %bit_nclear.exit
   ret void
@@ -2006,7 +2004,7 @@ define i64 @bit_fls(ptr nocapture noundef readonly %0) #4 {
 
 13:                                               ; preds = %7
   %14 = icmp ugt i64 %.01923.i.in, 1
-  br i1 %14, label %.lr.ph.i, label %bit_fls_from_bit.exit, !llvm.loop !34
+  br i1 %14, label %.lr.ph.i, label %bit_fls_from_bit.exit, !llvm.loop !32
 
 .lr.ph31.i:                                       ; preds = %.lr.ph.i, %.outer.i
   %.120.ph37.i = phi i64 [ %23, %.outer.i ], [ %.01923.i, %.lr.ph.i ]
@@ -2019,10 +2017,10 @@ define i64 @bit_fls(ptr nocapture noundef readonly %0) #4 {
   br i1 %19, label %.outer.i, label %.lr.ph31.split.i
 
 .lr.ph31.split.i:                                 ; preds = %.lr.ph31.i
-  %20 = tail call i64 @llvm.ctlz.i64(i64 %18, i1 true), !range !13
+  %20 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %18, i1 true)
   %21 = sub nsw i64 %.120.ph37.i, %20
   %22 = icmp eq i64 %21, -1
-  br i1 %22, label %.lr.ph31.split.split.i, label %bit_fls_from_bit.exit, !llvm.loop !35
+  br i1 %22, label %.lr.ph31.split.split.i, label %bit_fls_from_bit.exit, !llvm.loop !33
 
 .lr.ph31.split.split.i:                           ; preds = %.lr.ph31.split.i, %.lr.ph31.split.split.i
   br label %.lr.ph31.split.split.i
@@ -2030,7 +2028,7 @@ define i64 @bit_fls(ptr nocapture noundef readonly %0) #4 {
 .outer.i:                                         ; preds = %.lr.ph31.i
   %23 = add nsw i64 %.120.ph37.i, -64
   %24 = icmp sgt i64 %.120.ph37.i, 63
-  br i1 %24, label %.lr.ph31.i, label %bit_fls_from_bit.exit, !llvm.loop !35
+  br i1 %24, label %.lr.ph31.i, label %bit_fls_from_bit.exit, !llvm.loop !33
 
 bit_fls_from_bit.exit:                            ; preds = %7, %13, %.outer.i, %1, %.preheader.i, %.lr.ph31.split.i
   %.0.i = phi i64 [ -1, %1 ], [ %21, %.lr.ph31.split.i ], [ -1, %.preheader.i ], [ -1, %.outer.i ], [ %.01923.i, %7 ], [ -1, %13 ]
@@ -2069,7 +2067,7 @@ define i64 @bit_fls_from_bit(ptr nocapture noundef readonly %0, i64 noundef %1) 
 15:                                               ; preds = %9
   %16 = add nsw i64 %.01923, -1
   %17 = icmp sgt i64 %.01923, 0
-  br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !34
+  br i1 %17, label %.lr.ph, label %.loopexit, !llvm.loop !32
 
 .lr.ph31:                                         ; preds = %.lr.ph, %.outer
   %.120.ph37 = phi i64 [ %26, %.outer ], [ %.01923, %.lr.ph ]
@@ -2082,10 +2080,10 @@ define i64 @bit_fls_from_bit(ptr nocapture noundef readonly %0, i64 noundef %1) 
   br i1 %22, label %.outer, label %.lr.ph31.split
 
 .lr.ph31.split:                                   ; preds = %.lr.ph31
-  %23 = tail call i64 @llvm.ctlz.i64(i64 %21, i1 true), !range !13
+  %23 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %21, i1 true)
   %24 = sub nsw i64 %.120.ph37, %23
   %25 = icmp eq i64 %24, -1
-  br i1 %25, label %.lr.ph31.split.split, label %.loopexit, !llvm.loop !35
+  br i1 %25, label %.lr.ph31.split.split, label %.loopexit, !llvm.loop !33
 
 .lr.ph31.split.split:                             ; preds = %.lr.ph31.split, %.lr.ph31.split.split
   br label %.lr.ph31.split.split
@@ -2093,7 +2091,7 @@ define i64 @bit_fls_from_bit(ptr nocapture noundef readonly %0, i64 noundef %1) 
 .outer:                                           ; preds = %.lr.ph31
   %26 = add nsw i64 %.120.ph37, -64
   %27 = icmp sgt i64 %.120.ph37, 63
-  br i1 %27, label %.lr.ph31, label %.loopexit, !llvm.loop !35
+  br i1 %27, label %.lr.ph31, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %9, %15, %.outer, %.preheader, %.lr.ph31.split, %2
   %.0 = phi i64 [ -1, %2 ], [ %24, %.lr.ph31.split ], [ -1, %.preheader ], [ -1, %.outer ], [ -1, %15 ], [ %.01923, %9 ]
@@ -2118,10 +2116,10 @@ define void @bit_fill_gaps(ptr nocapture noundef %0) #3 {
   br i1 %7, label %._crit_edge.i.outer.i, label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
-  %8 = tail call i64 @llvm.cttz.i64(i64 %6, i1 true), !range !13
+  %8 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %6, i1 true)
   %9 = or disjoint i64 %8, %.025.i.ph6.i
   %10 = icmp eq i64 %9, -1
-  br i1 %10, label %._crit_edge.i.i, label %bit_ffs.exit, !llvm.loop !14
+  br i1 %10, label %._crit_edge.i.i, label %bit_ffs.exit, !llvm.loop !13
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.split.i, %._crit_edge.i.i
   br label %._crit_edge.i.i
@@ -2129,7 +2127,7 @@ define void @bit_fill_gaps(ptr nocapture noundef %0) #3 {
 ._crit_edge.i.outer.i:                            ; preds = %.lr.ph.i
   %11 = add i64 %.025.i.ph6.i, 64
   %12 = icmp slt i64 %11, %.pre.i.i
-  br i1 %12, label %.lr.ph.i, label %bit_nset.exit, !llvm.loop !14
+  br i1 %12, label %.lr.ph.i, label %bit_nset.exit, !llvm.loop !13
 
 bit_ffs.exit:                                     ; preds = %.lr.ph.split.i
   %.not = icmp slt i64 %9, %.pre.i.i
@@ -2158,7 +2156,7 @@ bit_ffs.exit:                                     ; preds = %.lr.ph.split.i
 
 20:                                               ; preds = %14
   %21 = icmp ugt i64 %.01923.i.in.i, 1
-  br i1 %21, label %.lr.ph.i.i, label %bit_fls.exit, !llvm.loop !34
+  br i1 %21, label %.lr.ph.i.i, label %bit_fls.exit, !llvm.loop !32
 
 .lr.ph31.i.i:                                     ; preds = %.lr.ph.i.i, %.outer.i.i
   %.120.ph37.i.i = phi i64 [ %30, %.outer.i.i ], [ %.01923.i.i, %.lr.ph.i.i ]
@@ -2171,10 +2169,10 @@ bit_ffs.exit:                                     ; preds = %.lr.ph.split.i
   br i1 %26, label %.outer.i.i, label %.lr.ph31.split.i.i
 
 .lr.ph31.split.i.i:                               ; preds = %.lr.ph31.i.i
-  %27 = tail call i64 @llvm.ctlz.i64(i64 %25, i1 true), !range !13
+  %27 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %25, i1 true)
   %28 = sub nsw i64 %.120.ph37.i.i, %27
   %29 = icmp eq i64 %28, -1
-  br i1 %29, label %.lr.ph31.split.split.i.i, label %bit_fls.exit, !llvm.loop !35
+  br i1 %29, label %.lr.ph31.split.split.i.i, label %bit_fls.exit, !llvm.loop !33
 
 .lr.ph31.split.split.i.i:                         ; preds = %.lr.ph31.split.i.i, %.lr.ph31.split.split.i.i
   br label %.lr.ph31.split.split.i.i
@@ -2182,7 +2180,7 @@ bit_ffs.exit:                                     ; preds = %.lr.ph.split.i
 .outer.i.i:                                       ; preds = %.lr.ph31.i.i
   %30 = add nsw i64 %.120.ph37.i.i, -64
   %31 = icmp sgt i64 %.120.ph37.i.i, 63
-  br i1 %31, label %.lr.ph31.i.i, label %bit_fls.exit, !llvm.loop !35
+  br i1 %31, label %.lr.ph31.i.i, label %bit_fls.exit, !llvm.loop !33
 
 bit_fls.exit:                                     ; preds = %14, %20, %.outer.i.i, %.preheader.i.i, %.lr.ph31.split.i.i
   %.0.i.i = phi i64 [ %28, %.lr.ph31.split.i.i ], [ -1, %.preheader.i.i ], [ -1, %.outer.i.i ], [ -1, %20 ], [ %.01923.i.i, %14 ]
@@ -2289,7 +2287,7 @@ define noundef i32 @bit_super_set(ptr nocapture noundef readonly %0, ptr nocaptu
 
 ._crit_edge31:                                    ; preds = %8, %17
   %20 = icmp slt i64 %.pre, %4
-  br i1 %20, label %8, label %._crit_edge, !llvm.loop !36
+  br i1 %20, label %8, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %16, %17, %._crit_edge31, %2
   %.0 = phi i32 [ 1, %2 ], [ 1, %._crit_edge31 ], [ 0, %17 ], [ 0, %16 ]
@@ -2319,11 +2317,11 @@ define i32 @bit_overlap(ptr nocapture noundef readonly %0, ptr nocapture noundef
   %13 = getelementptr inbounds i64, ptr %1, i64 %10
   %14 = load i64, ptr %13, align 8
   %15 = and i64 %14, %12
-  %16 = tail call i64 @llvm.ctpop.i64(i64 %15), !range !13
+  %16 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %15)
   %17 = trunc nuw nsw i64 %16 to i32
   %18 = add nuw nsw i32 %.02736.us.i, %17
   %19 = icmp slt i64 %8, %4
-  br i1 %19, label %.lr.ph.split.us.i, label %_bit_overlap_internal.exit, !llvm.loop !37
+  br i1 %19, label %.lr.ph.split.us.i, label %_bit_overlap_internal.exit, !llvm.loop !35
 
 .split.us.i:                                      ; preds = %.lr.ph.split.us.i
   %20 = and i64 %4, 63
@@ -2337,7 +2335,7 @@ define i32 @bit_overlap(ptr nocapture noundef readonly %0, ptr nocapture noundef
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %25, %21
   %29 = and i64 %28, %27
-  %30 = tail call i64 @llvm.ctpop.i64(i64 %29), !range !19
+  %30 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %29)
   %31 = trunc nuw nsw i64 %30 to i32
   %32 = add nuw nsw i32 %.02736.us.i, %31
   br label %_bit_overlap_internal.exit
@@ -2374,7 +2372,7 @@ define i32 @bit_overlap_any(ptr nocapture noundef readonly %0, ptr nocapture nou
 
 16:                                               ; preds = %8
   %17 = icmp slt i64 %6, %4
-  br i1 %17, label %.lr.ph.split.i, label %_bit_overlap_internal.exit, !llvm.loop !37
+  br i1 %17, label %.lr.ph.split.i, label %_bit_overlap_internal.exit, !llvm.loop !35
 
 .split.us.i:                                      ; preds = %.lr.ph.split.i
   %18 = and i64 %4, 63
@@ -2420,7 +2418,7 @@ define noundef i32 @bit_equal(ptr nocapture noundef readonly %0, ptr nocapture n
   %13 = getelementptr inbounds i64, ptr %1, i64 %10
   %14 = load i64, ptr %13, align 8
   %.not23 = icmp eq i64 %12, %14
-  br i1 %.not23, label %.preheader, label %.loopexit, !llvm.loop !38
+  br i1 %.not23, label %.preheader, label %.loopexit, !llvm.loop !36
 
 15:                                               ; preds = %.preheader
   %16 = icmp slt i64 %.018, %4
@@ -2517,10 +2515,10 @@ define noundef ptr @bit_pick_cnt(ptr nocapture noundef readonly %0, i64 noundef 
 24:                                               ; preds = %.lr.ph.split
   %25 = add i64 %.03651, 64
   %26 = icmp slt i64 %25, %18
-  br i1 %26, label %.lr.ph.split, label %.loopexit, !llvm.loop !39
+  br i1 %26, label %.lr.ph.split, label %.loopexit, !llvm.loop !37
 
 .split.us:                                        ; preds = %.lr.ph.split
-  %27 = tail call i64 @llvm.ctpop.i64(i64 %22), !range !13
+  %27 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %22)
   %28 = add nsw i64 %27, %.035.ph63
   %.not42 = icmp sle i64 %28, %1
   %29 = add i64 %.03651, 63
@@ -2532,7 +2530,7 @@ define noundef ptr @bit_pick_cnt(ptr nocapture noundef readonly %0, i64 noundef 
   %31 = icmp slt i64 %.03651, %18
   %32 = icmp slt i64 %.035.ph63, %1
   %33 = select i1 %31, i1 %32, i1 false
-  br i1 %33, label %.lr.ph59, label %.outer.backedge, !llvm.loop !39
+  br i1 %33, label %.lr.ph59, label %.outer.backedge, !llvm.loop !37
 
 34:                                               ; preds = %.split.us
   %35 = add i64 %.03651, 64
@@ -2548,7 +2546,7 @@ define noundef ptr @bit_pick_cnt(ptr nocapture noundef readonly %0, i64 noundef 
   %38 = icmp slt i64 %.035.ph.be, %1
   %39 = icmp slt i64 %.036.ph.be, %37
   %40 = select i1 %39, i1 %38, i1 false
-  br i1 %40, label %.lr.ph.split.preheader, label %.outer._crit_edge, !llvm.loop !39
+  br i1 %40, label %.lr.ph.split.preheader, label %.outer._crit_edge, !llvm.loop !37
 
 .lr.ph59:                                         ; preds = %.preheader, %52
   %41 = phi i64 [ %53, %52 ], [ %18, %.preheader ]
@@ -2581,7 +2579,7 @@ define noundef ptr @bit_pick_cnt(ptr nocapture noundef readonly %0, i64 noundef 
   %56 = icmp slt i64 %55, %54
   %57 = icmp slt i64 %.2, %1
   %58 = select i1 %56, i1 %57, i1 false
-  br i1 %58, label %.lr.ph59, label %.outer.backedge, !llvm.loop !40
+  br i1 %58, label %.lr.ph59, label %.outer.backedge, !llvm.loop !38
 
 .outer._crit_edge:                                ; preds = %.outer.backedge, %7
   %.lcssa = phi i1 [ %15, %7 ], [ %38, %.outer.backedge ]
@@ -2631,7 +2629,7 @@ define i64 @bit_nffc(ptr nocapture noundef readonly %0, i32 noundef %1) #4 {
   %.1 = phi i32 [ %12, %11 ], [ 0, %.lr.ph ]
   %17 = add nuw nsw i64 %.01016, 1
   %exitcond.not = icmp eq i64 %17, %4
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !41
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !39
 
 .loopexit:                                        ; preds = %16, %2, %13
   %.011 = phi i64 [ %15, %13 ], [ -1, %2 ], [ -1, %16 ]
@@ -2682,7 +2680,7 @@ define i64 @bit_noc(ptr nocapture noundef readonly %0, i32 noundef %1, i32 nound
   %.1 = phi i32 [ %18, %17 ], [ 0, %.lr.ph ]
   %23 = add i64 %.02946, 1
   %exitcond.not = icmp eq i64 %23, %7
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !42
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !40
 
 .lr.ph52:                                         ; preds = %.preheader, %35
   %.251 = phi i32 [ %.3, %35 ], [ 0, %.preheader ]
@@ -2714,7 +2712,7 @@ define i64 @bit_noc(ptr nocapture noundef readonly %0, i32 noundef %1, i32 nound
   %.3 = phi i32 [ %31, %30 ], [ 0, %29 ]
   %36 = add nuw nsw i64 %.13050, 1
   %exitcond58.not = icmp eq i64 %36, %7
-  br i1 %exitcond58.not, label %.loopexit, label %.lr.ph52, !llvm.loop !43
+  br i1 %exitcond58.not, label %.loopexit, label %.lr.ph52, !llvm.loop !41
 
 .loopexit:                                        ; preds = %29, %35, %.preheader, %32, %19
   %.032 = phi i64 [ %21, %19 ], [ %34, %32 ], [ -1, %.preheader ], [ -1, %35 ], [ -1, %29 ]
@@ -2761,7 +2759,7 @@ define i64 @bit_nffs(ptr nocapture noundef readonly %0, i32 noundef %1) #4 {
   %.1 = phi i32 [ %14, %13 ], [ 0, %.lr.ph ]
   %19 = add nuw i64 %.01119, 1
   %exitcond.not = icmp eq i64 %19, %7
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !44
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !42
 
 .loopexit:                                        ; preds = %18, %2, %15
   %.012 = phi i64 [ %17, %15 ], [ -1, %2 ], [ -1, %18 ]
@@ -2814,7 +2812,7 @@ define i64 @bit_get_bit_num(ptr nocapture noundef readonly %0, i32 noundef %1) #
   %.1 = phi i32 [ %14, %13 ], [ %.01113, %.lr.ph ]
   %16 = add nuw nsw i64 %.014, 1
   %exitcond.not = icmp eq i64 %16, %4
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %15, %11, %2
   %spec.store.select = phi i64 [ -1, %2 ], [ %.014, %11 ], [ -1, %15 ]
@@ -2896,12 +2894,12 @@ define i64 @bit_ffs_from_bit(ptr nocapture noundef readonly %0, i64 noundef %1) 
 
 22:                                               ; preds = %20
   %23 = add i64 %.126, 64
-  br label %._crit_edge, !llvm.loop !14
+  br label %._crit_edge, !llvm.loop !13
 
 24:                                               ; preds = %20
-  %25 = tail call i64 @llvm.cttz.i64(i64 %.023, i1 true), !range !13
+  %25 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.023, i1 true)
   %26 = add nsw i64 %25, %.126
-  br label %._crit_edge, !llvm.loop !14
+  br label %._crit_edge, !llvm.loop !13
 
 27:                                               ; preds = %._crit_edge
   %28 = icmp slt i64 %.024, %.pre
@@ -2939,7 +2937,7 @@ define void @bit_and_not(ptr nocapture noundef %0, ptr nocapture noundef readonl
   store i64 %15, ptr %13, align 8
   %16 = add nuw i64 %7, 64
   %.not = icmp ugt i64 %16, %.
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i64 [ 0, %2 ], [ %7, %.lr.ph ]
@@ -2989,7 +2987,7 @@ define void @bit_or_not(ptr nocapture noundef %0, ptr nocapture noundef readonly
   store i64 %15, ptr %13, align 8
   %16 = add nuw i64 %7, 64
   %.not = icmp ugt i64 %16, %.
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi i64 [ 0, %2 ], [ %7, %.lr.ph ]
@@ -3063,7 +3061,7 @@ define ptr @bit_fmt_range(ptr nocapture noundef readonly %0, i32 noundef %1, i32
 17:                                               ; preds = %11
   %18 = add nsw i64 %.03140, 64
   %19 = icmp slt i64 %18, %.
-  br i1 %19, label %11, label %.outer._crit_edge, !llvm.loop !48
+  br i1 %19, label %11, label %.outer._crit_edge, !llvm.loop !46
 
 20:                                               ; preds = %11
   %21 = ashr i64 %.03140, 6
@@ -3089,7 +3087,7 @@ define ptr @bit_fmt_range(ptr nocapture noundef readonly %0, i32 noundef %1, i32
   %32 = shl nuw i64 1, %31
   %33 = and i64 %30, %32
   %.not.i38.not = icmp eq i64 %33, 0
-  br i1 %.not.i38.not, label %.critedge, label %.preheader, !llvm.loop !49
+  br i1 %.not.i38.not, label %.critedge, label %.preheader, !llvm.loop !47
 
 .critedge:                                        ; preds = %.preheader, %28
   %34 = icmp eq i64 %.132, %.03140
@@ -3110,7 +3108,7 @@ define ptr @bit_fmt_range(ptr nocapture noundef readonly %0, i32 noundef %1, i32
   %.1 = phi ptr [ %.0.ph44, %20 ], [ @.str.4, %37 ], [ @.str.4, %36 ]
   %39 = add nsw i64 %.2, 1
   %40 = icmp slt i64 %39, %.
-  br i1 %40, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !48
+  br i1 %40, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !46
 
 .outer._crit_edge:                                ; preds = %.outer, %17, %3
   %41 = load ptr, ptr %4, align 8
@@ -3135,8 +3133,8 @@ define noundef i32 @inx2bitstr(ptr nocapture noundef %0, ptr nocapture noundef r
   %.026.i = phi i64 [ %12, %.critedge.i ], [ %9, %7 ]
   %10 = add nuw nsw i64 %.026.i, 1
   %11 = and i64 %10, -9223372036854775801
-  %.not32 = icmp eq i64 %11, 0
-  br i1 %.not32, label %.critedge2.i, label %.critedge.i
+  %.not34 = icmp eq i64 %11, 0
+  br i1 %.not34, label %.critedge2.i, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.lr.ph27.i
   %12 = add nsw i64 %.026.i, -1
@@ -3152,8 +3150,8 @@ define noundef i32 @inx2bitstr(ptr nocapture noundef %0, ptr nocapture noundef r
   br i1 %.not18.not.i, label %.lr.ph27.i, label %bit_nclear.exit, !llvm.loop !8
 
 .critedge2.i:                                     ; preds = %.lr.ph27.i
-  %.not33 = icmp eq i64 %.026.i, 0
-  br i1 %.not33, label %bit_nclear.exit, label %19
+  %.not35 = icmp eq i64 %.026.i, 0
+  br i1 %.not35, label %bit_nclear.exit, label %19
 
 19:                                               ; preds = %.critedge2.i
   %20 = lshr exact i64 %10, 3
@@ -3162,8 +3160,8 @@ define noundef i32 @inx2bitstr(ptr nocapture noundef %0, ptr nocapture noundef r
 
 bit_nclear.exit:                                  ; preds = %.critedge.i, %19, %.critedge2.i, %2
   %21 = load i32, ptr %1, align 4
-  %.not35 = icmp eq i32 %21, -1
-  br i1 %.not35, label %._crit_edge, label %.lr.ph
+  %.not37 = icmp eq i32 %21, -1
+  br i1 %.not37, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %bit_nclear.exit
   %invariant.gep.i23 = getelementptr i8, ptr %0, i64 16
@@ -3171,14 +3169,14 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %19, %
 
 22:                                               ; preds = %.lr.ph, %bit_nset.exit
   %23 = phi i32 [ %21, %.lr.ph ], [ %58, %bit_nset.exit ]
-  %.01636 = phi ptr [ %1, %.lr.ph ], [ %57, %bit_nset.exit ]
+  %.01638 = phi ptr [ %1, %.lr.ph ], [ %57, %bit_nset.exit ]
   %24 = icmp sgt i32 %23, -1
   %.not20 = icmp slt i32 %23, %5
   %or.cond = and i1 %24, %.not20
   br i1 %or.cond, label %25, label %._crit_edge
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %.01636, i64 4
+  %26 = getelementptr inbounds i8, ptr %.01638, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = icmp sgt i32 %27, -1
   %.not21 = icmp slt i32 %27, %5
@@ -3196,8 +3194,8 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %19, %
 
 .critedge.preheader.i:                            ; preds = %.lr.ph.i, %29
   %.017.lcssa.i = phi i64 [ %30, %29 ], [ %34, %.lr.ph.i ]
-  %.not1825.i = icmp sgt i64 %.017.lcssa.i, %31
-  br i1 %.not1825.i, label %.critedge2.i26, label %.lr.ph27.i24
+  %.not1825.i24 = icmp sgt i64 %.017.lcssa.i, %31
+  br i1 %.not1825.i24, label %.critedge2.i27, label %.lr.ph27.i25
 
 .lr.ph.i:                                         ; preds = %29, %.lr.ph.i
   %.01722.i = phi i64 [ %34, %.lr.ph.i ], [ %30, %29 ]
@@ -3215,44 +3213,44 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %19, %
   %or.cond.i = and i1 %.not.i, %41
   br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.preheader.i, !llvm.loop !9
 
-.lr.ph27.i24:                                     ; preds = %.critedge.preheader.i, %.critedge.i28
-  %.026.i25 = phi i64 [ %45, %.critedge.i28 ], [ %31, %.critedge.preheader.i ]
-  %42 = add nuw nsw i64 %.026.i25, 1
+.lr.ph27.i25:                                     ; preds = %.critedge.preheader.i, %.critedge.i30
+  %.026.i26 = phi i64 [ %45, %.critedge.i30 ], [ %31, %.critedge.preheader.i ]
+  %42 = add nuw nsw i64 %.026.i26, 1
   %43 = and i64 %42, -9223372036854775801
   %44 = icmp sgt i64 %43, 0
-  br i1 %44, label %.critedge.i28, label %.critedge2.i26
+  br i1 %44, label %.critedge.i30, label %.critedge2.i27
 
-.critedge.i28:                                    ; preds = %.lr.ph27.i24
-  %45 = add nsw i64 %.026.i25, -1
-  %46 = and i64 %.026.i25, 63
+.critedge.i30:                                    ; preds = %.lr.ph27.i25
+  %45 = add nsw i64 %.026.i26, -1
+  %46 = and i64 %.026.i26, 63
   %47 = shl nuw i64 1, %46
-  %48 = ashr i64 %.026.i25, 6
-  %gep24.i29 = getelementptr i64, ptr %invariant.gep.i23, i64 %48
-  %49 = load i64, ptr %gep24.i29, align 8
+  %48 = ashr i64 %.026.i26, 6
+  %gep24.i31 = getelementptr i64, ptr %invariant.gep.i23, i64 %48
+  %49 = load i64, ptr %gep24.i31, align 8
   %50 = or i64 %49, %47
-  store i64 %50, ptr %gep24.i29, align 8
-  %.not18.not.i30 = icmp sgt i64 %.026.i25, %.017.lcssa.i
-  br i1 %.not18.not.i30, label %.lr.ph27.i24, label %.critedge2.i26, !llvm.loop !10
+  store i64 %50, ptr %gep24.i31, align 8
+  %.not18.not.i32 = icmp sgt i64 %.026.i26, %.017.lcssa.i
+  br i1 %.not18.not.i32, label %.lr.ph27.i25, label %.critedge2.i27, !llvm.loop !10
 
-.critedge2.i26:                                   ; preds = %.critedge.i28, %.lr.ph27.i24, %.critedge.preheader.i
-  %.0.lcssa.i27 = phi i64 [ %31, %.critedge.preheader.i ], [ %.026.i25, %.lr.ph27.i24 ], [ %45, %.critedge.i28 ]
-  %51 = icmp sgt i64 %.0.lcssa.i27, %.017.lcssa.i
+.critedge2.i27:                                   ; preds = %.critedge.i30, %.lr.ph27.i25, %.critedge.preheader.i
+  %.0.lcssa.i28 = phi i64 [ %31, %.critedge.preheader.i ], [ %.026.i26, %.lr.ph27.i25 ], [ %45, %.critedge.i30 ]
+  %51 = icmp sgt i64 %.0.lcssa.i28, %.017.lcssa.i
   br i1 %51, label %52, label %bit_nset.exit
 
-52:                                               ; preds = %.critedge2.i26
+52:                                               ; preds = %.critedge2.i27
   %53 = ashr i64 %.017.lcssa.i, 3
   %54 = getelementptr inbounds i8, ptr %invariant.gep.i23, i64 %53
-  %reass.sub = sub i64 %.0.lcssa.i27, %.017.lcssa.i
+  %reass.sub = sub i64 %.0.lcssa.i28, %.017.lcssa.i
   %55 = add i64 %reass.sub, 1
   %56 = sdiv i64 %55, 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %54, i8 -1, i64 %56, i1 false)
   br label %bit_nset.exit
 
-bit_nset.exit:                                    ; preds = %.critedge2.i26, %52
-  %57 = getelementptr inbounds i8, ptr %.01636, i64 8
+bit_nset.exit:                                    ; preds = %.critedge2.i27, %52
+  %57 = getelementptr inbounds i8, ptr %.01638, i64 8
   %58 = load i32, ptr %57, align 4
   %.not = icmp eq i32 %58, -1
-  br i1 %.not, label %._crit_edge, label %22, !llvm.loop !50
+  br i1 %.not, label %._crit_edge, label %22, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %bit_nset.exit, %25, %22, %bit_nclear.exit
   %.0 = phi i32 [ 0, %bit_nclear.exit ], [ -1, %22 ], [ -1, %25 ], [ 0, %bit_nset.exit ]
@@ -3290,7 +3288,7 @@ define ptr @inx2bitfmt(ptr noundef readonly %0) local_unnamed_addr #0 {
   %11 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.next
   %12 = load i32, ptr %11, align 4
   %13 = icmp sgt i32 %12, -1
-  br i1 %13, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !51
+  br i1 %13, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !49
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.pre = load ptr, ptr %2, align 8
@@ -3338,7 +3336,7 @@ define ptr @bitstr2inx(ptr noundef readonly %0) local_unnamed_addr #0 {
 16:                                               ; preds = %13
   %17 = add i64 %.02739, 64
   %18 = icmp slt i64 %17, %12
-  br i1 %18, label %13, label %.outer._crit_edge, !llvm.loop !52
+  br i1 %18, label %13, label %.outer._crit_edge, !llvm.loop !50
 
 19:                                               ; preds = %13
   %20 = and i64 %.02739, 63
@@ -3365,7 +3363,7 @@ define ptr @bitstr2inx(ptr noundef readonly %0) local_unnamed_addr #0 {
   %29 = shl nuw i64 1, %28
   %30 = and i64 %27, %29
   %.not.i35.not = icmp eq i64 %30, 0
-  br i1 %.not.i35.not, label %.critedge, label %.preheader, !llvm.loop !53
+  br i1 %.not.i35.not, label %.critedge, label %.preheader, !llvm.loop !51
 
 .critedge:                                        ; preds = %.preheader, %25
   %31 = trunc i64 %.02739 to i32
@@ -3383,7 +3381,7 @@ define ptr @bitstr2inx(ptr noundef readonly %0) local_unnamed_addr #0 {
   %36 = phi i64 [ %12, %..outer_crit_edge ], [ %.pre, %.critedge ]
   %.1 = phi i64 [ %.0.ph44, %..outer_crit_edge ], [ %34, %.critedge ]
   %37 = icmp slt i64 %.pre-phi, %36
-  br i1 %37, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !52
+  br i1 %37, label %.lr.ph, label %.outer._crit_edge, !llvm.loop !50
 
 .outer._crit_edge:                                ; preds = %.outer, %16, %4
   %.0.ph.lcssa = phi i64 [ 0, %4 ], [ %.0.ph44, %16 ], [ %.1, %.outer ]
@@ -3431,7 +3429,7 @@ define internal fastcc ptr @_bit_fmt_hexmask(ptr nocapture noundef readonly %0, 
 
 15:                                               ; preds = %9
   %16 = icmp ugt i64 %.01923.i.in.i, 1
-  br i1 %16, label %.lr.ph.i.i, label %bit_fls.exit, !llvm.loop !34
+  br i1 %16, label %.lr.ph.i.i, label %bit_fls.exit, !llvm.loop !32
 
 .lr.ph31.i.i:                                     ; preds = %.lr.ph.i.i, %.outer.i.i
   %.120.ph37.i.i = phi i64 [ %25, %.outer.i.i ], [ %.01923.i.i, %.lr.ph.i.i ]
@@ -3444,10 +3442,10 @@ define internal fastcc ptr @_bit_fmt_hexmask(ptr nocapture noundef readonly %0, 
   br i1 %21, label %.outer.i.i, label %.lr.ph31.split.i.i
 
 .lr.ph31.split.i.i:                               ; preds = %.lr.ph31.i.i
-  %22 = tail call i64 @llvm.ctlz.i64(i64 %20, i1 true), !range !13
+  %22 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %20, i1 true)
   %23 = sub nsw i64 %.120.ph37.i.i, %22
   %24 = icmp eq i64 %23, -1
-  br i1 %24, label %.lr.ph31.split.split.i.i, label %bit_fls.exit, !llvm.loop !35
+  br i1 %24, label %.lr.ph31.split.split.i.i, label %bit_fls.exit, !llvm.loop !33
 
 .lr.ph31.split.split.i.i:                         ; preds = %.lr.ph31.split.i.i, %.lr.ph31.split.split.i.i
   br label %.lr.ph31.split.split.i.i
@@ -3455,7 +3453,7 @@ define internal fastcc ptr @_bit_fmt_hexmask(ptr nocapture noundef readonly %0, 
 .outer.i.i:                                       ; preds = %.lr.ph31.i.i
   %25 = add nsw i64 %.120.ph37.i.i, -64
   %26 = icmp sgt i64 %.120.ph37.i.i, 63
-  br i1 %26, label %.lr.ph31.i.i, label %bit_fls.exit, !llvm.loop !35
+  br i1 %26, label %.lr.ph31.i.i, label %bit_fls.exit, !llvm.loop !33
 
 bit_fls.exit:                                     ; preds = %9, %15, %.outer.i.i, %5, %.preheader.i.i, %.lr.ph31.split.i.i
   %.0.i.i = phi i64 [ -1, %5 ], [ %23, %.lr.ph31.split.i.i ], [ -1, %.preheader.i.i ], [ -1, %.outer.i.i ], [ -1, %15 ], [ %.01923.i.i, %9 ]
@@ -3519,7 +3517,7 @@ bit_fls.exit:                                     ; preds = %9, %15, %.outer.i.i
   %54 = getelementptr inbounds i8, ptr %.186, i64 -2
   %55 = add nuw nsw i64 %.05885, 1
   %exitcond.not = icmp eq i64 %55, 8
-  br i1 %exitcond.not, label %.loopexit, label %44, !llvm.loop !54
+  br i1 %exitcond.not, label %.loopexit, label %44, !llvm.loop !52
 
 56:                                               ; preds = %.lr.ph
   %57 = add nsw i64 %.05995, 1
@@ -3600,7 +3598,7 @@ bit_fls.exit:                                     ; preds = %9, %15, %.outer.i.i
   %.463 = phi i64 [ %.362, %92 ], [ %41, %44 ]
   %.2 = phi ptr [ %96, %92 ], [ %54, %44 ]
   %97 = icmp slt i64 %.463, %.054
-  br i1 %97, label %.lr.ph, label %.loopexit80, !llvm.loop !55
+  br i1 %97, label %.lr.ph, label %.loopexit80, !llvm.loop !53
 
 .loopexit80:                                      ; preds = %.loopexit, %31, %29
   %.0 = phi ptr [ %30, %29 ], [ %35, %31 ], [ %35, %.loopexit ]
@@ -3630,12 +3628,12 @@ define void @bit_consolidate(ptr nocapture noundef %0) local_unnamed_addr #3 {
   %5 = ashr exact i64 %.01418.i, 6
   %gep.i = getelementptr i64, ptr %invariant.gep.i, i64 %5
   %6 = load i64, ptr %gep.i, align 8
-  %7 = tail call i64 @llvm.ctpop.i64(i64 %6), !range !13
+  %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %6)
   %8 = trunc nuw nsw i64 %7 to i32
   %9 = add nuw nsw i32 %.019.i, %8
   %10 = add nuw i64 %4, 64
   %.not.i = icmp ugt i64 %10, %3
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !18
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %1
   %.014.lcssa.i = phi i64 [ 0, %1 ], [ %4, %.lr.ph.i ]
@@ -3652,7 +3650,7 @@ define void @bit_consolidate(ptr nocapture noundef %0) local_unnamed_addr #3 {
   %17 = getelementptr i8, ptr %16, i64 16
   %18 = load i64, ptr %17, align 8
   %19 = and i64 %18, %14
-  %20 = tail call i64 @llvm.ctpop.i64(i64 %19), !range !19
+  %20 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %19)
   %21 = trunc nuw nsw i64 %20 to i32
   %22 = add nuw nsw i32 %.0.lcssa.i, %21
   br label %bit_set_count.exit
@@ -3730,43 +3728,43 @@ bit_set_count.exit:                               ; preds = %._crit_edge.i, %12
   br label %bit_nclear.exit
 
 bit_nclear.exit:                                  ; preds = %.critedge2.i, %50
-  %.not1825.i18 = icmp slt i32 %.1.i, 1
-  br i1 %.not1825.i18, label %bit_nset.exit, label %.lr.ph27.i19.preheader
+  %.not1825.i19 = icmp slt i32 %.1.i, 1
+  br i1 %.not1825.i19, label %bit_nset.exit, label %.lr.ph27.i20.preheader
 
-.lr.ph27.i19.preheader:                           ; preds = %bit_nclear.exit
+.lr.ph27.i20.preheader:                           ; preds = %bit_nclear.exit
   %55 = add nsw i32 %.1.i, -1
   %56 = zext nneg i32 %55 to i64
-  br label %.lr.ph27.i19
+  br label %.lr.ph27.i20
 
-.lr.ph27.i19:                                     ; preds = %.lr.ph27.i19.preheader, %.critedge.i24
-  %.026.i20 = phi i64 [ %59, %.critedge.i24 ], [ %56, %.lr.ph27.i19.preheader ]
-  %57 = add nuw nsw i64 %.026.i20, 1
+.lr.ph27.i20:                                     ; preds = %.lr.ph27.i20.preheader, %.critedge.i25
+  %.026.i21 = phi i64 [ %59, %.critedge.i25 ], [ %56, %.lr.ph27.i20.preheader ]
+  %57 = add nuw nsw i64 %.026.i21, 1
   %58 = and i64 %57, -9223372036854775801
-  %.not28 = icmp eq i64 %58, 0
-  br i1 %.not28, label %.critedge2.i21, label %.critedge.i24
+  %.not34 = icmp eq i64 %58, 0
+  br i1 %.not34, label %.critedge2.i22, label %.critedge.i25
 
-.critedge.i24:                                    ; preds = %.lr.ph27.i19
-  %59 = add nsw i64 %.026.i20, -1
-  %60 = and i64 %.026.i20, 63
+.critedge.i25:                                    ; preds = %.lr.ph27.i20
+  %59 = add nsw i64 %.026.i21, -1
+  %60 = and i64 %.026.i21, 63
   %61 = shl nuw i64 1, %60
-  %62 = ashr i64 %.026.i20, 6
-  %gep24.i25 = getelementptr i64, ptr %invariant.gep.i, i64 %62
-  %63 = load i64, ptr %gep24.i25, align 8
+  %62 = ashr i64 %.026.i21, 6
+  %gep24.i26 = getelementptr i64, ptr %invariant.gep.i, i64 %62
+  %63 = load i64, ptr %gep24.i26, align 8
   %64 = or i64 %63, %61
-  store i64 %64, ptr %gep24.i25, align 8
-  %.not18.not.i26 = icmp sgt i64 %.026.i20, 0
-  br i1 %.not18.not.i26, label %.lr.ph27.i19, label %bit_nset.exit, !llvm.loop !10
+  store i64 %64, ptr %gep24.i26, align 8
+  %.not18.not.i27 = icmp sgt i64 %.026.i21, 0
+  br i1 %.not18.not.i27, label %.lr.ph27.i20, label %bit_nset.exit, !llvm.loop !10
 
-.critedge2.i21:                                   ; preds = %.lr.ph27.i19
-  %.not29 = icmp eq i64 %.026.i20, 0
-  br i1 %.not29, label %bit_nset.exit, label %65
+.critedge2.i22:                                   ; preds = %.lr.ph27.i20
+  %.not35 = icmp eq i64 %.026.i21, 0
+  br i1 %.not35, label %bit_nset.exit, label %65
 
-65:                                               ; preds = %.critedge2.i21
+65:                                               ; preds = %.critedge2.i22
   %66 = lshr exact i64 %57, 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %invariant.gep.i, i8 -1, i64 %66, i1 false)
   br label %bit_nset.exit
 
-bit_nset.exit:                                    ; preds = %.critedge.i24, %bit_nclear.exit, %65, %.critedge2.i21, %23, %bit_set_count.exit
+bit_nset.exit:                                    ; preds = %.critedge.i25, %bit_nclear.exit, %65, %.critedge2.i22, %23, %bit_set_count.exit
   ret void
 }
 
@@ -3811,22 +3809,22 @@ attributes #19 = { nounwind willreturn memory(none) }
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
-!13 = !{i64 0, i64 65}
+!13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
 !15 = distinct !{!15, !7}
 !16 = distinct !{!16, !7}
 !17 = distinct !{!17, !7}
 !18 = distinct !{!18, !7}
-!19 = !{i64 0, i64 64}
+!19 = distinct !{!19, !7}
 !20 = distinct !{!20, !7}
 !21 = distinct !{!21, !7}
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
-!26 = distinct !{!26, !7}
+!26 = !{i32 -1, i32 1}
 !27 = distinct !{!27, !7}
-!28 = !{i32 -1, i32 1}
+!28 = distinct !{!28, !7}
 !29 = distinct !{!29, !7}
 !30 = distinct !{!30, !7}
 !31 = distinct !{!31, !7}
@@ -3852,5 +3850,3 @@ attributes #19 = { nounwind willreturn memory(none) }
 !51 = distinct !{!51, !7}
 !52 = distinct !{!52, !7}
 !53 = distinct !{!53, !7}
-!54 = distinct !{!54, !7}
-!55 = distinct !{!55, !7}
