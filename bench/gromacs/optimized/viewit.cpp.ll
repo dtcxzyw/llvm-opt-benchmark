@@ -56,7 +56,7 @@ define void @_Z7do_viewPK16gmx_output_env_tPKcS3_(ptr noundef %0, ptr noundef %1
   %7 = tail call noundef zeroext i1 @_Z19output_env_get_viewPK16gmx_output_env_t(ptr noundef %0)
   %8 = icmp ne ptr %1, null
   %or.cond = and i1 %8, %7
-  br i1 %or.cond, label %9, label %47
+  br i1 %or.cond, label %9, label %45
 
 9:                                                ; preds = %3
   %10 = tail call ptr @getenv(ptr noundef nonnull @.str.3) #10
@@ -66,7 +66,7 @@ define void @_Z7do_viewPK16gmx_output_env_tPKcS3_(ptr noundef %0, ptr noundef %1
 12:                                               ; preds = %9
   %13 = load ptr, ptr @stderr, align 8
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #11
-  br label %47
+  br label %45
 
 15:                                               ; preds = %9
   %16 = tail call noundef i32 @_Z6fn2ftpPKc(ptr noundef nonnull %1)
@@ -79,13 +79,13 @@ define void @_Z7do_viewPK16gmx_output_env_tPKcS3_(ptr noundef %0, ptr noundef %1
 19:                                               ; preds = %15
   %20 = call ptr @getenv(ptr noundef nonnull %5) #10
   %.not22 = icmp eq ptr %20, null
-  br i1 %.not22, label %21, label %36
+  br i1 %.not22, label %21, label %34
 
 21:                                               ; preds = %19
   %22 = call ptr @getenv(ptr noundef nonnull @.str.6) #10
   %.not23 = icmp eq ptr %22, null
   %.str.8..str.7 = select i1 %.not23, ptr @.str.8, ptr @.str.7
-  br label %36
+  br label %34
 
 .preheader:                                       ; preds = %15, %26
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %26 ], [ 1, %15 ]
@@ -100,58 +100,53 @@ define void @_Z7do_viewPK16gmx_output_env_tPKcS3_(ptr noundef %0, ptr noundef %1
   br i1 %exitcond.not.i, label %_ZL8can_viewi.exit.thread, label %.preheader, !llvm.loop !5
 
 _ZL8can_viewi.exit:                               ; preds = %.preheader
-  %27 = and i64 %indvars.iv.i, 4294967295
-  %.not = icmp eq i64 %27, 0
-  br i1 %.not, label %_ZL8can_viewi.exit.thread, label %28
+  %27 = call ptr @getenv(ptr noundef nonnull %5) #10
+  %.not21 = icmp eq ptr %27, null
+  br i1 %.not21, label %28, label %34
 
 28:                                               ; preds = %_ZL8can_viewi.exit
-  %29 = call ptr @getenv(ptr noundef nonnull %5) #10
-  %.not21 = icmp eq ptr %29, null
-  br i1 %.not21, label %30, label %36
-
-30:                                               ; preds = %28
   %sext = shl i64 %indvars.iv.i, 32
-  %31 = ashr exact i64 %sext, 32
-  %32 = getelementptr inbounds [5 x ptr], ptr @__const._Z7do_viewPK16gmx_output_env_tPKcS3_.viewProgram, i64 0, i64 %31
-  %33 = load ptr, ptr %32, align 8
-  br label %36
+  %29 = ashr exact i64 %sext, 32
+  %30 = getelementptr inbounds [5 x ptr], ptr @__const._Z7do_viewPK16gmx_output_env_tPKcS3_.viewProgram, i64 0, i64 %29
+  %31 = load ptr, ptr %30, align 8
+  br label %34
 
-_ZL8can_viewi.exit.thread:                        ; preds = %26, %_ZL8can_viewi.exit
-  %34 = load ptr, ptr @stderr, align 8
-  %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.9, ptr noundef nonnull %1) #11
-  br label %47
+_ZL8can_viewi.exit.thread:                        ; preds = %26
+  %32 = load ptr, ptr @stderr, align 8
+  %33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.9, ptr noundef nonnull %1) #11
+  br label %45
 
-36:                                               ; preds = %21, %30, %28, %19
-  %.0 = phi ptr [ %20, %19 ], [ %29, %28 ], [ %33, %30 ], [ %.str.8..str.7, %21 ]
+34:                                               ; preds = %21, %28, %_ZL8can_viewi.exit, %19
+  %.0 = phi ptr [ %20, %19 ], [ %27, %_ZL8can_viewi.exit ], [ %31, %28 ], [ %.str.8..str.7, %21 ]
   %char0 = load i8, ptr %.0, align 1
   %.not24 = icmp eq i8 %char0, 0
-  br i1 %.not24, label %47, label %37
+  br i1 %.not24, label %45, label %35
 
-37:                                               ; preds = %36
+35:                                               ; preds = %34
   %.not25 = icmp eq ptr %2, null
-  %38 = select i1 %.not25, ptr @.str.11, ptr %2
-  %39 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.10, ptr noundef nonnull %.0, ptr noundef nonnull %38, ptr noundef nonnull %1) #10
-  %40 = load ptr, ptr @stderr, align 8
-  %41 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %40, ptr noundef nonnull @.str.12, ptr noundef nonnull %4) #11
-  %42 = call i32 @system(ptr noundef nonnull %4)
-  %.not26 = icmp eq i32 %42, 0
-  br i1 %.not26, label %47, label %43
+  %36 = select i1 %.not25, ptr @.str.11, ptr %2
+  %37 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.10, ptr noundef nonnull %.0, ptr noundef nonnull %36, ptr noundef nonnull %1) #10
+  %38 = load ptr, ptr @stderr, align 8
+  %39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.12, ptr noundef nonnull %4) #11
+  %40 = call i32 @system(ptr noundef nonnull %4)
+  %.not26 = icmp eq i32 %40, 0
+  br i1 %.not26, label %45, label %41
 
-43:                                               ; preds = %37
+41:                                               ; preds = %35
   call void @_ZNSt10filesystem7__cxx114pathC2IA128_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 1 dereferenceable(128) @.str.13, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 123, ptr noundef nonnull @.str.14, ptr noundef nonnull %4) #12
-          to label %44 unwind label %45
+          to label %42 unwind label %43
 
-44:                                               ; preds = %43
+42:                                               ; preds = %41
   unreachable
 
-45:                                               ; preds = %43
-  %46 = landingpad { ptr, i32 }
+43:                                               ; preds = %41
+  %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #10
-  resume { ptr, i32 } %46
+  resume { ptr, i32 } %44
 
-47:                                               ; preds = %12, %37, %36, %_ZL8can_viewi.exit.thread, %3
+45:                                               ; preds = %12, %35, %34, %_ZL8can_viewi.exit.thread, %3
   ret void
 }
 
@@ -319,30 +314,25 @@ define void @_Z8view_allPK16gmx_output_env_tiP8t_filenm(ptr noundef %0, i32 noun
   br i1 %exitcond.not.i, label %_ZL8can_viewi.exit.thread, label %7, !llvm.loop !5
 
 _ZL8can_viewi.exit:                               ; preds = %7
-  %12 = and i64 %indvars.iv.i, 4294967295
-  %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %_ZL8can_viewi.exit.thread, label %13
+  %12 = tail call noundef zeroext i1 @_Z9is_outputPK8t_filenm(ptr noundef nonnull %5)
+  br i1 %12, label %13, label %_ZL8can_viewi.exit.thread
 
 13:                                               ; preds = %_ZL8can_viewi.exit
-  %14 = tail call noundef zeroext i1 @_Z9is_outputPK8t_filenm(ptr noundef nonnull %5)
-  br i1 %14, label %15, label %_ZL8can_viewi.exit.thread
+  %14 = tail call noundef zeroext i1 @_Z11is_optionalPK8t_filenm(ptr noundef nonnull %5)
+  br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = tail call noundef zeroext i1 @_Z11is_optionalPK8t_filenm(ptr noundef nonnull %5)
-  br i1 %16, label %17, label %19
+  %16 = tail call noundef zeroext i1 @_Z6is_setPK8t_filenm(ptr noundef nonnull %5)
+  br i1 %16, label %17, label %_ZL8can_viewi.exit.thread
 
-17:                                               ; preds = %15
-  %18 = tail call noundef zeroext i1 @_Z6is_setPK8t_filenm(ptr noundef nonnull %5)
-  br i1 %18, label %19, label %_ZL8can_viewi.exit.thread
-
-19:                                               ; preds = %17, %15
-  %20 = getelementptr inbounds i8, ptr %5, i64 32
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #10
-  tail call void @_Z7do_viewPK16gmx_output_env_tPKcS3_(ptr noundef %0, ptr noundef %22, ptr noundef null)
+17:                                               ; preds = %15, %13
+  %18 = getelementptr inbounds i8, ptr %5, i64 32
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #10
+  tail call void @_Z7do_viewPK16gmx_output_env_tPKcS3_(ptr noundef %0, ptr noundef %20, ptr noundef null)
   br label %_ZL8can_viewi.exit.thread
 
-_ZL8can_viewi.exit.thread:                        ; preds = %11, %_ZL8can_viewi.exit, %13, %17, %19
+_ZL8can_viewi.exit.thread:                        ; preds = %11, %_ZL8can_viewi.exit, %15, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7

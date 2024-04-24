@@ -8947,7 +8947,7 @@ _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit2
 
 68:                                               ; preds = %67
   %.not12.i = icmp sgt i32 %.sroa.speculated.i, %3
-  br i1 %.not12.i, label %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit.thread, label %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit.thread84
+  br i1 %.not12.i, label %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit.thread, label %76
 
 69:                                               ; preds = %67
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -8956,208 +8956,202 @@ _ZN5ZXing21FastEdgeToEdgeCounterC2ERKNS_15BitMatrixCursorINS_6PointTIiEEEE.exit2
   %72 = load i8, ptr %71, align 1
   %73 = load i8, ptr %27, align 1
   %74 = icmp eq i8 %72, %73
-  br i1 %74, label %67, label %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit, !llvm.loop !163
+  br i1 %74, label %67, label %.loopexit.loopexit.i, !llvm.loop !163
 
-_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit: ; preds = %69
+.loopexit.loopexit.i:                             ; preds = %69
   %75 = trunc nsw i64 %indvars.iv.next.i to i32
-  %.not = icmp eq i32 %75, 0
-  br i1 %.not, label %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit.thread, label %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit.thread84
+  br label %76
 
-_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit.thread84: ; preds = %68, %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit
-  %76 = phi i32 [ %75, %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit ], [ %66, %68 ]
-  %.pn.in = mul nsw i32 %76, %16
-  %.pn = sext i32 %.pn.in to i64
-  %77 = getelementptr inbounds i8, ptr %27, i64 %.pn
-  %78 = sub nsw i32 %.sroa.speculated.i, %76
+76:                                               ; preds = %.loopexit.loopexit.i, %68
+  %77 = phi i32 [ %75, %.loopexit.loopexit.i ], [ %66, %68 ]
+  %78 = mul nsw i32 %77, %16
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds i8, ptr %27, i64 %79
+  %81 = sub nsw i32 %.sroa.speculated.i, %77
   %.sroa.speculated.i24 = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated.i21, i32 %3)
-  %79 = sext i32 %43 to i64
+  %82 = sext i32 %43 to i64
   %smax.i25 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated.i24, i32 0)
-  %80 = zext nneg i32 %smax.i25 to i64
-  %81 = add nuw i32 %smax.i25, 1
-  br label %82
+  %83 = zext nneg i32 %smax.i25 to i64
+  %84 = add nuw i32 %smax.i25, 1
+  br label %85
 
-82:                                               ; preds = %84, %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit.thread84
-  %indvars.iv.i26 = phi i64 [ %indvars.iv.next.i28, %84 ], [ 0, %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit.thread84 ]
-  %exitcond.not.i27 = icmp eq i64 %indvars.iv.i26, %80
-  br i1 %exitcond.not.i27, label %83, label %84
+85:                                               ; preds = %87, %76
+  %indvars.iv.i26 = phi i64 [ %indvars.iv.next.i28, %87 ], [ 0, %76 ]
+  %exitcond.not.i27 = icmp eq i64 %indvars.iv.i26, %83
+  br i1 %exitcond.not.i27, label %86, label %87
 
-83:                                               ; preds = %82
+86:                                               ; preds = %85
   %.not12.i32 = icmp sgt i32 %.sroa.speculated.i21, %3
-  br i1 %.not12.i32, label %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit.thread, label %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit33.thread90
+  br i1 %.not12.i32, label %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit.thread, label %94
 
-84:                                               ; preds = %82
+87:                                               ; preds = %85
   %indvars.iv.next.i28 = add nuw nsw i64 %indvars.iv.i26, 1
-  %85 = mul nsw i64 %indvars.iv.next.i28, %79
-  %86 = getelementptr inbounds i8, ptr %48, i64 %85
-  %87 = load i8, ptr %86, align 1
-  %88 = load i8, ptr %48, align 1
-  %89 = icmp eq i8 %87, %88
-  br i1 %89, label %82, label %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit33, !llvm.loop !163
+  %88 = mul nsw i64 %indvars.iv.next.i28, %82
+  %89 = getelementptr inbounds i8, ptr %48, i64 %88
+  %90 = load i8, ptr %89, align 1
+  %91 = load i8, ptr %48, align 1
+  %92 = icmp eq i8 %90, %91
+  br i1 %92, label %85, label %.loopexit.loopexit.i29, !llvm.loop !163
 
-_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit33: ; preds = %84
-  %90 = trunc nsw i64 %indvars.iv.next.i28 to i32
-  %.not16 = icmp eq i32 %90, 0
-  br i1 %.not16, label %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit.thread, label %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit33.thread90
+.loopexit.loopexit.i29:                           ; preds = %87
+  %93 = trunc nsw i64 %indvars.iv.next.i28 to i32
+  br label %94
 
-_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit33.thread90: ; preds = %83, %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit33
-  %91 = phi i32 [ %90, %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit33 ], [ %81, %83 ]
-  %.pn102.in = mul nsw i32 %91, %43
-  %.pn102 = sext i32 %.pn102.in to i64
-  %92 = getelementptr inbounds i8, ptr %48, i64 %.pn102
-  %93 = sub nsw i32 %.sroa.speculated.i21, %91
+94:                                               ; preds = %.loopexit.loopexit.i29, %86
+  %95 = phi i32 [ %93, %.loopexit.loopexit.i29 ], [ %84, %86 ]
+  %96 = mul nsw i32 %95, %43
+  %97 = sext i32 %96 to i64
+  %98 = getelementptr inbounds i8, ptr %48, i64 %97
+  %99 = sub nsw i32 %.sroa.speculated.i21, %95
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %7, i8 0, i64 10, i1 false)
-  %94 = add nsw i32 %91, %76
-  %95 = trunc i32 %94 to i16
-  %96 = add i16 %95, -1
-  %97 = getelementptr inbounds i8, ptr %7, i64 4
-  store i16 %96, ptr %97, align 2
-  %98 = zext i16 %96 to i32
-  %99 = sub nsw i32 %3, %98
-  br label %100
+  %100 = add nsw i32 %95, %77
+  %101 = trunc i32 %100 to i16
+  %102 = add i16 %101, -1
+  %103 = getelementptr inbounds i8, ptr %7, i64 4
+  store i16 %102, ptr %103, align 2
+  %104 = zext i16 %102 to i32
+  %105 = sub nsw i32 %3, %104
+  br label %106
 
-100:                                              ; preds = %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit33.thread90, %133
-  %indvars.iv = phi i64 [ 1, %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit33.thread90 ], [ %indvars.iv.next, %133 ]
-  %.sroa.066.1111 = phi ptr [ %77, %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit33.thread90 ], [ %115, %133 ]
-  %.sroa.970.1110 = phi i32 [ %78, %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit33.thread90 ], [ %116, %133 ]
-  %.sroa.060.1109 = phi ptr [ %92, %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit33.thread90 ], [ %142, %133 ]
-  %.sroa.963.1108 = phi i32 [ %93, %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit33.thread90 ], [ %139, %133 ]
-  %.079107 = phi i32 [ %99, %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit33.thread90 ], [ %138, %133 ]
-  %.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %.sroa.970.1110, i32 %.079107)
+106:                                              ; preds = %94, %139
+  %indvars.iv = phi i64 [ 1, %94 ], [ %indvars.iv.next, %139 ]
+  %.sroa.066.1103 = phi ptr [ %80, %94 ], [ %122, %139 ]
+  %.sroa.970.1102 = phi i32 [ %81, %94 ], [ %123, %139 ]
+  %.sroa.060.1101 = phi ptr [ %98, %94 ], [ %143, %139 ]
+  %.sroa.963.1100 = phi i32 [ %99, %94 ], [ %144, %139 ]
+  %.07999 = phi i32 [ %105, %94 ], [ %148, %139 ]
+  %.sroa.speculated.i.i = tail call i32 @llvm.smin.i32(i32 %.sroa.970.1102, i32 %.07999)
   %smax.i.i = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated.i.i, i32 0)
-  %101 = zext nneg i32 %smax.i.i to i64
-  %102 = add nuw i32 %smax.i.i, 1
-  br label %103
+  %107 = zext nneg i32 %smax.i.i to i64
+  %108 = add nuw i32 %smax.i.i, 1
+  br label %109
 
-103:                                              ; preds = %105, %100
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %105 ], [ 0, %100 ]
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.i.i, %101
-  br i1 %exitcond.not.i.i, label %104, label %105
+109:                                              ; preds = %111, %106
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %111 ], [ 0, %106 ]
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.i.i, %107
+  br i1 %exitcond.not.i.i, label %110, label %111
 
-104:                                              ; preds = %103
-  %.not12.i.i = icmp sgt i32 %.sroa.970.1110, %.079107
-  br i1 %.not12.i.i, label %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit.thread, label %_ZZN5ZXing21CheckSymmetricPatternILb1ENS_12FixedPatternILi5ELi7ELb0EEEEEiRNS_15BitMatrixCursorINS_6PointTIiEEEET0_ibENKUlRT_iE_clINS_21FastEdgeToEdgeCounterEEEDaSA_i.exit
+110:                                              ; preds = %109
+  %.not12.i.i = icmp sgt i32 %.sroa.970.1102, %.07999
+  br i1 %.not12.i.i, label %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit.thread, label %118
 
-105:                                              ; preds = %103
+111:                                              ; preds = %109
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %106 = mul nsw i64 %indvars.iv.next.i.i, %64
-  %107 = getelementptr inbounds i8, ptr %.sroa.066.1111, i64 %106
-  %108 = load i8, ptr %107, align 1
-  %109 = load i8, ptr %.sroa.066.1111, align 1
-  %110 = icmp eq i8 %108, %109
-  br i1 %110, label %103, label %.loopexit.loopexit.i.i, !llvm.loop !163
+  %112 = mul nsw i64 %indvars.iv.next.i.i, %64
+  %113 = getelementptr inbounds i8, ptr %.sroa.066.1103, i64 %112
+  %114 = load i8, ptr %113, align 1
+  %115 = load i8, ptr %.sroa.066.1103, align 1
+  %116 = icmp eq i8 %114, %115
+  br i1 %116, label %109, label %.loopexit.loopexit.i.i, !llvm.loop !163
 
-.loopexit.loopexit.i.i:                           ; preds = %105
-  %111 = trunc nsw i64 %indvars.iv.next.i.i to i32
-  br label %_ZZN5ZXing21CheckSymmetricPatternILb1ENS_12FixedPatternILi5ELi7ELb0EEEEEiRNS_15BitMatrixCursorINS_6PointTIiEEEET0_ibENKUlRT_iE_clINS_21FastEdgeToEdgeCounterEEEDaSA_i.exit
+.loopexit.loopexit.i.i:                           ; preds = %111
+  %117 = trunc nsw i64 %indvars.iv.next.i.i to i32
+  br label %118
 
-_ZZN5ZXing21CheckSymmetricPatternILb1ENS_12FixedPatternILi5ELi7ELb0EEEEEiRNS_15BitMatrixCursorINS_6PointTIiEEEET0_ibENKUlRT_iE_clINS_21FastEdgeToEdgeCounterEEEDaSA_i.exit: ; preds = %104, %.loopexit.loopexit.i.i
-  %112 = phi i32 [ %111, %.loopexit.loopexit.i.i ], [ %102, %104 ]
-  %113 = mul nsw i32 %112, %16
-  %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds i8, ptr %.sroa.066.1111, i64 %114
-  %116 = sub nsw i32 %.sroa.970.1110, %112
-  %117 = trunc i32 %112 to i16
-  %118 = add nuw nsw i64 %indvars.iv, 2
-  %119 = getelementptr inbounds [5 x i16], ptr %7, i64 0, i64 %118
-  store i16 %117, ptr %119, align 2
-  %120 = sub nsw i32 %.079107, %112
-  %.not17 = icmp eq i32 %112, 0
-  br i1 %.not17, label %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit.thread, label %121
-
-121:                                              ; preds = %_ZZN5ZXing21CheckSymmetricPatternILb1ENS_12FixedPatternILi5ELi7ELb0EEEEEiRNS_15BitMatrixCursorINS_6PointTIiEEEET0_ibENKUlRT_iE_clINS_21FastEdgeToEdgeCounterEEEDaSA_i.exit
-  %.sroa.speculated.i.i34 = tail call i32 @llvm.smin.i32(i32 %.sroa.963.1108, i32 %120)
+118:                                              ; preds = %.loopexit.loopexit.i.i, %110
+  %119 = phi i32 [ %117, %.loopexit.loopexit.i.i ], [ %108, %110 ]
+  %120 = mul nsw i32 %119, %16
+  %121 = sext i32 %120 to i64
+  %122 = getelementptr inbounds i8, ptr %.sroa.066.1103, i64 %121
+  %123 = sub nsw i32 %.sroa.970.1102, %119
+  %124 = trunc i32 %119 to i16
+  %125 = add nuw nsw i64 %indvars.iv, 2
+  %126 = getelementptr inbounds [5 x i16], ptr %7, i64 0, i64 %125
+  store i16 %124, ptr %126, align 2
+  %127 = sub nsw i32 %.07999, %119
+  %.sroa.speculated.i.i34 = tail call i32 @llvm.smin.i32(i32 %.sroa.963.1100, i32 %127)
   %smax.i.i35 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated.i.i34, i32 0)
-  %122 = zext nneg i32 %smax.i.i35 to i64
-  %123 = add nuw i32 %smax.i.i35, 1
-  br label %124
+  %128 = zext nneg i32 %smax.i.i35 to i64
+  %129 = add nuw i32 %smax.i.i35, 1
+  br label %130
 
-124:                                              ; preds = %126, %121
-  %indvars.iv.i.i36 = phi i64 [ %indvars.iv.next.i.i38, %126 ], [ 0, %121 ]
-  %exitcond.not.i.i37 = icmp eq i64 %indvars.iv.i.i36, %122
-  br i1 %exitcond.not.i.i37, label %125, label %126
+130:                                              ; preds = %132, %118
+  %indvars.iv.i.i36 = phi i64 [ %indvars.iv.next.i.i38, %132 ], [ 0, %118 ]
+  %exitcond.not.i.i37 = icmp eq i64 %indvars.iv.i.i36, %128
+  br i1 %exitcond.not.i.i37, label %131, label %132
 
-125:                                              ; preds = %124
-  %.not12.i.i42 = icmp sgt i32 %.sroa.963.1108, %120
-  br i1 %.not12.i.i42, label %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit.thread, label %133
+131:                                              ; preds = %130
+  %.not12.i.i42 = icmp sgt i32 %.sroa.963.1100, %127
+  br i1 %.not12.i.i42, label %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit.thread, label %139
 
-126:                                              ; preds = %124
+132:                                              ; preds = %130
   %indvars.iv.next.i.i38 = add nuw nsw i64 %indvars.iv.i.i36, 1
-  %127 = mul nsw i64 %indvars.iv.next.i.i38, %79
-  %128 = getelementptr inbounds i8, ptr %.sroa.060.1109, i64 %127
-  %129 = load i8, ptr %128, align 1
-  %130 = load i8, ptr %.sroa.060.1109, align 1
-  %131 = icmp eq i8 %129, %130
-  br i1 %131, label %124, label %.loopexit.loopexit.i.i39, !llvm.loop !163
+  %133 = mul nsw i64 %indvars.iv.next.i.i38, %82
+  %134 = getelementptr inbounds i8, ptr %.sroa.060.1101, i64 %133
+  %135 = load i8, ptr %134, align 1
+  %136 = load i8, ptr %.sroa.060.1101, align 1
+  %137 = icmp eq i8 %135, %136
+  br i1 %137, label %130, label %.loopexit.loopexit.i.i39, !llvm.loop !163
 
-.loopexit.loopexit.i.i39:                         ; preds = %126
-  %132 = trunc nsw i64 %indvars.iv.next.i.i38 to i32
-  br label %133
+.loopexit.loopexit.i.i39:                         ; preds = %132
+  %138 = trunc nsw i64 %indvars.iv.next.i.i38 to i32
+  br label %139
 
-133:                                              ; preds = %.loopexit.loopexit.i.i39, %125
-  %134 = phi i32 [ %132, %.loopexit.loopexit.i.i39 ], [ %123, %125 ]
-  %135 = trunc i32 %134 to i16
-  %136 = sub nuw nsw i64 2, %indvars.iv
-  %137 = getelementptr inbounds [5 x i16], ptr %7, i64 0, i64 %136
-  store i16 %135, ptr %137, align 2
-  %138 = sub nsw i32 %120, %134
-  %139 = sub nsw i32 %.sroa.963.1108, %134
-  %140 = mul nsw i32 %134, %43
-  %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds i8, ptr %.sroa.060.1109, i64 %141
+139:                                              ; preds = %.loopexit.loopexit.i.i39, %131
+  %140 = phi i32 [ %138, %.loopexit.loopexit.i.i39 ], [ %129, %131 ]
+  %141 = mul nsw i32 %140, %43
+  %142 = sext i32 %141 to i64
+  %143 = getelementptr inbounds i8, ptr %.sroa.060.1101, i64 %142
+  %144 = sub nsw i32 %.sroa.963.1100, %140
+  %145 = trunc i32 %140 to i16
+  %146 = sub nuw nsw i64 2, %indvars.iv
+  %147 = getelementptr inbounds [5 x i16], ptr %7, i64 0, i64 %146
+  store i16 %145, ptr %147, align 2
+  %148 = sub nsw i32 %127, %140
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %143, label %100, !llvm.loop !164
+  br i1 %exitcond.not, label %149, label %106, !llvm.loop !164
 
-143:                                              ; preds = %133
+149:                                              ; preds = %139
   store ptr %7, ptr %8, align 8
-  %144 = getelementptr inbounds i8, ptr %8, i64 8
-  store i32 5, ptr %144, align 8
-  %145 = getelementptr inbounds i8, ptr %8, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %145, i8 0, i64 16, i1 false)
-  %146 = call noundef double @_ZN5ZXing9IsPatternILb1ELi5ELi7EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_EXT1_ELb0EEEidd(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 2 dereferenceable(10) %6, i32 noundef 0, double noundef 0.000000e+00, double noundef 0.000000e+00)
-  %147 = fcmp oeq double %146, 0.000000e+00
-  br i1 %147, label %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit.thread, label %148
+  %150 = getelementptr inbounds i8, ptr %8, i64 8
+  store i32 5, ptr %150, align 8
+  %151 = getelementptr inbounds i8, ptr %8, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %151, i8 0, i64 16, i1 false)
+  %152 = call noundef double @_ZN5ZXing9IsPatternILb1ELi5ELi7EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_EXT1_ELb0EEEidd(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 2 dereferenceable(10) %6, i32 noundef 0, double noundef 0.000000e+00, double noundef 0.000000e+00)
+  %153 = fcmp oeq double %152, 0.000000e+00
+  br i1 %153, label %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit.thread, label %154
 
-148:                                              ; preds = %143
-  br i1 %4, label %149, label %.lr.ph.i.i.i.preheader
+154:                                              ; preds = %149
+  br i1 %4, label %155, label %.lr.ph.i.i.i.preheader
 
-149:                                              ; preds = %148
-  %150 = load i16, ptr %97, align 2
-  %151 = lshr i16 %150, 1
-  %152 = zext nneg i16 %151 to i32
-  %reass.sub = sub i32 %152, %91
-  %153 = add i32 %reass.sub, 1
-  %154 = load i32, ptr %9, align 8
-  %155 = mul nsw i32 %153, %154
-  %156 = load i32, ptr %10, align 4
-  %157 = mul nsw i32 %153, %156
-  %158 = load i32, ptr %17, align 8
-  %159 = add nsw i32 %155, %158
-  store i32 %159, ptr %17, align 8
-  %160 = load i32, ptr %18, align 4
-  %161 = add nsw i32 %160, %157
-  store i32 %161, ptr %18, align 4
+155:                                              ; preds = %154
+  %156 = load i16, ptr %103, align 2
+  %157 = lshr i16 %156, 1
+  %158 = zext nneg i16 %157 to i32
+  %reass.sub = sub i32 %158, %95
+  %159 = add i32 %reass.sub, 1
+  %160 = load i32, ptr %9, align 8
+  %161 = mul nsw i32 %159, %160
+  %162 = load i32, ptr %10, align 4
+  %163 = mul nsw i32 %159, %162
+  %164 = load i32, ptr %17, align 8
+  %165 = add nsw i32 %161, %164
+  store i32 %165, ptr %17, align 8
+  %166 = load i32, ptr %18, align 4
+  %167 = add nsw i32 %166, %163
+  store i32 %167, ptr %18, align 4
   br label %.lr.ph.i.i.i.preheader
 
-.lr.ph.i.i.i.preheader:                           ; preds = %149, %148
+.lr.ph.i.i.i.preheader:                           ; preds = %155, %154
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
   %.08.i.i.idx.i = phi i64 [ %.08.i.i.add.i, %.lr.ph.i.i.i ], [ 0, %.lr.ph.i.i.i.preheader ]
-  %.057.i.i.i = phi i16 [ %163, %.lr.ph.i.i.i ], [ 0, %.lr.ph.i.i.i.preheader ]
+  %.057.i.i.i = phi i16 [ %169, %.lr.ph.i.i.i ], [ 0, %.lr.ph.i.i.i.preheader ]
   %.08.i.i.ptr.i = getelementptr inbounds i8, ptr %7, i64 %.08.i.i.idx.i
-  %162 = load i16, ptr %.08.i.i.ptr.i, align 2
-  %163 = add i16 %162, %.057.i.i.i
+  %168 = load i16, ptr %.08.i.i.ptr.i, align 2
+  %169 = add i16 %168, %.057.i.i.i
   %.08.i.i.add.i = add nuw nsw i64 %.08.i.i.idx.i, 2
   %.not.i.i.i44 = icmp eq i64 %.08.i.i.add.i, 10
   br i1 %.not.i.i.i44, label %_ZN5ZXing6ReduceISt5arrayItLm5EEtSt4plusItEEET0_RKT_S5_T1_.exit, label %.lr.ph.i.i.i, !llvm.loop !25
 
 _ZN5ZXing6ReduceISt5arrayItLm5EEtSt4plusItEEET0_RKT_S5_T1_.exit: ; preds = %.lr.ph.i.i.i
-  %164 = zext i16 %163 to i32
+  %170 = zext i16 %169 to i32
   br label %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit.thread
 
-_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit.thread: ; preds = %_ZZN5ZXing21CheckSymmetricPatternILb1ENS_12FixedPatternILi5ELi7ELb0EEEEEiRNS_15BitMatrixCursorINS_6PointTIiEEEET0_ibENKUlRT_iE_clINS_21FastEdgeToEdgeCounterEEEDaSA_i.exit, %125, %104, %83, %68, %143, %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit33, %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit, %_ZN5ZXing6ReduceISt5arrayItLm5EEtSt4plusItEEET0_RKT_S5_T1_.exit
-  %.013 = phi i32 [ %164, %_ZN5ZXing6ReduceISt5arrayItLm5EEtSt4plusItEEET0_RKT_S5_T1_.exit ], [ 0, %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit ], [ 0, %_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit33 ], [ 0, %143 ], [ 0, %68 ], [ 0, %83 ], [ 0, %104 ], [ 0, %125 ], [ 0, %_ZZN5ZXing21CheckSymmetricPatternILb1ENS_12FixedPatternILi5ELi7ELb0EEEEEiRNS_15BitMatrixCursorINS_6PointTIiEEEET0_ibENKUlRT_iE_clINS_21FastEdgeToEdgeCounterEEEDaSA_i.exit ]
+_ZN5ZXing21FastEdgeToEdgeCounter14stepToNextEdgeEi.exit.thread: ; preds = %131, %110, %86, %68, %149, %_ZN5ZXing6ReduceISt5arrayItLm5EEtSt4plusItEEET0_RKT_S5_T1_.exit
+  %.013 = phi i32 [ %170, %_ZN5ZXing6ReduceISt5arrayItLm5EEtSt4plusItEEET0_RKT_S5_T1_.exit ], [ 0, %149 ], [ 0, %68 ], [ 0, %86 ], [ 0, %110 ], [ 0, %131 ]
   ret i32 %.013
 }
 

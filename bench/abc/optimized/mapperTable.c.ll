@@ -508,7 +508,7 @@ define void @Map_SuperTableSortSupergates(ptr nocapture noundef readonly %0, i32
   br i1 %.not38, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %16 = trunc i64 %indvars.iv.next to i32
+  %16 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph49
@@ -588,7 +588,7 @@ define void @Map_SuperTableSortSupergatesByDelay(ptr nocapture noundef readonly 
   br i1 %8, label %.lr.ph50, label %._crit_edge51
 
 .lr.ph50:                                         ; preds = %2, %._crit_edge47
-  %9 = phi i32 [ %33, %._crit_edge47 ], [ %7, %2 ]
+  %9 = phi i32 [ %31, %._crit_edge47 ], [ %7, %2 ]
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %._crit_edge47 ], [ 0, %2 ]
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv56
@@ -615,43 +615,39 @@ define void @Map_SuperTableSortSupergatesByDelay(ptr nocapture noundef readonly 
   br i1 %.not36, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %15 = trunc i64 %indvars.iv.next to i32
+  %15 = trunc nuw i64 %indvars.iv.next to i32
   store ptr null, ptr %12, align 8
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %._crit_edge.thread, label %17
-
-17:                                               ; preds = %._crit_edge
-  %18 = and i64 %indvars.iv.next, 4294967295
-  tail call void @qsort(ptr noundef nonnull %5, i64 noundef %18, i64 noundef 8, ptr noundef nonnull @Map_SuperTableCompareGatesInList) #14
+  %16 = and i64 %indvars.iv.next, 4294967295
+  tail call void @qsort(ptr noundef nonnull %5, i64 noundef %16, i64 noundef 8, ptr noundef nonnull @Map_SuperTableCompareGatesInList) #14
   %.pre = load ptr, ptr %12, align 8
-  br label %19
+  br label %17
 
-19:                                               ; preds = %17, %19
-  %20 = phi ptr [ %.pre, %17 ], [ %24, %19 ]
-  %indvars.iv53 = phi i64 [ 0, %17 ], [ %indvars.iv.next54, %19 ]
-  %21 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv53
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 248
-  store ptr %20, ptr %23, align 8
-  %24 = load ptr, ptr %21, align 8
-  store ptr %24, ptr %12, align 8
+17:                                               ; preds = %._crit_edge, %17
+  %18 = phi ptr [ %.pre, %._crit_edge ], [ %22, %17 ]
+  %indvars.iv53 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next54, %17 ]
+  %19 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv53
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds i8, ptr %20, i64 248
+  store ptr %18, ptr %21, align 8
+  %22 = load ptr, ptr %19, align 8
+  store ptr %22, ptr %12, align 8
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next54, %18
-  br i1 %exitcond.not, label %25, label %19, !llvm.loop !18
+  %exitcond.not = icmp eq i64 %indvars.iv.next54, %16
+  br i1 %exitcond.not, label %23, label %17, !llvm.loop !18
 
-25:                                               ; preds = %19
-  %26 = getelementptr inbounds i8, ptr %24, i64 4
-  %27 = load i32, ptr %26, align 4
-  %28 = shl i32 %15, 12
-  %29 = and i32 %28, 268431360
-  %30 = and i32 %27, -268431361
-  %31 = or disjoint i32 %30, %29
-  store i32 %31, ptr %26, align 4
+23:                                               ; preds = %17
+  %24 = getelementptr inbounds i8, ptr %22, i64 4
+  %25 = load i32, ptr %24, align 4
+  %26 = shl i32 %15, 12
+  %27 = and i32 %26, 268431360
+  %28 = and i32 %25, -268431361
+  %29 = or disjoint i32 %28, %27
+  store i32 %29, ptr %24, align 4
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %.lr.ph46, %._crit_edge, %25
-  %32 = getelementptr inbounds i8, ptr %.03344, i64 24
-  %.033 = load ptr, ptr %32, align 8
+._crit_edge.thread:                               ; preds = %.lr.ph46, %23
+  %30 = getelementptr inbounds i8, ptr %.03344, i64 24
+  %.033 = load ptr, ptr %30, align 8
   %.not35 = icmp eq ptr %.033, null
   br i1 %.not35, label %._crit_edge47.loopexit, label %.lr.ph46, !llvm.loop !19
 
@@ -660,21 +656,21 @@ define void @Map_SuperTableSortSupergatesByDelay(ptr nocapture noundef readonly 
   br label %._crit_edge47
 
 ._crit_edge47:                                    ; preds = %._crit_edge47.loopexit, %.lr.ph50
-  %33 = phi i32 [ %.pre59, %._crit_edge47.loopexit ], [ %9, %.lr.ph50 ]
+  %31 = phi i32 [ %.pre59, %._crit_edge47.loopexit ], [ %9, %.lr.ph50 ]
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
-  %34 = sext i32 %33 to i64
-  %35 = icmp slt i64 %indvars.iv.next57, %34
-  br i1 %35, label %.lr.ph50, label %._crit_edge51, !llvm.loop !20
+  %32 = sext i32 %31 to i64
+  %33 = icmp slt i64 %indvars.iv.next57, %32
+  br i1 %33, label %.lr.ph50, label %._crit_edge51, !llvm.loop !20
 
 ._crit_edge51:                                    ; preds = %._crit_edge47, %2
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %37, label %36
+  br i1 %.not, label %35, label %34
 
-36:                                               ; preds = %._crit_edge51
+34:                                               ; preds = %._crit_edge51
   tail call void @free(ptr noundef nonnull %5) #14
-  br label %37
+  br label %35
 
-37:                                               ; preds = %._crit_edge51, %36
+35:                                               ; preds = %._crit_edge51, %34
   ret void
 }
 

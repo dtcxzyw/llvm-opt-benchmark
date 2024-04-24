@@ -2180,7 +2180,7 @@ _ZN12mpff_manager18allocate_if_neededER4mpff.exit: ; preds = %if.else, %_ZN12mpf
   %idx.ext.i = zext i32 %mul.i to i64
   %add.ptr.i = getelementptr inbounds i32, ptr %20, i64 %idx.ext.i
   %22 = lshr i64 %shl, 32
-  %23 = trunc i64 %22 to i32
+  %23 = trunc nuw i64 %22 to i32
   %sub4 = add i32 %21, -1
   %idxprom = zext i32 %sub4 to i64
   %arrayidx5 = getelementptr inbounds i32, ptr %add.ptr.i, i64 %idxprom
@@ -2557,7 +2557,7 @@ if.then.i:                                        ; preds = %if.then5
   br label %if.end83
 
 if.else.i:                                        ; preds = %if.then5
-  %conv.i = trunc i64 %dec to i32
+  %conv.i = trunc nsw i64 %dec to i32
   %m_exponent.i49 = getelementptr inbounds i8, ptr %c, i64 4
   store i32 %conv.i, ptr %m_exponent.i49, align 4
   br label %if.end83
@@ -2794,7 +2794,7 @@ if.then.i88:                                      ; preds = %if.end81
   br label %if.end83
 
 if.else.i84:                                      ; preds = %if.end81
-  %conv.i85 = trunc i64 %exp_c15.2 to i32
+  %conv.i85 = trunc nsw i64 %exp_c15.2 to i32
   %m_exponent.i86 = getelementptr inbounds i8, ptr %c, i64 4
   store i32 %conv.i85, ptr %m_exponent.i86, align 4
   br label %if.end83
@@ -6144,7 +6144,7 @@ if.then.i116:                                     ; preds = %if.end113
   br label %if.end172
 
 if.else.i:                                        ; preds = %if.end113
-  %conv.i = trunc i64 %exp_c.1 to i32
+  %conv.i = trunc nsw i64 %exp_c.1 to i32
   %m_exponent.i = getelementptr inbounds i8, ptr %c, i64 4
   store i32 %conv.i, ptr %m_exponent.i, align 4
   br label %if.end172
@@ -6164,7 +6164,7 @@ if.then.i121:                                     ; preds = %if.else114
   br label %if.end172
 
 if.else.i118:                                     ; preds = %if.else114
-  %conv.i119 = trunc i64 %sub121 to i32
+  %conv.i119 = trunc nsw i64 %sub121 to i32
   %m_exponent.i120 = getelementptr inbounds i8, ptr %c, i64 4
   store i32 %conv.i119, ptr %m_exponent.i120, align 4
   br label %if.end172
@@ -6299,7 +6299,7 @@ if.then.i138:                                     ; preds = %if.then161
   br label %if.end172
 
 if.else.i135:                                     ; preds = %if.then161
-  %conv.i136 = trunc i64 %sub165 to i32
+  %conv.i136 = trunc nsw i64 %sub165 to i32
   %m_exponent.i137 = getelementptr inbounds i8, ptr %c, i64 4
   store i32 %conv.i136, ptr %m_exponent.i137, align 4
   br label %if.end172
@@ -6554,7 +6554,7 @@ if.then.i42:                                      ; preds = %if.end
   br label %if.end32
 
 if.else.i:                                        ; preds = %if.end
-  %conv.i = trunc i64 %exp_c.1 to i32
+  %conv.i = trunc nsw i64 %exp_c.1 to i32
   %m_exponent.i41 = getelementptr inbounds i8, ptr %c, i64 4
   store i32 %conv.i, ptr %m_exponent.i41, align 4
   br label %if.end32
@@ -7334,7 +7334,7 @@ for.body:                                         ; preds = %if.end45, %for.body
   br i1 %cmp53, label %for.body, label %for.end, !llvm.loop !27
 
 for.end:                                          ; preds = %for.body, %if.end45
-  %conv56 = trunc i64 %add to i32
+  %conv56 = trunc nsw i64 %add to i32
   %m_exponent57 = getelementptr inbounds i8, ptr %b, i64 4
   store i32 %conv56, ptr %m_exponent57, align 4
   br label %if.end83
@@ -8415,7 +8415,7 @@ if.then5:                                         ; preds = %_ZNK12mpff_manager1
   %conv6 = sext i32 %call4 to i64
   %sub = sub nsw i64 0, %conv
   %cmp7.not = icmp slt i64 %conv6, %sub
-  %conv10 = trunc i64 %sub to i32
+  %conv10 = trunc nuw nsw i64 %sub to i32
   %add = add nsw i64 %conv, %conv6
   %exp.0 = select i1 %cmp7.not, i64 %add, i64 0
   %shift.0 = select i1 %cmp7.not, i32 %call4, i32 %conv10
@@ -8724,7 +8724,7 @@ if.else:                                          ; preds = %if.end, %if.then9
   store i32 16, ptr %m_capacity.i.i134, align 4
   %sub61 = sub nsw i64 0, %conv
   %div6357 = lshr i64 %sub61, 5
-  %conv64 = trunc i64 %div6357 to i32
+  %conv64 = trunc nuw i64 %div6357 to i32
   %add65 = add nuw nsw i32 %conv64, 1
   %8 = load i32, ptr %this, align 8
   %cmp68.not = icmp ugt i32 %8, %conv64
@@ -9181,7 +9181,7 @@ invoke.cont105:                                   ; preds = %_ZN6bufferIjLb0ELj1
   %57 = load ptr, ptr %pw_buffer, align 8
   store i32 1, ptr %57, align 4
   %58 = load ptr, ptr %pw_buffer, align 8
-  %conv110 = trunc i64 %sub61 to i32
+  %conv110 = trunc nuw i64 %sub61 to i32
   invoke void @_Z3shljPKjjjPj(i32 noundef %add65, ptr noundef %58, i32 noundef %conv110, i32 noundef %add65, ptr noundef %58)
           to label %invoke.cont113 unwind label %lpad104.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -9374,14 +9374,10 @@ land.rhs:                                         ; preds = %while.cond
   %arrayidx.i = getelementptr inbounds i32, ptr %85, i64 %87
   %88 = load i32, ptr %arrayidx.i, align 4
   %cmp172 = icmp eq i32 %88, 0
-  br i1 %cmp172, label %while.cond, label %while.end, !llvm.loop !37
+  br i1 %cmp172, label %while.cond, label %while.body175.lr.ph, !llvm.loop !37
 
-while.end:                                        ; preds = %land.rhs
-  %89 = trunc i64 %indvars.iv441 to i32
-  %cmp174.not437 = icmp eq i32 %89, 0
-  br i1 %cmp174.not437, label %cleanup, label %while.body175.lr.ph
-
-while.body175.lr.ph:                              ; preds = %while.end
+while.body175.lr.ph:                              ; preds = %land.rhs
+  %89 = trunc nuw i64 %indvars.iv441 to i32
   %m_mpn_manager182 = getelementptr inbounds i8, ptr %this, i64 88
   %90 = zext nneg i32 %add65 to i64
   br label %while.body175
@@ -9422,7 +9418,7 @@ land.rhs192:                                      ; preds = %while.cond190
   br i1 %cmp196, label %while.cond190, label %while.end200, !llvm.loop !38
 
 while.end200:                                     ; preds = %land.rhs192
-  %97 = trunc i64 %indvars.iv445 to i32
+  %97 = trunc nuw i64 %indvars.iv445 to i32
   %cmp201.not = icmp ugt i32 %97, %conv64
   br i1 %cmp201.not, label %if.else210, label %if.then202
 
@@ -9467,7 +9463,7 @@ land.rhs228:                                      ; preds = %while.cond226
   br i1 %cmp232, label %while.cond226, label %if.end237.loopexit, !llvm.loop !39
 
 if.end237.loopexit:                               ; preds = %land.rhs228
-  %108 = trunc i64 %indvars.iv449 to i32
+  %108 = trunc nuw i64 %indvars.iv449 to i32
   br label %if.end237
 
 if.end237:                                        ; preds = %if.end237.loopexit, %invoke.cont203
@@ -9475,7 +9471,7 @@ if.end237:                                        ; preds = %if.end237.loopexit,
   %cmp174.not = icmp eq i32 %sz1.3, 0
   br i1 %cmp174.not, label %cleanup, label %while.body175, !llvm.loop !40
 
-cleanup:                                          ; preds = %while.cond, %if.end237, %while.cond226, %while.end, %if.then177
+cleanup:                                          ; preds = %while.cond, %if.end237, %while.cond226, %if.then177
   %109 = load ptr, ptr %pw_buffer, align 8
   %cmp.not.i.i.i.i396 = icmp eq ptr %109, %49
   %cmp.i.i.i.i.i397 = icmp eq ptr %109, null
@@ -9673,7 +9669,7 @@ if.then5:                                         ; preds = %_ZNK12mpff_manager1
   %conv6 = sext i32 %call4 to i64
   %sub = sub nsw i64 0, %conv
   %cmp7.not = icmp slt i64 %conv6, %sub
-  %conv10 = trunc i64 %sub to i32
+  %conv10 = trunc nuw nsw i64 %sub to i32
   %add = add nsw i64 %conv, %conv6
   %exp.0 = select i1 %cmp7.not, i64 %add, i64 0
   %shift.0 = select i1 %cmp7.not, i32 %call4, i32 %conv10

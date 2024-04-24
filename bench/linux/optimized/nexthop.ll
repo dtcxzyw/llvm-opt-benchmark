@@ -7169,304 +7169,301 @@ define internal fastcc noundef i32 @nh_check_attr_group(ptr noundef %0, ptr noca
 14:                                               ; preds = %10, %4
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @nh_check_attr_group.__msg) #13
   %15 = icmp eq ptr %3, null
-  br i1 %15, label %.thread16, label %.thread16.sink.split
+  br i1 %15, label %.thread15, label %.thread15.sink.split
 
 16:                                               ; preds = %10
   %17 = lshr exact i64 %11, 3
-  %18 = trunc nuw nsw i64 %17 to i32
-  %19 = getelementptr i8, ptr %6, i64 4
-  %20 = icmp eq i32 %18, 0
-  br i1 %20, label %.thread, label %.preheader
+  %18 = getelementptr i8, ptr %6, i64 4
+  br label %21
 
-.loopexit:                                        ; preds = %46, %41
-  %21 = add nuw nsw i64 %24, 1
-  %22 = icmp eq i64 %42, %17
-  br i1 %22, label %56, label %.preheader, !llvm.loop !126
+.loopexit:                                        ; preds = %45, %40
+  %19 = add nuw nsw i64 %23, 1
+  %20 = icmp eq i64 %41, %17
+  br i1 %20, label %55, label %21, !llvm.loop !126
 
-.preheader:                                       ; preds = %16, %.loopexit
-  %23 = phi i64 [ %42, %.loopexit ], [ 0, %16 ]
-  %24 = phi i64 [ %21, %.loopexit ], [ 1, %16 ]
-  %25 = getelementptr %struct.nexthop_grp, ptr %19, i64 %23
-  %26 = getelementptr inbounds i8, ptr %25, i64 5
-  %27 = load i8, ptr %26, align 1
-  %28 = icmp eq i8 %27, 0
-  br i1 %28, label %29, label %33
+21:                                               ; preds = %16, %.loopexit
+  %22 = phi i64 [ %41, %.loopexit ], [ 0, %16 ]
+  %23 = phi i64 [ %19, %.loopexit ], [ 1, %16 ]
+  %24 = getelementptr %struct.nexthop_grp, ptr %18, i64 %22
+  %25 = getelementptr inbounds i8, ptr %24, i64 5
+  %26 = load i8, ptr %25, align 1
+  %27 = icmp eq i8 %26, 0
+  br i1 %27, label %28, label %32
 
-29:                                               ; preds = %.preheader
-  %30 = getelementptr inbounds i8, ptr %25, i64 6
-  %31 = load i16, ptr %30, align 2
-  %32 = icmp eq i16 %31, 0
-  br i1 %32, label %35, label %33
+28:                                               ; preds = %21
+  %29 = getelementptr inbounds i8, ptr %24, i64 6
+  %30 = load i16, ptr %29, align 2
+  %31 = icmp eq i16 %30, 0
+  br i1 %31, label %34, label %32
 
-33:                                               ; preds = %29, %.preheader
+32:                                               ; preds = %28, %21
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @nh_check_attr_group.__msg.27) #13
-  %34 = icmp eq ptr %3, null
-  br i1 %34, label %.thread16, label %.thread16.sink.split
+  %33 = icmp eq ptr %3, null
+  br i1 %33, label %.thread15, label %.thread15.sink.split
 
-35:                                               ; preds = %29
-  %36 = getelementptr inbounds i8, ptr %25, i64 4
-  %37 = load i8, ptr %36, align 4
-  %38 = icmp eq i8 %37, -1
-  br i1 %38, label %39, label %41
+34:                                               ; preds = %28
+  %35 = getelementptr inbounds i8, ptr %24, i64 4
+  %36 = load i8, ptr %35, align 4
+  %37 = icmp eq i8 %36, -1
+  br i1 %37, label %38, label %40
 
-39:                                               ; preds = %35
+38:                                               ; preds = %34
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @nh_check_attr_group.__msg.28) #13
-  %40 = icmp eq ptr %3, null
-  br i1 %40, label %.thread16, label %.thread16.sink.split
+  %39 = icmp eq ptr %3, null
+  br i1 %39, label %.thread15, label %.thread15.sink.split
 
-41:                                               ; preds = %35
-  %42 = add nuw nsw i64 %23, 1
-  %43 = icmp ult i64 %42, %17
-  br i1 %43, label %44, label %.loopexit
+40:                                               ; preds = %34
+  %41 = add nuw nsw i64 %22, 1
+  %42 = icmp ult i64 %41, %17
+  br i1 %42, label %43, label %.loopexit
 
-44:                                               ; preds = %41
-  %45 = load i32, ptr %25, align 4
-  br label %49
+43:                                               ; preds = %40
+  %44 = load i32, ptr %24, align 4
+  br label %48
 
-46:                                               ; preds = %49
-  %47 = add nuw nsw i64 %50, 1
-  %48 = icmp eq i64 %47, %17
-  br i1 %48, label %.loopexit, label %49, !llvm.loop !127
+45:                                               ; preds = %48
+  %46 = add nuw nsw i64 %49, 1
+  %47 = icmp eq i64 %46, %17
+  br i1 %47, label %.loopexit, label %48, !llvm.loop !127
 
-49:                                               ; preds = %46, %44
-  %50 = phi i64 [ %24, %44 ], [ %47, %46 ]
-  %51 = getelementptr %struct.nexthop_grp, ptr %19, i64 %50
-  %52 = load i32, ptr %51, align 4
-  %53 = icmp eq i32 %45, %52
-  br i1 %53, label %54, label %46
+48:                                               ; preds = %45, %43
+  %49 = phi i64 [ %23, %43 ], [ %46, %45 ]
+  %50 = getelementptr %struct.nexthop_grp, ptr %18, i64 %49
+  %51 = load i32, ptr %50, align 4
+  %52 = icmp eq i32 %44, %51
+  br i1 %52, label %53, label %45
 
-54:                                               ; preds = %49
+53:                                               ; preds = %48
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @nh_check_attr_group.__msg.29) #13
-  %55 = icmp eq ptr %3, null
-  br i1 %55, label %.thread16, label %.thread16.sink.split
+  %54 = icmp eq ptr %3, null
+  br i1 %54, label %.thread15, label %.thread15.sink.split
 
-56:                                               ; preds = %.loopexit
-  %57 = getelementptr i8, ptr %1, i64 88
-  %58 = load ptr, ptr %57, align 8
-  %.fr32 = freeze ptr %58
-  %59 = icmp eq ptr %.fr32, null
-  %60 = getelementptr inbounds i8, ptr %0, i64 584
-  %61 = icmp eq ptr %3, null
-  %62 = icmp eq i32 %18, 1
-  br i1 %59, label %.split.us, label %.split
+55:                                               ; preds = %.loopexit
+  %56 = getelementptr i8, ptr %1, i64 88
+  %57 = load ptr, ptr %56, align 8
+  %.fr34 = freeze ptr %57
+  %58 = icmp eq ptr %.fr34, null
+  %59 = getelementptr inbounds i8, ptr %0, i64 584
+  %60 = icmp eq ptr %3, null
+  %61 = icmp eq i16 %8, 8
+  br i1 %58, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %56, %97
-  %63 = phi i64 [ %98, %97 ], [ 0, %56 ]
-  %64 = getelementptr %struct.nexthop_grp, ptr %19, i64 %63
-  %65 = load i32, ptr %64, align 4
-  %66 = load volatile ptr, ptr %60, align 8
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %._crit_edge, label %.lr.ph.us
+.split.us:                                        ; preds = %55, %96
+  %62 = phi i64 [ %97, %96 ], [ 0, %55 ]
+  %63 = getelementptr %struct.nexthop_grp, ptr %18, i64 %62
+  %64 = load i32, ptr %63, align 4
+  %65 = load volatile ptr, ptr %59, align 8
+  %66 = icmp eq ptr %65, null
+  br i1 %66, label %._crit_edge, label %.lr.ph.us
 
-.lr.ph.us:                                        ; preds = %.split.us, %100
-  %68 = phi ptr [ %102, %100 ], [ %66, %.split.us ]
-  %69 = getelementptr inbounds i8, ptr %68, i64 96
-  %70 = load i32, ptr %69, align 8
-  %71 = icmp ugt i32 %70, %65
-  br i1 %71, label %100, label %72
+.lr.ph.us:                                        ; preds = %.split.us, %99
+  %67 = phi ptr [ %101, %99 ], [ %65, %.split.us ]
+  %68 = getelementptr inbounds i8, ptr %67, i64 96
+  %69 = load i32, ptr %68, align 8
+  %70 = icmp ugt i32 %69, %64
+  br i1 %70, label %99, label %71
 
-72:                                               ; preds = %.lr.ph.us
-  %73 = icmp ult i32 %70, %65
-  br i1 %73, label %100, label %74
+71:                                               ; preds = %.lr.ph.us
+  %72 = icmp ult i32 %69, %64
+  br i1 %72, label %99, label %73
 
-74:                                               ; preds = %72
-  %75 = getelementptr inbounds i8, ptr %68, i64 102
-  %76 = load i8, ptr %75, align 2, !range !5, !noundef !6
-  %77 = icmp eq i8 %76, 0
-  %78 = getelementptr inbounds i8, ptr %68, i64 128
-  %79 = load ptr, ptr %78, align 8
-  br i1 %77, label %88, label %80
+73:                                               ; preds = %71
+  %74 = getelementptr inbounds i8, ptr %67, i64 102
+  %75 = load i8, ptr %74, align 2, !range !5, !noundef !6
+  %76 = icmp eq i8 %75, 0
+  %77 = getelementptr inbounds i8, ptr %67, i64 128
+  %78 = load ptr, ptr %77, align 8
+  br i1 %76, label %87, label %79
 
-80:                                               ; preds = %74
-  %81 = getelementptr inbounds i8, ptr %79, i64 11
-  %82 = load i8, ptr %81, align 1, !range !5, !noundef !6
-  %83 = icmp eq i8 %82, 0
-  br i1 %83, label %84, label %.split22.us
+79:                                               ; preds = %73
+  %80 = getelementptr inbounds i8, ptr %78, i64 11
+  %81 = load i8, ptr %80, align 1, !range !5, !noundef !6
+  %82 = icmp eq i8 %81, 0
+  br i1 %82, label %83, label %.split21.us
 
-84:                                               ; preds = %80
-  %85 = getelementptr inbounds i8, ptr %79, i64 12
-  %86 = load i8, ptr %85, align 4, !range !5, !noundef !6
-  %87 = icmp eq i8 %86, 0
-  br i1 %87, label %93, label %.split24.us
+83:                                               ; preds = %79
+  %84 = getelementptr inbounds i8, ptr %78, i64 12
+  %85 = load i8, ptr %84, align 4, !range !5, !noundef !6
+  %86 = icmp eq i8 %85, 0
+  br i1 %86, label %92, label %.split23.us
 
-88:                                               ; preds = %74
-  %89 = getelementptr inbounds i8, ptr %79, i64 25
-  %90 = load i8, ptr %89, align 1, !range !5, !noundef !6
-  %91 = icmp eq i8 %90, 0
-  %92 = or i1 %62, %91
-  br i1 %92, label %93, label %.split26.us
+87:                                               ; preds = %73
+  %88 = getelementptr inbounds i8, ptr %78, i64 25
+  %89 = load i8, ptr %88, align 1, !range !5, !noundef !6
+  %90 = icmp eq i8 %89, 0
+  %91 = or i1 %61, %90
+  br i1 %91, label %92, label %.split25.us
 
-93:                                               ; preds = %88, %84
-  %.sink = phi i64 [ 13, %84 ], [ 26, %88 ]
-  %94 = getelementptr inbounds i8, ptr %79, i64 %.sink
-  %95 = load i8, ptr %94, align 1, !range !5, !noundef !6
-  %96 = icmp eq i8 %95, 0
-  br i1 %96, label %97, label %.split28.us
+92:                                               ; preds = %87, %83
+  %.sink = phi i64 [ 13, %83 ], [ 26, %87 ]
+  %93 = getelementptr inbounds i8, ptr %78, i64 %.sink
+  %94 = load i8, ptr %93, align 1, !range !5, !noundef !6
+  %95 = icmp eq i8 %94, 0
+  br i1 %95, label %96, label %.split27.us
 
-97:                                               ; preds = %93
-  %98 = add nuw nsw i64 %63, 1
-  %99 = icmp eq i64 %98, %17
-  br i1 %99, label %.thread, label %.split.us, !llvm.loop !128
+96:                                               ; preds = %92
+  %97 = add nuw nsw i64 %62, 1
+  %98 = icmp eq i64 %97, %17
+  br i1 %98, label %.split29.us, label %.split.us, !llvm.loop !128
 
-100:                                              ; preds = %.lr.ph.us, %72
-  %.sink57 = phi i64 [ 8, %72 ], [ 16, %.lr.ph.us ]
-  %101 = getelementptr inbounds i8, ptr %68, i64 %.sink57
-  %102 = load volatile ptr, ptr %101, align 8
-  %103 = icmp eq ptr %102, null
-  br i1 %103, label %._crit_edge, label %.lr.ph.us
+99:                                               ; preds = %.lr.ph.us, %71
+  %.sink59 = phi i64 [ 8, %71 ], [ 16, %.lr.ph.us ]
+  %100 = getelementptr inbounds i8, ptr %67, i64 %.sink59
+  %101 = load volatile ptr, ptr %100, align 8
+  %102 = icmp eq ptr %101, null
+  br i1 %102, label %._crit_edge, label %.lr.ph.us
 
-.thread:                                          ; preds = %160, %97, %16
-  %104 = icmp eq i16 %2, 1
-  br i1 %104, label %.thread.split.us, label %.thread.split
+.split29.us:                                      ; preds = %159, %96
+  %103 = icmp eq i16 %2, 1
+  br i1 %103, label %.split30.us, label %.split30
 
-.thread.split.us:                                 ; preds = %.thread, %110
-  %105 = phi i64 [ %111, %110 ], [ 4, %.thread ]
-  %106 = getelementptr ptr, ptr %1, i64 %105
-  %107 = load ptr, ptr %106, align 8
-  %108 = icmp eq ptr %107, null
-  %109 = trunc i64 %105 to i32
-  %.off = add i32 %109, -11
+.split30.us:                                      ; preds = %.split29.us, %109
+  %104 = phi i64 [ %110, %109 ], [ 4, %.split29.us ]
+  %105 = getelementptr ptr, ptr %1, i64 %104
+  %106 = load ptr, ptr %105, align 8
+  %107 = icmp eq ptr %106, null
+  %108 = trunc i64 %104 to i32
+  %.off = add i32 %108, -11
   %switch = icmp ult i32 %.off, 2
-  %or.cond = or i1 %108, %switch
-  br i1 %or.cond, label %110, label %.split30.us
+  %or.cond = or i1 %107, %switch
+  br i1 %or.cond, label %109, label %.split32.us
 
-110:                                              ; preds = %.thread.split.us
-  %111 = add nuw nsw i64 %105, 1
-  %112 = icmp eq i64 %111, 13
-  br i1 %112, label %.thread16, label %.thread.split.us, !llvm.loop !129
+109:                                              ; preds = %.split30.us
+  %110 = add nuw nsw i64 %104, 1
+  %111 = icmp eq i64 %110, 13
+  br i1 %111, label %.thread15, label %.split30.us, !llvm.loop !129
 
-.split:                                           ; preds = %56, %160
-  %113 = phi i64 [ %162, %160 ], [ 0, %56 ]
-  %114 = phi i8 [ %161, %160 ], [ 0, %56 ]
-  %115 = getelementptr %struct.nexthop_grp, ptr %19, i64 %113
-  %116 = load i32, ptr %115, align 4
-  %117 = load volatile ptr, ptr %60, align 8
-  %118 = icmp eq ptr %117, null
-  br i1 %118, label %._crit_edge, label %.lr.ph
+.split:                                           ; preds = %55, %159
+  %112 = phi i64 [ %161, %159 ], [ 0, %55 ]
+  %113 = phi i8 [ %160, %159 ], [ 0, %55 ]
+  %114 = getelementptr %struct.nexthop_grp, ptr %18, i64 %112
+  %115 = load i32, ptr %114, align 4
+  %116 = load volatile ptr, ptr %59, align 8
+  %117 = icmp eq ptr %116, null
+  br i1 %117, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.split, %125
-  %119 = phi ptr [ %127, %125 ], [ %117, %.split ]
-  %120 = getelementptr inbounds i8, ptr %119, i64 96
-  %121 = load i32, ptr %120, align 8
-  %122 = icmp ugt i32 %121, %116
-  br i1 %122, label %125, label %123
+.lr.ph:                                           ; preds = %.split, %124
+  %118 = phi ptr [ %126, %124 ], [ %116, %.split ]
+  %119 = getelementptr inbounds i8, ptr %118, i64 96
+  %120 = load i32, ptr %119, align 8
+  %121 = icmp ugt i32 %120, %115
+  br i1 %121, label %124, label %122
 
-123:                                              ; preds = %.lr.ph
-  %124 = icmp ult i32 %121, %116
-  br i1 %124, label %125, label %129
+122:                                              ; preds = %.lr.ph
+  %123 = icmp ult i32 %120, %115
+  br i1 %123, label %124, label %128
 
-125:                                              ; preds = %123, %.lr.ph
-  %.sink58 = phi i64 [ 16, %.lr.ph ], [ 8, %123 ]
-  %126 = getelementptr inbounds i8, ptr %119, i64 %.sink58
-  %127 = load volatile ptr, ptr %126, align 8
-  %128 = icmp eq ptr %127, null
-  br i1 %128, label %._crit_edge, label %.lr.ph
+124:                                              ; preds = %122, %.lr.ph
+  %.sink60 = phi i64 [ 16, %.lr.ph ], [ 8, %122 ]
+  %125 = getelementptr inbounds i8, ptr %118, i64 %.sink60
+  %126 = load volatile ptr, ptr %125, align 8
+  %127 = icmp eq ptr %126, null
+  br i1 %127, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.split, %125, %.split.us, %100
+._crit_edge:                                      ; preds = %.split, %124, %.split.us, %99
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @nh_check_attr_group.__msg.30) #13
-  br i1 %61, label %.thread16, label %.thread16.sink.split
+  br i1 %60, label %.thread15, label %.thread15.sink.split
 
-129:                                              ; preds = %123
-  %130 = getelementptr inbounds i8, ptr %119, i64 102
-  %131 = load i8, ptr %130, align 2, !range !5, !noundef !6
-  %132 = icmp eq i8 %131, 0
-  %133 = getelementptr inbounds i8, ptr %119, i64 128
-  %134 = load ptr, ptr %133, align 8
-  br i1 %132, label %143, label %135
+128:                                              ; preds = %122
+  %129 = getelementptr inbounds i8, ptr %118, i64 102
+  %130 = load i8, ptr %129, align 2, !range !5, !noundef !6
+  %131 = icmp eq i8 %130, 0
+  %132 = getelementptr inbounds i8, ptr %118, i64 128
+  %133 = load ptr, ptr %132, align 8
+  br i1 %131, label %142, label %134
 
-135:                                              ; preds = %129
-  %136 = getelementptr inbounds i8, ptr %134, i64 11
-  %137 = load i8, ptr %136, align 1, !range !5, !noundef !6
-  %138 = icmp eq i8 %137, 0
-  br i1 %138, label %139, label %.split22.us
+134:                                              ; preds = %128
+  %135 = getelementptr inbounds i8, ptr %133, i64 11
+  %136 = load i8, ptr %135, align 1, !range !5, !noundef !6
+  %137 = icmp eq i8 %136, 0
+  br i1 %137, label %138, label %.split21.us
 
-.split22.us:                                      ; preds = %135, %80
+.split21.us:                                      ; preds = %134, %79
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @valid_group_nh.__msg) #13
-  br i1 %61, label %.thread16, label %.thread16.sink.split
+  br i1 %60, label %.thread15, label %.thread15.sink.split
 
-139:                                              ; preds = %135
-  %140 = getelementptr inbounds i8, ptr %134, i64 12
-  %141 = load i8, ptr %140, align 4, !range !5, !noundef !6
-  %142 = icmp eq i8 %141, 0
-  br i1 %142, label %148, label %.split24.us
+138:                                              ; preds = %134
+  %139 = getelementptr inbounds i8, ptr %133, i64 12
+  %140 = load i8, ptr %139, align 4, !range !5, !noundef !6
+  %141 = icmp eq i8 %140, 0
+  br i1 %141, label %147, label %.split23.us
 
-.split24.us:                                      ; preds = %139, %84
+.split23.us:                                      ; preds = %138, %83
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @valid_group_nh.__msg.33) #13
-  br i1 %61, label %.thread16, label %.thread16.sink.split
+  br i1 %60, label %.thread15, label %.thread15.sink.split
 
-143:                                              ; preds = %129
-  %144 = getelementptr inbounds i8, ptr %134, i64 25
-  %145 = load i8, ptr %144, align 1, !range !5, !noundef !6
-  %146 = icmp eq i8 %145, 0
-  %147 = or i1 %62, %146
-  br i1 %147, label %148, label %.split26.us
+142:                                              ; preds = %128
+  %143 = getelementptr inbounds i8, ptr %133, i64 25
+  %144 = load i8, ptr %143, align 1, !range !5, !noundef !6
+  %145 = icmp eq i8 %144, 0
+  %146 = or i1 %61, %145
+  br i1 %146, label %147, label %.split25.us
 
-.split26.us:                                      ; preds = %143, %88
+.split25.us:                                      ; preds = %142, %87
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @valid_group_nh.__msg.34) #13
-  br i1 %61, label %.thread16, label %.thread16.sink.split
+  br i1 %60, label %.thread15, label %.thread15.sink.split
 
-148:                                              ; preds = %143, %139
-  %149 = getelementptr inbounds i8, ptr %134, i64 26
-  %150 = load i8, ptr %149, align 2, !range !5, !noundef !6
-  %151 = icmp eq i8 %150, 0
-  br i1 %151, label %152, label %153
+147:                                              ; preds = %142, %138
+  %148 = getelementptr inbounds i8, ptr %133, i64 26
+  %149 = load i8, ptr %148, align 2, !range !5, !noundef !6
+  %150 = icmp eq i8 %149, 0
+  br i1 %150, label %151, label %152
 
-152:                                              ; preds = %148
+151:                                              ; preds = %147
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @nh_check_attr_fdb_group.__msg) #13
-  br i1 %61, label %.thread16, label %.thread16.sink.split
+  br i1 %60, label %.thread15, label %.thread15.sink.split
 
-153:                                              ; preds = %148
-  %154 = icmp eq i8 %114, 0
-  %155 = getelementptr inbounds i8, ptr %134, i64 24
-  %156 = load i8, ptr %155, align 8
-  br i1 %154, label %160, label %157
+152:                                              ; preds = %147
+  %153 = icmp eq i8 %113, 0
+  %154 = getelementptr inbounds i8, ptr %133, i64 24
+  %155 = load i8, ptr %154, align 8
+  br i1 %153, label %159, label %156
 
-157:                                              ; preds = %153
-  %158 = icmp eq i8 %114, %156
-  br i1 %158, label %160, label %159
+156:                                              ; preds = %152
+  %157 = icmp eq i8 %113, %155
+  br i1 %157, label %159, label %158
 
-159:                                              ; preds = %157
+158:                                              ; preds = %156
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @nh_check_attr_fdb_group.__msg.35) #13
-  br i1 %61, label %.thread16, label %.thread16.sink.split
+  br i1 %60, label %.thread15, label %.thread15.sink.split
 
-.split28.us:                                      ; preds = %93
+.split27.us:                                      ; preds = %92
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @nh_check_attr_group.__msg.31) #13
-  br i1 %61, label %.thread16, label %.thread16.sink.split
+  br i1 %60, label %.thread15, label %.thread15.sink.split
 
-160:                                              ; preds = %153, %157
-  %161 = phi i8 [ %114, %157 ], [ %156, %153 ]
-  %162 = add nuw nsw i64 %113, 1
-  %163 = icmp eq i64 %162, %17
-  br i1 %163, label %.thread, label %.split, !llvm.loop !128
+159:                                              ; preds = %152, %156
+  %160 = phi i8 [ %113, %156 ], [ %155, %152 ]
+  %161 = add nuw nsw i64 %112, 1
+  %162 = icmp eq i64 %161, %17
+  br i1 %162, label %.split29.us, label %.split, !llvm.loop !128
 
-.thread.split:                                    ; preds = %.thread, %170
-  %164 = phi i64 [ %171, %170 ], [ 4, %.thread ]
-  %165 = getelementptr ptr, ptr %1, i64 %164
-  %166 = load ptr, ptr %165, align 8
-  %167 = icmp eq ptr %166, null
-  %168 = and i64 %164, 4294967295
-  %cond = icmp eq i64 %168, 11
-  %or.cond31 = or i1 %167, %cond
-  br i1 %or.cond31, label %170, label %.split30.us
+.split30:                                         ; preds = %.split29.us, %168
+  %163 = phi i64 [ %169, %168 ], [ 4, %.split29.us ]
+  %164 = getelementptr ptr, ptr %1, i64 %163
+  %165 = load ptr, ptr %164, align 8
+  %166 = icmp eq ptr %165, null
+  %167 = and i64 %163, 4294967295
+  %cond = icmp eq i64 %167, 11
+  %or.cond33 = or i1 %166, %cond
+  br i1 %or.cond33, label %168, label %.split32.us
 
-.split30.us:                                      ; preds = %.thread.split, %.thread.split.us
+.split32.us:                                      ; preds = %.split30, %.split30.us
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @nh_check_attr_group.__msg.32) #13
-  %169 = icmp eq ptr %3, null
-  br i1 %169, label %.thread16, label %.thread16.sink.split
+  br i1 %60, label %.thread15, label %.thread15.sink.split
 
-170:                                              ; preds = %.thread.split
-  %171 = add nuw nsw i64 %164, 1
-  %172 = icmp eq i64 %171, 13
-  br i1 %172, label %.thread16, label %.thread.split, !llvm.loop !129
+168:                                              ; preds = %.split30
+  %169 = add nuw nsw i64 %163, 1
+  %170 = icmp eq i64 %169, 13
+  br i1 %170, label %.thread15, label %.split30, !llvm.loop !129
 
-.thread16.sink.split:                             ; preds = %14, %33, %39, %54, %._crit_edge, %.split28.us, %.split30.us, %152, %159, %.split26.us, %.split24.us, %.split22.us
-  %.sink59 = phi ptr [ @valid_group_nh.__msg, %.split22.us ], [ @valid_group_nh.__msg.33, %.split24.us ], [ @valid_group_nh.__msg.34, %.split26.us ], [ @nh_check_attr_fdb_group.__msg, %152 ], [ @nh_check_attr_fdb_group.__msg.35, %159 ], [ @nh_check_attr_group.__msg, %14 ], [ @nh_check_attr_group.__msg.27, %33 ], [ @nh_check_attr_group.__msg.28, %39 ], [ @nh_check_attr_group.__msg.29, %54 ], [ @nh_check_attr_group.__msg.30, %._crit_edge ], [ @nh_check_attr_group.__msg.31, %.split28.us ], [ @nh_check_attr_group.__msg.32, %.split30.us ]
-  store ptr %.sink59, ptr %3, align 8
-  br label %.thread16
+.thread15.sink.split:                             ; preds = %14, %32, %38, %53, %._crit_edge, %.split27.us, %.split32.us, %151, %158, %.split25.us, %.split23.us, %.split21.us
+  %.sink61 = phi ptr [ @valid_group_nh.__msg, %.split21.us ], [ @valid_group_nh.__msg.33, %.split23.us ], [ @valid_group_nh.__msg.34, %.split25.us ], [ @nh_check_attr_fdb_group.__msg, %151 ], [ @nh_check_attr_fdb_group.__msg.35, %158 ], [ @nh_check_attr_group.__msg, %14 ], [ @nh_check_attr_group.__msg.27, %32 ], [ @nh_check_attr_group.__msg.28, %38 ], [ @nh_check_attr_group.__msg.29, %53 ], [ @nh_check_attr_group.__msg.30, %._crit_edge ], [ @nh_check_attr_group.__msg.31, %.split27.us ], [ @nh_check_attr_group.__msg.32, %.split32.us ]
+  store ptr %.sink61, ptr %3, align 8
+  br label %.thread15
 
-.thread16:                                        ; preds = %170, %110, %.thread16.sink.split, %159, %152, %.split26.us, %.split22.us, %.split24.us, %.split30.us, %.split28.us, %._crit_edge, %54, %39, %33, %14
-  %173 = phi i32 [ -22, %14 ], [ -22, %33 ], [ -22, %39 ], [ -22, %54 ], [ -22, %.split30.us ], [ -22, %.split28.us ], [ -22, %._crit_edge ], [ -22, %.split24.us ], [ -22, %.split22.us ], [ -22, %.split26.us ], [ -22, %152 ], [ -22, %159 ], [ -22, %.thread16.sink.split ], [ 0, %110 ], [ 0, %170 ]
-  ret i32 %173
+.thread15:                                        ; preds = %168, %109, %.thread15.sink.split, %158, %151, %.split25.us, %.split21.us, %.split23.us, %.split32.us, %.split27.us, %._crit_edge, %53, %38, %32, %14
+  %171 = phi i32 [ -22, %14 ], [ -22, %32 ], [ -22, %38 ], [ -22, %53 ], [ -22, %.split32.us ], [ -22, %.split27.us ], [ -22, %._crit_edge ], [ -22, %.split23.us ], [ -22, %.split21.us ], [ -22, %.split25.us ], [ -22, %151 ], [ -22, %158 ], [ -22, %.thread15.sink.split ], [ 0, %109 ], [ 0, %168 ]
+  ret i32 %171
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -11128,17 +11128,21 @@ if.end44:                                         ; preds = %if.end41
   store ptr %call11, ptr %arrayidx45, align 8
   %call1021 = tail call ptr @dictNext(ptr noundef %call9) #28
   %cmp.not22 = icmp eq ptr %call1021, null
-  br i1 %cmp.not22, label %while.end, label %while.body.lr.ph, !llvm.loop !58
+  br i1 %cmp.not22, label %while.end.thread36, label %while.body.lr.ph, !llvm.loop !58
 
-while.end:                                        ; preds = %if.end44, %while.cond.backedge
-  %indvars.iv.next.lcssa.sink = phi i64 [ %indvars.iv, %while.cond.backedge ], [ %indvars.iv.next, %if.end44 ]
+while.end.thread36:                               ; preds = %if.end44
   tail call void @dictReleaseIterator(ptr noundef %call9) #28
-  %18 = and i64 %indvars.iv.next.lcssa.sink, 4294967295
+  br label %if.then47
+
+while.end:                                        ; preds = %while.cond.backedge
+  tail call void @dictReleaseIterator(ptr noundef %call9) #28
+  %18 = and i64 %indvars.iv, 4294967295
   %tobool46.not = icmp eq i64 %18, 0
   br i1 %tobool46.not, label %if.end49, label %if.then47
 
-if.then47:                                        ; preds = %while.end
-  %sext = shl i64 %indvars.iv.next.lcssa.sink, 32
+if.then47:                                        ; preds = %while.end.thread36, %while.end
+  %instances.0.ph.lcssa39 = phi i64 [ %indvars.iv.next, %while.end.thread36 ], [ %indvars.iv, %while.end ]
+  %sext = shl i64 %instances.0.ph.lcssa39, 32
   %conv = ashr exact i64 %sext, 32
   tail call void @qsort(ptr noundef %call, i64 noundef %conv, i64 noundef 8, ptr noundef nonnull @compareSlavesForPromotion) #28
   %19 = load ptr, ptr %call, align 8

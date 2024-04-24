@@ -99,10 +99,10 @@ define i32 @Dau_DsdCheckDecExist_rec(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %42, label %.lr.ph90, label %._crit_edge91, !llvm.loop !6
 
 ._crit_edge91:                                    ; preds = %.lr.ph90
-  %43 = trunc i64 %indvars.iv.next to i32
+  %43 = trunc nuw i64 %indvars.iv.next to i32
   %44 = shl nuw i32 1, %43
-  %45 = icmp slt i32 %44, 2
-  br i1 %45, label %.loopexit, label %.preheader.us.preheader
+  %45 = icmp sgt i32 %44, 1
+  br i1 %45, label %.preheader.us.preheader, label %.loopexit
 
 .preheader.us.preheader:                          ; preds = %._crit_edge91
   %wide.trip.count = and i64 %indvars.iv.next, 4294967295
@@ -116,7 +116,7 @@ define i32 @Dau_DsdCheckDecExist_rec(ptr noundef %0, ptr noundef %1, ptr noundef
 46:                                               ; preds = %.preheader.us, %54
   %indvars.iv109 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next110, %54 ]
   %.06395.us = phi i32 [ 0, %.preheader.us ], [ %.1.us, %54 ]
-  %47 = trunc i64 %indvars.iv109 to i32
+  %47 = trunc nuw nsw i64 %indvars.iv109 to i32
   %48 = shl nuw i32 1, %47
   %49 = and i32 %48, %.06799.us
   %.not.us = icmp eq i32 %49, 0
@@ -307,7 +307,7 @@ define i32 @Dau_DsdCheckDecAndExist_rec(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not, label %.loopexit, label %46
 
 46:                                               ; preds = %._crit_edge
-  %47 = trunc i64 %indvars.iv.next to i32
+  %47 = trunc nuw i64 %indvars.iv.next to i32
   %48 = shl nuw i32 1, %47
   %49 = icmp slt i32 %48, 2
   br i1 %49, label %.preheader, label %.preheader96.us.preheader
@@ -346,12 +346,12 @@ define i32 @Dau_DsdCheckDecAndExist_rec(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %58, label %59, label %64
 
 59:                                               ; preds = %55
-  %60 = trunc i64 %indvars.iv140 to i32
+  %60 = trunc nuw nsw i64 %indvars.iv140 to i32
   %61 = shl nuw i32 1, %60
   %62 = and i32 %61, %.077121.us
   %.not89.us = icmp eq i32 %62, 0
   %63 = select i1 %.not89.us, i32 0, i32 %57
-  %spec.select.us = add nsw i32 %63, %.074115.us
+  %spec.select.us = add nuw nsw i32 %63, %.074115.us
   br label %64
 
 64:                                               ; preds = %59, %55
@@ -570,7 +570,7 @@ Dau_DsdCheckDecAndExist.exit46:                   ; preds = %50
   br i1 %.not84, label %Abc_TtCofactor1.exit, label %Abc_TtCofactor0.exit.critedge
 
 Abc_TtCofactor0.exit.critedge:                    ; preds = %58
-  %61 = trunc i64 %indvars.iv to i32
+  %61 = trunc nuw nsw i64 %indvars.iv to i32
   %62 = shl nuw nsw i32 1, %61
   %63 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv
   %64 = load i64, ptr %63, align 8
@@ -613,7 +613,7 @@ Abc_TtCofactor1.exit:                             ; preds = %58, %Abc_TtCofactor
   br i1 %.not.us.i.i, label %Abc_TtSupportSize.exit, label %Abc_TtHasVar.exit.i
 
 84:                                               ; preds = %83
-  %85 = trunc i64 %indvars.iv.i49 to i32
+  %85 = trunc nuw nsw i64 %indvars.iv.i49 to i32
   %86 = shl nuw nsw i32 1, %85
   %87 = zext nneg i32 %86 to i64
   %88 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.i49
@@ -695,7 +695,7 @@ Dau_DsdCheckDecExist.exit51:                      ; preds = %106
   br i1 %.not.us.i.i65, label %Abc_TtSupportSize.exit67, label %Abc_TtHasVar.exit.i57
 
 112:                                              ; preds = %.preheader
-  %113 = trunc i64 %indvars.iv.i52 to i32
+  %113 = trunc nuw nsw i64 %indvars.iv.i52 to i32
   %114 = shl nuw nsw i32 1, %113
   %115 = zext nneg i32 %114 to i64
   %116 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.i52
@@ -861,7 +861,7 @@ Abc_TtHasVar.exit.us.i:                           ; preds = %Abc_TtHasVar.exit.u
   %indvars.iv38.i = phi i64 [ %indvars.iv.next39.i, %Abc_TtHasVar.exit.us.i ], [ 0, %.lr.ph.split.us.i ]
   %.08.us.i = phi i32 [ %.1.us.i, %Abc_TtHasVar.exit.us.i ], [ 0, %.lr.ph.split.us.i ]
   %.0237.us.i = phi i32 [ %.124.us.i, %Abc_TtHasVar.exit.us.i ], [ 0, %.lr.ph.split.us.i ]
-  %26 = trunc i64 %indvars.iv38.i to i32
+  %26 = trunc nuw nsw i64 %indvars.iv38.i to i32
   %27 = shl nuw i32 1, %26
   %28 = zext nneg i32 %27 to i64
   %29 = lshr i64 %25, %28
@@ -894,7 +894,7 @@ Abc_TtHasVar.exit.us.i:                           ; preds = %Abc_TtHasVar.exit.u
   br i1 %37, label %.lr.ph.i.i, label %.preheader.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.split.split.i
-  %38 = trunc i64 %indvars.iv.i to i32
+  %38 = trunc nuw nsw i64 %indvars.iv.i to i32
   %39 = shl nuw nsw i32 1, %38
   %40 = zext nneg i32 %39 to i64
   %41 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv.i
@@ -919,7 +919,7 @@ Abc_TtHasVar.exit.us.i:                           ; preds = %Abc_TtHasVar.exit.u
 .preheader.lr.ph.i.i:                             ; preds = %.lr.ph.split.split.i
   %50 = add nsw i64 %indvars.iv.i, -6
   %51 = icmp eq i64 %50, 31
-  %52 = trunc i64 %50 to i32
+  %52 = trunc nsw i64 %50 to i32
   %53 = shl i32 2, %52
   %54 = sext i32 %53 to i64
   br i1 %51, label %.loopexit.i, label %.preheader.us.preheader.i.i
@@ -956,7 +956,7 @@ Abc_TtHasVar.exit.us.i:                           ; preds = %Abc_TtHasVar.exit.u
   br i1 %65, label %.preheader.us.i.i, label %.loopexit.i, !llvm.loop !22
 
 Abc_TtHasVar.exit.i.loopexit:                     ; preds = %58
-  %.pre45 = trunc i64 %indvars.iv.i to i32
+  %.pre45 = trunc nuw nsw i64 %indvars.iv.i to i32
   %.pre46 = shl nuw i32 1, %.pre45
   br label %Abc_TtHasVar.exit.i
 
@@ -1086,7 +1086,7 @@ Abc_TtHasVar.exit.i:                              ; preds = %44, %Abc_TtHasVar.e
   br i1 %108, label %.lr.ph.i.us.us.us.us.i.i, label %Abc_TtSwapAdjacent.exit.us.us.us.us.i.i, !llvm.loop !26
 
 .lr.ph64.i.us.us.us.us.i.i:                       ; preds = %.lr.ph.us.us.i.i
-  %109 = trunc i64 %indvars.iv.next98.i.i to i32
+  %109 = trunc nsw i64 %indvars.iv.next98.i.i to i32
   %110 = shl nuw nsw i32 1, %109
   %111 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %indvars.iv.next98.i.i
   %112 = load i64, ptr %111, align 8

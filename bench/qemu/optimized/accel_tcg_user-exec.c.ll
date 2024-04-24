@@ -3785,17 +3785,13 @@ do.body1.i.i.i:                                   ; preds = %do.body1.i.i.i, %sw
   %12 = cmpxchg weak ptr %add.ptr.i30.i, i64 %old.0.i.i.i, i64 %or.i.i.i monotonic monotonic, align 8
   %13 = extractvalue { i64, i1 } %12, 1
   %14 = extractvalue { i64, i1 } %12, 0
-  br i1 %13, label %store_whole_le8.exit.i, label %do.body1.i.i.i, !llvm.loop !17
+  br i1 %13, label %for.body.preheader.i.i, label %do.body1.i.i.i, !llvm.loop !17
 
-store_whole_le8.exit.i:                           ; preds = %do.body1.i.i.i
-  %idx.ext.i = zext nneg i32 %sub.i8 to i64
-  %add.ptr.i = getelementptr i8, ptr %1, i64 %idx.ext.i
-  %cmp5.i.not.i = icmp eq i32 %conv7.i, 0
-  br i1 %cmp5.i.not.i, label %store_atom_8.exit, label %for.body.preheader.i.i
-
-for.body.preheader.i.i:                           ; preds = %store_whole_le8.exit.i
+for.body.preheader.i.i:                           ; preds = %do.body1.i.i.i
   %sh_prom6.i.i = zext nneg i32 %mul.i.i to i64
   %shr7.i.i = lshr i64 %spec.select, %sh_prom6.i.i
+  %idx.ext.i = zext nneg i32 %sub.i8 to i64
+  %add.ptr.i = getelementptr i8, ptr %1, i64 %idx.ext.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -3889,7 +3885,7 @@ do.body23.i:                                      ; preds = %required_atomicity.
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.20, i32 noundef 1030, ptr noundef nonnull @__func__.store_atom_8, ptr noundef null) #17
   unreachable
 
-store_atom_8.exit:                                ; preds = %do.body.i.i.i, %do.body1.i.i58.i, %for.body.i.i, %if.then.i10, %sw.bb.i, %sw.bb2.i, %sw.bb3.i, %store_whole_le8.exit.i
+store_atom_8.exit:                                ; preds = %do.body.i.i.i, %do.body1.i.i58.i, %for.body.i.i, %if.then.i10, %sw.bb.i, %sw.bb2.i, %sw.bb3.i
   fence syncscope("singlethread") seq_cst
   store i64 0, ptr %2, align 8
   ret void
@@ -4189,18 +4185,14 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %sw.
   %23 = cmpxchg weak ptr %add.ptr.i54.i, i128 %old.sroa.0.0.i.i.i, i128 %or.i.i.i.i monotonic monotonic, align 16
   %24 = extractvalue { i128, i1 } %23, 1
   %25 = extractvalue { i128, i1 } %23, 0
-  br i1 %24, label %store_whole_le16.exit.i, label %do.body.i.i.i, !llvm.loop !18
+  br i1 %24, label %for.body.preheader.i.i, label %do.body.i.i.i, !llvm.loop !18
 
-store_whole_le16.exit.i:                          ; preds = %do.body.i.i.i
-  %idx.ext.i = zext nneg i32 %sub.i11 to i64
-  %add.ptr18.i = getelementptr i8, ptr %1, i64 %idx.ext.i
-  %cmp5.i.not.i = icmp eq i32 %conv14.i, 0
-  br i1 %cmp5.i.not.i, label %store_atom_16.exit, label %for.body.preheader.i.i
-
-for.body.preheader.i.i:                           ; preds = %store_whole_le16.exit.i
+for.body.preheader.i.i:                           ; preds = %do.body.i.i.i
   %sub25.i.i = add nsw i32 %mul.i.i, -64
   %sh_prom26.i.i = zext nneg i32 %sub25.i.i to i64
   %shr27.i.i = ashr i64 %val.addr.0.off64, %sh_prom26.i.i
+  %idx.ext.i = zext nneg i32 %sub.i11 to i64
+  %add.ptr18.i = getelementptr i8, ptr %1, i64 %idx.ext.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.preheader.i.i
@@ -4288,7 +4280,7 @@ sw.epilog36.i:                                    ; preds = %required_atomicity.
   tail call void @cpu_loop_exit_atomic(ptr noundef nonnull %cpu, i64 noundef %ra) #17
   unreachable
 
-store_atom_16.exit:                               ; preds = %do.body.i.i97.i, %for.body.i.i, %do.body.i.i, %if.then.i.i, %sw.bb.i, %sw.bb7.i, %sw.bb8.i, %sw.bb10.i, %store_whole_le16.exit.i
+store_atom_16.exit:                               ; preds = %do.body.i.i97.i, %for.body.i.i, %do.body.i.i, %if.then.i.i, %sw.bb.i, %sw.bb7.i, %sw.bb8.i, %sw.bb10.i
   fence syncscope("singlethread") seq_cst
   store i64 0, ptr %2, align 8
   ret void

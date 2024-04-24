@@ -541,8 +541,8 @@ define void @Dau_DsdNormalize_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %5 = ptrtoint ptr %0 to i64
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %149, %3
-  %.promoted103 = phi ptr [ %146, %149 ], [ %.promoted101, %3 ]
+tailrecurse:                                      ; preds = %148, %3
+  %.promoted103 = phi ptr [ %145, %148 ], [ %.promoted101, %3 ]
   %6 = load i8, ptr %.promoted103, align 1
   %7 = icmp eq i8 %6, 33
   br i1 %7, label %8, label %10
@@ -599,7 +599,7 @@ tailrecurse:                                      ; preds = %149, %3
   %31 = load i32, ptr %30, align 4
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i8, ptr %0, i64 %32
-  br label %144
+  br label %143
 
 34:                                               ; preds = %20
   store ptr %gep, ptr %1, align 8
@@ -617,8 +617,8 @@ tailrecurse:                                      ; preds = %149, %3
   switch i8 %36, label %.loopexit [
     i8 40, label %39
     i8 91, label %39
-    i8 60, label %136
-    i8 123, label %136
+    i8 60, label %135
+    i8 123, label %135
   ]
 
 39:                                               ; preds = %38, %38
@@ -656,15 +656,13 @@ tailrecurse:                                      ; preds = %149, %3
   %58 = and i64 %indvars.iv.next, 4294967295
   %59 = getelementptr inbounds [13 x i32], ptr %4, i64 0, i64 %58
   store i32 %57, ptr %59, align 4
-  %60 = and i64 %indvars.iv.next, 4294967295
-  %.not = icmp eq i64 %60, 0
-  br i1 %.not, label %._crit_edge117, label %.lr.ph.i
+  br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %._crit_edge ]
-  %61 = getelementptr inbounds [12 x i32], ptr @Dau_DsdNormalizePerm.pPerm, i64 0, i64 %indvars.iv.i
-  %62 = trunc nuw nsw i64 %indvars.iv.i to i32
-  store i32 %62, ptr %61, align 4
+  %60 = getelementptr inbounds [12 x i32], ptr @Dau_DsdNormalizePerm.pPerm, i64 0, i64 %indvars.iv.i
+  %61 = trunc nuw nsw i64 %indvars.iv.i to i32
+  store i32 %61, ptr %60, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %58
   br i1 %exitcond.not.i, label %.lr.ph37.i, label %.lr.ph.i, !llvm.loop !12
@@ -673,200 +671,197 @@ tailrecurse:                                      ; preds = %149, %3
   %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %._crit_edge.i ], [ 0, %.lr.ph.i ]
   %indvars.iv42.i = phi i64 [ %indvars.iv.next43.i, %._crit_edge.i ], [ 1, %.lr.ph.i ]
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
-  %63 = icmp ult i64 %indvars.iv.next50.i, %58
-  %64 = trunc nuw nsw i64 %indvars.iv49.i to i32
-  br i1 %63, label %.lr.ph35.i, label %._crit_edge.i
+  %62 = icmp ult i64 %indvars.iv.next50.i, %58
+  %63 = trunc nuw nsw i64 %indvars.iv49.i to i32
+  br i1 %62, label %.lr.ph35.i, label %._crit_edge.i
 
 .lr.ph35.i:                                       ; preds = %.lr.ph37.i, %Dau_DsdNormalizeCompare.exit.thread.i
   %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %Dau_DsdNormalizeCompare.exit.thread.i ], [ %indvars.iv42.i, %.lr.ph37.i ]
-  %.02234.i = phi i32 [ %113, %Dau_DsdNormalizeCompare.exit.thread.i ], [ %64, %.lr.ph37.i ]
-  %65 = sext i32 %.02234.i to i64
-  %66 = getelementptr inbounds [12 x i32], ptr @Dau_DsdNormalizePerm.pPerm, i64 0, i64 %65
-  %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds [12 x i32], ptr @Dau_DsdNormalizePerm.pPerm, i64 0, i64 %indvars.iv44.i
-  %69 = load i32, ptr %68, align 4
-  %70 = sext i32 %67 to i64
-  %71 = getelementptr inbounds i32, ptr %4, i64 %70
-  %72 = load i32, ptr %71, align 4
-  %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds i8, ptr %0, i64 %73
-  %75 = sext i32 %69 to i64
-  %76 = getelementptr inbounds i32, ptr %4, i64 %75
-  %77 = load i32, ptr %76, align 4
-  %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds i8, ptr %0, i64 %78
-  %80 = getelementptr i8, ptr %71, i64 4
-  %81 = load i32, ptr %80, align 4
-  %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds i8, ptr %0, i64 %82
-  %84 = getelementptr i8, ptr %76, i64 4
-  %85 = load i32, ptr %84, align 4
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds i8, ptr %0, i64 %86
-  %88 = icmp slt i32 %72, %81
-  %89 = icmp slt i32 %77, %85
-  %90 = select i1 %88, i1 %89, i1 false
-  br i1 %90, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %.02234.i = phi i32 [ %112, %Dau_DsdNormalizeCompare.exit.thread.i ], [ %63, %.lr.ph37.i ]
+  %64 = sext i32 %.02234.i to i64
+  %65 = getelementptr inbounds [12 x i32], ptr @Dau_DsdNormalizePerm.pPerm, i64 0, i64 %64
+  %66 = load i32, ptr %65, align 4
+  %67 = getelementptr inbounds [12 x i32], ptr @Dau_DsdNormalizePerm.pPerm, i64 0, i64 %indvars.iv44.i
+  %68 = load i32, ptr %67, align 4
+  %69 = sext i32 %66 to i64
+  %70 = getelementptr inbounds i32, ptr %4, i64 %69
+  %71 = load i32, ptr %70, align 4
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr inbounds i8, ptr %0, i64 %72
+  %74 = sext i32 %68 to i64
+  %75 = getelementptr inbounds i32, ptr %4, i64 %74
+  %76 = load i32, ptr %75, align 4
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds i8, ptr %0, i64 %77
+  %79 = getelementptr i8, ptr %70, i64 4
+  %80 = load i32, ptr %79, align 4
+  %81 = sext i32 %80 to i64
+  %82 = getelementptr inbounds i8, ptr %0, i64 %81
+  %83 = getelementptr i8, ptr %75, i64 4
+  %84 = load i32, ptr %83, align 4
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr inbounds i8, ptr %0, i64 %85
+  %87 = icmp slt i32 %71, %80
+  %88 = icmp slt i32 %76, %84
+  %89 = select i1 %87, i1 %88, i1 false
+  br i1 %89, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph35.i, %104
-  %.03241.i.i = phi ptr [ %105, %104 ], [ %74, %.lr.ph35.i ]
-  %.03340.i.i = phi ptr [ %106, %104 ], [ %79, %.lr.ph35.i ]
-  %91 = load i8, ptr %.03241.i.i, align 1
-  %92 = add i8 %91, -97
-  %or.cond.i.i = icmp ult i8 %92, 26
-  br i1 %or.cond.i.i, label %95, label %93
+.lr.ph.i.i:                                       ; preds = %.lr.ph35.i, %103
+  %.03241.i.i = phi ptr [ %104, %103 ], [ %73, %.lr.ph35.i ]
+  %.03340.i.i = phi ptr [ %105, %103 ], [ %78, %.lr.ph35.i ]
+  %90 = load i8, ptr %.03241.i.i, align 1
+  %91 = add i8 %90, -97
+  %or.cond.i.i = icmp ult i8 %91, 26
+  br i1 %or.cond.i.i, label %94, label %92
 
-93:                                               ; preds = %.lr.ph.i.i
-  %94 = getelementptr inbounds i8, ptr %.03340.i.i, i64 -1
-  br label %104
+92:                                               ; preds = %.lr.ph.i.i
+  %93 = getelementptr inbounds i8, ptr %.03340.i.i, i64 -1
+  br label %103
 
-95:                                               ; preds = %.lr.ph.i.i
-  %96 = load i8, ptr %.03340.i.i, align 1
-  %97 = add i8 %96, -97
-  %or.cond37.i.i = icmp ult i8 %97, 26
-  br i1 %or.cond37.i.i, label %100, label %98
+94:                                               ; preds = %.lr.ph.i.i
+  %95 = load i8, ptr %.03340.i.i, align 1
+  %96 = add i8 %95, -97
+  %or.cond37.i.i = icmp ult i8 %96, 26
+  br i1 %or.cond37.i.i, label %99, label %97
 
-98:                                               ; preds = %95
-  %99 = getelementptr inbounds i8, ptr %.03241.i.i, i64 -1
-  br label %104
+97:                                               ; preds = %94
+  %98 = getelementptr inbounds i8, ptr %.03241.i.i, i64 -1
+  br label %103
 
-100:                                              ; preds = %95
-  %101 = icmp ult i8 %91, %96
-  br i1 %101, label %Dau_DsdNormalizeCompare.exit.thread.i, label %102
+99:                                               ; preds = %94
+  %100 = icmp ult i8 %90, %95
+  br i1 %100, label %Dau_DsdNormalizeCompare.exit.thread.i, label %101
 
-102:                                              ; preds = %100
-  %103 = icmp ugt i8 %91, %96
-  br i1 %103, label %Dau_DsdNormalizeCompare.exit.thread28.i, label %104
+101:                                              ; preds = %99
+  %102 = icmp ugt i8 %90, %95
+  br i1 %102, label %Dau_DsdNormalizeCompare.exit.thread28.i, label %103
 
-104:                                              ; preds = %102, %98, %93
-  %.134.i.i = phi ptr [ %.03340.i.i, %102 ], [ %.03340.i.i, %98 ], [ %94, %93 ]
-  %.1.i.i = phi ptr [ %.03241.i.i, %102 ], [ %99, %98 ], [ %.03241.i.i, %93 ]
-  %105 = getelementptr inbounds i8, ptr %.1.i.i, i64 1
-  %106 = getelementptr inbounds i8, ptr %.134.i.i, i64 1
-  %107 = icmp ult ptr %105, %83
-  %108 = icmp ult ptr %106, %87
-  %109 = select i1 %107, i1 %108, i1 false
-  br i1 %109, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !11
+103:                                              ; preds = %101, %97, %92
+  %.134.i.i = phi ptr [ %.03340.i.i, %101 ], [ %.03340.i.i, %97 ], [ %93, %92 ]
+  %.1.i.i = phi ptr [ %.03241.i.i, %101 ], [ %98, %97 ], [ %.03241.i.i, %92 ]
+  %104 = getelementptr inbounds i8, ptr %.1.i.i, i64 1
+  %105 = getelementptr inbounds i8, ptr %.134.i.i, i64 1
+  %106 = icmp ult ptr %104, %82
+  %107 = icmp ult ptr %105, %86
+  %108 = select i1 %106, i1 %107, i1 false
+  br i1 %108, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !11
 
-._crit_edge.i.i:                                  ; preds = %104, %.lr.ph35.i
-  %.033.lcssa.i.i = phi ptr [ %79, %.lr.ph35.i ], [ %106, %104 ]
-  %.032.lcssa.i.i = phi ptr [ %74, %.lr.ph35.i ], [ %105, %104 ]
-  %110 = icmp eq ptr %.032.lcssa.i.i, %83
-  br i1 %110, label %Dau_DsdNormalizeCompare.exit.thread.i, label %Dau_DsdNormalizeCompare.exit.i
+._crit_edge.i.i:                                  ; preds = %103, %.lr.ph35.i
+  %.033.lcssa.i.i = phi ptr [ %78, %.lr.ph35.i ], [ %105, %103 ]
+  %.032.lcssa.i.i = phi ptr [ %73, %.lr.ph35.i ], [ %104, %103 ]
+  %109 = icmp eq ptr %.032.lcssa.i.i, %82
+  br i1 %109, label %Dau_DsdNormalizeCompare.exit.thread.i, label %Dau_DsdNormalizeCompare.exit.i
 
 Dau_DsdNormalizeCompare.exit.i:                   ; preds = %._crit_edge.i.i
-  %111 = icmp eq ptr %.033.lcssa.i.i, %87
-  %cond.fr.i = freeze i1 %111
+  %110 = icmp eq ptr %.033.lcssa.i.i, %86
+  %cond.fr.i = freeze i1 %110
   br i1 %cond.fr.i, label %Dau_DsdNormalizeCompare.exit.thread28.i, label %Dau_DsdNormalizeCompare.exit.thread.i
 
-Dau_DsdNormalizeCompare.exit.thread28.i:          ; preds = %102, %Dau_DsdNormalizeCompare.exit.i
-  %112 = trunc nuw nsw i64 %indvars.iv44.i to i32
+Dau_DsdNormalizeCompare.exit.thread28.i:          ; preds = %101, %Dau_DsdNormalizeCompare.exit.i
+  %111 = trunc nuw nsw i64 %indvars.iv44.i to i32
   br label %Dau_DsdNormalizeCompare.exit.thread.i
 
-Dau_DsdNormalizeCompare.exit.thread.i:            ; preds = %100, %Dau_DsdNormalizeCompare.exit.thread28.i, %Dau_DsdNormalizeCompare.exit.i, %._crit_edge.i.i
-  %113 = phi i32 [ %112, %Dau_DsdNormalizeCompare.exit.thread28.i ], [ %.02234.i, %Dau_DsdNormalizeCompare.exit.i ], [ %.02234.i, %._crit_edge.i.i ], [ %.02234.i, %100 ]
+Dau_DsdNormalizeCompare.exit.thread.i:            ; preds = %99, %Dau_DsdNormalizeCompare.exit.thread28.i, %Dau_DsdNormalizeCompare.exit.i, %._crit_edge.i.i
+  %112 = phi i32 [ %111, %Dau_DsdNormalizeCompare.exit.thread28.i ], [ %.02234.i, %Dau_DsdNormalizeCompare.exit.i ], [ %.02234.i, %._crit_edge.i.i ], [ %.02234.i, %99 ]
   %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
   %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, %58
   br i1 %exitcond48.not.i, label %._crit_edge.i, label %.lr.ph35.i, !llvm.loop !13
 
 ._crit_edge.i:                                    ; preds = %Dau_DsdNormalizeCompare.exit.thread.i, %.lr.ph37.i
-  %.022.lcssa.i = phi i32 [ %64, %.lr.ph37.i ], [ %113, %Dau_DsdNormalizeCompare.exit.thread.i ]
-  %114 = getelementptr inbounds [12 x i32], ptr @Dau_DsdNormalizePerm.pPerm, i64 0, i64 %indvars.iv49.i
-  %115 = load i32, ptr %114, align 4
-  %116 = sext i32 %.022.lcssa.i to i64
-  %117 = getelementptr inbounds [12 x i32], ptr @Dau_DsdNormalizePerm.pPerm, i64 0, i64 %116
-  %118 = load i32, ptr %117, align 4
-  store i32 %118, ptr %114, align 4
-  store i32 %115, ptr %117, align 4
+  %.022.lcssa.i = phi i32 [ %63, %.lr.ph37.i ], [ %112, %Dau_DsdNormalizeCompare.exit.thread.i ]
+  %113 = getelementptr inbounds [12 x i32], ptr @Dau_DsdNormalizePerm.pPerm, i64 0, i64 %indvars.iv49.i
+  %114 = load i32, ptr %113, align 4
+  %115 = sext i32 %.022.lcssa.i to i64
+  %116 = getelementptr inbounds [12 x i32], ptr @Dau_DsdNormalizePerm.pPerm, i64 0, i64 %115
+  %117 = load i32, ptr %116, align 4
+  store i32 %117, ptr %113, align 4
+  store i32 %114, ptr %116, align 4
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %58
-  br i1 %exitcond53.not.i, label %Dau_DsdNormalizePerm.exit, label %.lr.ph37.i, !llvm.loop !14
+  br i1 %exitcond53.not.i, label %.lr.ph116, label %.lr.ph37.i, !llvm.loop !14
 
-Dau_DsdNormalizePerm.exit:                        ; preds = %._crit_edge.i
-  br i1 %.not, label %._crit_edge117, label %.lr.ph116
-
-.lr.ph116:                                        ; preds = %Dau_DsdNormalizePerm.exit, %Dau_DsdNormalizeCopy.exit
-  %indvars.iv132 = phi i64 [ %indvars.iv.next133, %Dau_DsdNormalizeCopy.exit ], [ 0, %Dau_DsdNormalizePerm.exit ]
-  %.0115 = phi ptr [ %.09.lcssa.i, %Dau_DsdNormalizeCopy.exit ], [ @Dau_DsdNormalize_rec.pBuffer, %Dau_DsdNormalizePerm.exit ]
-  %119 = getelementptr inbounds i32, ptr @Dau_DsdNormalizePerm.pPerm, i64 %indvars.iv132
-  %120 = load i32, ptr %119, align 4
-  %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds i32, ptr %4, i64 %121
-  %123 = load i32, ptr %122, align 4
-  %124 = getelementptr i8, ptr %122, i64 4
-  %125 = load i32, ptr %124, align 4
-  %126 = icmp slt i32 %123, %125
-  br i1 %126, label %.lr.ph.preheader.i80, label %Dau_DsdNormalizeCopy.exit
+.lr.ph116:                                        ; preds = %._crit_edge.i, %Dau_DsdNormalizeCopy.exit
+  %indvars.iv132 = phi i64 [ %indvars.iv.next133, %Dau_DsdNormalizeCopy.exit ], [ 0, %._crit_edge.i ]
+  %.0115 = phi ptr [ %.09.lcssa.i, %Dau_DsdNormalizeCopy.exit ], [ @Dau_DsdNormalize_rec.pBuffer, %._crit_edge.i ]
+  %118 = getelementptr inbounds i32, ptr @Dau_DsdNormalizePerm.pPerm, i64 %indvars.iv132
+  %119 = load i32, ptr %118, align 4
+  %120 = sext i32 %119 to i64
+  %121 = getelementptr inbounds i32, ptr %4, i64 %120
+  %122 = load i32, ptr %121, align 4
+  %123 = getelementptr i8, ptr %121, i64 4
+  %124 = load i32, ptr %123, align 4
+  %125 = icmp slt i32 %122, %124
+  br i1 %125, label %.lr.ph.preheader.i80, label %Dau_DsdNormalizeCopy.exit
 
 .lr.ph.preheader.i80:                             ; preds = %.lr.ph116
-  %127 = sext i32 %123 to i64
+  %126 = sext i32 %122 to i64
   br label %.lr.ph.i81
 
 .lr.ph.i81:                                       ; preds = %.lr.ph.i81, %.lr.ph.preheader.i80
-  %indvars.iv.i82 = phi i64 [ %127, %.lr.ph.preheader.i80 ], [ %indvars.iv.next.i83, %.lr.ph.i81 ]
-  %.0910.i = phi ptr [ %.0115, %.lr.ph.preheader.i80 ], [ %130, %.lr.ph.i81 ]
-  %128 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i82
-  %129 = load i8, ptr %128, align 1
-  %130 = getelementptr inbounds i8, ptr %.0910.i, i64 1
-  store i8 %129, ptr %.0910.i, align 1
+  %indvars.iv.i82 = phi i64 [ %126, %.lr.ph.preheader.i80 ], [ %indvars.iv.next.i83, %.lr.ph.i81 ]
+  %.0910.i = phi ptr [ %.0115, %.lr.ph.preheader.i80 ], [ %129, %.lr.ph.i81 ]
+  %127 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i82
+  %128 = load i8, ptr %127, align 1
+  %129 = getelementptr inbounds i8, ptr %.0910.i, i64 1
+  store i8 %128, ptr %.0910.i, align 1
   %indvars.iv.next.i83 = add nsw i64 %indvars.iv.i82, 1
-  %131 = load i32, ptr %124, align 4
-  %132 = sext i32 %131 to i64
-  %133 = icmp slt i64 %indvars.iv.next.i83, %132
-  br i1 %133, label %.lr.ph.i81, label %Dau_DsdNormalizeCopy.exit, !llvm.loop !10
+  %130 = load i32, ptr %123, align 4
+  %131 = sext i32 %130 to i64
+  %132 = icmp slt i64 %indvars.iv.next.i83, %131
+  br i1 %132, label %.lr.ph.i81, label %Dau_DsdNormalizeCopy.exit, !llvm.loop !10
 
 Dau_DsdNormalizeCopy.exit:                        ; preds = %.lr.ph.i81, %.lr.ph116
-  %.09.lcssa.i = phi ptr [ %.0115, %.lr.ph116 ], [ %130, %.lr.ph.i81 ]
+  %.09.lcssa.i = phi ptr [ %.0115, %.lr.ph116 ], [ %129, %.lr.ph.i81 ]
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next133, %58
   br i1 %exitcond.not, label %._crit_edge117, label %.lr.ph116, !llvm.loop !17
 
-._crit_edge117:                                   ; preds = %Dau_DsdNormalizeCopy.exit, %39, %._crit_edge, %Dau_DsdNormalizePerm.exit
-  %.0.lcssa = phi ptr [ @Dau_DsdNormalize_rec.pBuffer, %Dau_DsdNormalizePerm.exit ], [ @Dau_DsdNormalize_rec.pBuffer, %._crit_edge ], [ @Dau_DsdNormalize_rec.pBuffer, %39 ], [ %.09.lcssa.i, %Dau_DsdNormalizeCopy.exit ]
-  %134 = ptrtoint ptr %.0.lcssa to i64
-  %135 = sub i64 %134, ptrtoint (ptr @Dau_DsdNormalize_rec.pBuffer to i64)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr nonnull align 16 @Dau_DsdNormalize_rec.pBuffer, i64 %135, i1 false)
+._crit_edge117:                                   ; preds = %Dau_DsdNormalizeCopy.exit, %39
+  %.0.lcssa = phi ptr [ @Dau_DsdNormalize_rec.pBuffer, %39 ], [ %.09.lcssa.i, %Dau_DsdNormalizeCopy.exit ]
+  %133 = ptrtoint ptr %.0.lcssa to i64
+  %134 = sub i64 %133, ptrtoint (ptr @Dau_DsdNormalize_rec.pBuffer to i64)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %40, ptr nonnull align 16 @Dau_DsdNormalize_rec.pBuffer, i64 %134, i1 false)
   br label %.loopexit
 
-136:                                              ; preds = %38, %38
-  %137 = ptrtoint ptr %.pn107 to i64
-  %138 = sub i64 %137, %5
-  %139 = getelementptr inbounds i32, ptr %2, i64 %138
-  %140 = load i32, ptr %139, align 4
-  %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds i8, ptr %0, i64 %141
-  %143 = icmp eq i8 %36, 60
-  br i1 %143, label %144, label %150
+135:                                              ; preds = %38, %38
+  %136 = ptrtoint ptr %.pn107 to i64
+  %137 = sub i64 %136, %5
+  %138 = getelementptr inbounds i32, ptr %2, i64 %137
+  %139 = load i32, ptr %138, align 4
+  %140 = sext i32 %139 to i64
+  %141 = getelementptr inbounds i8, ptr %0, i64 %140
+  %142 = icmp eq i8 %36, 60
+  br i1 %142, label %143, label %149
 
-144:                                              ; preds = %.thread147, %136
-  %145 = phi ptr [ %33, %.thread147 ], [ %142, %136 ]
-  %.pn107138141150 = phi ptr [ %.promoted105, %.thread147 ], [ %.pn107, %136 ]
-  %146 = getelementptr inbounds i8, ptr %145, i64 1
-  %147 = load i8, ptr %146, align 1
-  %148 = icmp eq i8 %147, 123
-  br i1 %148, label %149, label %150
+143:                                              ; preds = %.thread147, %135
+  %144 = phi ptr [ %33, %.thread147 ], [ %141, %135 ]
+  %.pn107138141150 = phi ptr [ %.promoted105, %.thread147 ], [ %.pn107, %135 ]
+  %145 = getelementptr inbounds i8, ptr %144, i64 1
+  %146 = load i8, ptr %145, align 1
+  %147 = icmp eq i8 %146, 123
+  br i1 %147, label %148, label %149
 
-149:                                              ; preds = %144
-  store ptr %146, ptr %1, align 8
+148:                                              ; preds = %143
+  store ptr %145, ptr %1, align 8
   br label %tailrecurse
 
-150:                                              ; preds = %144, %136
-  %151 = phi ptr [ %145, %144 ], [ %142, %136 ]
-  %.pn107138141149 = phi ptr [ %.pn107138141150, %144 ], [ %.pn107, %136 ]
+149:                                              ; preds = %143, %135
+  %150 = phi ptr [ %144, %143 ], [ %141, %135 ]
+  %.pn107138141149 = phi ptr [ %.pn107138141150, %143 ], [ %.pn107, %135 ]
   %storemerge108 = getelementptr inbounds i8, ptr %.pn107138141149, i64 1
   store ptr %storemerge108, ptr %1, align 8
-  %152 = icmp ult ptr %storemerge108, %151
-  br i1 %152, label %.lr.ph, label %.loopexit
+  %151 = icmp ult ptr %storemerge108, %150
+  br i1 %151, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %150, %.lr.ph
+.lr.ph:                                           ; preds = %149, %.lr.ph
   tail call void @Dau_DsdNormalize_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
   %.pn = load ptr, ptr %1, align 8
   %storemerge = getelementptr inbounds i8, ptr %.pn, i64 1
   store ptr %storemerge, ptr %1, align 8
-  %153 = icmp ult ptr %storemerge, %151
-  br i1 %153, label %.lr.ph, label %.loopexit, !llvm.loop !18
+  %152 = icmp ult ptr %storemerge, %150
+  br i1 %152, label %.lr.ph, label %.loopexit, !llvm.loop !18
 
-.loopexit:                                        ; preds = %38, %35, %.lr.ph, %150, %._crit_edge117
+.loopexit:                                        ; preds = %38, %35, %.lr.ph, %149, %._crit_edge117
   ret void
 }
 

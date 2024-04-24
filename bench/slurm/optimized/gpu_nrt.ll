@@ -316,24 +316,20 @@ _get_device_name.exit.i:                          ; preds = %56, %48
   br i1 %.not2328.i.i, label %.preheader.thread.i.i, label %.lr.ph.i17.i
 
 .preheader.i18.i:                                 ; preds = %.lr.ph.i17.i
-  br i1 %.not39.i.i, label %.loopexit.i.i, label %.lr.ph38.i.i
+  br i1 %.not39.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.preheader.i.i
 
 .preheader.thread.i.i:                            ; preds = %73
   br i1 %.not39.i.i, label %.loopexit.i.i, label %_is_link.exit.thread.us.preheader.i.i
 
-.lr.ph38.i.i:                                     ; preds = %.preheader.i18.i
+.lr.ph.preheader.i.preheader.i.i:                 ; preds = %.preheader.i18.i
   %75 = and i64 %indvars.iv.next.i.i, 4294967295
-  %.not.i.i.i = icmp eq i64 %75, 0
   %76 = load i32, ptr %5, align 16
-  br i1 %.not.i.i.i, label %_is_link.exit.thread.us.preheader.i.i, label %.lr.ph.preheader.i.preheader.i.i
-
-.lr.ph.preheader.i.preheader.i.i:                 ; preds = %.lr.ph38.i.i
   %.not25.i.i = icmp eq i32 %59, 0
   %77 = select i1 %.not25.i.i, ptr @.str.25, ptr @.str.24
   %78 = zext i32 %indvars.iv.i to i64
   br label %.lr.ph.preheader.i.i.i
 
-_is_link.exit.thread.us.preheader.i.i:            ; preds = %.lr.ph38.i.i, %.preheader.thread.i.i
+_is_link.exit.thread.us.preheader.i.i:            ; preds = %.preheader.thread.i.i
   %.not25.us.i.i = icmp eq i32 %59, 0
   %79 = select i1 %.not25.us.i.i, ptr @.str.25, ptr @.str.24
   br label %_is_link.exit.thread.us.i.i

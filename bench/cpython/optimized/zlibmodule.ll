@@ -3900,7 +3900,6 @@ OutputBuffer_WindowInitWithSize.exit.i:           ; preds = %if.end.i.i.i
   br label %do.body22.i
 
 do.body22.i:                                      ; preds = %do.cond48.i, %OutputBuffer_WindowInitWithSize.exit.i
-  %.pr.i = phi i32 [ %conv.i.i, %OutputBuffer_WindowInitWithSize.exit.i ], [ %16, %do.cond48.i ]
   %ibuflen.0.i = phi i64 [ %10, %OutputBuffer_WindowInitWithSize.exit.i ], [ %sub.i29.i, %do.cond48.i ]
   %window.sroa.5.1.i = phi ptr [ %add.ptr.i.i, %OutputBuffer_WindowInitWithSize.exit.i ], [ %window.sroa.5.4.i, %do.cond48.i ]
   %window.sroa.0.1.i = phi i64 [ %sub.i.i, %OutputBuffer_WindowInitWithSize.exit.i ], [ %window.sroa.0.4.i, %do.cond48.i ]
@@ -3913,10 +3912,9 @@ do.body22.i:                                      ; preds = %do.cond48.i, %Outpu
   br label %do.body25.i
 
 do.body25.i:                                      ; preds = %do.cond.i, %do.body22.i
-  %15 = phi i32 [ 0, %do.cond.i ], [ %.pr.i, %do.body22.i ]
+  %cmp28.i = phi i1 [ true, %do.cond.i ], [ false, %do.body22.i ]
   %window.sroa.5.2.i = phi ptr [ %window.sroa.5.4.i, %do.cond.i ], [ %window.sroa.5.1.i, %do.body22.i ]
   %window.sroa.0.2.i = phi i64 [ %window.sroa.0.4.i, %do.cond.i ], [ %window.sroa.0.1.i, %do.body22.i ]
-  %cmp28.i = icmp eq i32 %15, 0
   br i1 %cmp28.i, label %if.end.i.i, label %if.end38.i
 
 if.end.i.i:                                       ; preds = %do.body25.i
@@ -3952,15 +3950,15 @@ if.end38.i:                                       ; preds = %OutputBuffer_Window
   ]
 
 do.cond.i:                                        ; preds = %if.end38.i, %if.end38.i, %if.end38.i
-  %16 = load i32, ptr %avail_out.i, align 8
-  %cmp45.i = icmp eq i32 %16, 0
+  %15 = load i32, ptr %avail_out.i, align 8
+  %cmp45.i = icmp eq i32 %15, 0
   br i1 %cmp45.i, label %do.body25.i, label %do.cond48.i, !llvm.loop !18
 
 do.cond48.i:                                      ; preds = %do.cond.i
   %cmp49.i = icmp ne i32 %call42.i, 1
   %cmp50.i = icmp ne i64 %sub.i29.i, 0
-  %17 = select i1 %cmp49.i, i1 %cmp50.i, i1 false
-  br i1 %17, label %do.body22.i, label %save.i, !llvm.loop !19
+  %16 = select i1 %cmp49.i, i1 %cmp50.i, i1 false
+  br i1 %16, label %do.body22.i, label %save.i, !llvm.loop !19
 
 save.i:                                           ; preds = %do.cond48.i, %if.end38.i
   %call52.i = call fastcc i32 @save_unconsumed_input(ptr noundef %self, ptr noundef nonnull %data.i, i32 noundef %call42.i), !range !11
@@ -3981,45 +3979,45 @@ if.then57.i:                                      ; preds = %if.end55.i
   br i1 %cmp60.not.i, label %if.end64.i, label %if.then61.i
 
 if.then61.i:                                      ; preds = %if.then57.i
-  %18 = getelementptr i8, ptr %self, i64 64
-  %zst.val.i = load ptr, ptr %18, align 8
+  %17 = getelementptr i8, ptr %self, i64 64
+  %zst.val.i = load ptr, ptr %17, align 8
   call fastcc void @zlib_error(ptr noundef %call.i.i, ptr %zst.val.i, i32 noundef %call59.i, ptr noundef nonnull @.str.38)
   br label %abort.i
 
 if.end64.i:                                       ; preds = %if.then57.i, %if.end55.i
-  %19 = load i32, ptr %avail_out.i, align 8
-  %conv.i37.i = zext i32 %19 to i64
+  %18 = load i32, ptr %avail_out.i, align 8
+  %conv.i37.i = zext i32 %18 to i64
   %add.i.i = add i64 %window.sroa.0.4.i, %conv.i37.i
   %call.i38.i = call fastcc ptr @_BlocksOutputBuffer_Finish(ptr noundef nonnull %buffer.i, i64 noundef %add.i.i)
   %cmp68.not.i = icmp eq ptr %call.i38.i, null
   br i1 %cmp68.not.i, label %abort.i, label %success.i
 
 abort.i:                                          ; preds = %OutputBuffer_WindowGrow.exit.i, %if.end64.i, %if.then61.i, %save.i, %if.then1.i.i.i.i, %if.end.i.i.i.i, %if.then4.i.i.i, %if.then.i.i.i
-  %20 = load ptr, ptr %buffer.i, align 8
-  %cmp.not.i.i.i = icmp eq ptr %20, null
+  %19 = load ptr, ptr %buffer.i, align 8
+  %cmp.not.i.i.i = icmp eq ptr %19, null
   br i1 %cmp.not.i.i.i, label %success.i, label %if.then.i.i39.i
 
 if.then.i.i39.i:                                  ; preds = %abort.i
-  %21 = load i64, ptr %20, align 8
-  %22 = and i64 %21, 2147483648
-  %cmp.i2.not.i.i.i = icmp eq i64 %22, 0
+  %20 = load i64, ptr %19, align 8
+  %21 = and i64 %20, 2147483648
+  %cmp.i2.not.i.i.i = icmp eq i64 %21, 0
   br i1 %cmp.i2.not.i.i.i, label %if.end.i.i.i40.i, label %success.i
 
 if.end.i.i.i40.i:                                 ; preds = %if.then.i.i39.i
-  %dec.i.i.i41.i = add i64 %21, -1
-  store i64 %dec.i.i.i41.i, ptr %20, align 8
+  %dec.i.i.i41.i = add i64 %20, -1
+  store i64 %dec.i.i.i41.i, ptr %19, align 8
   %cmp.i.i.i42.i = icmp eq i64 %dec.i.i.i41.i, 0
   br i1 %cmp.i.i.i42.i, label %if.then1.i.i.i43.i, label %success.i
 
 if.then1.i.i.i43.i:                               ; preds = %if.end.i.i.i40.i
-  call void @_Py_Dealloc(ptr noundef nonnull %20) #6
+  call void @_Py_Dealloc(ptr noundef nonnull %19) #6
   br label %success.i
 
 success.i:                                        ; preds = %if.then1.i.i.i43.i, %if.end.i.i.i40.i, %if.then.i.i39.i, %abort.i, %if.end64.i
   %return_value.0.i = phi ptr [ %call.i38.i, %if.end64.i ], [ null, %abort.i ], [ null, %if.then.i.i39.i ], [ null, %if.end.i.i.i40.i ], [ null, %if.then1.i.i.i43.i ]
   call void @PyBuffer_Release(ptr noundef nonnull %data.i) #6
-  %23 = load ptr, ptr %lock.i, align 8
-  call void @PyThread_release_lock(ptr noundef %23) #6
+  %22 = load ptr, ptr %lock.i, align 8
+  call void @PyThread_release_lock(ptr noundef %22) #6
   br label %zlib_Decompress_flush_impl.exit
 
 zlib_Decompress_flush_impl.exit:                  ; preds = %skip_optional_posonly, %if.then3.i, %if.then13.i, %success.i

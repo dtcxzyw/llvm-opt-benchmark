@@ -74,28 +74,23 @@ define i32 @ompi_comm_bcast_pml(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br i1 %48, label %35, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %45
-  %49 = and i64 %indvars.iv.next, 4294967295
-  %.not43 = icmp eq i64 %49, 0
-  br i1 %.not43, label %._crit_edge.thread, label %50
-
-50:                                               ; preds = %._crit_edge
-  %51 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 6), align 8
-  %52 = and i64 %indvars.iv.next, 4294967295
-  %53 = call i32 %51(i64 noundef %52, ptr noundef nonnull %9, ptr noundef null) #3
+  %49 = load ptr, ptr getelementptr inbounds (%struct.ompi_request_fns_t, ptr @ompi_request_functions, i64 0, i32 6), align 8
+  %50 = and i64 %indvars.iv.next, 4294967295
+  %51 = call i32 %49(i64 noundef %50, ptr noundef nonnull %9, ptr noundef null) #3
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %29, %50, %._crit_edge
-  %54 = getelementptr inbounds i8, ptr %10, i64 24
-  %55 = load ptr, ptr %54, align 8
-  %.not44 = icmp eq ptr %55, null
-  br i1 %.not44, label %.loopexit, label %56
+._crit_edge.thread:                               ; preds = %29, %._crit_edge
+  %52 = getelementptr inbounds i8, ptr %10, i64 24
+  %53 = load ptr, ptr %52, align 8
+  %.not44 = icmp eq ptr %53, null
+  br i1 %.not44, label %.loopexit, label %54
 
-56:                                               ; preds = %._crit_edge.thread
-  call void @free(ptr noundef nonnull %55) #3
+54:                                               ; preds = %._crit_edge.thread
+  call void @free(ptr noundef nonnull %53) #3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %35, %8, %20, %._crit_edge.thread, %56, %15
-  %.0 = phi i32 [ 0, %15 ], [ 0, %56 ], [ 0, %._crit_edge.thread ], [ %14, %8 ], [ %27, %20 ], [ %43, %35 ]
+.loopexit:                                        ; preds = %35, %8, %20, %._crit_edge.thread, %54, %15
+  %.0 = phi i32 [ 0, %15 ], [ 0, %54 ], [ 0, %._crit_edge.thread ], [ %14, %8 ], [ %27, %20 ], [ %43, %35 ]
   ret i32 %.0
 }
 

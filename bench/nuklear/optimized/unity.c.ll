@@ -4147,10 +4147,8 @@ for.cond.i:                                       ; preds = %for.cond.i, %entry
 nk_utf_validate.exit:                             ; preds = %for.cond.i
   %2 = trunc nuw nsw i64 %indvars.iv.i to i32
   %cmp = icmp sgt i32 %2, %clen
-  %tobool = icmp eq i32 %2, 0
-  %or.cond.not10 = or i1 %cmp, %tobool
   %cmp2 = icmp sgt i32 %2, 4
-  %or.cond1 = or i1 %cmp2, %or.cond.not10
+  %or.cond1 = or i1 %cmp, %cmp2
   br i1 %or.cond1, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %nk_utf_validate.exit
@@ -6164,8 +6162,8 @@ entry:
   br i1 %or.cond1, label %for.cond.preheader, label %return
 
 for.cond.preheader:                               ; preds = %entry
-  %cmp13 = icmp sgt i32 %len, 0
-  br i1 %cmp13, label %for.body.lr.ph, label %return
+  %cmp12 = icmp sgt i32 %len, 0
+  br i1 %cmp12, label %for.body.lr.ph, label %return
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %len11.i = getelementptr inbounds i8, ptr %str, i64 120
@@ -6196,9 +6194,7 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i, %for.
 nk_utf_validate.exit.i:                           ; preds = %for.cond.i.i
   %3 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %cmp.i = icmp sgt i32 %3, 4
-  %tobool.i = icmp eq i32 %3, 0
-  %or.cond.not10.i = or i1 %cmp.i, %tobool.i
-  br i1 %or.cond.not10.i, label %return, label %for.cond.preheader.i
+  br i1 %cmp.i, label %return, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %nk_utf_validate.exit.i
   %cmp3.not18.i = icmp eq i32 %3, 1
@@ -6299,13 +6295,11 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i, %whil
 nk_utf_validate.exit.i:                           ; preds = %for.cond.i.i
   %4 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %cmp.i = icmp sgt i32 %4, 4
-  %tobool.i = icmp eq i32 %4, 0
-  %or.cond.not10.i = or i1 %cmp.i, %tobool.i
-  br i1 %or.cond.not10.i, label %nk_str_append_text_char.exit, label %for.cond.preheader.i
+  br i1 %cmp.i, label %nk_str_append_text_char.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %nk_utf_validate.exit.i
   %cmp3.not18.i = icmp eq i32 %4, 1
-  br i1 %cmp3.not18.i, label %nk_utf_encode.exit, label %for.body.preheader.i
+  br i1 %cmp3.not18.i, label %if.end.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %for.cond.preheader.i
   %5 = sext i32 %indvars.iv.i to i64
@@ -6323,9 +6317,9 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.next22.i = add nsw i64 %indvars.iv21.i, -1
   %8 = and i64 %indvars.iv.next22.i, 4294967295
   %cmp3.not.i = icmp eq i64 %8, 0
-  br i1 %cmp3.not.i, label %nk_utf_encode.exit, label %for.body.i, !llvm.loop !23
+  br i1 %cmp3.not.i, label %if.end.i, label %for.body.i, !llvm.loop !23
 
-nk_utf_encode.exit:                               ; preds = %for.body.i, %for.cond.preheader.i
+if.end.i:                                         ; preds = %for.body.i, %for.cond.preheader.i
   %u.addr.1.lcssa.i = phi i32 [ %spec.select16.i, %for.cond.preheader.i ], [ %shr.i, %for.body.i ]
   %sext.i = shl i64 %indvars.iv.i.i, 32
   %idxprom.i.i = ashr exact i64 %sext.i, 32
@@ -6343,7 +6337,7 @@ nk_utf_encode.exit:                               ; preds = %for.body.i, %for.co
   %tobool4.not.i = icmp eq ptr %call.i, null
   br i1 %tobool4.not.i, label %nk_str_append_text_char.exit, label %if.end6.i
 
-if.end6.i:                                        ; preds = %nk_utf_encode.exit
+if.end6.i:                                        ; preds = %if.end.i
   %call9.i = call fastcc ptr @nk_memcopy(ptr noundef nonnull %call.i, ptr noundef nonnull %glyph, i64 noundef %idxprom.i.i)
   %call10.i = call i32 @nk_utf_len(ptr noundef nonnull %glyph, i32 noundef %4)
   %12 = load i32, ptr %len11.i, align 8
@@ -6351,7 +6345,7 @@ if.end6.i:                                        ; preds = %nk_utf_encode.exit
   store i32 %add.i, ptr %len11.i, align 8
   br label %nk_str_append_text_char.exit
 
-nk_str_append_text_char.exit:                     ; preds = %nk_utf_validate.exit.i, %nk_utf_encode.exit, %if.end6.i
+nk_str_append_text_char.exit:                     ; preds = %nk_utf_validate.exit.i, %if.end.i, %if.end6.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx = getelementptr inbounds i32, ptr %runes, i64 %indvars.iv.next
   %13 = load i32, ptr %arrayidx, align 4
@@ -7526,9 +7520,7 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i, %for.
 nk_utf_validate.exit.i:                           ; preds = %for.cond.i.i
   %3 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %cmp.i = icmp sgt i32 %3, 4
-  %tobool.i = icmp eq i32 %3, 0
-  %or.cond.not10.i = or i1 %cmp.i, %tobool.i
-  br i1 %or.cond.not10.i, label %return, label %for.cond.preheader.i
+  br i1 %cmp.i, label %return, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %nk_utf_validate.exit.i
   %cmp3.not18.i = icmp eq i32 %3, 1
@@ -7615,9 +7607,7 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i, %whil
 nk_utf_validate.exit.i:                           ; preds = %for.cond.i.i
   %4 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %cmp.i = icmp sgt i32 %4, 4
-  %tobool.i = icmp eq i32 %4, 0
-  %or.cond.not10.i = or i1 %cmp.i, %tobool.i
-  br i1 %or.cond.not10.i, label %nk_utf_encode.exit, label %for.cond.preheader.i
+  br i1 %cmp.i, label %nk_utf_encode.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %nk_utf_validate.exit.i
   %cmp3.not18.i = icmp eq i32 %4, 1
@@ -32951,18 +32941,18 @@ for.end.i:                                        ; preds = %for.inc.i
   br i1 %11, label %if.end12, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %for.cond.preheader.i, %for.end.i
-  %udecoded.0.lcssa.i27 = phi i32 [ %or.i, %for.end.i ], [ %conv14.i.i, %for.cond.preheader.i ]
+  %udecoded.0.lcssa.i26 = phi i32 [ %or.i, %for.end.i ], [ %conv14.i.i, %for.cond.preheader.i ]
   %idxprom.i.i = and i64 %indvars.iv.i.i, 4294967295
   %arrayidx.i31.i = getelementptr inbounds [5 x i32], ptr @nk_utfmin, i64 0, i64 %idxprom.i.i
   %12 = load i32, ptr %arrayidx.i31.i, align 4
-  %cmp.not.i.i = icmp ugt i32 %12, %udecoded.0.lcssa.i27
+  %cmp.not.i.i = icmp ugt i32 %12, %udecoded.0.lcssa.i26
   br i1 %cmp.not.i.i, label %if.then7.i36.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %arrayidx2.i.i = getelementptr inbounds [5 x i32], ptr @nk_utfmax, i64 0, i64 %idxprom.i.i
   %13 = load i32, ptr %arrayidx2.i.i, align 4
-  %cmp3.i.i = icmp uge i32 %udecoded.0.lcssa.i27, %13
-  %14 = add i32 %udecoded.0.lcssa.i27, -55296
+  %cmp3.i.i = icmp uge i32 %udecoded.0.lcssa.i26, %13
+  %14 = add i32 %udecoded.0.lcssa.i26, -55296
   %or.cond.i.i = icmp ult i32 %14, 2047
   %or.cond11.i.i = or i1 %or.cond.i.i, %cmp3.i.i
   br i1 %or.cond11.i.i, label %if.then7.i36.i, label %nk_utf_decode.exit
@@ -32979,17 +32969,17 @@ return.loopexit81.i:                              ; preds = %nk_utf_decode_byte.
   br label %nk_utf_decode.exit
 
 nk_utf_decode.exit:                               ; preds = %land.lhs.true.i.i, %if.then7.i36.i, %return.loopexit.i, %return.loopexit81.i
-  %unicode.0 = phi i32 [ 65533, %if.then7.i36.i ], [ %udecoded.0.lcssa.i27, %land.lhs.true.i.i ], [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ]
+  %unicode.0 = phi i32 [ 65533, %if.then7.i36.i ], [ %udecoded.0.lcssa.i26, %land.lhs.true.i.i ], [ 65533, %return.loopexit81.i ], [ 65533, %return.loopexit.i ]
   %retval.0.i = phi i32 [ %3, %if.then7.i36.i ], [ %3, %land.lhs.true.i.i ], [ %indvars78.le.i, %return.loopexit81.i ], [ %indvars78.le91.i, %return.loopexit.i ]
   %tobool1.not = icmp eq i32 %retval.0.i, 0
   br i1 %tobool1.not, label %if.end12, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.inc.i.i, %nk_utf_decode_byte.exit.i, %nk_utf_decode.exit
-  %retval.0.i37 = phi i32 [ %retval.0.i, %nk_utf_decode.exit ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %for.inc.i.i ]
-  %unicode.036 = phi i32 [ %unicode.0, %nk_utf_decode.exit ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %for.inc.i.i ]
+  %retval.0.i36 = phi i32 [ %retval.0.i, %nk_utf_decode.exit ], [ 1, %nk_utf_decode_byte.exit.i ], [ 1, %for.inc.i.i ]
+  %unicode.035 = phi i32 [ %unicode.0, %nk_utf_decode.exit ], [ 65533, %nk_utf_decode_byte.exit.i ], [ 65533, %for.inc.i.i ]
   %text_len = getelementptr inbounds i8, ptr %ctx, i64 256
   %15 = load i32, ptr %text_len, align 4
-  %add = add nsw i32 %15, %retval.0.i37
+  %add = add nsw i32 %15, %retval.0.i36
   %cmp = icmp slt i32 %add, 16
   br i1 %cmp, label %if.then2, label %if.end12
 
@@ -32997,8 +32987,8 @@ if.then2:                                         ; preds = %land.lhs.true
   %text = getelementptr inbounds i8, ptr %ctx, i64 240
   %idxprom = sext i32 %15 to i64
   %arrayidx = getelementptr inbounds [16 x i8], ptr %text, i64 0, i64 %idxprom
-  %cmp3.i.i8 = icmp ugt i32 %unicode.036, 1114110
-  %spec.select16.i = select i1 %cmp3.i.i8, i32 65533, i32 %unicode.036
+  %cmp3.i.i8 = icmp ugt i32 %unicode.035, 1114110
+  %spec.select16.i = select i1 %cmp3.i.i8, i32 65533, i32 %unicode.035
   br label %for.cond.i.i
 
 for.cond.i.i:                                     ; preds = %for.cond.i.i, %if.then2
@@ -33015,23 +33005,21 @@ nk_utf_validate.exit.i:                           ; preds = %for.cond.i.i
   %sub = sub nsw i32 16, %15
   %17 = trunc nuw nsw i64 %indvars.iv.i.i12 to i32
   %cmp.i = icmp slt i32 %sub, %17
-  %tobool.i15 = icmp eq i32 %17, 0
-  %or.cond.not10.i = or i1 %cmp.i, %tobool.i15
   %cmp2.i = icmp sgt i32 %17, 4
-  %or.cond1.i16 = or i1 %cmp2.i, %or.cond.not10.i
-  br i1 %or.cond1.i16, label %nk_utf_encode.exit, label %for.cond.preheader.i17
+  %or.cond1.i15 = or i1 %cmp.i, %cmp2.i
+  br i1 %or.cond1.i15, label %nk_utf_encode.exit, label %for.cond.preheader.i16
 
-for.cond.preheader.i17:                           ; preds = %nk_utf_validate.exit.i
+for.cond.preheader.i16:                           ; preds = %nk_utf_validate.exit.i
   %cmp3.not18.i = icmp eq i32 %17, 1
-  br i1 %cmp3.not18.i, label %for.end.i20, label %for.body.preheader.i18
+  br i1 %cmp3.not18.i, label %for.end.i19, label %for.body.preheader.i17
 
-for.body.preheader.i18:                           ; preds = %for.cond.preheader.i17
+for.body.preheader.i17:                           ; preds = %for.cond.preheader.i16
   %18 = sext i32 %indvars.iv.i11 to i64
-  br label %for.body.i19
+  br label %for.body.i18
 
-for.body.i19:                                     ; preds = %for.body.i19, %for.body.preheader.i18
-  %indvars.iv21.i = phi i64 [ %18, %for.body.preheader.i18 ], [ %indvars.iv.next22.i, %for.body.i19 ]
-  %u.addr.119.i = phi i32 [ %spec.select16.i, %for.body.preheader.i18 ], [ %shr.i, %for.body.i19 ]
+for.body.i18:                                     ; preds = %for.body.i18, %for.body.preheader.i17
+  %indvars.iv21.i = phi i64 [ %18, %for.body.preheader.i17 ], [ %indvars.iv.next22.i, %for.body.i18 ]
+  %u.addr.119.i = phi i32 [ %spec.select16.i, %for.body.preheader.i17 ], [ %shr.i, %for.body.i18 ]
   %19 = trunc i32 %u.addr.119.i to i8
   %20 = and i8 %19, 63
   %conv6.i.i = or disjoint i8 %20, -128
@@ -33041,28 +33029,28 @@ for.body.i19:                                     ; preds = %for.body.i19, %for.
   %indvars.iv.next22.i = add nsw i64 %indvars.iv21.i, -1
   %21 = and i64 %indvars.iv.next22.i, 4294967295
   %cmp3.not.i = icmp eq i64 %21, 0
-  br i1 %cmp3.not.i, label %for.end.i20, label %for.body.i19, !llvm.loop !23
+  br i1 %cmp3.not.i, label %for.end.i19, label %for.body.i18, !llvm.loop !23
 
-for.end.i20:                                      ; preds = %for.body.i19, %for.cond.preheader.i17
-  %u.addr.1.lcssa.i = phi i32 [ %spec.select16.i, %for.cond.preheader.i17 ], [ %shr.i, %for.body.i19 ]
+for.end.i19:                                      ; preds = %for.body.i18, %for.cond.preheader.i16
+  %u.addr.1.lcssa.i = phi i32 [ %spec.select16.i, %for.cond.preheader.i16 ], [ %shr.i, %for.body.i18 ]
   %sext.i = shl i64 %indvars.iv.i.i12, 32
-  %idxprom.i.i21 = ashr exact i64 %sext.i, 32
-  %arrayidx.i.i22 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %idxprom.i.i21
-  %22 = load i8, ptr %arrayidx.i.i22, align 1
-  %arrayidx4.i.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %idxprom.i.i21
+  %idxprom.i.i20 = ashr exact i64 %sext.i, 32
+  %arrayidx.i.i21 = getelementptr inbounds [5 x i8], ptr @nk_utfbyte, i64 0, i64 %idxprom.i.i20
+  %22 = load i8, ptr %arrayidx.i.i21, align 1
+  %arrayidx4.i.i = getelementptr inbounds [5 x i8], ptr @nk_utfmask, i64 0, i64 %idxprom.i.i20
   %23 = load i8, ptr %arrayidx4.i.i, align 1
   %conv5.i.i = zext i8 %23 to i32
-  %not.i.i23 = xor i32 %conv5.i.i, -1
-  %and.i11.i = and i32 %u.addr.1.lcssa.i, %not.i.i23
+  %not.i.i22 = xor i32 %conv5.i.i, -1
+  %and.i11.i = and i32 %u.addr.1.lcssa.i, %not.i.i22
   %24 = trunc i32 %and.i11.i to i8
   %conv6.i12.i = or i8 %22, %24
   store i8 %conv6.i12.i, ptr %arrayidx, align 1
   %.pre = load i32, ptr %text_len, align 4
-  %.pre53 = add nsw i32 %.pre, %retval.0.i37
+  %.pre52 = add nsw i32 %.pre, %retval.0.i36
   br label %nk_utf_encode.exit
 
-nk_utf_encode.exit:                               ; preds = %nk_utf_validate.exit.i, %for.end.i20
-  %add11.pre-phi = phi i32 [ %add, %nk_utf_validate.exit.i ], [ %.pre53, %for.end.i20 ]
+nk_utf_encode.exit:                               ; preds = %nk_utf_validate.exit.i, %for.end.i19
+  %add11.pre-phi = phi i32 [ %add, %nk_utf_validate.exit.i ], [ %.pre52, %for.end.i19 ]
   store i32 %add11.pre-phi, ptr %text_len, align 4
   br label %if.end12
 
@@ -33114,9 +33102,7 @@ for.cond.i.i:                                     ; preds = %for.cond.i.i, %if.e
 nk_utf_validate.exit.i:                           ; preds = %for.cond.i.i
   %2 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %cmp.i = icmp sgt i32 %2, 4
-  %tobool.i = icmp eq i32 %2, 0
-  %or.cond.not10.i = or i1 %cmp.i, %tobool.i
-  br i1 %or.cond.not10.i, label %nk_utf_encode.exit, label %for.cond.preheader.i
+  br i1 %cmp.i, label %nk_utf_encode.exit, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %nk_utf_validate.exit.i
   %cmp3.not18.i = icmp eq i32 %2, 1
@@ -58978,9 +58964,7 @@ for.cond.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
 nk_utf_validate.exit.i.i:                         ; preds = %for.cond.i.i.i
   %17 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %cmp.i.i = icmp sgt i32 %17, 4
-  %tobool.i.i = icmp eq i32 %17, 0
-  %or.cond.not10.i.i = or i1 %cmp.i.i, %tobool.i.i
-  br i1 %or.cond.not10.i.i, label %nk_str_insert_text_runes.exit, label %for.cond.preheader.i.i
+  br i1 %cmp.i.i, label %nk_str_insert_text_runes.exit, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %nk_utf_validate.exit.i.i
   %cmp3.not18.i.i = icmp eq i32 %17, 1
@@ -59175,9 +59159,7 @@ for.cond.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
 nk_utf_validate.exit.i.i:                         ; preds = %for.cond.i.i.i
   %11 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %cmp.i.i = icmp sgt i32 %11, 4
-  %tobool.i.i = icmp eq i32 %11, 0
-  %or.cond.not10.i.i = or i1 %cmp.i.i, %tobool.i.i
-  br i1 %or.cond.not10.i.i, label %nk_str_insert_text_runes.exit, label %for.cond.preheader.i.i
+  br i1 %cmp.i.i, label %nk_str_insert_text_runes.exit, label %for.cond.preheader.i.i
 
 for.cond.preheader.i.i:                           ; preds = %nk_utf_validate.exit.i.i
   %cmp3.not18.i.i = icmp eq i32 %11, 1
