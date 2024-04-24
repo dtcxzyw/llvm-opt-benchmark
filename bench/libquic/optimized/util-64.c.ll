@@ -14,8 +14,7 @@ entry:
   %and11 = and i8 %not10, %in
   %or = or i8 %and11, %and8
   %shr14 = lshr i8 %or, 1
-  %and16 = and i8 %or, 1
-  %add = add nuw i8 %shr14, %and16
+  %add = sub i8 %or, %shr14
   %0 = and i8 %not, 1
   store i8 %0, ptr %sign, align 1
   store i8 %add, ptr %digit, align 1

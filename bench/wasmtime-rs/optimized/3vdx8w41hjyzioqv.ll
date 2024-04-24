@@ -21736,30 +21736,29 @@ define hidden void @"_ZN99_$LT$core..char..decode..DecodeUtf16$LT$I$GT$$u20$as$u
   %17 = load i16, ptr %16, align 2, !noundef !4
   %18 = and i16 %17, -2048
   %.011 = icmp eq i16 %18, -10240
-  br i1 %.011, label %28, label %19
+  br i1 %.011, label %27, label %19
 
-19:                                               ; preds = %28, %15, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcf1734c24f17a885E.exit"
-  %.010 = phi i64 [ 0, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcf1734c24f17a885E.exit" ], [ 1, %15 ], [ %spec.select21, %28 ]
-  %.0 = phi i64 [ 0, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcf1734c24f17a885E.exit" ], [ 1, %15 ], [ 1, %28 ]
+19:                                               ; preds = %27, %15, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcf1734c24f17a885E.exit"
+  %.010 = phi i64 [ 0, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcf1734c24f17a885E.exit" ], [ 1, %15 ], [ %spec.select21, %27 ]
+  %.0 = phi i64 [ 0, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcf1734c24f17a885E.exit" ], [ 1, %15 ], [ 1, %27 ]
   %20 = lshr i64 %.0.sink1.i.i, 1
-  %21 = and i64 %.0.sink1.i.i, 1
-  %.0.i = add nuw i64 %20, %21
-  %22 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.0.sink1.i.i, i64 %.0)
-  %23 = extractvalue { i64, i1 } %22, 1
-  %24 = extractvalue { i64, i1 } %22, 0
-  %not. = xor i1 %23, true
+  %.0.i = sub i64 %.0.sink1.i.i, %20
+  %21 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.0.sink1.i.i, i64 %.0)
+  %22 = extractvalue { i64, i1 } %21, 1
+  %23 = extractvalue { i64, i1 } %21, 0
+  %not. = xor i1 %22, true
   %spec.select = zext i1 %not. to i64
-  %25 = add nuw i64 %.0.i, %.010
-  store i64 %25, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %spec.select, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %24, ptr %27, align 8
+  %24 = add nuw i64 %.0.i, %.010
+  store i64 %24, ptr %0, align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %spec.select, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %23, ptr %26, align 8
   ret void
 
-28:                                               ; preds = %15
-  %29 = icmp eq i64 %.0.sink1.i.i, 0
-  %spec.select21 = zext i1 %29 to i64
+27:                                               ; preds = %15
+  %28 = icmp eq i64 %.0.sink1.i.i, 0
+  %spec.select21 = zext i1 %28 to i64
   br label %19
 }
 

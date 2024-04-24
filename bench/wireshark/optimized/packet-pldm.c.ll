@@ -1842,7 +1842,7 @@ dissect_platform.exit:                            ; preds = %.lr.ph.i, %.lr.ph12
   %727 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %726, ptr noundef %53, i32 noundef %.0141.i, i32 noundef 4, i32 noundef -2147483648) #5
   %728 = load i32, ptr @hf_fru_transfer_flag, align 4
   %729 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %728, ptr noundef %53, i32 noundef %719, i32 noundef 1, i32 noundef -2147483648) #5
-  %730 = trunc i32 %.0141.i to i16
+  %730 = trunc nuw nsw i32 %.0141.i to i16
   %731 = add nuw nsw i16 %730, 5
   %732 = call fastcc zeroext i16 @parse_fru_record_table(ptr noundef %53, ptr noundef nonnull %1, ptr noundef %42, i16 noundef zeroext %731)
   %733 = call i32 @tvb_captured_length(ptr noundef %53) #5
@@ -1864,7 +1864,7 @@ dissect_platform.exit:                            ; preds = %.lr.ph.i, %.lr.ph12
   %741 = or disjoint i32 %.0141.i, 4
   %742 = load i32, ptr @hf_pldm_base_transferFlag, align 4
   %743 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %742, ptr noundef %53, i32 noundef %741, i32 noundef 1, i32 noundef -2147483648) #5
-  %744 = trunc i32 %.0141.i to i16
+  %744 = trunc nuw nsw i32 %.0141.i to i16
   %745 = add nuw nsw i16 %744, 5
   %746 = call fastcc zeroext i16 @parse_fru_record_table(ptr noundef %53, ptr noundef nonnull %1, ptr noundef %42, i16 noundef zeroext %745)
   %747 = call i32 @tvb_captured_length(ptr noundef %53) #5
@@ -1917,7 +1917,7 @@ dissect_platform.exit:                            ; preds = %.lr.ph.i, %.lr.ph12
   %782 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %781, ptr noundef %53, i32 noundef %.0141.i, i32 noundef 4, i32 noundef -2147483648) #5
   %783 = load i32, ptr @hf_pldm_base_transferFlag, align 4
   %784 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %783, ptr noundef %53, i32 noundef %762, i32 noundef 1, i32 noundef -2147483648) #5
-  %785 = trunc i32 %.0141.i to i16
+  %785 = trunc nuw nsw i32 %.0141.i to i16
   %786 = add nuw nsw i16 %785, 5
   %787 = call fastcc zeroext i16 @parse_fru_record_table(ptr noundef %53, ptr noundef nonnull %1, ptr noundef %42, i16 noundef zeroext %786)
   %788 = call i32 @tvb_captured_length(ptr noundef %53) #5
@@ -1999,7 +1999,7 @@ define internal fastcc void @ver2str(ptr noundef %0, i32 noundef %1) unnamed_add
   %8 = add nuw nsw i32 %1, 3
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %8) #5
   %.not = icmp eq i8 %3, -1
-  br i1 %.not, label %31, label %10
+  br i1 %.not, label %30, label %10
 
 10:                                               ; preds = %2
   %11 = zext i8 %3 to i32
@@ -2014,139 +2014,136 @@ define internal fastcc void @ver2str(ptr noundef %0, i32 noundef %1) unnamed_add
 
 17:                                               ; preds = %10
   %18 = lshr i32 %11, 4
-  %19 = mul nuw nsw i32 %18, 10
-  %20 = and i32 %11, 15
-  %21 = add nuw nsw i32 %19, %20
-  %22 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @ver2str.buffer, i64 noundef 12, ptr noundef nonnull @.str.420, i32 noundef %21) #5
+  %19 = mul nsw i32 %18, -6
+  %20 = add nsw i32 %19, %11
+  %21 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @ver2str.buffer, i64 noundef 12, ptr noundef nonnull @.str.420, i32 noundef %20) #5
   br label %print_version_field.exit
 
 print_version_field.exit:                         ; preds = %14, %17
-  %.0.i = phi i32 [ %16, %14 ], [ %22, %17 ]
-  %23 = and i32 %.0.i, 255
-  %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr i8, ptr @ver2str.buffer, i64 %24
-  %26 = sub nsw i32 12, %23
-  %27 = sext i32 %26 to i64
-  %28 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %25, i64 noundef %27, ptr noundef nonnull @.str.416) #5
-  %29 = add i32 %28, %.0.i
-  %30 = and i32 %29, 255
-  br label %32
+  %.0.i = phi i32 [ %16, %14 ], [ %21, %17 ]
+  %22 = and i32 %.0.i, 255
+  %23 = zext nneg i32 %22 to i64
+  %24 = getelementptr i8, ptr @ver2str.buffer, i64 %23
+  %25 = sub nsw i32 12, %22
+  %26 = sext i32 %25 to i64
+  %27 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %24, i64 noundef %26, ptr noundef nonnull @.str.416) #5
+  %28 = add i32 %27, %.0.i
+  %29 = and i32 %28, 255
+  br label %31
 
-31:                                               ; preds = %2
+30:                                               ; preds = %2
   store i16 45, ptr @ver2str.buffer, align 2
-  br label %32
+  br label %31
 
-32:                                               ; preds = %31, %print_version_field.exit
-  %.0 = phi i32 [ %30, %print_version_field.exit ], [ 1, %31 ]
+31:                                               ; preds = %30, %print_version_field.exit
+  %.0 = phi i32 [ %29, %print_version_field.exit ], [ 1, %30 ]
   %.not60 = icmp eq i8 %5, -1
-  %33 = zext nneg i32 %.0 to i64
-  %34 = getelementptr i8, ptr @ver2str.buffer, i64 %33
-  %35 = sub nsw i32 12, %.0
-  %36 = sext i32 %35 to i64
-  br i1 %.not60, label %50, label %37
+  %32 = zext nneg i32 %.0 to i64
+  %33 = getelementptr i8, ptr @ver2str.buffer, i64 %32
+  %34 = sub nsw i32 12, %.0
+  %35 = sext i32 %34 to i64
+  br i1 %.not60, label %48, label %36
 
-37:                                               ; preds = %32
-  %38 = zext i8 %5 to i32
-  %39 = and i32 %38, 240
-  %40 = icmp eq i32 %39, 240
-  br i1 %40, label %41, label %44
+36:                                               ; preds = %31
+  %37 = zext i8 %5 to i32
+  %38 = and i32 %37, 240
+  %39 = icmp eq i32 %38, 240
+  br i1 %39, label %40, label %43
 
-41:                                               ; preds = %37
-  %42 = and i32 %38, 15
-  %43 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %34, i64 noundef %36, ptr noundef nonnull @.str.419, i32 noundef %42) #5
+40:                                               ; preds = %36
+  %41 = and i32 %37, 15
+  %42 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %33, i64 noundef %35, ptr noundef nonnull @.str.419, i32 noundef %41) #5
   br label %print_version_field.exit64
 
-44:                                               ; preds = %37
-  %45 = lshr i32 %38, 4
-  %46 = mul nuw nsw i32 %45, 10
-  %47 = and i32 %38, 15
-  %48 = add nuw nsw i32 %46, %47
-  %49 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %34, i64 noundef %36, ptr noundef nonnull @.str.420, i32 noundef %48) #5
+43:                                               ; preds = %36
+  %44 = lshr i32 %37, 4
+  %45 = mul nsw i32 %44, -6
+  %46 = add nsw i32 %45, %37
+  %47 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %33, i64 noundef %35, ptr noundef nonnull @.str.420, i32 noundef %46) #5
   br label %print_version_field.exit64
 
-50:                                               ; preds = %32
-  %51 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %34, i64 noundef %36, ptr noundef nonnull @.str.417) #5
+48:                                               ; preds = %31
+  %49 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %33, i64 noundef %35, ptr noundef nonnull @.str.417) #5
   br label %print_version_field.exit64
 
-print_version_field.exit64:                       ; preds = %44, %41, %50
-  %.pn = phi i32 [ %51, %50 ], [ %43, %41 ], [ %49, %44 ]
+print_version_field.exit64:                       ; preds = %43, %40, %48
+  %.pn = phi i32 [ %49, %48 ], [ %42, %40 ], [ %47, %43 ]
   %.1.in = add i32 %.pn, %.0
   %.not61 = icmp eq i8 %7, -1
-  %52 = and i32 %.1.in, 255
-  %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr i8, ptr @ver2str.buffer, i64 %53
-  %55 = sub nsw i32 12, %52
-  %56 = sext i32 %55 to i64
-  br i1 %.not61, label %78, label %57
+  %50 = and i32 %.1.in, 255
+  %51 = zext nneg i32 %50 to i64
+  %52 = getelementptr i8, ptr @ver2str.buffer, i64 %51
+  %53 = sub nsw i32 12, %50
+  %54 = sext i32 %53 to i64
+  br i1 %.not61, label %75, label %55
 
-57:                                               ; preds = %print_version_field.exit64
-  %58 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %54, i64 noundef %56, ptr noundef nonnull @.str.416) #5
-  %59 = add i32 %58, %.1.in
-  %60 = and i32 %59, 255
-  %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr i8, ptr @ver2str.buffer, i64 %61
-  %63 = sub nsw i32 12, %60
-  %64 = sext i32 %63 to i64
-  %65 = zext i8 %7 to i32
-  %66 = and i32 %65, 240
-  %67 = icmp eq i32 %66, 240
-  br i1 %67, label %68, label %71
+55:                                               ; preds = %print_version_field.exit64
+  %56 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %52, i64 noundef %54, ptr noundef nonnull @.str.416) #5
+  %57 = add i32 %56, %.1.in
+  %58 = and i32 %57, 255
+  %59 = zext nneg i32 %58 to i64
+  %60 = getelementptr i8, ptr @ver2str.buffer, i64 %59
+  %61 = sub nsw i32 12, %58
+  %62 = sext i32 %61 to i64
+  %63 = zext i8 %7 to i32
+  %64 = and i32 %63, 240
+  %65 = icmp eq i32 %64, 240
+  br i1 %65, label %66, label %69
 
-68:                                               ; preds = %57
-  %69 = and i32 %65, 15
-  %70 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %62, i64 noundef %64, ptr noundef nonnull @.str.419, i32 noundef %69) #5
+66:                                               ; preds = %55
+  %67 = and i32 %63, 15
+  %68 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %60, i64 noundef %62, ptr noundef nonnull @.str.419, i32 noundef %67) #5
   br label %print_version_field.exit66
 
-71:                                               ; preds = %57
-  %72 = lshr i32 %65, 4
-  %73 = mul nuw nsw i32 %72, 10
-  %74 = and i32 %65, 15
-  %75 = add nuw nsw i32 %73, %74
-  %76 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %62, i64 noundef %64, ptr noundef nonnull @.str.420, i32 noundef %75) #5
+69:                                               ; preds = %55
+  %70 = lshr i32 %63, 4
+  %71 = mul nsw i32 %70, -6
+  %72 = add nsw i32 %71, %63
+  %73 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %60, i64 noundef %62, ptr noundef nonnull @.str.420, i32 noundef %72) #5
   br label %print_version_field.exit66
 
-print_version_field.exit66:                       ; preds = %68, %71
-  %.0.i65 = phi i32 [ %70, %68 ], [ %76, %71 ]
-  %77 = add i32 %.0.i65, %59
-  br label %81
+print_version_field.exit66:                       ; preds = %66, %69
+  %.0.i65 = phi i32 [ %68, %66 ], [ %73, %69 ]
+  %74 = add i32 %.0.i65, %57
+  br label %78
 
-78:                                               ; preds = %print_version_field.exit64
-  %79 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %54, i64 noundef %56, ptr noundef nonnull @.str.417) #5
-  %80 = add i32 %79, %.1.in
-  br label %81
+75:                                               ; preds = %print_version_field.exit64
+  %76 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %52, i64 noundef %54, ptr noundef nonnull @.str.417) #5
+  %77 = add i32 %76, %.1.in
+  br label %78
 
-81:                                               ; preds = %78, %print_version_field.exit66
-  %.2.in = phi i32 [ %77, %print_version_field.exit66 ], [ %80, %78 ]
+78:                                               ; preds = %75, %print_version_field.exit66
+  %.2.in = phi i32 [ %74, %print_version_field.exit66 ], [ %77, %75 ]
   %.not62 = icmp eq i8 %9, 0
-  br i1 %.not62, label %90, label %82
+  br i1 %.not62, label %87, label %79
 
-82:                                               ; preds = %81
-  %83 = zext i8 %9 to i32
-  %84 = and i32 %.2.in, 255
-  %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr i8, ptr @ver2str.buffer, i64 %85
-  %87 = sub nsw i32 12, %84
-  %88 = sext i32 %87 to i64
-  %89 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %86, i64 noundef %88, ptr noundef nonnull @.str.418, i32 noundef %83) #5
-  br label %104
+79:                                               ; preds = %78
+  %80 = zext i8 %9 to i32
+  %81 = and i32 %.2.in, 255
+  %82 = zext nneg i32 %81 to i64
+  %83 = getelementptr i8, ptr @ver2str.buffer, i64 %82
+  %84 = sub nsw i32 12, %81
+  %85 = sext i32 %84 to i64
+  %86 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %83, i64 noundef %85, ptr noundef nonnull @.str.418, i32 noundef %80) #5
+  br label %101
 
-90:                                               ; preds = %81
-  %91 = and i32 %.2.in, 255
-  %92 = zext nneg i32 %91 to i64
-  %93 = getelementptr i8, ptr @ver2str.buffer, i64 %92
-  %94 = sub nsw i32 12, %91
-  %95 = sext i32 %94 to i64
-  %96 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %93, i64 noundef %95, ptr noundef nonnull @.str.416) #5
-  %97 = add i32 %96, %.2.in
-  %98 = and i32 %97, 255
-  %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr i8, ptr @ver2str.buffer, i64 %99
-  %101 = sub nsw i32 12, %98
-  %102 = sext i32 %101 to i64
-  %103 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %100, i64 noundef %102, ptr noundef nonnull @.str.417) #5
-  br label %104
+87:                                               ; preds = %78
+  %88 = and i32 %.2.in, 255
+  %89 = zext nneg i32 %88 to i64
+  %90 = getelementptr i8, ptr @ver2str.buffer, i64 %89
+  %91 = sub nsw i32 12, %88
+  %92 = sext i32 %91 to i64
+  %93 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %90, i64 noundef %92, ptr noundef nonnull @.str.416) #5
+  %94 = add i32 %93, %.2.in
+  %95 = and i32 %94, 255
+  %96 = zext nneg i32 %95 to i64
+  %97 = getelementptr i8, ptr @ver2str.buffer, i64 %96
+  %98 = sub nsw i32 12, %95
+  %99 = sext i32 %98 to i64
+  %100 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %97, i64 noundef %99, ptr noundef nonnull @.str.417) #5
+  br label %101
 
-104:                                              ; preds = %90, %82
+101:                                              ; preds = %87, %79
   ret void
 }
 

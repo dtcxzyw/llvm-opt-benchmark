@@ -719,7 +719,7 @@ define noundef i32 @_ZN4Cube22FaceReflectCornerIndexEii(i32 noundef %0, i32 noun
   %6 = and i32 %5, 1
   %7 = lshr i32 %0, 2
   %8 = and i32 %7, 1
-  switch i32 %3, label %27 [
+  switch i32 %3, label %25 [
     i32 0, label %9
     i32 1, label %15
     i32 2, label %21
@@ -733,7 +733,7 @@ define noundef i32 @_ZN4Cube22FaceReflectCornerIndexEii(i32 noundef %0, i32 noun
   %12 = shl nuw nsw i32 %6, 1
   %13 = or i32 %12, %10
   %14 = or i32 %13, %11
-  br label %27
+  br label %25
 
 15:                                               ; preds = %2
   %.cmp13.not.not = icmp eq i32 %6, 0
@@ -743,20 +743,19 @@ define noundef i32 @_ZN4Cube22FaceReflectCornerIndexEii(i32 noundef %0, i32 noun
   %18 = select i1 %.cmp13.not.not, i32 2, i32 %16
   %19 = or i32 %17, %18
   %20 = or disjoint i32 %19, %4
-  br label %27
+  br label %25
 
 21:                                               ; preds = %2
   %.cmp15.not.not = icmp eq i32 %8, 0
   %.urem14 = shl nuw nsw i32 %8, 2
   %22 = add nsw i32 %.urem14, -4
   %23 = select i1 %.cmp15.not.not, i32 4, i32 %22
-  %24 = shl nuw nsw i32 %6, 1
-  %25 = or disjoint i32 %23, %24
-  %26 = or disjoint i32 %25, %4
-  br label %27
+  %urem = and i32 %0, 3
+  %24 = or disjoint i32 %23, %urem
+  br label %25
 
-27:                                               ; preds = %2, %21, %15, %9
-  %.0 = phi i32 [ %26, %21 ], [ %20, %15 ], [ %14, %9 ], [ -1, %2 ]
+25:                                               ; preds = %2, %21, %15, %9
+  %.0 = phi i32 [ %24, %21 ], [ %20, %15 ], [ %14, %9 ], [ -1, %2 ]
   ret i32 %.0
 }
 

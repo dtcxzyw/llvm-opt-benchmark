@@ -17237,9 +17237,8 @@ if.end46:                                         ; preds = %if.end13.i, %if.end
 
 if.then48:                                        ; preds = %if.end46
   %25 = trunc nuw nsw i64 %retval.0.i285 to i32
-  %spec.select = and i32 %25, 1
   %26 = lshr i32 %25, 1
-  %num_typeparam_args.1 = add nuw nsw i32 %26, %spec.select
+  %num_typeparam_args.1 = sub i32 %25, %26
   %cmp57 = icmp eq i32 %num_typeparam_args.1, 2
   br i1 %cmp57, label %if.then59, label %if.end65
 
